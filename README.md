@@ -35,7 +35,7 @@ Use [cht-conf-test-harness](https://docs.communityhealthtoolkit.org/apps/tutoria
 1. Use Mocked Time - Tests are often more readable if they mock the passage of time. For example, if the test sets the start time of the test to something clear and readable like “2000-01-01”, you can create a 1-year-old contact by having birthday “1999-01-01” instead of calculating a relative birthday.
 
 #### Guidelines for CHT components
-Tasks
+##### Tasks
 Minimum
 - Trigger the task
 - Resolve the task
@@ -49,7 +49,7 @@ Best Practices for tasks
 - One test file for each task, where the test file is named after the id of the task.
 - Or if multiple tasks are grouped into a file, suggest grouping them by the task’s action form.
 
-Targets
+##### Targets
 Minimum
 - Trigger increment of the target
 - Ensure target doesn’t increment when it shouldn’t
@@ -63,7 +63,7 @@ Best Practices
 - Use harness.getTargets to assert on the final aggregated behavior of the target, not harness.getTargetInstances which asserts on the raw data passed between the target and the CHT.
 - One test file for each target, where the test file is named after the id of the target.
 
-Contact Summary
+##### Contact Summary
 Minimum
 - Test contact summary for a totally empty contact
 - Fill each contact form and assert behavior of contact summary
@@ -71,7 +71,7 @@ Minimum
 Ideal
 - Targeted tests for specific context, fields, and cards.
 
-Forms
+##### Forms
 Minimum
 - None
 
@@ -83,7 +83,7 @@ Ideal
 Best Practices
 - When making form changes, tests will need to be updated to capture any changes to the form inputs. It can be useful to get a suite of form unit tests passing that are simple and validate that the form inputs work as expected. 
 
-Unit Testing
+##### Unit Testing
 Minimum
 - None
 
