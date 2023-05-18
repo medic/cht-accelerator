@@ -1,0 +1,17 @@
+{
+  "name": "@medic/server-checks",
+  "version": "1.0.1",
+  "description": "Server startup checks.",
+  "main": "src/checks.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0"
+  },
+  "dependencies": {}
+}

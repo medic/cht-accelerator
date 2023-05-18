@@ -1,0 +1,18 @@
+{
+  "name": "@medic/phone-number",
+  "version": "1.0.0",
+  "description": "Our phone number validation and formatting utilities",
+  "main": "src/phone-number.js",
+  "author": "",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "dependencies": {
+    "google-libphonenumber": "^3.2.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "custom"
+		},
+		{
+			"path": "../rada-conf"
+		}
+	],
+	"settings": {}
+}

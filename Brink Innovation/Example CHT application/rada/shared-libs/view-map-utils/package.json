@@ -1,0 +1,16 @@
+{
+  "name": "@medic/view-map-utils",
+  "version": "1.0.0",
+  "description": "Provides helper to access ddoc view map functions in API and SENTINEL",
+  "main": "src/view-map-utils.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0"
+  }
+}

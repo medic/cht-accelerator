@@ -1,0 +1,19 @@
+{
+  "name": "@medic/tombstone-utils",
+  "version": "1.0.0",
+  "description": "Provides helper function that generate and manage doc tombstones, to be used in _changes handler",
+  "main": "src/tombstone-utils.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

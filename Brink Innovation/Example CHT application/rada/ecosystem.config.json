@@ -1,0 +1,42 @@
+{
+    "apps": [
+        {
+            "name": "Medic WebApp",
+            "script": "/usr/bin/grunt",
+            "env": {
+                "COUCH_URL": "http://admin:12mpaka10@localhost:5984/medic",
+                "COUCH_NODE_NAME": "couchdb@127.0.0.1"
+            },
+            "watch": false,
+            "merge_logs": true,
+            "out_file": "realtime-out.log",
+            "error_file": "realtime-err.log"
+        },
+        {
+            "name": "Medic Api",
+            "script": "/usr/bin/grunt",
+            "args": "dev-api",
+            "env": {
+                "COUCH_URL": "http://admin:12mpaka10@localhost:5984/medic",
+                "COUCH_NODE_NAME": "couchdb@127.0.0.1"
+            },
+            "watch": false,
+            "merge_logs": true,
+            "out_file": "realtime-out.log",
+            "error_file": "realtime-err.log"
+        },
+        {
+            "name": "Medic Sentinel",
+            "script": "/usr/bin/grunt",
+            "args": "dev-sentinel",
+            "env": {
+                "COUCH_URL": "http://admin:12mpaka10@localhost:5984/medic",
+                "COUCH_NODE_NAME": "couchdb@127.0.0.1"
+            },
+            "watch": false,
+            "merge_logs": true,
+            "out_file": "realtime-out.log",
+            "error_file": "realtime-err.log"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "plugins": ["couchdb"],
+  "rules": {
+    "semi": "off",
+    "indent": "off",
+    "eol-last": "off",
+    "no-var": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 5,
+  }
+}
