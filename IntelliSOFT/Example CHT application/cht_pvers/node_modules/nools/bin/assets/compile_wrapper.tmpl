@@ -1,0 +1,18 @@
+(function(){
+     function _getCompiled(nools){
+        return {source}
+     }
+
+    if ("undefined" !== typeof exports) {
+        if ("undefined" !== typeof module && module.exports) {
+            module.exports = _getCompiled(require("{noolsLocation}"));
+        }
+    } else if ("function" === typeof define && define.amd) {
+        define(["{noolsLocation}"], function (nools) {
+            return _getCompiled(nools);
+        });
+    } else {
+        _getCompiled(this.nools)();
+    }
+
+}).call(this);

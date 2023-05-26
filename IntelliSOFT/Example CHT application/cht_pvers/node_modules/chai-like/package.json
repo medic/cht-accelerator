@@ -1,0 +1,48 @@
+{
+  "name": "chai-like",
+  "version": "1.1.1",
+  "description": "A JSON matcher for chai",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zation/chai-like.git"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "chai",
+    "chai-plugin",
+    "objects",
+    "json",
+    "like",
+    "test",
+    "integration",
+    "API"
+  ],
+  "author": "Zation <zation1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zation/chai-like/issues"
+  },
+  "homepage": "https://github.com/zation/chai-like",
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "mocha": "2 - 4",
+    "chai": "2 - 4",
+    "nyc": "^11.4.1"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "text-summary"
+    ]
+  },
+  "peerDependencies": {
+    "chai": "2 - 4"
+  }
+}

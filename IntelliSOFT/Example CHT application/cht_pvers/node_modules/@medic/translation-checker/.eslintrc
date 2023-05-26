@@ -1,0 +1,11 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": ["@medic/eslint-config"],
+  "plugins": ["json"],
+  "env": {
+    "es6": true,
+    "node": true
+  }
+}

@@ -1,0 +1,26 @@
+define Message {
+    message : "",
+    constructor : function (message) {
+       this.message = message;
+    }
+}
+
+rule Hello {
+    when {
+        m : Message m.message =~ /^hello\sworld$/
+    }
+    then {
+        modify(m, function(){
+            this.message += " goodbye";
+        })
+    }
+}
+
+rule Goodbye {
+    when {
+        m : Message m.message =~ /.*goodbye$/
+    }
+    then {
+        emit("found-goodbye", m);
+    }
+}
