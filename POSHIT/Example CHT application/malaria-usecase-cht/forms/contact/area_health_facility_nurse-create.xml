@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New Person</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/area_health_facility_nurse/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/area_health_facility_nurse/phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/area_health_facility_nurse/phone_alternate:label">
+            <value>Alternate Phone Number</value>
+          </text>
+          <text id="/data/area_health_facility_nurse:label">
+            <value>New Person</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/area_health_facility_nurse/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_health_facility_nurse/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/area_health_facility_nurse/phone:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/area_health_facility_nurse/phone_alternate:label">
+            <value>Namba Ya</value>
+          </text>
+          <text id="/data/area_health_facility_nurse:label">
+            <value>Mtu Mpya</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:area_health_facility_nurse:create" prefix="J1!contact:area_health_facility_nurse:create!" delimiter="#" version="2023-05-25  17-28">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <area_health_facility_nurse>
+            <parent>PARENT</parent>
+            <type>person</type>
+            <name/>
+            <phone/>
+            <phone_alternate/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </area_health_facility_nurse>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/area_health_facility_nurse/parent" type="string"/>
+      <bind nodeset="/data/area_health_facility_nurse/type" type="string"/>
+      <bind nodeset="/data/area_health_facility_nurse/name" type="string" required="true()"/>
+      <bind nodeset="/data/area_health_facility_nurse/phone" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/area_health_facility_nurse/phone_alternate" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/area_health_facility_nurse/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/area_health_facility_nurse/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/area_health_facility_nurse/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/area_health_facility_nurse">
+      <label ref="jr:itext('/data/area_health_facility_nurse:label')"/>
+      <input ref="/data/area_health_facility_nurse/name">
+        <label ref="jr:itext('/data/area_health_facility_nurse/name:label')"/>
+      </input>
+      <input ref="/data/area_health_facility_nurse/phone">
+        <label ref="jr:itext('/data/area_health_facility_nurse/phone:label')"/>
+      </input>
+      <input ref="/data/area_health_facility_nurse/phone_alternate">
+        <label ref="jr:itext('/data/area_health_facility_nurse/phone_alternate:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/area_health_facility_nurse/meta"/>
+    </group>
+  </h:body>
+</h:html>
