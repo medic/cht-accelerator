@@ -1,0 +1,1916 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New Household</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/contact/age:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>No</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>Does the <output value=" /data/contact/household_name "/> know their date of birth</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Name of household Head</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>Primary Mobile Number</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>Please submit monthly screening form for <output value=" /data/contact/household_name "/> after submiting this registration form</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>Secondary Mobile Number</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>New Person</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>Please follow the next steps in the next page to add other family members</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>No. of household members</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>No</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>Are there other household members currently living in the homestead ?</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>No</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>Do you want to register other household members now?</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>Over 5</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>Under 5</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>What is the age set of the <output value=" /data/household_member/household_member_name "/> ?</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>Date of birth</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>No</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>Does the <output value=" /data/household_member/household_member_name "/> know their date of birth</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>Full Name</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>Brother</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>Child</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>Grandchild</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>Sister</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>Spouse</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>Relationship to the Head of the household</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>Please submit monthly screening form for the member after submiting this person registration</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>Specify Other</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Create a new person</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Skip this step</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Select an existing person</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>Set the Household head</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value><output value=" /data/init/contact_name "/>'s Health Facility</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value><output value=" /data/init/contact_name "/>'s Supervisor Region</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value><output value=" /data/init/contact_name "/>'s Community Health Area</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value><output value=" /data/init/contact_name "/>'s Household</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>Health Facility</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>Supervisor Region</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>Community Health Area</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>Household</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>Enter the name of this place</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>Select a household head</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="/data/contact/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>Non</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>Oui</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>Non</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>Oui</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>Non</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>Oui</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>Non</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>Oui</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Créer une nouvelle personne</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Sauter cette section</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Choisir une personne existant</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="hi">
+          <text id="/data/contact/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>नहीं</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>हाँ</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>नहीं</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>हाँ</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>नहीं</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>हाँ</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>नहीं</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>हाँ</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>एक नया व्यक्ति बनाएं</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>इस स्टेप को छोड़ दें</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>मौजूदा व्यक्ति चुनें</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="id">
+          <text id="/data/contact/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>Tidak</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>Iya</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>Tidak</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>Iya</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>Tidak</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>Iya</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>Tidak</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>Iya</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Buat orang baru</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Lewati langkah ini</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Pilih orang yang ada</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/data/contact/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>होइन</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>हो</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>होइन</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>हो</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>होइन</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>हो</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>होइन</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>हो</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>नयाँ व्यक्ति बनाउनुहोस्</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>एख</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>व्यक्ति छान्नुहोस्</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/contact/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/date_of_birth_calendar:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/gender/female:label">
+            <value>Kike</value>
+          </text>
+          <text id="/data/contact/gender/male:label">
+            <value>Kiume</value>
+          </text>
+          <text id="/data/contact/gender:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/contact/know_dob/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/data/contact/know_dob/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/data/contact/know_dob:label">
+            <value>Namba ya simu Nyingine</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/contact/primary_phone:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/contact/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/secondary_phone:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>Mtu Mpya</value>
+          </text>
+          <text id="/data/household/household_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/household/no_of_members:label">
+            <value>Wilaya</value>
+          </text>
+          <text id="/data/household/other_members/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/data/household/other_members/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/data/household/other_members:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/register_now/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/data/household/register_now/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/data/household/register_now:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/under_5:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>Namba Ya</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/date_of_birth_calendar:label">
+            <value>Fafanua vingine</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/gender/female:label">
+            <value>Kike</value>
+          </text>
+          <text id="/data/household_member/gender/male:label">
+            <value>Kiume</value>
+          </text>
+          <text id="/data/household_member/gender:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/household_member/know_dob/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/data/household_member/know_dob/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/data/household_member/know_dob:label">
+            <value>Namba ya simu Nyingine</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/household_member/relationship/brother:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/child:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/grandchild:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/sister:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship/spouse:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/relationship:label">
+            <value>Kitambulisho cha nje</value>
+          </text>
+          <text id="/data/household_member/screening_note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>Mtu Mpya</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Ongeza mtumizi mpya</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Ruka hatua ii</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Chagua mtumizi aliyesajlishwa apo awali</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>Weka mwasiliwa mkuu</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>Jaza jina la eneo hii</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>Chagua Mwasiliwa mkuu</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:household:create" prefix="J1!contact:household:create!" delimiter="#" version="2023-05-26  12-11">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <household>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>household</contact_type>
+            <name/>
+            <no_of_members/>
+            <other_members/>
+            <register_now/>
+            <household_note/>
+            <contact/>
+            <geolocation/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </household>
+          <init>
+            <create_new_person/>
+            <select_person/>
+            <name/>
+            <contact_name/>
+            <place_type>household</place_type>
+            <place_type_translation/>
+            <generated_name>household</generated_name>
+            <generated_name_translation/>
+          </init>
+          <contact>
+            <parent>PARENT</parent>
+            <type>person</type>
+            <name/>
+            <household_name/>
+            <gender/>
+            <know_dob/>
+            <date_of_birth_calendar/>
+            <age/>
+            <age_months/>
+            <ephemeral_months/>
+            <ephemeral_years/>
+            <dob_approx/>
+            <dob_raw/>
+            <dob_iso/>
+            <date_of_birth/>
+            <primary_phone/>
+            <secondary_phone/>
+            <screening_note/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </contact>
+          <household_member>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>household_member</contact_type>
+            <name/>
+            <household_member_name/>
+            <gender/>
+            <age_set/>
+            <know_dob/>
+            <date_of_birth_calendar/>
+            <age/>
+            <age_months/>
+            <ephemeral_months/>
+            <ephemeral_years/>
+            <dob_approx/>
+            <dob_raw/>
+            <dob_iso/>
+            <date_of_birth/>
+            <relationship/>
+            <specify_other/>
+            <screening_note/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </household_member>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/init/create_new_person" type="select1" required="true()"/>
+      <bind nodeset="/data/init/select_person" type="db:person" required="true()" relevant="selected( /data/init/create_new_person ,'old_person')"/>
+      <bind nodeset="/data/init/name" type="string"/>
+      <bind nodeset="/data/init/contact_name" type="string" calculate="coalesce(../name, ../../contact/name)"/>
+      <bind nodeset="/data/init/place_type" type="select1"/>
+      <bind nodeset="/data/init/place_type_translation" type="string" calculate="jr:choice-name( /data/init/place_type ,' /data/init/place_type ')"/>
+      <bind nodeset="/data/init/generated_name" type="select1"/>
+      <bind nodeset="/data/init/generated_name_translation" type="string" calculate="jr:choice-name( /data/init/generated_name ,' /data/init/generated_name ')"/>
+      <bind nodeset="/data/contact" relevant="selected( /data/init/create_new_person ,'new_person')"/>
+      <bind nodeset="/data/contact/parent" type="string"/>
+      <bind nodeset="/data/contact/type" type="string"/>
+      <bind nodeset="/data/contact/name" type="string" required="true()"/>
+      <bind nodeset="/data/contact/household_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/contact/gender" type="select1" required="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/contact/know_dob" type="select1" required="true()"/>
+      <bind nodeset="/data/contact/date_of_birth_calendar" type="date" required="true()" relevant="selected( ../know_dob,'yes')"/>
+      <bind nodeset="/data/contact/age" type="int" required="true()" relevant="selected( ../know_dob,'no')"/>
+      <bind nodeset="/data/contact/age_months" type="string" calculate="0"/>
+      <bind nodeset="/data/contact/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
+      <bind nodeset="/data/contact/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age - 1, format-date-time(today(),&quot;%Y&quot;) -../age)"/>
+      <bind nodeset="/data/contact/dob_approx" type="string" calculate="date(concat(string(../ephemeral_years),'-',if(../ephemeral_months&lt;10, concat('0',string(../ephemeral_months)), ../ephemeral_months),'-',string(format-date-time(today(), &quot;%d&quot;))))"/>
+      <bind nodeset="/data/contact/dob_raw" type="string" calculate="if(../know_dob = 'yes' , ../date_of_birth_calendar,../dob_approx )"/>
+      <bind nodeset="/data/contact/dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/contact/date_of_birth" type="string" calculate="../dob_iso"/>
+      <bind nodeset="/data/contact/primary_phone" type="tel" required="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/contact/secondary_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/contact/screening_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/contact/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/contact/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/contact/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/household/parent" type="string"/>
+      <bind nodeset="/data/household/type" type="string"/>
+      <bind nodeset="/data/household/contact_type" type="string"/>
+      <bind nodeset="/data/household/name" type="string" required="true()"/>
+      <bind nodeset="/data/household/no_of_members" type="int" required="true()"/>
+      <bind nodeset="/data/household/other_members" type="select1" required="true()"/>
+      <bind nodeset="/data/household/register_now" type="select1" required="true()" relevant="selected(  /data/household/other_members ,'yes')"/>
+      <bind nodeset="/data/household/household_note" readonly="true()" type="string" relevant="selected(  /data/household/register_now ,'yes')"/>
+      <bind nodeset="/data/household/contact" type="string" calculate="if(selected( /data/init/create_new_person ,'none'), &quot;&quot;, coalesce( /data/init/select_person ,&quot;NEW&quot;))"/>
+      <bind nodeset="/data/household/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
+      <bind nodeset="/data/household/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/household/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/household/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/household_member" relevant="selected(  /data/household/register_now ,'yes')"/>
+      <bind nodeset="/data/household_member/parent" type="string"/>
+      <bind nodeset="/data/household_member/type" type="string"/>
+      <bind nodeset="/data/household_member/contact_type" type="string"/>
+      <bind nodeset="/data/household_member/name" type="string" required="true()"/>
+      <bind nodeset="/data/household_member/household_member_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/household_member/gender" type="select1" required="true()" constraint="true()"/>
+      <bind nodeset="/data/household_member/age_set" type="select1" required="true()" constraint="true()"/>
+      <bind nodeset="/data/household_member/know_dob" type="select1" required="true()" relevant="selected(  /data/household_member/age_set ,'over_5')"/>
+      <bind nodeset="/data/household_member/date_of_birth_calendar" type="date" required="true()" relevant="selected( ../know_dob,'yes') or selected(  /data/household_member/age_set ,'under_5')"/>
+      <bind nodeset="/data/household_member/age" type="int" required="true()" relevant="selected( ../know_dob,'yes')"/>
+      <bind nodeset="/data/household_member/age_months" type="string" calculate="0"/>
+      <bind nodeset="/data/household_member/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
+      <bind nodeset="/data/household_member/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age - 1, format-date-time(today(),&quot;%Y&quot;) -../age)"/>
+      <bind nodeset="/data/household_member/dob_approx" type="string" calculate="date(concat(string(../ephemeral_years),'-',if(../ephemeral_months&lt;10, concat('0',string(../ephemeral_months)), ../ephemeral_months),'-',string(format-date-time(today(), &quot;%d&quot;))))"/>
+      <bind nodeset="/data/household_member/dob_raw" type="string" calculate="if(../know_dob = 'yes' or  /data/household_member/age_set  = 'under_5', ../date_of_birth_calendar,../dob_approx )"/>
+      <bind nodeset="/data/household_member/dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/household_member/date_of_birth" type="string" calculate="../dob_iso"/>
+      <bind nodeset="/data/household_member/relationship" type="select1" required="true()"/>
+      <bind nodeset="/data/household_member/specify_other" type="string" required="true()" relevant="selected(  /data/household_member/relationship ,'other')"/>
+      <bind nodeset="/data/household_member/screening_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/household_member/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/household_member/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/household_member/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/init">
+      <select1 ref="/data/init/create_new_person">
+        <label ref="jr:itext('/data/init/create_new_person:label')"/>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/new_person:label')"/>
+          <value>new_person</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/old_person:label')"/>
+          <value>old_person</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/none:label')"/>
+          <value>none</value>
+        </item>
+      </select1>
+      <input appearance="db-object" ref="/data/init/select_person">
+        <label ref="jr:itext('/data/init/select_person:label')"/>
+      </input>
+      <input appearance="hidden" ref="/data/init/name"/>
+      <select1 appearance="hidden" ref="/data/init/place_type">
+        <label ref="jr:itext('/data/init/place_type:label')"/>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/data/init/generated_name">
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
+      <group appearance="field-list" ref="/data/contact">
+        <label ref="jr:itext('/data/contact:label')"/>
+        <input ref="/data/contact/name">
+          <label ref="jr:itext('/data/contact/name:label')"/>
+        </input>
+        <select1 ref="/data/contact/gender">
+          <label ref="jr:itext('/data/contact/gender:label')"/>
+          <item>
+            <label ref="jr:itext('/data/contact/gender/male:label')"/>
+            <value>male</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/data/contact/gender/female:label')"/>
+            <value>female</value>
+          </item>
+        </select1>
+        <select1 ref="/data/contact/know_dob">
+          <label ref="jr:itext('/data/contact/know_dob:label')"/>
+          <item>
+            <label ref="jr:itext('/data/contact/know_dob/yes:label')"/>
+            <value>yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/data/contact/know_dob/no:label')"/>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/data/contact/date_of_birth_calendar">
+          <label ref="jr:itext('/data/contact/date_of_birth_calendar:label')"/>
+        </input>
+        <input ref="/data/contact/age">
+          <label ref="jr:itext('/data/contact/age:label')"/>
+        </input>
+        <input ref="/data/contact/primary_phone">
+          <label ref="jr:itext('/data/contact/primary_phone:label')"/>
+        </input>
+        <input ref="/data/contact/secondary_phone">
+          <label ref="jr:itext('/data/contact/secondary_phone:label')"/>
+        </input>
+        <input ref="/data/contact/screening_note">
+          <label ref="jr:itext('/data/contact/screening_note:label')"/>
+        </input>
+        <group appearance="hidden" ref="/data/contact/meta"/>
+        </group>
+      </group>
+    <group appearance="field-list" ref="/data/household">
+      <input ref="/data/household/name">
+        <label ref="jr:itext('/data/household/name:label')"/>
+      </input>
+      <input appearance="minimal" ref="/data/household/no_of_members">
+        <label ref="jr:itext('/data/household/no_of_members:label')"/>
+      </input>
+      <select1 ref="/data/household/other_members">
+        <label ref="jr:itext('/data/household/other_members:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household/other_members/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/other_members/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/data/household/register_now">
+        <label ref="jr:itext('/data/household/register_now:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household/register_now/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/register_now/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/household/household_note">
+        <label ref="jr:itext('/data/household/household_note:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/household/meta"/>
+    </group>
+    <group appearance="field-list" ref="/data/household_member">
+      <label ref="jr:itext('/data/household_member:label')"/>
+      <input ref="/data/household_member/name">
+        <label ref="jr:itext('/data/household_member/name:label')"/>
+      </input>
+      <select1 ref="/data/household_member/gender">
+        <label ref="jr:itext('/data/household_member/gender:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/gender/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/gender/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <select1 ref="/data/household_member/age_set">
+        <label ref="jr:itext('/data/household_member/age_set:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/age_set/under_5:label')"/>
+          <value>under_5</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/age_set/over_5:label')"/>
+          <value>over_5</value>
+        </item>
+      </select1>
+      <select1 ref="/data/household_member/know_dob">
+        <label ref="jr:itext('/data/household_member/know_dob:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/know_dob/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/know_dob/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/household_member/date_of_birth_calendar">
+        <label ref="jr:itext('/data/household_member/date_of_birth_calendar:label')"/>
+      </input>
+      <input ref="/data/household_member/age">
+        <label ref="jr:itext('/data/household_member/age:label')"/>
+      </input>
+      <select1 ref="/data/household_member/relationship">
+        <label ref="jr:itext('/data/household_member/relationship:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/spouse:label')"/>
+          <value>spouse</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/child:label')"/>
+          <value>child</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/grandchild:label')"/>
+          <value>grandchild</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/brother:label')"/>
+          <value>brother</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/sister:label')"/>
+          <value>sister</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/household_member/specify_other">
+        <label ref="jr:itext('/data/household_member/specify_other:label')"/>
+      </input>
+      <input ref="/data/household_member/screening_note">
+        <label ref="jr:itext('/data/household_member/screening_note:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/household_member/meta"/>
+    </group>
+  </h:body>
+</h:html>

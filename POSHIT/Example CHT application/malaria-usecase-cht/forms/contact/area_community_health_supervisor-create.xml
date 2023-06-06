@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New Supervisor</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>Notes</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>Alternate Phone Number</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>New Person</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="/data/area_community_health_supervisor/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>Nom</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>Notes</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>Téléphone</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>Téléphone alternatif</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>Nouvelle personne</value>
+          </text>
+        </translation>
+        <translation lang="hi">
+          <text id="/data/area_community_health_supervisor/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>नाम</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>नोट्स</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>फोन नंबर</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>अन्य फोन नंबर</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>नया व्यक्ति</value>
+          </text>
+        </translation>
+        <translation lang="id">
+          <text id="/data/area_community_health_supervisor/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>Nama</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>Catatan</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>Nomor Telepon</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>Nomor Telepon Alternatif</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>Orang Baru</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/data/area_community_health_supervisor/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>नाम</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>टिप्पणि</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>फाेन नम्बर</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>बैकल्पिक फाेन नम्बर</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>नया व्यक्ति</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/area_community_health_supervisor/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/notes:label">
+            <value>Maelezo</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/area_community_health_supervisor/phone_alternate:label">
+            <value>Namba Ya</value>
+          </text>
+          <text id="/data/area_community_health_supervisor:label">
+            <value>Mtu Mpya</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:area_community_health_supervisor:create" prefix="J1!contact:area_community_health_supervisor:create!" delimiter="#" version="2023-05-26  6-12">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <area_community_health_supervisor>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>area_community_health_supervisor</contact_type>
+            <name/>
+            <phone/>
+            <phone_alternate/>
+            <notes/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </area_community_health_supervisor>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/area_community_health_supervisor/parent" type="string"/>
+      <bind nodeset="/data/area_community_health_supervisor/type" type="string"/>
+      <bind nodeset="/data/area_community_health_supervisor/contact_type" type="string"/>
+      <bind nodeset="/data/area_community_health_supervisor/name" type="string" required="true()"/>
+      <bind nodeset="/data/area_community_health_supervisor/phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/area_community_health_supervisor/phone_alternate" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/area_community_health_supervisor/notes" type="string"/>
+      <bind nodeset="/data/area_community_health_supervisor/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/area_community_health_supervisor/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/area_community_health_supervisor/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/area_community_health_supervisor">
+      <label ref="jr:itext('/data/area_community_health_supervisor:label')"/>
+      <input ref="/data/area_community_health_supervisor/name">
+        <label ref="jr:itext('/data/area_community_health_supervisor/name:label')"/>
+      </input>
+      <input ref="/data/area_community_health_supervisor/phone">
+        <label ref="jr:itext('/data/area_community_health_supervisor/phone:label')"/>
+      </input>
+      <input ref="/data/area_community_health_supervisor/phone_alternate">
+        <label ref="jr:itext('/data/area_community_health_supervisor/phone_alternate:label')"/>
+      </input>
+      <input appearance="multiline" ref="/data/area_community_health_supervisor/notes">
+        <label ref="jr:itext('/data/area_community_health_supervisor/notes:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/area_community_health_supervisor/meta"/>
+    </group>
+  </h:body>
+</h:html>
