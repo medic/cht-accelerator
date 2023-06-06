@@ -1,0 +1,45 @@
+{
+  "name": "medic-cht-ref",
+  "version": "0.1.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile-app-settings": "npx cht --no-check compile-app-settings",
+    "convert-forms": "npx cht convert-contact-forms convert-app-forms",
+    "eslint": "npx eslint *.json *.js test/**/*.js --fix",
+    "test": "npm run eslint && npm run compile-app-settings && npm run convert-forms && npm run test-unit",
+    "test-forms": "TZ=Africa/Nairobi mocha --reporter spec 'test/forms/**/*.spec.js' --timeout 10000",
+    "test-tasks": "TZ=Africa/Nairobi mocha --reporter progress 'test/tasks/*.spec.js' --timeout 10000",
+    "test-targets": "TZ=Africa/Nairobi mocha --reporter progress 'test/targets/*.spec.js' --timeout 10000",
+    "test-contact-summary": "TZ=Africa/Nairobi mocha --reporter progress 'test/contact-summary/*.spec.js' --timeout 10000",
+    "test-unit": "TZ=Africa/Nairobi mocha --reporter spec 'test/**/*.spec.js' --timeout 30000 --slow 5000"
+  },
+  "devDependencies": {
+    "@medic/eslint-config": "^1.1.0",
+    "chai": "^4.3.7",
+    "chai-exclude": "^1.0.8",
+    "chai-like": "^1.1.1",
+    "chai-things": "^0.2.0",
+    "cht-conf": "^3.7.0",
+    "cht-conf-test-harness": "^2.4.3",
+    "eslint-plugin-json": "^3.1.0",
+    "mocha": "^5.1.1",
+    "save": "^2.9.0"
+  },
+  "dependencies": {
+    "luxon": "^3.3.0"
+  },
+  "main": "contact-summary.templated.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Posh-IT-Ltd/malaria-usecase-cht.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Posh-IT-Ltd/malaria-usecase-cht/issues"
+  },
+  "homepage": "https://github.com/Posh-IT-Ltd/malaria-usecase-cht#readme"
+}
