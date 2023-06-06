@@ -1,0 +1,19 @@
+define Count{
+    constructor: function(){
+        this.called = 0;
+    }
+}
+
+rule hello {
+    when {
+        or(
+            s : String s == 'hello',
+            s : String s == 'world'
+        );
+        count : Count
+    }
+    then {
+        count.called++;
+        count.s = s;
+    }
+}

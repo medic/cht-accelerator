@@ -1,0 +1,16 @@
+/backups
+/forms/app/aefi.xml
+/forms/app/pqhpt.xml
+/forms/app/sadr.xml
+/forms/app/padr.xml
+/forms/app/follow.xml
+/forms/contact/clinic-create.xml
+/forms/contact/clinic-edit.xml
+/forms/contact/district_hospital-create.xml
+/forms/contact/district_hospital-edit.xml
+/forms/contact/health_center-create.xml
+/forms/contact/health_center-edit.xml
+/forms/contact/person-create.xml
+/forms/contact/person-edit.xml
+/.snapshots
+/backup.sh

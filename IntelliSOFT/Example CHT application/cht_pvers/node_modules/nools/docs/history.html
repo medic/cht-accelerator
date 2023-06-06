@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nools</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/prettify.css">
+    <style type="text/css">
+        
+
+/*.subnav-inner {*/
+    /*width: 100%;*/
+    /*height: 36px;*/
+    /*background-color: #EEE;*/
+    /*background-repeat: repeat-x;*/
+    /*background-image: -moz-linear-gradient(top, whiteSmoke 0%, #EEE 100%);*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, whiteSmoke), color-stop(100%, #EEE));*/
+    /*background-image: -webkit-linear-gradient(top, whiteSmoke 0%, #EEE 100%);*/
+    /*background-image: -ms-linear-gradient(top, whiteSmoke 0%, #EEE 100%);*/
+    /*background-image: -o-linear-gradient(top, whiteSmoke 0%, #EEE 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f5f5f5', endColorstr = '#eeeeee', GradientType = 0);*/
+    /*background-image: linear-gradient(top, whiteSmoke 0%, #EEE 100%);*/
+    /*-webkit-border-radius: 4px;*/
+    /*-moz-border-radius: 4px;*/
+    /*border-radius: 4px;*/
+/*}*/
+
+/*.subnav .nav > li > a:hover {*/
+    /*color: black !important;*/
+/*}*/
+
+/*.subnav .nav li.dropdown .dropdown-toggle .caret,*/
+/*.subnav .nav li.dropdown.open .caret {*/
+    /*border-top-color: #999 !important;*/
+    /*border-bottom-color: #999 !important;*/
+/*}*/
+
+/*.subnav-fixed {*/
+    /*position: fixed;*/
+    /*width : 90%;*/
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    /*top: 40px;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*z-index: 1020;*/
+    /*border-color: #D5D5D5;*/
+    /*border-width: 0 0 1px;*/
+    /*-webkit-border-radius: 0;*/
+    /*-moz-border-radius: 0;*/
+    /*border-radius: 0;*/
+    /*-webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);*/
+    /*-moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);*/
+    /*box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);*/
+/*}*/
+
+/*.navbar .nav  .dropdown-menu {*/
+    /*max-height: 500px;*/
+    /*overflow: auto;*/
+/*}​*/
+
+    </style>
+    <style type="text/css">
+        body {
+            padding: 90px;
+        }
+
+        .subnav{
+            margin-top: 40px;
+            margin-right: auto;
+            margin-left: auto;
+            z-index: 1000;
+        }
+
+        .dropdown-menu{
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        @media (max-width:979px) {
+            .subnav{
+                margin-top: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./assets/css/bootstrap-responsive.min.css">
+    <script type="text/javascript">
+        var init = (function () {
+            "use strict";
+
+            var processScroll = (function () {
+                var curr = null, prev = null;
+                return function (nav) {
+                    var $win = $(window);
+                    $('.subnav').each(function () {
+                        var nav = $(this);
+                        var navTop = $win.width() < 980 ? 0 : nav.offset().top - 40;
+
+                        var scrollTop = $win.scrollTop();
+                        if (scrollTop >= navTop && curr != nav) {
+                            if(curr){
+                                curr.removeClass('subnav-fixed')
+                                prev = curr;
+                            }
+                            curr = nav;
+                            curr.addClass('subnav-fixed')
+                        } else if (curr == nav && scrollTop <= navTop) {
+                            curr.removeClass('subnav-fixed');
+                            prev.addClass('subnav-fixed');
+                            curr = prev;
+                        }else{
+                            nav.removeClass('subnav-fixed');
+                        }
+                    });
+                };
+            })();
+
+            return function () {
+                window.prettyPrint && prettyPrint();
+                $(".collapse").collapse();
+                var $window = $(window);
+                //$(".subnav").affix ();
+                // fix sub nav on scroll
+//                processScroll();
+//                $(window).on('scroll', processScroll)
+            }
+        })();
+    </script>
+</head>
+<body onload="init()">
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"> </span>
+            </a>
+            
+            <a href="./index.html" class="brand">nools</a>
+            
+            <div class="nav-collapse">
+                <ul class="nav">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docs<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            <li><a href="./examples.html">Examples</a></li>
+                            
+                            <li><a href="./history.html">Change Log</a></li>
+                            
+                        </ul>
+                        
+
+                        
+                    
+                </ul>
+                
+                <ul class="nav pull-right">
+
+                    <li class="divider-vertical"></li>
+                    <li><a href="https://github.com/C2FO/nools" target="#github" class="pull-right">github</a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <a name="top"></a>
+    <div class="container">
+
+
+
+<h1 id="0-4-4">0.4.4</h1>
+<ul>
+<li>Fix focusing an agenda-group without rules <a href="https://github.com/C2FO/nools/issues/158">#158</a></li>
+<li>Fix bump uglify version for security purpose <a href="https://github.com/C2FO/nools/issues/196">#196</a></li>
+<li>Fix callback compile <a href="https://github.com/C2FO/nools/issues/127">#127</a></li>
+</ul>
+<h1 id="0-4-3-0-4-2">0.4.3 =&gt; 0.4.2</h1>
+<h1 id="0-4-2">0.4.2</h1>
+<ul>
+<li>Fix import nools files under Windows <a href="https://github.com/C2FO/nools/issues/192">#192</a></li>
+<li>Fix memory leak <a href="https://github.com/C2FO/nools/issues/156">#156</a></li>
+<li>Fix compile callback not called when options provided <a href="https://github.com/C2FO/nools/issues/127">#127</a></li>
+<li>Fix parsing error with a constraint value set to null or boolean <a href="https://github.com/C2FO/nools/issues/157">#157</a></li>
+</ul>
+<h1 id="0-4-1">0.4.1</h1>
+<ul>
+<li>Fixed issue with <code>CustomConstraint</code> not binding <code>this.assert</code> to <code>this</code>. <a href="https://github.com/C2FO/nools/pull/146">#146</a> - <a href="https://github.com/raymondfeng">@raymondfeng</a></li>
+<li>Added more tests for custom constraints</li>
+<li>Updated readme to include docs about custom constraints.</li>
+</ul>
+<h1 id="0-4-0">0.4.0</h1>
+<ul>
+<li>Fix for issue <a href="https://github.com/C2FO/nools/issues/122">#122</a> referencing defined class within another defined class<ul>
+<li>Also fixes accessing scoped functions within a defined class.</li>
+</ul>
+</li>
+<li>Fix for issue <a href="https://github.com/C2FO/nools/issues/119">#119</a> window was removed from the nools.js file now it is called in the current scope of <code>this</code>.</li>
+<li>Allow session.halt even for <code>match()</code> <a href="https://github.com/C2FO/nools/pull/143">#143</a> - <a href="https://github.com/raymondfeng">@raymondfeng</a><ul>
+<li>Now if you call <code>halt()</code> even if you did not call <code>matchUntilHalt()</code></li>
+</ul>
+</li>
+<li>Now you can use a function as a constraint (Only applies to rules defined programatically) <a href="https://github.com/C2FO/nools/pull/142">#142</a> - <a href="https://github.com/raymondfeng">@raymondfeng</a></li>
+<li>You can now define types using scope <a href="https://github.com/C2FO/nools/pull/142">#142</a> - <a href="https://github.com/raymondfeng">@raymondfeng</a></li>
+<li>Fix for issue, is the dsl you do not have to escape <code>\</code> characters <a href="https://github.com/C2FO/nools/issues/123">#123</a></li>
+</ul>
+<h1 id="0-3-0">0.3.0</h1>
+<ul>
+<li>Added new <code>===</code> and <code>!==</code> operators <a href="https://github.com/C2FO/nools/issues/110">#110</a></li>
+<li>Fix for issue <a href="https://github.com/C2FO/nools/issues/109">#109</a></li>
+<li>Updated Readme<ul>
+<li>Updated agenda groups examples for <a href="https://github.com/C2FO/nools/issues/105">#105</a></li>
+<li>Changed class names not to match property names in readme <a href="https://github.com/C2FO/nools/issues/99">#99</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="0-2-3">0.2.3</h1>
+<ul>
+<li>Added new <code>getFacts</code> method to allow for querying of facts currently in session. <a href="https://github.com/C2FO/nools/issues/52">#52</a>;</li>
+<li>Added indexing on comparison operators (i.e. <code>&gt;, &lt;, &gt;=, &lt;=</code>).</li>
+<li>Updated documentation.<ul>
+<li>Added new section about retrieving facts from a session.</li>
+<li>Created new section for async actions to address <a href="https://github.com/C2FO/nools/issues/94">#94</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="0-2-2">0.2.2</h1>
+<ul>
+<li>Performance Upgrades<ul>
+<li>Added BetaNode indexing</li>
+<li>Abstracted out JoinNode to extend BetaNode (Prevents the checking of constraints if there are not any constraints to check)</li>
+<li>Refactored BetaNetwork</li>
+<li>Created a new Memory Class to encapusulate left and right memory for BetaNodes</li>
+</ul>
+</li>
+<li>Added new <code>exists</code> logic operator to check for existence of fact (opposite of <code>not</code>)</li>
+</ul>
+<h1 id="0-2-1">0.2.1</h1>
+<ul>
+<li>Added support for js expression in the <code>from</code> node addressing issue <a href="https://github.com/C2FO/nools/issues/86">#86</a></li>
+<li>Enhanced <code>JoinReferenceNode</code> performance in the default assert case where there are no <code>references</code> to left or right context.</li>
+<li>Added ability to use <code>or</code> and <code>not</code> in tandem to check for the non-existence of multiple facts. <a href="https://github.com/C2FO/nools/issues/85">#85</a></li>
+<li>Fixed issue with <code>from</code> node where an undefined property would be tested. <a href="https://github.com/C2FO/nools/issues/89">#89</a></li>
+<li>You can now define a custom resolution strategy.</li>
+<li>Compiling nools files now supports the from modifier.</li>
+<li>Documentation updates<ul>
+<li>Updates about from node support with js values.</li>
+<li>New documentation about using <code>or</code> and <code>not</code> constratints together.</li>
+<li>Updated <code>or</code> documentation to include a three constraint example.</li>
+</ul>
+</li>
+</ul>
+<h1 id="0-2-0-2013-10-14">0.2.0 / 2013-10-14</h1>
+<ul>
+<li>Nools now supports true modify!!!<ul>
+<li>This is a major leap forward for <code>nools</code> opening the door for more complex actions and expressions in the rules.</li>
+</ul>
+</li>
+<li>Added support from for <code>from</code> conditions in the <code>rhs</code>.</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/81">#81</a>.</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/82">#82</a>.</li>
+<li>Added new <code>sudoku</code> web example.</li>
+<li>Added <a href="http://en.wikipedia.org/wiki/Verbal_arithmetic">Send More Money</a> benchmark see <a href="https://github.com/C2FO/nools/issues/78">#78</a>.</li>
+</ul>
+<h1 id="0-1-14">0.1.14</h1>
+<ul>
+<li>Fixed issue with async actions and early match termination.</li>
+</ul>
+<h1 id="0-1-13">0.1.13</h1>
+<ul>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/68">#68</a> where <code>matchUntilHalt</code> uses a lot of CPU</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/45">#45</a>, now compiled rules support <code>or</code> constraint with more than 2 inner constraints.</li>
+<li>Added new feature to address <a href="https://github.com/C2FO/nools/issues/76">#76</a>, now you can use <code>deleteFlows</code> to dispose all flows, or use <code>hasFlow</code> to check if a flow is already registred with <code>nools</code>.</li>
+</ul>
+<h1 id="0-1-12">0.1.12</h1>
+<ul>
+<li>Fixed issue in node v0.6 where path.sep is not found.</li>
+</ul>
+<h1 id="0-1-11">0.1.11</h1>
+<ul>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/73">#73</a> where requires in dsl would treat a file with a <code>.</code> character as a path instead of a module.</li>
+</ul>
+<h1 id="0-1-10">0.1.10</h1>
+<ul>
+<li>Added ability to <code>import</code> other nools files to create composible rules files <a href="https://github.com/C2FO/nools/issues/58">#58</a></li>
+<li>When using <code>global</code> to require other files you can now require other files relative to the nools file</li>
+<li>Added uglify-js as a dependency instead of devDependency</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/61">#61</a> where transpile would not properly escape <code>&quot;</code> character.</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/66">#66</a> and <a href="https://github.com/C2FO/nools/issues/67">#67</a> where regular expression matching was too greedy.</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/62">#62</a> where constraints with a <code>&quot;</code> character would produce invalid javascript when <code>transpiling</code>.</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/69">#69</a> where rules names with a <code>&#39;</code> character in a rule would produce invalid javascript when <code>transpiling</code>.</li>
+<li>Added option to beautify generated code</li>
+</ul>
+<h1 id="0-1-9">0.1.9</h1>
+<ul>
+<li>Fixed issues where notNode was not retracting all contexts when a fact was retracted</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/50">50</a> in compiling rule with or condition</li>
+<li>Fixed issue <a href="https://github.com/C2FO/nools/issues/53">53</a> in constraints with hash refrences.</li>
+<li>Merged pull request <a href="https://github.com/C2FO/nools/pull/49">49</a></li>
+<li>Added tests for logicalNot and truthy statements</li>
+</ul>
+<h1 id="0-1-8-2013-08-14">0.1.8 / 2013-08-14</h1>
+<ul>
+<li>Fixed scoping issue where scoped variables defined in compile were not available to defined classes or functions.</li>
+</ul>
+<h1 id="0-1-7-2013-06-25">0.1.7 / 2013-06-25</h1>
+<ul>
+<li>Fixed constraint parser to not evaluate functions that have the same name as operators as operators.</li>
+<li>Fixed the <code>getMatcher</code> to properly return an equality expression for constraints that do not have an explicit equality</li>
+<li>Added new diganosis example</li>
+<li>Changed Fibonacci example to support larger number</li>
+</ul>
+<h1 id="v0-1-6-2012-06-17">v0.1.6 / 2012-06-17</h1>
+<ul>
+<li>Fixed issue with the use of next in async actions</li>
+</ul>
+<h1 id="v0-1-5-2013-06-17">v0.1.5 / 2013-06-17</h1>
+<ul>
+<li>More Examples</li>
+<li>Changed nools compile to transpile to Javascript!</li>
+<li>Better performance<ul>
+<li>Simple Benchmark: Before ~600ms, Now ~350ms</li>
+<li>Manners Benchmark (32): Before ~10s, Now ~4sec</li>
+<li>WaltzDB: Before ~30sec, Now ~15sec</li>
+</ul>
+</li>
+</ul>
+<h1 id="v0-1-4-2013-05-25">v0.1.4 / 2013-05-25</h1>
+<ul>
+<li>Added new agenda-group (#29)</li>
+<li>More documentation<ul>
+<li>Salience</li>
+<li>Agenda Groups</li>
+<li>Auto-focus</li>
+<li>Scope</li>
+</ul>
+</li>
+<li>Cleaned up agenda and made more modular</li>
+</ul>
+<h1 id="v0-1-3-2013-05-24">v0.1.3 / 2013-05-24</h1>
+<ul>
+<li>Fixed memory leak with FactHashes for the agendas</li>
+</ul>
+<h1 id="v0-1-2-2013-05-24">v0.1.2 / 2013-05-24</h1>
+<ul>
+<li>Removed unneeded calls to <code>.then</code> to address performance degredation (#30)</li>
+</ul>
+<h1 id="v0-1-1-2013-05-23">v0.1.1 / 2013-05-23</h1>
+<ul>
+<li>Updated grunt</li>
+<li>Fixed nextTick issues for node v0.10 #32</li>
+<li>Added ability to remove a defined flow from nools. #31 #22</li>
+<li>Added ability to use <code>getDefined</code> on externally defined fact types. #23</li>
+<li>Added support for block comments in dsl. #27 @xmltechgeek</li>
+<li>New globals feature in dsl. #26 @xmltechgeek</li>
+<li>Fixed all jshint issues</li>
+<li>Rebuilt nools.js and nools.min.js</li>
+<li>Added more tests for new globals feature</li>
+</ul>
+<h1 id="0-1-0-2013-02-27">0.1.0 / 2013-02-27</h1>
+<ul>
+<li>Browser support!</li>
+<li>Support for compiling nools dsl from string source or path</li>
+<li>New reactive mode when running a flow</li>
+<li>Support for emitting custom events from rule actions</li>
+<li>Can now include <code>$</code> in your constraint variables</li>
+<li>Added support for <code>%</code>, <code>!=~</code>, <code>notIn</code>, and <code>notLike</code> in constraints</li>
+<li>Increased performance<ul>
+<li>Waltdb Bench (Before ~60000ms, Now ~25000ms)</li>
+<li>Manners (Before ~2000ms, Now ~500ms)</li>
+</ul>
+</li>
+<li>Better error reporting if action has reference error</li>
+<li>Better fact retraction in not and join nodes</li>
+<li>You can now use properties from object in <code>in</code> expressions.</li>
+<li>Refactoring of node types into seperate files</li>
+<li>Support for specifying a <code>scope</code> when compiling which can be used to expose methods and objects to be used in constraints and actions.</li>
+<li>More Examples (requirejs, browser, conways game of life)</li>
+<li>More tests and better coverage on or and not nodes.</li>
+</ul>
+<h1 id="0-0-5-2012-09-10">0.0.5 / 2012-09-10</h1>
+<ul>
+<li>Fix for issue <a href="https://github.com/C2FO/nools/issues/13">#13</a> where identifiers were not gathered in property chains that contained functions.</li>
+</ul>
+<h1 id="0-0-4-2012-09-10">0.0.4 / 2012-09-10</h1>
+<ul>
+<li>Added travis CI</li>
+</ul>
+<h1 id="0-0-3-2012-09-06">0.0.3 / 2012-09-06</h1>
+<ul>
+<li>Updates for repo rename</li>
+<li>code clean up</li>
+</ul>
+<h1 id="0-0-2-2012-05-22">0.0.2 / 2012-05-22</h1>
+<ul>
+<li>Increased performance<ul>
+<li>Manners benchmark 800%</li>
+</ul>
+</li>
+<li>Added Parser for nools DSL</li>
+<li>More helper functions</li>
+<li>Updated readme</li>
+</ul>
+
+<hr>
+
+Documentation generated using <a href="https://github.com/doug-martin/coddoc">coddoc</a>.
+
+
+</div>
+</div>
+<script type="text/javascript" src="./assets/js/jquery.js"></script>
+<script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./assets/js/prettify.js"></script>
+
+</body>
+</html>
