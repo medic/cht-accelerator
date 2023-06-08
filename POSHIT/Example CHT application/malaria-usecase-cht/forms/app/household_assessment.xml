@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Household Assessment</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/household_assessment/household_assessment/additional_notes:label">
+            <value>Additional Notes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/amendment_date:label">
+            <value>When will they have implemented the recommended measures?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/household_members:label">
+            <value>How many people sleep in <output value=" /household_assessment/place_name "/>'s household?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/nets_availability/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/nets_availability/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/nets_availability:label">
+            <value>Does <output value=" /household_assessment/place_name "/>'s household have nets ?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/number_of_nets:label">
+            <value>How many nets does <output value=" /household_assessment/place_name "/>'s household have?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/proper_drainage/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/proper_drainage/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/proper_drainage:label">
+            <value>Does <output value=" /household_assessment/place_name "/> household area have good drainage systems</value>
+          </text>
+          <text id="/household_assessment/household_assessment/recommend_wiremesh_inlets:label">
+            <value>Putting wire mesh on windows and other inlets help to reduce the entry of mosquitoes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/repellant_usage/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/repellant_usage/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/repellant_usage:label">
+            <value>Does <output value=" /household_assessment/place_name "/> household use repellents?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/resedual_spraying/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/resedual_spraying/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/resedual_spraying:label">
+            <value>Has <output value=" /household_assessment/place_name "/> done Indoor Residual Spraying in the last 12 months</value>
+          </text>
+          <text id="/household_assessment/household_assessment/stagnant_water/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/stagnant_water/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/stagnant_water:label">
+            <value>Does <output value=" /household_assessment/place_name "/> household area have stagnant water?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/tall_grass/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/tall_grass/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/tall_grass:label">
+            <value>Does <output value=" /household_assessment/place_name "/> household area have tall grass?</value>
+          </text>
+          <text id="/household_assessment/household_assessment/teach_on_net:label">
+            <value>Teach that personal protection measures such as sleeping under a net protects one against mosquito bites</value>
+          </text>
+          <text id="/household_assessment/household_assessment/teach_on_stagnant_water:label">
+            <value>Teach that stagnant water is a breeding site for mosquitoes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/teach_on_tall_grass:label">
+            <value>Teach that because grass provides a great cover from the heat of the sun and protection from wind that can blow them away, mosquitoes like to rest in tall grass</value>
+          </text>
+          <text id="/household_assessment/household_assessment/wire_mesh_on_inlets/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assessment/household_assessment/wire_mesh_on_inlets/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assessment/household_assessment/wire_mesh_on_inlets:label">
+            <value>Does <output value=" /household_assessment/place_name "/>'s household does have wire mesh on the windows/inlets?</value>
+          </text>
+          <text id="/household_assessment/household_assessment:label">
+            <value>Household Assessment</value>
+          </text>
+          <text id="/household_assessment/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/household_assessment/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/household_assessment/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/household_assessment/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/household_assessment/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/household_assessment/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/household_assessment/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/household_assessment/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/household_assessment/inputs/visitType:label">
+            <value>Visit Type</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <household_assessment id="household_assessment" prefix="J1!household_assessment!" delimiter="#" version="2023-05-27 11:40:28">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <visitType/>
+            <contact>
+              <_id/>
+              <name/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <place_id tag="hidden"/>
+          <source/>
+          <place_name tag="hidden"/>
+          <visit_type/>
+          <household_assessment>
+            <wire_mesh_on_inlets/>
+            <recommend_wiremesh_inlets/>
+            <household_members/>
+            <nets_availability/>
+            <number_of_nets/>
+            <teach_on_net/>
+            <repellant_usage/>
+            <resedual_spraying/>
+            <proper_drainage/>
+            <stagnant_water/>
+            <teach_on_stagnant_water/>
+            <tall_grass/>
+            <teach_on_tall_grass/>
+            <amendment_date/>
+            <additional_notes/>
+          </household_assessment>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </household_assessment>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/household_assessment/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/household_assessment/inputs/source" type="string"/>
+      <bind nodeset="/household_assessment/inputs/source_id" type="string"/>
+      <bind nodeset="/household_assessment/inputs/visitType" type="string"/>
+      <bind nodeset="/household_assessment/inputs/contact/_id" type="db:clinic"/>
+      <bind nodeset="/household_assessment/inputs/contact/name" type="string"/>
+      <bind nodeset="/household_assessment/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/household_assessment/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/household_assessment/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/household_assessment/place_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/household_assessment/source" type="string" calculate="../inputs/source"/>
+      <bind nodeset="/household_assessment/place_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/household_assessment/visit_type" type="string" calculate="../inputs/visitType"/>
+      <bind nodeset="/household_assessment/household_assessment/wire_mesh_on_inlets" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/recommend_wiremesh_inlets" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/wire_mesh_on_inlets , 'no')"/>
+      <bind nodeset="/household_assessment/household_assessment/household_members" type="int" relevant=" /household_assessment/visit_type  != 'follow_up'" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/nets_availability" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/number_of_nets" type="int" relevant="selected( /household_assessment/household_assessment/nets_availability , 'yes')" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/nets_availability , 'no')"/>
+      <bind nodeset="/household_assessment/household_assessment/repellant_usage" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/resedual_spraying" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/proper_drainage" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/stagnant_water" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/teach_on_stagnant_water" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/stagnant_water ,'yes')"/>
+      <bind nodeset="/household_assessment/household_assessment/tall_grass" type="select1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/teach_on_tall_grass" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/tall_grass , 'yes')"/>
+      <bind nodeset="/household_assessment/household_assessment/amendment_date" type="date" relevant="selected( /household_assessment/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assessment/household_assessment/nets_availability , 'no') or selected( /household_assessment/household_assessment/stagnant_water , 'yes') or selected( /household_assessment/household_assessment/tall_grass , 'yes')" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/additional_notes" type="string" required="false()"/>
+      <bind nodeset="/household_assessment/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/household_assessment/inputs">
+      <group ref="/household_assessment/inputs/contact">
+        <label ref="jr:itext('/household_assessment/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/household_assessment/inputs/contact/_id">
+          <label ref="jr:itext('/household_assessment/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/household_assessment/inputs/contact/parent">
+          <group ref="/household_assessment/inputs/contact/parent/parent">
+            <group ref="/household_assessment/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/household_assessment/household_assessment">
+      <label ref="jr:itext('/household_assessment/household_assessment:label')"/>
+      <select1 ref="/household_assessment/household_assessment/wire_mesh_on_inlets">
+        <label ref="jr:itext('/household_assessment/household_assessment/wire_mesh_on_inlets:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/wire_mesh_on_inlets/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/wire_mesh_on_inlets/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assessment/household_assessment/recommend_wiremesh_inlets">
+        <label ref="jr:itext('/household_assessment/household_assessment/recommend_wiremesh_inlets:label')"/>
+      </input>
+      <input ref="/household_assessment/household_assessment/household_members">
+        <label ref="jr:itext('/household_assessment/household_assessment/household_members:label')"/>
+      </input>
+      <select1 ref="/household_assessment/household_assessment/nets_availability">
+        <label ref="jr:itext('/household_assessment/household_assessment/nets_availability:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/nets_availability/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/nets_availability/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assessment/household_assessment/number_of_nets">
+        <label ref="jr:itext('/household_assessment/household_assessment/number_of_nets:label')"/>
+      </input>
+      <input ref="/household_assessment/household_assessment/teach_on_net">
+        <label ref="jr:itext('/household_assessment/household_assessment/teach_on_net:label')"/>
+      </input>
+      <select1 ref="/household_assessment/household_assessment/repellant_usage">
+        <label ref="jr:itext('/household_assessment/household_assessment/repellant_usage:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/repellant_usage/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/repellant_usage/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/household_assessment/household_assessment/resedual_spraying">
+        <label ref="jr:itext('/household_assessment/household_assessment/resedual_spraying:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/resedual_spraying/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/resedual_spraying/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/household_assessment/household_assessment/proper_drainage">
+        <label ref="jr:itext('/household_assessment/household_assessment/proper_drainage:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/proper_drainage/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/proper_drainage/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/household_assessment/household_assessment/stagnant_water">
+        <label ref="jr:itext('/household_assessment/household_assessment/stagnant_water:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/stagnant_water/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/stagnant_water/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assessment/household_assessment/teach_on_stagnant_water">
+        <label ref="jr:itext('/household_assessment/household_assessment/teach_on_stagnant_water:label')"/>
+      </input>
+      <select1 ref="/household_assessment/household_assessment/tall_grass">
+        <label ref="jr:itext('/household_assessment/household_assessment/tall_grass:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/tall_grass/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assessment/household_assessment/tall_grass/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assessment/household_assessment/teach_on_tall_grass">
+        <label ref="jr:itext('/household_assessment/household_assessment/teach_on_tall_grass:label')"/>
+      </input>
+      <input ref="/household_assessment/household_assessment/amendment_date">
+        <label ref="jr:itext('/household_assessment/household_assessment/amendment_date:label')"/>
+      </input>
+      <input ref="/household_assessment/household_assessment/additional_notes">
+        <label ref="jr:itext('/household_assessment/household_assessment/additional_notes:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

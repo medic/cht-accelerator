@@ -1,0 +1,23 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": ["@medic"],
+  "plugins": ["json"],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "quotes": ["error", "single", { "allowTemplateLiterals": true, "avoidEscape": true }],
+    "max-len": ["error", {"code": 180}]
+  },
+  "globals": {
+    "Utils": true,
+    "user": true,
+    "contact": true,
+    "lineage": true,
+    "reports": true,
+    "targetDoc": true
+  }
+}
