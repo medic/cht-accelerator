@@ -6,3 +6,4 @@ module.exports = {
     captureResultWithRepeat: (amendmentDate) => [['yes', 2, 'no', ...Array(5).fill('yes'), amendmentDate]]
   }
 };
+

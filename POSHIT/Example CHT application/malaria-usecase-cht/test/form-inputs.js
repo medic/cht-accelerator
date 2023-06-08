@@ -29,4 +29,29 @@ module.exports = {
         ['Wambui'],
       ]
     },
+    communityHealthArea: {
+      ok: [
+        ['new_person', 'Joseph', '+254723567876'],
+        ['Kianjogu Area', 'QA678', 'mombasa', 'jomvu', 'mikindani', 'Mirangi', 'Main road'],
+        ['true']
+      ]
+    },
+    communityHealthVolunteer: {
+      ok: [
+        ['Joyce Kim', 'female', '1997-05-05', '+254718789765']
+      ],
+    },
+    household: {
+      ok: [
+        ['Johnson Sulman', 'Some notes', 'male', 'no', 50, '+254712345600', '+254712345671'],
+        ['3.074695 37.608244 0 0'],
+        ['yes', 'false']
+      ]
+    },
+    householdMember: {
+      ok: [
+        ['Melvin Makinya', 'male', 'over5', 'yes', '2002-06-02', '+254712345120', '+254712345842', 'child']
+      ],
+    },
+
 }

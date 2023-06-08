@@ -1,5 +1,6 @@
 function getField(report, fieldPath) {
   const parts = (fieldPath || '').split('.');
+  
   return ['fields', ...parts]
     .reduce((prev, fieldName) => {
       if (prev === undefined) {

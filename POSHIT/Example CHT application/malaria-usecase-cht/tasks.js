@@ -1,5 +1,4 @@
 const extras = require('./tools-extra');
-
 const {
   isFormArraySubmittedInWindow,
   addDays,
