@@ -29,6 +29,7 @@
     "save": "^2.9.0"
   },
   "dependencies": {
+    "cht-nootils": "^4.2.0",
     "luxon": "^3.3.0"
   },
   "main": "contact-summary.templated.js",
