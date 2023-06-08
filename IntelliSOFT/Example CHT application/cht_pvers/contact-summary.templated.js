@@ -1,5 +1,20 @@
 const thisContact = contact;
 const thisLineage = lineage;
+const allReports = reports;
+
+const assessmentForms = ['padr'];
+
+const getNewestReport = (reports = []) => {
+  let results = null;
+  reports.forEach(function (reports) {
+    if (!results || reports.reported_date > results.reported_date) {
+      results = reports;
+    }
+  });
+  return results;
+};
+
+
 
 const fields = [
   { appliesToType: 'person', label: 'patient_id', value: thisContact.patient_id, width: 4 },
@@ -9,8 +24,36 @@ const fields = [
   { appliesToType: 'person', label: 'contact.parent', value: thisLineage, filter: 'lineage' },
 ];
 
+const cards = [
+  {
+    label: 'contact.profile.assessment_history',
+    appliesToType: 'report',
+    appliesIf: (report) => {
+      const assessmentForm = getNewestReport(allReports, assessmentForms);
+      return assessmentForm.reported_date >= report.reported_date;
+    },
+    fields: [
+      {
+        label: 'contact.profile.most_recent_assessment.date',
+        value: (report) => {
+          return report.reported_date;
+        },
+        filter: 'simpleDate',
+        width: 6
+      },
+      {
+        label: 'contact.profile.type',
+        value: (report) => {
+          return report.fields.type;
+        },
+        width: 6,
+      }
+    ]
+  }
+];
+
 module.exports = {
-  fields: fields
+  fields: fields,
+  cards: cards
 };
 
- 

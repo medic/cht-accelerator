@@ -1,15 +1,4 @@
 {
-    "languages": [
-    
-        {
-          "locale": "en",
-          "enabled": true
-        }, 
-        {
-          "locale": "sw",
-          "enabled": true
-        }
-      ],
     "roles": {
         "data_entry": {
             "name": "usertype.data-entry"
@@ -22,7 +11,10 @@
         },
         "program_officer": {
             "name": "usertype.program-officer"
-        }, 
+        },
+        "crfo": {
+            "name": "usertype.crfo"
+        },
         "chw_supervisor": {
             "name": "usertype.chw-supervisor",
             "offline": true
@@ -42,7 +34,8 @@
             "chw"
         ],
         "can_configure": [
-            "program_officer"
+            "program_officer",
+            "crfo"
         ],
         "can_create_people": [
             "program_officer",
@@ -99,7 +92,8 @@
             "chw"
         ],
         "can_export_all": [
-            "program_officer"
+            "program_officer",
+            "crfo"
         ],
         "can_export_contacts": [
             "program_officer",
@@ -121,20 +115,20 @@
             "chw_supervisor",
             "chw"
         ],
-        "can_update_reports": [
-            "program_officer",
-            "chw_supervisor",
+        "can_update_reports": [            
             "chw"
         ],
         "can_update_users": [
             "program_officer"
         ],
         "can_export_dhis": [
-            "national_admin"
+            "national_admin",
+            "crfo"
         ],
         "can_verify_reports": [
             "program_officer",
             "chw_supervisor"
+           
         ],
         "can_view_analytics": [
             "analytics",

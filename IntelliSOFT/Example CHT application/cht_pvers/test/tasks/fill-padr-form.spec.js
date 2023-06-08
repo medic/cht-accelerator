@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const TestHarness = require('cht-conf-test-harness');
-const formName = 'delivery';
+const formName = 'padr';
 const { submissionScenario} = require('../form-inputs');
 const harness = new TestHarness();
 const { DateTime } = require('luxon');

@@ -1,6 +1,6 @@
 {
-    "icon": "icon-sadr",
-    "title": "Public Report",
+    "icon": "icon-up",
+    "title": "Follow Up Report",
     "context": {
         "person": false,
         "place": false,

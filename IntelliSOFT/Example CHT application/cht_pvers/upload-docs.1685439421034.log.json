@@ -1,0 +1,9 @@
+{
+  "ok": [],
+  "failed": {
+    "50b996a1-3412-502a-89df-8d2bd3426a76": "conflict: Document update conflict.",
+    "6992265d-8d4e-5c5d-9a6a-f0cecdddee32": "conflict: Document update conflict.",
+    "8bd83b90-2632-542e-90f4-d89cf36ed77b": "conflict: Document update conflict.",
+    "c3058f21-a2a6-5ce4-93b8-8443c4193193": "conflict: Document update conflict."
+  }
+}

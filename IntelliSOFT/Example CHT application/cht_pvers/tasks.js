@@ -4,7 +4,7 @@ module.exports = [
   {
     name: 'padr-after-registration',
     icon: 'icon-healthcare',
-    title: 'Patient Consultation',
+    title: 'CHW Consultation',
     appliesTo: 'contacts',
     appliesToType: ['person'],
     actions: [{ form: 'padr' }],
@@ -13,7 +13,7 @@ module.exports = [
         id: 'padr-form',
         days: 7,
         start: 7,
-        end: 0,
+        end: 2,
       }
     ]
   },
@@ -21,7 +21,7 @@ module.exports = [
   // Create a Task when a report is submitted with ongoing reaction
   {
     name: 'serious-case',
-    icon: 'icon-pqhpt',
+    icon: 'icon-followup',
     title: 'Ongoing Adverse Reaction',
     appliesTo: 'reports',
     appliesToType: ['padr'],
@@ -31,7 +31,7 @@ module.exports = [
         id: 'alarm-on-ongoing-reaction',
         days: 7,
         start: 7,
-        end: 0,
+        end: 2,
       }
     ],
     priority: {
