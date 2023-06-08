@@ -1,0 +1,8 @@
+{
+  "icon": "icon-off",
+  "context": {
+    "place": true,
+    "person": false,
+    "expression": "contact.contact_type === 'household_member'"
+  }
+}
