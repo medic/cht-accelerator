@@ -7,6 +7,7 @@ module.exports = [
     title: 'CHW Consultation',
     appliesTo: 'contacts',
     appliesToType: ['person'],
+    // appliesIf: c => c.contact_type === 'patient',
     actions: [{ form: 'padr' }],
     events: [
       {
@@ -15,7 +16,7 @@ module.exports = [
         start: 7,
         end: 2,
       }
-    ]
+    ],
   },
 
   // Create a Task when a report is submitted with ongoing reaction
