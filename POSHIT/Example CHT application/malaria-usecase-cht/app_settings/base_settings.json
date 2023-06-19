@@ -111,6 +111,7 @@
   "contact_types": [
     {
       "id": "area_health_facility",
+      "icon": "area-health-facility",
       "name_key": "contact.type.area_health_facility",
       "group_key": "contact.type.area_health_facility.plural",
       "create_key": "contact.type.area_health_facility.new",
@@ -120,6 +121,7 @@
     },
     {
       "id": "area_health_facility_nurse",
+      "icon": "area-health-facility-nurse",
       "name_key": "contact.type.area_health_facility_nurse",
       "group_key": "contact.type.area_health_facility_nurse.plural",
       "create_key": "contact.type.area_health_facility_nurse.new",
@@ -131,6 +133,7 @@
     },
     {
       "id": "area_supervisor_region",
+      "icon": "area-supervisor-region",
       "name_key": "contact.type.area_supervisor_region",
       "group_key": "contact.type.area_supervisor_region.plural",
       "create_key": "contact.type.area_supervisor_region.new",
@@ -141,6 +144,7 @@
     },
     {
       "id": "area_community_health_supervisor",
+      "icon": "area-community-health-supervisor",
       "name_key": "contact.type.area_community_health_supervisor",
       "group_key": "contact.type.area_community_health_supervisor.plural",
       "create_key": "contact.type.area_community_health_supervisor.new",
@@ -152,6 +156,7 @@
     },
     {
       "id": "community_health_area",
+      "icon": "community-health-area",
       "name_key": "contact.type.community_health_area",
       "group_key": "contact.type.community_health_area.plural",
       "create_key": "contact.type.community_health_area.new",
@@ -162,6 +167,7 @@
     },
     {
       "id": "community_health_volunteer",
+      "icon": "community-health-volunteer",
       "name_key": "contact.type.community_health_volunteer",
       "group_key": "contact.type.community_health_volunteer.plural",
       "create_key": "contact.type.community_health_volunteer.new",
@@ -173,6 +179,7 @@
     },
     {
       "id": "household",
+      "icon": "household",
       "name_key": "contact.type.household",
       "group_key": "contact.type.household.plural",
       "create_key": "contact.type.household.new",
@@ -183,6 +190,7 @@
     },
     {
       "id": "household_member",
+      "icon": "household-member",
       "name_key": "contact.type.household_member",
       "group_key": "contact.type.household_member.plural",
       "create_key": "contact.type.household_member.new",
@@ -192,5 +200,14 @@
       "edit_form": "form:contact:household_member:edit",
       "person": true
     }
-  ]
+  ],
+  "transitions": {
+    "death_reporting": true
+  },
+  "death_reporting": {
+    "mark_deceased_forms": [
+      "death_report"
+    ],
+    "date_field": "fields.patient_death_details.date_of_death"
+  }
 }
