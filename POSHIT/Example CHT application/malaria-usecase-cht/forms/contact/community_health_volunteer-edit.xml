@@ -24,110 +24,6 @@
             <value>Primary Mobile Number</value>
           </text>
         </translation>
-        <translation lang="fr">
-          <text id="/data/community_health_volunteer/dob:label">
-            <value>Téléphone alternatif</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/female:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/male:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender:label">
-            <value>Téléphone</value>
-          </text>
-          <text id="/data/community_health_volunteer/meta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/name:label">
-            <value>Nom</value>
-          </text>
-          <text id="/data/community_health_volunteer/primary_phone:label">
-            <value>Rôle</value>
-          </text>
-          <text id="/data/community_health_volunteer:label">
-            <value>Nouvelle personne</value>
-          </text>
-        </translation>
-        <translation lang="hi">
-          <text id="/data/community_health_volunteer/dob:label">
-            <value>अन्य फोन नंबर</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/female:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/male:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender:label">
-            <value>फोन नंबर</value>
-          </text>
-          <text id="/data/community_health_volunteer/meta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/name:label">
-            <value>नाम</value>
-          </text>
-          <text id="/data/community_health_volunteer/primary_phone:label">
-            <value>भूमिका</value>
-          </text>
-          <text id="/data/community_health_volunteer:label">
-            <value>नया व्यक्ति</value>
-          </text>
-        </translation>
-        <translation lang="id">
-          <text id="/data/community_health_volunteer/dob:label">
-            <value>Nomor Telepon Alternatif</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/female:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/male:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender:label">
-            <value>Nomor Telepon</value>
-          </text>
-          <text id="/data/community_health_volunteer/meta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/name:label">
-            <value>Nama</value>
-          </text>
-          <text id="/data/community_health_volunteer/primary_phone:label">
-            <value>Peran</value>
-          </text>
-          <text id="/data/community_health_volunteer:label">
-            <value>Orang Baru</value>
-          </text>
-        </translation>
-        <translation lang="ne">
-          <text id="/data/community_health_volunteer/dob:label">
-            <value>बैकल्पिक फाेन नम्बर</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/female:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender/male:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/gender:label">
-            <value>फाेन नम्बर</value>
-          </text>
-          <text id="/data/community_health_volunteer/meta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/community_health_volunteer/name:label">
-            <value>नाम</value>
-          </text>
-          <text id="/data/community_health_volunteer/primary_phone:label">
-            <value>भुमिका</value>
-          </text>
-          <text id="/data/community_health_volunteer:label">
-            <value>नया व्यक्ति</value>
-          </text>
-        </translation>
         <translation lang="sw">
           <text id="/data/community_health_volunteer/dob:label">
             <value>Tarehe ya kuzaliwa</value>
@@ -139,24 +35,21 @@
             <value>Kiume</value>
           </text>
           <text id="/data/community_health_volunteer/gender:label">
-            <value>Namba ya Simi</value>
+            <value>Jinsia</value>
           </text>
           <text id="/data/community_health_volunteer/meta:label">
             <value>-</value>
           </text>
           <text id="/data/community_health_volunteer/name:label">
-            <value>Jina</value>
+            <value>Jina Kamiri</value>
           </text>
           <text id="/data/community_health_volunteer/primary_phone:label">
             <value>Namba ya simu</value>
           </text>
-          <text id="/data/community_health_volunteer:label">
-            <value>Mtu Mpya</value>
-          </text>
         </translation>
       </itext>
       <instance>
-        <data id="contact:community_health_volunteer:edit" prefix="J1!contact:community_health_volunteer:edit!" delimiter="#" version="2023-05-26  9-17">
+        <data id="contact:community_health_volunteer:edit" prefix="J1!contact:community_health_volunteer:edit!" delimiter="#" version="2023-06-02  12-55">
           <inputs>
             <meta>
               <location>
@@ -201,7 +94,7 @@
       <bind nodeset="/data/community_health_volunteer/name" type="string" required="true()"/>
       <bind nodeset="/data/community_health_volunteer/gender" type="select1" required="true()"/>
       <bind nodeset="/data/community_health_volunteer/dob" type="date" required="true()"/>
-      <bind nodeset="/data/community_health_volunteer/primary_phone" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" required="true()"/>
+      <bind nodeset="/data/community_health_volunteer/primary_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()" required="true()"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
@@ -217,7 +110,6 @@
       </group>
     </group>
     <group appearance="field-list" ref="/data/community_health_volunteer">
-      <label ref="jr:itext('/data/community_health_volunteer:label')"/>
       <input ref="/data/community_health_volunteer/name">
         <label ref="jr:itext('/data/community_health_volunteer/name:label')"/>
       </input>
