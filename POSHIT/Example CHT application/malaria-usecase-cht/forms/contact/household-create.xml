@@ -41,9 +41,6 @@
           <text id="/data/contact/n_screening:label">
             <value>_**Please submit a monthly screening form for <output value=" /data/contact/contact_name "/> after submitting this registration form.**_</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Notes</value>
-          </text>
           <text id="/data/contact/phone_note:label">
             <value>**Please verify that the phone numbers are accurate**
 
@@ -255,9 +252,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           </text>
           <text id="/data/contact/n_screening:label">
             <value>_**Tafadhali wasilisha fomu ya uchunguzi wa kila mwezi kwa <output value=" /data/contact/contact_name "/> baada ya kuwasilisha fomu hii ya usajili.**_</value>
-          </text>
-          <text id="/data/contact/notes:label">
-            <value>Vidokezo</value>
           </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
@@ -474,7 +468,7 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
         </translation>
       </itext>
       <instance>
-        <data id="contact:household:create" prefix="J1!contact:household:create!" delimiter="#" version="2023-06-07  17-59">
+        <data id="contact:household:create" prefix="J1!contact:household:create!" delimiter="#" version="2023-06-22  16-07">
           <inputs>
             <meta>
               <location>
@@ -502,7 +496,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
             <type>contact</type>
             <contact_type>household</contact_type>
             <contact_name/>
-            <notes/>
             <gender/>
             <dob_known>no</dob_known>
             <dob_calendar/>
@@ -565,11 +558,10 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/contact/type" type="string"/>
       <bind nodeset="/data/contact/contact_type" type="string"/>
       <bind nodeset="/data/contact/contact_name" type="string" required="true()"/>
-      <bind nodeset="/data/contact/notes" type="string"/>
       <bind nodeset="/data/contact/gender" type="select1" required="true()"/>
       <bind nodeset="/data/contact/dob_known" type="select1" required="true()"/>
-      <bind nodeset="/data/contact/dob_calendar" type="date" required="true()" jr:constraintMsg="Age must be between 10 and 100" relevant="../dob_known = 'yes'" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
-      <bind nodeset="/data/contact/age" type="int" required="true()" jr:constraintMsg="Age must be between 10 and 100" relevant="../dob_known = 'no'" constraint=". &gt;= 10 and . &lt;= 100"/>
+      <bind nodeset="/data/contact/dob_calendar" type="date" relevant="../dob_known = 'yes'" jr:constraintMsg="Date of birth cannot be a future date" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" required="true()"/>
+      <bind nodeset="/data/contact/age" type="int" relevant="../dob_known = 'no'" jr:constraintMsg="Age must be between 10 and 100" constraint=". &gt;= 10 and . &lt;= 100" required="true()"/>
       <bind nodeset="/data/contact/dob_raw" type="string" calculate="if(../dob_known = 'yes', ../dob_calendar, format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
       <bind nodeset="/data/contact/contact_dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
       <bind nodeset="/data/contact/date_of_birth" type="string" calculate=" /data/contact/contact_dob_iso "/>
@@ -583,7 +575,7 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/household/name" type="string" calculate=" /data/contact/contact_name "/>
       <bind nodeset="/data/household/geopoint" type="geopoint"/>
       <bind nodeset="/data/repeat-guard/other_household_members" type="select1" required="true()"/>
-      <bind nodeset="/data/repeat-guard/child" type="select1" required="true()" relevant=" /data/repeat-guard/other_household_members  = 'yes'"/>
+      <bind nodeset="/data/repeat-guard/child" type="select1" relevant=" /data/repeat-guard/other_household_members  = 'yes'" required="true()"/>
       <bind nodeset="/data/repeat-guard/n_registration" readonly="true()" type="string" relevant="../child = 'true'"/>
       <bind nodeset="/data/repeat" relevant="/data/repeat-guard/child = 'true'"/>
       <bind nodeset="/data/repeat/child/delimiter" readonly="true()" type="string"/>
@@ -596,9 +588,9 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/repeat/child/sex" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/repeat/child/age_set" type="select1" required="true()"/>
-      <bind nodeset="/data/repeat/child/dob_known" type="select1" required="true()" relevant="../age_set = 'over5'"/>
-      <bind nodeset="/data/repeat/child/dob_calendar" type="date" required="true()" jr:constraintMsg="Age must be between 0 and 100" relevant="../age_set = 'under5' or ../dob_known = 'yes'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
-      <bind nodeset="/data/repeat/child/age_years" type="int" required="true()" jr:constraintMsg="Age must be between 0 and 100" relevant="../age_set = 'over5' and ../dob_known = 'no'" constraint=". &gt;= 0 and . &lt;=100"/>
+      <bind nodeset="/data/repeat/child/dob_known" type="select1" relevant="../age_set = 'over5'" required="true()"/>
+      <bind nodeset="/data/repeat/child/dob_calendar" type="date" relevant="../age_set = 'under5' or ../dob_known = 'yes'" jr:constraintMsg="Age must be between 0 and 100" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" required="true()"/>
+      <bind nodeset="/data/repeat/child/age_years" type="int" relevant="../age_set = 'over5' and ../dob_known = 'no'" jr:constraintMsg="Age must be between 0 and 100" constraint=". &gt;= 0 and . &lt;=100" required="true()"/>
       <bind nodeset="/data/repeat/child/age_months" type="string" calculate="0"/>
       <bind nodeset="/data/repeat/child/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
       <bind nodeset="/data/repeat/child/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
@@ -608,10 +600,10 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/repeat/child/person_age_years" type="string" calculate="floor( difference-in-months( ../dob_iso, today() ) div 12 )"/>
       <bind nodeset="/data/repeat/child/person_age_months" type="string" calculate="floor(difference-in-months( ../dob_iso, today() ))"/>
       <bind nodeset="/data/repeat/child/n_age" readonly="true()" type="string" relevant="false()"/>
-      <bind nodeset="/data/repeat/child/phone" type="tel" constraint="1" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
-      <bind nodeset="/data/repeat/child/secondary_phone" type="tel" constraint="1" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
+      <bind nodeset="/data/repeat/child/phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" constraint="1" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
+      <bind nodeset="/data/repeat/child/secondary_phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" constraint="1" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
       <bind nodeset="/data/repeat/child/relationship_to_primary_caregiver" type="select1" required="true()"/>
-      <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" required="true()" relevant="../relationship_to_primary_caregiver = 'other'"/>
+      <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" relevant="../relationship_to_primary_caregiver = 'other'" required="true()"/>
       <bind nodeset="/data/repeat/child/n_screening" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat/note" readonly="true()" type="string"/>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -630,9 +622,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <input ref="/data/contact/contact_name">
         <label ref="jr:itext('/data/contact/contact_name:label')"/>
         <hint ref="jr:itext('/data/contact/contact_name:hint')"/>
-      </input>
-      <input ref="/data/contact/notes">
-        <label ref="jr:itext('/data/contact/notes:label')"/>
       </input>
       <select1 appearance="horizontal" ref="/data/contact/gender">
         <label ref="jr:itext('/data/contact/gender:label')"/>

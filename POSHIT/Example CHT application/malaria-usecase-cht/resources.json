@@ -7,5 +7,10 @@
   "community-health-volunteer": "community-health-volunteer.svg",
   "household": "household.svg",
   "household-member": "household-member.svg",
-  "child-under-5": "child-under-5.svg"
+  "member-follow-up": "member-follow-up.svg",
+  "icon-death-general": "icon-death-general.png",
+  "unmute": "icon-messages-on@2x.png",
+  "child-under-5": "child-under-5.svg",
+  "death-report": "death-report.svg",
+  "mute": "mute.svg"
 }

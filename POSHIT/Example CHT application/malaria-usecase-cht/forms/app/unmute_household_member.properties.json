@@ -1,0 +1,14 @@
+{
+    "title":  [
+        {
+            "locale":  "en",
+            "content":  "Unmute Household Member"
+        }
+    ],
+    "icon": "unmute",
+    "context": {
+        "person": true,
+        "place": false,
+        "expression":  "!contact.date_of_death && contact.muted && contact.contact_type  === 'household_member'"
+    }
+}

@@ -8,5 +8,9 @@ module.exports = {
   childAssessment: {
     provisionRDT: [[...Array(10).fill('no'), 'yes', 'yes']],
     followUp: [['yes'], ['improving']]
+  },
+  memberAssessmentTask: {
+    followUp: [['yes'], ['yes', 'yes', 'no', 'improving']],
+    followUpRepeat: (amendmentDate) => [['no', amendmentDate]]
   }
 };

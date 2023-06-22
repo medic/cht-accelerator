@@ -62,4 +62,17 @@ module.exports = {
       treatedNetHealthy: [[...Array(2).fill('yes'), ...Array(11).fill('no') ]],
       showSymptoms: [[...Array(2).fill('no'), ...Array(9).fill('no'), 'yes' ]],
     },
+    memberAssessment: {
+        showSymptoms: [['yes', 'yes', 'fever', 'no', 2, 'no', 'worsening', 'yes']]
+    },
+    unMuteHouseholdMemberScenarios: {
+      withReason: [
+        ['came_back']
+      ],
+    },
+    muteHouseholdScenarios: {
+      withReason: [
+       ['household_refused_chv_services']
+      ],
+    }
 }

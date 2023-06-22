@@ -293,9 +293,9 @@
       <bind nodeset="/data/household_member/sex" type="select1" required="true()"/>
       <bind nodeset="/data/household_member/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/household_member/age_set" type="select1" required="true()"/>
-      <bind nodeset="/data/household_member/dob_known" type="select1" required="true()" relevant="../age_set = 'over5'"/>
-      <bind nodeset="/data/household_member/dob_calendar" type="date" jr:constraintMsg="Age must be between 0 and 100" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" required="true()" relevant="../age_set = 'under5' or ../dob_known = 'yes'"/>
-      <bind nodeset="/data/household_member/age_years" type="int" jr:constraintMsg="Age must be between 0 and 100" constraint=". &gt;= 0 and . &lt;=100" required="true()" relevant="../age_set = 'over5' and ../dob_known = 'no'"/>
+      <bind nodeset="/data/household_member/dob_known" type="select1" relevant="../age_set = 'over5'" required="true()"/>
+      <bind nodeset="/data/household_member/dob_calendar" type="date" jr:constraintMsg="Age must be between 0 and 100" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" relevant="../age_set = 'under5' or ../dob_known = 'yes'" required="true()"/>
+      <bind nodeset="/data/household_member/age_years" type="int" jr:constraintMsg="Age must be between 0 and 100" constraint=". &gt;= 0 and . &lt;=100" relevant="../age_set = 'over5' and ../dob_known = 'no'" required="true()"/>
       <bind nodeset="/data/household_member/age_months" type="string" calculate="0"/>
       <bind nodeset="/data/household_member/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
       <bind nodeset="/data/household_member/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
@@ -308,7 +308,7 @@
       <bind nodeset="/data/household_member/phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10"/>
       <bind nodeset="/data/household_member/secondary_phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10"/>
       <bind nodeset="/data/household_member/relationship_to_primary_caregiver" type="select1" required="true()"/>
-      <bind nodeset="/data/household_member/relationship_to_pc_other" type="string" required="true()" relevant="../relationship_to_primary_caregiver = 'other'"/>
+      <bind nodeset="/data/household_member/relationship_to_pc_other" type="string" relevant="../relationship_to_primary_caregiver = 'other'" required="true()"/>
       <bind nodeset="/data/household_member/n_screening" readonly="true()" type="string"/>
       <bind nodeset="/data/household_member/meta/created_by" type="string"/>
       <bind nodeset="/data/household_member/meta/created_by_person_uuid" type="string"/>

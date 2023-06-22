@@ -106,7 +106,9 @@
     "can_aggregate_targets": ["chw_supervisor"],
     "can_upgrade": ["program_officer"],
     "can_view_old_filter_and_search": [],
-    "can_view_old_action_bar": []
+    "can_view_old_action_bar": [],
+    "can_create_supervisor": [],
+    "can_create_chv": ["chw_supervisor"]
   },
   "contact_types": [
     {
@@ -202,12 +204,17 @@
     }
   ],
   "transitions": {
-    "death_reporting": true
+    "death_reporting": true,
+    "muting": true
   },
   "death_reporting": {
     "mark_deceased_forms": [
       "death_report"
     ],
     "date_field": "fields.patient_death_details.date_of_death"
+  },
+  "muting": {
+    "mute_forms": ["mute_person", "mute_household_member"],
+    "unmute_forms": ["unmute_person", "unmute_household_member"]
   }
 }

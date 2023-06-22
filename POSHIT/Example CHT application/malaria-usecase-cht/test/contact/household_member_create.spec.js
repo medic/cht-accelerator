@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const TestRunner = require('cht-conf-test-harness');
 const { householdMember } = require('../form-inputs');
-const { CONTACT_TYPES } = require('../../shared-extras')
+const { CONTACT_TYPES } = require('../../shared-extras');
 const harness = new TestRunner();
 describe('Household Member registration form', () => {
   before(() => harness.start());
