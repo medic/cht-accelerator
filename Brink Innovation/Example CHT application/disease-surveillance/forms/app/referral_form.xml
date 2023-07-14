@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Referral Asessment Form</h:title>
+    <model>
+      <instance>
+        <referral_form id="referral_form" prefix="J1!referral_form!" delimiter="#" version="1">
+          <start/>
+          <end/>
+          <today/>
+          <Section_A>
+            <patient_name/>
+            <patient_age/>
+            <sex/>
+            <patient_telephone/>
+            <patient_community/>
+          </Section_A>
+          <Section_B>
+            <chp_name/>
+            <chp_telephone/>
+            <chp_area/>
+          </Section_B>
+          <Section_C>
+            <referral_facility/>
+            <referral_reason/>
+            <symptoms/>
+            <action_taken/>
+            <doctor_notes/>
+          </Section_C>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </referral_form>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/referral_form/start" jr:preload="timestamp" type="dateTime" jr:preloadParams="start"/>
+      <bind nodeset="/referral_form/end" jr:preload="timestamp" type="dateTime" jr:preloadParams="end"/>
+      <bind nodeset="/referral_form/today" jr:preload="date" type="date" jr:preloadParams="today" required="true()"/>
+      <bind nodeset="/referral_form/Section_A" required="true()"/>
+      <bind nodeset="/referral_form/Section_A/patient_name" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_A/patient_age" type="int" constraint=".&gt;0 and.&lt;130" required="true()" jr:constraintMsg="age must be more than 0 and less than 130"/>
+      <bind nodeset="/referral_form/Section_A/sex" type="select1" required="true()"/>
+      <bind nodeset="/referral_form/Section_A/patient_telephone" type="string" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required"/>
+      <bind nodeset="/referral_form/Section_A/patient_community" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_B" required="true()"/>
+      <bind nodeset="/referral_form/Section_B/chp_name" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_B/chp_telephone" type="string" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required"/>
+      <bind nodeset="/referral_form/Section_B/chp_area" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_C" required="true()"/>
+      <bind nodeset="/referral_form/Section_C/referral_facility" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_C/referral_reason" type="select1" required="true()"/>
+      <bind nodeset="/referral_form/Section_C/symptoms" type="select" relevant=" /referral_form/Section_C/referral_reason ='case'" required="true()"/>
+      <bind nodeset="/referral_form/Section_C/action_taken" type="string" required="true()"/>
+      <bind nodeset="/referral_form/Section_C/doctor_notes" type="string"/>
+      <bind nodeset="/referral_form/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/referral_form/Section_A">
+      <label>PATIENT DETAILS</label>
+      <input ref="/referral_form/Section_A/patient_name">
+        <label>Name of Patient:</label>
+      </input>
+      <input ref="/referral_form/Section_A/patient_age">
+        <label>Age of Patient:</label>
+        <hint>Age in years</hint>
+      </input>
+      <select1 ref="/referral_form/Section_A/sex">
+        <label>Sex of Patient:</label>
+        <item>
+          <label>Male</label>
+          <value>male</value>
+        </item>
+        <item>
+          <label>Female</label>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="numbers" ref="/referral_form/Section_A/patient_telephone">
+        <label>Patients Phone number?</label>
+        <hint>Use one of the following formats +2547XX XXX XXX or 07XX XXX XXX</hint>
+      </input>
+      <input ref="/referral_form/Section_A/patient_community">
+        <label>Which Community does the patient belong to?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/referral_form/Section_B">
+      <label>CHP DETAILS</label>
+      <input ref="/referral_form/Section_B/chp_name">
+        <label>Name of CHP?</label>
+      </input>
+      <input appearance="numbers" ref="/referral_form/Section_B/chp_telephone">
+        <label>Phone number of CHP:</label>
+        <hint>Use one of the following formats +2547XX XXX XXX or 07XX XXX XXX</hint>
+      </input>
+      <input ref="/referral_form/Section_B/chp_area">
+        <label>Area of CHP:</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/referral_form/Section_C">
+      <label>ASSESSMENT DETAILS</label>
+      <input ref="/referral_form/Section_C/referral_facility">
+        <label>Which Facility is the patient being referred to?</label>
+      </input>
+      <select1 ref="/referral_form/Section_C/referral_reason">
+        <label>Reason for Referral?</label>
+        <item>
+          <label>Suspected Cholera Case</label>
+          <value>case</value>
+        </item>
+      </select1>
+      <select ref="/referral_form/Section_C/symptoms">
+        <label>What symptoms does the patient have?</label>
+        <hint>Select all symptoms exhibited by the patient</hint>
+        <item>
+          <label>Diarrhoea</label>
+          <value>A</value>
+        </item>
+        <item>
+          <label>Vomiting</label>
+          <value>B</value>
+        </item>
+        <item>
+          <label>Abdominal Pain</label>
+          <value>C</value>
+        </item>
+        <item>
+          <label>Nausea</label>
+          <value>D</value>
+        </item>
+        <item>
+          <label>Dehydration</label>
+          <value>E</value>
+        </item>
+      </select>
+      <input ref="/referral_form/Section_C/action_taken">
+        <label>What action has been taken by the CHP?</label>
+      </input>
+      <input ref="/referral_form/Section_C/doctor_notes">
+        <label>Doctors notes:</label>
+        <hint>This field should only be filled by the Doctor at the facility</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>
