@@ -17,7 +17,7 @@ describe('Household Member Assessment Form', () => {
     // Verify that the form successfully got submitted
     expect(result.errors).to.be.empty;
     // Verify that refer to facility is positive
-    expect(result.report.fields.household_member_assessment).to.deep.include({
+    expect(result.report.fields.group_household_member_assessment).to.deep.include({
       refer_to_facility: memberAssessment.showSymptoms.flat()[0],
     });
   });

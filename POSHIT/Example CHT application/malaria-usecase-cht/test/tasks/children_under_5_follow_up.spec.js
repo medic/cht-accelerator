@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const TestHarness = require('cht-conf-test-harness');
-const { childAssessment } = require('./form-inputs');
+const { childAssessment } = require('../form-inputs');
 const { TASKS, FORMS } = require('../../shared-extras');
 
 const harness = new TestHarness();

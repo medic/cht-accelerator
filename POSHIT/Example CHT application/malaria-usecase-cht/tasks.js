@@ -7,8 +7,8 @@ const {
 
 module.exports = [
   {
+    icon: 'household-assessment-followup',
     name: 'household-assessment-followup',
-    icon: 'household',
     title: 'task.household_assessment_followup.title',
     appliesTo: 'reports',
     appliesToType: ['household_assessment'],

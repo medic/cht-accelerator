@@ -1,15 +1,8 @@
-
 {
-    "title":  [
-        {
-            "locale":  "en",
-            "content":  "Household Assessment"
-        }
-    ],
-    "icon": "household",
-    "context": {
-        "person": false,
-        "place": true,
-        "expression":  "!contact.muted && contact.contact_type  === 'household'"
-    }
+  "icon": "household-assessment",
+  "context": {
+    "place": true,
+    "person": false,
+    "expression": "!summary.muted"
+  }
 }

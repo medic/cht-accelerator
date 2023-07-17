@@ -80,6 +80,9 @@
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/loss_of_appetite:label">
             <value>Loss of appetite</value>
           </text>
+          <text id="/household_member_assessment/group_household_member_assessment/symptoms/none:label">
+            <value>none</value>
+          </text>
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/vomiting:label">
             <value>Vomiting</value>
           </text>
@@ -268,6 +271,9 @@
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/loss_of_appetite:label">
             <value>-</value>
           </text>
+          <text id="/household_member_assessment/group_household_member_assessment/symptoms/none:label">
+            <value>-</value>
+          </text>
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/vomiting:label">
             <value>-</value>
           </text>
@@ -323,6 +329,9 @@
             <value>hidden</value>
           </text>
           <text id="/household_member_assessment/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/household_member_assessment/has_malaria_symptoms:label">
             <value>-</value>
           </text>
           <text id="/household_member_assessment/household_id:label">
@@ -495,6 +504,9 @@
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/loss_of_appetite:label">
             <value>-</value>
           </text>
+          <text id="/household_member_assessment/group_household_member_assessment/symptoms/none:label">
+            <value>-</value>
+          </text>
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/vomiting:label">
             <value>-</value>
           </text>
@@ -547,6 +559,9 @@
             <value>-</value>
           </text>
           <text id="/household_member_assessment/group_review:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/household_member_assessment/has_malaria_symptoms:label">
             <value>-</value>
           </text>
           <text id="/household_member_assessment/household_id:label">
@@ -639,7 +654,7 @@
         </translation>
       </itext>
       <instance>
-        <household_member_assessment id="household_member_assessment" prefix="J1!household_member_assessment!" delimiter="#" version="2023-06-20 09:53:38">
+        <household_member_assessment id="household_member_assessment" prefix="J1!household_member_assessment!" delimiter="#" version="2023-07-13 17:46:12">
           <inputs>
             <meta>
               <location>
@@ -686,6 +701,7 @@
           <patient_id tag="hidden"/>
           <patient_name tag="hidden"/>
           <referral_follow_up_date tag="hidden"/>
+          <has_malaria_symptoms tag="hidden"/>
           <group_household_member_assessment>
             <sleeping_under_net/>
             <recommend_sleeping_under_net/>
@@ -743,16 +759,17 @@
       <bind nodeset="/household_member_assessment/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
       <bind nodeset="/household_member_assessment/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/household_member_assessment/referral_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
+      <bind nodeset="/household_member_assessment/has_malaria_symptoms" type="string" calculate="../group_household_member_assessment/symptoms != 'none' or ../group_household_member_assessment/other_symptoms = 'yes'"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/sleeping_under_net" type="select1" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/recommend_sleeping_under_net" readonly="true()" type="string" relevant="selected( /household_member_assessment/group_household_member_assessment/sleeping_under_net , 'no')"/>
-      <bind nodeset="/household_member_assessment/group_household_member_assessment/nets_treated" type="select1" required="true()" relevant="selected( /household_member_assessment/group_household_member_assessment/sleeping_under_net , 'yes')"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/nets_treated" type="select1" relevant="selected( /household_member_assessment/group_household_member_assessment/sleeping_under_net , 'yes')" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /household_member_assessment/group_household_member_assessment/nets_treated , 'no')"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/symptoms" type="select" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/other_symptoms" type="select1"/>
-      <bind nodeset="/household_member_assessment/group_household_member_assessment/specify_other" type="string" required="true()" relevant="selected( /household_member_assessment/group_household_member_assessment/other_symptoms ,'yes')"/>
-      <bind nodeset="/household_member_assessment/group_household_member_assessment/period" type="int" required="true()" relevant="selected( /household_member_assessment/group_household_member_assessment/symptoms ,'fever') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'vomiting') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'diarrhoea') or selected( /household_member_assessment/group_household_member_assessment/symptoms , 'fatigue') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'loss_of_appetite') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'blood_in_stool')"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/specify_other" type="string" relevant="selected( /household_member_assessment/group_household_member_assessment/other_symptoms ,'yes')" required="true()"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/period" type="int" relevant="selected( /household_member_assessment/group_household_member_assessment/symptoms ,'fever') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'vomiting') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'diarrhoea') or selected( /household_member_assessment/group_household_member_assessment/symptoms , 'fatigue') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'loss_of_appetite') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'blood_in_stool')" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/treatment" type="select1" required="true()"/>
-      <bind nodeset="/household_member_assessment/group_household_member_assessment/medication_period" type="int" required="true()" relevant="selected( /household_member_assessment/group_household_member_assessment/treatment ,'yes')"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/medication_period" type="int" relevant="selected( /household_member_assessment/group_household_member_assessment/treatment ,'yes')" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/condition" type="select1" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/refer_to_facility" type="select1" required="true()"/>
       <bind nodeset="/household_member_assessment/group_review" jr:constraintMsg="jr:itext('/household_member_assessment/group_review:jr:constraintMsg')"/>
@@ -854,6 +871,10 @@
         <item>
           <label ref="jr:itext('/household_member_assessment/group_household_member_assessment/symptoms/blood_in_stool:label')"/>
           <value>blood_in_stool</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_member_assessment/group_household_member_assessment/symptoms/none:label')"/>
+          <value>none</value>
         </item>
       </select>
       <select1 ref="/household_member_assessment/group_household_member_assessment/other_symptoms">

@@ -5,9 +5,6 @@
     <model>
       <itext>
         <translation lang="en">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>No, I want to name it manually</value>
           </text>
@@ -29,12 +26,6 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>Notes</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/contact_type:hint">
             <value>-</value>
           </text>
@@ -44,17 +35,11 @@
           <text id="/data/contact/notes:label">
             <value>Notes</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/phone:label">
             <value>Phone Number</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
             <value>Alternate Phone Number</value>
-          </text>
-          <text id="/data/contact/type:hint">
-            <value>-</value>
           </text>
           <text id="/data/contact:label">
             <value>New Person</value>
@@ -106,12 +91,6 @@
           </text>
         </translation>
         <translation lang="fr">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/contact_type:label">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Non, je veux nommer ça manuellement</value>
           </text>
@@ -136,13 +115,7 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/parent:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
             <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/type:label">
@@ -166,9 +139,6 @@
           <text id="/data/contact/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
           </text>
@@ -176,9 +146,6 @@
             <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>-</value>
-          </text>
-          <text id="/data/contact/type:hint">
             <value>-</value>
           </text>
           <text id="/data/contact/type:label">
@@ -258,12 +225,6 @@
           </text>
         </translation>
         <translation lang="hi">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/contact_type:label">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>नहीं, मैं इसे मैन्युअल रूप से नाम देना चाहता हूं</value>
           </text>
@@ -288,13 +249,7 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/parent:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
             <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/type:label">
@@ -318,9 +273,6 @@
           <text id="/data/contact/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
           </text>
@@ -328,9 +280,6 @@
             <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>-</value>
-          </text>
-          <text id="/data/contact/type:hint">
             <value>-</value>
           </text>
           <text id="/data/contact/type:label">
@@ -410,12 +359,6 @@
           </text>
         </translation>
         <translation lang="id">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>area_supervisor_region</value>
-          </text>
-          <text id="/data/area_supervisor_region/contact_type:label">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Tidak, saya ingin nama itu secara manual</value>
           </text>
@@ -440,14 +383,8 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>PARENT</value>
-          </text>
           <text id="/data/area_supervisor_region/parent:label">
             <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
-            <value>contact</value>
           </text>
           <text id="/data/area_supervisor_region/type:label">
             <value>-</value>
@@ -470,9 +407,6 @@
           <text id="/data/contact/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>PARENT</value>
-          </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
           </text>
@@ -481,9 +415,6 @@
           </text>
           <text id="/data/contact/phone_alternate:label">
             <value>-</value>
-          </text>
-          <text id="/data/contact/type:hint">
-            <value>contact</value>
           </text>
           <text id="/data/contact/type:label">
             <value>-</value>
@@ -562,12 +493,6 @@
           </text>
         </translation>
         <translation lang="ne">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/contact_type:label">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>होइन, म आफैँ नाम दिन चाहन्छु</value>
           </text>
@@ -592,13 +517,7 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/parent:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
             <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/type:label">
@@ -622,9 +541,6 @@
           <text id="/data/contact/notes:label">
             <value>-</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
           </text>
@@ -632,9 +548,6 @@
             <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>-</value>
-          </text>
-          <text id="/data/contact/type:hint">
             <value>-</value>
           </text>
           <text id="/data/contact/type:label">
@@ -714,9 +627,6 @@
           </text>
         </translation>
         <translation lang="sw">
-          <text id="/data/area_supervisor_region/contact_type:hint">
-            <value>-</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Hapana, ningependa kuijaza mwenyewe</value>
           </text>
@@ -738,12 +648,6 @@
           <text id="/data/area_supervisor_region/notes:label">
             <value>Maelezo</value>
           </text>
-          <text id="/data/area_supervisor_region/parent:hint">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/type:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/contact_type:hint">
             <value>-</value>
           </text>
@@ -756,17 +660,11 @@
           <text id="/data/contact/notes:label">
             <value>Maelezo</value>
           </text>
-          <text id="/data/contact/parent:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/phone:label">
             <value>Namba ya Simi</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
             <value>Namba Ya</value>
-          </text>
-          <text id="/data/contact/type:hint">
-            <value>-</value>
           </text>
           <text id="/data/contact:label">
             <value>Mtu Mpya</value>
@@ -819,7 +717,7 @@
         </translation>
       </itext>
       <instance>
-        <data id="contact:area_supervisor_region:create" prefix="J1!contact:area_supervisor_region:create!" delimiter="#" version="2023-06-22  16-52">
+        <data id="contact:area_supervisor_region:create" prefix="J1!contact:area_supervisor_region:create!" delimiter="#" version="2023-05-26  6-15">
           <inputs>
             <meta>
               <location>
@@ -838,7 +736,6 @@
           <area_supervisor_region>
             <parent>PARENT</parent>
             <type/>
-            <contact_type>area_community_health_supervisor</contact_type>
             <is_name_generated>true</is_name_generated>
             <manual_name/>
             <name/>
@@ -907,7 +804,6 @@
       <bind nodeset="/data/contact/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
       <bind nodeset="/data/area_supervisor_region/parent" type="string"/>
       <bind nodeset="/data/area_supervisor_region/type" type="string"/>
-      <bind nodeset="/data/area_supervisor_region/contact_type" type="string"/>
       <bind nodeset="/data/area_supervisor_region/is_name_generated" type="select1" relevant="not(selected( /data/init/create_new_person ,'none'))" required="true()"/>
       <bind nodeset="/data/area_supervisor_region/manual_name" type="string" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated ,'false')" required="true()"/>
       <bind nodeset="/data/area_supervisor_region/name" type="string" required="true()" calculate="if( ( selected( /data/area_supervisor_region/is_name_generated , 'true') or selected( /data/area_supervisor_region/is_name_generated , 'yes') ),  /data/init/generated_name_translation ,  /data/init/custom_place_name )"/>

@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Pregnancy Registration</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:jr:constraintMsg">
+            <value>Must be between today and 9 months from now</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:label">
+            <value>What is <output value=" /pregnancy_registration/patient_name "/> estimated delivery date (EDD)?</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33:label">
+            <value>Encourage <output value=" /pregnancy_registration/patient_name "/> to have at least one ANC visit in a health facility that offers laboratory tests for monitoring of her and baby</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35:label">
+            <value>Refer <output value=" /pregnancy_registration/patient_name "/> to the health facility immediately for pregnancy confirmation and start of ANC clinics in order to ensure that she and her baby are healthy</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/no:label">
+            <value>No</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now:label">
+            <value>Is <output value=" /pregnancy_registration/patient_name "/> expectant now?</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/no:label">
+            <value>No</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed:label">
+            <value>Has <output value=" /pregnancy_registration/patient_name "/> had the pregnancy confirmed?</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:jr:constraintMsg">
+            <value>Must be between 0 and 20</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:label">
+            <value>How many antenatal care visits has <output value=" /pregnancy_registration/patient_name "/> done so far during this pregnancy?</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/check-:label">
+            <value>&lt;b&gt;Follow-up Tasks&lt;/b&gt;&lt;I class="fa fa-flag"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_estimated_delivery_date:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/>'s approximate delivery date is: &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date "/>&lt;/span&gt;&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_following_tasks:label">
+            <value>The following tasks will appear:</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_is_expectant_now:label">
+            <value>&lt;p&gt;Is <output value=" /pregnancy_registration/patient_name "/> expectant now? &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now "/>&lt;/span&gt;&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_is_pregnancy_confirmed:label">
+            <value>&lt;p&gt;Has <output value=" /pregnancy_registration/patient_name "/> had the pregnancy confirmed? &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed "/>&lt;/span&gt;&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Findings&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /pregnancy_registration/patient_name "/>
+<output value=" /pregnancy_registration/group_review/r_member_age "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_no_of_antenatal_visits:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> has done &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits "/>&lt;/span&gt; so far.&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_pregnancy_confirmation_referal:label">
+            <value>Please conduct a pregnancy confirmation follow up in 3 days</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_pregnancy_monthly_follow_up:label">
+            <value>Please conduct monthly pregnancy follow up until <output value=" /pregnancy_registration/patient_name "/> delivers.</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_antenatal_visit:label">
+            <value>Antenatal Visit</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_clinic_immediately:label">
+            <value>Refer to clinic immediately for:</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_pregnancy_confirmation:label">
+            <value>To have have her pregnancy confirmed.</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_summary_details:label">
+            <value>Household Member Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/referrals:label">
+            <value>&lt;b&gt;Referrals&lt;/b&gt;&lt;I class="fa fa-hospital-o"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:jr:constraintMsg">
+            <value>Tarehe lazime iwe kati ya leo na miezi tisa kuanzia leo</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/yes:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta/household_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta/source:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:jr:constraintMsg">
+            <value>Lazima iwe kati ya 0 na 20</value>
+          </text>
+          <text id="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/check-:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_estimated_delivery_date:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> anatarajiwa kujifungua tarehe: <output value=" /pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date "/>&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_following_tasks:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_is_expectant_now:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> ana uja uzito? <output value=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now "/>&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_is_pregnancy_confirmed:label">
+            <value>&lt;p&gt;Uja uzito wa <output value=" /pregnancy_registration/patient_name "/> umedhihirishwa? <output value=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed "/>&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Matokeo&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_member_age:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /pregnancy_registration/patient_name "/>
+<output value=" /pregnancy_registration/group_review/r_member_age "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_no_of_antenatal_visits:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> ametembelea kliniki mara <output value=" /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits "/> hadi sasa.&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_pregnancy_confirmation_referal:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_pregnancy_monthly_follow_up:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_antenatal_visit:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_clinic_immediately:label">
+            <value>Rejea kliniki mara moja kwa:</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_refer_pregnancy_confirmation:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/r_summary_details:label">
+            <value>Maelezo ya Mwanakaya&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/referrals:label">
+            <value>Rufaa&lt;I class="fa fa-hospital-o"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;Ili kumaliza, hakikisha kuwa umebofya kitufe cha Wasilisha.&lt;/h4&gt;</value>
+          </text>
+          <text id="/pregnancy_registration/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/_id:label">
+            <value>Jina la mgonjwa ni nani?</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/date_of_birth:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/_id:label">
+            <value>Kitambulisho cha Kaya</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact/name:label">
+            <value>Jina la CHW</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact/phone:label">
+            <value>Simu ya CHW</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/patient_id:label">
+            <value>Kitambulisho cha Mgonjwa</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact/sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/pregnancy_registration/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <pregnancy_registration id="pregnancy_registration" prefix="J1!pregnancy_registration!" delimiter="#" version="2023-07-05 12:19:34">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden">0</patient_age_in_years>
+          <patient_age_in_months tag="hidden">0</patient_age_in_months>
+          <patient_age_in_days tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <pregnancy_confirmation_date/>
+          <pregnancy_follow_up_date/>
+          <group_pregnancy_registration_form>
+            <is_expectant_now/>
+            <is_pregnancy_confirmed/>
+            <generated_note_name_33/>
+            <no_of_antenatal_visits/>
+            <generated_note_name_35/>
+            <estimated_delivery_date/>
+            <meta tag="hidden">
+              <patient_uuid/>
+              <patient_id/>
+              <household_uuid/>
+              <source/>
+              <source_id/>
+            </meta>
+          </group_pregnancy_registration_form>
+          <group_review tag="hidden">
+            <submit/>
+            <r_summary_details/>
+            <r_member_age/>
+            <r_member_details/>
+            <r_key_instruction/>
+            <r_is_expectant_now/>
+            <r_is_pregnancy_confirmed/>
+            <r_no_of_antenatal_visits/>
+            <r_estimated_delivery_date/>
+            <referrals/>
+            <r_refer_clinic_immediately/>
+            <r_refer_pregnancy_confirmation/>
+            <r_refer_antenatal_visit/>
+            <check-/>
+            <r_following_tasks/>
+            <r_pregnancy_confirmation_referal/>
+            <r_pregnancy_monthly_follow_up/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </pregnancy_registration>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/pregnancy_registration/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/pregnancy_registration/inputs/source" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/source_id" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/name" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/sex" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/pregnancy_registration/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/pregnancy_registration/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /pregnancy_registration/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/pregnancy_registration/patient_age_in_months" type="string" calculate="difference-in-months(  /pregnancy_registration/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/pregnancy_registration/patient_age_in_days" type="string" calculate="floor(decimal-date-time(today()) - decimal-date-time( /pregnancy_registration/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/pregnancy_registration/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/pregnancy_registration/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/pregnancy_registration/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/pregnancy_registration/pregnancy_confirmation_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
+      <bind nodeset="/pregnancy_registration/pregnancy_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 30)"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed" type="select1" required="true()" relevant="selected(../is_expectant_now, 'yes')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33" readonly="true()" type="string" relevant="selected(../is_pregnancy_confirmed, 'no') and selected(../is_expectant_now, 'yes')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits" type="int" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:jr:constraintMsg')" relevant="selected(../is_expectant_now, 'yes')" constraint=".&gt;= 0 and . &lt;= 20"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35" readonly="true()" type="string" relevant="selected(../is_expectant_now, 'yes')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date" type="date" relevant="selected(../is_expectant_now, 'yes')" constraint=". &gt;= today() and . &lt;= today() + 270" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:jr:constraintMsg')" required="true()"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/pregnancy_registration/group_review/submit" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_summary_details" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_member_age" type="string" calculate="if(../../patient_age_in_days &lt; 31, 
+concat(../../patient_age_in_days, ' days old'),
+if(../../patient_age_in_months &lt; 12, 
+concat(../../patient_age_in_months, ' months old'), 
+concat(../../patient_age_in_years, ' years old')))"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_member_details" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_key_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_is_expectant_now" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_is_pregnancy_confirmed" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_no_of_antenatal_visits" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_estimated_delivery_date" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration/group_review/referrals" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now  = 'yes' and ( /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed  = 'no' or  /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits  &lt; 1)"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_refer_clinic_immediately" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed  = 'no'"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_refer_pregnancy_confirmation" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed  = 'no'"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_refer_antenatal_visit" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits  &lt; 1"/>
+      <bind nodeset="/pregnancy_registration/group_review/check-" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_following_tasks" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_pregnancy_confirmation_referal" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed  = 'no'"/>
+      <bind nodeset="/pregnancy_registration/group_review/r_pregnancy_monthly_follow_up" readonly="true()" type="string" relevant=" /pregnancy_registration/group_pregnancy_registration_form/is_expectant_now  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/pregnancy_registration/inputs">
+      <group ref="/pregnancy_registration/inputs/contact">
+        <label ref="jr:itext('/pregnancy_registration/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/pregnancy_registration/inputs/contact/_id">
+          <label ref="jr:itext('/pregnancy_registration/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/pregnancy_registration/inputs/contact/parent">
+          <group ref="/pregnancy_registration/inputs/contact/parent/parent">
+            <group ref="/pregnancy_registration/inputs/contact/parent/parent/contact">
+              <label ref="jr:itext('/pregnancy_registration/inputs/contact/parent/parent/contact:label')"/>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/pregnancy_registration/group_pregnancy_registration_form">
+      <select1 ref="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now:label')"/>
+        <item>
+          <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed:label')"/>
+        <item>
+          <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date">
+        <label ref="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:label')"/>
+      </input>
+      <group appearance="hidden" ref="/pregnancy_registration/group_pregnancy_registration_form/meta"/>
+    </group>
+    <group appearance="field-list summary" ref="/pregnancy_registration/group_review">
+      <input ref="/pregnancy_registration/group_review/submit">
+        <label ref="jr:itext('/pregnancy_registration/group_review/submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/pregnancy_registration/group_review/r_summary_details">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_summary_details:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_member_details">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_member_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/pregnancy_registration/group_review/r_key_instruction">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_key_instruction:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_is_expectant_now">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_is_expectant_now:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_is_pregnancy_confirmed">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_is_pregnancy_confirmed:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_no_of_antenatal_visits">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_no_of_antenatal_visits:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_estimated_delivery_date">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_estimated_delivery_date:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/pregnancy_registration/group_review/referrals">
+        <label ref="jr:itext('/pregnancy_registration/group_review/referrals:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_refer_clinic_immediately">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_refer_clinic_immediately:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_refer_pregnancy_confirmation">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_refer_pregnancy_confirmation:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_refer_antenatal_visit">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_refer_antenatal_visit:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/pregnancy_registration/group_review/check-">
+        <label ref="jr:itext('/pregnancy_registration/group_review/check-:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_following_tasks">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_following_tasks:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_pregnancy_confirmation_referal">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_pregnancy_confirmation_referal:label')"/>
+      </input>
+      <input ref="/pregnancy_registration/group_review/r_pregnancy_monthly_follow_up">
+        <label ref="jr:itext('/pregnancy_registration/group_review/r_pregnancy_monthly_follow_up:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

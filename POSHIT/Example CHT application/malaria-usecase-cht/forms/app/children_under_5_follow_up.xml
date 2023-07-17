@@ -145,6 +145,9 @@
           <text id="/children_under_5_follow_up/area_id:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label">
             <value>-</value>
           </text>
@@ -164,6 +167,9 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
@@ -327,6 +333,9 @@
           <text id="/children_under_5_follow_up/area_id:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label">
             <value>-</value>
           </text>
@@ -346,6 +355,9 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
@@ -504,7 +516,7 @@
         </translation>
       </itext>
       <instance>
-        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-06-19 12:47:44">
+        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-07-06 20:17:08">
           <inputs>
             <meta>
               <location>
@@ -550,6 +562,7 @@
           <patient_uuid tag="hidden"/>
           <patient_id tag="hidden"/>
           <patient_name tag="hidden"/>
+          <calculated_follow_up_date tag="hidden"/>
           <referral_follow_up_date tag="hidden"/>
           <follow_up_details>
             <availability/>
@@ -561,6 +574,7 @@
             <improvement_cured/>
             <improvement_worsening/>
             <referred_to_facility/>
+            <no_follow_up_required/>
           </children_under_5_follow_up>
           <group_review>
             <f_summary/>
@@ -606,7 +620,8 @@
       <bind nodeset="/children_under_5_follow_up/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/children_under_5_follow_up/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
       <bind nodeset="/children_under_5_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
-      <bind nodeset="/children_under_5_follow_up/referral_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
+      <bind nodeset="/children_under_5_follow_up/calculated_follow_up_date" type="string" calculate="if(../follow_up_details/follow_up_date != '', ../follow_up_details/follow_up_date, date-time(decimal-date-time(today()) + 3))"/>
+      <bind nodeset="/children_under_5_follow_up/referral_follow_up_date" type="string" calculate="if(../children_under_5_follow_up/no_follow_up_required = 'true', '',  /children_under_5_follow_up/calculated_follow_up_date  )"/>
       <bind nodeset="/children_under_5_follow_up/follow_up_details/availability" type="select1" required="true()"/>
       <bind nodeset="/children_under_5_follow_up/follow_up_details/follow_up_date" type="date" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'no')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
@@ -615,7 +630,8 @@
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')" required="true()"/>
-      <bind nodeset="/children_under_5_follow_up/group_review" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required" type="string" calculate="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving') or selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_summary" readonly="true()" type="string"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_action" readonly="true()" type="string"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_patient_details" readonly="true()" type="string"/>

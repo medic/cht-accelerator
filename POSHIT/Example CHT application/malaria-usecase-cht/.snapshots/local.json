@@ -1,0 +1,77 @@
+{
+  "form:children_under_5_follow_up": {
+    "localhost/medic": "MtqKdwnlnpnffaZd5tt8YA=="
+  },
+  "form:children_under_assessment": {
+    "localhost/medic": "Kj0YDovwDz0+4/HjVjSlLQ=="
+  },
+  "form:household_assessment": {
+    "localhost/medic": "GPqRG2BRYh/dG/2MI9eRRg=="
+  },
+  "resources": {
+    "localhost/medic": "w06a8nMtwvLDOw84+vm1Yw=="
+  },
+  "form:contact:area_community_health_supervisor:create": {
+    "localhost/medic": "mot9OwKSRXaY15LE1p8P1Q=="
+  },
+  "form:contact:area_community_health_supervisor:edit": {
+    "localhost/medic": "dPQ5MCNGx1luxnMvhpBeOQ=="
+  },
+  "form:contact:area_health_facility:create": {
+    "localhost/medic": "RUDoF4qdgYtTrSZke3N38Q=="
+  },
+  "form:contact:area_health_facility:edit": {
+    "localhost/medic": "v0KNcV/cF+SJ/lLBvyDkqg=="
+  },
+  "form:contact:area_health_facility_nurse:create": {
+    "localhost/medic": "lWgl3dqPqRkjzd+/7ZXzrg=="
+  },
+  "form:contact:area_health_facility_nurse:edit": {
+    "localhost/medic": "sDESjHGng5kHRdo5shXvmw=="
+  },
+  "form:contact:area_supervisor_region:create": {
+    "localhost/medic": "Sx1CupR1iyjXC5/DWZxWhQ=="
+  },
+  "form:contact:area_supervisor_region:edit": {
+    "localhost/medic": "8+pVOsE+sWzTEguIMenzeg=="
+  },
+  "form:contact:community_health_area:create": {
+    "localhost/medic": "NqMSY8srbv+CMix2xysTvQ=="
+  },
+  "form:contact:community_health_area:edit": {
+    "localhost/medic": "59JzKBEZ5R99QEbyCTsCAA=="
+  },
+  "form:contact:community_health_volunteer:create": {
+    "localhost/medic": "baXz+iddHS169ye1wKLXOQ=="
+  },
+  "form:contact:community_health_volunteer:edit": {
+    "localhost/medic": "VUmux+5OOMHT13BoZn71Ig=="
+  },
+  "form:contact:household:create": {
+    "localhost/medic": "amXPx8FZYpBm3pTmzt+ZoQ=="
+  },
+  "form:contact:household:edit": {
+    "localhost/medic": "nG6l1N/EQzN3fRBYuBM1nQ=="
+  },
+  "form:contact:household_member:create": {
+    "localhost/medic": "wh1XPHBcvrQv3p7HIjWeIw=="
+  },
+  "form:contact:household_member:edit": {
+    "localhost/medic": "6InGwk/Hb4L4woqG3ad3fA=="
+  },
+  "form:death_report": {
+    "localhost/medic": "KNFWB3Heqc5klufWdBDCiA=="
+  },
+  "form:household_member_assessment": {
+    "localhost/medic": "x+knKUUTa8y4Uv23K0MJhA=="
+  },
+  "form:household_member_follow_up": {
+    "localhost/medic": "MTLckiEd8Vw90wLqEz93rw=="
+  },
+  "form:mute_household": {
+    "localhost/medic": "R+dqCh9M8S/VQH1HmHsf9w=="
+  },
+  "form:unmute_household_member": {
+    "localhost/medic": "iMal/iIT577um4mOEKC2HQ=="
+  }
+}

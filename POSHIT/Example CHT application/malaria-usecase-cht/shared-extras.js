@@ -6,10 +6,9 @@ const CONTACT_TYPES = {
 };
 const TASKS = {
   HOUSEHOLD_ASSESSMENT: 'task.household_assessment_followup.title',
+  HOUSEHOLD_MEMBER_FOLLOW_UP: 'task.household_member_follow_up.title',
   CHILD_ASSESSMENT_FOLLOW_UP: 'task.children_under_5_follow_up.title',
-  HOUSEHOLD_MEMBER_FOLLOW_UP: 'task.household_member_follow_up.title'
 };
-
 const FORMS = {
   MUTE_HOUSEHOLD: 'mute_household',
   HOUSEHOLD_ASSESSMENT: 'household_assessment',
@@ -17,11 +16,20 @@ const FORMS = {
   CHILD_FOLLOW_UP: 'children_under_5_follow_up',
   MEMBER_ASSESSMENT: 'household_member_assessment',
   MEMBER_FOLLOW_UP: 'household_member_follow_up',
-  UNMUTE_HOUSEHOLD_MEMBER: 'unmute_household_member'
+  UNMUTE_HOUSEHOLD_MEMBER: 'unmute_household_member',
+  UNMUTE_HOUSEHOLD: 'unmute_household',
+  MUTE_HOUSEHOLD_MEMBER: 'mute_household_member',
+  PREGNANCY_REGISTRATION: 'pregnancy_registration'
+};
+
+const TARGETS = {
+  HOUSEHOLDS_GTE_2_LLIN: 'household-with-atleast-two-lln',
+  MEMBERS_WITH_MALARIA: 'household-members-with-malaria'
 };
 
 module.exports = {
   CONTACT_TYPES,
   TASKS,
-  FORMS
+  FORMS,
+  TARGETS
 };
