@@ -3,6 +3,6 @@
   "context": {
     "place": true,
     "person": false,
-    "expression": "!summary.muted"
+    "expression": "!contact.muted && contact.contact_type  === 'household'"
   }
 }

@@ -8,12 +8,6 @@
           <text id="/data/contact/age:label">
             <value>Age</value>
           </text>
-          <text id="/data/contact/contact_name:hint">
-            <value>Please use three names.</value>
-          </text>
-          <text id="/data/contact/contact_name:label">
-            <value>Name</value>
-          </text>
           <text id="/data/contact/contact_type:hint">
             <value>mandatory</value>
           </text>
@@ -38,11 +32,11 @@
           <text id="/data/contact/gender:label">
             <value>Gender</value>
           </text>
-          <text id="/data/contact/n_screening:label">
-            <value>_**Please submit a monthly screening form for <output value=" /data/contact/contact_name "/> after submitting this registration form.**_</value>
+          <text id="/data/contact/name:hint">
+            <value>Please use three names.</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Notes</value>
+          <text id="/data/contact/name:label">
+            <value>Name</value>
           </text>
           <text id="/data/contact/phone_note:label">
             <value>**Please verify that the phone numbers are accurate**
@@ -50,13 +44,13 @@
 **Primary Number:** <output value=" /data/contact/primary_phone_number "/>
 **Secondary Number:** <output value=" /data/contact/secondary_phone_number "/></value></text>
           <text id="/data/contact/primary_phone_number:hint">
-            <value>For example: +254712345678</value>
+            <value>Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678</value>
           </text>
           <text id="/data/contact/primary_phone_number:label">
             <value>Primary Mobile Number</value>
           </text>
           <text id="/data/contact/secondary_phone_number:hint">
-            <value>For example: +254712345678</value>
+            <value>Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678</value>
           </text>
           <text id="/data/contact/secondary_phone_number:label">
             <value>Secondary Mobile Number</value>
@@ -64,11 +58,35 @@
           <text id="/data/contact:label">
             <value>Head of Household</value>
           </text>
+          <text id="/data/household/generated_name/area_health_facility:label">
+            <value><output value=" /data/contact/contact_name "/>'s Health Facility</value>
+          </text>
+          <text id="/data/household/generated_name/area_supervisor_region:label">
+            <value><output value=" /data/contact/contact_name "/>'s Supervisor Region</value>
+          </text>
+          <text id="/data/household/generated_name/community_health_area:label">
+            <value><output value=" /data/contact/contact_name "/>'s Community Health Area</value>
+          </text>
+          <text id="/data/household/generated_name/household:label">
+            <value><output value=" /data/contact/contact_name "/>'s Household</value>
+          </text>
           <text id="/data/household/geopoint:label">
             <value>Location</value>
           </text>
-          <text id="/data/household/name:label">
-            <value>Names</value>
+          <text id="/data/household/place_type/area_health_facility:label">
+            <value>Health Facility</value>
+          </text>
+          <text id="/data/household/place_type/area_supervisor_region:label">
+            <value>Supervisor Region</value>
+          </text>
+          <text id="/data/household/place_type/community_health_area:label">
+            <value>Community Health Area</value>
+          </text>
+          <text id="/data/household/place_type/household:label">
+            <value>Household</value>
+          </text>
+          <text id="/data/household/place_type:label">
+            <value>Enter the name of this place</value>
           </text>
           <text id="/data/household:label">
             <value>Household Information</value>
@@ -92,7 +110,7 @@
             <value>Yes</value>
           </text>
           <text id="/data/repeat-guard/other_household_members:hint">
-            <value>Make sure to register all children under 5 now. You can register other household members at a later time.</value>
+            <value>You can register other household members at a later time.</value>
           </text>
           <text id="/data/repeat-guard/other_household_members:label">
             <value>Are there other household members currently living in <output value=" /data/contact/contact_name "/>'s homestead?</value>
@@ -147,9 +165,6 @@
           </text>
           <text id="/data/repeat/child/name:label">
             <value>Names</value>
-          </text>
-          <text id="/data/repeat/child/notes:label">
-            <value>Notes (optional)</value>
           </text>
           <text id="/data/repeat/child/parent:hint">
             <value>mandatory</value>
@@ -217,11 +232,8 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           <text id="/data/contact/contact_dob_iso:label">
             <value>-</value>
           </text>
-          <text id="/data/contact/contact_name:hint">
-            <value>-</value>
-          </text>
           <text id="/data/contact/contact_name:label">
-            <value>Jina</value>
+            <value>-</value>
           </text>
           <text id="/data/contact/contact_type:hint">
             <value>-</value>
@@ -253,11 +265,11 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           <text id="/data/contact/gender:label">
             <value>Jinsia</value>
           </text>
-          <text id="/data/contact/n_screening:label">
-            <value>_**Tafadhali wasilisha fomu ya uchunguzi wa kila mwezi kwa <output value=" /data/contact/contact_name "/> baada ya kuwasilisha fomu hii ya usajili.**_</value>
+          <text id="/data/contact/name:hint">
+            <value>-</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Vidokezo</value>
+          <text id="/data/contact/name:label">
+            <value>Jina</value>
           </text>
           <text id="/data/contact/parent:label">
             <value>-</value>
@@ -285,14 +297,38 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           <text id="/data/household/contact_type:label">
             <value>-</value>
           </text>
+          <text id="/data/household/generated_name/area_health_facility:label">
+            <value>WIlaya ya  <output value=" /data/contact/contact_name "/></value>
+          </text>
+          <text id="/data/household/generated_name/area_supervisor_region:label">
+            <value>Kituo cha afya cha  <output value=" /data/contact/contact_name "/></value>
+          </text>
+          <text id="/data/household/generated_name/community_health_area:label">
+            <value>Eneo ya  <output value=" /data/contact/contact_name "/></value>
+          </text>
+          <text id="/data/household/generated_name/household:label">
+            <value>-</value>
+          </text>
           <text id="/data/household/geopoint:label">
             <value>Mahali</value>
           </text>
-          <text id="/data/household/name:label">
-            <value>Majina</value>
-          </text>
           <text id="/data/household/parent:label">
             <value>-</value>
+          </text>
+          <text id="/data/household/place_type/area_health_facility:label">
+            <value>Wilaya</value>
+          </text>
+          <text id="/data/household/place_type/area_supervisor_region:label">
+            <value>Kituo cha afya</value>
+          </text>
+          <text id="/data/household/place_type/community_health_area:label">
+            <value>Eneo</value>
+          </text>
+          <text id="/data/household/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/place_type:label">
+            <value>Jaza jina la eneo hii</value>
           </text>
           <text id="/data/household/type:label">
             <value>-</value>
@@ -399,9 +435,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           <text id="/data/repeat/child/name:label">
             <value>Majina</value>
           </text>
-          <text id="/data/repeat/child/notes:label">
-            <value>Vidokezo (si lazima)</value>
-          </text>
           <text id="/data/repeat/child/parent:hint">
             <value>-</value>
           </text>
@@ -474,7 +507,7 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
         </translation>
       </itext>
       <instance>
-        <data id="contact:household:create" prefix="J1!contact:household:create!" delimiter="#" version="2023-06-07  17-59">
+        <data id="contact:household:create" prefix="J1!contact:household:create!" delimiter="#" version="2023-07-31  15-12">
           <inputs>
             <meta>
               <location>
@@ -494,17 +527,20 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
             <parent>PARENT</parent>
             <type>contact</type>
             <contact_type>household</contact_type>
-            <name/>
+            <place_type>household</place_type>
+            <place_type_translation/>
+            <generated_name>household</generated_name>
+            <generated_name_translation/>
             <geopoint/>
           </household>
           <contact>
             <parent>PARENT</parent>
             <type>contact</type>
-            <contact_type>household</contact_type>
+            <contact_type>household_member</contact_type>
+            <name/>
             <contact_name/>
-            <notes/>
             <gender/>
-            <dob_known>no</dob_known>
+            <dob_known/>
             <dob_calendar/>
             <age/>
             <dob_raw/>
@@ -512,7 +548,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
             <date_of_birth/>
             <primary_phone_number/>
             <secondary_phone_number/>
-            <n_screening/>
             <phone_note/>
           </contact>
           <repeat-guard>
@@ -528,7 +563,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
               <contact_type>household_member</contact_type>
               <name/>
               <display_name/>
-              <notes/>
               <sex/>
               <date_of_birth/>
               <age_set/>
@@ -564,8 +598,8 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/contact/parent" type="string"/>
       <bind nodeset="/data/contact/type" type="string"/>
       <bind nodeset="/data/contact/contact_type" type="string"/>
-      <bind nodeset="/data/contact/contact_name" type="string" required="true()"/>
-      <bind nodeset="/data/contact/notes" type="string"/>
+      <bind nodeset="/data/contact/name" type="string" required="true()"/>
+      <bind nodeset="/data/contact/contact_name" type="string" calculate="../name"/>
       <bind nodeset="/data/contact/gender" type="select1" required="true()"/>
       <bind nodeset="/data/contact/dob_known" type="select1" required="true()"/>
       <bind nodeset="/data/contact/dob_calendar" type="date" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" required="true()" relevant="../dob_known = 'yes'" jr:constraintMsg="Age must be between 10 and 100"/>
@@ -573,14 +607,16 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/contact/dob_raw" type="string" calculate="if(../dob_known = 'yes', ../dob_calendar, format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
       <bind nodeset="/data/contact/contact_dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
       <bind nodeset="/data/contact/date_of_birth" type="string" calculate=" /data/contact/contact_dob_iso "/>
-      <bind nodeset="/data/contact/primary_phone_number" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
-      <bind nodeset="/data/contact/secondary_phone_number" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
-      <bind nodeset="/data/contact/n_screening" readonly="true()" type="string"/>
+      <bind nodeset="/data/contact/primary_phone_number" type="tel"/>
+      <bind nodeset="/data/contact/secondary_phone_number" type="tel"/>
       <bind nodeset="/data/contact/phone_note" readonly="true()" type="string"/>
       <bind nodeset="/data/household/parent" type="string"/>
       <bind nodeset="/data/household/type" type="string"/>
       <bind nodeset="/data/household/contact_type" type="string"/>
-      <bind nodeset="/data/household/name" type="string" calculate=" /data/contact/contact_name "/>
+      <bind nodeset="/data/household/place_type" type="select1"/>
+      <bind nodeset="/data/household/place_type_translation" type="string" calculate="jr:choice-name( /data/household/place_type ,' /data/household/place_type ')"/>
+      <bind nodeset="/data/household/generated_name" type="select1"/>
+      <bind nodeset="/data/household/generated_name_translation" type="string" calculate="jr:choice-name( /data/household/generated_name ,' /data/household/generated_name ')"/>
       <bind nodeset="/data/household/geopoint" type="geopoint"/>
       <bind nodeset="/data/repeat-guard/other_household_members" type="select1" required="true()"/>
       <bind nodeset="/data/repeat-guard/child" type="select1" required="true()" relevant=" /data/repeat-guard/other_household_members  = 'yes'"/>
@@ -592,7 +628,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
       <bind nodeset="/data/repeat/child/contact_type" type="string"/>
       <bind nodeset="/data/repeat/child/name" type="string" required="true()"/>
       <bind nodeset="/data/repeat/child/display_name" type="string" calculate="../name"/>
-      <bind nodeset="/data/repeat/child/notes" type="string"/>
       <bind nodeset="/data/repeat/child/sex" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/repeat/child/age_set" type="select1" required="true()"/>
@@ -627,12 +662,9 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
     </group>
     <group appearance="field-list" ref="/data/contact">
       <label ref="jr:itext('/data/contact:label')"/>
-      <input ref="/data/contact/contact_name">
-        <label ref="jr:itext('/data/contact/contact_name:label')"/>
-        <hint ref="jr:itext('/data/contact/contact_name:hint')"/>
-      </input>
-      <input ref="/data/contact/notes">
-        <label ref="jr:itext('/data/contact/notes:label')"/>
+      <input ref="/data/contact/name">
+        <label ref="jr:itext('/data/contact/name:label')"/>
+        <hint ref="jr:itext('/data/contact/name:hint')"/>
       </input>
       <select1 appearance="horizontal" ref="/data/contact/gender">
         <label ref="jr:itext('/data/contact/gender:label')"/>
@@ -670,15 +702,49 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
         <label ref="jr:itext('/data/contact/secondary_phone_number:label')"/>
         <hint ref="jr:itext('/data/contact/secondary_phone_number:hint')"/>
       </input>
-      <input ref="/data/contact/n_screening">
-        <label ref="jr:itext('/data/contact/n_screening:label')"/>
-      </input>
       <input ref="/data/contact/phone_note">
         <label ref="jr:itext('/data/contact/phone_note:label')"/>
       </input>
     </group>
     <group appearance="field-list" ref="/data/household">
       <label ref="jr:itext('/data/household:label')"/>
+      <select1 appearance="hidden" ref="/data/household/place_type">
+        <label ref="jr:itext('/data/household/place_type:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household/place_type/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/place_type/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/place_type/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/place_type/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/data/household/generated_name">
+        <item>
+          <label ref="jr:itext('/data/household/generated_name/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/generated_name/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/generated_name/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household/generated_name/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
       <input ref="/data/household/geopoint">
         <label ref="jr:itext('/data/household/geopoint:label')"/>
       </input>
@@ -723,9 +789,6 @@ Remove this child by pressing the - button&lt;/span&gt;</value>
           <input ref="/data/repeat/child/name">
             <label ref="jr:itext('/data/repeat/child/name:label')"/>
             <hint ref="jr:itext('/data/repeat/child/name:hint')"/>
-          </input>
-          <input appearance="hidden" ref="/data/repeat/child/notes">
-            <label ref="jr:itext('/data/repeat/child/notes:label')"/>
           </input>
           <select1 appearance="horizontal" ref="/data/repeat/child/sex">
             <label ref="jr:itext('/data/repeat/child/sex:label')"/>

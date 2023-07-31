@@ -1096,14 +1096,14 @@
       <bind nodeset="/children_under_assessment/referral_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/sleeping_under_net" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'no')"/>
-      <bind nodeset="/children_under_assessment/children_under_assessment/nets_treated" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/nets_treated" type="select1" required="true()" relevant="selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'yes')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/nets_treated , 'no')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/child_fever" type="select1" required="true()"/>
-      <bind nodeset="/children_under_assessment/children_under_assessment/fever_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/child_fever , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/fever_period" type="select1" required="true()" relevant="selected( /children_under_assessment/children_under_assessment/child_fever , 'yes')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/fever_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/fever_period ,'3') or selected( /children_under_assessment/children_under_assessment/fever_period ,'7') or selected( /children_under_assessment/children_under_assessment/fever_period ,'14')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/eat_drink" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/child_vomiting" type="select1" required="true()"/>
-      <bind nodeset="/children_under_assessment/children_under_assessment/vomiting_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/vomiting_period" type="select1" required="true()" relevant="selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/vomiting_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/vomiting_period ,'3') or selected( /children_under_assessment/children_under_assessment/vomiting_period ,'7') or selected( /children_under_assessment/children_under_assessment/vomiting_period ,'14')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/breathing" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/convulsions" type="select1" required="true()"/>
@@ -1113,10 +1113,10 @@
       <bind nodeset="/children_under_assessment/children_under_assessment/tiresome" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/headaches" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/diarrhoea" type="select1" required="true()"/>
-      <bind nodeset="/children_under_assessment/children_under_assessment/diarrhoea_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/diarrhoea_period" type="select1" required="true()" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes')"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/travelled" type="select1" required="true()"/>
       <bind nodeset="/children_under_assessment/children_under_assessment/additional_notes" type="string" required="false()"/>
-      <bind nodeset="/children_under_assessment/children_under_assessment/refer_to_facility" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes') or selected( /children_under_assessment/children_under_assessment/consciousness_loss , 'yes') or selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes') or selected( /children_under_assessment/children_under_assessment/child_fever , 'yes') or selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'no')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/refer_to_facility" type="select1" required="true()" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes') or selected( /children_under_assessment/children_under_assessment/consciousness_loss , 'yes') or selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes') or selected( /children_under_assessment/children_under_assessment/child_fever , 'yes') or selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'no')"/>
       <bind nodeset="/children_under_assessment/group_review" jr:constraintMsg="jr:itext('/children_under_assessment/group_review:jr:constraintMsg')"/>
       <bind nodeset="/children_under_assessment/group_review/r_summary" readonly="true()" type="string"/>
       <bind nodeset="/children_under_assessment/group_review/r_action" readonly="true()" type="string"/>

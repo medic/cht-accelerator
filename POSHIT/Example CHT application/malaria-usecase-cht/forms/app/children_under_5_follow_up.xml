@@ -516,7 +516,7 @@
         </translation>
       </itext>
       <instance>
-        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-07-06 20:17:08">
+        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-07-31 14:58:24">
           <inputs>
             <meta>
               <location>
@@ -629,7 +629,7 @@
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_check" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
-      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required" type="string" calculate="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving') or selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
       <bind nodeset="/children_under_5_follow_up/group_review" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_summary" readonly="true()" type="string"/>

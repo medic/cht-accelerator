@@ -49,9 +49,7 @@ module.exports = {
     ]
   },
   householdMember: {
-    ok: [
-      ['Melvin Makinya', 'male', 'over5', 'yes', '2002-06-02', '+254712345120', '+254712345842', 'child']
-    ],
+    ok: (sex, dob) => [['Melvin Makinya', sex, 'over5', 'yes', dob, '+254712345120', '+254712345842', 'child']]
   },
   deathReportScenarios: {
     withDeathDate: deathDate => [

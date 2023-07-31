@@ -1,4 +1,5 @@
-const { FORMS, TARGETS } = require('./shared-extras');
+const { isContactValid } = require('./nools-extras');
+const { FORMS, TARGETS, CONTACT_TYPES } = require('./shared-extras');
 
 module.exports = [
   {
@@ -24,14 +25,15 @@ module.exports = [
     icon: 'malaria',
     goal: -1,
     translation_key: 'targets.assessments.percentage.hhm.title',
+    subtitle_translation_key: 'targets.month.subtitle',
     percentage_count_translation_key: 'targets.assessments.percentage.with.malaria',
-    appliesTo: 'reports',
-    appliesToType: [FORMS.MEMBER_ASSESSMENT, FORMS.MEMBER_FOLLOW_UP],
-    appliesIf: function (c, report) {
-      return !c.contact.date_of_death && !c.contact.muted && Utils.getField(report, 'has_malaria_symptoms');
+    appliesTo: 'contacts',
+    appliesToType: [CONTACT_TYPES.HOUSEHOLD_MEMBER],
+    appliesIf: function(contact) {
+      return isContactValid(contact);
     },
-    passesIf: function(c) {
-      return c.reports.find(report => report.form === FORMS.MEMBER_FOLLOW_UP && Utils.getField(report, 'group_household_member_follow_up.malaria_confirmed') === 'yes');
+    passesIf: function(contact) {
+      return contact.reports.find(report => report.form === FORMS.MEMBER_FOLLOW_UP && Utils.getField(report, 'group_household_member_follow_up.malaria_confirmed') === 'yes');
     },
     date: 'reported'
   },

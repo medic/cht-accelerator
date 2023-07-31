@@ -17,6 +17,9 @@
           <text id="/household_member_follow_up/group_follow_up_details/follow_up_date:label">
             <value>When would you like to follow up <output value=" /household_member_follow_up/patient_name "/> again</value>
           </text>
+          <text id="/household_member_follow_up/group_follow_up_details:label">
+            <value>Availability</value>
+          </text>
           <text id="/household_member_follow_up/group_household_member_follow_up/condition/admitted:label">
             <value>Admitted at the health facility</value>
           </text>
@@ -206,6 +209,9 @@
             <value>-</value>
           </text>
           <text id="/household_member_follow_up/group_follow_up_details/follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_member_follow_up/group_follow_up_details:label">
             <value>-</value>
           </text>
           <text id="/household_member_follow_up/group_household_member_follow_up/condition/admitted:label">
@@ -438,6 +444,9 @@
           <text id="/household_member_follow_up/group_follow_up_details/follow_up_date:label">
             <value>-</value>
           </text>
+          <text id="/household_member_follow_up/group_follow_up_details:label">
+            <value>-</value>
+          </text>
           <text id="/household_member_follow_up/group_household_member_follow_up/condition/admitted:label">
             <value>-</value>
           </text>
@@ -648,7 +657,7 @@
         </translation>
       </itext>
       <instance>
-        <household_member_follow_up id="household_member_follow_up" prefix="J1!household_member_follow_up!" delimiter="#" version="2023-06-20 18:15:53">
+        <household_member_follow_up id="household_member_follow_up" prefix="J1!household_member_follow_up!" delimiter="#" version="2023-07-31 15:05:50">
           <inputs>
             <meta>
               <location>
@@ -771,7 +780,7 @@
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/condition" type="select1"/>
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/n_refer" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition ,'worsening') or selected( /household_member_follow_up/group_household_member_follow_up/condition ,'no_change')"/>
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/n_follow_advice" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition ,'improving')"/>
-      <bind nodeset="/household_member_follow_up/group_review" relevant="selected( /household_member_follow_up/group_follow_up_details/availability , 'yes')" jr:constraintMsg="jr:itext('/household_member_follow_up/group_review:jr:constraintMsg')"/>
+      <bind nodeset="/household_member_follow_up/group_review" jr:constraintMsg="jr:itext('/household_member_follow_up/group_review:jr:constraintMsg')" relevant="selected( /household_member_follow_up/group_follow_up_details/availability , 'yes')"/>
       <bind nodeset="/household_member_follow_up/group_review/f_summary" readonly="true()" type="string"/>
       <bind nodeset="/household_member_follow_up/group_review/f_action" readonly="true()" type="string"/>
       <bind nodeset="/household_member_follow_up/group_review/f_patient_details" readonly="true()" type="string"/>
@@ -820,6 +829,7 @@
       </group>
     </group>
     <group appearance="field-list" ref="/household_member_follow_up/group_follow_up_details">
+      <label ref="jr:itext('/household_member_follow_up/group_follow_up_details:label')"/>
       <select1 ref="/household_member_follow_up/group_follow_up_details/availability">
         <label ref="jr:itext('/household_member_follow_up/group_follow_up_details/availability:label')"/>
         <item>
