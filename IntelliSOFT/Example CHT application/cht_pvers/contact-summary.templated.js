@@ -1,7 +1,7 @@
 const thisContact = contact;
-const thisLineage = lineage;
-const allReports = reports;
-const assessmentForms = ['padr'];
+const thisLineage = lineage; 
+const extras = require('./contact-summary-extras');
+const {  getField } = extras;
 
 
 const fields = [
@@ -14,11 +14,10 @@ const fields = [
 const cards = [
   {
     label: 'contact.profile.assessment_history',
-    appliesToType: 'report',
-    appliesIf: (report) => {
+    appliesToType: 'report', 
+    appliesIf: function(r){
       if (thisContact.type !== 'person') { return false; }
-      const assessmentForm = getNewestReport(allReports, assessmentForms);
-      return assessmentForm.reported_date >= report.reported_date;
+      return r.form === 'padr';
     },
     fields: [
       {
@@ -32,15 +31,7 @@ const cards = [
       {
         label: 'contact.profile.report_type',
         value: (report) => {
-          var type = getField(report, 'form.reporter.group_report.type');
-          if (type === 'reaction') {
-            type = 'Adverse Drug Reaction';
-
-          }
-          if (type === 'medicine') {
-            type = 'Poor Quality Medicine';
-          }
-          return type;
+          return getField(report, 'form.reporter.group_report.type');
         },
         width: 6,
       },
@@ -55,21 +46,6 @@ const cards = [
     ]
   }
 ];
-const getField = (report, fieldPath) => ['fields', ...(fieldPath || '').split('.')]
-  .reduce((prev, fieldName) => {
-    if (prev === undefined) { return undefined; }
-    return prev[fieldName];
-  }, report);
-
-  const getNewestReport = (reports = ['padr']) => {
-    return reports.reduce((newestReport, report) => {
-      if (!newestReport || report.reported_date > newestReport.reported_date) {
-        return report;
-      }
-      return newestReport;
-    }, null);
-  };
-  
 
 
 module.exports = {
