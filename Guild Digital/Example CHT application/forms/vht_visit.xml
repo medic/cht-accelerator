@@ -1,0 +1,952 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>VHT Visit Assessment Form</h:title>
+    <model>
+      <instance>
+        <vht_visit id="vht_visit" prefix="J1!vht_visit!" delimiter="#" version="2023-07-25  21-47">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+          </inputs>
+          <contact>
+            <vht_note/>
+            <_id/>
+            <vht_visit_date/>
+            <vht_available/>
+          </contact>
+          <vht_is_available>
+            <vht_contact>
+              <same_phone/>
+              <new_phone/>
+              <Prog_00/>
+            </vht_contact>
+            <g_device_functionality>
+              <device_functionality/>
+              <device_condition/>
+              <stolen_device_reported/>
+              <police_report_advice/>
+              <Prog_01/>
+            </g_device_functionality>
+            <supplies_materials>
+              <drugs_locked_box/>
+              <supervisor_note_a/>
+              <supplies_clean_dry/>
+              <supervisor_note_b/>
+              <ors_sachets_6_or_more/>
+              <ors_sachets_6_or_more_note/>
+              <zinc_blisters_2_or_more/>
+              <Prog_02/>
+            </supplies_materials>
+            <outbreaks>
+              <outbreak_count/>
+              <reported_outbreak/>
+              <outbreak_frequency/>
+              <affected_area/>
+              <affected_people_count/>
+              <Prog_04/>
+            </outbreaks>
+            <rumours>
+              <rumours_present/>
+              <rumour_description/>
+              <rumour_addressed/>
+              <rumour_not_addressed_why/>
+              <rumor_address_method/>
+              <Prog_03/>
+            </rumours>
+            <items_received>
+              <items_distributed/>
+              <received_for_distribution jr:template="">
+                <item_type/>
+                <item_quantity/>
+              </received_for_distribution>
+              <households_received/>
+              <Prog_04/>
+            </items_received>
+            <wash_assessment>
+              <wash_note/>
+              <wash_houses_received/>
+              <wash_sessions_given/>
+              <wash_session_delivery/>
+              <wash_alarm_information/>
+              <wash_alarm_about/>
+              <Prog_05/>
+            </wash_assessment>
+            <iccm_assessment>
+              <iccm_assessment_note/>
+              <iccm_sessions_conducted/>
+              <iccm_challenges/>
+              <iccm_challenge_list/>
+              <iccm_challenging_situation/>
+              <iccm_solution/>
+              <iccm_solution_oher/>
+              <Prog_06/>
+            </iccm_assessment>
+            <maternal_assessment>
+              <maternal_assessment_note/>
+              <maternal_challenges/>
+              <maternal_challenges_facing/>
+              <maternal_challenging_situation/>
+              <maternal_solved/>
+              <maternal_sessions_conducted/>
+              <Prog_07/>
+            </maternal_assessment>
+            <s_summary>
+              <s_summary_submit/>
+              <s_vht_details/>
+              <s_note_vht_details/>
+              <s_devide_functionality/>
+              <s_note_device_functionality/>
+              <s_outbreaks/>
+              <s_note_num_outbreaks_reported/>
+              <s_note_select_outbreak_reported/>
+              <s_note_frequency_outbreaks_reported/>
+              <s_note_area_affected/>
+              <s_note_num_people_affected/>
+              <s_rumours/>
+              <s_note_rumours_captured/>
+              <s_note_rumours_addressed/>
+              <s_items_distributed/>
+              <s_note_items_distributed/>
+              <s_note_num_households_served/>
+              <s_wash/>
+              <s_note_num_households_wash_mentorship/>
+              <s_note_wash_sessions_given/>
+              <s_note_sessions_delivery/>
+              <s_note_wash_alarm_info/>
+              <s_note_alarm_details/>
+              <s_iccm/>
+              <s_note_iccm_challenges_vht/>
+              <s_note_iccm_challenges_encountered/>
+              <s_note_iccm_challenges_solved/>
+              <s_note_iccm_sessions_conducted/>
+              <s_maternal/>
+              <s_note_maternal_challenges_vht/>
+              <s_note_maternal_challenges_encountered/>
+              <s_note_maternal_challenges_solved/>
+              <s_note_maternal_sessions_conducted/>
+            </s_summary>
+          </vht_is_available>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </vht_visit>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/vht_visit/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/vht_visit/inputs/source" type="string"/>
+      <bind nodeset="/vht_visit/inputs/source_id" type="string"/>
+      <bind nodeset="/vht_visit/contact/vht_note" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/vht_visit/contact/vht_visit_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 30)))" required="true()" jr:constraintMsg="VHT visit date can't be more than 30 days ago. Also can't be a future date"/>
+      <bind nodeset="/vht_visit/contact/vht_available" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available" relevant=" /vht_visit/contact/vht_available ='yes'"/>
+      <bind nodeset="/vht_visit/vht_is_available/vht_contact/same_phone" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/vht_contact/new_phone" type="tel" relevant=" /vht_visit/vht_is_available/vht_contact/same_phone  = 'no'" constraint="true()" required="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +256712345678"/>
+      <bind nodeset="/vht_visit/vht_is_available/vht_contact/Prog_00" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/g_device_functionality/device_functionality" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/g_device_functionality/device_condition" type="select" relevant=" /vht_visit/vht_is_available/g_device_functionality/device_functionality  = 'no'"/>
+      <bind nodeset="/vht_visit/vht_is_available/g_device_functionality/stolen_device_reported" type="select1" relevant=" /vht_visit/vht_is_available/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/g_device_functionality/police_report_advice" readonly="true()" type="string" relevant=" /vht_visit/vht_is_available/g_device_functionality/stolen_device_reported  = 'no'"/>
+      <bind nodeset="/vht_visit/vht_is_available/g_device_functionality/Prog_01" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/drugs_locked_box" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/supervisor_note_a" readonly="true()" type="string" relevant=" /vht_visit/vht_is_available/supplies_materials/drugs_locked_box  = 'no'"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/supplies_clean_dry" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/supervisor_note_b" readonly="true()" type="string" relevant=" /vht_visit/vht_is_available/supplies_materials/supplies_clean_dry = 'no'"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/ors_sachets_6_or_more" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/ors_sachets_6_or_more_note" readonly="true()" type="string" relevant=" /vht_visit/vht_is_available/supplies_materials/ors_sachets_6_or_more  = 'no'"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/zinc_blisters_2_or_more" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/supplies_materials/Prog_02" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/outbreak_count" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/reported_outbreak" type="select" relevant=" /vht_visit/vht_is_available/outbreaks/outbreak_count !=0" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/outbreak_frequency" type="select1" relevant=" /vht_visit/vht_is_available/outbreaks/outbreak_count !=0" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/affected_area" type="string" relevant=" /vht_visit/vht_is_available/outbreaks/outbreak_count !=0" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/affected_people_count" type="select1" relevant=" /vht_visit/vht_is_available/outbreaks/outbreak_count !=0" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/outbreaks/Prog_04" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/rumours_present" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/rumour_description" type="select1" relevant=" /vht_visit/vht_is_available/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/rumour_addressed" type="select1" relevant=" /vht_visit/vht_is_available/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/rumour_not_addressed_why" type="string" relevant=" /vht_visit/vht_is_available/rumours/rumour_addressed  = 'no'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/rumor_address_method" type="select1" relevant=" /vht_visit/vht_is_available/rumours/rumour_addressed ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/rumours/Prog_03" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/items_distributed" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/received_for_distribution" relevant=" /vht_visit/vht_is_available/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/received_for_distribution/item_type" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/received_for_distribution/item_quantity" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of items distributed should be more than zero"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/households_received" type="select1" relevant=" /vht_visit/vht_is_available/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/items_received/Prog_04" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_note" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_houses_received" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_sessions_given" type="string" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_session_delivery" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_alarm_information" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/wash_alarm_about" type="select1" relevant=" /vht_visit/vht_is_available/wash_assessment/wash_alarm_information ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/wash_assessment/Prog_05" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_assessment_note" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_sessions_conducted" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of ICCM sessions conducted should be more than zero"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_challenges" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_challenge_list" type="select" relevant=" /vht_visit/vht_is_available/iccm_assessment/iccm_challenges ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_challenging_situation" type="select" relevant=" /vht_visit/vht_is_available/iccm_assessment/iccm_challenges ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_solution" type="select1" relevant=" /vht_visit/vht_is_available/iccm_assessment/iccm_challenges ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/iccm_solution_oher" type="string" relevant="selected( /vht_visit/vht_is_available/iccm_assessment/iccm_solution , 'Other')"/>
+      <bind nodeset="/vht_visit/vht_is_available/iccm_assessment/Prog_06" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_assessment_note" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_challenges" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_challenges_facing" type="select" relevant=" /vht_visit/vht_is_available/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_challenging_situation" type="select" relevant=" /vht_visit/vht_is_available/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_solved" type="select" relevant=" /vht_visit/vht_is_available/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/maternal_sessions_conducted" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of Maternal Health sessions should be more than zero"/>
+      <bind nodeset="/vht_visit/vht_is_available/maternal_assessment/Prog_07" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_devide_functionality" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_device_functionality" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_outbreaks" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_num_outbreaks_reported" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_select_outbreak_reported" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_frequency_outbreaks_reported" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_area_affected" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_num_people_affected" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_rumours" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_rumours_captured" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_rumours_addressed" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_items_distributed" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_items_distributed" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_num_households_served" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_wash" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_num_households_wash_mentorship" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_wash_sessions_given" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_sessions_delivery" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_wash_alarm_info" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_alarm_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_iccm" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_vht" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_encountered" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_solved" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_iccm_sessions_conducted" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_maternal" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_vht" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_encountered" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_solved" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/s_summary/s_note_maternal_sessions_conducted" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="hidden" ref="/vht_visit/inputs">
+      <label></label>
+      <input appearance="hidden" ref="/vht_visit/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/vht_visit/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/vht_visit/contact">
+      <label></label>
+      <input ref="/vht_visit/contact/vht_note">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Find out how the VHT is doing before continuing with this visit.&lt;/span&gt;</label>
+      </input>
+      <input appearance="db-object" ref="/vht_visit/contact/_id">
+        <label>What is the VHTs name?</label>
+        <hint>Select a person from list</hint>
+      </input>
+      <input ref="/vht_visit/contact/vht_visit_date">
+        <label>Date of Visit</label>
+      </input>
+      <select1 appearance="horizontal" ref="/vht_visit/contact/vht_available">
+        <label>Is the VHT Available at the time of the visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group ref="/vht_visit/vht_is_available">
+      <label></label>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/vht_contact">
+        <label></label>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/vht_contact/same_phone">
+          <label>Is the VHT still using the same Contact?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/vht_contact/new_phone">
+          <label>What is the new Contact Number?</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/vht_contact/Prog_00">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #cde5f3" width="0%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;0%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/g_device_functionality">
+        <label>DEVICE FUNCTIONALITY</label>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/g_device_functionality/device_functionality">
+          <label>Is your device in good working condition?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select ref="/vht_visit/vht_is_available/g_device_functionality/device_condition">
+          <label>What is the condition of the device?</label>
+          <item>
+            <label>Broken</label>
+            <value>broken</value>
+          </item>
+          <item>
+            <label>Not charged</label>
+            <value>not_charged</value>
+          </item>
+          <item>
+            <label>Stolen (tablet or charger)</label>
+            <value>stolen</value>
+          </item>
+          <item>
+            <label>Device freeze</label>
+            <value>device_freeze</value>
+          </item>
+        </select>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/g_device_functionality/stolen_device_reported">
+          <label>Was the stolen device reported?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/g_device_functionality/police_report_advice">
+          <label>&lt;span style="color:r#A9A9A9"&gt;Advise the vht to go to the police report and obtain a police letter&lt;/span&gt;</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/g_device_functionality/Prog_01">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="15%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;15%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/supplies_materials">
+        <label>SUPPLIES AND MATERIALS</label>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/supplies_materials/drugs_locked_box">
+          <label>Are drugs kept in a locked box in a dry place?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/supplies_materials/supervisor_note_a">
+          <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all drugs are stored in a dry place to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/supplies_materials/supplies_clean_dry">
+          <label>Are the supplies kept clean and dry?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/supplies_materials/supervisor_note_b">
+          <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all supplies are kept clean and dry to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/supplies_materials/ors_sachets_6_or_more">
+          <label>Do you have 6 or more ORS sachets?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/supplies_materials/ors_sachets_6_or_more_note">
+          <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to go for a refill immediately&lt;/span&gt;</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/supplies_materials/zinc_blisters_2_or_more">
+          <label>Do you have 2 or more Zinc blisters?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/supplies_materials/Prog_02">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="30%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;30%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/outbreaks">
+        <label>OUTBREAKS</label>
+        <select1 ref="/vht_visit/vht_is_available/outbreaks/outbreak_count">
+          <label>How many outbreaks have you reported?</label>
+          <item>
+            <label>0</label>
+            <value>0</value>
+          </item>
+          <item>
+            <label>1</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>2</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>3</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select ref="/vht_visit/vht_is_available/outbreaks/reported_outbreak">
+          <label>What was the reported outbreak?</label>
+          <item>
+            <label>Infectious Disease (e.g., measles, flu, cough)</label>
+            <value>infectious_disease</value>
+          </item>
+          <item>
+            <label>Waterborne Diseases (diarrhea, cholera)</label>
+            <value>waterborne_diseases</value>
+          </item>
+          <item>
+            <label>Vaccine-preventable Diseases (whooping cough, measles)</label>
+            <value>vaccine_preventable_diseases</value>
+          </item>
+          <item>
+            <label>Respiratory Diseases (TB, Covid 19, flu, cough)</label>
+            <value>respiratory_diseases</value>
+          </item>
+        </select>
+        <select1 ref="/vht_visit/vht_is_available/outbreaks/outbreak_frequency">
+          <label>How frequently, on a weekly basis, was the mentioned outbreak reported?</label>
+          <item>
+            <label>Once</label>
+            <value>once</value>
+          </item>
+          <item>
+            <label>Twice</label>
+            <value>twice</value>
+          </item>
+          <item>
+            <label>Thrice</label>
+            <value>thrice</value>
+          </item>
+          <item>
+            <label>More</label>
+            <value>more</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/outbreaks/affected_area">
+          <label>What area was affected?</label>
+        </input>
+        <select1 ref="/vht_visit/vht_is_available/outbreaks/affected_people_count">
+          <label>How many people are estimated to have been/are affected?</label>
+          <item>
+            <label>10–20</label>
+            <value>2023-10-20 00:00:00</value>
+          </item>
+          <item>
+            <label>30-40</label>
+            <value>30-40</value>
+          </item>
+          <item>
+            <label>50-60</label>
+            <value>50-60</value>
+          </item>
+          <item>
+            <label>70-80</label>
+            <value>70-80</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/outbreaks/Prog_04">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="45%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;45%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/rumours">
+        <label>RUMOURS AND ALERTS</label>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/rumours/rumours_present">
+          <label>Have there been any rumours around the community?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select1 ref="/vht_visit/vht_is_available/rumours/rumour_description">
+          <label>What was the rumour about?</label>
+          <item>
+            <label>Death</label>
+            <value>death</value>
+          </item>
+          <item>
+            <label>Disease</label>
+            <value>disease</value>
+          </item>
+          <item>
+            <label>War/conflict</label>
+            <value>war_conflict</value>
+          </item>
+        </select1>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/rumours/rumour_addressed">
+          <label>Was the rumour addressed?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/rumours/rumour_not_addressed_why">
+          <label>Why was the rumour not addressed?</label>
+        </input>
+        <select1 ref="/vht_visit/vht_is_available/rumours/rumor_address_method">
+          <label>How was the rumour addressed?</label>
+          <item>
+            <label>Reported to Supervisor</label>
+            <value>reported_supervisor</value>
+          </item>
+          <item>
+            <label>Mentorship</label>
+            <value>mentorship</value>
+          </item>
+          <item>
+            <label>Sensitization</label>
+            <value>sensitization</value>
+          </item>
+          <item>
+            <label>Guidance from health Team</label>
+            <value>guidance_health_team</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/rumours/Prog_03">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="60%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;60%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/items_received">
+        <label>ITEMS DISTRIBUTED</label>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/items_received/items_distributed">
+          <label>Did you distribute any items this month?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <group ref="/vht_visit/vht_is_available/items_received/received_for_distribution">
+          <label>How many items were received for distribution?</label>
+          <repeat nodeset="/vht_visit/vht_is_available/items_received/received_for_distribution">
+            <select1 ref="/vht_visit/vht_is_available/items_received/received_for_distribution/item_type">
+              <label>Select Item Type</label>
+              <item>
+                <label>Mosquito nets</label>
+                <value>mosquito_nets</value>
+              </item>
+              <item>
+                <label>Menstrual Hygiene Supplies</label>
+                <value>menstrual_hygiene</value>
+              </item>
+            </select1>
+            <input ref="/vht_visit/vht_is_available/items_received/received_for_distribution/item_quantity">
+              <label>Quantity:</label>
+            </input>
+          </repeat>
+        </group>
+        <select1 ref="/vht_visit/vht_is_available/items_received/households_received">
+          <label>How many households received items?</label>
+          <item>
+            <label>0-20</label>
+            <value>0-20</value>
+          </item>
+          <item>
+            <label>20-30</label>
+            <value>20-30</value>
+          </item>
+          <item>
+            <label>30-70</label>
+            <value>30-70</value>
+          </item>
+          <item>
+            <label>70-100</label>
+            <value>70-100</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/items_received/Prog_04">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="75%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;75%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/wash_assessment">
+        <label>WASH ASSESSMENT</label>
+        <input ref="/vht_visit/vht_is_available/wash_assessment/wash_note">
+          <label>Encourage the VHT to report on things including those just observed</label>
+        </input>
+        <select1 ref="/vht_visit/vht_is_available/wash_assessment/wash_houses_received">
+          <label>How many houses received WASH mentorship sessions?</label>
+          <item>
+            <label>1</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>2</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>3</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>4</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <input appearance="multiline" ref="/vht_visit/vht_is_available/wash_assessment/wash_sessions_given">
+          <label>What sessions were given?</label>
+        </input>
+        <select1 appearance="multiline" ref="/vht_visit/vht_is_available/wash_assessment/wash_session_delivery">
+          <label>How was the session given?</label>
+          <item>
+            <label>physical</label>
+            <value>wash_physical</value>
+          </item>
+          <item>
+            <label>demonstrations</label>
+            <value>wash_demonstrations</value>
+          </item>
+          <item>
+            <label>drama</label>
+            <value>wash_drama</value>
+          </item>
+        </select1>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/wash_assessment/wash_alarm_information">
+          <label>Is there any alarming information under WASH that needs to be captured in the community?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select1 appearance="multiline" ref="/vht_visit/vht_is_available/wash_assessment/wash_alarm_about">
+          <label>What is the alarm about?</label>
+          <item>
+            <label>Filled up latrines</label>
+            <value>latrine_fill</value>
+          </item>
+          <item>
+            <label>water shortage</label>
+            <value>water_shortage</value>
+          </item>
+          <item>
+            <label>shortage of latrines</label>
+            <value>latrine_shortage</value>
+          </item>
+        </select1>
+        <input ref="/vht_visit/vht_is_available/wash_assessment/Prog_05">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="75%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;b&gt;&lt;i&gt;75%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/iccm_assessment">
+        <label>ICCM ASSESSMENT</label>
+        <input ref="/vht_visit/vht_is_available/iccm_assessment/iccm_assessment_note">
+          <label>Encourage the VHT to report with honesty under this section</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/iccm_assessment/iccm_sessions_conducted">
+          <label>How many ICCM sessions were conducted?</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/iccm_assessment/iccm_challenges">
+          <label>Are you finding any challenges in the process of administering ICCM Care?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select ref="/vht_visit/vht_is_available/iccm_assessment/iccm_challenge_list">
+          <label>What challenges are you facing?</label>
+          <item>
+            <label>Question interpretation</label>
+            <value>question_interpretation</value>
+          </item>
+          <item>
+            <label>App functionality</label>
+            <value>app_functionality</value>
+          </item>
+          <item>
+            <label>Drug Administration to the Patient</label>
+            <value>drug_administration_patient</value>
+          </item>
+          <item>
+            <label>Other Challenge</label>
+            <value>other_challenge</value>
+          </item>
+        </select>
+        <select ref="/vht_visit/vht_is_available/iccm_assessment/iccm_challenging_situation">
+          <label>What challenging situation did you encounter during your ICCM work?</label>
+          <item>
+            <label>Drowning child</label>
+            <value>drowning_child</value>
+          </item>
+          <item>
+            <label>A choking child</label>
+            <value>choking_child</value>
+          </item>
+          <item>
+            <label>Poisoned child</label>
+            <value>poisoned_child</value>
+          </item>
+          <item>
+            <label>Burnt/Scalded child</label>
+            <value>burnt_scalded_child</value>
+          </item>
+        </select>
+        <select1 appearance="multiline" ref="/vht_visit/vht_is_available/iccm_assessment/iccm_solution">
+          <label>How did you solve it?</label>
+          <item>
+            <label>Referred to the Health Facility</label>
+            <value>referred_health_facility</value>
+          </item>
+          <item>
+            <label>Called an Ambulance</label>
+            <value>called_ambulance</value>
+          </item>
+          <item>
+            <label>Offered First Aid</label>
+            <value>offered_first_aid</value>
+          </item>
+          <item>
+            <label>Called a Health Worker</label>
+            <value>called_health_worker</value>
+          </item>
+          <item>
+            <label>Other</label>
+            <value>other_solution</value>
+          </item>
+        </select1>
+        <input appearance="minimal" ref="/vht_visit/vht_is_available/iccm_assessment/iccm_solution_oher">
+          <label>Other (Please specify)</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/iccm_assessment/Prog_06">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="90%"&gt;&amp;nbsp;&lt;/td&gt; &lt;td style="background-color: #cde5f3"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;90%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/maternal_assessment">
+        <label>MATERNAL ASSESSMENT</label>
+        <input ref="/vht_visit/vht_is_available/maternal_assessment/maternal_assessment_note">
+          <label>Encourage the VHT to report honestly under this section</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/maternal_assessment/maternal_challenges">
+          <label>Are you finding any challenges in the process of administering Maternal Care?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select ref="/vht_visit/vht_is_available/maternal_assessment/maternal_challenges_facing">
+          <label>What challenges are you facing?</label>
+          <item>
+            <label>Family Planning Registration</label>
+            <value>family_planning_registration</value>
+          </item>
+          <item>
+            <label>Assessing potential Risks During Pregnancy</label>
+            <value>assess_potential_risks</value>
+          </item>
+          <item>
+            <label>Health Facility Referrals</label>
+            <value>health_facility_referrals</value>
+          </item>
+        </select>
+        <select ref="/vht_visit/vht_is_available/maternal_assessment/maternal_challenging_situation">
+          <label>What challenging situation did you encounter during your Maternal Health work?</label>
+          <item>
+            <label>Postpartum Hemorrhage</label>
+            <value>postpartum_hemorrhage</value>
+          </item>
+          <item>
+            <label>Eclampsia</label>
+            <value>eclampsia</value>
+          </item>
+          <item>
+            <label>Obstructed Home Labour</label>
+            <value>obstructed_home_labour</value>
+          </item>
+          <item>
+            <label>Shortage of Maternal Supplies</label>
+            <value>shortage_maternal_supplies</value>
+          </item>
+        </select>
+        <select ref="/vht_visit/vht_is_available/maternal_assessment/maternal_solved">
+          <label>How did you solve the challenge?</label>
+          <item>
+            <label>Referred to the Health Facility</label>
+            <value>referred_health_facility</value>
+          </item>
+          <item>
+            <label>Called an Ambulance</label>
+            <value>called_ambulance</value>
+          </item>
+          <item>
+            <label>Offered First Aid</label>
+            <value>offered_first_aid</value>
+          </item>
+          <item>
+            <label>Called a Health Worker</label>
+            <value>called_health_worker</value>
+          </item>
+        </select>
+        <input ref="/vht_visit/vht_is_available/maternal_assessment/maternal_sessions_conducted">
+          <label>How many Maternal Health sessions were conducted?</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/maternal_assessment/Prog_07">
+          <label>&lt;table width="100%"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td style="background-color: #047cc2" width="100%"&gt;&amp;nbsp;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;b&gt;&lt;i&gt;100%&lt;/i&gt;&lt;/b&gt;</label>
+        </input>
+      </group>
+      <group appearance="field-list summary" ref="/vht_visit/vht_is_available/s_summary">
+        <label>Supervisor profile summary page</label>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_summary_submit">
+          <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_vht_details">
+          <label>VHT Visit Details</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_vht_details">
+          <label>Date of Visit: <output value=" /vht_visit/contact/vht_visit_date "/>&lt;br&gt;VHT Available: <output value=" /vht_visit/contact/vht_available "/></label></input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_devide_functionality">
+          <label>Device Functionality</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_device_functionality">
+          <label>Device Issues: <output value=" /vht_visit/vht_is_available/g_device_functionality/device_condition "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_outbreaks">
+          <label>Outbreaks</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_num_outbreaks_reported">
+          <label>Number of outbreaks reported: <output value=" /vht_visit/vht_is_available/outbreaks/outbreak_count "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_select_outbreak_reported">
+          <label>Select outbreak reported: <output value=" /vht_visit/vht_is_available/outbreaks/reported_outbreak "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_frequency_outbreaks_reported">
+          <label>Frequency of weekly outbreaks reported: <output value=" /vht_visit/vht_is_available/outbreaks/outbreak_frequency "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_area_affected">
+          <label>Area affected: <output value=" /vht_visit/vht_is_available/outbreaks/affected_area "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_num_people_affected">
+          <label>Estimated number of people affected: <output value=" /vht_visit/vht_is_available/outbreaks/affected_people_count "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_rumours">
+          <label>Rumours</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_rumours_captured">
+          <label>Rumours captured: <output value=" /vht_visit/vht_is_available/rumours/rumour_description "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_rumours_addressed">
+          <label>How the rumours have been addressed: <output value=" /vht_visit/vht_is_available/rumours/rumour_addressed "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_items_distributed">
+          <label>Items distributed</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_items_distributed">
+          <label>Items distributed: <output value=" /vht_visit/vht_is_available/items_received/received_for_distribution/item_type "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_num_households_served">
+          <label>Number of households served: <output value=" /vht_visit/vht_is_available/items_received/households_received "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_wash">
+          <label>Wash Assessment</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_num_households_wash_mentorship">
+          <label>Number of households that received WASH mentorship: <output value=" /vht_visit/vht_is_available/wash_assessment/wash_houses_received "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_wash_sessions_given">
+          <label>What WASH sessions were given: <output value=" /vht_visit/vht_is_available/wash_assessment/wash_sessions_given "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_sessions_delivery">
+          <label>How were the sessions given: <output value=" /vht_visit/vht_is_available/wash_assessment/wash_session_delivery "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_wash_alarm_info">
+          <label>Alarming information under WASH that needs to be captured in the community: <output value=" /vht_visit/vht_is_available/wash_assessment/wash_alarm_information "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_alarm_details">
+          <label>What the alarm was about: <output value=" /vht_visit/vht_is_available/wash_assessment/wash_alarm_about "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_iccm">
+          <label>ICCM Assessment</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_vht">
+          <label>VHT Challenges under ICCM care: <output value=" /vht_visit/vht_is_available/iccm_assessment/iccm_challenges "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_encountered">
+          <label>Challenges encountered by VHT during ICCM work: <output value=" /vht_visit/vht_is_available/iccm_assessment/iccm_challenge_list "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_iccm_challenges_solved">
+          <label>How the VHT solved the challenge: <output value=" /vht_visit/vht_is_available/iccm_assessment/iccm_solution "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_iccm_sessions_conducted">
+          <label>Number of ICCM sessions conducted: <output value=" /vht_visit/vht_is_available/iccm_assessment/iccm_sessions_conducted "/></label>
+        </input>
+        <input appearance="h1 blue" ref="/vht_visit/vht_is_available/s_summary/s_maternal">
+          <label>Maternal Health Assessment</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_vht">
+          <label>VHT Challenges under Maternal Care: <output value=" /vht_visit/vht_is_available/maternal_assessment/maternal_challenges "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_encountered">
+          <label>Challenges encountered by VHT during Maternal Care work: <output value=" /vht_visit/vht_is_available/maternal_assessment/maternal_challenging_situation "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_maternal_challenges_solved">
+          <label>How the VHT solved the challenge: <output value=" /vht_visit/vht_is_available/maternal_assessment/maternal_solved "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/s_summary/s_note_maternal_sessions_conducted">
+          <label>Number of Maternal Care sessions conducted: <output value=" /vht_visit/vht_is_available/maternal_assessment/maternal_sessions_conducted "/></label>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>
