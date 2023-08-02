@@ -1,0 +1,471 @@
+
+  <model>
+    <instance>
+        <pregnancy_home_visit xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" id="pregnancy_home_visit" prefix="J1!pregnancy_home_visit!" delimiter="#" version="2022-09-26 11:35:11">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_short_name tag="hidden"/>
+          <patient_short_name_start tag="hidden"/>
+          <lmp_date_8601 tag="hidden"/>
+          <edd_8601 tag="hidden"/>
+          <days_since_lmp tag="hidden"/>
+          <weeks_since_lmp tag="hidden"/>
+          <weeks_since_lmp_rounded tag="hidden"/>
+          <lmp_method_approx tag="hidden"/>
+          <lmp_updated tag="hidden"/>
+          <t_pregnancy_follow_up_date tag="hidden"/>
+          <t_pregnancy_follow_up tag="hidden"/>
+          <t_danger_signs_referral_follow_up_date tag="hidden"/>
+          <t_danger_signs_referral_follow_up tag="hidden"/>
+          <hiv_status_known tag="hidden"/>
+          <tt_received tag="hidden"/>
+          <deworming_med_received tag="hidden"/>
+          <context_vars tag="hidden">
+            <lmp_date_8601_ctx/>
+            <lmp_method_approx_ctx/>
+            <pregnancy_follow_up_date_recent_ctx/>
+            <risk_factors_ctx/>
+            <risk_factor_extra_ctx/>
+            <hiv_tested_ctx/>
+            <tt_received_ctx/>
+            <deworming_med_received_ctx/>
+            <edd_ctx/>
+            <weeks_since_lmp_rounded_ctx/>
+            <pregnancy_uuid_ctx/>
+          </context_vars>
+          <pregnancy_summary>
+            <current_weeks_pregnant tag="hidden"/>
+            <current_weeks_pregnant_unknown tag="hidden"/>
+            <current_edd tag="hidden"/>
+            <current_edd_unknown tag="hidden"/>
+            <visit_option/>
+            <g_age_correct/>
+          </pregnancy_summary>
+          <pregnancy_ended>
+            <miscarriage_note tag="hidden"/>
+            <miscarriage_date/>
+            <abortion_note tag="hidden"/>
+            <abortion_date tag="hidden"/>
+            <refusing_note tag="hidden"/>
+            <migrated_note tag="hidden"/>
+            <end_pregnancy_note tag="hidden"/>
+            <clear_option/>
+            <cear_note tag="hidden"/>
+            <submit_note tag="hidden"/>
+            <back_note tag="hidden"/>
+          </pregnancy_ended>
+          <update_g_age>
+            <update_method>
+              <g_age_update_method/>
+              <lmp_weeks_new/>
+              <u_edd_new/>
+            </update_method>
+            <update_summary tag="hidden">
+              <update_check_note/>
+              <previous_info/>
+              <previous_g_age/>
+              <previous_g_age_unknown/>
+              <previous_edd/>
+              <previous_edd_unknown/>
+              <new_info/>
+              <new_g_age/>
+              <new_edd/>
+              <edd_check_note/>
+            </update_summary>
+            <lmp_date_8601_new tag="hidden"/>
+            <lmp_date_new tag="hidden"/>
+            <edd_8601_new tag="hidden"/>
+            <edd_new tag="hidden"/>
+          </update_g_age>
+          <anc_visits_hf>
+            <anc_visits_hf_past>
+              <pregnancy_follow_up_date_recent/>
+              <last_visit_attended/>
+              <report_other_visits/>
+              <visited_hf_count/>
+              <visited_date_ask_single/>
+              <visited_date_single/>
+              <visited_dates_multiple_note tag="hidden"/>
+              <visited_dates_multiple_note_section tag="hidden"/>
+              <visited_dates_count/>
+              <visited_dates jr:template="">
+                <visited_date_ask_multiple/>
+                <visited_date/>
+              </visited_dates>
+            </anc_visits_hf_past>
+            <risk_factors>
+              <previous_risk_factors_note tag="hidden"/>
+              <no_previous_risks_note tag="hidden"/>
+              <first_pregnancy_note tag="hidden"/>
+              <previous_miscarriage_note tag="hidden"/>
+              <previous_difficulties_note tag="hidden"/>
+              <more_than_4_children_note tag="hidden"/>
+              <last_baby_born_less_than_1_year_ago_note tag="hidden"/>
+              <heart_condition_note tag="hidden"/>
+              <asthma_note tag="hidden"/>
+              <high_blood_pressure_note tag="hidden"/>
+              <diabetes_note tag="hidden"/>
+              <extra_risk_note tag="hidden"/>
+              <new_risks/>
+              <additional_risk_check/>
+              <additional_risk/>
+              <r_risk_factor_present/>
+            </risk_factors>
+            <anc_visits_hf_next>
+              <anc_next_visit_date>
+                <appointment_date_known/>
+                <appointment_date/>
+              </anc_next_visit_date>
+              <anc_visit_advice_note tag="hidden">
+                <who_recommends_note/>
+                <prenancy_age_note/>
+                <refer_note/>
+              </anc_visit_advice_note>
+            </anc_visits_hf_next>
+          </anc_visits_hf>
+          <danger_signs>
+            <danger_signs_note tag="hidden"/>
+            <danger_signs_question_note/>
+            <vaginal_bleeding/>
+            <fits/>
+            <severe_abdominal_pain/>
+            <severe_headache/>
+            <very_pale/>
+            <fever/>
+            <reduced_or_no_fetal_movements/>
+            <breaking_water/>
+            <easily_tired/>
+            <face_hand_swelling/>
+            <breathlessness/>
+            <r_danger_sign_present tag="hidden"/>
+            <congratulate_no_ds_note tag="hidden"/>
+            <refer_patient_note_1 tag="hidden"/>
+            <refer_patient_note_2 tag="hidden"/>
+          </danger_signs>
+          <safe_pregnancy_practices>
+            <malaria>
+              <llin_use/>
+              <llin_advice_note tag="hidden"/>
+              <malaria_prophylaxis_note tag="hidden"/>
+            </malaria>
+            <iron_folate>
+              <iron_folate_daily/>
+              <iron_folate_note tag="hidden"/>
+            </iron_folate>
+            <deworming>
+              <deworming_med/>
+              <deworming_med_note tag="hidden"/>
+            </deworming>
+            <safe_practices_tips tag="hidden">
+              <eat_more_note/>
+              <talk_softly_note/>
+              <respond_move_note/>
+              <deliver_hf_note/>
+            </safe_practices_tips>
+            <hiv_status>
+              <hiv_tested/>
+              <hiv_importance_note tag="hidden"/>
+            </hiv_status>
+            <tetanus>
+              <tt_imm_received/>
+              <tt_note_1 tag="hidden"/>
+              <tt_note_2 tag="hidden"/>
+            </tetanus>
+            <safe_pregnancy_practices/>
+          </safe_pregnancy_practices>
+          <summary tag="hidden">
+            <r_submit_note/>
+            <r_summary_details/>
+            <r_patient_details/>
+            <r_summary/>
+            <r_pregnancy_details/>
+            <r_pregnancy_details_unknown/>
+            <r_risk_factors/>
+            <r_risk_heart_condition/>
+            <r_risk_asthma/>
+            <r_risk_high_blood_pressure/>
+            <r_risk_diabetes/>
+            <r_risk_additional/>
+            <r_danger_signs/>
+            <r_danger_sign_vaginal_bleeding/>
+            <r_danger_sign_fits/>
+            <r_danger_sign_severe_abdominal_pain/>
+            <r_danger_sign_severe_headache/>
+            <r_danger_sign_very_pale/>
+            <r_danger_sign_fever/>
+            <r_danger_sign_reduced_or_no_fetal_movements/>
+            <r_danger_sign_breaking_water/>
+            <r_danger_sign_easily_tired/>
+            <r_danger_sign_face_hand_swelling/>
+            <r_danger_sign_breathlessness/>
+            <r_space_1/>
+            <r_referrals/>
+            <r_refer_clinic_immediately/>
+            <r_refer_danger_sign/>
+            <r_routine_anc/>
+            <r_request_services/>
+            <r_request_service_tt/>
+            <r_request_service_hiv_test/>
+            <r_request_service_deworming/>
+            <r_request_service_iron/>
+            <r_who_recommends/>
+            <r_refer_hf_appropriate_time/>
+            <r_refer_hf_immediately/>
+            <r_follow_up_tasks/>
+            <r_following_tasks/>
+            <r_fup_danger_sign/>
+            <r_fup_hf_visit/>
+            <r_fup_pregnancy_visit/>
+            <r_fup_pregnancy_visit_2_weeks/>
+            <next_visit_weeks/>
+            <edd_summary/>
+            <next_appointment_date/>
+            <custom_translations tag="hidden">
+              <custom_woman_label_translator/>
+              <custom_woman_label/>
+              <custom_woman_start_label_translator/>
+              <custom_woman_start_label/>
+            </custom_translations>
+          </summary>
+          <data tag="hidden">
+            <__activity_to_report/>
+            <__gestational_age_correct/>
+            <__miscarriage_date/>
+            <__abortion_date/>
+            <__visit_task_clear_option/>
+            <__gestational_age_update_method/>
+            <__gestational_age_update_weeks/>
+            <__gestational_age_update_edd/>
+            <__lmp_updated/>
+            <__lmp_date_new/>
+            <__edd_new/>
+            <__last_visit_attended/>
+            <__report_additional_anc_hf_visits/>
+            <__num_additional_anc_hf_visits/>
+            <__additional_anc_hf_visit_dates/>
+            <__has_risk_factors_not_previously_reported/>
+            <__heart_condition/>
+            <__asthma/>
+            <__high_blood_pressure/>
+            <__diabetes/>
+            <__additional_high_risk_condition_to_report/>
+            <__additional_high_risk_condition/>
+            <__next_anc_hf_visit_date_known/>
+            <__next_anc_hf_visit_date/>
+            <__vaginal_bleeding/>
+            <__fits/>
+            <__severe_abdominal_pain/>
+            <__severe_headache/>
+            <__very_pale/>
+            <__fever/>
+            <__reduced_or_no_fetal_movements/>
+            <__breaking_water/>
+            <__easily_tired/>
+            <__face_hand_swelling/>
+            <__breathlessness/>
+            <__has_danger_sign/>
+            <__uses_llin/>
+            <__takes_iron_folate_daily/>
+            <__received_deworming_meds/>
+            <__tested_for_hiv_in_past_3_months/>
+            <__received_tetanus_toxoid_this_pregnancy/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+              <__pregnancy_uuid/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </pregnancy_home_visit>
+      </instance>
+    <instance id="contact-summary"/>
+    <instance id="yes_no">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="visit_options">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-visit_options-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-visit_options-1</itextId>
+            <name>miscarriage</name>
+          </item>
+          <item>
+            <itextId>static_instance-visit_options-2</itextId>
+            <name>abortion</name>
+          </item>
+          <item>
+            <itextId>static_instance-visit_options-3</itextId>
+            <name>refused</name>
+          </item>
+          <item>
+            <itextId>static_instance-visit_options-4</itextId>
+            <name>migrated</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="age_correct_yes_no">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-age_correct_yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-age_correct_yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="clear_options">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-clear_options-0</itextId>
+            <name>clear_this</name>
+          </item>
+          <item>
+            <itextId>static_instance-clear_options-1</itextId>
+            <name>clear_all</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="g_age_update_methods">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-g_age_update_methods-0</itextId>
+            <name>method_weeks</name>
+          </item>
+          <item>
+            <itextId>static_instance-g_age_update_methods-1</itextId>
+            <name>method_edd</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="lmp_approximations">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-lmp_approximations-0</itextId>
+            <name>approx_weeks</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approximations-1</itextId>
+            <name>approx_months</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="no_info_pregnancy_reasons">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-no_info_pregnancy_reasons-0</itextId>
+            <name>visibly_pregnant</name>
+          </item>
+          <item>
+            <itextId>static_instance-no_info_pregnancy_reasons-1</itextId>
+            <name>test_positive</name>
+          </item>
+          <item>
+            <itextId>static_instance-no_info_pregnancy_reasons-2</itextId>
+            <name>missed_periods</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="knows_date">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-knows_date-0</itextId>
+            <name>no</name>
+          </item>
+          <item>
+            <itextId>static_instance-knows_date-1</itextId>
+            <name>yes</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="risk_conditions">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-risk_conditions-0</itextId>
+            <name>heart_condition</name>
+          </item>
+          <item>
+            <itextId>static_instance-risk_conditions-1</itextId>
+            <name>asthma</name>
+          </item>
+          <item>
+            <itextId>static_instance-risk_conditions-2</itextId>
+            <name>high_blood_pressure</name>
+          </item>
+          <item>
+            <itextId>static_instance-risk_conditions-3</itextId>
+            <name>diabetes</name>
+          </item>
+          <item>
+            <itextId>static_instance-risk_conditions-4</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="translate_woman_label">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-translate_woman_label-0</itextId>
+            <name>woman</name>
+          </item>
+        </root>
+      </instance>
+    <instance id="translate_woman_start_label">
+        <root xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+          <item>
+            <itextId>static_instance-translate_woman_start_label-0</itextId>
+            <name>woman-start</name>
+          </item>
+        </root>
+      </instance>
+  </model>
+

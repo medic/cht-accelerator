@@ -1,0 +1,53 @@
+{
+  "form:follow": {
+    "localhost/medic": "pFlOfoJ4g1AFpnXC/b195g=="
+  },
+  "form:padr": {
+    "localhost/medic": "9ttSP0x25wuD+DPzukRg8w=="
+  },
+  "form:contact:clinic:create": {
+    "localhost/medic": "yvhnEyHJ8URRpkUh24Iudw=="
+  },
+  "form:contact:clinic:edit": {
+    "localhost/medic": "nQoCNI7jlmuc/+tpcdti8g=="
+  },
+  "form:contact:district_hospital:create": {
+    "localhost/medic": "r8x7SopT8tLr71w4k+fQZg=="
+  },
+  "form:contact:district_hospital:edit": {
+    "localhost/medic": "jJp45qPIuld1b/uphH+KRw=="
+  },
+  "form:contact:health_center:create": {
+    "localhost/medic": "UxwOmS16ieUQIrsiT//ZqQ=="
+  },
+  "form:contact:health_center:edit": {
+    "localhost/medic": "676IQgBIvuDJoSNfV+415g=="
+  },
+  "form:contact:person:create": {
+    "localhost/medic": "Qo+RfYVmAbOLJIC8Ne3PKg=="
+  },
+  "form:contact:person:edit": {
+    "localhost/medic": "2xXGYgo1XXiaqjtP8WbPbw=="
+  },
+  "resources": {
+    "localhost/medic": "ViTyIHLpxYElx+nWD1tFZg=="
+  },
+  "branding": {
+    "localhost/medic": "WAoNEioN1cxMkIM+YxvI6A=="
+  },
+  "messages-en": {
+    "localhost/medic": "c7tDHSVdanpLQhQ7nBNM5w=="
+  },
+  "privacy-policies": {
+    "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
+  },
+  "form:assessment": {
+    "localhost/medic": "JZ23YmdLLJbtPlxOlLxgEg=="
+  },
+  "form:death_confirmation": {
+    "localhost/medic": "eiAtgY008BJUVLN0OQgSXA=="
+  },
+  "form:chw_follow": {
+    "localhost/medic": "R8TBRe/5XBLNhP+iwDJpqA=="
+  }
+}

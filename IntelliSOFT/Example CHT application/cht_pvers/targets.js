@@ -82,65 +82,112 @@ module.exports = [
       }));
     }
   },
-  // Adverse Reaction: Percentage of reports with adverse reaction for the current month
+
+  // Follow Up Assessments Completed
   {
-    id: 'percentage-contacts-with-adverse-reaction-this-month',
-    type: 'percent',
-    icon: 'icon-danger-sign',
+    id: 'follow-up-assessments-completed',
+    translation_key: 'follow.up.assessments.completed.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-up',
     goal: -1,
-    translation_key: 'targets.padr.percentage.reaction.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
     appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
-    },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.type') === 'reaction';
-    },
-    idType: 'contact',
-    date: 'reported'
+    appliesToType: ['chw_follow'],
+    date: 'now',
   },
-  // Reports with reaction status marked as yes:: Still ongoing
+
+  // Referrals Completed
+
   {
-    id: 'percentage-contacts-with-adverse-reaction-on-this-month',
-    type: 'percent',
-    icon: 'icon-reaction-on',
+    id: 'completed-referrals',
+    translation_key: 'completed.referrals.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-assessment',
     goal: -1,
-    translation_key: 'targets.padr.percentage.reaction.on.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.padr.percentage.with.reaction',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown';
     },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reaction.group_reaction.on') === 'yes';
-    },
-    idType: 'contact',
-    date: 'reported',
+    date: 'now',
   },
-  // Reports with Poor Quality Medicine reported
+  // Adverse Drug Reactions Identified
   {
-    id: 'percentage-contacts-with-poor-quality-this-month',
-    type: 'percent',
-    icon: 'icon-risk',
+    id: 'adverse-drug-reactions-identified',
+    translation_key: 'adverse.drug.reactions.identified.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-reactions',
     goal: -1,
-    translation_key: 'targets.padr.percentage.quality.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
-    percentage_count_translation_key: 'targets.padr.percentage.with.poor.quality',
     appliesTo: 'reports',
-    appliesToType: ['padr'],
-    appliesIf: function (contact) {
-      return isPatient(contact);
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
-    passesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.type') === 'medicine';
+    date: 'now',
+  },
+  // Adverse Reactions reported following Immunization/Vaccination
+  {
+    id: 'adverse-drug-reactions-following-immunization',
+    translation_key: 'adverse.drug.reactions.following.immunization.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-reactions',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
     },
-    idType: 'contact',
-    date: 'reported'
+    date: 'now',
+  },
+
+  // Poor Quality Medicine Reported
+
+  {
+    id: 'poor-quality-medicine-reported',
+    translation_key: 'poor.quality.medicine.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-sadr',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+    },
+    date: 'now',
+  },
+
+  // Total number of deaths reported
+  {
+    id: 'total-number-of-deaths-reported',
+    translation_key: 'total.number.of.deaths.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-death-coffin',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['death_confirmation'],
+    date: 'now',
+  },
+
+  // Total number of recoveries reported
+  {
+    id: 'total-number-of-recoveries-reported',
+    translation_key: 'total.number.of.recoveries.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-referral',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['padr', 'chw_follow'],
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Recovered/Resolved' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes' || Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered';
+    },
+    date: 'now',
   },
 
 ];
