@@ -1,0 +1,9 @@
+{
+    "icon": "icon-death-coffin",
+    "title": "Death Confirmation",
+    "context": {
+        "person": false,
+        "place": false,
+        "expression": "contact.type === 'person'"
+    }
+}

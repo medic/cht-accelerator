@@ -10,6 +10,10 @@
     "icon-child": "icon-people-child@2x.png",
     "icon-children": "icon-people-children@2x.png",
     "icon-clinic": "icon-places-clinic@2x.png",
+    "icon-up": "icon-follow-up.png", 
+    "icon-assessment": "icon-healthcare-assessment.svg", 
+    "icon-referral": "icon-places-MOH.svg", 
+    "icon-death-coffin": "icon-death-coffin.svg",
     "icon-death-general": "icon-death-general.png",
     "icon-death-maternal": "icon-death-maternal.png",
     "icon-death-neonatal": "icon-death-neonatal.png",
@@ -34,5 +38,7 @@
     "medic-health-center": "medic-chw-area.svg",
     "medic-person": "medic-person.svg" ,
     "icon-reaction-on": "icon-condition-fever.svg" ,
-    "icon-danger-sign":"icon-ICCM-danger-sign.svg"
+    "icon-danger-sign":"icon-ICCM-danger-sign.svg",
+    "icon-followup":"icon-followup-general.svg",
+    "icon-reactions":"icon-condition-cough.svg"
 }

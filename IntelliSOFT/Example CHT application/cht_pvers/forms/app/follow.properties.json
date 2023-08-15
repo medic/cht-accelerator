@@ -1,9 +1,9 @@
 {
-    "icon": "icon-sadr",
-    "title": "Public Report",
+    "icon": "icon-up",
+    "title": "Follow Up Report",
     "context": {
         "person": false,
         "place": false,
-        "expression": "contact.type === 'person'"
+        "expression": "!contact.date_of_death && contact.type === 'person'"
     }
 }

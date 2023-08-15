@@ -1,0 +1,79 @@
+
+  <model>
+    <instance>
+        <death_report xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" id="death_report" prefix="J1!death_report!" delimiter="#" version="2022-09-26 12:09:48">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden">0</patient_age_in_years>
+          <patient_age_in_months tag="hidden">0</patient_age_in_months>
+          <patient_age_in_days tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_short_name tag="hidden"/>
+          <patient_display_name tag="hidden"/>
+          <death_details>
+            <date_of_death/>
+            <place_of_death/>
+            <place_of_death_other/>
+            <death_information/>
+          </death_details>
+          <group_review tag="hidden">
+            <submit/>
+            <r_summary_details/>
+            <c_patient_age/>
+            <r_patient_details/>
+            <r_death_info/>
+            <r_key_instruction/>
+            <blank_note/>
+            <r_referral/>
+            <r_undo/>
+          </group_review>
+          <data tag="hidden">
+            <__date_of_death/>
+            <__place_of_death/>
+            <__place_of_death_other/>
+            <__death_information/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </death_report>
+      </instance>
+    <instance id="contact-summary"/>
+  </model>
+

@@ -1,0 +1,1134 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Public Report</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/padr/availability/availability_report/available/no:label">
+            <value>No</value>
+          </text>
+          <text id="/padr/availability/availability_report/available/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/padr/availability/availability_report/available:label">
+            <value>Is the client present for the follow up assessment?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/expiry_date:jr:constraintMsg">
+            <value>Date must be before today</value>
+          </text>
+          <text id="/padr/form/medicines/medications/expiry_date:label">
+            <value>Expiry date of the medicine/vaccine/device</value>
+          </text>
+          <text id="/padr/form/medicines/medications/list_medication:label">
+            <value>(Include all medications)</value>
+          </text>
+          <text id="/padr/form/medicines/medications/location:label">
+            <value>Where did you buy the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/manufacturer:label">
+            <value>Manufacturer</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg">
+            <value>Date must be before today</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:label">
+            <value>Expiry date of the medicine/vaccine/device</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/location_multiple:label">
+            <value>Where did you buy the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/manufactuter_multiple:label">
+            <value>Manufacturer</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/name_multiple:label">
+            <value>Name of Medicine/Vaccine/Device</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg">
+            <value>Date must be before today/ before the reaction date</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/start_date_multiple:label">
+            <value>When did you start taking/using the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg">
+            <value>Date must be before today/ after start date</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medication_multiple/stop_date_multiple:label">
+            <value>When did you stop taking/using the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medicine_count:hint">
+            <value>Enter 1 if for the current medication causing reaction</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medicine_count:jr:constraintMsg">
+            <value>Must be an integer between 1 and 9.</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medicine_count:label">
+            <value>How many medicine(s) has the patient been taking</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medicine_count_multiple:label">
+            <value>You have selected that the patient is using <output value=" /padr/form/medicines/medications/medicine_count "/> drugs.</value>
+          </text>
+          <text id="/padr/form/medicines/medications/medicines_used:label">
+            <value>Each "Medication" section below asks about one medicine used. Please complete all sections.</value>
+          </text>
+          <text id="/padr/form/medicines/medications/name:label">
+            <value>Name of Medicine/Vaccine/Device</value>
+          </text>
+          <text id="/padr/form/medicines/medications/start_date:jr:constraintMsg">
+            <value>Date must be before today/ before the reaction date</value>
+          </text>
+          <text id="/padr/form/medicines/medications/start_date:label">
+            <value>When did you start taking/using the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines/medications/stop_date:jr:constraintMsg">
+            <value>Date must be before today/ after start date</value>
+          </text>
+          <text id="/padr/form/medicines/medications/stop_date:label">
+            <value>When did you stop taking/using the medicine/vaccine/device?</value>
+          </text>
+          <text id="/padr/form/medicines:label">
+            <value>DETAILS OF THE MEDICINE/VACCINE/DEVICE THAT CAUSED THE REACTION</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome/Death:label">
+            <value>Death</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome/Not Recovered/Not Resolved:label">
+            <value>Not Recovered/Not Resolved</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome/Recovered/Resolved:label">
+            <value>Recovered/Resolved</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome/Recovering/Resolving:label">
+            <value>Recovering/Resolving</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome/Unknown:label">
+            <value>Unknown</value>
+          </text>
+          <text id="/padr/form/outcome_details/group_outcome_details/outcome:label">
+            <value>Outcome</value>
+          </text>
+          <text id="/padr/form/outcome_details:label">
+            <value>OUTCOME DETAILS</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/other_signs:label">
+            <value>Other wrong things</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/Has_unusual_material_in_it:label">
+            <value>Has unusual material in it</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/The_color_is_changing:label">
+            <value>The color is changing</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/The_label_looks_wrong:label">
+            <value>The label looks wrong</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/The_medicine_is_not_working:label">
+            <value>The medicine is not working</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label">
+            <value>The packet or bottle does not seem to be usual or complete</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs/The_smell_is_unusual:label">
+            <value>The smell is unusual</value>
+          </text>
+          <text id="/padr/form/quality/group_quality/signs:label">
+            <value>Select all issues with the medicine/device</value>
+          </text>
+          <text id="/padr/form/quality:label">
+            <value>POOR QUALITY MEDICINE</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Abnormal_changes_with_urination:label">
+            <value>Abnormal changes with urination</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Dizziness_or_drowsiness:label">
+            <value>Dizziness or drowsiness</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Headache:label">
+            <value>Headache</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Joints_and_muscle_pain:label">
+            <value>Joints and muscle pain</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Pain_in_the_stomach:label">
+            <value>Pain in the stomach</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label">
+            <value>Pain or bleeding in the mouth</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Patient_died:label">
+            <value>Patient died</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Rash_itching_swelling_on_skin:label">
+            <value>Rash, itching, swelling on skin</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Red,_painful_eyes:label">
+            <value>Red, painful eyes</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects/Vomiting_or_diarrhea:label">
+            <value>Vomiting or diarrhea</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/effects:label">
+            <value>Select all side effects experienced</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/on/no:label">
+            <value>No</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/on/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/on:label">
+            <value>Is the reaction still on?</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/onset:jr:constraintMsg">
+            <value>Date must be before today</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/onset:label">
+            <value>When did the reaction start?</value>
+          </text>
+          <text id="/padr/form/reaction/group_reaction/other_effects:label">
+            <value>Other side effects experienced</value>
+          </text>
+          <text id="/padr/form/reaction:label">
+            <value>Side Effects</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Baringo:label">
+            <value>Baringo</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Bomet:label">
+            <value>Bomet</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Bungoma:label">
+            <value>Bungoma</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Busia:label">
+            <value>Busia</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Elgeyo/Marakwet:label">
+            <value>Elgeyo/Marakwet</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Embu:label">
+            <value>Embu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Garissa:label">
+            <value>Garissa</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Homa Bay:label">
+            <value>Homa Bay</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Isiolo:label">
+            <value>Isiolo</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kajiado:label">
+            <value>Kajiado</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kakamega:label">
+            <value>Kakamega</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kericho:label">
+            <value>Kericho</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kiambu:label">
+            <value>Kiambu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kilifi:label">
+            <value>Kilifi</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kirinyaga:label">
+            <value>Kirinyaga</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kisii:label">
+            <value>Kisii</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kisumu:label">
+            <value>Kisumu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kitui:label">
+            <value>Kitui</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Kwale:label">
+            <value>Kwale</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Laikipia:label">
+            <value>Laikipia</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Lamu:label">
+            <value>Lamu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Machakos:label">
+            <value>Machakos</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Makueni:label">
+            <value>Makueni</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Mandera:label">
+            <value>Mandera</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Marsabit:label">
+            <value>Marsabit</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Meru:label">
+            <value>Meru</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Migori:label">
+            <value>Migori</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Mombasa:label">
+            <value>Mombasa</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Murang'a:label">
+            <value>Murang'a</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nairobi County:label">
+            <value>Nairobi County</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nakuru:label">
+            <value>Nakuru</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nandi:label">
+            <value>Nandi</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Narok:label">
+            <value>Narok</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nyamira:label">
+            <value>Nyamira</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nyandarua:label">
+            <value>Nyandarua</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Nyeri:label">
+            <value>Nyeri</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Samburu:label">
+            <value>Samburu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Siaya:label">
+            <value>Siaya</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Taita Taveta:label">
+            <value>Taita Taveta</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Tana River:label">
+            <value>Tana River</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Tharaka Nithi:label">
+            <value>Tharaka Nithi</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Trans Nzoia:label">
+            <value>Trans Nzoia</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Turkana:label">
+            <value>Turkana</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Uasin Gishu:label">
+            <value>Uasin Gishu</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Vihiga:label">
+            <value>Vihiga</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/Wajir:label">
+            <value>Wajir</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county/West Pokot:label">
+            <value>West Pokot</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/county:label">
+            <value>County</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/person_name:label">
+            <value>Name of the Person Reporting</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/person_phone:jr:constraintMsg">
+            <value>Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/person_phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/relation/guardian:label">
+            <value>Guardian</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/relation/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/relation/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/relation/self:label">
+            <value>Self</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/relation:label">
+            <value>Relation</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/type/medicine:label">
+            <value>Poor Quality Medicine</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/type/reaction:label">
+            <value>Adverse Reaction</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/type:label">
+            <value>Select Type of Report</value>
+          </text>
+          <text id="/padr/form/reporter:label">
+            <value>Report Details</value>
+          </text>
+          <text id="/padr/group_review/r_death_info:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;Outcome: <output value=" /padr/form/outcome_details/group_outcome_details/outcome "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/padr/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Important Information&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/padr/group_review/r_no_referral:label">
+            <value>&lt;b&gt;<output value=" /padr/patient_display_name "/> is Doing well&lt;/b&gt;</value>
+          </text>
+          <text id="/padr/group_review/r_patient_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /padr/patient_display_name "/>
+<output value=" /padr/group_review/c_patient_age "/> &lt;/div&gt;</value>
+          </text>
+          <text id="/padr/group_review/r_referral:label">
+            <value>&lt;b&gt;Please refer <output value=" /padr/patient_display_name "/> to the nearest health facility.&lt;/b&gt;</value>
+          </text>
+          <text id="/padr/group_review/r_summary_details:label">
+            <value>Patient Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/padr/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
+          </text>
+          <text id="/padr/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/padr/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/padr/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/padr/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/padr/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/padr/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/padr/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/padr/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/padr/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/padr/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/padr/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/padr/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/padr/inputs/user/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/padr/inputs/user:label">
+            <value>User</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <padr id="padr" prefix="J1!padr!" delimiter="#" version="2023-07-20 01:59:06">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_age_in_months tag="hidden">0</patient_age_in_months>
+          <patient_age_in_days tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_sex/>
+          <patient_short_name tag="hidden"/>
+          <patient_display_name tag="hidden"/>
+          <availability>
+            <availability_report>
+              <available/>
+            </availability_report>
+          </availability>
+          <form>
+            <reporter>
+              <group_report>
+                <person_name/>
+                <person_phone/>
+                <relation/>
+                <county/>
+                <type/>
+              </group_report>
+            </reporter>
+            <quality>
+              <group_quality>
+                <signs/>
+                <other_signs/>
+              </group_quality>
+            </quality>
+            <reaction>
+              <group_reaction>
+                <effects/>
+                <other_effects/>
+                <onset/>
+                <on/>
+              </group_reaction>
+            </reaction>
+            <medicines>
+              <medications>
+                <list_medication/>
+                <medicine_count/>
+                <name/>
+                <manufacturer/>
+                <location/>
+                <start_date/>
+                <stop_date/>
+                <expiry_date/>
+                <medicine_count_multiple/>
+                <medicines_used tag="hidden"/>
+                <medication_multiple_count/>
+                <medication_multiple jr:template="">
+                  <name_multiple/>
+                  <manufactuter_multiple/>
+                  <location_multiple/>
+                  <start_date_multiple/>
+                  <stop_date_multiple/>
+                  <expiry_date_multiple/>
+                </medication_multiple>
+              </medications>
+            </medicines>
+            <outcome_details>
+              <group_outcome_details>
+                <outcome/>
+              </group_outcome_details>
+            </outcome_details>
+          </form>
+          <group_review tag="hidden">
+            <submit/>
+            <r_summary_details/>
+            <c_patient_age/>
+            <r_patient_details/>
+            <r_death_info/>
+            <r_key_instruction/>
+            <blank_note/>
+            <r_referral/>
+            <r_no_referral/>
+          </group_review>
+          <data tag="hidden">
+            <__outcome/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </padr>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/padr/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/padr/inputs/source" type="string"/>
+      <bind nodeset="/padr/inputs/source_id" type="string"/>
+      <bind nodeset="/padr/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/padr/inputs/user/parent/_id" type="string"/>
+      <bind nodeset="/padr/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/padr/inputs/contact/name" type="string"/>
+      <bind nodeset="/padr/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/padr/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/padr/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/padr/inputs/contact/sex" type="string"/>
+      <bind nodeset="/padr/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/padr/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/padr/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/padr/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/padr/patient_age_in_months" type="string" calculate="difference-in-months(  /padr/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/padr/patient_age_in_days" type="string" calculate="floor(decimal-date-time(today()) - decimal-date-time( /padr/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/padr/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/padr/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/padr/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/padr/patient_sex" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/padr/patient_short_name" type="string" calculate="../inputs/contact/short_name"/>
+      <bind nodeset="/padr/patient_display_name" type="string" calculate="if(../patient_short_name = '', ../patient_name, concat(../patient_name, ' (', ../patient_short_name, ')'))"/>
+      <bind nodeset="/padr/availability/availability_report/available" type="select1" required="true()"/>
+      <bind nodeset="/padr/form" relevant="selected( /padr/availability/availability_report/available ,'yes')"/>
+      <bind nodeset="/padr/form/reporter/group_report/person_name" type="string" required="true()"/>
+      <bind nodeset="/padr/form/reporter/group_report/person_phone" type="tel" required="true()" jr:constraintMsg="jr:itext('/padr/form/reporter/group_report/person_phone:jr:constraintMsg')" constraint="true()"/>
+      <bind nodeset="/padr/form/reporter/group_report/relation" type="select1" required="true()"/>
+      <bind nodeset="/padr/form/reporter/group_report/county" type="select1" required="true()"/>
+      <bind nodeset="/padr/form/reporter/group_report/type" type="select1" required="true()"/>
+      <bind nodeset="/padr/form/quality" relevant="selected(../reporter/group_report/type, 'medicine')"/>
+      <bind nodeset="/padr/form/quality/group_quality/signs" type="select" required="true()"/>
+      <bind nodeset="/padr/form/quality/group_quality/other_signs" type="string"/>
+      <bind nodeset="/padr/form/reaction" relevant="selected(../reporter/group_report/type, 'reaction')"/>
+      <bind nodeset="/padr/form/reaction/group_reaction/effects" type="select" required="true()"/>
+      <bind nodeset="/padr/form/reaction/group_reaction/other_effects" type="string"/>
+      <bind nodeset="/padr/form/reaction/group_reaction/onset" type="date" required="true()" jr:constraintMsg="jr:itext('/padr/form/reaction/group_reaction/onset:jr:constraintMsg')" constraint=". &lt;= now()"/>
+      <bind nodeset="/padr/form/reaction/group_reaction/on" type="select1"/>
+      <bind nodeset="/padr/form/medicines/medications/list_medication" readonly="true()" type="string"/>
+      <bind nodeset="/padr/form/medicines/medications/medicine_count" type="int" required="true()" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medicine_count:jr:constraintMsg')" constraint=".&gt;=1 and . &lt;= 9"/>
+      <bind nodeset="/padr/form/medicines/medications/name" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
+      <bind nodeset="/padr/form/medicines/medications/manufacturer" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
+      <bind nodeset="/padr/form/medicines/medications/location" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
+      <bind nodeset="/padr/form/medicines/medications/start_date" type="date" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  = 1" constraint=". &lt;= today() and ( /padr/form/reaction/group_reaction/onset  = '' or . &lt;=  /padr/form/reaction/group_reaction/onset )" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/start_date:jr:constraintMsg')"/>
+      <bind nodeset="/padr/form/medicines/medications/stop_date" type="date" relevant=" /padr/form/medicines/medications/medicine_count  = 1" constraint=". &lt;= today() and ( /padr/form/medicines/medications/start_date  = '' or . &gt;=  /padr/form/medicines/medications/start_date )" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/stop_date:jr:constraintMsg')"/>
+      <bind nodeset="/padr/form/medicines/medications/expiry_date" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/expiry_date:jr:constraintMsg')" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medicine_count_multiple" readonly="true()" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medicines_used" readonly="true()" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple_count" type="string" readonly="true()" calculate=" /padr/form/medicines/medications/medicine_count "/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/name_multiple" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/manufactuter_multiple" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/location_multiple" type="string" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/start_date_multiple" type="date" required="true()" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" constraint=". &lt;= today() and ( /padr/form/reaction/group_reaction/onset  = '' or . &lt;=  /padr/form/reaction/group_reaction/onset )" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg')"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/stop_date_multiple" type="date" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" constraint=". &lt;= today() and ( /padr/form/medicines/medications/medication_multiple/start_date_multiple  = '' or . &gt;=  /padr/form/medicines/medications/medication_multiple/start_date_multiple )" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg')"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg')" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/outcome_details/group_outcome_details/outcome" type="select1" required="true()"/>
+      <bind nodeset="/padr/group_review/submit" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/r_summary_details" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/c_patient_age" type="string" calculate="if(../../patient_age_in_days &lt; 31, 
+concat(../../patient_age_in_days, ' days old'),
+if(../../patient_age_in_months &lt; 12, 
+concat(../../patient_age_in_months, ' months old'), 
+concat(../../patient_age_in_years, ' years old')))"/>
+      <bind nodeset="/padr/group_review/r_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/r_death_info" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/r_key_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/blank_note" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/r_referral" readonly="true()" type="string" relevant="selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Unknown') or selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Not Recovered/Not Resolved')"/>
+      <bind nodeset="/padr/group_review/r_no_referral" readonly="true()" type="string" relevant="selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Recovered/Resolved') or selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Recovering/Resolving')"/>
+      <bind nodeset="/padr/data/__outcome" type="string" calculate=" /padr/form/outcome_details/group_outcome_details/outcome "/>
+      <bind nodeset="/padr/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/padr/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/padr/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/padr/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/padr/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/padr/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/padr/inputs">
+      <group ref="/padr/inputs/user">
+        <label ref="jr:itext('/padr/inputs/user:label')"/>
+        <input appearance="select-contact type-person" ref="/padr/inputs/user/contact_id">
+          <label ref="jr:itext('/padr/inputs/user/contact_id:label')"/>
+        </input>
+        <group ref="/padr/inputs/user/parent"/>
+      </group>
+      <group ref="/padr/inputs/contact">
+        <input appearance="db-object" ref="/padr/inputs/contact/_id">
+          <label ref="jr:itext('/padr/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/padr/inputs/contact/parent">
+          <group ref="/padr/inputs/contact/parent/parent">
+            <group ref="/padr/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group ref="/padr/availability">
+      <group appearance="field-list" ref="/padr/availability/availability_report">
+        <select1 ref="/padr/availability/availability_report/available">
+          <label ref="jr:itext('/padr/availability/availability_report/available:label')"/>
+          <item>
+            <label ref="jr:itext('/padr/availability/availability_report/available/yes:label')"/>
+            <value>yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/padr/availability/availability_report/available/no:label')"/>
+            <value>no</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+    <group ref="/padr/form">
+      <group ref="/padr/form/reporter">
+        <label ref="jr:itext('/padr/form/reporter:label')"/>
+        <group appearance="field-list" ref="/padr/form/reporter/group_report">
+          <input ref="/padr/form/reporter/group_report/person_name">
+            <label ref="jr:itext('/padr/form/reporter/group_report/person_name:label')"/>
+          </input>
+          <input ref="/padr/form/reporter/group_report/person_phone">
+            <label ref="jr:itext('/padr/form/reporter/group_report/person_phone:label')"/>
+          </input>
+          <select1 ref="/padr/form/reporter/group_report/relation">
+            <label ref="jr:itext('/padr/form/reporter/group_report/relation:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/relation/self:label')"/>
+              <value>self</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/relation/parent:label')"/>
+              <value>parent</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/relation/guardian:label')"/>
+              <value>guardian</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/relation/other:label')"/>
+              <value>other</value>
+            </item>
+          </select1>
+          <select1 appearance="autocomplete" ref="/padr/form/reporter/group_report/county">
+            <label ref="jr:itext('/padr/form/reporter/group_report/county:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Mombasa:label')"/>
+              <value>Mombasa</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kwale:label')"/>
+              <value>Kwale</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kilifi:label')"/>
+              <value>Kilifi</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Tana River:label')"/>
+              <value>Tana River</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Lamu:label')"/>
+              <value>Lamu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Taita Taveta:label')"/>
+              <value>Taita Taveta</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Garissa:label')"/>
+              <value>Garissa</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Wajir:label')"/>
+              <value>Wajir</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Mandera:label')"/>
+              <value>Mandera</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Marsabit:label')"/>
+              <value>Marsabit</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Isiolo:label')"/>
+              <value>Isiolo</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Meru:label')"/>
+              <value>Meru</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Tharaka Nithi:label')"/>
+              <value>Tharaka Nithi</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Embu:label')"/>
+              <value>Embu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kitui:label')"/>
+              <value>Kitui</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Machakos:label')"/>
+              <value>Machakos</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Makueni:label')"/>
+              <value>Makueni</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nyandarua:label')"/>
+              <value>Nyandarua</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nyeri:label')"/>
+              <value>Nyeri</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kirinyaga:label')"/>
+              <value>Kirinyaga</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Murang'a:label')"/>
+              <value>Murang'a</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kiambu:label')"/>
+              <value>Kiambu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Turkana:label')"/>
+              <value>Turkana</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/West Pokot:label')"/>
+              <value>West Pokot</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Samburu:label')"/>
+              <value>Samburu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Trans Nzoia:label')"/>
+              <value>Trans Nzoia</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Uasin Gishu:label')"/>
+              <value>Uasin Gishu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Elgeyo/Marakwet:label')"/>
+              <value>Elgeyo/Marakwet</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nandi:label')"/>
+              <value>Nandi</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Baringo:label')"/>
+              <value>Baringo</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Laikipia:label')"/>
+              <value>Laikipia</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nakuru:label')"/>
+              <value>Nakuru</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Narok:label')"/>
+              <value>Narok</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kajiado:label')"/>
+              <value>Kajiado</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kericho:label')"/>
+              <value>Kericho</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Bomet:label')"/>
+              <value>Bomet</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kakamega:label')"/>
+              <value>Kakamega</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Vihiga:label')"/>
+              <value>Vihiga</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Bungoma:label')"/>
+              <value>Bungoma</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Busia:label')"/>
+              <value>Busia</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Siaya:label')"/>
+              <value>Siaya</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kisumu:label')"/>
+              <value>Kisumu</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Homa Bay:label')"/>
+              <value>Homa Bay</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Migori:label')"/>
+              <value>Migori</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Kisii:label')"/>
+              <value>Kisii</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nyamira:label')"/>
+              <value>Nyamira</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/county/Nairobi County:label')"/>
+              <value>Nairobi County</value>
+            </item>
+          </select1>
+          <select1 ref="/padr/form/reporter/group_report/type">
+            <label ref="jr:itext('/padr/form/reporter/group_report/type:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/type/reaction:label')"/>
+              <value>reaction</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reporter/group_report/type/medicine:label')"/>
+              <value>medicine</value>
+            </item>
+          </select1>
+        </group>
+      </group>
+      <group ref="/padr/form/quality">
+        <label ref="jr:itext('/padr/form/quality:label')"/>
+        <group appearance="field-list" ref="/padr/form/quality/group_quality">
+          <select ref="/padr/form/quality/group_quality/signs">
+            <label ref="jr:itext('/padr/form/quality/group_quality/signs:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_label_looks_wrong:label')"/>
+              <value>The_label_looks_wrong</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/Has_unusual_material_in_it:label')"/>
+              <value>Has_unusual_material_in_it</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_color_is_changing:label')"/>
+              <value>The_color_is_changing</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_smell_is_unusual:label')"/>
+              <value>The_smell_is_unusual</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_medicine_is_not_working:label')"/>
+              <value>The_medicine_is_not_working</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label')"/>
+              <value>The_packet_or_bottle_does_not_seem_to_be_usual_or_complete</value>
+            </item>
+          </select>
+          <input appearance="multiline" ref="/padr/form/quality/group_quality/other_signs">
+            <label ref="jr:itext('/padr/form/quality/group_quality/other_signs:label')"/>
+          </input>
+        </group>
+      </group>
+      <group ref="/padr/form/reaction">
+        <label ref="jr:itext('/padr/form/reaction:label')"/>
+        <group appearance="field-list" ref="/padr/form/reaction/group_reaction">
+          <select ref="/padr/form/reaction/group_reaction/effects">
+            <label ref="jr:itext('/padr/form/reaction/group_reaction/effects:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Vomiting_or_diarrhea:label')"/>
+              <value>Vomiting_or_diarrhea</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Dizziness_or_drowsiness:label')"/>
+              <value>Dizziness_or_drowsiness</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Headache:label')"/>
+              <value>Headache</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Joints_and_muscle_pain:label')"/>
+              <value>Joints_and_muscle_pain</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Rash_itching_swelling_on_skin:label')"/>
+              <value>Rash_itching_swelling_on_skin</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label')"/>
+              <value>Pain_or_bleeding_in_the_mouth</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Pain_in_the_stomach:label')"/>
+              <value>Pain_in_the_stomach</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Abnormal_changes_with_urination:label')"/>
+              <value>Abnormal_changes_with_urination</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Red,_painful_eyes:label')"/>
+              <value>Red,_painful_eyes</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Patient_died:label')"/>
+              <value>Patient_died</value>
+            </item>
+          </select>
+          <input ref="/padr/form/reaction/group_reaction/other_effects">
+            <label ref="jr:itext('/padr/form/reaction/group_reaction/other_effects:label')"/>
+          </input>
+          <input ref="/padr/form/reaction/group_reaction/onset">
+            <label ref="jr:itext('/padr/form/reaction/group_reaction/onset:label')"/>
+          </input>
+          <select1 ref="/padr/form/reaction/group_reaction/on">
+            <label ref="jr:itext('/padr/form/reaction/group_reaction/on:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/on/yes:label')"/>
+              <value>yes</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/reaction/group_reaction/on/no:label')"/>
+              <value>no</value>
+            </item>
+          </select1>
+        </group>
+      </group>
+      <group ref="/padr/form/medicines">
+        <label ref="jr:itext('/padr/form/medicines:label')"/>
+        <group appearance="field-list" ref="/padr/form/medicines/medications">
+          <input ref="/padr/form/medicines/medications/list_medication">
+            <label ref="jr:itext('/padr/form/medicines/medications/list_medication:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/medicine_count">
+            <label ref="jr:itext('/padr/form/medicines/medications/medicine_count:label')"/>
+            <hint ref="jr:itext('/padr/form/medicines/medications/medicine_count:hint')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/name">
+            <label ref="jr:itext('/padr/form/medicines/medications/name:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/manufacturer">
+            <label ref="jr:itext('/padr/form/medicines/medications/manufacturer:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/location">
+            <label ref="jr:itext('/padr/form/medicines/medications/location:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/start_date">
+            <label ref="jr:itext('/padr/form/medicines/medications/start_date:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/stop_date">
+            <label ref="jr:itext('/padr/form/medicines/medications/stop_date:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/expiry_date">
+            <label ref="jr:itext('/padr/form/medicines/medications/expiry_date:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/medicine_count_multiple">
+            <label ref="jr:itext('/padr/form/medicines/medications/medicine_count_multiple:label')"/>
+          </input>
+          <input ref="/padr/form/medicines/medications/medicines_used">
+            <label ref="jr:itext('/padr/form/medicines/medications/medicines_used:label')"/>
+          </input>
+          <group ref="/padr/form/medicines/medications/medication_multiple">
+            <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple:label')"/>
+            <repeat nodeset="/padr/form/medicines/medications/medication_multiple" jr:count=" /padr/form/medicines/medications/medication_multiple_count ">
+              <input ref="/padr/form/medicines/medications/medication_multiple/name_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/name_multiple:label')"/>
+              </input>
+              <input ref="/padr/form/medicines/medications/medication_multiple/manufactuter_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/manufactuter_multiple:label')"/>
+              </input>
+              <input ref="/padr/form/medicines/medications/medication_multiple/location_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/location_multiple:label')"/>
+              </input>
+              <input ref="/padr/form/medicines/medications/medication_multiple/start_date_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/start_date_multiple:label')"/>
+              </input>
+              <input ref="/padr/form/medicines/medications/medication_multiple/stop_date_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/stop_date_multiple:label')"/>
+              </input>
+              <input ref="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple">
+                <label ref="jr:itext('/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:label')"/>
+              </input>
+            </repeat>
+          </group>
+        </group>
+      </group>
+      <group ref="/padr/form/outcome_details">
+        <label ref="jr:itext('/padr/form/outcome_details:label')"/>
+        <group appearance="field-list" ref="/padr/form/outcome_details/group_outcome_details">
+          <select1 ref="/padr/form/outcome_details/group_outcome_details/outcome">
+            <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome:label')"/>
+            <item>
+              <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome/Recovered/Resolved:label')"/>
+              <value>Recovered/Resolved</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome/Recovering/Resolving:label')"/>
+              <value>Recovering/Resolving</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome/Not Recovered/Not Resolved:label')"/>
+              <value>Not Recovered/Not Resolved</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome/Death:label')"/>
+              <value>Death</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/padr/form/outcome_details/group_outcome_details/outcome/Unknown:label')"/>
+              <value>Unknown</value>
+            </item>
+          </select1>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list summary" ref="/padr/group_review">
+      <input ref="/padr/group_review/submit">
+        <label ref="jr:itext('/padr/group_review/submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/padr/group_review/r_summary_details">
+        <label ref="jr:itext('/padr/group_review/r_summary_details:label')"/>
+      </input>
+      <input ref="/padr/group_review/r_patient_details">
+        <label ref="jr:itext('/padr/group_review/r_patient_details:label')"/>
+      </input>
+      <input ref="/padr/group_review/r_death_info">
+        <label ref="jr:itext('/padr/group_review/r_death_info:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/padr/group_review/r_key_instruction">
+        <label ref="jr:itext('/padr/group_review/r_key_instruction:label')"/>
+      </input>
+      <input ref="/padr/group_review/blank_note"/>
+      <input appearance="h1 red" ref="/padr/group_review/r_referral">
+        <label ref="jr:itext('/padr/group_review/r_referral:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/padr/group_review/r_no_referral">
+        <label ref="jr:itext('/padr/group_review/r_no_referral:label')"/>
+      </input>
+    </group>
+    <group appearance="hidden" ref="/padr/data">
+      <group ref="/padr/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

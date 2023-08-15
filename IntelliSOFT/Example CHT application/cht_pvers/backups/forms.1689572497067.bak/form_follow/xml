@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Follow Up</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/follow/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/follow/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/follow/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/follow/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/follow/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/follow/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/follow/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/follow/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/follow/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/follow/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/follow/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/follow/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/follow/inputs/user/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/follow/inputs/user:label">
+            <value>User</value>
+          </text>
+          <text id="/follow/reporter/group_report/on/no:label">
+            <value>No</value>
+          </text>
+          <text id="/follow/reporter/group_report/on/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/follow/reporter/group_report/on:label">
+            <value>Is <output value=" /follow/patient_name "/> still experiencing the Reaction?</value>
+          </text>
+          <text id="/follow/reporter/group_report/stop:jr:constraintMsg">
+            <value>Date must be before today</value>
+          </text>
+          <text id="/follow/reporter/group_report/stop:label">
+            <value>When did the reaction stop?</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-06-05 21:45:55">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_sex/>
+          <reporter>
+            <group_report>
+              <on/>
+              <stop/>
+            </group_report>
+          </reporter>
+          <data tag="hidden">
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </follow>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/follow/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/follow/inputs/source" type="string"/>
+      <bind nodeset="/follow/inputs/source_id" type="string"/>
+      <bind nodeset="/follow/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/follow/inputs/user/parent/_id" type="string"/>
+      <bind nodeset="/follow/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/follow/inputs/contact/name" type="string"/>
+      <bind nodeset="/follow/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/follow/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/follow/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/follow/inputs/contact/sex" type="string"/>
+      <bind nodeset="/follow/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/follow/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/follow/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/follow/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/follow/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/follow/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/follow/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/follow/patient_sex" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/follow/reporter/group_report/on" type="select1" required="true()"/>
+      <bind nodeset="/follow/reporter/group_report/stop" type="date" constraint=". &lt;= now()" jr:constraintMsg="jr:itext('/follow/reporter/group_report/stop:jr:constraintMsg')" required="true()" relevant="selected(../on, 'no')"/>
+      <bind nodeset="/follow/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/follow/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/follow/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/follow/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/follow/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/follow/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/follow/inputs">
+      <group ref="/follow/inputs/user">
+        <label ref="jr:itext('/follow/inputs/user:label')"/>
+        <input appearance="select-contact type-person" ref="/follow/inputs/user/contact_id">
+          <label ref="jr:itext('/follow/inputs/user/contact_id:label')"/>
+        </input>
+        <group ref="/follow/inputs/user/parent"/>
+      </group>
+      <group ref="/follow/inputs/contact">
+        <input appearance="db-object" ref="/follow/inputs/contact/_id">
+          <label ref="jr:itext('/follow/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/follow/inputs/contact/parent">
+          <group ref="/follow/inputs/contact/parent/parent">
+            <group ref="/follow/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group ref="/follow/reporter">
+      <group appearance="field-list" ref="/follow/reporter/group_report">
+        <select1 ref="/follow/reporter/group_report/on">
+          <label ref="jr:itext('/follow/reporter/group_report/on:label')"/>
+          <item>
+            <label ref="jr:itext('/follow/reporter/group_report/on/yes:label')"/>
+            <value>yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/follow/reporter/group_report/on/no:label')"/>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/follow/reporter/group_report/stop">
+          <label ref="jr:itext('/follow/reporter/group_report/stop:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="hidden" ref="/follow/data">
+      <group ref="/follow/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

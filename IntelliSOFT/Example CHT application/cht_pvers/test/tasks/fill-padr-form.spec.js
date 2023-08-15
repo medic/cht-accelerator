@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const TestHarness = require('cht-conf-test-harness');
-const formName = 'delivery';
+const formName = 'padr';
 const { submissionScenario} = require('../form-inputs');
 const harness = new TestHarness();
 const { DateTime } = require('luxon');
@@ -18,7 +18,7 @@ describe('Patient Registration Task', function () {
 
     const validateSchedule = async (creationDate) => {
         harness.setNow(creationDate.plus({ day: 3 }).toISODate());
-        expect(await harness.getTasks({ title: 'Patient Consultation' })).lengthOf(1); 
+        expect(await harness.getTasks({ title: 'CHW Consultation' })).lengthOf(1); 
     };
 
     it('Consultation task appears on schedule triggered by contact creation', async () => {

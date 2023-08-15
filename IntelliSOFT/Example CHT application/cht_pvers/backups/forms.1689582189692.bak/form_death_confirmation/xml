@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Death Confirmation</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/death_confirmation/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/death_confirmation/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/death_confirmation/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/death_confirmation/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/death_confirmation/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/death_confirmation/inputs/user/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/death_confirmation/inputs/user:label">
+            <value>User</value>
+          </text>
+          <text id="/death_confirmation/reporter/group_report/date:label">
+            <value>When did the patient died?</value>
+          </text>
+          <text id="/death_confirmation/reporter/group_report/reaction/no:label">
+            <value>No</value>
+          </text>
+          <text id="/death_confirmation/reporter/group_report/reaction/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/death_confirmation/reporter/group_report/reaction:label">
+            <value>Did the patient died?</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-07-17 01:18:25">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_sex/>
+          <reporter>
+            <group_report>
+              <reaction/>
+              <date/>
+            </group_report>
+          </reporter>
+          <data tag="hidden">
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </death_confirmation>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/death_confirmation/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/death_confirmation/inputs/source" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/source_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/user/parent/_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/death_confirmation/inputs/contact/name" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/sex" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/death_confirmation/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/death_confirmation/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/death_confirmation/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/death_confirmation/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/death_confirmation/patient_sex" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/death_confirmation/reporter/group_report/reaction" type="select1" required="true()"/>
+      <bind nodeset="/death_confirmation/reporter/group_report/date" type="date" required="true()" constraint=". &lt;= now()"/>
+      <bind nodeset="/death_confirmation/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/death_confirmation/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/death_confirmation/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/death_confirmation/data/meta/__source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/death_confirmation/data/meta/__source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/death_confirmation/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/death_confirmation/inputs">
+      <group ref="/death_confirmation/inputs/user">
+        <label ref="jr:itext('/death_confirmation/inputs/user:label')"/>
+        <input appearance="select-contact type-person" ref="/death_confirmation/inputs/user/contact_id">
+          <label ref="jr:itext('/death_confirmation/inputs/user/contact_id:label')"/>
+        </input>
+        <group ref="/death_confirmation/inputs/user/parent"/>
+      </group>
+      <group ref="/death_confirmation/inputs/contact">
+        <input appearance="db-object" ref="/death_confirmation/inputs/contact/_id">
+          <label ref="jr:itext('/death_confirmation/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/death_confirmation/inputs/contact/parent">
+          <group ref="/death_confirmation/inputs/contact/parent/parent">
+            <group ref="/death_confirmation/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group ref="/death_confirmation/reporter">
+      <group appearance="field-list" ref="/death_confirmation/reporter/group_report">
+        <select1 ref="/death_confirmation/reporter/group_report/reaction">
+          <label ref="jr:itext('/death_confirmation/reporter/group_report/reaction:label')"/>
+          <item>
+            <label ref="jr:itext('/death_confirmation/reporter/group_report/reaction/yes:label')"/>
+            <value>yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/death_confirmation/reporter/group_report/reaction/no:label')"/>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/death_confirmation/reporter/group_report/date">
+          <label ref="jr:itext('/death_confirmation/reporter/group_report/date:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="hidden" ref="/death_confirmation/data">
+      <group ref="/death_confirmation/data/meta"/>
+    </group>
+  </h:body>
+</h:html>

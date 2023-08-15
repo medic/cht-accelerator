@@ -1,0 +1,301 @@
+
+  <model>
+    <instance>
+        <pregnancy xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" id="pregnancy" prefix="J1!pregnancy!" delimiter="#" version="2022-09-26 11:42:48">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <parent>
+                <_id/>
+              </parent>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <patient_short_name tag="hidden"/>
+          <patient_short_name_start tag="hidden"/>
+          <lmp_date_8601 tag="hidden"/>
+          <edd_8601 tag="hidden"/>
+          <days_since_lmp tag="hidden"/>
+          <weeks_since_lmp tag="hidden"/>
+          <weeks_since_lmp_rounded tag="hidden"/>
+          <lmp_method_approx tag="hidden"/>
+          <hiv_status_known tag="hidden"/>
+          <deworming_med_received tag="hidden"/>
+          <tt_received tag="hidden"/>
+          <t_pregnancy_follow_up_date tag="hidden"/>
+          <t_pregnancy_follow_up tag="hidden"/>
+          <t_danger_signs_referral_follow_up_date tag="hidden"/>
+          <t_danger_signs_referral_follow_up tag="hidden"/>
+          <gestational_age>
+            <register_method>
+              <register_note tag="hidden"/>
+              <lmp_method/>
+            </register_method>
+            <method_lmp>
+              <u_lmp_date/>
+            </method_lmp>
+            <method_approx>
+              <lmp_approx tag="hidden"/>
+              <lmp_approx_weeks/>
+              <lmp_approx_months/>
+            </method_approx>
+            <method_edd>
+              <u_edd/>
+            </method_edd>
+            <method_lmp_summary tag="hidden">
+              <lmp_check_note/>
+              <lmp_approx_weeks_check_note/>
+              <lmp_approx_months_check_note/>
+              <u_edd_note/>
+              <edd_note/>
+              <lmp_note/>
+              <edd_check_note/>
+            </method_lmp_summary>
+            <g_lmp_date_8601 tag="hidden"/>
+            <g_lmp_date tag="hidden"/>
+            <g_edd_8601 tag="hidden"/>
+            <g_edd tag="hidden"/>
+            <method_none>
+              <no_info_notice tag="hidden"/>
+              <no_info_pregnancy_reason/>
+              <pregnancy_confirm_note tag="hidden"/>
+            </method_none>
+          </gestational_age>
+          <anc_visits_hf>
+            <anc_visits_hf_past>
+              <visited_hf_count/>
+              <visited_dates_group>
+                <visited_count_confim_note_single tag="hidden"/>
+                <visited_count_confim_note_multiple tag="hidden"/>
+                <visited_date_ask_single/>
+                <visited_date_single/>
+                <visited_dates_multiple_note tag="hidden"/>
+                <visited_dates_multiple_note_section tag="hidden"/>
+                <visited_dates_count/>
+                <visited_dates jr:template="">
+                  <visited_date_ask_multiple/>
+                  <visited_date/>
+                </visited_dates>
+              </visited_dates_group>
+            </anc_visits_hf_past>
+            <anc_visits_hf_next>
+              <anc_next_visit_date>
+                <appointment_date_known/>
+                <appointment_date/>
+              </anc_next_visit_date>
+              <anc_visit_advice_note tag="hidden">
+                <who_recommends_note/>
+                <prenancy_age_note/>
+                <refer_note/>
+              </anc_visit_advice_note>
+            </anc_visits_hf_next>
+          </anc_visits_hf>
+          <risk_factors>
+            <risk_factors_history>
+              <first_pregnancy/>
+              <previous_miscarriage/>
+            </risk_factors_history>
+            <risk_factors_present>
+              <primary_condition/>
+              <secondary_condition/>
+              <additional_risk_check/>
+              <additional_risk/>
+            </risk_factors_present>
+            <r_risk_factor_present tag="hidden"/>
+          </risk_factors>
+          <danger_signs>
+            <danger_signs_note tag="hidden"/>
+            <danger_signs_question_note/>
+            <vaginal_bleeding/>
+            <fits/>
+            <severe_abdominal_pain/>
+            <severe_headache/>
+            <very_pale/>
+            <fever/>
+            <reduced_or_no_fetal_movements/>
+            <breaking_water/>
+            <easily_tired/>
+            <face_hand_swelling/>
+            <breathlessness/>
+            <r_danger_sign_present tag="hidden"/>
+            <congratulate_no_ds_note tag="hidden"/>
+            <refer_patient_note_1 tag="hidden"/>
+            <refer_patient_note_2 tag="hidden"/>
+          </danger_signs>
+          <safe_pregnancy_practices>
+            <malaria>
+              <uses_llin/>
+              <llin_advice_note tag="hidden"/>
+              <malaria_prophylaxis_note tag="hidden"/>
+            </malaria>
+            <iron_folate>
+              <iron_folate_daily/>
+              <iron_folate_note tag="hidden"/>
+            </iron_folate>
+            <deworming>
+              <deworming_med/>
+              <deworming_med_note tag="hidden"/>
+            </deworming>
+            <safe_practices_tips tag="hidden">
+              <eat_more_note/>
+              <talk_softly_note/>
+              <respond_move_note/>
+              <deliver_hf_note/>
+            </safe_practices_tips>
+            <hiv_status>
+              <hiv_tested/>
+              <hiv_importance_note tag="hidden"/>
+            </hiv_status>
+            <tetanus>
+              <tt_imm_received/>
+              <tt_note_1 tag="hidden"/>
+              <tt_note_2 tag="hidden"/>
+            </tetanus>
+            <request_services tag="hidden"/>
+          </safe_pregnancy_practices>
+          <summary tag="hidden">
+            <r_submit_note/>
+            <r_summary_details/>
+            <r_patient_details/>
+            <r_summary/>
+            <r_pregnancy_details/>
+            <r_pregnancy_details_unknown/>
+            <r_risk_factors/>
+            <r_risk_first_pregnancy/>
+            <r_risk_previous_miscarriage/>
+            <r_risk_previous_difficulties/>
+            <r_risk_more_than_4_children/>
+            <r_risk_last_baby_born_less_than_1_year_ago/>
+            <r_risk_heart_condition/>
+            <r_risk_asthma/>
+            <r_risk_high_blood_pressure/>
+            <r_risk_diabetes/>
+            <r_risk_additional/>
+            <r_danger_signs/>
+            <r_danger_sign_vaginal_bleeding/>
+            <r_danger_sign_fits/>
+            <r_danger_sign_severe_abdominal_pain/>
+            <r_danger_sign_severe_headache/>
+            <r_danger_sign_very_pale/>
+            <r_danger_sign_fever/>
+            <r_danger_sign_reduced_or_no_fetal_movements/>
+            <r_danger_sign_breaking_water/>
+            <r_danger_sign_easily_tired/>
+            <r_danger_sign_face_hand_swelling/>
+            <r_danger_sign_breathlessness/>
+            <r_space_1/>
+            <r_referrals/>
+            <r_refer_clinic_immediately/>
+            <r_refer_danger_sign/>
+            <r_routine_anc/>
+            <r_request_services/>
+            <r_request_service_tt/>
+            <r_request_service_hiv_test/>
+            <r_request_service_deworming/>
+            <r_request_service_iron/>
+            <r_who_recommends/>
+            <r_refer_hf_appropriate_time/>
+            <r_refer_hf_immediately/>
+            <r_space_2/>
+            <check-/>
+            <r_following_tasks/>
+            <r_fup_danger_sign/>
+            <r_fup_hf_visit/>
+            <r_fup_pregnancy_visit/>
+            <r_fup_pregnancy_visit_2_weeks/>
+            <next_visit_weeks/>
+            <edd_summary/>
+            <next_appointment_date/>
+            <custom_translations>
+              <custom_woman_label_translator/>
+              <custom_woman_label/>
+              <custom_woman_start_label_translator/>
+              <custom_woman_start_label/>
+            </custom_translations>
+          </summary>
+          <data tag="hidden">
+            <__lmp_method/>
+            <__no_lmp_registration_reason/>
+            <__lmp_date/>
+            <__lmp_approx_weeks/>
+            <__lmp_approx_months/>
+            <__edd/>
+            <__num_previous_anc_hf_visits/>
+            <__previous_anc_hf_visit_dates/>
+            <__next_anc_hf_visit_date_known/>
+            <__next_anc_hf_visit_date/>
+            <__has_risk_factors/>
+            <__first_pregnancy/>
+            <__previous_miscarriage/>
+            <__previous_difficulties/>
+            <__more_than_4_children/>
+            <__last_baby_born_less_than_1_year_ago/>
+            <__heart_condition/>
+            <__asthma/>
+            <__high_blood_pressure/>
+            <__diabetes/>
+            <__additional_high_risk_condition_to_report/>
+            <__additional_high_risk_condition/>
+            <__has_danger_sign/>
+            <__vaginal_bleeding/>
+            <__fits/>
+            <__severe_abdominal_pain/>
+            <__severe_headache/>
+            <__very_pale/>
+            <__fever/>
+            <__reduced_or_no_fetal_movements/>
+            <__breaking_water/>
+            <__easily_tired/>
+            <__face_hand_swelling/>
+            <__breathlessness/>
+            <__uses_llin/>
+            <__takes_iron_folate_daily/>
+            <__received_deworming_meds/>
+            <__tested_for_hiv_in_past_3_months/>
+            <__received_tetanus_toxoid_this_pregnancy/>
+            <meta tag="hidden">
+              <__patient_uuid/>
+              <__patient_id/>
+              <__household_uuid/>
+              <__source/>
+              <__source_id/>
+            </meta>
+          </data>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </pregnancy>
+      </instance>
+    <instance id="contact-summary"/>
+  </model>
+

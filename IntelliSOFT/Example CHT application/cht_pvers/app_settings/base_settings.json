@@ -1,28 +1,58 @@
 {
     "languages": [
-    
         {
-          "locale": "en",
-          "enabled": true
-        }, 
+            "locale": "en",
+            "enabled": true
+        },
         {
-          "locale": "sw",
-          "enabled": true
+            "locale": "sw",
+            "enabled": true
         }
-      ],
+    ],
+    "locales": [
+        {
+            "code": "en",
+            "name": "English"
+        }
+    ],
+    "locale": "en",
+    "locale_outgoing": "en",
+    "date_format": "YYYY-MM-DD",
+    "reported_date_format": "YYYY-MM-DD HH:mm:ss",
+    "forms_only_mode": false,
+    "default_responses": {
+        "start_date": ""
+    },
+    "district_admins_access_unallocated_messages": false,
+    "public_access": false,
+    "default_country_code": 1,
+    "gateway_number": "+13125551212",
+    "schedule_morning_hours": 0,
+    "schedule_morning_minutes": 0,
+    "schedule_evening_hours": 23,
+    "schedule_evening_minutes": 0,
+    "synthetic_date": "",
+    "contact_display_short": "clinic.name",
     "roles": {
         "data_entry": {
-            "name": "usertype.data-entry"
+            "name": "usertype.data-entry",
+            "offline": true
         },
         "analytics": {
-            "name": "usertype.analytics"
+            "name": "usertype.analytics",
+            "offline": true
         },
         "gateway": {
             "name": "usertype.gateway"
         },
         "program_officer": {
-            "name": "usertype.program-officer"
-        }, 
+            "name": "usertype.program-officer",
+            "offline": true
+        },
+        "crfo": {
+            "name": "usertype.crfo",
+            "offline": true
+        },
         "chw_supervisor": {
             "name": "usertype.chw-supervisor",
             "offline": true
@@ -42,7 +72,8 @@
             "chw"
         ],
         "can_configure": [
-            "program_officer"
+            "program_officer",
+            "crfo"
         ],
         "can_create_people": [
             "program_officer",
@@ -99,7 +130,8 @@
             "chw"
         ],
         "can_export_all": [
-            "program_officer"
+            "program_officer",
+            "crfo"
         ],
         "can_export_contacts": [
             "program_officer",
@@ -130,7 +162,8 @@
             "program_officer"
         ],
         "can_export_dhis": [
-            "national_admin"
+            "national_admin",
+            "crfo"
         ],
         "can_verify_reports": [
             "program_officer",
@@ -138,12 +171,15 @@
         ],
         "can_view_analytics": [
             "analytics",
+            "admin",
             "program_officer",
             "chw_supervisor",
             "chw"
         ],
         "can_view_analytics_tab": [
             "program_officer",
+            "admin",
+            "analytics",
             "chw_supervisor",
             "chw"
         ],
@@ -231,8 +267,232 @@
         "update_clinics": false,
         "update_notifications": false,
         "update_scheduled_reports": false,
-        "update_sent_forms": false,
         "generate_patient_id_on_people": true,
-        "death_reporting": true
-      }
+        "death_reporting": true,
+        "mark_for_outbound": true
+    },
+    "death_reporting": {
+        "mark_deceased_forms": [
+          "death_confirmation"
+        ],
+        "date_field": "fields.date_of_death"
+     },
+    "outbound": {
+        "FHIR_Patients": {
+            "relevant_to": "doc.type === 'person' && doc.role == 'patient'",
+            "destination": {
+                "base_url": "http://openhim-core:5001",
+                "path": "/Patient",
+                "auth": {
+                    "type": "basic",
+                    "username": "amolo",
+                    "password_key": "openhim"
+                }
+            },
+            "mapping": {
+                "resourceType": {
+                    "expr": "'Patient'"
+                },
+                "identifier": {
+                    "expr": "[{ \"system\": \"cht\", \"use\": \"official\", \"value\": doc._id }]",
+                    "optional": false
+                },
+                "name": {
+                    "expr": "[ { \"use\":\"official\", \"family\": doc.name , \"given\": [ doc.short_name ] } ]",
+                    "optional": false
+                },
+                "gender": "doc.sex",
+                "birthDate": "doc.date_of_birth"
+            }
+        },
+        "FHIR Encounter": {
+            "relevant_to": "doc.type === 'data_record' && doc.form === 'padr'",
+            "destination": {
+                "base_url": "http://openhim-core:5001",
+                "path": "/shr/Encounter",
+                "auth": {
+                    "type": "basic",
+                    "username": "cht_pvers",
+                    "password_key": "openhim"
+                }
+            },
+            "mapping": {
+                "resourceType": {
+                    "expr": "'Encounter'"
+                },
+                "identifier": {
+                    "expr": "[{ \"system\": \"cht\",  \"use\": \"official\", \"value\": doc.fields.inputs.contact._id }]",
+                    "optional": false
+                },
+                "status": {
+                    "expr": "'finished'"
+                },
+                "class": {
+                    "expr": "'outpatient'"
+                },
+                "type": {
+                    "expr": "[{ \"text\": \"Community health worker visit\" }]"
+                },
+                "subject.reference": {
+                    "expr": "\"Patient/?identifier=\" + doc.fields.inputs.contact._id"
+                },
+                "participant": {
+                    "expr": "[ { \"type\": [ { \"text\": \"Community health worker\" } ] } ]"
+                }
+            }
+        },
+        "FHIR Practitioner": {
+            "relevant_to": "doc.type === 'person' && (doc.role == 'chw' || doc.role == 'nurse' )",
+            "destination": {
+                "base_url": "http://openhim-core:5001",
+                "path": "/shr/Practitioner",
+                "auth": {
+                    "type": "basic",
+                    "username": "cht_pvers",
+                    "password_key": "openhim"
+                }
+            },
+            "mapping": {
+                "resourceType": {
+                    "expr": "'Practitioner'"
+                },
+                "gender": "doc.sex",
+                "name": {
+                    "expr": "[ { \"system\":\"cht\", \"family\": doc.name , \"given\": [ doc.short_name ] } ]",
+                    "optional": false
+                },
+                "identifier.use": {
+                    "expr": "'usual'"
+                },
+                "identifier.value": {
+                    "expr": "'cht/'.concat(doc._id)"
+                },
+                "birthDate": "doc.date_of_birth",
+                "telecom": {
+                    "expr": "[{ \"system\":\"phone\",  \"use\": \"official\", \"value\": doc.phone, \"use\":\"mobile\" } ]",
+                    "optional": true
+                },
+                "active": {
+                    "expr": true,
+                    "optional": false
+                }
+            }
+        },
+        "PADR Records": {
+            "relevant_to": "doc.type === 'data_record' && doc.form === 'padr'",
+            "destination": {
+                "base_url": "http://openhim-core:5001",
+                "path": "/padr",
+                "auth": {
+                    "type": "basic",
+                    "username": "cht_pvers",
+                    "password_key": "openhim"
+                }
+            },
+            "mapping": {
+                "Padr": {}
+            }
+        }
+    },
+    "place_hierarchy_types": [
+        "district_hospital",
+        "health_center"
+    ],
+    "contact_types": [
+        {
+            "id": "district_hospital",
+            "name_key": "contact.type.district_hospital",
+            "group_key": "contact.type.district_hospital.plural",
+            "create_key": "contact.type.district_hospital.new",
+            "edit_key": "contact.type.place.edit",
+            "icon": "medic-district-hospital",
+            "create_form": "form:contact:district_hospital:create",
+            "edit_form": "form:contact:district_hospital:edit"
+        },
+        {
+            "id": "health_center",
+            "name_key": "contact.type.health_center",
+            "group_key": "contact.type.health_center.plural",
+            "create_key": "contact.type.health_center.new",
+            "edit_key": "contact.type.place.edit",
+            "parents": [
+                "district_hospital"
+            ],
+            "icon": "medic-health-center",
+            "create_form": "form:contact:health_center:create",
+            "edit_form": "form:contact:health_center:edit"
+        },
+        {
+            "id": "clinic",
+            "name_key": "contact.type.clinic",
+            "group_key": "contact.type.clinic.plural",
+            "create_key": "contact.type.clinic.new",
+            "edit_key": "contact.type.place.edit",
+            "parents": [
+                "health_center"
+            ],
+            "icon": "medic-clinic",
+            "create_form": "form:contact:clinic:create",
+            "edit_form": "form:contact:clinic:edit",
+            "count_visits": true
+        },
+        {
+            "id": "person",
+            "name_key": "contact.type.person",
+            "group_key": "contact.type.person.plural",
+            "create_key": "contact.type.person.new",
+            "edit_key": "contact.type.person.edit",
+            "primary_contact_key": "clinic.field.contact",
+            "parents": [
+                "district_hospital",
+                "health_center",
+                "clinic"
+            ],
+            "icon": "medic-person",
+            "create_form": "form:contact:person:create",
+            "edit_form": "form:contact:person:edit",
+            "person": true
+        }
+    ],
+    "muting": {
+        "mute_forms": [
+            "mute_person",
+            "mute_clinic"
+        ],
+        "unmute_forms": [
+            "unmute_person",
+            "unmute_clinic"
+        ],
+        "validations": {
+            "join_responses": true,
+            "list": []
+        },
+        "messages": [
+            {
+                "translation_key": "",
+                "event_type": "mute",
+                "recipient": "reporting_unit"
+            },
+            {
+                "translation_key": "",
+                "event_type": "unmute",
+                "recipient": "reporting_unit"
+            },
+            {
+                "translation_key": "",
+                "event_type": "already_muted",
+                "recipient": "reporting_unit"
+            },
+            {
+                "translation_key": "",
+                "event_type": "already_unmuted",
+                "recipient": "reporting_unit"
+            },
+            {
+                "translation_key": "",
+                "event_type": "contact_not_found",
+                "recipient": "reporting_unit"
+            }
+        ]
+    }
 }
