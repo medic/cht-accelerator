@@ -4,6 +4,6 @@
     "context": {
         "person": true,
         "place": false,
-        "expression": "!contact.date_of_death && contact.type === 'person' && user.role === 'chw'"
+        "expression": "!contact.date_of_death && contact.type === 'person' && (user.role === 'chw'|| user.role === 'chw_supervisor')"
     }
 }

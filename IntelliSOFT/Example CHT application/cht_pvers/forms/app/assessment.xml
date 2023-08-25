@@ -71,11 +71,11 @@
           <text id="/assessment/reporter/group_report/immunization_time/Beyond 7 days:label">
             <value>Beyond 7 days</value>
           </text>
-          <text id="/assessment/reporter/group_report/immunization_time/Currently taking medication:label">
-            <value>Currently taking medication</value>
-          </text>
           <text id="/assessment/reporter/group_report/immunization_time/Past 7 days:label">
             <value>Past 7 days</value>
+          </text>
+          <text id="/assessment/reporter/group_report/immunization_time/Within the Immunization Window:label">
+            <value>Within the Immunization Window</value>
           </text>
           <text id="/assessment/reporter/group_report/immunization_time:label">
             <value>What time did you receive immunization?</value>
@@ -131,7 +131,7 @@
         </translation>
       </itext>
       <instance>
-        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-07-30 21:14:42">
+        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-08-24 09:56:20">
           <inputs>
             <meta>
               <location>
@@ -172,14 +172,15 @@
           <patient_id tag="hidden"/>
           <patient_name tag="hidden"/>
           <patient_sex/>
+          <visited_contact_uuid/>
           <reporter>
             <group_report>
               <sadr_title/>
               <medication/>
-              <immunization/>
-              <reaction/>
               <medication_time/>
+              <immunization/>
               <immunization_time/>
+              <reaction/>
               <pqmp_title/>
               <medicine/>
               <death_title/>
@@ -220,12 +221,13 @@
       <bind nodeset="/assessment/patient_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/assessment/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/assessment/patient_sex" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/assessment/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
       <bind nodeset="/assessment/reporter/group_report/sadr_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medication" type="select1" required="true()"/>
+      <bind nodeset="/assessment/reporter/group_report/medication_time" type="select1" required="true()" relevant="selected( /assessment/reporter/group_report/medication ,'Yes')"/>
       <bind nodeset="/assessment/reporter/group_report/immunization" type="select1" required="true()"/>
+      <bind nodeset="/assessment/reporter/group_report/immunization_time" type="select1" required="true()" relevant="selected( /assessment/reporter/group_report/immunization , 'Yes')"/>
       <bind nodeset="/assessment/reporter/group_report/reaction" type="select1" required="true()" relevant="selected( /assessment/reporter/group_report/medication ,'Yes') or selected( /assessment/reporter/group_report/immunization , 'Yes')"/>
-      <bind nodeset="/assessment/reporter/group_report/medication_time" type="select1" relevant="selected( /assessment/reporter/group_report/medication ,'Yes')"/>
-      <bind nodeset="/assessment/reporter/group_report/immunization_time" type="select1" relevant="selected( /assessment/reporter/group_report/immunization , 'Yes')"/>
       <bind nodeset="/assessment/reporter/group_report/pqmp_title" readonly="true()" type="string"/>
       <bind nodeset="/assessment/reporter/group_report/medicine" type="select1" required="true()"/>
       <bind nodeset="/assessment/reporter/group_report/death_title" readonly="true()" type="string"/>
@@ -259,8 +261,8 @@
       </group>
     </group>
     <group ref="/assessment/reporter">
-      <group appearance="field-list" ref="/assessment/reporter/group_report">
-        <input ref="/assessment/reporter/group_report/sadr_title">
+      <group appearance="field-list summary" ref="/assessment/reporter/group_report">
+        <input appearance="h5 blue" ref="/assessment/reporter/group_report/sadr_title">
           <label ref="jr:itext('/assessment/reporter/group_report/sadr_title:label')"/>
         </input>
         <select1 ref="/assessment/reporter/group_report/medication">
@@ -271,28 +273,6 @@
           </item>
           <item>
             <label ref="jr:itext('/assessment/reporter/group_report/medication/No:label')"/>
-            <value>No</value>
-          </item>
-        </select1>
-        <select1 ref="/assessment/reporter/group_report/immunization">
-          <label ref="jr:itext('/assessment/reporter/group_report/immunization:label')"/>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/immunization/Yes:label')"/>
-            <value>Yes</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/immunization/No:label')"/>
-            <value>No</value>
-          </item>
-        </select1>
-        <select1 ref="/assessment/reporter/group_report/reaction">
-          <label ref="jr:itext('/assessment/reporter/group_report/reaction:label')"/>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/reaction/Yes:label')"/>
-            <value>Yes</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/reaction/No:label')"/>
             <value>No</value>
           </item>
         </select1>
@@ -311,11 +291,22 @@
             <value>Beyond 7 days</value>
           </item>
         </select1>
+        <select1 ref="/assessment/reporter/group_report/immunization">
+          <label ref="jr:itext('/assessment/reporter/group_report/immunization:label')"/>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/immunization/Yes:label')"/>
+            <value>Yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/immunization/No:label')"/>
+            <value>No</value>
+          </item>
+        </select1>
         <select1 ref="/assessment/reporter/group_report/immunization_time">
           <label ref="jr:itext('/assessment/reporter/group_report/immunization_time:label')"/>
           <item>
-            <label ref="jr:itext('/assessment/reporter/group_report/immunization_time/Currently taking medication:label')"/>
-            <value>Currently taking medication</value>
+            <label ref="jr:itext('/assessment/reporter/group_report/immunization_time/Within the Immunization Window:label')"/>
+            <value>Within the Immunization Window</value>
           </item>
           <item>
             <label ref="jr:itext('/assessment/reporter/group_report/immunization_time/Past 7 days:label')"/>
@@ -326,7 +317,18 @@
             <value>Beyond 7 days</value>
           </item>
         </select1>
-        <input ref="/assessment/reporter/group_report/pqmp_title">
+        <select1 ref="/assessment/reporter/group_report/reaction">
+          <label ref="jr:itext('/assessment/reporter/group_report/reaction:label')"/>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/reaction/Yes:label')"/>
+            <value>Yes</value>
+          </item>
+          <item>
+            <label ref="jr:itext('/assessment/reporter/group_report/reaction/No:label')"/>
+            <value>No</value>
+          </item>
+        </select1>
+        <input appearance="h5 blue" ref="/assessment/reporter/group_report/pqmp_title">
           <label ref="jr:itext('/assessment/reporter/group_report/pqmp_title:label')"/>
         </input>
         <select1 ref="/assessment/reporter/group_report/medicine">
@@ -341,7 +343,7 @@
             <value>No</value>
           </item>
         </select1>
-        <input ref="/assessment/reporter/group_report/death_title">
+        <input appearance="h5 blue" ref="/assessment/reporter/group_report/death_title">
           <label ref="jr:itext('/assessment/reporter/group_report/death_title:label')"/>
         </input>
         <select1 ref="/assessment/reporter/group_report/death">
