@@ -1,5 +1,0 @@
-{
-  "person": false,
-  "place": false,
-  "expression": "contact.type === 'person'"
-}
