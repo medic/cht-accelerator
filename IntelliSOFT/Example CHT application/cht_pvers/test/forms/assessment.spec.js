@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 const TestHarness = require('cht-conf-test-harness');
-const { padrScenarios } = require('../form-inputs');
-const formName = 'padr';
+const { assessmentScenarios } = require('../form-inputs');
+const formName = 'assessment';
 const harness = new TestHarness();
 
-describe('PADR form test', () => {
+describe('Assessment form test', () => {
     before(async () => {
         return await harness.start();
     });
@@ -20,46 +20,46 @@ describe('PADR form test', () => {
         expect(harness.consoleErrors).to.be.empty;
     });
 
-    it('padr form can be loaded', async () => {
+    it('assessment form can be loaded', async () => {
         await harness.loadForm(`${formName}`);
         expect(harness.state.pageContent).to.include(`${formName}`);
     });
 
     // Test that the Patient is not available for Assessment
-    it('padr form can be filled and successfully saved - patient not available', async () => {
-        // Load the padr form and fill in
-        const result = await harness.fillForm(formName, ...padrScenarios.availability);
+    it('assessment form can be filled and successfully saved - medication', async () => {
+        // Load the assessment form and fill in
+        const result = await harness.fillForm(formName, ...assessmentScenarios.medication);
         // Verify that the form successfully got submitted
         expect(result.errors).to.be.empty;
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'availability.availability_report.available': 'No'
+            'reporter.group_report.reaction': 'Yes'
         });
         
     });
 
-    it('padr form can be filled and successfully saved - adverse drug reaction', async () => {
-        // Load the padr form and fill in
-        const result = await harness.fillForm(formName, ...padrScenarios.reaction);
+    it('assessment form can be filled and successfully saved - Within Within the Immunization Window', async () => {
+        // Load the assessment form and fill in
+        const result = await harness.fillForm(formName, ...assessmentScenarios.immunization);
         // Verify that the form successfully got submitted
         expect(result.errors).to.be.empty;
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'availability.availability_report.available': 'Yes'
+            'reporter.group_report.immunization_time': 'Within the Immunization Window'
         });
     });
 
-    it('padr form can be filled and successfully saved - poor quality medicine', async () => {
-        // Load the padr form and fill in
-        const result = await harness.fillForm(formName, ...padrScenarios.medicine);
+    it('assessment form can be filled and successfully saved - Death Case Reported', async () => {
+        // Load the assessment form and fill in
+        const result = await harness.fillForm(formName, ...assessmentScenarios.death);
         // Verify that the form successfully got submitted
         expect(result.errors).to.be.empty;
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'form.reporter.group_quality.signs': 'The_label_looks_wrong',
+            'reporter.group_report.death': 'Yes',
         });
         
     });

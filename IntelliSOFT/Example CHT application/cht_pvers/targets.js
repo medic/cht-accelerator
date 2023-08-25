@@ -38,42 +38,106 @@ module.exports = [
     aggregate: true
   },
 
-  // PADRs: Total reports submitted
+  // PADRs: Total Adverse Drug Reaction Reports
   {
     id: 'padr-all-time',
     type: 'count',
     icon: 'icon-sadr',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'now'
+    date: 'now',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
+    },
   },
 
-  // PADRs: Monthly reports- shows reports submitted this month
+  // PADRs: Monthly reports- shows reports submitted this month with adverse drug reaction
   {
     id: 'padr-this-month',
     type: 'count',
     icon: 'icon-sadr',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
-    date: 'reported'
+    date: 'reported', 
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
+    },
   },
-  // PADRs: Display households registered this month with a target of 15
+  // PADRs: Display households registered this month with adverse drug reaction
   {
     id: 'households-with-padr-this-month',
     type: 'count',
     icon: 'icon-household',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.households.with.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     date: 'reported',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Reaction');
+    },
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
+  },
+
+  // Poor Quality Medicine
+   // PADRs: Total Poor Quality Medicine Reports
+   {
+    id: 'poor-quality-padr-all-time',
+    type: 'count',
+    icon: 'icon-risk',
+    goal: -1,
+    translation_key: 'targets.quality.padr.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'now',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
+  },
+
+  // PADRs: Monthly reports- shows reports submitted this month with  poor quality medicine
+  {
+    id: 'poor-quality-padr-this-month',
+    type: 'count',
+    icon: 'icon-risk',
+    goal: -1,
+    translation_key: 'targets.quality.padr.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'reported', 
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
+  },
+  // PADRs: Display households registered this month with poor quality medicine
+  {
+    id: 'households-with-poor-quality-this-month',
+    type: 'count',
+    icon: 'icon-household',
+    goal: -1,
+    translation_key: 'targets.households.with.quality.padr.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'reported',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
       emit(Object.assign({}, original, {
@@ -144,10 +208,10 @@ module.exports = [
     date: 'now',
   },
 
-  // Poor Quality Medicine Reported
+  // Poor Quality Medicine Identified
 
   {
-    id: 'poor-quality-medicine-reported',
+    id: 'poor-quality-medicine-identified',
     translation_key: 'poor.quality.medicine.reported.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     type: 'count',

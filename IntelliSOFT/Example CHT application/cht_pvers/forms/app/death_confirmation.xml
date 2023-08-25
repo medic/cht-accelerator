@@ -202,7 +202,7 @@ Date of Death: <output value=" /death_confirmation/death_details/date_of_death "
       <bind nodeset="/death_confirmation/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/death_confirmation/patient_short_name" type="string" calculate="../inputs/contact/short_name"/>
       <bind nodeset="/death_confirmation/patient_display_name" type="string" calculate="if(../patient_short_name = '', ../patient_name, concat(../patient_name, ' (', ../patient_short_name, ')'))"/>
-      <bind nodeset="/death_confirmation/death_details/date_of_death" type="date" constraint="(. &lt;= now()) and floor(decimal-date-time(today()) - decimal-date-time(.)) &lt;= 365" required="true()" jr:constraintMsg="jr:itext('/death_confirmation/death_details/date_of_death:jr:constraintMsg')"/>
+      <bind nodeset="/death_confirmation/death_details/date_of_death" type="date" constraint="(. &lt;= now()) and floor(decimal-date-time(today()) - decimal-date-time(.)) &lt;= 365" jr:constraintMsg="jr:itext('/death_confirmation/death_details/date_of_death:jr:constraintMsg')" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/place_of_death_other" type="string" relevant="selected(../place_of_death, 'Other')" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/death_information" type="string"/>

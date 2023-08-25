@@ -40,5 +40,6 @@
     "icon-reaction-on": "icon-condition-fever.svg" ,
     "icon-danger-sign":"icon-ICCM-danger-sign.svg",
     "icon-followup":"icon-followup-general.svg",
-    "icon-reactions":"icon-condition-cough.svg"
+    "icon-reactions":"icon-condition-cough.svg",
+    "icon-mute":"icon-mute.svg"
 }

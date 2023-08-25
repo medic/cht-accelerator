@@ -31,7 +31,14 @@ const cards = [
       {
         label: 'contact.profile.report_type',
         value: (report) => {
-          return getField(report, 'form.reporter.group_report.type');
+          const fieldValue = getField(report, 'form.reporter.group_report.type');
+
+          if (fieldValue === 'Reaction') {
+              return 'Adverse Drug Reaction';
+          }else{
+            return 'Adverse Drug Reaction';
+          }
+      
         },
         width: 6,
       },
@@ -39,6 +46,13 @@ const cards = [
         label: 'contact.profile.most_recent_assessment.outcome',
         value: (report) => {
           return getField(report, 'form.outcome_details.group_outcome_details.outcome');
+        },
+        width: 6
+      },
+      {
+        label: 'contact.profile.most_recent_assessment.relation',
+        value: (report) => {
+          return getField(report, 'form.reporter.group_report.relation');
         },
         width: 6
       }

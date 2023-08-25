@@ -1,5 +1,0 @@
-{
-  "person": true,
-  "place": false,
-  "expression": "contact.type === 'person' && user.role === 'chw_supervisor'"
-}

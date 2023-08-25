@@ -198,8 +198,14 @@
             "chw_supervisor",
             "chw"
         ],
-        "can_view_last_visited_date": [],
-        "can_view_uhc_stats": [],
+        "can_view_last_visited_date": [
+            "chw_supervisor",
+            "chw"
+        ],
+        "can_view_uhc_stats": [
+            "chw",
+            "chw_supervisor"
+        ],
         "can_view_message_action": [
             "program_officer",
             "chw_supervisor",
@@ -273,10 +279,10 @@
     },
     "death_reporting": {
         "mark_deceased_forms": [
-          "death_confirmation"
+            "death_confirmation"
         ],
         "date_field": "fields.date_of_death"
-     },
+    },
     "outbound": {
         "FHIR_Patients": {
             "relevant_to": "doc.type === 'person' && doc.role == 'patient'",
@@ -396,7 +402,8 @@
     },
     "place_hierarchy_types": [
         "district_hospital",
-        "health_center"
+        "health_center",
+        "clinic"
     ],
     "contact_types": [
         {
@@ -446,7 +453,24 @@
             "parents": [
                 "district_hospital",
                 "health_center",
-                "clinic"
+                "clinic"  
+            ],
+            "icon": "medic-person",
+            "create_form": "form:contact:person:create",
+            "edit_form": "form:contact:person:edit",
+            "person": true
+        },
+
+       
+        {
+            "id": "member",
+            "name_key": "contact.type.person",
+            "group_key": "contact.type.person.plural",
+            "create_key": "contact.type.person.new",
+            "edit_key": "contact.type.person.edit",
+            "primary_contact_key": "clinic.field.contact",
+            "parents": [
+               
             ],
             "icon": "medic-person",
             "create_form": "form:contact:person:create",
