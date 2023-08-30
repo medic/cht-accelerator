@@ -2,48 +2,19 @@
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
-const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
 
 
 module.exports = [
 
-  // General: Total households currently registered by CHWs
-  {
-    id: 'households-registered-all-time',
-    translation_key: 'targets.household.registrations.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    type: 'count',
-    icon: 'medic-clinic',
-    goal: -1,
-    appliesTo: 'contacts',
-    context: 'user.contact_type === "chw"',
-    appliesToType: ['household'],
-    appliesIf: c => isPatient(c.contact),
-    date: 'now',
-    aggregate: true
-  },
-  // General: Population
-  {
-    id: 'people-registered-all-time',
-    translation_key: 'targets.person.registrations.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    type: 'count',
-    icon: 'icon-person',
-    context: 'user.contact_type === "chw"',
-    goal: -1,
-    appliesTo: 'contacts',
-    appliesToType: ['persons'],
-    appliesIf: (c) => isPatient(c.contact),
-    date: 'now',
-    aggregate: true
-  },
+  
 
   // PADRs: Total reports submitted
   {
     id: 'padr-all-time',
     type: 'count',
     icon: 'icon-sadr',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'reports',
@@ -56,7 +27,7 @@ module.exports = [
     id: 'padr-this-month',
     type: 'count',
     icon: 'icon-sadr',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
@@ -68,7 +39,7 @@ module.exports = [
     id: 'households-with-padr-this-month',
     type: 'count',
     icon: 'icon-household',
-    goal: 15,
+    goal: -1,
     translation_key: 'targets.households.with.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
@@ -82,7 +53,60 @@ module.exports = [
       }));
     }
   },
+  // Poor Quality Medicine
+  // PADRs: Total Poor Quality Medicine Reports
+  {
+    id: 'poor-quality-padr-all-time',
+    type: 'count',
+    icon: 'icon-risk',
+    goal: -1,
+    translation_key: 'targets.quality.padr.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'now',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
+  },
 
+  // PADRs: Monthly reports- shows reports submitted this month with  poor quality medicine
+  {
+    id: 'poor-quality-padr-this-month',
+    type: 'count',
+    icon: 'icon-risk',
+    goal: -1,
+    translation_key: 'targets.quality.padr.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'reported',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
+  },
+  // PADRs: Display households registered this month with poor quality medicine
+  {
+    id: 'households-with-poor-quality-this-month',
+    type: 'count',
+    icon: 'icon-household',
+    goal: -1,
+    translation_key: 'targets.households.with.quality.padr.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['padr'],
+    date: 'reported',
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'form.reporter.group_report.type') === 'Medicine');
+    },
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
+  },
   // Follow Up Assessments Completed
   {
     id: 'follow-up-assessments-completed',
@@ -171,6 +195,22 @@ module.exports = [
     goal: -1,
     appliesTo: 'reports',
     appliesToType: ['death_confirmation'],
+    date: 'now',
+  },
+  // Poor Quality Medicine Identified
+
+  {
+    id: 'poor-quality-medicine-identified',
+    translation_key: 'poor.quality.medicine.reported.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    type: 'count',
+    icon: 'icon-sadr',
+    goal: -1,
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+    },
     date: 'now',
   },
 

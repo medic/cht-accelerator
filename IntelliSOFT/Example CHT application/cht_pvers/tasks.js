@@ -40,8 +40,8 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' || 
-      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
     },
     actions: [{ form: 'chw_follow' }],
     events: [
@@ -141,7 +141,7 @@ module.exports = [
         end: 2,
       }
     ],
-    resolvedIf: function (contact, report, event, dueDate) { 
+    resolvedIf: function (contact, report, event, dueDate) {
       // Check if the 'padr' form has been submitted within the specified window
       const formSubmittedInWindow = Utils.isFormSubmittedInWindow(
         contact.reports,
@@ -160,16 +160,33 @@ module.exports = [
     }
 
   },
-  /*Create a Task when chw submits an assessment form
-  NOTE: Only the supervisor should get this task
+  /*Create a Task when chw submits an assessment form NOTE: Only the supervisor should get this task
   */
   {
     name: 'padr-after-assessment',
     icon: 'icon-healthcare',
-    title: 'Household Visit',
+    title: 'Household Member Visit',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    actions: [{ form: 'padr' }],
+    // actions: [{ form: 'padr' }],
+    actions: [{
+      type: 'report',
+      form: 'padr',
+      // Pass content that will be used within the task form
+      modifyContent: function (content, contact, report) {
+        console.log(contact);
+        var type = '';
+        const reaction = Utils.getField(report, 'reporter.group_report.reaction');
+        if (reaction === 'Yes') {
+          type = 'Reaction';
+        }
+        const quality = Utils.getField(report, 'reporter.group_report.medicine');
+        if (quality === 'Yes') {
+          type = 'Medicine';
+        }
+        content.select = type;
+      }
+    }],
     events: [
       {
         id: 'padr-form',
@@ -179,7 +196,9 @@ module.exports = [
       }
     ],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor')
+        || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor')
+        || (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
