@@ -1,0 +1,773 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Children Under 5 Assessment Follow Up</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label">
+            <value>Cured</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/improving:label">
+            <value>Improving</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/worsening:label">
+            <value>Worsening</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
+            <value>How is the child doing?</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
+            <value>Check if the caregiver is giving the medicine correctly Advice caregiver to continue giving the medicine as recommended</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured:label">
+            <value>Advice caregiver to give child the treatment until the dose given is completed</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
+            <value>Refer <output value=" /children_under_5_follow_up/patient_name "/> to the health facility for further management</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
+            <value>Have you referred <output value=" /children_under_5_follow_up/patient_name "/> to the health facility?</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
+            <value>Children Under 5 Assessment Follow Up</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability:label">
+            <value>Is <output value=" /children_under_5_follow_up/patient_name "/> available?</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
+            <value>When would you like to follow up <output value=" /children_under_5_follow_up/patient_name "/> again</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_action:label">
+            <value>Be sure you submit to complete this action</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_age:label">
+            <value><output value=" /children_under_5_follow_up/patient_age_in_years "/> &lt;span&gt;years old&lt;/span&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_cured:label">
+            <value>Cured</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_improving:label">
+            <value>Improving</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_name:label">
+            <value><output value=" /children_under_5_follow_up/patient_name "/></value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_patient_details:label">
+            <value>Patient Details&lt;i class="fa fa-plus-square"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_recommendation:label">
+            <value>Refer urgently to Health facility! &lt;i class="fa fa-warning" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_summary:label">
+            <value>Malaria Follow Up Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_worsening:label">
+            <value>Worsening</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings:label">
+            <value>Condition of child &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings_followup:label">
+            <value>Follow up Task &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_task:label">
+            <value>Follow up task will appear in 3 days</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/_id:label">
+            <value>Area ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id:label">
+            <value>Health Facility ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/phone:label">
+            <value>Phone</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user:label">
+            <value>User</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/children_under_5_follow_up/area_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/improving:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_action:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_age:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_improving:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_patient_details:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_summary:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review:jr:constraintMsg">
+            <value>hidden</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/household_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/short_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/children_under_5_follow_up/area_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/improving:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition/worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/availability:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_action:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_age:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_cured:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_improving:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_patient_details:label">
+            <value>ripoti ya ziara</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_summary:label">
+            <value>Taarifa za Kaya</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/f_worsening:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/group_review:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/household_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact/short_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-07-31 14:58:24">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <household_id tag="hidden"/>
+          <area_id tag="hidden"/>
+          <facility_id tag="hidden"/>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <calculated_follow_up_date tag="hidden"/>
+          <referral_follow_up_date tag="hidden"/>
+          <follow_up_details>
+            <availability/>
+            <follow_up_date/>
+          </follow_up_details>
+          <children_under_5_follow_up>
+            <child_condition/>
+            <improvement_check/>
+            <improvement_cured/>
+            <improvement_worsening/>
+            <referred_to_facility/>
+            <no_follow_up_required/>
+          </children_under_5_follow_up>
+          <group_review>
+            <f_summary/>
+            <f_action/>
+            <f_patient_details/>
+            <f_name/>
+            <f_age/>
+            <r_findings/>
+            <f_improving/>
+            <f_worsening/>
+            <f_cured/>
+            <f_recommendation/>
+            <r_findings_followup/>
+            <r_task/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </children_under_5_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/children_under_5_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/user/contact_id" type="db:person"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/user/name" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/user/phone" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/household_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/children_under_5_follow_up/area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/children_under_5_follow_up/facility_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/children_under_5_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/children_under_5_follow_up/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/children_under_5_follow_up/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/children_under_5_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/children_under_5_follow_up/calculated_follow_up_date" type="string" calculate="if(../follow_up_details/follow_up_date != '', ../follow_up_details/follow_up_date, date-time(decimal-date-time(today()) + 3))"/>
+      <bind nodeset="/children_under_5_follow_up/referral_follow_up_date" type="string" calculate="if(../children_under_5_follow_up/no_follow_up_required = 'true', '',  /children_under_5_follow_up/calculated_follow_up_date  )"/>
+      <bind nodeset="/children_under_5_follow_up/follow_up_details/availability" type="select1" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/follow_up_details/follow_up_date" type="date" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'no')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/child_condition" type="select1" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_check" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required" type="string" calculate="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving') or selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_summary" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_action" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_name" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_age" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/r_findings" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_improving" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/f_recommendation" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/r_findings_followup" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/r_task" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/children_under_5_follow_up/inputs">
+      <group ref="/children_under_5_follow_up/inputs/user">
+        <label ref="jr:itext('/children_under_5_follow_up/inputs/user:label')"/>
+        <input appearance="db-object" ref="/children_under_5_follow_up/inputs/user/contact_id">
+          <label ref="jr:itext('/children_under_5_follow_up/inputs/user/contact_id:label')"/>
+        </input>
+      </group>
+      <group ref="/children_under_5_follow_up/inputs/contact">
+        <input appearance="db-object" ref="/children_under_5_follow_up/inputs/contact/_id">
+          <label ref="jr:itext('/children_under_5_follow_up/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/children_under_5_follow_up/inputs/contact/parent">
+          <input appearance="hidden" ref="/children_under_5_follow_up/inputs/contact/parent/_id">
+            <label ref="jr:itext('/children_under_5_follow_up/inputs/contact/parent/_id:label')"/>
+          </input>
+          <group ref="/children_under_5_follow_up/inputs/contact/parent/parent">
+            <input appearance="hidden" ref="/children_under_5_follow_up/inputs/contact/parent/parent/_id">
+              <label ref="jr:itext('/children_under_5_follow_up/inputs/contact/parent/parent/_id:label')"/>
+            </input>
+            <group ref="/children_under_5_follow_up/inputs/contact/parent/parent/parent">
+              <input appearance="hidden" ref="/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id">
+                <label ref="jr:itext('/children_under_5_follow_up/inputs/contact/parent/parent/parent/_id:label')"/>
+              </input>
+            </group>
+            <group ref="/children_under_5_follow_up/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/children_under_5_follow_up/follow_up_details">
+      <select1 ref="/children_under_5_follow_up/follow_up_details/availability">
+        <label ref="jr:itext('/children_under_5_follow_up/follow_up_details/availability:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/follow_up_details/availability/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/follow_up_details/availability/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/children_under_5_follow_up/follow_up_details/follow_up_date">
+        <label ref="jr:itext('/children_under_5_follow_up/follow_up_details/follow_up_date:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/children_under_5_follow_up/children_under_5_follow_up">
+      <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up:label')"/>
+      <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/child_condition">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/child_condition:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/child_condition/improving:label')"/>
+          <value>improving</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/child_condition/worsening:label')"/>
+          <value>worsening</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/child_condition/cured:label')"/>
+          <value>cured</value>
+        </item>
+      </select1>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/improvement_check">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label')"/>
+      </input>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/improvement_cured:label')"/>
+      </input>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label')"/>
+      </input>
+      <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/children_under_5_follow_up/group_review">
+      <input appearance="h1 yellow" ref="/children_under_5_follow_up/group_review/f_summary">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_summary:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_action">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_action:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/children_under_5_follow_up/group_review/f_patient_details">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_patient_details:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_name">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_name:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_age">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_age:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/children_under_5_follow_up/group_review/r_findings">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/r_findings:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_improving">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_improving:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_worsening">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_worsening:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/f_cured">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_cured:label')"/>
+      </input>
+      <input appearance="h1 red" ref="/children_under_5_follow_up/group_review/f_recommendation">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/f_recommendation:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/children_under_5_follow_up/group_review/r_findings_followup">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/r_findings_followup:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_5_follow_up/group_review/r_task">
+        <label ref="jr:itext('/children_under_5_follow_up/group_review/r_task:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

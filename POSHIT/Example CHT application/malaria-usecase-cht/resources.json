@@ -1,1 +1,23 @@
-{}
+{
+  "area-health-facility": "health-facility.svg",
+  "area-health-facility-nurse": "facility-nurse.svg",
+  "area-supervisor-region": "community-health-supervisor.svg",
+  "area-community-health-supervisor": "community-health-supervisor.svg",
+  "community-health-area": "community-health-area.svg",
+  "community-health-volunteer": "community-health-volunteer.svg",
+  "household": "household.svg",
+  "household-member": "household-member.svg",
+  "death-report": "death-report.svg",
+  "mute": "mute.svg",
+  "malaria-prone": "malaria-prone.svg",
+  "household-summary": "household-summary.svg",
+  "next-visit": "next-visit.svg",
+  "household-assessment": "household-assessment.svg",
+  "household-assessment-followup": "household-assessment-followup.svg",
+  "unmute": "unmute.svg",
+  "member-follow-up": "member-follow-up.svg",
+  "child-under-5": "child-under-5.svg",
+  "pregnancy-registration": "pregnancy-registration.svg",
+  "icon-llin": "icon-llin.svg",
+  "malaria": "malaria.svg"
+}

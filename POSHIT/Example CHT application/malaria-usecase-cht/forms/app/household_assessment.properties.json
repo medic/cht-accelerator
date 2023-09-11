@@ -1,0 +1,8 @@
+{
+  "icon": "household-assessment",
+  "context": {
+    "place": true,
+    "person": false,
+    "expression": "!contact.muted && contact.contact_type  === 'household'"
+  }
+}

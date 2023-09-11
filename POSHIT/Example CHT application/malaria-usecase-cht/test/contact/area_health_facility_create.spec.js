@@ -3,7 +3,7 @@ const TestRunner = require('cht-conf-test-harness');
 const { healthFacility } = require('../form-inputs');
 
 const harness = new TestRunner();
-let TODAY = '2023-03-15';
+const TODAY = '2023-03-15';
 
 describe('Health Facilty Creation', () => {
   before(() => harness.start());

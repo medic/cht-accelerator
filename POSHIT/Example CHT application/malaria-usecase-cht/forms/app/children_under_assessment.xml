@@ -1,0 +1,1449 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Children Under 5 Assessment</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/children_under_assessment/children_under_assessment/additional_notes:label">
+            <value>Additional Notes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> experienced any difficulty breathing or breathing fast?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever:label">
+            <value>Is <output value=" /children_under_assessment/patient_name "/> currently experiencing fever?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> experienced any vomiting ?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> suffered from loss of consciousness?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_recommendation:label">
+            <value>Recommend <output value=" /children_under_assessment/patient_name "/> to visit a health facility immediately</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsion_recommendation:label">
+            <value>Recommend <output value=" /children_under_assessment/patient_name "/> to visit a health facility immediately</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> had any Convulsions?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> experienced any diarrhoea ?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/0:label">
+            <value>2 days or less</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/14:label">
+            <value>More than 14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/3:label">
+            <value>3-6 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/7:label">
+            <value>7-14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period:label">
+            <value>For how long has <output value=" /children_under_assessment/patient_name "/> been experiencing diarrhoea?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink:label">
+            <value>Is <output value=" /children_under_assessment/patient_name "/> able to eat and drink?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/0:label">
+            <value>2 days or less</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/14:label">
+            <value>More than 14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/3:label">
+            <value>3-6 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/7:label">
+            <value>7-14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period:label">
+            <value>How long has the child had a fever?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_recommendation:label">
+            <value>Recommend <output value=" /children_under_assessment/patient_name "/> to visit a health facility immediately</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches:label">
+            <value>Does <output value=" /children_under_assessment/patient_name "/> complain of headaches?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated:label">
+            <value>Has the mosquito net been treated?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net:label">
+            <value>Educate the caregiver on the benefits of sleeping under a mosquito net especially for children under the age of five then recommend they buy the nets</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility:label">
+            <value>Refer <output value=" /children_under_assessment/patient_name "/> to visit a health facility immediately?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net:label">
+            <value>Is <output value=" /children_under_assessment/patient_name "/> sleeping under a mosquito net?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/teach_on_net:label">
+            <value>Recommend that the caregiver get a treated mosquito net to help prevent malaria</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome:label">
+            <value>Does <output value=" /children_under_assessment/patient_name "/> complain of being tired?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled:label">
+            <value>Has <output value=" /children_under_assessment/patient_name "/> travelled to or lived in an area where malaria is prevalent (eg lake region or the coast)?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/0:label">
+            <value>2 days or less</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/14:label">
+            <value>More than 14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/3:label">
+            <value>3-6 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/7:label">
+            <value>7-14 days</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period:label">
+            <value>For how long has <output value=" /children_under_assessment/patient_name "/> been experiencing vomiting?</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_recommendation:label">
+            <value>Recommend <output value=" /children_under_assessment/patient_name "/> to visit a health facility immediately</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment:label">
+            <value>Child under 5 years Assessment</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_action:label">
+            <value>Be sure you submit to complete this action</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_age:label">
+            <value><output value=" /children_under_assessment/patient_age_in_years "/> &lt;span&gt;years old&lt;/span&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_appetite:label">
+            <value><output value=" /children_under_assessment/patient_name "/> has loss of appetite</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_breathing:label">
+            <value><output value=" /children_under_assessment/patient_name "/> has breathing difficulties</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_diarrhoea:label">
+            <value><output value=" /children_under_assessment/patient_name "/> is experiencing diarrhoea</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fatigue:label">
+            <value><output value=" /children_under_assessment/patient_name "/> is experiencing fatigue</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fever:label">
+            <value><output value=" /children_under_assessment/patient_name "/> has fever symptoms</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings:label">
+            <value>Findings &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings_followup:label">
+            <value>Follow up Task &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_headache:label">
+            <value><output value=" /children_under_assessment/patient_name "/> is experiencing headaches</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_name:label">
+            <value><output value=" /children_under_assessment/patient_name "/></value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_patient_details:label">
+            <value>Patient Details&lt;i class="fa fa-plus-square"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_recommendation:label">
+            <value>Please recommend <output value=" /children_under_assessment/patient_name "/> to health facility immediately &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_summary:label">
+            <value>Malaria Assessment summary&lt;i class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_task:label">
+            <value>Follow up task will appear in 3 days</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_travelled:label">
+            <value><output value=" /children_under_assessment/patient_name "/> has travelled to a malaria prone area</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_vomiting:label">
+            <value><output value=" /children_under_assessment/patient_name "/> has nausea and vomiting symptoms</value>
+          </text>
+          <text id="/children_under_assessment/group_review:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/_id:label">
+            <value>Area ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/parent/_id:label">
+            <value>Health Facility ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/phone:label">
+            <value>Phone</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user:label">
+            <value>User</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/children_under_assessment/area_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/additional_notes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsion_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/teach_on_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_action:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_age:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_appetite:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_breathing:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_diarrhoea:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fatigue:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fever:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_headache:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_patient_details:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_summary:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_travelled:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_vomiting:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review:jr:constraintMsg">
+            <value>hidden</value>
+          </text>
+          <text id="/children_under_assessment/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/household_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/short_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/children_under_assessment/area_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/additional_notes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/breathing:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_fever:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/child_vomiting:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_loss:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/consciousness_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsion_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/convulsions:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/diarrhoea_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/eat_drink:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/fever_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/headaches:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/nets_treated:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/refer_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/sleeping_under_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/teach_on_net:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/tiresome:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/travelled:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/0:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/14:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/3:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period/7:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_period:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment/vomiting_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/children_under_assessment:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_action:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_age:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_appetite:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_breathing:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_diarrhoea:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fatigue:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_fever:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_headache:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_patient_details:label">
+            <value>ripoti ya ziara</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_recommendation:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_summary:label">
+            <value>Taarifa za Kaya</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_travelled:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review/r_vomiting:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/group_review:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/household_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact/short_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_assessment/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <children_under_assessment id="children_under_assessment" prefix="J1!children_under_assessment!" delimiter="#" version="2023-06-13 12:26:28">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <household_id tag="hidden"/>
+          <area_id tag="hidden"/>
+          <facility_id tag="hidden"/>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <referral_follow_up_date tag="hidden"/>
+          <children_under_assessment>
+            <sleeping_under_net/>
+            <recommend_sleeping_under_net/>
+            <nets_treated/>
+            <teach_on_net/>
+            <child_fever/>
+            <fever_period/>
+            <fever_recommendation/>
+            <eat_drink/>
+            <child_vomiting/>
+            <vomiting_period/>
+            <vomiting_recommendation/>
+            <breathing/>
+            <convulsions/>
+            <convulsion_recommendation/>
+            <consciousness_loss/>
+            <consciousness_recommendation/>
+            <tiresome/>
+            <headaches/>
+            <diarrhoea/>
+            <diarrhoea_period/>
+            <travelled/>
+            <additional_notes/>
+            <refer_to_facility>no</refer_to_facility>
+          </children_under_assessment>
+          <group_review>
+            <r_summary/>
+            <r_action/>
+            <r_patient_details/>
+            <r_name/>
+            <r_age/>
+            <r_recommendation/>
+            <r_findings/>
+            <r_fever/>
+            <r_appetite/>
+            <r_vomiting/>
+            <r_breathing/>
+            <r_fatigue/>
+            <r_headache/>
+            <r_diarrhoea/>
+            <r_travelled/>
+            <r_findings_followup/>
+            <r_task/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </children_under_assessment>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/children_under_assessment/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/children_under_assessment/inputs/source" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/source_id" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/user/contact_id" type="db:person"/>
+      <bind nodeset="/children_under_assessment/inputs/user/name" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/user/phone" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/name" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/sex" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/children_under_assessment/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/children_under_assessment/household_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/children_under_assessment/area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/children_under_assessment/facility_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/children_under_assessment/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/children_under_assessment/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/children_under_assessment/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/children_under_assessment/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/children_under_assessment/referral_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/sleeping_under_net" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'no')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/nets_treated" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/nets_treated , 'no')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/child_fever" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/fever_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/child_fever , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/fever_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/fever_period ,'3') or selected( /children_under_assessment/children_under_assessment/fever_period ,'7') or selected( /children_under_assessment/children_under_assessment/fever_period ,'14')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/eat_drink" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/child_vomiting" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/vomiting_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/vomiting_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/vomiting_period ,'3') or selected( /children_under_assessment/children_under_assessment/vomiting_period ,'7') or selected( /children_under_assessment/children_under_assessment/vomiting_period ,'14')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/breathing" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/convulsions" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/convulsion_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/convulsions , 'yes')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/consciousness_loss" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/consciousness_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/consciousness_loss , 'yes')"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/tiresome" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/headaches" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/diarrhoea" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/diarrhoea_period" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes')" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/travelled" type="select1" required="true()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/additional_notes" type="string" required="false()"/>
+      <bind nodeset="/children_under_assessment/children_under_assessment/refer_to_facility" type="select1" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes') or selected( /children_under_assessment/children_under_assessment/consciousness_loss , 'yes') or selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes') or selected( /children_under_assessment/children_under_assessment/child_fever , 'yes') or selected( /children_under_assessment/children_under_assessment/sleeping_under_net , 'no')" required="true()"/>
+      <bind nodeset="/children_under_assessment/group_review" jr:constraintMsg="jr:itext('/children_under_assessment/group_review:jr:constraintMsg')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_summary" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_action" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_name" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_age" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_recommendation" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/refer_to_facility , 'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_findings" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_fever" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/child_fever , 'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_appetite" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/eat_drink ,'no')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_vomiting" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/child_vomiting , 'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_breathing" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/breathing ,'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_fatigue" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/tiresome ,'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_headache" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/headaches ,'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_diarrhoea" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/diarrhoea , 'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_travelled" readonly="true()" type="string" relevant="selected( /children_under_assessment/children_under_assessment/travelled ,'yes')"/>
+      <bind nodeset="/children_under_assessment/group_review/r_findings_followup" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/group_review/r_task" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_assessment/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/children_under_assessment/inputs">
+      <group ref="/children_under_assessment/inputs/user">
+        <label ref="jr:itext('/children_under_assessment/inputs/user:label')"/>
+        <input appearance="db-object" ref="/children_under_assessment/inputs/user/contact_id">
+          <label ref="jr:itext('/children_under_assessment/inputs/user/contact_id:label')"/>
+        </input>
+      </group>
+      <group ref="/children_under_assessment/inputs/contact">
+        <input appearance="db-object" ref="/children_under_assessment/inputs/contact/_id">
+          <label ref="jr:itext('/children_under_assessment/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/children_under_assessment/inputs/contact/parent">
+          <input appearance="hidden" ref="/children_under_assessment/inputs/contact/parent/_id">
+            <label ref="jr:itext('/children_under_assessment/inputs/contact/parent/_id:label')"/>
+          </input>
+          <group ref="/children_under_assessment/inputs/contact/parent/parent">
+            <input appearance="hidden" ref="/children_under_assessment/inputs/contact/parent/parent/_id">
+              <label ref="jr:itext('/children_under_assessment/inputs/contact/parent/parent/_id:label')"/>
+            </input>
+            <group ref="/children_under_assessment/inputs/contact/parent/parent/parent">
+              <input appearance="hidden" ref="/children_under_assessment/inputs/contact/parent/parent/parent/_id">
+                <label ref="jr:itext('/children_under_assessment/inputs/contact/parent/parent/parent/_id:label')"/>
+              </input>
+            </group>
+            <group ref="/children_under_assessment/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/children_under_assessment/children_under_assessment">
+      <label ref="jr:itext('/children_under_assessment/children_under_assessment:label')"/>
+      <select1 ref="/children_under_assessment/children_under_assessment/sleeping_under_net">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/sleeping_under_net:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/sleeping_under_net/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/sleeping_under_net/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/children_under_assessment/children_under_assessment/recommend_sleeping_under_net">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/recommend_sleeping_under_net:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/nets_treated">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/nets_treated:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/nets_treated/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/nets_treated/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/children_under_assessment/children_under_assessment/teach_on_net">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/teach_on_net:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/child_fever">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_fever:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_fever/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_fever/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/fever_period">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_period:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_period/0:label')"/>
+          <value>0</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_period/3:label')"/>
+          <value>3</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_period/7:label')"/>
+          <value>7</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_period/14:label')"/>
+          <value>14</value>
+        </item>
+      </select1>
+      <input appearance="h1 yellow" ref="/children_under_assessment/children_under_assessment/fever_recommendation">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/fever_recommendation:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/eat_drink">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/eat_drink:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/eat_drink/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/eat_drink/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/child_vomiting">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_vomiting:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_vomiting/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/child_vomiting/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/vomiting_period">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_period:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_period/0:label')"/>
+          <value>0</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_period/3:label')"/>
+          <value>3</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_period/7:label')"/>
+          <value>7</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_period/14:label')"/>
+          <value>14</value>
+        </item>
+      </select1>
+      <input appearance="h1 yellow" ref="/children_under_assessment/children_under_assessment/vomiting_recommendation">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/vomiting_recommendation:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/breathing">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/breathing:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/breathing/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/breathing/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/convulsions">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/convulsions:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/convulsions/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/convulsions/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h1 yellow" ref="/children_under_assessment/children_under_assessment/convulsion_recommendation">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/convulsion_recommendation:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/consciousness_loss">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/consciousness_loss:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/consciousness_loss/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/consciousness_loss/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h1 yellow" ref="/children_under_assessment/children_under_assessment/consciousness_recommendation">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/consciousness_recommendation:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/tiresome">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/tiresome:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/tiresome/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/tiresome/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/headaches">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/headaches:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/headaches/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/headaches/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/diarrhoea">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/diarrhoea_period">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea_period:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea_period/0:label')"/>
+          <value>0</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea_period/3:label')"/>
+          <value>3</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea_period/7:label')"/>
+          <value>7</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/diarrhoea_period/14:label')"/>
+          <value>14</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_assessment/children_under_assessment/travelled">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/travelled:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/travelled/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/travelled/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/children_under_assessment/children_under_assessment/additional_notes">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/additional_notes:label')"/>
+      </input>
+      <select1 ref="/children_under_assessment/children_under_assessment/refer_to_facility">
+        <label ref="jr:itext('/children_under_assessment/children_under_assessment/refer_to_facility:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/refer_to_facility/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_assessment/children_under_assessment/refer_to_facility/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/children_under_assessment/group_review">
+      <input appearance="h1 yellow" ref="/children_under_assessment/group_review/r_summary">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_summary:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_action">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_action:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/children_under_assessment/group_review/r_patient_details">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_patient_details:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_name">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_name:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_age">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_age:label')"/>
+      </input>
+      <input appearance="h1 red" ref="/children_under_assessment/group_review/r_recommendation">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_recommendation:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/children_under_assessment/group_review/r_findings">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_findings:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_fever">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_fever:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_appetite">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_appetite:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_vomiting">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_vomiting:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_breathing">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_breathing:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_fatigue">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_fatigue:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_headache">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_headache:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_diarrhoea">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_diarrhoea:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_travelled">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_travelled:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/children_under_assessment/group_review/r_findings_followup">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_findings_followup:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/children_under_assessment/group_review/r_task">
+        <label ref="jr:itext('/children_under_assessment/group_review/r_task:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -5,9 +5,6 @@
     <model>
       <itext>
         <translation lang="en">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>External ID</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>No, I want to name it manually</value>
           </text>
@@ -15,124 +12,28 @@
             <value>Yes</value>
           </text>
           <text id="/data/area_supervisor_region/is_name_generated:label">
-            <value>Would you like to name the place after the primary contact: &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+            <value>Would you like to name the region after the primary contact: &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>Name</value>
           </text>
           <text id="/data/area_supervisor_region/name:label">
             <value>Name</value>
           </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>Please provide additional information related to this region</value>
+          </text>
           <text id="/data/area_supervisor_region/notes:label">
             <value>Notes</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>Antenatal care</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>Immunizations</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>Postnatal care</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>Select all needed for this <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>Health programs</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
-            <value>BCG</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
-            <value>Cholera</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
-            <value>Influenza</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
-            <value>Hepatitis A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
-            <value>HPV (Human Papillomavirus)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>Inactivated Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>Japanese Encephalitis</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>Meningococcal</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>MMR (Measles, Mumps, Rubella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>MMRV (Measles, Mumps, Rubella, Varicella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>Pentavalent</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>Pneumococcal Pneumonia</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>Rotavirus</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>Typhoid</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>Vitamin A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>Yellow Fever</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>Select all needed for this <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>Select vaccines</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>External ID</value>
-          </text>
           <text id="/data/contact/name:label">
             <value>Names</value>
-          </text>
-          <text id="/data/contact/notes:label">
-            <value>Notes</value>
           </text>
           <text id="/data/contact/phone:label">
             <value>Phone Number</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
             <value>Alternate Phone Number</value>
-          </text>
-          <text id="/data/contact/role/chw:label">
-            <value>CHW</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>CHW Supervisor</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>Facility Manager</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>Nurse</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>Other</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>Patient</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>Role</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>Specify other</value>
           </text>
           <text id="/data/contact:label">
             <value>New Person</value>
@@ -184,9 +85,6 @@
           </text>
         </translation>
         <translation lang="fr">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>Identifiant externe</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Non, je veux nommer ça manuellement</value>
           </text>
@@ -194,130 +92,55 @@
             <value>Oui</value>
           </text>
           <text id="/data/area_supervisor_region/is_name_generated:label">
-            <value>Voulez-vous nommer l'endroit: &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/name:label">
-            <value>Nom</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/notes:label">
-            <value>Notes</value>
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>Soins prénataux</value>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>Vaccination</value>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>Soins postnataux</value>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>Sélectionnez tout ce dont vous avez besoin pour <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>Programmes de santé</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
-            <value>BCG</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
-            <value>Choléra</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
-            <value>Grippe</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
-            <value>Hépatite A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
-            <value>HPV (virus du papillome humain)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>Polio inactivée</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>Encéphalite japonaise</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>Méningocoque</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>MMR (rougeole, oreillons, rubéole)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>MMRV (rougeole, oreillons, rubéole, varicelle)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>Penta</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>Pneumo</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>Rota</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>Typhoïde</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>Vitamine A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>Fièvre jaune</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>Sélectionnez tout ce dont vous avez besoin pour <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>Choisissez les vaccins</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>Identifiant externe</value>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/meta:label">
             <value>-</value>
           </text>
           <text id="/data/contact/name:label">
-            <value>Nom</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Notes</value>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/phone:label">
-            <value>Téléphone</value>
+            <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>Téléphone alternatif</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/role/chw:label">
-            <value>ASC</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>Superviseur ASC</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>Staff médical</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>Infirmier</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>Autre</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>Patient</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>Rôle</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>Specifier</value>
+          <text id="/data/contact/type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact:label">
-            <value>Nouvelle personne</value>
+            <value>-</value>
           </text>
           <text id="/data/init/create_new_person/new_person:label">
             <value>Créer une nouvelle personne</value>
@@ -329,10 +152,10 @@
             <value>Selectiionner une personne existant</value>
           </text>
           <text id="/data/init/create_new_person:label">
-            <value>Contact primaire</value>
+            <value>-</value>
           </text>
           <text id="/data/init/custom_place_name:label">
-            <value>Nom pour <output value=" /data/init/place_type_translation "/></value>
+            <value>-</value>
           </text>
           <text id="/data/init/generated_name/area_health_facility:label">
             <value>District de <output value=" /data/init/contact_name "/></value>
@@ -344,6 +167,12 @@
             <value>Zone de <output value=" /data/init/contact_name "/></value>
           </text>
           <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
             <value>-</value>
           </text>
           <text id="/data/init/place_type/area_health_facility:label">
@@ -359,16 +188,31 @@
             <value>-</value>
           </text>
           <text id="/data/init/place_type:label">
-            <value>Nom de l'endroit</value>
+            <value>-</value>
           </text>
           <text id="/data/init/select_person:label">
-            <value>Choisisser le contact primaire</value>
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
           </text>
         </translation>
         <translation lang="hi">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>बाहरी ID</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>नहीं, मैं इसे मैन्युअल रूप से नाम देना चाहता हूं</value>
           </text>
@@ -376,130 +220,55 @@
             <value>हाँ</value>
           </text>
           <text id="/data/area_supervisor_region/is_name_generated:label">
-            <value>क्या आप इस स्थान को प्राथमिक कॉंटॅक्ट का नाम देना चाहेंगे?: <output value=" /data/init/generated_name_translation "/></value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/name:label">
-            <value>नाम</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/notes:label">
-            <value>नोट्स</value>
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>गर्भावस्था की देखभाल</value>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>टीकाकरण</value>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>गर्भावस्था के बाद की देखभाल</value>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>इस <output value=" /data/init/place_type_translation "/> के लिए आवश्यक सभी का चयन करें</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>स्वास्थ्य कार्यक्रम</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
-            <value>BCG</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
-            <value>Cholera</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
-            <value>Influenza</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
-            <value>Hepatitis A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
-            <value>HPV (Human Papillomavirus)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>Inactivated Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>Japanese Encephalitis</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>Meningococcal</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>MMR (Measles, Mumps, Rubella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>MMRV (Measles, Mumps, Rubella, Varicella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>Pentavalent</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>Pneumococcal Pneumonia</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>Rotavirus</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>Typhoid</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>Vitamin A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>Yellow Fever</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>इस <output value=" /data/init/place_type_translation "/> के लिए आवश्यक सभी का चयन करें</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>टीकाकरण चुनें</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>बाहरी ID</value>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/meta:label">
             <value>-</value>
           </text>
           <text id="/data/contact/name:label">
-            <value>नाम</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>नोट्स</value>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/phone:label">
-            <value>फोन नंबर</value>
+            <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>अन्य फोन नंबर</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/role/chw:label">
-            <value>सामुदायिक स्वास्थ्य कर्मी</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>सामुदायिक स्वास्थ्य कर्मी के मैनेजर</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>स्वास्थ्य केंद्र के मैनजर</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>नर्स</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>अन्य</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>मरीज़</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>भूमिका</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>अन्य का उल्‍लेख करें</value>
+          <text id="/data/contact/type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact:label">
-            <value>नया व्यक्ति</value>
+            <value>-</value>
           </text>
           <text id="/data/init/create_new_person/new_person:label">
             <value>एक नया व्यक्ति बनाएं</value>
@@ -511,10 +280,10 @@
             <value>मौजूदा व्यक्ति चुनें</value>
           </text>
           <text id="/data/init/create_new_person:label">
-            <value>प्राथमिक कॉंटॅक्ट चुनें</value>
+            <value>-</value>
           </text>
           <text id="/data/init/custom_place_name:label">
-            <value>इस स्थान का नाम <output value=" /data/init/place_type_translation "/></value>
+            <value>-</value>
           </text>
           <text id="/data/init/generated_name/area_health_facility:label">
             <value><output value=" /data/init/contact_name "/> का ज़िला</value>
@@ -526,6 +295,12 @@
             <value><output value=" /data/init/contact_name "/> का क्षेत्र</value>
           </text>
           <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
             <value>-</value>
           </text>
           <text id="/data/init/place_type/area_health_facility:label">
@@ -541,16 +316,31 @@
             <value>-</value>
           </text>
           <text id="/data/init/place_type:label">
-            <value>इस स्थान का नाम दर्ज करें</value>
+            <value>-</value>
           </text>
           <text id="/data/init/select_person:label">
-            <value>प्राथमिक कॉंटॅक्ट चुनें</value>
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
           </text>
         </translation>
         <translation lang="id">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>Eksternal ID</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Tidak, saya ingin nama itu secara manual</value>
           </text>
@@ -558,130 +348,55 @@
             <value>Iya</value>
           </text>
           <text id="/data/area_supervisor_region/is_name_generated:label">
-            <value>Apakah Anda ingin nama tempat setelah kontak utama: &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/name:label">
-            <value>Nama</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/notes:label">
-            <value>Catatan</value>
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>Perawatan Antenatal</value>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>Imunisasi</value>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>Perawatan Setelah Melahirkan</value>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>Pilih semua yang diperlukan untuk ini <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>Program Kesehatan</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
-            <value>BCG</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
-            <value>Kolera</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
-            <value>Influenza</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
-            <value>Hepatitis A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
-            <value>HPV (Human Papillomavirus)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>Inactivated Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>Japanese Encephalitis</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>Meningococcal</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>MMR (Measles, Mumps, Rubella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>MMRV (Measles, Mumps, Rubella, Varicella)</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>Pentavalent</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>Pneumococcal Pneumonia</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>Polio</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>Rotavirus</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>Typhoid</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>Vitamin A</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>Yellow Fever</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>Pilih semua yang diperlukan untuk ini <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>Pilih Jenis Vaksin</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>Eksternal ID</value>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/meta:label">
             <value>-</value>
           </text>
           <text id="/data/contact/name:label">
-            <value>Nama</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Catatan</value>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/phone:label">
-            <value>Nomor Telepon</value>
+            <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>Nomor Telepon Alternatif</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/role/chw:label">
-            <value>Kader</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>Kader Pengawas</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>Manajer Fasilitas</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>Perawat</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>Lain</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>Pasien</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>Peran</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>Tentukan lainnya</value>
+          <text id="/data/contact/type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact:label">
-            <value>Orang Baru</value>
+            <value>-</value>
           </text>
           <text id="/data/init/create_new_person/new_person:label">
             <value>Buat orang baru</value>
@@ -693,10 +408,10 @@
             <value>Pilih orang yang ada</value>
           </text>
           <text id="/data/init/create_new_person:label">
-            <value>Ditetapkan Sebagai Kontak Utama</value>
+            <value>-</value>
           </text>
           <text id="/data/init/custom_place_name:label">
-            <value>Masukkan nama tempat ini</value>
+            <value>-</value>
           </text>
           <text id="/data/init/generated_name/area_health_facility:label">
             <value>Kabupaten <output value=" /data/init/contact_name "/></value>
@@ -708,6 +423,12 @@
             <value>Daerah <output value=" /data/init/contact_name "/></value>
           </text>
           <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
             <value>-</value>
           </text>
           <text id="/data/init/place_type/area_health_facility:label">
@@ -723,16 +444,31 @@
             <value>-</value>
           </text>
           <text id="/data/init/place_type:label">
-            <value>Masukkan nama tempat ini</value>
+            <value>-</value>
           </text>
           <text id="/data/init/select_person:label">
-            <value>Pilih Kontak Utama</value>
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
           </text>
         </translation>
         <translation lang="ne">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>बाहिरि ID</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>होइन, म आफैँ नाम दिन चाहन्छु</value>
           </text>
@@ -740,130 +476,55 @@
             <value>हो</value>
           </text>
           <text id="/data/area_supervisor_region/is_name_generated:label">
-            <value>के तपाइ यस स्थानकाे प्राथमिक सम्पर्क नाम दिन चाहानु हुन्छ?:<output value=" /data/init/generated_name_translation "/></value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/name:label">
-            <value>नाम</value>
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
           </text>
           <text id="/data/area_supervisor_region/notes:label">
-            <value>टिप्पणि</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>पूर्व प्रसुती स्याहार</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>खोप</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>प्रसुती पश्चातको स्याहार</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>यस <output value=" /data/init/place_type_translation "/> का लागि आवश्यक सब छान्नुहोस्</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>स्वास्थ्य कार्यक्रम</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
+          <text id="/data/area_supervisor_region/parent:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
+          <text id="/data/area_supervisor_region/type:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
+          <text id="/data/area_supervisor_region:label">
             <value>-</value>
           </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
+          <text id="/data/contact/contact_type:label">
             <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>यस <output value=" /data/init/place_type_translation "/> का लागि आवश्यक सब छान्नुहोस्</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>-</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>बाहिरि ID</value>
           </text>
           <text id="/data/contact/meta:label">
             <value>-</value>
           </text>
           <text id="/data/contact/name:label">
-            <value>नाम</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>टिप्पणि</value>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
           </text>
           <text id="/data/contact/phone:label">
-            <value>फाेन नम्बर</value>
+            <value>-</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
-            <value>बैकल्पिक फाेन नम्बर</value>
+            <value>-</value>
           </text>
-          <text id="/data/contact/role/chw:label">
-            <value>महिला स्वास्थ्य स्वयम् सेविका</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>महिला स्वास्थ्य स्वयम् सेविकाको सुपरभाइजर</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>स्वास्थ्य सस्था प्रमुख</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>नर्स</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>अन्य</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>बिरामी</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>भुमिका</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>अन्य उल्लेख गर्नुहोस्</value>
+          <text id="/data/contact/type:label">
+            <value>-</value>
           </text>
           <text id="/data/contact:label">
-            <value>नया व्यक्ति</value>
+            <value>-</value>
           </text>
           <text id="/data/init/create_new_person/new_person:label">
             <value>एक नया व्यक्ति बनाउनुस</value>
@@ -875,10 +536,10 @@
             <value>व्यक्ति छान्नुहोस्</value>
           </text>
           <text id="/data/init/create_new_person:label">
-            <value>प्राथमिक सम्पर्क व्यक्ति</value>
+            <value>-</value>
           </text>
           <text id="/data/init/custom_place_name:label">
-            <value>यस स्थानको नाम लेख्नुहोस्</value>
+            <value>-</value>
           </text>
           <text id="/data/init/generated_name/area_health_facility:label">
             <value><output value=" /data/init/contact_name "/>को जिल्ला</value>
@@ -890,6 +551,12 @@
             <value><output value=" /data/init/contact_name "/>को क्षेत्र</value>
           </text>
           <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
             <value>-</value>
           </text>
           <text id="/data/init/place_type/area_health_facility:label">
@@ -905,16 +572,31 @@
             <value>-</value>
           </text>
           <text id="/data/init/place_type:label">
-            <value>यस स्थानको नाम लेख्नुहोस्</value>
+            <value>-</value>
           </text>
           <text id="/data/init/select_person:label">
-            <value>प्राथमिक सम्पर्क व्यक्ति छान्नुहोस्</value>
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
           </text>
         </translation>
         <translation lang="sw">
-          <text id="/data/area_supervisor_region/external_id:label">
-            <value>Namba ya nje</value>
-          </text>
           <text id="/data/area_supervisor_region/is_name_generated/false:label">
             <value>Hapana, ningependa kuijaza mwenyewe</value>
           </text>
@@ -927,83 +609,11 @@
           <text id="/data/area_supervisor_region/name:label">
             <value>Jina</value>
           </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
           <text id="/data/area_supervisor_region/notes:label">
             <value>Maelezo</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/anc:label">
-            <value>Huduma ya kabla ya kuzaa</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/imm:label">
-            <value>Chanjo</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases/pnc:label">
-            <value>Huduma ya baada ya kuzaa</value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:hint">
-            <value>Chagua zote zinazohitajika kwa hii <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/use_cases:label">
-            <value>Huduma za afya</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/bcg:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/cholera:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/flu:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hep_a:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/hpv:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/ipv:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/jap_enc:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/meningococcal:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmr:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/mmrv:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/penta:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/pneumococcal:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/polio:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/rotavirus:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/typhoid:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/vitamin_a:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines/yellow_fever:label">
-            <value>-</value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:hint">
-            <value>Chagua zote zinazohitajika kwa hii <output value=" /data/init/place_type_translation "/></value>
-          </text>
-          <text id="/data/area_supervisor_region/vaccines:label">
-            <value>-</value>
-          </text>
-          <text id="/data/contact/external_id:label">
-            <value>Kitambulisho cha nje</value>
           </text>
           <text id="/data/contact/meta:label">
             <value>-</value>
@@ -1011,38 +621,11 @@
           <text id="/data/contact/name:label">
             <value>Jina</value>
           </text>
-          <text id="/data/contact/notes:label">
-            <value>Maelezo</value>
-          </text>
           <text id="/data/contact/phone:label">
             <value>Namba ya Simi</value>
           </text>
           <text id="/data/contact/phone_alternate:label">
             <value>Namba Ya</value>
-          </text>
-          <text id="/data/contact/role/chw:label">
-            <value>Mhudumu wa afya</value>
-          </text>
-          <text id="/data/contact/role/chw_supervisor:label">
-            <value>Mkuu wa wahudumu wa afya</value>
-          </text>
-          <text id="/data/contact/role/manager:label">
-            <value>Meneja wa Kituo cha afya</value>
-          </text>
-          <text id="/data/contact/role/nurse:label">
-            <value>Muuguzi</value>
-          </text>
-          <text id="/data/contact/role/other:label">
-            <value>Nyingine</value>
-          </text>
-          <text id="/data/contact/role/patient:label">
-            <value>Mgonjwa</value>
-          </text>
-          <text id="/data/contact/role:label">
-            <value>Namba ya simu Nyingine</value>
-          </text>
-          <text id="/data/contact/role_other:label">
-            <value>Fafanua vingine</value>
           </text>
           <text id="/data/contact:label">
             <value>Mtu Mpya</value>
@@ -1095,7 +678,7 @@
         </translation>
       </itext>
       <instance>
-        <data id="contact:area_supervisor_region:create" prefix="J1!contact:area_supervisor_region:create!" delimiter="#" version="2023-05-25  9-53">
+        <data id="contact:area_supervisor_region:create" prefix="J1!contact:area_supervisor_region:create!" delimiter="#" version="2023-07-31  11-27">
           <inputs>
             <meta>
               <location>
@@ -1115,10 +698,8 @@
             <parent>PARENT</parent>
             <type/>
             <is_name_generated>true</is_name_generated>
+            <manual_name/>
             <name/>
-            <external_id/>
-            <use_cases/>
-            <vaccines/>
             <notes/>
             <contact/>
             <geolocation/>
@@ -1141,14 +722,11 @@
           </init>
           <contact>
             <parent>PARENT</parent>
-            <type>person</type>
+            <type>contact</type>
+            <contact_type>area_community_health_supervisor</contact_type>
             <name/>
             <phone/>
             <phone_alternate/>
-            <role/>
-            <role_other/>
-            <external_id/>
-            <notes/>
             <meta tag="hidden">
               <created_by/>
               <created_by_person_uuid/>
@@ -1165,10 +743,10 @@
       <bind nodeset="/data/inputs/user/facility_id" type="string"/>
       <bind nodeset="/data/inputs/user/name" type="string"/>
       <bind nodeset="/data/init/create_new_person" type="select1" required="true()"/>
-      <bind nodeset="/data/init/select_person" type="db:person" required="true()" relevant="selected( /data/init/create_new_person ,'old_person')"/>
+      <bind nodeset="/data/init/select_person" type="db:person" relevant="selected( /data/init/create_new_person ,'old_person')" required="true()"/>
       <bind nodeset="/data/init/name" type="string"/>
       <bind nodeset="/data/init/contact_name" type="string" calculate="coalesce(../name, ../../contact/name)"/>
-      <bind nodeset="/data/init/custom_place_name" type="string" required="true()" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated , 'false') or selected( /data/area_supervisor_region/is_name_generated , 'no')"/>
+      <bind nodeset="/data/init/custom_place_name" type="string" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated , 'false') or selected( /data/area_supervisor_region/is_name_generated , 'no')" required="true()"/>
       <bind nodeset="/data/init/place_type" type="select1"/>
       <bind nodeset="/data/init/place_type_translation" type="string" calculate="jr:choice-name( /data/init/place_type ,' /data/init/place_type ')"/>
       <bind nodeset="/data/init/generated_name" type="select1"/>
@@ -1176,23 +754,18 @@
       <bind nodeset="/data/contact" relevant="selected( /data/init/create_new_person ,'new_person')"/>
       <bind nodeset="/data/contact/parent" type="string"/>
       <bind nodeset="/data/contact/type" type="string"/>
+      <bind nodeset="/data/contact/contact_type" type="string"/>
       <bind nodeset="/data/contact/name" type="string" required="true()"/>
-      <bind nodeset="/data/contact/phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
-      <bind nodeset="/data/contact/phone_alternate" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
-      <bind nodeset="/data/contact/role" type="select1"/>
-      <bind nodeset="/data/contact/role_other" type="string" required="true()" relevant="selected(  /data/contact/role ,'other')"/>
-      <bind nodeset="/data/contact/external_id" type="string"/>
-      <bind nodeset="/data/contact/notes" type="string"/>
+      <bind nodeset="/data/contact/phone" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/contact/phone_alternate" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
       <bind nodeset="/data/contact/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
       <bind nodeset="/data/contact/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
       <bind nodeset="/data/contact/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
       <bind nodeset="/data/area_supervisor_region/parent" type="string"/>
       <bind nodeset="/data/area_supervisor_region/type" type="string"/>
-      <bind nodeset="/data/area_supervisor_region/is_name_generated" type="select1" required="true()" relevant="not(selected( /data/init/create_new_person ,'none'))"/>
-      <bind nodeset="/data/area_supervisor_region/name" type="string" required="true()" calculate="if( ( selected( /data/area_supervisor_region/is_name_generated , 'true') or selected( /data/area_supervisor_region/is_name_generated , 'yes') ),  /data/init/generated_name_translation ,  /data/init/custom_place_name )"/>
-      <bind nodeset="/data/area_supervisor_region/external_id" type="string"/>
-      <bind nodeset="/data/area_supervisor_region/use_cases" type="select" relevant="../type = 'health_center'"/>
-      <bind nodeset="/data/area_supervisor_region/vaccines" type="select" relevant="../type = 'health_center' and selected( /data/area_supervisor_region/use_cases ,'imm')"/>
+      <bind nodeset="/data/area_supervisor_region/is_name_generated" type="select1" relevant="not(selected( /data/init/create_new_person ,'none'))" required="true()"/>
+      <bind nodeset="/data/area_supervisor_region/manual_name" type="string" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated ,'false')" required="true()"/>
+      <bind nodeset="/data/area_supervisor_region/name" type="string" calculate="if( ( selected( /data/area_supervisor_region/is_name_generated , 'true') or selected( /data/area_supervisor_region/is_name_generated , 'yes') ),  /data/init/generated_name_translation ,  /data/area_supervisor_region/manual_name )" required="true()"/>
       <bind nodeset="/data/area_supervisor_region/notes" type="string"/>
       <bind nodeset="/data/area_supervisor_region/contact" type="string" calculate="if(selected( /data/init/create_new_person ,'none'), &quot;&quot;, coalesce( /data/init/select_person ,&quot;NEW&quot;))"/>
       <bind nodeset="/data/area_supervisor_region/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
@@ -1278,42 +851,6 @@
         <input ref="/data/contact/phone_alternate">
           <label ref="jr:itext('/data/contact/phone_alternate:label')"/>
         </input>
-        <select1 ref="/data/contact/role">
-          <label ref="jr:itext('/data/contact/role:label')"/>
-          <item>
-            <label ref="jr:itext('/data/contact/role/chw:label')"/>
-            <value>chw</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/data/contact/role/chw_supervisor:label')"/>
-            <value>chw_supervisor</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/data/contact/role/nurse:label')"/>
-            <value>nurse</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/data/contact/role/manager:label')"/>
-            <value>manager</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/data/contact/role/patient:label')"/>
-            <value>patient</value>
-          </item>
-          <item>
-            <label ref="jr:itext('/data/contact/role/other:label')"/>
-            <value>other</value>
-          </item>
-        </select1>
-        <input ref="/data/contact/role_other">
-          <label ref="jr:itext('/data/contact/role_other:label')"/>
-        </input>
-        <input ref="/data/contact/external_id">
-          <label ref="jr:itext('/data/contact/external_id:label')"/>
-        </input>
-        <input appearance="multiline" ref="/data/contact/notes">
-          <label ref="jr:itext('/data/contact/notes:label')"/>
-        </input>
         <group appearance="hidden" ref="/data/contact/meta"/>
         </group>
       </group>
@@ -1329,102 +866,12 @@
           <value>false</value>
         </item>
       </select1>
-      <input ref="/data/init/custom_place_name">
-        <label ref="jr:itext('/data/init/custom_place_name:label')"/>
+      <input ref="/data/area_supervisor_region/manual_name">
+        <label ref="jr:itext('/data/area_supervisor_region/manual_name:label')"/>
       </input>
-      <input ref="/data/area_supervisor_region/external_id">
-        <label ref="jr:itext('/data/area_supervisor_region/external_id:label')"/>
-      </input>
-      <select ref="/data/area_supervisor_region/use_cases">
-        <label ref="jr:itext('/data/area_supervisor_region/use_cases:label')"/>
-        <hint ref="jr:itext('/data/area_supervisor_region/use_cases:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/use_cases/anc:label')"/>
-          <value>anc</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/use_cases/pnc:label')"/>
-          <value>pnc</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/use_cases/imm:label')"/>
-          <value>imm</value>
-        </item>
-      </select>
-      <select ref="/data/area_supervisor_region/vaccines">
-        <label ref="jr:itext('/data/area_supervisor_region/vaccines:label')"/>
-        <hint ref="jr:itext('/data/area_supervisor_region/vaccines:hint')"/>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/bcg:label')"/>
-          <value>bcg</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/cholera:label')"/>
-          <value>cholera</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/hep_a:label')"/>
-          <value>hep_a</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/hpv:label')"/>
-          <value>hpv</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/flu:label')"/>
-          <value>flu</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/jap_enc:label')"/>
-          <value>jap_enc</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/meningococcal:label')"/>
-          <value>meningococcal</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/mmr:label')"/>
-          <value>mmr</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/mmrv:label')"/>
-          <value>mmrv</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/ipv:label')"/>
-          <value>ipv</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/polio:label')"/>
-          <value>polio</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/penta:label')"/>
-          <value>penta</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/pneumococcal:label')"/>
-          <value>pneumococcal</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/rotavirus:label')"/>
-          <value>rotavirus</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/typhoid:label')"/>
-          <value>typhoid</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/vitamin_a:label')"/>
-          <value>vitamin_a</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/data/area_supervisor_region/vaccines/yellow_fever:label')"/>
-          <value>yellow_fever</value>
-        </item>
-      </select>
       <input appearance="multiline" ref="/data/area_supervisor_region/notes">
         <label ref="jr:itext('/data/area_supervisor_region/notes:label')"/>
+        <hint ref="jr:itext('/data/area_supervisor_region/notes:hint')"/>
       </input>
       <group appearance="hidden" ref="/data/area_supervisor_region/meta"/>
     </group>
