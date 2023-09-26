@@ -1,5 +1,5 @@
 ## Accelerator Program Certification Process.
-The following guidelines will be used in certifying the CHT Accelerator program grantees. App Developers and grantee organizations will be certified after completing the CHT app building course and also demonstrating that after the CHT onboarding the organizations are able to design and build CHT prototypes or workflows. 
+The following guidelines will be used in certifying the CHT Accelerator program grantees. App Developers and grantee organizations will be certified after completing the CHT app building course and demonstrating that after the CHT onboarding process, the organizations are able to design and build CHT prototypes or workflows. 
 
 ### 1. CHT app building course certification
 App Developers from participating technical organizations who complete the CHT app building course will be issued with the CHT app building academy course completion certificates.
