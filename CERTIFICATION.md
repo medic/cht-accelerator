@@ -12,7 +12,7 @@ The design process and outputs should be well documented
 - The user requirements, technical design guides and prototypes should be well documented.
   
 **Recommended configuration best practices and configuration outputs**
-- The code should follow the recommended [coding style](https://docs.communityhealthtoolkit.org/contribute/code/style-guide/).
+- The code should follow the recommended [coding style](https://github.com/medic/cht-accelerator#readme).
 - Develop a high quality app which is user friendly and free from bugs
   - Passing unit and integration tests and functional test plan results 
 - App Developers should demonstrate the ability to debug issues, reproduce issues and fix identified bugs.
