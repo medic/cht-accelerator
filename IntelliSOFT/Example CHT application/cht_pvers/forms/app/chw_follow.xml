@@ -160,8 +160,8 @@
       <bind nodeset="/chw_follow/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/chw_follow/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/chw_follow/reporter/group_report/visit" type="select1" required="true()"/>
-      <bind nodeset="/chw_follow/reporter/group_report/fully_recovered" type="select1" required="true()" relevant="selected(../visit, 'Yes')"/>
-      <bind nodeset="/chw_follow/reporter/group_report/status" type="select1" required="true()" relevant="selected(../visit, 'No')"/>
+      <bind nodeset="/chw_follow/reporter/group_report/fully_recovered" type="select1" relevant="selected(../visit, 'Yes')" required="true()"/>
+      <bind nodeset="/chw_follow/reporter/group_report/status" type="select1" relevant="selected(../visit, 'No')" required="true()"/>
       <bind nodeset="/chw_follow/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/chw_follow/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/chw_follow/data/meta/__household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>

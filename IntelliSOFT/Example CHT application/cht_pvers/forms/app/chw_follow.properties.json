@@ -3,7 +3,6 @@
     "title": "Post Referral Visit",
     "context": {
         "person": false,
-        "place": false,
-        "expression": "!contact.date_of_death && contact.type === 'person'"
+        "place": false
     }
 }

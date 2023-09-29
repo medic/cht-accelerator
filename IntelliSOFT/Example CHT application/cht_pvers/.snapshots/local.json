@@ -1,53 +1,65 @@
 {
   "form:follow": {
-    "localhost/medic": "pFlOfoJ4g1AFpnXC/b195g=="
+    "localhost/medic": "psJBgN6t7+Nq0n6TBpBkPQ=="
   },
   "form:padr": {
-    "localhost/medic": "cHyjn4udiEbv+xBCCDT3jQ=="
+    "localhost/medic": "ALFS7263P1EIjmEZdavlIg=="
   },
   "form:contact:clinic:create": {
-    "localhost/medic": "ueuv8taXNX8EJRHbuUXw5w=="
+    "localhost/medic": "AjKMIGzuXmrvAYgYlZP0Qw=="
   },
   "form:contact:clinic:edit": {
-    "localhost/medic": "6ariUyw8oUVAukrGSPRMNw=="
+    "localhost/medic": "WF2OpJDSvDmpIUDp1IwdyQ=="
   },
   "form:contact:district_hospital:create": {
-    "localhost/medic": "TFQwpHsdp+qVPrcplvbCsQ=="
+    "localhost/medic": "EAwx9Z04a1DdKILCqRezyA=="
   },
   "form:contact:district_hospital:edit": {
-    "localhost/medic": "zOspwEJIHGVfkoi6AFm5qA=="
+    "localhost/medic": "y06+kThpCtIMPrHNKoIAlA=="
   },
   "form:contact:health_center:create": {
-    "localhost/medic": "eT0vGxD3Nld7oaTk3SZmpg=="
+    "localhost/medic": "KTnxx989ft4NtyKBU9fjZQ=="
   },
   "form:contact:health_center:edit": {
-    "localhost/medic": "Jr207+trLRPNLToZXYLhug=="
+    "localhost/medic": "ilD4qlJR1ZkCqydksipsqA=="
   },
   "form:contact:person:create": {
-    "localhost/medic": "Kh6rm+F5eThPqmeEYyI35w=="
+    "localhost/medic": "nfJ3WgIFlgiPaYkfZxde/A=="
   },
   "form:contact:person:edit": {
-    "localhost/medic": "pdy+TQung5fCGxtfEdcwpw=="
+    "localhost/medic": "UIAR9vhACfXCEAHiNuQaNA=="
   },
   "resources": {
-    "localhost/medic": "ViTyIHLpxYElx+nWD1tFZg=="
+    "localhost/medic": "IRS/DoawC/EGkol0sf03eg=="
   },
   "branding": {
     "localhost/medic": "WAoNEioN1cxMkIM+YxvI6A=="
   },
   "messages-en": {
-    "localhost/medic": "c7tDHSVdanpLQhQ7nBNM5w=="
+    "localhost/medic": "bOBhezPGQyhUcLppinZNyw=="
   },
   "privacy-policies": {
     "localhost/medic": "/twR+Q8i4pmWKN/3fUP6tQ=="
   },
   "form:assessment": {
-    "localhost/medic": "IMq3MkHJpGDnQc4oWrTntQ=="
+    "localhost/medic": "OTQfVIMbL7DQXBOcYkcb1g=="
   },
   "form:death_confirmation": {
-    "localhost/medic": "9vuOXNEFl0sWr/CNYTLDUg=="
+    "localhost/medic": "Cgk/Obfhu6Uu8gf29EAnYg=="
   },
   "form:chw_follow": {
-    "localhost/medic": "y/JAMi1th0iKBmXQ8RaYaQ=="
+    "localhost/medic": "oMRSEUkwpHEWVZkqNUKovg=="
+  },
+  "form:contact:household_member:create": {
+    "localhost/medic": "0b3NTyfkZcAdH/rmkxECWw=="
+  },
+  "form:contact:household_member:edit": {
+    "localhost/medic": "Srj4V+7AczaWqKK08Nop0w=="
+  },
+  "form:contact:supervisor_region:create": {
+    "localhost/medic": "7pibR/HavjjGY8iBO5t5Iw=="
+  },
+  "form:contact:supervisor_region:edit": {
+    "localhost/medic": "QTPbCXfBZFd8vbS/6QgXRw=="
   }
 }

@@ -12,7 +12,7 @@
             <value>Yes</value>
           </text>
           <text id="/padr/availability/availability_report/available:label">
-            <value>Is the client present for the follow up assessment?</value>
+            <value>Is the <output value=" /padr/patient_name "/> present for the follow up assessment?</value>
           </text>
           <text id="/padr/form/medicines/medications/expiry_date:jr:constraintMsg">
             <value>Date must be before today</value>
@@ -110,86 +110,80 @@
           <text id="/padr/form/outcome_details:label">
             <value>OUTCOME DETAILS</value>
           </text>
-          <text id="/padr/form/quality/group_quality/other_signs:label">
+          <text id="/padr/form/reporter/group_quality/other_signs:label">
             <value>Other wrong things</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/Has_unusual_material_in_it:label">
+          <text id="/padr/form/reporter/group_quality/signs/Has_unusual_material_in_it:label">
             <value>Has unusual material in it</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/The_color_is_changing:label">
+          <text id="/padr/form/reporter/group_quality/signs/The_color_is_changing:label">
             <value>The color is changing</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/The_label_looks_wrong:label">
+          <text id="/padr/form/reporter/group_quality/signs/The_label_looks_wrong:label">
             <value>The label looks wrong</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/The_medicine_is_not_working:label">
+          <text id="/padr/form/reporter/group_quality/signs/The_medicine_is_not_working:label">
             <value>The medicine is not working</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label">
+          <text id="/padr/form/reporter/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label">
             <value>The packet or bottle does not seem to be usual or complete</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs/The_smell_is_unusual:label">
+          <text id="/padr/form/reporter/group_quality/signs/The_smell_is_unusual:label">
             <value>The smell is unusual</value>
           </text>
-          <text id="/padr/form/quality/group_quality/signs:label">
+          <text id="/padr/form/reporter/group_quality/signs:label">
             <value>Select all issues with the medicine/device</value>
           </text>
-          <text id="/padr/form/quality:label">
-            <value>POOR QUALITY MEDICINE</value>
-          </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Abnormal_changes_with_urination:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Abnormal_changes_with_urination:label">
             <value>Abnormal changes with urination</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Dizziness_or_drowsiness:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Dizziness_or_drowsiness:label">
             <value>Dizziness or drowsiness</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Headache:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Headache:label">
             <value>Headache</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Joints_and_muscle_pain:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Joints_and_muscle_pain:label">
             <value>Joints and muscle pain</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Pain_in_the_stomach:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Pain_in_the_stomach:label">
             <value>Pain in the stomach</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label">
             <value>Pain or bleeding in the mouth</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Patient_died:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Patient_died:label">
             <value>Patient died</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Rash_itching_swelling_on_skin:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Rash_itching_swelling_on_skin:label">
             <value>Rash, itching, swelling on skin</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Red,_painful_eyes:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Red,_painful_eyes:label">
             <value>Red, painful eyes</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects/Vomiting_or_diarrhea:label">
+          <text id="/padr/form/reporter/group_reaction/effects/Vomiting_or_diarrhea:label">
             <value>Vomiting or diarrhea</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/effects:label">
+          <text id="/padr/form/reporter/group_reaction/effects:label">
             <value>Select all side effects experienced</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/on/No:label">
+          <text id="/padr/form/reporter/group_reaction/on/No:label">
             <value>No</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/on/Yes:label">
+          <text id="/padr/form/reporter/group_reaction/on/Yes:label">
             <value>Yes</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/on:label">
+          <text id="/padr/form/reporter/group_reaction/on:label">
             <value>Is the reaction still on?</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/onset:jr:constraintMsg">
+          <text id="/padr/form/reporter/group_reaction/onset:jr:constraintMsg">
             <value>Date must be before today</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/onset:label">
+          <text id="/padr/form/reporter/group_reaction/onset:label">
             <value>When did the reaction start?</value>
           </text>
-          <text id="/padr/form/reaction/group_reaction/other_effects:label">
+          <text id="/padr/form/reporter/group_reaction/other_effects:label">
             <value>Other side effects experienced</value>
-          </text>
-          <text id="/padr/form/reaction:label">
-            <value>Side Effects</value>
           </text>
           <text id="/padr/form/reporter/group_report/county/Baringo:label">
             <value>Baringo</value>
@@ -347,9 +341,6 @@
           <text id="/padr/form/reporter/group_report/relation/Guardian:label">
             <value>Guardian</value>
           </text>
-          <text id="/padr/form/reporter/group_report/relation/Other:label">
-            <value>Other</value>
-          </text>
           <text id="/padr/form/reporter/group_report/relation/Parent:label">
             <value>Parent</value>
           </text>
@@ -359,17 +350,20 @@
           <text id="/padr/form/reporter/group_report/relation:label">
             <value>Relation</value>
           </text>
-          <text id="/padr/form/reporter/group_report/type/Adverse Reaction:label">
-            <value>Adverse Reaction</value>
-          </text>
-          <text id="/padr/form/reporter/group_report/type/Poor Quality Medicine:label">
+          <text id="/padr/form/reporter/group_report/type/Medicine:label">
             <value>Poor Quality Medicine</value>
+          </text>
+          <text id="/padr/form/reporter/group_report/type/Reaction:label">
+            <value>Adverse Reaction</value>
           </text>
           <text id="/padr/form/reporter/group_report/type:label">
             <value>Select Type of Report</value>
           </text>
           <text id="/padr/form/reporter:label">
             <value>Report Details</value>
+          </text>
+          <text id="/padr/group_review/r_absent:label">
+            <value>&lt;b&gt;Revisit <output value=" /padr/patient_display_name "/> within 5 days&lt;/b&gt;</value>
           </text>
           <text id="/padr/group_review/r_death_info:label">
             <value>&lt;div style=&quot;text-align:center;&quot;&gt;Outcome: <output value=" /padr/form/outcome_details/group_outcome_details/outcome "/>&lt;/div&gt;</value>
@@ -414,11 +408,17 @@
           <text id="/padr/inputs/contact/patient_id:label">
             <value>Patient ID</value>
           </text>
+          <text id="/padr/inputs/contact/phone:label">
+            <value>Name</value>
+          </text>
           <text id="/padr/inputs/contact/sex:label">
             <value>Sex</value>
           </text>
           <text id="/padr/inputs/contact/short_name:label">
             <value>Short Name</value>
+          </text>
+          <text id="/padr/inputs/select:label">
+            <value>Selected</value>
           </text>
           <text id="/padr/inputs/source:label">
             <value>Source</value>
@@ -438,7 +438,7 @@
         </translation>
       </itext>
       <instance>
-        <padr id="padr" prefix="J1!padr!" delimiter="#" version="2023-07-30 23:46:39">
+        <padr id="padr" prefix="J1!padr!" delimiter="#" version="2023-09-06 03:21:53">
           <inputs>
             <meta>
               <location>
@@ -450,6 +450,7 @@
             </meta>
             <source>user</source>
             <source_id/>
+            <select/>
             <user>
               <contact_id/>
               <parent>
@@ -459,6 +460,7 @@
             <contact>
               <_id/>
               <name/>
+              <phone/>
               <short_name/>
               <patient_id/>
               <date_of_birth>0</date_of_birth>
@@ -480,9 +482,11 @@
           <patient_uuid tag="hidden"/>
           <patient_id tag="hidden"/>
           <patient_name tag="hidden"/>
+          <patient_phone tag="hidden"/>
           <patient_sex/>
           <patient_short_name tag="hidden"/>
           <patient_display_name tag="hidden"/>
+          <patient_reaction tag="hidden"/>
           <availability>
             <availability_report>
               <available/>
@@ -497,21 +501,17 @@
                 <county/>
                 <type/>
               </group_report>
-            </reporter>
-            <quality>
               <group_quality>
                 <signs/>
                 <other_signs/>
               </group_quality>
-            </quality>
-            <reaction>
               <group_reaction>
                 <effects/>
                 <other_effects/>
                 <onset/>
                 <on/>
               </group_reaction>
-            </reaction>
+            </reporter>
             <medicines>
               <medications>
                 <list_medication/>
@@ -551,6 +551,7 @@
             <blank_note/>
             <r_referral/>
             <r_no_referral/>
+            <r_absent/>
           </group_review>
           <data tag="hidden">
             <__outcome/>
@@ -571,10 +572,12 @@
       <bind nodeset="/padr/inputs" relevant="./source = 'user'"/>
       <bind nodeset="/padr/inputs/source" type="string"/>
       <bind nodeset="/padr/inputs/source_id" type="string"/>
+      <bind nodeset="/padr/inputs/select" type="string"/>
       <bind nodeset="/padr/inputs/user/contact_id" type="string"/>
       <bind nodeset="/padr/inputs/user/parent/_id" type="string"/>
       <bind nodeset="/padr/inputs/contact/_id" type="db:person"/>
       <bind nodeset="/padr/inputs/contact/name" type="string"/>
+      <bind nodeset="/padr/inputs/contact/phone" type="string"/>
       <bind nodeset="/padr/inputs/contact/short_name" type="string"/>
       <bind nodeset="/padr/inputs/contact/patient_id" type="string"/>
       <bind nodeset="/padr/inputs/contact/date_of_birth" type="string"/>
@@ -588,32 +591,34 @@
       <bind nodeset="/padr/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/padr/patient_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/padr/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/padr/patient_phone" type="string" calculate="../inputs/contact/phone"/>
       <bind nodeset="/padr/patient_sex" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/padr/patient_short_name" type="string" calculate="../inputs/contact/short_name"/>
       <bind nodeset="/padr/patient_display_name" type="string" calculate="if(../patient_short_name = '', ../patient_name, concat(../patient_name, ' (', ../patient_short_name, ')'))"/>
+      <bind nodeset="/padr/patient_reaction" type="string" calculate="../inputs/select"/>
       <bind nodeset="/padr/availability/availability_report/available" type="select1" required="true()"/>
       <bind nodeset="/padr/form" relevant="selected( /padr/availability/availability_report/available ,'Yes')"/>
-      <bind nodeset="/padr/form/reporter/group_report/person_name" type="string" required="true()"/>
-      <bind nodeset="/padr/form/reporter/group_report/person_phone" type="tel" constraint="true()" jr:constraintMsg="jr:itext('/padr/form/reporter/group_report/person_phone:jr:constraintMsg')" required="true()"/>
+      <bind nodeset="/padr/form/reporter/group_report/person_name" type="string" required="true()" calculate=" /padr/patient_name "/>
+      <bind nodeset="/padr/form/reporter/group_report/person_phone" type="tel" jr:constraintMsg="jr:itext('/padr/form/reporter/group_report/person_phone:jr:constraintMsg')" constraint="true()"/>
       <bind nodeset="/padr/form/reporter/group_report/relation" type="select1" required="true()"/>
       <bind nodeset="/padr/form/reporter/group_report/county" type="select1" required="true()"/>
-      <bind nodeset="/padr/form/reporter/group_report/type" type="select1" required="true()"/>
-      <bind nodeset="/padr/form/quality" relevant="selected(../reporter/group_report/type, 'Poor Quality Medicine')"/>
-      <bind nodeset="/padr/form/quality/group_quality/signs" type="select" required="true()"/>
-      <bind nodeset="/padr/form/quality/group_quality/other_signs" type="string"/>
-      <bind nodeset="/padr/form/reaction" relevant="selected(../reporter/group_report/type, 'Adverse Reaction')"/>
-      <bind nodeset="/padr/form/reaction/group_reaction/effects" type="select" required="true()"/>
-      <bind nodeset="/padr/form/reaction/group_reaction/other_effects" type="string"/>
-      <bind nodeset="/padr/form/reaction/group_reaction/onset" type="date" constraint=". &lt;= now()" jr:constraintMsg="jr:itext('/padr/form/reaction/group_reaction/onset:jr:constraintMsg')" required="true()"/>
-      <bind nodeset="/padr/form/reaction/group_reaction/on" type="select1"/>
+      <bind nodeset="/padr/form/reporter/group_report/type" type="select1" required="true()" calculate=" /padr/patient_reaction "/>
+      <bind nodeset="/padr/form/reporter/group_quality" relevant="selected( /padr/form/reporter/group_report/type ,'Medicine')"/>
+      <bind nodeset="/padr/form/reporter/group_quality/signs" type="select"/>
+      <bind nodeset="/padr/form/reporter/group_quality/other_signs" type="string"/>
+      <bind nodeset="/padr/form/reporter/group_reaction" relevant="selected( /padr/form/reporter/group_report/type ,'Reaction')"/>
+      <bind nodeset="/padr/form/reporter/group_reaction/effects" type="select"/>
+      <bind nodeset="/padr/form/reporter/group_reaction/other_effects" type="string"/>
+      <bind nodeset="/padr/form/reporter/group_reaction/onset" type="date" required="true()" jr:constraintMsg="jr:itext('/padr/form/reporter/group_reaction/onset:jr:constraintMsg')" constraint=". &lt;= now()"/>
+      <bind nodeset="/padr/form/reporter/group_reaction/on" type="select1"/>
       <bind nodeset="/padr/form/medicines/medications/list_medication" readonly="true()" type="string"/>
-      <bind nodeset="/padr/form/medicines/medications/medicine_count" type="int" constraint=".&gt;=1 and . &lt;= 9" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medicine_count:jr:constraintMsg')" required="true()"/>
+      <bind nodeset="/padr/form/medicines/medications/medicine_count" type="int" required="true()" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medicine_count:jr:constraintMsg')" constraint=".&gt;=1 and . &lt;= 9"/>
       <bind nodeset="/padr/form/medicines/medications/name" type="string" relevant=" /padr/form/medicines/medications/medicine_count  = 1" required="true()"/>
       <bind nodeset="/padr/form/medicines/medications/manufacturer" type="string" relevant=" /padr/form/medicines/medications/medicine_count  = 1" required="true()"/>
       <bind nodeset="/padr/form/medicines/medications/location" type="string" relevant=" /padr/form/medicines/medications/medicine_count  = 1" required="true()"/>
-      <bind nodeset="/padr/form/medicines/medications/start_date" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/start_date:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/reaction/group_reaction/onset  = '' or . &lt;=  /padr/form/reaction/group_reaction/onset )" relevant=" /padr/form/medicines/medications/medicine_count  = 1" required="true()"/>
-      <bind nodeset="/padr/form/medicines/medications/stop_date" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/stop_date:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/medicines/medications/start_date  = '' or . &gt;=  /padr/form/medicines/medications/start_date )" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
-      <bind nodeset="/padr/form/medicines/medications/expiry_date" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/expiry_date:jr:constraintMsg')" relevant=" /padr/form/medicines/medications/medicine_count  = 1"/>
+      <bind nodeset="/padr/form/medicines/medications/start_date" type="date" relevant=" /padr/form/medicines/medications/medicine_count  = 1" required="true()" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/start_date:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/reporter/group_reaction/onset  = '' or . &lt;=  /padr/form/reporter/group_reaction/onset )"/>
+      <bind nodeset="/padr/form/medicines/medications/stop_date" type="date" relevant=" /padr/form/medicines/medications/medicine_count  = 1" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/stop_date:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/medicines/medications/start_date  = '' or . &gt;=  /padr/form/medicines/medications/start_date )"/>
+      <bind nodeset="/padr/form/medicines/medications/expiry_date" type="date" relevant=" /padr/form/medicines/medications/medicine_count  = 1" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/expiry_date:jr:constraintMsg')"/>
       <bind nodeset="/padr/form/medicines/medications/medicine_count_multiple" readonly="true()" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
       <bind nodeset="/padr/form/medicines/medications/medicines_used" readonly="true()" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
       <bind nodeset="/padr/form/medicines/medications/medication_multiple_count" type="string" readonly="true()" calculate=" /padr/form/medicines/medications/medicine_count "/>
@@ -621,9 +626,9 @@
       <bind nodeset="/padr/form/medicines/medications/medication_multiple/name_multiple" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" required="true()"/>
       <bind nodeset="/padr/form/medicines/medications/medication_multiple/manufactuter_multiple" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" required="true()"/>
       <bind nodeset="/padr/form/medicines/medications/medication_multiple/location_multiple" type="string" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" required="true()"/>
-      <bind nodeset="/padr/form/medicines/medications/medication_multiple/start_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/reaction/group_reaction/onset  = '' or . &lt;=  /padr/form/reaction/group_reaction/onset )" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" required="true()"/>
-      <bind nodeset="/padr/form/medicines/medications/medication_multiple/stop_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/medicines/medications/medication_multiple/start_date_multiple  = '' or . &gt;=  /padr/form/medicines/medications/medication_multiple/start_date_multiple )" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
-      <bind nodeset="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple" type="date" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg')" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/start_date_multiple" type="date" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" required="true()" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/start_date_multiple:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/reporter/group_reaction/onset  = '' or . &lt;=  /padr/form/reporter/group_reaction/onset )"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/stop_date_multiple" type="date" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/stop_date_multiple:jr:constraintMsg')" constraint=". &lt;= today() and ( /padr/form/medicines/medications/medication_multiple/start_date_multiple  = '' or . &gt;=  /padr/form/medicines/medications/medication_multiple/start_date_multiple )"/>
+      <bind nodeset="/padr/form/medicines/medications/medication_multiple/expiry_date_multiple" type="date" relevant=" /padr/form/medicines/medications/medicine_count  &gt; 1" jr:constraintMsg="jr:itext('/padr/form/medicines/medications/medication_multiple/expiry_date_multiple:jr:constraintMsg')"/>
       <bind nodeset="/padr/form/outcome_details/group_outcome_details/outcome" type="select1" required="true()"/>
       <bind nodeset="/padr/group_review/submit" readonly="true()" type="string"/>
       <bind nodeset="/padr/group_review/r_summary_details" readonly="true()" type="string"/>
@@ -633,11 +638,12 @@ if(../../patient_age_in_months &lt; 12,
 concat(../../patient_age_in_months, ' months old'), 
 concat(../../patient_age_in_years, ' years old')))"/>
       <bind nodeset="/padr/group_review/r_patient_details" readonly="true()" type="string"/>
-      <bind nodeset="/padr/group_review/r_death_info" readonly="true()" type="string"/>
+      <bind nodeset="/padr/group_review/r_death_info" readonly="true()" type="string" relevant="selected( /padr/availability/availability_report/available ,'Yes')"/>
       <bind nodeset="/padr/group_review/r_key_instruction" readonly="true()" type="string"/>
       <bind nodeset="/padr/group_review/blank_note" readonly="true()" type="string"/>
       <bind nodeset="/padr/group_review/r_referral" readonly="true()" type="string" relevant="selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Unknown') or selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Not Recovered/Not Resolved')"/>
       <bind nodeset="/padr/group_review/r_no_referral" readonly="true()" type="string" relevant="selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Recovered/Resolved') or selected( /padr/form/outcome_details/group_outcome_details/outcome ,'Recovering/Resolving')"/>
+      <bind nodeset="/padr/group_review/r_absent" readonly="true()" type="string" relevant="selected( /padr/availability/availability_report/available ,'No')"/>
       <bind nodeset="/padr/data/__outcome" type="string" calculate=" /padr/form/outcome_details/group_outcome_details/outcome "/>
       <bind nodeset="/padr/data/meta/__patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/padr/data/meta/__patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
@@ -705,10 +711,6 @@ concat(../../patient_age_in_years, ' years old')))"/>
             <item>
               <label ref="jr:itext('/padr/form/reporter/group_report/relation/Guardian:label')"/>
               <value>Guardian</value>
-            </item>
-            <item>
-              <label ref="jr:itext('/padr/form/reporter/group_report/relation/Other:label')"/>
-              <value>Other</value>
             </item>
           </select1>
           <select1 appearance="autocomplete" ref="/padr/form/reporter/group_report/county">
@@ -905,111 +907,105 @@ concat(../../patient_age_in_years, ' years old')))"/>
           <select1 ref="/padr/form/reporter/group_report/type">
             <label ref="jr:itext('/padr/form/reporter/group_report/type:label')"/>
             <item>
-              <label ref="jr:itext('/padr/form/reporter/group_report/type/Adverse Reaction:label')"/>
-              <value>Adverse Reaction</value>
+              <label ref="jr:itext('/padr/form/reporter/group_report/type/Reaction:label')"/>
+              <value>Reaction</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reporter/group_report/type/Poor Quality Medicine:label')"/>
-              <value>Poor Quality Medicine</value>
+              <label ref="jr:itext('/padr/form/reporter/group_report/type/Medicine:label')"/>
+              <value>Medicine</value>
             </item>
           </select1>
         </group>
-      </group>
-      <group ref="/padr/form/quality">
-        <label ref="jr:itext('/padr/form/quality:label')"/>
-        <group appearance="field-list" ref="/padr/form/quality/group_quality">
-          <select ref="/padr/form/quality/group_quality/signs">
-            <label ref="jr:itext('/padr/form/quality/group_quality/signs:label')"/>
+        <group appearance="field-list" ref="/padr/form/reporter/group_quality">
+          <select ref="/padr/form/reporter/group_quality/signs">
+            <label ref="jr:itext('/padr/form/reporter/group_quality/signs:label')"/>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_label_looks_wrong:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/The_label_looks_wrong:label')"/>
               <value>The_label_looks_wrong</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/Has_unusual_material_in_it:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/Has_unusual_material_in_it:label')"/>
               <value>Has_unusual_material_in_it</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_color_is_changing:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/The_color_is_changing:label')"/>
               <value>The_color_is_changing</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_smell_is_unusual:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/The_smell_is_unusual:label')"/>
               <value>The_smell_is_unusual</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_medicine_is_not_working:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/The_medicine_is_not_working:label')"/>
               <value>The_medicine_is_not_working</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/quality/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_quality/signs/The_packet_or_bottle_does_not_seem_to_be_usual_or_complete:label')"/>
               <value>The_packet_or_bottle_does_not_seem_to_be_usual_or_complete</value>
             </item>
           </select>
-          <input appearance="multiline" ref="/padr/form/quality/group_quality/other_signs">
-            <label ref="jr:itext('/padr/form/quality/group_quality/other_signs:label')"/>
+          <input appearance="multiline" ref="/padr/form/reporter/group_quality/other_signs">
+            <label ref="jr:itext('/padr/form/reporter/group_quality/other_signs:label')"/>
           </input>
         </group>
-      </group>
-      <group ref="/padr/form/reaction">
-        <label ref="jr:itext('/padr/form/reaction:label')"/>
-        <group appearance="field-list" ref="/padr/form/reaction/group_reaction">
-          <select ref="/padr/form/reaction/group_reaction/effects">
-            <label ref="jr:itext('/padr/form/reaction/group_reaction/effects:label')"/>
+        <group appearance="field-list" ref="/padr/form/reporter/group_reaction">
+          <select ref="/padr/form/reporter/group_reaction/effects">
+            <label ref="jr:itext('/padr/form/reporter/group_reaction/effects:label')"/>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Vomiting_or_diarrhea:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Vomiting_or_diarrhea:label')"/>
               <value>Vomiting_or_diarrhea</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Dizziness_or_drowsiness:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Dizziness_or_drowsiness:label')"/>
               <value>Dizziness_or_drowsiness</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Headache:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Headache:label')"/>
               <value>Headache</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Joints_and_muscle_pain:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Joints_and_muscle_pain:label')"/>
               <value>Joints_and_muscle_pain</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Rash_itching_swelling_on_skin:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Rash_itching_swelling_on_skin:label')"/>
               <value>Rash_itching_swelling_on_skin</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Pain_or_bleeding_in_the_mouth:label')"/>
               <value>Pain_or_bleeding_in_the_mouth</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Pain_in_the_stomach:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Pain_in_the_stomach:label')"/>
               <value>Pain_in_the_stomach</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Abnormal_changes_with_urination:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Abnormal_changes_with_urination:label')"/>
               <value>Abnormal_changes_with_urination</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Red,_painful_eyes:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Red,_painful_eyes:label')"/>
               <value>Red,_painful_eyes</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/effects/Patient_died:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/effects/Patient_died:label')"/>
               <value>Patient_died</value>
             </item>
           </select>
-          <input ref="/padr/form/reaction/group_reaction/other_effects">
-            <label ref="jr:itext('/padr/form/reaction/group_reaction/other_effects:label')"/>
+          <input ref="/padr/form/reporter/group_reaction/other_effects">
+            <label ref="jr:itext('/padr/form/reporter/group_reaction/other_effects:label')"/>
           </input>
-          <input ref="/padr/form/reaction/group_reaction/onset">
-            <label ref="jr:itext('/padr/form/reaction/group_reaction/onset:label')"/>
+          <input ref="/padr/form/reporter/group_reaction/onset">
+            <label ref="jr:itext('/padr/form/reporter/group_reaction/onset:label')"/>
           </input>
-          <select1 ref="/padr/form/reaction/group_reaction/on">
-            <label ref="jr:itext('/padr/form/reaction/group_reaction/on:label')"/>
+          <select1 ref="/padr/form/reporter/group_reaction/on">
+            <label ref="jr:itext('/padr/form/reporter/group_reaction/on:label')"/>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/on/Yes:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/on/Yes:label')"/>
               <value>Yes</value>
             </item>
             <item>
-              <label ref="jr:itext('/padr/form/reaction/group_reaction/on/No:label')"/>
+              <label ref="jr:itext('/padr/form/reporter/group_reaction/on/No:label')"/>
               <value>No</value>
             </item>
           </select1>
@@ -1125,6 +1121,9 @@ concat(../../patient_age_in_years, ' years old')))"/>
       </input>
       <input appearance="h1 green" ref="/padr/group_review/r_no_referral">
         <label ref="jr:itext('/padr/group_review/r_no_referral:label')"/>
+      </input>
+      <input appearance="h1 red" ref="/padr/group_review/r_absent">
+        <label ref="jr:itext('/padr/group_review/r_absent:label')"/>
       </input>
     </group>
     <group appearance="hidden" ref="/padr/data">

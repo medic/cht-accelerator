@@ -34,31 +34,23 @@
     "synthetic_date": "",
     "contact_display_short": "clinic.name",
     "roles": {
-        "data_entry": {
-            "name": "usertype.data-entry",
-            "offline": true
-        },
         "analytics": {
-            "name": "usertype.analytics",
+            "name": "Analytics",
             "offline": true
         },
         "gateway": {
-            "name": "usertype.gateway"
+            "name": "Gateway"
         },
         "program_officer": {
-            "name": "usertype.program-officer",
+            "name": "Nurse/Facility Manager",
             "offline": true
-        },
-        "crfo": {
-            "name": "usertype.crfo",
-            "offline": true
-        },
+        }, 
         "chw_supervisor": {
-            "name": "usertype.chw-supervisor",
+            "name": "CHA",
             "offline": true
         },
         "chw": {
-            "name": "usertype.chw",
+            "name": "CHP",
             "offline": true
         }
     },
@@ -273,10 +265,10 @@
     },
     "death_reporting": {
         "mark_deceased_forms": [
-          "death_confirmation"
+            "death_confirmation"
         ],
         "date_field": "fields.date_of_death"
-     },
+    },
     "outbound": {
         "FHIR_Patients": {
             "relevant_to": "doc.type === 'person' && doc.role == 'patient'",
@@ -396,7 +388,9 @@
     },
     "place_hierarchy_types": [
         "district_hospital",
-        "health_center"
+        "supervisor_region",
+        "health_center",
+        "clinic"
     ],
     "contact_types": [
         {
@@ -410,13 +404,26 @@
             "edit_form": "form:contact:district_hospital:edit"
         },
         {
+            "id": "supervisor_region",
+            "icon": "supervisor-region",
+            "name_key": "contact.type.area_supervisor_region",
+            "group_key": "contact.type.area_supervisor_region.plural",
+            "create_key": "contact.type.area_supervisor_region.new",
+            "edit_key": "contact.type.area_supervisor_region.edit",
+            "parents": [
+                "district_hospital"
+            ],
+            "create_form": "form:contact:supervisor_region:create",
+            "edit_form": "form:contact:supervisor_region:edit"
+        },
+        {
             "id": "health_center",
             "name_key": "contact.type.health_center",
             "group_key": "contact.type.health_center.plural",
             "create_key": "contact.type.health_center.new",
             "edit_key": "contact.type.place.edit",
             "parents": [
-                "district_hospital"
+                "supervisor_region"
             ],
             "icon": "medic-health-center",
             "create_form": "form:contact:health_center:create",
@@ -445,14 +452,31 @@
             "primary_contact_key": "clinic.field.contact",
             "parents": [
                 "district_hospital",
-                "health_center",
-                "clinic"
+                "supervisor_region",
+                "health_center"
             ],
             "icon": "medic-person",
             "create_form": "form:contact:person:create",
             "edit_form": "form:contact:person:edit",
             "person": true
+        },
+        
+        {
+            "id": "household_member",
+            "name_key": "contact.type.member",
+            "group_key": "contact.type.member.plural",
+            "create_key": "contact.type.member.new",
+            "edit_key": "contact.type.member.edit",
+            "parents": [
+                "clinic"
+            ],
+            "icon": "medic-person",
+            "create_form": "form:contact:household_member:create",
+            "edit_form": "form:contact:household_member:edit",
+            "person": true
         }
+
+ 
     ],
     "muting": {
         "mute_forms": [
@@ -465,7 +489,7 @@
         ],
         "validations": {
             "join_responses": true,
-            "list": []
+            "list": [] 
         },
         "messages": [
             {

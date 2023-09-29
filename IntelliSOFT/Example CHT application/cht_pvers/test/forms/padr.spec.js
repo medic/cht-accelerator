@@ -14,7 +14,7 @@ describe('PADR form test', () => {
     beforeEach(async () => {
         await harness.clear();
         // set harnes date to Jan 1st 2023
-        return await harness.setNow('2023-01-01');
+        return await harness.setNow('2023-08-24');
     });
     afterEach(() => {
         expect(harness.consoleErrors).to.be.empty;
@@ -25,7 +25,21 @@ describe('PADR form test', () => {
         expect(harness.state.pageContent).to.include(`${formName}`);
     });
 
-    it('padr form can be filled and successfully saved - reaction', async () => {
+    // Test that the Patient is not available for Assessment
+    it('padr form can be filled and successfully saved - patient not available', async () => {
+        // Load the padr form and fill in
+        const result = await harness.fillForm(formName, ...padrScenarios.availability);
+        // Verify that the form successfully got submitted
+        expect(result.errors).to.be.empty;
+
+        // Verify some attributes on the resulting report
+        expect(result.report.fields).to.nested.include({
+            'availability.availability_report.available': 'No'
+        });
+        
+    });
+
+    it('padr form can be filled and successfully saved - adverse drug reaction', async () => {
         // Load the padr form and fill in
         const result = await harness.fillForm(formName, ...padrScenarios.reaction);
         // Verify that the form successfully got submitted
@@ -33,7 +47,7 @@ describe('PADR form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reaction.group_reaction.on': 'yes'
+            'availability.availability_report.available': 'Yes'
         });
     });
 
@@ -45,8 +59,9 @@ describe('PADR form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'quality.group_quality.signs': 'The_label_looks_wrong',
+            'form.reporter.group_quality.signs': 'The_label_looks_wrong',
         });
+        
     });
  
    
