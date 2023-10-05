@@ -1,1 +1,5 @@
-{}
+  {
+    "icon-healthcare-assessment": "icon-followup-general.svg",
+    "icon-household": "icon-household-bednet.svg",
+    "icon-cough": "icon-condition-diarrhea.svg"
+  }

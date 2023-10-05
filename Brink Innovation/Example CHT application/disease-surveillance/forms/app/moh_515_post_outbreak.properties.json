@@ -1,0 +1,8 @@
+{
+    "icon": "icon-outbreak",
+    "title": "MOH 515 (Post Outbreak)",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

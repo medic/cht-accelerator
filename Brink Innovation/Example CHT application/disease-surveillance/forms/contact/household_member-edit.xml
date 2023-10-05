@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit House Hold Member</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/household_member/age_months:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over5:label">
+            <value>Over 5</value>
+          </text>
+          <text id="/data/household_member/age_set/under5:label">
+            <value>Under 5</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>What is the age set of <output value=" /data/household_member/display_name "/>?</value>
+          </text>
+          <text id="/data/household_member/age_years:hint">
+            <value>Age in years</value>
+          </text>
+          <text id="/data/household_member/age_years:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/household_member/dob_calendar:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/household_member/dob_known/no:label">
+            <value>No</value>
+          </text>
+          <text id="/data/household_member/dob_known/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/household_member/dob_known:label">
+            <value>Does <output value=" /data/household_member/display_name "/> know their date of birth?</value>
+          </text>
+          <text id="/data/household_member/n_age:label">
+            <value>AGE: <output value=" /data/household_member/person_age_years "/> <output value=" /data/household_member/dob_iso "/></value>
+          </text>
+          <text id="/data/household_member/n_screening:label">
+            <value>_**Please submit monthly screening form for <output value=" /data/household_member/display_name "/> after submitting this person registration.**_</value>
+          </text>
+          <text id="/data/household_member/name:hint">
+            <value>Please use three names.</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/household_member/notes:label">
+            <value>Notes (optional)</value>
+          </text>
+          <text id="/data/household_member/phone:hint">
+            <value>Use the following format: +254712345678</value>
+          </text>
+          <text id="/data/household_member/phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/household_member/relationship_to_pc_other:label">
+            <value>Specify other:</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/brother:label">
+            <value>Brother</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/child:label">
+            <value>Child</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/grandchild:label">
+            <value>Grandchild</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/sister:label">
+            <value>Sister</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/spouse:label">
+            <value>Spouse</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver:label">
+            <value>What is the relationship to the household head?</value>
+          </text>
+          <text id="/data/household_member/secondary_phone:hint">
+            <value>Use the following format: +254712345678</value>
+          </text>
+          <text id="/data/household_member/secondary_phone:label">
+            <value>Secondary Phone Number</value>
+          </text>
+          <text id="/data/household_member/sex/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/data/household_member/sex/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/data/household_member/sex:label">
+            <value>Gender</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/household_member/age_months:hint">
+            <value>0</value>
+          </text>
+          <text id="/data/household_member/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_set/over5:label">
+            <value>Zaidi ya 5</value>
+          </text>
+          <text id="/data/household_member/age_set/under5:label">
+            <value>Chini ya 5</value>
+          </text>
+          <text id="/data/household_member/age_set:label">
+            <value>Seti ya umri ya <output value=" /data/household_member/display_name "/> ni ipi?</value>
+          </text>
+          <text id="/data/household_member/age_years:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/age_years:label">
+            <value>Umri</value>
+          </text>
+          <text id="/data/household_member/date_of_birth:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/household_member/display_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_calendar:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/household_member/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/dob_known/no:label">
+            <value>Hapana</value>
+          </text>
+          <text id="/data/household_member/dob_known/yes:label">
+            <value>Ndiyo</value>
+          </text>
+          <text id="/data/household_member/dob_known:label">
+            <value>Je, <output value=" /data/household_member/display_name "/> anajua tarehe yake ya kuzaliwa?</value>
+          </text>
+          <text id="/data/household_member/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/n_age:label">
+            <value>UMRI: <output value=" /data/household_member/person_age_years "/> <output value=" /data/household_member/dob_iso "/></value>
+          </text>
+          <text id="/data/household_member/n_screening:label">
+            <value>_**Tafadhali wasilisha fomu ya uchunguzi wa kila mwezi kwa <output value=" /data/household_member/display_name "/> baada ya kuwasilisha usajili wa mtu huyu.**_</value>
+          </text>
+          <text id="/data/household_member/name:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/name:label">
+            <value>Majina</value>
+          </text>
+          <text id="/data/household_member/notes:label">
+            <value>Vidokezo (si lazima)</value>
+          </text>
+          <text id="/data/household_member/person_age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/person_age_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/phone:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/phone:label">
+            <value>Nambari ya simu</value>
+          </text>
+          <text id="/data/household_member/relationship_to_pc_other:label">
+            <value>Bainisha zingine:</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/brother:label">
+            <value>Ndugu</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/child:label">
+            <value>Mtoto</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/grandchild:label">
+            <value>Mjukuu</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/other:label">
+            <value>Nyingine</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/sister:label">
+            <value>Dada</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver/spouse:label">
+            <value>Mwenzi</value>
+          </text>
+          <text id="/data/household_member/relationship_to_primary_caregiver:label">
+            <value>Je, kuna uhusiano gani na mkuu wa kaya?</value>
+          </text>
+          <text id="/data/household_member/secondary_phone:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/household_member/secondary_phone:label">
+            <value>Nambari ya Simu ya Sekondari</value>
+          </text>
+          <text id="/data/household_member/sex/female:label">
+            <value>Mwanamke</value>
+          </text>
+          <text id="/data/household_member/sex/male:label">
+            <value>Mwanaume</value>
+          </text>
+          <text id="/data/household_member/sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/data/household_member:label">
+            <value>Mtu Mpya</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:household_member:edit" prefix="J1!contact:household_member:edit!" delimiter="#" version="2023-06-02  12-19">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <household_member>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>household_member</contact_type>
+            <name/>
+            <display_name/>
+            <notes/>
+            <sex/>
+            <date_of_birth/>
+            <age_set/>
+            <dob_known/>
+            <dob_calendar/>
+            <age_years/>
+            <age_months/>
+            <ephemeral_months/>
+            <ephemeral_years/>
+            <dob_approx/>
+            <dob_raw/>
+            <dob_iso/>
+            <person_age_years/>
+            <person_age_months/>
+            <n_age/>
+            <phone/>
+            <secondary_phone/>
+            <relationship_to_primary_caregiver/>
+            <relationship_to_pc_other/>
+            <n_screening/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </household_member>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/household_member/parent" type="string"/>
+      <bind nodeset="/data/household_member/type" type="string"/>
+      <bind nodeset="/data/household_member/contact_type" type="string"/>
+      <bind nodeset="/data/household_member/name" type="string" required="true()"/>
+      <bind nodeset="/data/household_member/display_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/household_member/notes" type="string"/>
+      <bind nodeset="/data/household_member/sex" type="select1" required="true()"/>
+      <bind nodeset="/data/household_member/date_of_birth" type="string" calculate="../dob_iso"/>
+      <bind nodeset="/data/household_member/age_set" type="select1" required="true()"/>
+      <bind nodeset="/data/household_member/dob_known" type="select1" relevant="../age_set = 'over5'" required="true()"/>
+      <bind nodeset="/data/household_member/dob_calendar" type="date" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" relevant="../age_set = 'under5' or ../dob_known = 'yes'" required="true()" jr:constraintMsg="Age must be between 0 and 100"/>
+      <bind nodeset="/data/household_member/age_years" type="int" constraint=". &gt;= 0 and . &lt;=100" relevant="../age_set = 'over5' and ../dob_known = 'no'" required="true()" jr:constraintMsg="Age must be between 0 and 100"/>
+      <bind nodeset="/data/household_member/age_months" type="string" calculate="0"/>
+      <bind nodeset="/data/household_member/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
+      <bind nodeset="/data/household_member/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
+      <bind nodeset="/data/household_member/dob_approx" type="string" calculate="date(concat(string(../ephemeral_years),'-',if(../ephemeral_months&lt;10, concat('0',string(../ephemeral_months)), ../ephemeral_months),'-',string(format-date-time(today(), &quot;%d&quot;))))"/>
+      <bind nodeset="/data/household_member/dob_raw" type="string" calculate="if(../dob_known = 'yes' or ../age_set = 'under5', ../dob_calendar,../dob_approx )"/>
+      <bind nodeset="/data/household_member/dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/household_member/person_age_years" type="string" calculate="floor( difference-in-months( ../dob_iso, today() ) div 12 )"/>
+      <bind nodeset="/data/household_member/person_age_months" type="string" calculate="floor(difference-in-months( ../dob_iso, today() ))"/>
+      <bind nodeset="/data/household_member/n_age" readonly="true()" type="string" relevant="false()"/>
+      <bind nodeset="/data/household_member/phone" type="tel" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX"/>
+      <bind nodeset="/data/household_member/secondary_phone" type="tel" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX"/>
+      <bind nodeset="/data/household_member/relationship_to_primary_caregiver" type="select1" required="true()"/>
+      <bind nodeset="/data/household_member/relationship_to_pc_other" type="string" relevant="../relationship_to_primary_caregiver = 'other'" required="true()"/>
+      <bind nodeset="/data/household_member/n_screening" readonly="true()" type="string"/>
+      <bind nodeset="/data/household_member/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/household_member/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/household_member/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/household_member">
+      <label ref="jr:itext('/data/household_member:label')"/>
+      <input ref="/data/household_member/name">
+        <label ref="jr:itext('/data/household_member/name:label')"/>
+        <hint ref="jr:itext('/data/household_member/name:hint')"/>
+      </input>
+      <input appearance="hidden" ref="/data/household_member/notes">
+        <label ref="jr:itext('/data/household_member/notes:label')"/>
+      </input>
+      <select1 appearance="horizontal" ref="/data/household_member/sex">
+        <label ref="jr:itext('/data/household_member/sex:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/sex/female:label')"/>
+          <value>female</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/sex/male:label')"/>
+          <value>male</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/data/household_member/age_set">
+        <label ref="jr:itext('/data/household_member/age_set:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/age_set/under5:label')"/>
+          <value>under5</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/age_set/over5:label')"/>
+          <value>over5</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/data/household_member/dob_known">
+        <label ref="jr:itext('/data/household_member/dob_known:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/dob_known/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/dob_known/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/household_member/dob_calendar">
+        <label ref="jr:itext('/data/household_member/dob_calendar:label')"/>
+      </input>
+      <input ref="/data/household_member/age_years">
+        <label ref="jr:itext('/data/household_member/age_years:label')"/>
+        <hint ref="jr:itext('/data/household_member/age_years:hint')"/>
+      </input>
+      <input ref="/data/household_member/n_age">
+        <label ref="jr:itext('/data/household_member/n_age:label')"/>
+      </input>
+      <input ref="/data/household_member/phone">
+        <label ref="jr:itext('/data/household_member/phone:label')"/>
+        <hint ref="jr:itext('/data/household_member/phone:hint')"/>
+      </input>
+      <input ref="/data/household_member/secondary_phone">
+        <label ref="jr:itext('/data/household_member/secondary_phone:label')"/>
+        <hint ref="jr:itext('/data/household_member/secondary_phone:hint')"/>
+      </input>
+      <select1 ref="/data/household_member/relationship_to_primary_caregiver">
+        <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver:label')"/>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/spouse:label')"/>
+          <value>spouse</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/child:label')"/>
+          <value>child</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/grandchild:label')"/>
+          <value>grandchild</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/brother:label')"/>
+          <value>brother</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/sister:label')"/>
+          <value>sister</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/household_member/relationship_to_primary_caregiver/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/household_member/relationship_to_pc_other">
+        <label ref="jr:itext('/data/household_member/relationship_to_pc_other:label')"/>
+      </input>
+      <input ref="/data/household_member/n_screening">
+        <label ref="jr:itext('/data/household_member/n_screening:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/household_member/meta"/>
+    </group>
+  </h:body>
+</h:html>

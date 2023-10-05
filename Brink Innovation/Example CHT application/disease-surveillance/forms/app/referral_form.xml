@@ -38,13 +38,13 @@
       <bind nodeset="/referral_form/today" jr:preload="date" type="date" jr:preloadParams="today" required="true()"/>
       <bind nodeset="/referral_form/Section_A" required="true()"/>
       <bind nodeset="/referral_form/Section_A/patient_name" type="string" required="true()"/>
-      <bind nodeset="/referral_form/Section_A/patient_age" type="int" constraint=".&gt;0 and.&lt;130" required="true()" jr:constraintMsg="age must be more than 0 and less than 130"/>
+      <bind nodeset="/referral_form/Section_A/patient_age" type="int" jr:constraintMsg="age must be more than 0 and less than 130" constraint=".&gt;0 and.&lt;130" required="true()"/>
       <bind nodeset="/referral_form/Section_A/sex" type="select1" required="true()"/>
-      <bind nodeset="/referral_form/Section_A/patient_telephone" type="string" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required"/>
+      <bind nodeset="/referral_form/Section_A/patient_telephone" type="string" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1"/>
       <bind nodeset="/referral_form/Section_A/patient_community" type="string" required="true()"/>
       <bind nodeset="/referral_form/Section_B" required="true()"/>
       <bind nodeset="/referral_form/Section_B/chp_name" type="string" required="true()"/>
-      <bind nodeset="/referral_form/Section_B/chp_telephone" type="string" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required"/>
+      <bind nodeset="/referral_form/Section_B/chp_telephone" type="string" jr:constraintMsg="Please check if format is correct or if the digits have exceeded maximum required" constraint="regex(., '^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$')" required="1"/>
       <bind nodeset="/referral_form/Section_B/chp_area" type="string" required="true()"/>
       <bind nodeset="/referral_form/Section_C" required="true()"/>
       <bind nodeset="/referral_form/Section_C/referral_facility" type="string" required="true()"/>
