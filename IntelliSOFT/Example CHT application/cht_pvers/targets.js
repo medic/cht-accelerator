@@ -1,4 +1,4 @@
-
+ 
 //Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
@@ -157,7 +157,7 @@ module.exports = [
     appliesToType: ['assessment'],
     context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.group_report_adr.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -173,7 +173,7 @@ module.exports = [
     appliesToType: ['assessment'],
     context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.group_report_adr.immunization') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -191,7 +191,7 @@ module.exports = [
     appliesToType: ['assessment'],
     context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.group_report_quality.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
     },
     date: 'now',
   },
@@ -222,7 +222,7 @@ module.exports = [
     appliesToType: ['assessment'],
     context: 'user.role === "chw"',
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
+      return (Utils.getField(report, 'reporter.group_report.group_report_quality.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes');
     },
     date: 'now',
   },
