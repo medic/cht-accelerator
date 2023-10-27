@@ -1,0 +1,735 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Household Assessment Follow up</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/household_assesment_follow_up/calculated_follow_up_date:hint">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available:label">
+            <value>Is <output value=" /household_assesment_follow_up/place_name "/> available?</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
+            <value>Date cannot be in the past</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:label">
+            <value>When would you like to follow up <output value=" /household_assesment_follow_up/place_name "/> again?</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details:label">
+            <value>Follow up details</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_action:label">
+            <value>Click the Submit button at the bottom of form.</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings:label">
+            <value>Findings &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings_followup:label">
+            <value>Follow up Task &lt;i class="fa fa-search-plus" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_hh_details:label">
+            <value>Household Details&lt;i class="fa fa-plus-square"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_name:label">
+            <value><output value=" /household_assesment_follow_up/place_name "/></value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_not_prone:label">
+            <value><output value=" /household_assesment_follow_up/place_name "/> is not prone to malaria</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_prone:label">
+            <value><output value=" /household_assesment_follow_up/place_name "/> is prone to malaria</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_summary:label">
+            <value>Household Assesment follow up</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_task:label">
+            <value>Follow up task will appear in 3 days before <output value=" /household_assesment_follow_up/household_assessment/amendment_date "/></value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/amendment_date:label">
+            <value>When will they have implemented the recommended measures?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability:label">
+            <value>Has <output value=" /household_assesment_follow_up/place_name "/>'s installed mosquito nets over the beds?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage:label">
+            <value>Has <output value=" /household_assesment_follow_up/place_name "/>'s household drained nearby pools of water in surrounding area?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets:label">
+            <value>Putting wire mesh on windows and other inlets help to reduce the entry of mosquitoes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage:label">
+            <value>Does <output value=" /household_assesment_follow_up/place_name "/> household have repellents?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass:label">
+            <value>Has <output value=" /household_assesment_follow_up/place_name "/> household cut long grass in surrounding area?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_net:label">
+            <value>Teach that personal protection measures such as sleeping under a net protects one against mosquito bites</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_tall_grass:label">
+            <value>Teach that because grass provides a great cover from the heat of the sun and protection from wind that can blow them away, mosquitoes like to rest in tall grass</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/no:label">
+            <value>No</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets:label">
+            <value>Has <output value=" /household_assesment_follow_up/place_name "/>'s installed wire mesh on the windows/inlets to prevent mosquitos?</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment:label">
+            <value>Household Assessment Follow Up</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/visitType:label">
+            <value>Visit Type</value>
+          </text>
+          <text id="/household_assesment_follow_up/referral_follow_up_date:hint">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="hi">
+          <text id="/household_assesment_follow_up/calculated_follow_up_date:hint">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_action:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_hh_details:label">
+            <value>ripoti ya ziara</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_not_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_summary:label">
+            <value>Taarifa za Kaya</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/amendment_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_net:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_tall_grass:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/visitType:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/malaria_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/place_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/referral_follow_up_date:hint">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/source:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/visit_type:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/household_assesment_follow_up/calculated_follow_up_date:hint">
+            <value>hidden</value>
+          </text>
+          <text id="/household_assesment_follow_up/calculated_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/contact_available:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/follow_up_details:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_action:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_findings_followup:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_hh_details:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_not_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_summary:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review/r_task:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/amendment_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/nets_availability:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/proper_drainage:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/repellant_usage:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/tall_grass:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_net:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/teach_on_tall_grass:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/no:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/household_assessment:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs/visitType:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/malaria_prone:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/place_id:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/referral_follow_up_date:hint">
+            <value>hidden</value>
+          </text>
+          <text id="/household_assesment_follow_up/referral_follow_up_date:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/source:label">
+            <value>-</value>
+          </text>
+          <text id="/household_assesment_follow_up/visit_type:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <household_assesment_follow_up id="household_assesment_follow_up" prefix="J1!household_assesment_follow_up!" delimiter="#" version="2023-10-19 09:03:36">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <visitType/>
+            <contact>
+              <_id/>
+              <name/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <place_id tag="hidden"/>
+          <source/>
+          <place_name tag="hidden"/>
+          <visit_type/>
+          <malaria_prone/>
+          <calculated_follow_up_date/>
+          <referral_follow_up_date/>
+          <follow_up_details>
+            <contact_available/>
+            <follow_up_date/>
+          </follow_up_details>
+          <household_assessment>
+            <wire_mesh_on_inlets/>
+            <recommend_wiremesh_inlets/>
+            <nets_availability/>
+            <teach_on_net/>
+            <repellant_usage/>
+            <proper_drainage/>
+            <tall_grass/>
+            <teach_on_tall_grass/>
+            <amendment_date/>
+          </household_assessment>
+          <group_review>
+            <r_action/>
+            <r_summary/>
+            <r_hh_details/>
+            <r_name/>
+            <r_findings/>
+            <r_not_prone/>
+            <r_prone/>
+            <r_findings_followup/>
+            <r_task/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </household_assesment_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/household_assesment_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/visitType" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/contact/_id" type="db:clinic"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/place_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/household_assesment_follow_up/source" type="string" calculate="../inputs/source"/>
+      <bind nodeset="/household_assesment_follow_up/place_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/household_assesment_follow_up/visit_type" type="string" calculate="../inputs/visitType"/>
+      <bind nodeset="/household_assesment_follow_up/malaria_prone" type="string" calculate="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/calculated_follow_up_date" type="string" calculate="if(../follow_up_details/follow_up_date != '', ../follow_up_details/follow_up_date,../household_assessment/amendment_date)"/>
+      <bind nodeset="/household_assesment_follow_up/referral_follow_up_date" type="string" calculate=" /household_assesment_follow_up/calculated_follow_up_date "/>
+      <bind nodeset="/household_assesment_follow_up/follow_up_details/contact_available" type="select1"/>
+      <bind nodeset="/household_assesment_follow_up/follow_up_details/follow_up_date" type="date" jr:constraintMsg="jr:itext('/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg')" required="true()" constraint="floor(decimal-date-time(.)) &gt; floor(decimal-date-time(today()))" relevant="selected( /household_assesment_follow_up/follow_up_details/contact_available , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment" relevant="selected( /household_assesment_follow_up/follow_up_details/contact_available , 'yes')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets" type="select1" required="true()"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/nets_availability" type="select1" required="true()"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/repellant_usage" type="select1" required="true()"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/proper_drainage" type="select1" required="true()"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/tall_grass" type="select1" required="true()"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/teach_on_tall_grass" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/amendment_date" type="date" required="true()" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_action" readonly="true()" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_summary" readonly="true()" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_hh_details" readonly="true()" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_name" readonly="true()" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_findings" readonly="true()" type="string"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_not_prone" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'yes') and selected( /household_assesment_follow_up/household_assessment/nets_availability , 'yes') and selected( /household_assesment_follow_up/household_assessment/tall_grass , 'yes')"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_prone" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_findings_followup" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_task" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/malaria_prone , 'true')"/>
+      <bind nodeset="/household_assesment_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/household_assesment_follow_up/inputs">
+      <group ref="/household_assesment_follow_up/inputs/contact">
+        <label ref="jr:itext('/household_assesment_follow_up/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/household_assesment_follow_up/inputs/contact/_id">
+          <label ref="jr:itext('/household_assesment_follow_up/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/household_assesment_follow_up/inputs/contact/parent">
+          <group ref="/household_assesment_follow_up/inputs/contact/parent/parent">
+            <group ref="/household_assesment_follow_up/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/household_assesment_follow_up/follow_up_details">
+      <label ref="jr:itext('/household_assesment_follow_up/follow_up_details:label')"/>
+      <select1 ref="/household_assesment_follow_up/follow_up_details/contact_available">
+        <label ref="jr:itext('/household_assesment_follow_up/follow_up_details/contact_available:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/follow_up_details/contact_available/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/follow_up_details/contact_available/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assesment_follow_up/follow_up_details/follow_up_date">
+        <label ref="jr:itext('/household_assesment_follow_up/follow_up_details/follow_up_date:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/household_assesment_follow_up/household_assessment">
+      <label ref="jr:itext('/household_assesment_follow_up/household_assessment:label')"/>
+      <select1 ref="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets:label')"/>
+      </input>
+      <select1 ref="/household_assesment_follow_up/household_assessment/nets_availability">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/nets_availability:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/nets_availability/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/nets_availability/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assesment_follow_up/household_assessment/teach_on_net">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/teach_on_net:label')"/>
+      </input>
+      <select1 ref="/household_assesment_follow_up/household_assessment/repellant_usage">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/repellant_usage:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/repellant_usage/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/repellant_usage/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/household_assesment_follow_up/household_assessment/proper_drainage">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/proper_drainage:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/proper_drainage/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/proper_drainage/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/household_assesment_follow_up/household_assessment/tall_grass">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/tall_grass:label')"/>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/tall_grass/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/household_assesment_follow_up/household_assessment/tall_grass/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/household_assesment_follow_up/household_assessment/teach_on_tall_grass">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/teach_on_tall_grass:label')"/>
+      </input>
+      <input ref="/household_assesment_follow_up/household_assessment/amendment_date">
+        <label ref="jr:itext('/household_assesment_follow_up/household_assessment/amendment_date:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/household_assesment_follow_up/group_review">
+      <input appearance="h5 center" ref="/household_assesment_follow_up/group_review/r_action">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_action:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/household_assesment_follow_up/group_review/r_summary">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_summary:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/household_assesment_follow_up/group_review/r_hh_details">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_hh_details:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/household_assesment_follow_up/group_review/r_name">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_name:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/household_assesment_follow_up/group_review/r_findings">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_findings:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/household_assesment_follow_up/group_review/r_not_prone">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_not_prone:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/household_assesment_follow_up/group_review/r_prone">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_prone:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/household_assesment_follow_up/group_review/r_findings_followup">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_findings_followup:label')"/>
+      </input>
+      <input ref="/household_assesment_follow_up/group_review/r_task">
+        <label ref="jr:itext('/household_assesment_follow_up/group_review/r_task:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

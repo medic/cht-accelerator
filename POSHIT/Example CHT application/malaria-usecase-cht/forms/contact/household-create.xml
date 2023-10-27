@@ -17,17 +17,14 @@
           <text id="/data/contact:label">
             <value>Household Information</value>
           </text>
-          <text id="/data/household/n_hh_name:label">
-            <value>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /data/household/household_name "/>&lt;/h4&gt;</value>
-          </text>
-          <text id="/data/household/n_submit:label">
-            <value>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</value>
-          </text>
           <text id="/data/inputs/contact/age:label">
+            <value>Years</value>
+          </text>
+          <text id="/data/inputs/contact/age_note:label">
             <value>Age</value>
           </text>
           <text id="/data/inputs/contact/contact_name:label">
-            <value>Name</value>
+            <value>Name of household head</value>
           </text>
           <text id="/data/inputs/contact/dob_calendar:label">
             <value>Date of Birth</value>
@@ -37,6 +34,9 @@
           </text>
           <text id="/data/inputs/contact/g_sex:label">
             <value>Gender</value>
+          </text>
+          <text id="/data/inputs/contact/months:label">
+            <value>Months</value>
           </text>
           <text id="/data/inputs/contact/phone_note:label">
             <value>**Please verify that the phone numbers are accurate**
@@ -54,6 +54,9 @@
           <text id="/data/repeat-guard/child:label">
             <value>Do you want to register other household members now?</value>
           </text>
+          <text id="/data/repeat-guard/n_assessment:label">
+            <value>_**Please submit household assessment form for <output value=" /data/inputs/contact/contact_name "/> after submitting this person registration.**_</value>
+          </text>
           <text id="/data/repeat-guard/n_registration:label">
             <value>Please follow the next steps in the next page to add other household members .</value>
           </text>
@@ -63,11 +66,17 @@
           <text id="/data/repeat-guard:label">
             <value>Other Household Members</value>
           </text>
+          <text id="/data/repeat/child/age_notes:label">
+            <value>Age</value>
+          </text>
           <text id="/data/repeat/child/age_set:label">
             <value>What is the age set of <output value=" /data/repeat/child/display_name "/>?</value>
           </text>
           <text id="/data/repeat/child/age_years:label">
-            <value>Age</value>
+            <value>Years</value>
+          </text>
+          <text id="/data/repeat/child/agen_months:label">
+            <value>Months</value>
           </text>
           <text id="/data/repeat/child/date_of_birth:label">
             <value>Date of Birth</value>
@@ -83,6 +92,9 @@
           </text>
           <text id="/data/repeat/child/n_age:label">
             <value>AGE: <output value=" /data/repeat/child/person_age_years "/> <output value=" /data/repeat/child/dob_iso "/></value>
+          </text>
+          <text id="/data/repeat/child/n_member_assessment:label">
+            <value>_**Please submit household member assessment form for <output value=" /data/repeat/child/display_name "/> after submitting this person registration.**_</value>
           </text>
           <text id="/data/repeat/child/name:label">
             <value>Names</value>
@@ -137,12 +149,6 @@
           <text id="/data/contact:label">
             <value>-</value>
           </text>
-          <text id="/data/household/n_hh_name:label">
-            <value>-</value>
-          </text>
-          <text id="/data/household/n_submit:label">
-            <value>-</value>
-          </text>
           <text id="/data/household/parent:label">
             <value>-</value>
           </text>
@@ -150,13 +156,16 @@
             <value>-</value>
           </text>
           <text id="/data/inputs/contact/age:label">
+            <value>Miaka</value>
+          </text>
+          <text id="/data/inputs/contact/age_note:label">
             <value>Umri</value>
           </text>
           <text id="/data/inputs/contact/contact_dob_iso:label">
             <value>-</value>
           </text>
           <text id="/data/inputs/contact/contact_name:label">
-            <value>Jina</value>
+            <value>Jina la mkuu wa kaya</value>
           </text>
           <text id="/data/inputs/contact/dob_calendar:label">
             <value>Tarehe ya kuzaliwa</value>
@@ -169,6 +178,9 @@
           </text>
           <text id="/data/inputs/contact/g_sex:label">
             <value>Jinsia</value>
+          </text>
+          <text id="/data/inputs/contact/months:label">
+            <value>Miezi</value>
           </text>
           <text id="/data/inputs/contact/phone1:label">
             <value>-</value>
@@ -193,6 +205,9 @@
           <text id="/data/repeat-guard/child:label">
             <value>Je, unataka kusajili wanakaya wengine sasa?</value>
           </text>
+          <text id="/data/repeat-guard/n_assessment:label">
+            <value>_**Tafadhali wasilisha fomu ya kutathmini familia kwa <output value=" /data/inputs/contact/contact_name "/> baada ya kuwasilisha usajili wa mtu huyu.**_</value>
+          </text>
           <text id="/data/repeat-guard/n_registration:label">
             <value>Tafadhali fuata hatua zinazofuata katika ukurasa unaofuata ili kuongeza wanakaya wengine.</value>
           </text>
@@ -205,11 +220,17 @@
           <text id="/data/repeat/child/age_months:label">
             <value>-</value>
           </text>
+          <text id="/data/repeat/child/age_notes:label">
+            <value>Umri</value>
+          </text>
           <text id="/data/repeat/child/age_set:label">
             <value>Seti ya umri ya <output value=" /data/repeat/child/display_name "/> ni ipi?</value>
           </text>
           <text id="/data/repeat/child/age_years:label">
             <value>Umri</value>
+          </text>
+          <text id="/data/repeat/child/agen_months:label">
+            <value>Miezi</value>
           </text>
           <text id="/data/repeat/child/contact_type:label">
             <value>-</value>
@@ -246,6 +267,9 @@
           </text>
           <text id="/data/repeat/child/n_age:label">
             <value>UMRI: <output value=" /data/repeat/child/person_age_years "/> <output value=" /data/repeat/child/dob_iso "/></value>
+          </text>
+          <text id="/data/repeat/child/n_member_assessment:label">
+            <value>_**Tafadhali wasilisha fomu ya tathmini ya mwanafamilia kwa <output value=" /data/repeat/child/display_name "/> baada ya kuwasilisha usajili wa mtu huyu.**_</value>
           </text>
           <text id="/data/repeat/child/name:label">
             <value>Majina</value>
@@ -307,7 +331,9 @@
               <g_sex/>
               <dob_known/>
               <dob_calendar/>
+              <age_note/>
               <age/>
+              <months/>
               <dob_raw/>
               <contact_dob_iso/>
               <pri_phone/>
@@ -323,13 +349,11 @@
             <household_name/>
             <geolocation/>
             <contact/>
-            <n_submit/>
-            <n_hh_name/>
           </household>
           <contact>
             <parent>PARENT</parent>
             <type>contact</type>
-            <contact_type>household_contact</contact_type>
+            <contact_type>household_member</contact_type>
             <date_of_birth/>
             <sex/>
             <name/>
@@ -340,12 +364,13 @@
             <other_household_members/>
             <child/>
             <n_registration/>
+            <n_assessment/>
           </repeat-guard>
           <repeat>
             <child jr:template="">
               <delimiter/>
               <type>contact</type>
-              <contact_type>household_contact</contact_type>
+              <contact_type>household_member</contact_type>
               <parent>PARENT</parent>
               <name/>
               <display_name/>
@@ -355,7 +380,9 @@
               <age_set/>
               <dob_known/>
               <dob_calendar/>
+              <age_notes/>
               <age_years/>
+              <agen_months/>
               <age_months>0</age_months>
               <ephemeral_months/>
               <ephemeral_years/>
@@ -369,6 +396,7 @@
               <secondary_phone/>
               <relationship_to_primary_caregiver/>
               <relationship_to_pc_other/>
+              <n_member_assessment/>
             </child>
             <note/>
           </repeat>
@@ -380,12 +408,14 @@
       <bind nodeset="/data/inputs/contact/contact_name" type="string" required="true()"/>
       <bind nodeset="/data/inputs/contact/g_sex" type="select1" required="true()"/>
       <bind nodeset="/data/inputs/contact/dob_known" type="select1" required="true()"/>
-      <bind nodeset="/data/inputs/contact/dob_calendar" type="date" jr:constraintMsg="Age must be between 10 and 100" required="true()" relevant="../dob_known = 'yes'" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
-      <bind nodeset="/data/inputs/contact/age" type="int" jr:constraintMsg="Age must be between 10 and 100" required="true()" relevant="../dob_known = 'no'" constraint=". &gt;= 10 and . &lt;= 100"/>
+      <bind nodeset="/data/inputs/contact/dob_calendar" type="date" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" relevant="../dob_known = 'yes'"/>
+      <bind nodeset="/data/inputs/contact/age_note" readonly="true()" type="string" relevant="../dob_known = 'no'"/>
+      <bind nodeset="/data/inputs/contact/age" type="int" jr:constraintMsg="Please enter a valid age." required="true()" constraint=". &gt;= 10 and . &lt;= 100" relevant="../dob_known = 'no'"/>
+      <bind nodeset="/data/inputs/contact/months" type="int" jr:constraintMsg="Months must be between 1 and 11" constraint=". &gt;= 1 and . &lt;= 11" relevant="../dob_known = 'no'"/>
       <bind nodeset="/data/inputs/contact/dob_raw" type="string" calculate="if(../dob_known = 'yes', ../dob_calendar, format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
       <bind nodeset="/data/inputs/contact/contact_dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
-      <bind nodeset="/data/inputs/contact/pri_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
-      <bind nodeset="/data/inputs/contact/sec_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/inputs/contact/pri_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1"/>
+      <bind nodeset="/data/inputs/contact/sec_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1"/>
       <bind nodeset="/data/inputs/contact/phone1" type="string" calculate=" /data/inputs/contact/pri_phone "/>
       <bind nodeset="/data/inputs/contact/phone2" type="string" calculate=" /data/inputs/contact/sec_phone "/>
       <bind nodeset="/data/inputs/contact/phone_note" readonly="true()" type="string"/>
@@ -400,6 +430,7 @@
       <bind nodeset="/data/repeat-guard/other_household_members" type="select1"/>
       <bind nodeset="/data/repeat-guard/child" type="select1" required="true()" relevant=" /data/repeat-guard/other_household_members  = 'yes'"/>
       <bind nodeset="/data/repeat-guard/n_registration" readonly="true()" type="string" relevant="../child = 'true'"/>
+      <bind nodeset="/data/repeat-guard/n_assessment" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat" relevant="/data/repeat-guard/child = 'true'"/>
       <bind nodeset="/data/repeat/child/delimiter" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat/child/type" type="string"/>
@@ -412,8 +443,10 @@
       <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/repeat/child/age_set" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/dob_known" type="select1" required="true()" relevant="../age_set = 'over5'"/>
-      <bind nodeset="/data/repeat/child/dob_calendar" type="date" jr:constraintMsg="Age must be between 0 and 100" required="true()" relevant="../age_set = 'under5' or ../dob_known = 'yes'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
-      <bind nodeset="/data/repeat/child/age_years" type="int" jr:constraintMsg="Age must be between 0 and 100" required="true()" relevant="../age_set = 'over5' and ../dob_known = 'no'" constraint=". &gt;= 0 and . &lt;=100"/>
+      <bind nodeset="/data/repeat/child/dob_calendar" type="date" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" relevant="../age_set = 'under5' or ../dob_known = 'yes'"/>
+      <bind nodeset="/data/repeat/child/age_notes" readonly="true()" type="string" relevant="../dob_known = 'no'"/>
+      <bind nodeset="/data/repeat/child/age_years" type="int" jr:constraintMsg="Please enter a valid age." required="true()" constraint=". &gt;= 0 and . &lt;=100" relevant="../age_set = 'over5' and ../dob_known = 'no'"/>
+      <bind nodeset="/data/repeat/child/agen_months" type="int" jr:constraintMsg="Months must be between 1 and 11" constraint=". &gt;= 1 and . &lt;= 11" relevant="../dob_known = 'no'"/>
       <bind nodeset="/data/repeat/child/age_months" type="string" calculate="0"/>
       <bind nodeset="/data/repeat/child/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
       <bind nodeset="/data/repeat/child/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
@@ -423,18 +456,17 @@
       <bind nodeset="/data/repeat/child/person_age_years" type="string" calculate="floor( difference-in-months( ../dob_iso, today() ) div 12 )"/>
       <bind nodeset="/data/repeat/child/person_age_months" type="string" calculate="floor(difference-in-months( ../dob_iso, today() ))"/>
       <bind nodeset="/data/repeat/child/n_age" readonly="true()" type="string" relevant="false()"/>
-      <bind nodeset="/data/repeat/child/phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" relevant=" /data/repeat/child/person_age_years  &gt;=10" constraint="1"/>
-      <bind nodeset="/data/repeat/child/secondary_phone" type="tel" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX" relevant=" /data/repeat/child/person_age_years  &gt;=10" constraint="1"/>
+      <bind nodeset="/data/repeat/child/phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
+      <bind nodeset="/data/repeat/child/secondary_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1" relevant=" /data/repeat/child/person_age_years  &gt;=10"/>
       <bind nodeset="/data/repeat/child/relationship_to_primary_caregiver" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" required="true()" relevant="../relationship_to_primary_caregiver = 'other'"/>
+      <bind nodeset="/data/repeat/child/n_member_assessment" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat/note" readonly="true()" type="string"/>
       <bind nodeset="/data/household/parent" type="string"/>
       <bind nodeset="/data/household/name" type="string" calculate="concat( /data/inputs/contact/contact_name , ' Household')"/>
       <bind nodeset="/data/household/household_name" type="string" calculate="../name"/>
       <bind nodeset="/data/household/geolocation" type="string" calculate=" /data/contact/geopoint "/>
       <bind nodeset="/data/household/contact" type="string" calculate="&quot;NEW&quot;"/>
-      <bind nodeset="/data/household/n_submit" readonly="true()" type="string"/>
-      <bind nodeset="/data/household/n_hh_name" readonly="true()" type="string"/>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -471,16 +503,22 @@
         <input ref="/data/inputs/contact/dob_calendar">
           <label ref="jr:itext('/data/inputs/contact/dob_calendar:label')"/>
         </input>
+        <input ref="/data/inputs/contact/age_note">
+          <label ref="jr:itext('/data/inputs/contact/age_note:label')"/>
+        </input>
         <input ref="/data/inputs/contact/age">
           <label ref="jr:itext('/data/inputs/contact/age:label')"/>
         </input>
+        <input ref="/data/inputs/contact/months">
+          <label ref="jr:itext('/data/inputs/contact/months:label')"/>
+        </input>
         <input ref="/data/inputs/contact/pri_phone">
           <label ref="jr:itext('/data/inputs/contact/pri_phone:label')"/>
-          <hint>For example: +254712345678</hint>
+          <hint>Use the following format: +254712345678</hint>
         </input>
         <input ref="/data/inputs/contact/sec_phone">
           <label ref="jr:itext('/data/inputs/contact/sec_phone:label')"/>
-          <hint>For example: +254712345678</hint>
+          <hint>Use the following format: +254712345678</hint>
         </input>
         <input ref="/data/inputs/contact/phone_note">
           <label ref="jr:itext('/data/inputs/contact/phone_note:label')"/>
@@ -520,6 +558,9 @@
       </select1>
       <input ref="/data/repeat-guard/n_registration">
         <label ref="jr:itext('/data/repeat-guard/n_registration:label')"/>
+      </input>
+      <input ref="/data/repeat-guard/n_assessment">
+        <label ref="jr:itext('/data/repeat-guard/n_assessment:label')"/>
       </input>
     </group>
     <group appearance="field-list" ref="/data/repeat">
@@ -573,20 +614,26 @@
           <input ref="/data/repeat/child/dob_calendar">
             <label ref="jr:itext('/data/repeat/child/dob_calendar:label')"/>
           </input>
+          <input ref="/data/repeat/child/age_notes">
+            <label ref="jr:itext('/data/repeat/child/age_notes:label')"/>
+          </input>
           <input ref="/data/repeat/child/age_years">
             <label ref="jr:itext('/data/repeat/child/age_years:label')"/>
             <hint>Age in years</hint>
+          </input>
+          <input ref="/data/repeat/child/agen_months">
+            <label ref="jr:itext('/data/repeat/child/agen_months:label')"/>
           </input>
           <input ref="/data/repeat/child/n_age">
             <label ref="jr:itext('/data/repeat/child/n_age:label')"/>
           </input>
           <input ref="/data/repeat/child/phone">
             <label ref="jr:itext('/data/repeat/child/phone:label')"/>
-            <hint>Use the following format: 07XX XXX XXX</hint>
+            <hint>Use the following format: +254712345678</hint>
           </input>
           <input ref="/data/repeat/child/secondary_phone">
             <label ref="jr:itext('/data/repeat/child/secondary_phone:label')"/>
-            <hint>Use the following format: 07XX XXX XXX</hint>
+            <hint>Use the following format: +254712345678</hint>
           </input>
           <select1 ref="/data/repeat/child/relationship_to_primary_caregiver">
             <label ref="jr:itext('/data/repeat/child/relationship_to_primary_caregiver:label')"/>
@@ -618,19 +665,15 @@
           <input ref="/data/repeat/child/relationship_to_pc_other">
             <label ref="jr:itext('/data/repeat/child/relationship_to_pc_other:label')"/>
           </input>
+          <input ref="/data/repeat/child/n_member_assessment">
+            <label ref="jr:itext('/data/repeat/child/n_member_assessment:label')"/>
+          </input>
         </repeat>
       </group>
       <input ref="/data/repeat/note">
         <label ref="jr:itext('/data/repeat/note:label')"/>
       </input>
     </group>
-    <group appearance="field-list" ref="/data/household">
-      <input ref="/data/household/n_submit">
-        <label ref="jr:itext('/data/household/n_submit:label')"/>
-      </input>
-      <input ref="/data/household/n_hh_name">
-        <label ref="jr:itext('/data/household/n_hh_name:label')"/>
-      </input>
-    </group>
+    <group appearance="field-list" ref="/data/household"/>
   </h:body>
 </h:html>

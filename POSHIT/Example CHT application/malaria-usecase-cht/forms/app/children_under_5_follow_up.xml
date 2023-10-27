@@ -17,6 +17,21 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
             <value>How is the child doing?</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit:label">
+            <value>Date when <output value=" /children_under_5_follow_up/patient_name "/> will go to the health facility</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/further_check:label">
+            <value>Encourage <output value=" /children_under_5_follow_up/patient_name "/> to go to the health facility for further management</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility:label">
+            <value>Did <output value=" /children_under_5_follow_up/patient_name "/> go to the health facility as referred?</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
             <value>Check if the caregiver is giving the medicine correctly Advice caregiver to continue giving the medicine as recommended</value>
           </text>
@@ -26,6 +41,27 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
             <value>Refer <output value=" /children_under_5_follow_up/patient_name "/> to the health facility for further management</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed:label">
+            <value>Was malaria confirmed?</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/felt_better:label">
+            <value>Child felt better</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/lack_of_transport:label">
+            <value>Lack of transport fee</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility:label">
+            <value>Why did <output value=" /children_under_5_follow_up/patient_name "/> not go to the health facility as referred?</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
             <value>No</value>
           </text>
@@ -34,6 +70,18 @@
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
             <value>Have you referred <output value=" /children_under_5_follow_up/patient_name "/> to the health facility?</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/specify_other:label">
+            <value>Specify Other</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/no:label">
+            <value>No</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done:label">
+            <value>Were there tests done?</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
             <value>Children Under 5 Assessment Follow Up</value>
@@ -46,6 +94,9 @@
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/availability:label">
             <value>Is <output value=" /children_under_5_follow_up/patient_name "/> available?</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
+            <value>Date cannot be in the past</value>
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
             <value>When would you like to follow up <output value=" /children_under_5_follow_up/patient_name "/> again</value>
@@ -160,6 +211,21 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/further_check:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
             <value>-</value>
           </text>
@@ -169,7 +235,28 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/felt_better:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/lack_of_transport:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/other:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
@@ -179,6 +266,18 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
@@ -194,6 +293,9 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/availability:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
@@ -348,6 +450,21 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/child_condition:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/further_check:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_check:label">
             <value>-</value>
           </text>
@@ -357,7 +474,28 @@
           <text id="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening:label">
             <value>-</value>
           </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed:label">
+            <value>-</value>
+          </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/felt_better:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/lack_of_transport:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/other:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility/no:label">
@@ -367,6 +505,18 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/no:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done/yes:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/children_under_5_follow_up/tests_done:label">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/children_under_5_follow_up:label">
@@ -382,6 +532,9 @@
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/availability:label">
+            <value>-</value>
+          </text>
+          <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
             <value>-</value>
           </text>
           <text id="/children_under_5_follow_up/follow_up_details/follow_up_date:label">
@@ -516,7 +669,7 @@
         </translation>
       </itext>
       <instance>
-        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-07-31 14:58:24">
+        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-10-19 09:44:44">
           <inputs>
             <meta>
               <location>
@@ -569,6 +722,13 @@
             <follow_up_date/>
           </follow_up_details>
           <children_under_5_follow_up>
+            <go_to_health_facility/>
+            <reason_not_go_facility/>
+            <specify_other/>
+            <further_check/>
+            <date_of_facility_visit/>
+            <tests_done/>
+            <malaria_confirmed/>
             <child_condition/>
             <improvement_check/>
             <improvement_cured/>
@@ -623,15 +783,22 @@
       <bind nodeset="/children_under_5_follow_up/calculated_follow_up_date" type="string" calculate="if(../follow_up_details/follow_up_date != '', ../follow_up_details/follow_up_date, date-time(decimal-date-time(today()) + 3))"/>
       <bind nodeset="/children_under_5_follow_up/referral_follow_up_date" type="string" calculate="if(../children_under_5_follow_up/no_follow_up_required = 'true', '',  /children_under_5_follow_up/calculated_follow_up_date  )"/>
       <bind nodeset="/children_under_5_follow_up/follow_up_details/availability" type="select1" required="true()"/>
-      <bind nodeset="/children_under_5_follow_up/follow_up_details/follow_up_date" type="date" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'no')"/>
+      <bind nodeset="/children_under_5_follow_up/follow_up_details/follow_up_date" type="date" jr:constraintMsg="jr:itext('/children_under_5_follow_up/follow_up_details/follow_up_date:jr:constraintMsg')" constraint="floor(decimal-date-time(.)) &gt; floor(decimal-date-time(today()))" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'no')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility" type="select1" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility" type="select" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility ,'no')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/specify_other" type="string" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility ,'other')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/further_check" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility ,'no')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit" type="date" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility ,'no')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/tests_done" type="select1" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility ,'yes')"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed" type="select1" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/tests_done ,'yes')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/child_condition" type="select1" required="true()"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_check" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/improvement_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
-      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')" required="true()"/>
+      <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/referred_to_facility" type="select1" required="true()" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
       <bind nodeset="/children_under_5_follow_up/children_under_5_follow_up/no_follow_up_required" type="string" calculate="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'improving') or selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
-      <bind nodeset="/children_under_5_follow_up/group_review" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review" jr:constraintMsg="jr:itext('/children_under_5_follow_up/group_review:jr:constraintMsg')" relevant="selected( /children_under_5_follow_up/follow_up_details/availability , 'yes')"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_summary" readonly="true()" type="string"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_action" readonly="true()" type="string"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_patient_details" readonly="true()" type="string"/>
@@ -695,6 +862,63 @@
     </group>
     <group appearance="field-list" ref="/children_under_5_follow_up/children_under_5_follow_up">
       <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up:label')"/>
+      <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/go_to_health_facility/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/lack_of_transport:label')"/>
+          <value>lack_of_transport</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/felt_better:label')"/>
+          <value>felt_better</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/reason_not_go_facility/other:label')"/>
+          <value>other</value>
+        </item>
+      </select>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/specify_other">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/specify_other:label')"/>
+      </input>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/further_check">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/further_check:label')"/>
+      </input>
+      <input ref="/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/date_of_facility_visit:label')"/>
+      </input>
+      <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/tests_done">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/tests_done:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/tests_done/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/tests_done/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed">
+        <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed:label')"/>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/malaria_confirmed/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
       <select1 ref="/children_under_5_follow_up/children_under_5_follow_up/child_condition">
         <label ref="jr:itext('/children_under_5_follow_up/children_under_5_follow_up/child_condition:label')"/>
         <item>

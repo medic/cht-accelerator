@@ -1,4 +1,4 @@
-const { isContactValid } = require('./nools-extras');
+const { isContactValid, ageInMonths } = require('./nools-extras');
 const { FORMS, TARGETS, CONTACT_TYPES } = require('./shared-extras');
 
 module.exports = [
@@ -37,4 +37,45 @@ module.exports = [
     },
     date: 'reported'
   },
+  {
+    id: TARGETS.ALL_MEMBERS_WITH_MALARIA,
+    type: 'percent',
+    icon: 'child-under-5',
+    goal: -1,
+    translation_key: 'targets.all_members_with_malaria_symptoms',
+    subtitle_translation_key: 'targets.members.with.malaria.symptoms.subtitle',
+    appliesTo: 'contacts',
+    appliesToType: [CONTACT_TYPES.HOUSEHOLD_MEMBER],
+    appliesIf: function(c) {
+      return isContactValid(c);
+    },
+    passesIf: function(c) {
+      return c.reports.some(function(r) {
+        const under5 = r.form === FORMS.CHILD_ASSESSMENT && Utils.getField(r, 'children_under_assessment.suspected_of_malaria') === 'Yes';
+        const over5 = r.form === FORMS.HOUSEHOLD_MEMBER_ASSESSMENT && Utils.getField(r, 'group_household_member_assessment.suspected_of_malaria') === 'Yes';
+        return under5 && over5;
+      });
+    },
+    date: 'reported',
+  },
+  {
+    id: TARGETS.UNDER5_MEMBERS_WITH_MALARIA,
+    type: 'percent',
+    icon: 'child-under-5',
+    goal: -1,
+    translation_key: 'targets.u5_members_with_malaria_symptoms',
+    subtitle_translation_key: 'targets.under5_assessments_percentage.subtitle',
+    appliesTo: 'contacts',
+    appliesToType: [CONTACT_TYPES.HOUSEHOLD_MEMBER],
+    appliesIf: function(c) {
+      return ageInMonths(c.contact.date_of_birth) < 60 && isContactValid(c);
+    },
+    passesIf: function(c) {
+      ageInMonths(c.contact.date_of_birth) < 60;
+      return c.reports.some(function(r) {
+        return r.form === FORMS.CHILD_ASSESSMENT && Utils.getField(r, 'children_under_assessment.suspected_of_malaria') === 'Yes';
+      });
+    },
+    date: 'reported',
+  }
 ];

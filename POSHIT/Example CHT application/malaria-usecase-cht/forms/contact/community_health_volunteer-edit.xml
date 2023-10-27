@@ -94,7 +94,7 @@
       <bind nodeset="/data/community_health_volunteer/name" type="string" required="true()"/>
       <bind nodeset="/data/community_health_volunteer/gender" type="select1" required="true()"/>
       <bind nodeset="/data/community_health_volunteer/dob" type="date" required="true()"/>
-      <bind nodeset="/data/community_health_volunteer/primary_phone" type="tel" required="true()" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/community_health_volunteer/primary_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" required="true()" constraint="true()"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
       <bind nodeset="/data/community_health_volunteer/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>

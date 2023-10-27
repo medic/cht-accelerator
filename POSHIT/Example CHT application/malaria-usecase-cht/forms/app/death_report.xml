@@ -336,7 +336,7 @@ Date of Death: <output value=" /death_report/patient_death_details/date_of_death
       <bind nodeset="/death_report/patient_display_name" type="string" calculate="if(../patient_short_name = '', ../patient_name, concat(../patient_name, ' (', ../patient_short_name, ')'))"/>
       <bind nodeset="/death_report/patient_death_details/date_of_death" type="date" required="true()" constraint="(. &lt;= now()) and floor(decimal-date-time(today()) - decimal-date-time(.)) &lt;= 365" jr:constraintMsg="jr:itext('/death_report/patient_death_details/date_of_death:jr:constraintMsg')"/>
       <bind nodeset="/death_report/patient_death_details/place_of_death" type="select1" required="true()"/>
-      <bind nodeset="/death_report/patient_death_details/place_of_death_other" type="string" relevant="selected(../place_of_death, 'other')" required="true()"/>
+      <bind nodeset="/death_report/patient_death_details/place_of_death_other" type="string" required="true()" relevant="selected(../place_of_death, 'other')"/>
       <bind nodeset="/death_report/patient_death_details/death_information" type="string"/>
       <bind nodeset="/death_report/patient_death_details/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/death_report/patient_death_details/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>

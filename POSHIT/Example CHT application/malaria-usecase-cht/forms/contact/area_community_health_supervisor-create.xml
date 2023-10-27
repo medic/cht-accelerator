@@ -166,8 +166,8 @@
       <bind nodeset="/data/area_community_health_supervisor/type" type="string"/>
       <bind nodeset="/data/area_community_health_supervisor/contact_type" type="string"/>
       <bind nodeset="/data/area_community_health_supervisor/name" type="string" required="true()"/>
-      <bind nodeset="/data/area_community_health_supervisor/phone" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
-      <bind nodeset="/data/area_community_health_supervisor/phone_alternate" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
+      <bind nodeset="/data/area_community_health_supervisor/phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
+      <bind nodeset="/data/area_community_health_supervisor/phone_alternate" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="true()"/>
       <bind nodeset="/data/area_community_health_supervisor/notes" type="string"/>
       <bind nodeset="/data/area_community_health_supervisor/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
       <bind nodeset="/data/area_community_health_supervisor/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>

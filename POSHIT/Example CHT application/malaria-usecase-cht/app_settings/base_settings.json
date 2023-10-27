@@ -40,6 +40,7 @@
   },
   "permissions": {
     "can_access_gateway_api": ["gateway"],
+    "can_create_chw": ["program_officer", "chw_supervisor", "crfo"],
     "can_bulk_delete_reports": ["program_officer", "chw_supervisor", "chw"],
     "can_configure": ["program_officer", "crfo"],
     "can_create_people": ["program_officer", "chw_supervisor", "chw"],

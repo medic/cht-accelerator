@@ -24,7 +24,8 @@ describe('Household Condition Card', () => {
 
     // Verify condition card
     const contactSummary = await harness.getContactSummary();
-    expect(contactSummary.cards).to.have.property('length', 2);
+
+    expect(contactSummary.cards).to.have.property('length', 1);
     const householdSummaryCard = contactSummary.cards.find(card => card.label === 'contact.profile.household');
     const fields = householdSummaryCard.fields;
     expect(fields.find(field => field.label === 'contact.profile.malaria_prone')).to.deep.include(
