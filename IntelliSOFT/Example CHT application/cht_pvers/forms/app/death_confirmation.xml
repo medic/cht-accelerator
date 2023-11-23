@@ -44,13 +44,10 @@
 Date of Death: <output value=" /death_confirmation/death_details/date_of_death "/>&lt;/div&gt;</value>
           </text>
           <text id="/death_confirmation/group_review/r_referral:label">
-            <value>&lt;b&gt;You will never be able to do any follow ups on <output value=" /death_confirmation/patient_display_name "/> when you submit this death report.&lt;/b&gt;</value>
+            <value>&lt;b&gt;&lt;span style='color:red'&gt;You will never be able to do any follow ups on <output value=" /death_confirmation/patient_display_name "/> when you submit this death report&lt;/span&gt;.&lt;/b&gt;</value>
           </text>
           <text id="/death_confirmation/group_review/r_summary_details:label">
             <value>Patient Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
-          </text>
-          <text id="/death_confirmation/group_review/r_undo:label">
-            <value>You will be able to undo this death report later, if needed.</value>
           </text>
           <text id="/death_confirmation/group_review/submit:label">
             <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
@@ -100,7 +97,7 @@ Date of Death: <output value=" /death_confirmation/death_details/date_of_death "
         </translation>
       </itext>
       <instance>
-        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-07-30 23:23:24">
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-11-23 10:11:55">
           <inputs>
             <meta>
               <location>
@@ -159,7 +156,6 @@ Date of Death: <output value=" /death_confirmation/death_details/date_of_death "
             <r_key_instruction/>
             <blank_note/>
             <r_referral/>
-            <r_undo/>
           </group_review>
           <data tag="hidden">
             <__date_of_death/>
@@ -204,7 +200,7 @@ Date of Death: <output value=" /death_confirmation/death_details/date_of_death "
       <bind nodeset="/death_confirmation/patient_display_name" type="string" calculate="if(../patient_short_name = '', ../patient_name, concat(../patient_name, ' (', ../patient_short_name, ')'))"/>
       <bind nodeset="/death_confirmation/death_details/date_of_death" type="date" constraint="(. &lt;= now()) and floor(decimal-date-time(today()) - decimal-date-time(.)) &lt;= 365" required="true()" jr:constraintMsg="jr:itext('/death_confirmation/death_details/date_of_death:jr:constraintMsg')"/>
       <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
-      <bind nodeset="/death_confirmation/death_details/place_of_death_other" type="string" relevant="selected(../place_of_death, 'Other')" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/place_of_death_other" type="string" required="true()" relevant="selected(../place_of_death, 'Other')"/>
       <bind nodeset="/death_confirmation/death_details/death_information" type="string"/>
       <bind nodeset="/death_confirmation/group_review/submit" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/group_review/r_summary_details" readonly="true()" type="string"/>
@@ -218,7 +214,6 @@ concat(../../patient_age_in_years, ' years old')))"/>
       <bind nodeset="/death_confirmation/group_review/r_key_instruction" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/group_review/blank_note" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/group_review/r_referral" readonly="true()" type="string"/>
-      <bind nodeset="/death_confirmation/group_review/r_undo" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/data/__date_of_death" type="string" calculate=" /death_confirmation/death_details/date_of_death "/>
       <bind nodeset="/death_confirmation/data/__place_of_death" type="string" calculate=" /death_confirmation/death_details/place_of_death "/>
       <bind nodeset="/death_confirmation/data/__place_of_death_other" type="string" calculate=" /death_confirmation/death_details/place_of_death_other "/>
@@ -295,11 +290,8 @@ concat(../../patient_age_in_years, ' years old')))"/>
         <label ref="jr:itext('/death_confirmation/group_review/r_key_instruction:label')"/>
       </input>
       <input ref="/death_confirmation/group_review/blank_note"/>
-      <input appearance="h1 red" ref="/death_confirmation/group_review/r_referral">
+      <input appearance="h5" ref="/death_confirmation/group_review/r_referral">
         <label ref="jr:itext('/death_confirmation/group_review/r_referral:label')"/>
-      </input>
-      <input ref="/death_confirmation/group_review/r_undo">
-        <label ref="jr:itext('/death_confirmation/group_review/r_undo:label')"/>
       </input>
     </group>
     <group appearance="hidden" ref="/death_confirmation/data">

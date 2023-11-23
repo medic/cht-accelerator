@@ -2,8 +2,7 @@
     "icon": "icon-sadr",
     "title": "Public Report",
     "context": {
-        "person": true,
-        "place": false,
-        "expression": "!contact.date_of_death && contact.type === 'person' && user.role === 'chw_supervisor'"
+        "person": false,
+        "place": false
     }
 }
