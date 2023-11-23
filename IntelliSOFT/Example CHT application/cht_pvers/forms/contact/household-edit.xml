@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Household</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/household/contact/_id:hint">
+            <value>Select the Primary Contact</value>
+          </text>
+          <text id="/data/household/contact/_id:label">
+            <value>Primary Contact</value>
+          </text>
+          <text id="/data/household/is_name_generated:label">
+            <value>Would you like to name the place after the primary contact?</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>Name of this Household</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:household:edit" prefix="J1!contact:household:edit!" delimiter="#" version="2023-09-25  2-16">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <household>
+            <parent/>
+            <type/>
+            <contact>
+              <name/>
+              <contact_name/>
+              <_id/>
+            </contact>
+            <is_name_generated/>
+            <generated_name/>
+            <name/>
+            <geolocation/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+              <last_edited_by/>
+              <last_edited_by_person_uuid/>
+              <last_edited_by_place_uuid/>
+            </meta>
+          </household>
+          <init>
+            <place_type/>
+            <place_type_translation/>
+            <select_generated_name/>
+            <generated_name_translation/>
+          </init>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="0"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/household/parent" type="string" readonly="true()"/>
+      <bind nodeset="/data/household/type" type="string" readonly="true()"/>
+      <bind nodeset="/data/household/contact/name" type="string"/>
+      <bind nodeset="/data/household/contact/contact_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/household/contact/_id" type="db:person"/>
+      <bind nodeset="/data/household/is_name_generated" type="select1" relevant="not( /data/household/contact/_id ) or selected( . , 'true') or boolean( /data/household/contact/_id )" readonly="boolean( /data/household/contact/_id )" calculate="if(  /data/household/generated_name  = ../name, 'true', 'false')" required="true()"/>
+      <bind nodeset="/data/household/generated_name" type="string" calculate=" /data/init/generated_name_translation "/>
+      <bind nodeset="/data/household/name" type="string" relevant="boolean( /data/household/contact/_id ) or not( /data/household/contact/_id ) or not(selected( /data/household/is_name_generated , 'true')) or not(selected( /data/household/is_name_generated , 'yes'))" calculate="if( ( selected( /data/household/is_name_generated , 'true') or selected( /data/household/is_name_generated , 'yes') ),  /data/household/generated_name , .)" required="true()"/>
+      <bind nodeset="/data/household/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
+      <bind nodeset="/data/household/meta/created_by" type="string" readonly="true()"/>
+      <bind nodeset="/data/household/meta/created_by_person_uuid" type="string" readonly="true()"/>
+      <bind nodeset="/data/household/meta/created_by_place_uuid" type="string"/>
+      <bind nodeset="/data/household/meta/last_edited_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/household/meta/last_edited_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/household/meta/last_edited_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/init/place_type" type="select1" calculate="&quot;household&quot;"/>
+      <bind nodeset="/data/init/place_type_translation" type="string" calculate="jr:choice-name( /data/init/place_type ,' /data/init/place_type ')"/>
+      <bind nodeset="/data/init/select_generated_name" type="select1" calculate="&quot;household&quot;"/>
+      <bind nodeset="/data/init/generated_name_translation" type="string" calculate="if (boolean( /data/household/contact/_id ), jr:choice-name( /data/init/select_generated_name ,' /data/init/select_generated_name '), '')"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/household">
+      <group ref="/data/household/contact">
+        <input appearance="hidden" ref="/data/household/contact/name"/>
+        <input appearance="db-object" ref="/data/household/contact/_id">
+          <label ref="jr:itext('/data/household/contact/_id:label')"/>
+          <hint ref="jr:itext('/data/household/contact/_id:hint')"/>
+        </input>
+      </group>
+      <select1 ref="/data/household/is_name_generated">
+        <label ref="jr:itext('/data/household/is_name_generated:label')"/>
+        <item>
+          <label>Yes</label>
+          <value>true</value>
+        </item>
+        <item>
+          <label>No, I want to name it manually</label>
+          <value>false</value>
+        </item>
+      </select1>
+      <input ref="/data/household/name">
+        <label ref="jr:itext('/data/household/name:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/household/meta"/>
+    </group>
+    <group appearance="field-list hidden" ref="/data/init">
+      <select1 appearance="hidden" ref="/data/init/place_type">
+        <item>
+          <label>County</label>
+          <value>e_county</value>
+        </item>
+        <item>
+          <label>Sub County</label>
+          <value>d_sub_county</value>
+        </item>
+        <item>
+          <label>Community Health Unit</label>
+          <value>c_community_health_unit</value>
+        </item>
+        <item>
+          <label>Community Health Volunteer Area</label>
+          <value>b_community_health_volunteer_area</value>
+        </item>
+        <item>
+          <label>Household</label>
+          <value>a_household</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/data/init/select_generated_name">
+        <item>
+          <label>County</label>
+          <value>e_county</value>
+        </item>
+        <item>
+          <label>Sub County</label>
+          <value>d_sub_county</value>
+        </item>
+        <item>
+          <label>Community Health Unit</label>
+          <value>c_community_health_unit</value>
+        </item>
+        <item>
+          <label><output value=" /data/household/contact/contact_name "/>'s Area</label>
+          <value>b_community_health_volunteer_area</value>
+        </item>
+        <item>
+          <label><output value=" /data/household/contact/contact_name "/>'s Household</label>
+          <value>a_household</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>
