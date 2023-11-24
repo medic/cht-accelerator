@@ -7,17 +7,20 @@ const thisContact = contact;
 const thisLineage = lineage;
 const allReports = reports;
 const householdAssessmentReport = getMostRecentReportForm(reports, [FORMS.HOUSEHOLD_ASSESSMENT]);
-const householdAssessmentFollowUpReport = getMostRecentReportForm(reports, [FORMS.HOUSEHOLD_ASSESSMENT_FOLLOWUP]);
+const householdFollowUpReport = getMostRecentReportForm(reports, [FORMS.HOUSEHOLD_ASSESSMENT_FOLLOWUP]);
 const under5AssessmentReport = getMostRecentReportForm(reports, [FORMS.CHILD_ASSESSMENT]);
+const under5AssessmentFollowUpreport = getMostRecentReportForm(reports, [FORMS.CHILD_FOLLOW_UP]);
 const memberAssessmentReport = getMostRecentReportForm(reports, [FORMS.HOUSEHOLD_MEMBER_ASSESSMENT]);
+const u5MalariaConfirmed = !!under5AssessmentFollowUpreport 
+                            && getField(under5AssessmentFollowUpreport, 'children_under_5_follow_up.malaria_confirmed') === 'yes'
+                            || !!under5AssessmentFollowUpreport && getField(under5AssessmentFollowUpreport, 'children_under_5_follow_up.malaria_confirmed') === 'no';
 
 const fields = [
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.name', value: thisContact.contact && thisContact.contact.name, width: 4 },
-  { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.phone', value: thisContact.contact && thisContact.contact.primary_phone_number, width: 4 },
+  { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'Household Head', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, label: 'contact.sex', value: thisContact.contact && thisContact.contact.sex, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, label:'contact.age', value: thisContact.contact && thisContact.contact.date_of_birth, width: 4, filter: 'age'},
-  { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER, label:'patient_id', value: thisContact.patient_id, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER, label:'contact.age', value: thisContact.date_of_birth, width: 4, filter: 'age'},
@@ -27,19 +30,15 @@ const fields = [
   { appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY, translate: true, label: 'contact.name', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY, translate: true, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
-  { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY, translate: true, label: 'Alternative Phone', value: thisContact.contact && thisContact.contact.phone_alternate, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY, label: 'Notes', value:  thisContact.contact && thisContact.notes, width: 12 },
   { appliesToType: CONTACT_TYPES.AREA_SUPERVISOR_REGION, label: 'contact.name', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_SUPERVISOR_REGION, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
-  { appliesToType: CONTACT_TYPES.AREA_SUPERVISOR_REGION, label: 'Alternative Phone', value: thisContact.contact && thisContact.contact.phone_alternate, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_SUPERVISOR_REGION, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.AREA_SUPERVISOR_REGION, label: 'Notes', value: thisContact.contact && thisContact.contact.notes, width: 12 },
   { appliesToType: CONTACT_TYPES.AREA_COMMUNITY_HEALTH_SUPERVISOR, label: 'contact.phone', value: thisContact.phone, width: 4 },
-  { appliesToType: CONTACT_TYPES.AREA_COMMUNITY_HEALTH_SUPERVISOR, label: 'Alternative Phone', value: thisContact.phone_alternate, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_COMMUNITY_HEALTH_SUPERVISOR, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.AREA_COMMUNITY_HEALTH_SUPERVISOR, label: 'Notes', value: thisContact.notes, width: 12 },
   { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY_NURSE, label: 'contact.phone', value: thisContact.phone, width: 4 },
-  { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY_NURSE, label: 'Alternative Phone', value: thisContact.phone_alternate, width: 4 },
   { appliesToType: CONTACT_TYPES.AREA_HEALTH_FACILITY_NURSE, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.COMMUNITY_HEALTH_AREA, translate: true, label: 'Primary Contact', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: CONTACT_TYPES.COMMUNITY_HEALTH_AREA, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
@@ -63,10 +62,26 @@ const cards = [
         label: 'contact.profile.malaria_prone',
         icon: 'household-summary',
         value: function() { 
-          if(householdAssessmentFollowUpReport){
-            return getField(householdAssessmentFollowUpReport, 'malaria_prone') ? 'Yes' : 'No';
+          const assessmentValue = getField(householdAssessmentReport, 'malaria_prone');
+          const followUpValue = householdFollowUpReport !== undefined ? getField(householdFollowUpReport, 'malaria_prone') : undefined;
+          const isContactAvailable = householdFollowUpReport === undefined ? null : getField(householdFollowUpReport, 'follow_up_details.contact_available');
+
+          if (assessmentValue === 'true' && followUpValue === 'false' && isContactAvailable === 'yes') {
+            return 'Household is safe';
+          } else if (assessmentValue === 'false' && isContactAvailable === null && followUpValue === undefined) {
+            return 'No';
+          } else if (assessmentValue === 'true' && followUpValue === undefined && isContactAvailable === null) {
+            return 'Yes';
+          } 
+          else if (assessmentValue === 'true' && followUpValue === 'true') {
+            return 'Yes';
+          } 
+          else if (assessmentValue === 'true' && followUpValue === 'false' && isContactAvailable === 'no') {
+            return 'Yes';
+          } 
+          else {
+            return 'This Household is safe';
           }
-          return getField(householdAssessmentReport, 'malaria_prone') ? 'Yes' : 'No';
         }
       },
       {
@@ -74,10 +89,31 @@ const cards = [
         translate: true,
         icon: 'next-visit',
         value: function() { 
+          const assessmentValue = getField(householdAssessmentReport, 'malaria_prone');
+          const followUpValue = householdFollowUpReport !== undefined ? getField(householdFollowUpReport, 'malaria_prone') : undefined;
           const ammendmentDate = getField(householdAssessmentReport, 'household_assessment.amendment_date');
-          return DateTime.fromISO(ammendmentDate).isValid ? ammendmentDate : null;
-        },
-        filter: 'simpleDate',
+          const ammendmentDateFollowUp = householdFollowUpReport !== undefined ? getField(householdFollowUpReport, 'referral_follow_up_date') : null;
+          const isContactAvailable = householdFollowUpReport === undefined ? null : getField(householdFollowUpReport, 'follow_up_details.contact_available');
+          if (assessmentValue === 'true' && followUpValue === 'false' && isContactAvailable === 'yes') {
+            return 'Safe, no follow-up needed.';
+          } else if (assessmentValue === 'false' && followUpValue === undefined) {
+            return 'Safe, no follow-up needed.';
+          } else if (assessmentValue === 'true' && followUpValue === undefined) {
+            return DateTime.fromISO(ammendmentDate).isValid ? DateTime.fromISO(ammendmentDate).toFormat('d MMM yyyy') : null;
+          }
+          else if (assessmentValue === 'true' && followUpValue === 'true' && ammendmentDateFollowUp !== null) {
+            return DateTime.fromISO(ammendmentDateFollowUp).isValid ? DateTime.fromISO(ammendmentDateFollowUp).toFormat('d MMM yyyy') : null;
+          }
+          else if (assessmentValue === 'true' && isContactAvailable === 'no' && ammendmentDateFollowUp !== null) {
+            return DateTime.fromISO(ammendmentDateFollowUp).isValid ? DateTime.fromISO(ammendmentDateFollowUp).toFormat('d MMM yyyy') : null;
+          }
+          else if (followUpValue === 'false' && ammendmentDateFollowUp === '') {
+            return 'Safe, no follow-up needed';
+          }
+          else {
+            return 'This Household is safe';
+          }
+        }
       },
     ],
   },
@@ -96,12 +132,14 @@ const cards = [
         },
       },
       {
-        label: 'contact.profile.suspected_malaria',
+        label: u5MalariaConfirmed ? 'Malaria confirmed' : 'contact.profile.suspected_malaria',
         icon: function() {
           return getField(under5AssessmentReport, 'children_under_assessment.suspected_of_malaria') === 'Yes' ? 'danger' : 'suspected_malaria';
         },
         value: function() {
-          return getField(under5AssessmentReport, 'children_under_assessment.suspected_of_malaria');
+          return u5MalariaConfirmed 
+            ? getField(under5AssessmentFollowUpreport, 'children_under_5_follow_up.malaria_confirmed') 
+            : getField(under5AssessmentReport, 'children_under_assessment.suspected_of_malaria');
         },
       }
     ],
@@ -160,42 +198,88 @@ const cards = [
     appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER,
     appliesIf: function() { 
       const report = getMostRecentReport(allReports, FORMS.PREGNANCY_REGISTRATION); 
+      const followUpReport = getMostRecentReport(allReports, FORMS.PREGNANCY_REGISTRATION_FOLLOWUP);
       const malariaReport = getMostRecentReport(allReports, FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS);
-      /* eslint-disable no-console */
-      console.log(report);
-      console.log(malariaReport);
-      console.log(report && malariaReport && thisContact.age_years > 12 && thisContact.age_years < 50 && thisContact.sex === 'female');
-
-      if(report !== null && 
-        report.fields.group_pregnancy_registration_form.is_pregnancy_confirmed==='yes' && thisContact.age_years > 12 && thisContact.age_years < 50 && thisContact.sex === 'female'){
-        /* eslint-disable no-console */
-        console.log(thisContact);
-        console.log(thisContact.age_years > 12 && thisContact.age_years < 50 && thisContact.sex === 'female');
+      if(report !== null && thisContact.age_years > 12 && thisContact.age_years < 50 && thisContact.sex === 'female'){
         if(malariaReport && report && isFirstReportNewer(malariaReport, report)) {
           return isContactStillPregnant(allReports);
+        }
+        else if(followUpReport){
+          const deliveryDate = getField(followUpReport, 'group_pregnancy_registration_followup_form.estimated_delivery_date');
+          return DateTime.now() < DateTime.fromISO(deliveryDate);
+        }
+        else if(report){
+          const deliveryDate = getField(report, 'group_pregnancy_registration_form.estimated_delivery_date');
+          return DateTime.now() < DateTime.fromISO(deliveryDate);
         }
         return isPregnancyBeforeDelivery(report);
       }
     },
     fields: function () {
       const report = getMostRecentReport(allReports, FORMS.PREGNANCY_REGISTRATION); 
-      //const malariaReport = getMostRecentReport(allReports, FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS);
+      const malariaReport = getMostRecentReport(allReports, FORMS.MALARIA_TREATMENT_FOLLOW_UP);
+      const followUpReport = getMostRecentReport(allReports, FORMS.PREGNANCY_REGISTRATION_FOLLOWUP);
 
       const fields = [];
-      const dateTime = DateTime.fromMillis(report.reported_date);
+      let ancVisits = 0;
 
-      const targetDate = new Date(report.fields.group_pregnancy_registration_form.estimated_delivery_date);
-      const today = new Date();
+      if(followUpReport !== null || report !== null && 
+        thisContact.age_years > 12 && thisContact.age_years < 50 && thisContact.sex === 'female'){
 
-      const timeDifference = targetDate - today;
-      const weeksDifference = timeDifference / (1000 * 60 * 60 * 24 * 7);
-      const roundedWeeksDifference = Math.round(weeksDifference);
+        let targetDate = null;
 
-      fields.push(
-        { label: 'Approximate Weeks before delivery', value: roundedWeeksDifference },
-        {label: 'Pregnancy Registration Date', value : dateTime.toFormat('yyyy-MM-dd HH:mm:ss')},
-        {label: 'Number of ANC Visits', value : report.fields.group_pregnancy_registration_form.no_of_antenatal_visits}
-      );
+        if(followUpReport){
+          targetDate = new Date(followUpReport.fields.group_pregnancy_registration_followup_form.estimated_delivery_date);
+          fields.push({label: 'Number of ANC Visits', value : followUpReport.fields.group_pregnancy_registration_followup_form.no_of_antenatal_visits});
+        }
+        
+        if(report && report.fields.group_pregnancy_registration_form.estimated_delivery_date !== null){
+          targetDate = new Date(report.fields.group_pregnancy_registration_form.estimated_delivery_date);
+          ancVisits = report.fields.group_pregnancy_registration_form.no_of_antenatal_visits;
+        }
+
+        if(followUpReport && followUpReport.fields.group_pregnancy_registration_followup_form.estimated_delivery_date !== null){
+          targetDate = new Date(followUpReport.fields.group_pregnancy_registration_followup_form.estimated_delivery_date);
+          ancVisits =  followUpReport.fields.group_pregnancy_registration_followup_form.no_of_antenatal_visits;
+        }
+        
+      
+        
+        const today = new Date();
+
+        const timeDifference = targetDate - today;
+        const weeksDifference = timeDifference / (1000 * 60 * 60 * 24 * 7);
+        const roundedWeeksDifference = Math.round(weeksDifference);
+
+        if(malariaReport === null){
+          fields.push(
+            { label: 'Malaria Status', value: 'Not Tested' },
+          );
+        }else{
+          
+          if(malariaReport.fields.group_pregnant_referral_follow_up.confirmed_malaria === 'yes'){
+            fields.push(
+              { label: 'Malaria Status', value: 'Positive' },
+            );
+          }else if(malariaReport.fields.group_pregnant_referral_follow_up.confirmed_malaria === 'no'){
+            fields.push(
+              { label: 'Malaria Status', value: 'Negative' },
+            );
+          }else {
+            fields.push(
+              { label: 'Malaria Status', value: 'Not Tested' },
+            );
+          }
+        }
+
+        fields.push(
+          {label: 'Number of ANC Visits', value : ancVisits}
+        );
+        fields.push(
+          { label: 'Approximate Weeks before delivery', value: roundedWeeksDifference },
+        );
+      }
+      
 
       return fields;
     },

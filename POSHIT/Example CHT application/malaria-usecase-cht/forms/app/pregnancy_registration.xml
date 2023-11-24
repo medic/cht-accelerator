@@ -45,9 +45,9 @@
             <value>&lt;b&gt;Follow-up Tasks&lt;/b&gt;&lt;I class="fa fa-flag"&gt;&lt;/i&gt;</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_is_expectant_now:label">
-            <value><output value=" /pregnancy_registration/patient_name "/> is currently pregnant. She has done <output value=" /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits "/> antenatal visits so far and estimates her delivery date to be <output value=" /pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date "/></value></text>
+            <value>&lt;p&gt;Currently pregnant. &lt;/p&gt;&lt;p&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits "/> antenatal visits.&lt;/p&gt; &lt;p&gt;Estimated delivery date is <output value=" /pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date "/></value></text>
           <text id="/pregnancy_registration/group_review/r_is_not_expectant:label">
-            <value><output value=" /pregnancy_registration/patient_name "/> is not pregnant.</value>
+            <value>Not pregnant.</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_is_pregnancy_confirmed:label">
             <value>&lt;p&gt;Has <output value=" /pregnancy_registration/patient_name "/> had the pregnancy confirmed? &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed "/>&lt;/span&gt;&lt;/p&gt;</value>
@@ -60,7 +60,7 @@
 <output value=" /pregnancy_registration/group_review/r_member_age "/>&lt;/div&gt;</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_pregnancy_claim:label">
-            <value><output value=" /pregnancy_registration/patient_name "/> claims she is pregnant, but has not had the pregnancy confirmed.</value>
+            <value>&lt;p&gt;Pregnancy is not confirmed.&lt;/p&gt;</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_pregnancy_confirmation_referal:label">
             <value>Pregnancy Confirmation Follow Up – in the next 3 Days</value>
@@ -179,7 +179,7 @@
             <value>-</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_is_expectant_now:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> ana uja uzito.&lt;/p&gt;</value>
+            <value>&lt;p&gt;Ana uja uzito.&lt;/p&gt;</value>
           </text>
           <text id="/pregnancy_registration/group_review/r_is_not_expectant:label">
             <value>&lt;p&gt;<output value=" /pregnancy_registration/patient_name "/> hana ujauzito</value>
@@ -272,7 +272,7 @@
         </translation>
       </itext>
       <instance>
-        <pregnancy_registration id="pregnancy_registration" prefix="J1!pregnancy_registration!" delimiter="#" version="2023-10-26 20:46:38">
+        <pregnancy_registration id="pregnancy_registration" prefix="J1!pregnancy_registration!" delimiter="#" version="2023-11-24 11:56:16">
           <inputs>
             <meta>
               <location>
@@ -367,11 +367,11 @@
       <bind nodeset="/pregnancy_registration/pregnancy_confirmation_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
       <bind nodeset="/pregnancy_registration/pregnancy_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 30)"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/is_expectant_now" type="select1" required="true()"/>
-      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed" type="select1" required="true()" relevant="selected(../is_expectant_now, 'yes')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/is_pregnancy_confirmed" type="select1" relevant="selected(../is_expectant_now, 'yes')" required="true()"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_33" readonly="true()" type="string" relevant="selected(../is_pregnancy_confirmed, 'no') and selected(../is_expectant_now, 'yes')"/>
-      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits" type="int" constraint=".&gt;= 0 and . &lt;= 9" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:jr:constraintMsg')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits" type="int" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/no_of_antenatal_visits:jr:constraintMsg')" constraint=".&gt;= 0 and . &lt;= 9" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/generated_note_name_35" readonly="true()" type="string" constraint=".&gt;= 0 and . &lt;= 9" relevant="selected(../is_expectant_now, 'yes') and ../no_of_antenatal_visits = 0"/>
-      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date" type="date" constraint=". &gt;= today() and . &lt;= today() + 270" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')" required="true()" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:jr:constraintMsg')"/>
+      <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date" type="date" jr:constraintMsg="jr:itext('/pregnancy_registration/group_pregnancy_registration_form/estimated_delivery_date:jr:constraintMsg')" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')" constraint=". &gt;= today() and . &lt;= today() + 270" required="true()"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/pregnancy_registration/group_pregnancy_registration_form/meta/household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>

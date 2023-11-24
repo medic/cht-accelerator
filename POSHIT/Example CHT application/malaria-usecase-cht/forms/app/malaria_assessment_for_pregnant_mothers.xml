@@ -134,9 +134,6 @@
           <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired:label">
             <value>Has <output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> been feeling tired?</value>
           </text>
-          <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date:label">
-            <value>When do you intend to follow up on <output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> treatment progress?</value>
-          </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net/no:label">
             <value>No</value>
           </text>
@@ -159,7 +156,7 @@
             <value>&lt;b&gt;Follow-up Tasks&lt;/b&gt;&lt;I class="fa fa-flag"&gt;&lt;/i&gt;</value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/positive_llin:label">
-            <value><output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> is still pregnant but is showing signs and symptoms consistent with malaria. You will need to follow up on her to see how she is doing.</value>
+            <value>&lt;p&gt;Still pregnant&lt;/p&gt; &lt;p&gt;Has signs and symptoms consistent with malaria.&lt;/p&gt;</value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_key_instruction:label">
             <value>&lt;b&gt;Summary&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
@@ -169,10 +166,11 @@
 Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_age_in_years "/>&lt;/div&gt;</value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_pregnancy_status:label">
-            <value><output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> is still pregnant and is adhering to malaria prevention mechanisms.</value>
+            <value>&lt;p&gt;Still pregnant &lt;/p&gt;&lt;p&gt;Adhering to malaria prevention measures&lt;/p&gt;.</value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_pregnancy_status_neg:label">
-            <value><output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> is no longer pregnant. She <output value=" /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state "/></value></text>
+            <value>&lt;p style='text-transform: capitalize'&gt;<output value=" /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state "/>&lt;/p&gt;</value>
+          </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_referral:label">
             <value>Tasks for <output value=" /malaria_assessment_for_pregnant_mothers/patient_name "/> will stop once you submit this form</value>
           </text>
@@ -181,9 +179,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_summary_details:label">
             <value>Household Member Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
-          </text>
-          <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_trearmment_follow_up:label">
-            <value>Intermittent preventive treatment referral follow up - <output value=" /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date "/></value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/submit:label">
             <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
@@ -379,9 +374,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
           <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired:label">
             <value>-</value>
           </text>
-          <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date:label">
-            <value>-</value>
-          </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net/no:label">
             <value>Hapana</value>
           </text>
@@ -430,9 +422,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_summary_details:label">
             <value>Maelezo ya Mwanakaya&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
-          </text>
-          <text id="/malaria_assessment_for_pregnant_mothers/group_review/r_trearmment_follow_up:label">
-            <value>-</value>
           </text>
           <text id="/malaria_assessment_for_pregnant_mothers/group_review/submit:label">
             <value>&lt;h4 style="text-align:center;"&gt;Ili kumaliza, hakikisha kuwa umebofya kitufe cha Wasilisha.&lt;/h4&gt;</value>
@@ -509,7 +498,7 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
         </translation>
       </itext>
       <instance>
-        <malaria_assessment_for_pregnant_mothers id="malaria_assessment_for_pregnant_mothers" prefix="J1!malaria_assessment_for_pregnant_mothers!" delimiter="#" version="2023-10-26 22:03:59">
+        <malaria_assessment_for_pregnant_mothers id="malaria_assessment_for_pregnant_mothers" prefix="J1!malaria_assessment_for_pregnant_mothers!" delimiter="#" version="2023-11-24 12:04:00">
           <inputs>
             <meta>
               <location>
@@ -567,7 +556,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
             <intermittent_preventive_treatment/>
             <iptp_count/>
             <refer_to_treatment_note/>
-            <treatment_referral_follow_up_date/>
             <has_fever/>
             <day_fever_experienced/>
             <muscle_pains/>
@@ -589,7 +577,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
             <r_pregnancy_status_neg/>
             <positive_llin/>
             <check-/>
-            <r_trearmment_follow_up/>
             <r_referral_follow_up/>
             <r_referral/>
           </group_review>
@@ -628,23 +615,22 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state" type="select1"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/reg_child_note" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'delivered')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/post_abortion_note" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'miscarried') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'aborted')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/encourage_llit_note" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net , 'yes')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/recommend_use_long_lasting_insecticide_treated_net_note" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net , 'no')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/refer_to_treatment_note" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'no')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date" type="date" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count  , '13_and_19_weeks ') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count , '20_and_28_weeks') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count , '29_and_36_weeks')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/day_fever_experienced" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/recently_traveled" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms" type="select1" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/additional_symptoms" type="string" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/referral_follow_up_date" type="date" required="true()" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired , 'yes')"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/day_fever_experienced" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/recently_traveled" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms" type="select1" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/additional_symptoms" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms , 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/referral_follow_up_date" type="date" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired , 'yes')" required="true()"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/submit" readonly="true()" type="string"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_summary_details" readonly="true()" type="string"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_member_age" readonly="true()" type="string"/>
@@ -654,7 +640,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_pregnancy_status_neg" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'delivered') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'aborted') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'miscarried')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/positive_llin" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms , 'yes')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/check-" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms , 'yes')"/>
-      <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_trearmment_follow_up" readonly="true()" type="string" relevant=" /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/iptp_count  != '37_delivery_weeks'"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_referral_follow_up" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/use_long_lasting_insecticide_treated_net , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/intermittent_preventive_treatment , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/muscle_pains , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/severe_headache , 'no') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/vomiting , 'yes') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/tired , 'yes') and selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/other_symptoms , 'yes')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/group_review/r_referral" readonly="true()" type="string" relevant="selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'miscarried') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'aborted') or selected( /malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/pregnancy_state , 'delivered')"/>
       <bind nodeset="/malaria_assessment_for_pregnant_mothers/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -765,9 +750,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
       </select1>
       <input ref="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/refer_to_treatment_note">
         <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/refer_to_treatment_note:label')"/>
-      </input>
-      <input ref="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date">
-        <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/treatment_referral_follow_up_date:label')"/>
       </input>
       <select1 ref="/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever">
         <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_malaria_assessment_for_pregnant_mothers/has_fever:label')"/>
@@ -897,9 +879,6 @@ Age in years: <output value=" /malaria_assessment_for_pregnant_mothers/patient_a
       </input>
       <input appearance="h1 blue" ref="/malaria_assessment_for_pregnant_mothers/group_review/check-">
         <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_review/check-:label')"/>
-      </input>
-      <input ref="/malaria_assessment_for_pregnant_mothers/group_review/r_trearmment_follow_up">
-        <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_review/r_trearmment_follow_up:label')"/>
       </input>
       <input ref="/malaria_assessment_for_pregnant_mothers/group_review/r_referral_follow_up">
         <label ref="jr:itext('/malaria_assessment_for_pregnant_mothers/group_review/r_referral_follow_up:label')"/>

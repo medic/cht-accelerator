@@ -104,6 +104,7 @@ module.exports = [
       },
     ]
   },
+ 
   {
     name: 'pregnant_mother_treatment_follow_up',
     icon: 'malaria-assessment-for-pregnant-mothers',
@@ -111,7 +112,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: [FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS],
     appliesIf: function (contact, report) {
-      return isAlive(contact) && !isPregnancyTaskMuted(contact) && Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.treatment_referral_follow_up_date');
+      return isAlive(contact) && !isPregnancyTaskMuted(contact) && Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.referral_follow_up_date');
     },
 
     resolvedIf: function (contact, report, event, dueDate) {
@@ -131,11 +132,11 @@ module.exports = [
     ],
     events: [
       {
-        id: FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS,
+        id: FORMS.MALARIA_TREATMENT_FOLLOW_UP,
         start: 30,
         end: 30,
         dueDate: function (event, contact, report) {
-          return new Date(Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.treatment_referral_follow_up_date'));
+          return new Date(Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.referral_follow_up_date'));
         }
       }
     ]

@@ -44,14 +44,10 @@
           <text id="/pregnancy_registration_followup/group_review/check-:label">
             <value>&lt;b&gt;Follow-up Tasks&lt;/b&gt;&lt;I class="fa fa-flag"&gt;&lt;/i&gt;</value>
           </text>
-          <text id="/pregnancy_registration_followup/group_review/r_estimated_delivery_date:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/>'s approximate delivery date is: &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date "/>&lt;/span&gt;&lt;/p&gt;</value>
-          </text>
-          <text id="/pregnancy_registration_followup/group_review/r_following_tasks:label">
-            <value>The following tasks will appear:</value>
-          </text>
           <text id="/pregnancy_registration_followup/group_review/r_is_expectant_now:label">
-            <value>&lt;p&gt;Is <output value=" /pregnancy_registration_followup/patient_name "/> expectant now? &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now "/>&lt;/span&gt;&lt;/p&gt;</value>
+            <value><output value=" /pregnancy_registration_followup/patient_name "/> is currently pregnant. She has done <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits "/> antenatal visits so far and estimates her delivery date to be <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date "/></value></text>
+          <text id="/pregnancy_registration_followup/group_review/r_is_not_expectant:label">
+            <value><output value=" /pregnancy_registration_followup/patient_name "/> is not pregnant.</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_is_pregnancy_confirmed:label">
             <value>&lt;p&gt;Has <output value=" /pregnancy_registration_followup/patient_name "/> had the pregnancy confirmed? &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed "/>&lt;/span&gt;&lt;/p&gt;</value>
@@ -63,23 +59,20 @@
             <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /pregnancy_registration_followup/patient_name "/>
 <output value=" /pregnancy_registration_followup/group_review/r_member_age "/>&lt;/div&gt;</value>
           </text>
-          <text id="/pregnancy_registration_followup/group_review/r_no_of_antenatal_visits:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> has done &lt;span style= 'font-weight: bold'&gt;<output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits "/>&lt;/span&gt; so far.&lt;/p&gt;</value>
+          <text id="/pregnancy_registration_followup/group_review/r_pregnancy_claim:label">
+            <value><output value=" /pregnancy_registration_followup/patient_name "/> claims she is pregnant, but has not had the pregnancy confirmed.</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_pregnancy_confirmation_referal:label">
-            <value>Please conduct a pregnancy confirmation follow up in 3 days</value>
+            <value>Pregnancy Confirmation Follow Up – in the next 3 Days</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_pregnancy_monthly_follow_up:label">
-            <value>Please conduct monthly pregnancy follow up until <output value=" /pregnancy_registration_followup/patient_name "/> delivers.</value>
+            <value>Pregnancy Follow Up – Monthly Until Delivery</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_refer_antenatal_visit:label">
             <value>Antenatal Visit</value>
           </text>
-          <text id="/pregnancy_registration_followup/group_review/r_refer_clinic_immediately:label">
-            <value>Refer to clinic immediately for:</value>
-          </text>
           <text id="/pregnancy_registration_followup/group_review/r_refer_pregnancy_confirmation:label">
-            <value>To have have her pregnancy confirmed.</value>
+            <value>Ask <output value=" /pregnancy_registration_followup/patient_name "/> to visit a health facility to have her pregnancy confirmed.</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_summary_details:label">
             <value>Household Member Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
@@ -185,14 +178,11 @@
           <text id="/pregnancy_registration_followup/group_review/check-:label">
             <value>-</value>
           </text>
-          <text id="/pregnancy_registration_followup/group_review/r_estimated_delivery_date:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> anatarajiwa kujifungua tarehe: <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date "/>&lt;/p&gt;</value>
-          </text>
-          <text id="/pregnancy_registration_followup/group_review/r_following_tasks:label">
-            <value>-</value>
-          </text>
           <text id="/pregnancy_registration_followup/group_review/r_is_expectant_now:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> ana uja uzito? <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now "/>&lt;/p&gt;</value>
+            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> ana uja uzito.&lt;/p&gt;</value>
+          </text>
+          <text id="/pregnancy_registration_followup/group_review/r_is_not_expectant:label">
+            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> hana ujauzito</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_is_pregnancy_confirmed:label">
             <value>&lt;p&gt;Uja uzito wa <output value=" /pregnancy_registration_followup/patient_name "/> umedhihirishwa? <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed "/>&lt;/p&gt;</value>
@@ -207,8 +197,8 @@
             <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /pregnancy_registration_followup/patient_name "/>
 <output value=" /pregnancy_registration_followup/group_review/r_member_age "/>&lt;/div&gt;</value>
           </text>
-          <text id="/pregnancy_registration_followup/group_review/r_no_of_antenatal_visits:label">
-            <value>&lt;p&gt;<output value=" /pregnancy_registration_followup/patient_name "/> ametembelea kliniki mara <output value=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits "/> hadi sasa.&lt;/p&gt;</value>
+          <text id="/pregnancy_registration_followup/group_review/r_pregnancy_claim:label">
+            <value>-</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_pregnancy_confirmation_referal:label">
             <value>-</value>
@@ -218,9 +208,6 @@
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_refer_antenatal_visit:label">
             <value>-</value>
-          </text>
-          <text id="/pregnancy_registration_followup/group_review/r_refer_clinic_immediately:label">
-            <value>Rejea kliniki mara moja kwa:</value>
           </text>
           <text id="/pregnancy_registration_followup/group_review/r_refer_pregnancy_confirmation:label">
             <value>-</value>
@@ -285,7 +272,7 @@
         </translation>
       </itext>
       <instance>
-        <pregnancy_registration_followup id="pregnancy_registration_followup" prefix="J1!pregnancy_registration_followup!" delimiter="#" version="2023-10-04 11:29:26">
+        <pregnancy_registration_followup id="pregnancy_registration_followup" prefix="J1!pregnancy_registration_followup!" delimiter="#" version="2023-10-30 17:47:07">
           <inputs>
             <meta>
               <location>
@@ -344,15 +331,13 @@
             <r_member_details/>
             <r_key_instruction/>
             <r_is_expectant_now/>
+            <r_pregnancy_claim/>
+            <r_is_not_expectant/>
             <r_is_pregnancy_confirmed/>
-            <r_no_of_antenatal_visits/>
-            <r_estimated_delivery_date/>
             <referrals/>
-            <r_refer_clinic_immediately/>
             <r_refer_pregnancy_confirmation/>
             <r_refer_antenatal_visit/>
             <check-/>
-            <r_following_tasks/>
             <r_pregnancy_confirmation_referal/>
             <r_pregnancy_monthly_follow_up/>
           </group_review>
@@ -382,11 +367,11 @@
       <bind nodeset="/pregnancy_registration_followup/pregnancy_confirmation_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)"/>
       <bind nodeset="/pregnancy_registration_followup/pregnancy_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 30)"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now" type="select1" required="true()"/>
-      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed" type="select1" relevant="selected(../is_expectant_now, 'yes')" required="true()"/>
+      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed" type="select1" required="true()" relevant="selected(../is_expectant_now, 'yes')"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/generated_note_name_33" readonly="true()" type="string" relevant="selected(../is_pregnancy_confirmed, 'no') and selected(../is_expectant_now, 'yes')"/>
-      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits" type="int" constraint=".&gt;= 0 and . &lt;= 9" relevant="selected(../is_expectant_now, 'yes')" jr:constraintMsg="jr:itext('/pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits:jr:constraintMsg')"/>
+      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits" type="int" constraint=".&gt;= 0 and . &lt;= 9" jr:constraintMsg="jr:itext('/pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits:jr:constraintMsg')" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/generated_note_name_35" readonly="true()" type="string" constraint=".&gt;= 0 and . &lt;= 9" relevant="selected(../is_expectant_now, 'yes') and ../no_of_antenatal_visits = 0"/>
-      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date" type="date" constraint=". &gt;= today() and . &lt;= today() + 270" relevant="selected(../is_expectant_now, 'yes')" jr:constraintMsg="jr:itext('/pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date:jr:constraintMsg')" required="true()"/>
+      <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date" type="date" constraint=". &gt;= today() and . &lt;= today() + 270" relevant="selected(../is_pregnancy_confirmed, 'yes') and selected(../is_expectant_now, 'yes')" jr:constraintMsg="jr:itext('/pregnancy_registration_followup/group_pregnancy_registration_followup_form/estimated_delivery_date:jr:constraintMsg')" required="true()"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/pregnancy_registration_followup/group_pregnancy_registration_followup_form/meta/household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
@@ -401,18 +386,16 @@ concat(../../patient_age_in_months, ' months old'),
 concat(../../patient_age_in_years, ' years old')))"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_member_details" readonly="true()" type="string"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_key_instruction" readonly="true()" type="string"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_is_expectant_now" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy_registration_followup/group_review/r_is_expectant_now" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration_followup/group_review/r_pregnancy_claim" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes' and  /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'no'"/>
+      <bind nodeset="/pregnancy_registration_followup/group_review/r_is_not_expectant" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'no'"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_is_pregnancy_confirmed" readonly="true()" type="string"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_no_of_antenatal_visits" readonly="true()" type="string"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_estimated_delivery_date" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes'"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/referrals" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes' and ( /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'no' or  /pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits  &lt; 1)"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_refer_clinic_immediately" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'no'"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_refer_pregnancy_confirmation" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'no'"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_refer_antenatal_visit" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/no_of_antenatal_visits  &lt; 1"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/check-" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes'"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_following_tasks" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes'"/>
       <bind nodeset="/pregnancy_registration_followup/group_review/r_pregnancy_confirmation_referal" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'no'"/>
-      <bind nodeset="/pregnancy_registration_followup/group_review/r_pregnancy_monthly_follow_up" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_expectant_now  = 'yes'"/>
+      <bind nodeset="/pregnancy_registration_followup/group_review/r_pregnancy_monthly_follow_up" readonly="true()" type="string" relevant=" /pregnancy_registration_followup/group_pregnancy_registration_followup_form/is_pregnancy_confirmed  = 'yes'"/>
       <bind nodeset="/pregnancy_registration_followup/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -485,20 +468,17 @@ concat(../../patient_age_in_years, ' years old')))"/>
       <input ref="/pregnancy_registration_followup/group_review/r_is_expectant_now">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_is_expectant_now:label')"/>
       </input>
+      <input ref="/pregnancy_registration_followup/group_review/r_pregnancy_claim">
+        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_pregnancy_claim:label')"/>
+      </input>
+      <input ref="/pregnancy_registration_followup/group_review/r_is_not_expectant">
+        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_is_not_expectant:label')"/>
+      </input>
       <input ref="/pregnancy_registration_followup/group_review/r_is_pregnancy_confirmed">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_is_pregnancy_confirmed:label')"/>
       </input>
-      <input ref="/pregnancy_registration_followup/group_review/r_no_of_antenatal_visits">
-        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_no_of_antenatal_visits:label')"/>
-      </input>
-      <input ref="/pregnancy_registration_followup/group_review/r_estimated_delivery_date">
-        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_estimated_delivery_date:label')"/>
-      </input>
       <input appearance="h1 blue" ref="/pregnancy_registration_followup/group_review/referrals">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/referrals:label')"/>
-      </input>
-      <input ref="/pregnancy_registration_followup/group_review/r_refer_clinic_immediately">
-        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_refer_clinic_immediately:label')"/>
       </input>
       <input ref="/pregnancy_registration_followup/group_review/r_refer_pregnancy_confirmation">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_refer_pregnancy_confirmation:label')"/>
@@ -508,9 +488,6 @@ concat(../../patient_age_in_years, ' years old')))"/>
       </input>
       <input appearance="h1 blue" ref="/pregnancy_registration_followup/group_review/check-">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/check-:label')"/>
-      </input>
-      <input ref="/pregnancy_registration_followup/group_review/r_following_tasks">
-        <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_following_tasks:label')"/>
       </input>
       <input ref="/pregnancy_registration_followup/group_review/r_pregnancy_confirmation_referal">
         <label ref="jr:itext('/pregnancy_registration_followup/group_review/r_pregnancy_confirmation_referal:label')"/>

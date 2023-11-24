@@ -657,7 +657,7 @@
         </translation>
       </itext>
       <instance>
-        <household_member_follow_up id="household_member_follow_up" prefix="J1!household_member_follow_up!" delimiter="#" version="2023-07-31 15:05:50">
+        <household_member_follow_up id="household_member_follow_up" prefix="J1!household_member_follow_up!" delimiter="#" version="2023-11-01 13:59:12">
           <inputs>
             <meta>
               <location>
@@ -780,7 +780,7 @@
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/condition" type="select1"/>
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/n_refer" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition ,'worsening') or selected( /household_member_follow_up/group_household_member_follow_up/condition ,'no_change')"/>
       <bind nodeset="/household_member_follow_up/group_household_member_follow_up/n_follow_advice" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition ,'improving')"/>
-      <bind nodeset="/household_member_follow_up/group_review" jr:constraintMsg="jr:itext('/household_member_follow_up/group_review:jr:constraintMsg')" relevant="selected( /household_member_follow_up/group_follow_up_details/availability , 'yes')"/>
+      <bind nodeset="/household_member_follow_up/group_review" relevant="selected( /household_member_follow_up/group_follow_up_details/availability , 'yes')" jr:constraintMsg="jr:itext('/household_member_follow_up/group_review:jr:constraintMsg')"/>
       <bind nodeset="/household_member_follow_up/group_review/f_summary" readonly="true()" type="string"/>
       <bind nodeset="/household_member_follow_up/group_review/f_action" readonly="true()" type="string"/>
       <bind nodeset="/household_member_follow_up/group_review/f_patient_details" readonly="true()" type="string"/>
@@ -793,8 +793,8 @@
       <bind nodeset="/household_member_follow_up/group_review/f_no_change" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition , 'no_change')"/>
       <bind nodeset="/household_member_follow_up/group_review/f_admitted" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition , 'admitted')"/>
       <bind nodeset="/household_member_follow_up/group_review/f_recommendation" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition , 'worsening') or selected( /household_member_follow_up/group_household_member_follow_up/condition ,'no_change')"/>
-      <bind nodeset="/household_member_follow_up/group_review/r_findings_followup" readonly="true()" type="string"/>
-      <bind nodeset="/household_member_follow_up/group_review/r_task" readonly="true()" type="string"/>
+      <bind nodeset="/household_member_follow_up/group_review/r_findings_followup" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition , 'worsening') or selected( /household_member_follow_up/group_household_member_follow_up/condition ,'no_change')"/>
+      <bind nodeset="/household_member_follow_up/group_review/r_task" readonly="true()" type="string" relevant="selected( /household_member_follow_up/group_household_member_follow_up/condition , 'worsening') or selected( /household_member_follow_up/group_household_member_follow_up/condition ,'no_change')"/>
       <bind nodeset="/household_member_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>

@@ -14,17 +14,7 @@ function ageInMonths(dateOfBirth) {
   return now.diff(dob, 'months').months;
 }
 
-// function getMostRecentReportForm(reports, form) {
-//   let result = null;
-//   reports.forEach(function(r) {
-//     if (form.indexOf(r.form) >= 0 &&
-//         !r.deleted &&
-//         (!result || r.reported_date > result.reported_date)) {
-//       result = r;
-//     }
-//   });
-//   return result;
-// }
+
 function getMostRecentReportForm(reports, form) {
   let result;
   reports.forEach(function (report) {
@@ -46,7 +36,13 @@ const isPregnancyTaskMuted = (contact) => {
   return latestVisit && isPregnancyTreatmentFollowUpForm(latestVisit) && getField(latestVisit, 'treatment_referral_follow_up_date') === '';
 };
 
-const isPregnancyBeforeDelivery = (report) => DateTime.now() < DateTime.fromISO(getField(report, 'group_pregnancy_registration_form.estimated_delivery_date'));
+const isPregnancyBeforeDelivery = (report) => {
+  DateTime.now() < DateTime.fromISO(getField(report, 'group_pregnancy_registration_form.estimated_delivery_date'));
+};
+
+const isPregnancyBeforeDeliveryFollowUp = (report) => {
+  DateTime.now() < DateTime.fromISO(getField(report, 'group_pregnancy_registration_followup_form.estimated_delivery_date'));
+};
 
 const isFollowUpForm = (reports) => {
   return isFirstReportNewer(getMostRecentReportForm(reports, FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS, getMostRecentReportForm(reports, FORMS.PREGNANCY_REGISTRATION)));
@@ -68,5 +64,6 @@ module.exports = {
   isPregnancyTaskMuted, 
   isPregnancyBeforeDelivery,
   isContactStillPregnant, 
-  isFollowUpForm
+  isFollowUpForm,
+  isPregnancyBeforeDeliveryFollowUp
 };

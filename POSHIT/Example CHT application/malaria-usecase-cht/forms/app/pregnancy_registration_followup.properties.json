@@ -3,6 +3,6 @@
     "context": {
       "place": false,
       "person": false,
-      "expression": "!contact.date_of_death && !summary.muted && ageInYears(contact) >= 12 && summary.is_active_pregnancy && ageInYears(contact) <= 49 && contact.sex === 'female'"
+      "expression": "!contact.date_of_death && !summary.muted && ageInYears(contact) >= 12 &&  ageInYears(contact) <= 49 && contact.sex === 'female'"
     }
   }

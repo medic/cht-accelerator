@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Children Under 5 Assessment Follow Up</h:title>
+    <h:title>U5 follow up</h:title>
     <model>
       <itext>
         <translation lang="en">
@@ -669,7 +669,7 @@
         </translation>
       </itext>
       <instance>
-        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-10-19 09:44:44">
+        <children_under_5_follow_up id="children_under_5_follow_up" prefix="J1!children_under_5_follow_up!" delimiter="#" version="2023-11-01 13:42:34">
           <inputs>
             <meta>
               <location>
@@ -809,8 +809,8 @@
       <bind nodeset="/children_under_5_follow_up/group_review/f_worsening" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_cured" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'cured')"/>
       <bind nodeset="/children_under_5_follow_up/group_review/f_recommendation" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
-      <bind nodeset="/children_under_5_follow_up/group_review/r_findings_followup" readonly="true()" type="string"/>
-      <bind nodeset="/children_under_5_follow_up/group_review/r_task" readonly="true()" type="string"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/r_findings_followup" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
+      <bind nodeset="/children_under_5_follow_up/group_review/r_task" readonly="true()" type="string" relevant="selected( /children_under_5_follow_up/children_under_5_follow_up/child_condition , 'worsening')"/>
       <bind nodeset="/children_under_5_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>

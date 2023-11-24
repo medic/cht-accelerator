@@ -210,6 +210,9 @@
     "mark_deceased_forms": [
       "death_report"
     ],
+    "undo_deceased_forms": [
+      "undo_death_report"
+    ],
     "date_field": "fields.patient_death_details.date_of_death"
   },
   "muting": {

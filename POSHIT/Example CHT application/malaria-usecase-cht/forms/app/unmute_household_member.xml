@@ -269,7 +269,7 @@
       <bind nodeset="/unmute_household_member/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
       <bind nodeset="/unmute_household_member/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/unmute_household_member/group_unmute_household_member/reason_for_unmuting" type="select1" required="true()"/>
-      <bind nodeset="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting" type="string" relevant="selected(../reason_for_unmuting, 'other')" required="true()"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting" type="string" required="true()" relevant="selected(../reason_for_unmuting, 'other')"/>
       <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>

@@ -15,7 +15,7 @@
             <value>Yes</value>
           </text>
           <text id="/household_assesment_follow_up/follow_up_details/contact_available:label">
-            <value>Is <output value=" /household_assesment_follow_up/place_name "/> available?</value>
+            <value>Is the household head available?</value>
           </text>
           <text id="/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg">
             <value>Date cannot be in the past</value>
@@ -495,7 +495,7 @@
         </translation>
       </itext>
       <instance>
-        <household_assesment_follow_up id="household_assesment_follow_up" prefix="J1!household_assesment_follow_up!" delimiter="#" version="2023-10-19 09:03:36">
+        <household_assesment_follow_up id="household_assesment_follow_up" prefix="J1!household_assesment_follow_up!" delimiter="#" version="2023-11-17 11:32:06">
           <inputs>
             <meta>
               <location>
@@ -578,7 +578,7 @@
       <bind nodeset="/household_assesment_follow_up/calculated_follow_up_date" type="string" calculate="if(../follow_up_details/follow_up_date != '', ../follow_up_details/follow_up_date,../household_assessment/amendment_date)"/>
       <bind nodeset="/household_assesment_follow_up/referral_follow_up_date" type="string" calculate=" /household_assesment_follow_up/calculated_follow_up_date "/>
       <bind nodeset="/household_assesment_follow_up/follow_up_details/contact_available" type="select1"/>
-      <bind nodeset="/household_assesment_follow_up/follow_up_details/follow_up_date" type="date" jr:constraintMsg="jr:itext('/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg')" required="true()" constraint="floor(decimal-date-time(.)) &gt; floor(decimal-date-time(today()))" relevant="selected( /household_assesment_follow_up/follow_up_details/contact_available , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/follow_up_details/follow_up_date" type="date" constraint="floor(decimal-date-time(.)) &gt; floor(decimal-date-time(today()))" jr:constraintMsg="jr:itext('/household_assesment_follow_up/follow_up_details/follow_up_date:jr:constraintMsg')" relevant="selected( /household_assesment_follow_up/follow_up_details/contact_available , 'no')" required="true()"/>
       <bind nodeset="/household_assesment_follow_up/household_assessment" relevant="selected( /household_assesment_follow_up/follow_up_details/contact_available , 'yes')"/>
       <bind nodeset="/household_assesment_follow_up/household_assessment/wire_mesh_on_inlets" type="select1" required="true()"/>
       <bind nodeset="/household_assesment_follow_up/household_assessment/recommend_wiremesh_inlets" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no')"/>
@@ -588,7 +588,7 @@
       <bind nodeset="/household_assesment_follow_up/household_assessment/proper_drainage" type="select1" required="true()"/>
       <bind nodeset="/household_assesment_follow_up/household_assessment/tall_grass" type="select1" required="true()"/>
       <bind nodeset="/household_assesment_follow_up/household_assessment/teach_on_tall_grass" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
-      <bind nodeset="/household_assesment_follow_up/household_assessment/amendment_date" type="date" required="true()" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
+      <bind nodeset="/household_assesment_follow_up/household_assessment/amendment_date" type="date" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')" required="true()"/>
       <bind nodeset="/household_assesment_follow_up/group_review/r_action" readonly="true()" type="string"/>
       <bind nodeset="/household_assesment_follow_up/group_review/r_summary" readonly="true()" type="string"/>
       <bind nodeset="/household_assesment_follow_up/group_review/r_hh_details" readonly="true()" type="string"/>
@@ -597,7 +597,7 @@
       <bind nodeset="/household_assesment_follow_up/group_review/r_not_prone" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'yes') and selected( /household_assesment_follow_up/household_assessment/nets_availability , 'yes') and selected( /household_assesment_follow_up/household_assessment/tall_grass , 'yes')"/>
       <bind nodeset="/household_assesment_follow_up/group_review/r_prone" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
       <bind nodeset="/household_assesment_follow_up/group_review/r_findings_followup" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
-      <bind nodeset="/household_assesment_follow_up/group_review/r_task" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/malaria_prone , 'true')"/>
+      <bind nodeset="/household_assesment_follow_up/group_review/r_task" readonly="true()" type="string" relevant="selected( /household_assesment_follow_up/household_assessment/wire_mesh_on_inlets , 'no') or selected( /household_assesment_follow_up/household_assessment/nets_availability , 'no') or selected( /household_assesment_follow_up/household_assessment/tall_grass , 'no')"/>
       <bind nodeset="/household_assesment_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>

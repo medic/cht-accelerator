@@ -29,13 +29,13 @@
           <text id="/unmute_household/group_unmute_household/other_reason_for_unmuting:label">
             <value>Specify other</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/all_members_came_back:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/All household members Came back:label">
             <value>All household members Came back</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/household_now_accepted_chv_services:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/Household has now accepted CHV services:label">
             <value>Household has now accepted CHV services</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/other:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/Other:label">
             <value>Other</value>
           </text>
           <text id="/unmute_household/group_unmute_household/reason_for_unmuting:label">
@@ -112,13 +112,13 @@
           <text id="/unmute_household/group_unmute_household/other_reason_for_unmuting:label">
             <value>-</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/all_members_came_back:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/All household members Came back:label">
             <value>Wanakaya wote Walirudi</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/household_now_accepted_chv_services:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/Household has now accepted CHV services:label">
             <value>Kaya sasa imekubali huduma za CHV</value>
           </text>
-          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/other:label">
+          <text id="/unmute_household/group_unmute_household/reason_for_unmuting/Other:label">
             <value>Nyingine</value>
           </text>
           <text id="/unmute_household/group_unmute_household/reason_for_unmuting:label">
@@ -154,7 +154,7 @@
         </translation>
       </itext>
       <instance>
-        <unmute_household id="unmute_household" prefix="J1!unmute_household!" delimiter="#" version="2023-06-27 13:21:54">
+        <unmute_household id="unmute_household" prefix="J1!unmute_household!" delimiter="#" version="2023-11-24 13:25:47">
           <inputs>
             <meta>
               <location>
@@ -246,16 +246,16 @@
       <select1 ref="/unmute_household/group_unmute_household/reason_for_unmuting">
         <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting:label')"/>
         <item>
-          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/all_members_came_back:label')"/>
-          <value>all_members_came_back</value>
+          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/All household members Came back:label')"/>
+          <value>All household members Came back</value>
         </item>
         <item>
-          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/household_now_accepted_chv_services:label')"/>
-          <value>household_now_accepted_chv_services</value>
+          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/Household has now accepted CHV services:label')"/>
+          <value>Household has now accepted CHV services</value>
         </item>
         <item>
-          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/other:label')"/>
-          <value>other</value>
+          <label ref="jr:itext('/unmute_household/group_unmute_household/reason_for_unmuting/Other:label')"/>
+          <value>Other</value>
         </item>
       </select1>
       <input ref="/unmute_household/group_unmute_household/other_reason_for_unmuting">
