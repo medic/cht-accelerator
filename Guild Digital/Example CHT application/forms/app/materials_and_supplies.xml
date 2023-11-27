@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Materials and Supplies</h:title>
+    <model>
+      <instance>
+        <materials_and_supplies id="materials_and_supplies" prefix="J1!materials_and_supplies!" delimiter="#" version="2022-10-01 15:55:49">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+              <contact>
+                <_id/>
+              </contact>
+            </contact>
+          </inputs>
+          <area_uuid/>
+          <area_name/>
+          <vht_uuid/>
+          <act_received/>
+          <act_type/>
+          <amoxicilline_received/>
+          <amoxicillin_type/>
+          <paracetamol_received/>
+          <sanitizer_received/>
+          <zinc_ors_received/>
+          <mrdts_received/>
+          <gloves_received/>
+          <masks_received/>
+          <mama_kit_received/>
+          <stock>
+            <note_1/>
+            <date_received/>
+            <reporting/>
+            <note_2/>
+            <items_repeat jr:template="">
+              <item/>
+              <unit/>
+              <act_type/>
+              <amoxicillin_type/>
+              <quantity/>
+              <note_4/>
+            </items_repeat>
+          </stock>
+          <summary>
+            <s_submit/>
+            <r_summary/>
+            <r_act/>
+            <r_act_quantity/>
+            <r_amoxicilline/>
+            <r_amoxicilline_quantity/>
+            <r_paracetamol/>
+            <r_paracetamol_quantity/>
+            <r_sanitizer/>
+            <r_sanitizer_quantity/>
+            <r_zinc_ors/>
+            <r_zinc_ors_quantity/>
+            <r_mrdts/>
+            <r_mrdts_quantity/>
+            <r_gloves/>
+            <r_gloves_quantity/>
+            <r_masks/>
+            <r_masks_quantity/>
+            <r_mama_kit/>
+            <r_mama_kit_quantity/>
+            <s_followup/>
+            <r_follow_up/>
+          </summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </materials_and_supplies>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/materials_and_supplies/inputs" relevant="./source='user'"/>
+      <bind nodeset="/materials_and_supplies/inputs/source" type="string"/>
+      <bind nodeset="/materials_and_supplies/inputs/source_id" type="string"/>
+      <bind nodeset="/materials_and_supplies/inputs/contact/_id" type="db:health_center" required="true()"/>
+      <bind nodeset="/materials_and_supplies/inputs/contact/name" type="string"/>
+      <bind nodeset="/materials_and_supplies/inputs/contact/contact/_id" type="string"/>
+      <bind nodeset="/materials_and_supplies/area_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/materials_and_supplies/area_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/materials_and_supplies/vht_uuid" type="string" calculate="../inputs/contact/contact/_id"/>
+      <bind nodeset="/materials_and_supplies/act_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'act']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/act_type" type="string" calculate="/materials_and_supplies/stock/items_repeat[item = 'act']/act_type"/>
+      <bind nodeset="/materials_and_supplies/amoxicilline_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'amoxicilline']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/amoxicillin_type" type="string" calculate="/materials_and_supplies/stock/items_repeat[item = 'amoxicilline']/amoxicillin_type"/>
+      <bind nodeset="/materials_and_supplies/paracetamol_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'paracetamol']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/sanitizer_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'sanitizer']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/zinc_ors_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'zinc_ors']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/mrdts_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'mrdts']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/gloves_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'gloves']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/masks_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'masks']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/mama_kit_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'mama_kit']/quantity, 0)"/>
+      <bind nodeset="/materials_and_supplies/stock/note_1" readonly="true()" type="string"/>
+      <bind nodeset="/materials_and_supplies/stock/date_received" type="date" required="true()" constraint=". &lt;= today()"/>
+      <bind nodeset="/materials_and_supplies/stock/reporting" type="select1" required="true()"/>
+      <bind nodeset="/materials_and_supplies/stock/note_2" readonly="true()" type="string" relevant=" /materials_and_supplies/stock/reporting  != ''"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat" relevant=" /materials_and_supplies/stock/reporting  != ''"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/item" type="select1" required="true()"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/unit" type="string" calculate="if(selected( /materials_and_supplies/stock/items_repeat/item , 'act'), 'blisters', if(selected( /materials_and_supplies/stock/items_repeat/item ,'zinc_ors'),'Co-pack', if(selected( /materials_and_supplies/stock/items_repeat/item ,'mrdts') or selected( /materials_and_supplies/stock/items_repeat/item , 'amoxicilline') or selected( /materials_and_supplies/stock/items_repeat/item , 'paracetamol'), 'strips', if(selected( /materials_and_supplies/stock/items_repeat/item , 'mama_kit'),'kits', if(selected( /materials_and_supplies/stock/items_repeat/item , 'condoms'),'boxes', 'pieces')))))"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/act_type" type="select1" required="true()" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'act'"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/amoxicillin_type" type="select1" required="true()" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'amoxicilline'"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/quantity" type="int" required="true()" constraint=". &gt; 0" relevant=" /materials_and_supplies/stock/items_repeat/item  != ''"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/note_4" readonly="true()" type="string" relevant=" /materials_and_supplies/stock/items_repeat/quantity  != ''"/>
+      <bind nodeset="/materials_and_supplies/summary/s_submit" readonly="true()" type="string"/>
+      <bind nodeset="/materials_and_supplies/summary/r_summary" readonly="true()" type="string"/>
+      <bind nodeset="/materials_and_supplies/summary/r_act" readonly="true()" type="string" relevant="int( /materials_and_supplies/act_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_act_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/act_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_amoxicilline" readonly="true()" type="string" relevant="int( /materials_and_supplies/amoxicilline_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_amoxicilline_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/amoxicilline_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_paracetamol" readonly="true()" type="string" relevant="int( /materials_and_supplies/paracetamol_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_paracetamol_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/paracetamol_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_sanitizer" readonly="true()" type="string" relevant="int( /materials_and_supplies/sanitizer_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_sanitizer_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/sanitizer_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_zinc_ors" readonly="true()" type="string" relevant="int( /materials_and_supplies/zinc_ors_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_zinc_ors_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/zinc_ors_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_mrdts" readonly="true()" type="string" relevant="int( /materials_and_supplies/mrdts_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_mrdts_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/mrdts_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_gloves" readonly="true()" type="string" relevant="int( /materials_and_supplies/gloves_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_gloves_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/gloves_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_masks" readonly="true()" type="string" relevant="int( /materials_and_supplies/masks_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_masks_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/masks_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_mama_kit" readonly="true()" type="string" relevant="int( /materials_and_supplies/mama_kit_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/r_mama_kit_quantity" readonly="true()" type="string" relevant="int( /materials_and_supplies/mama_kit_received ) &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/summary/s_followup" readonly="true()" type="string"/>
+      <bind nodeset="/materials_and_supplies/summary/r_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/materials_and_supplies/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/materials_and_supplies/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/materials_and_supplies/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/materials_and_supplies/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/materials_and_supplies/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/materials_and_supplies/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/materials_and_supplies/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <group appearance="hidden" ref="/materials_and_supplies/inputs/contact/contact">
+          <label></label>
+          <input ref="/materials_and_supplies/inputs/contact/contact/_id">
+            <label></label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/materials_and_supplies/stock">
+      <label>Materials &amp; Supplies</label>
+      <input ref="/materials_and_supplies/stock/note_1">
+        <label>Use this form to report on quantity available at the start of each month.</label>
+      </input>
+      <input ref="/materials_and_supplies/stock/date_received">
+        <label>Date</label>
+      </input>
+      <select1 ref="/materials_and_supplies/stock/reporting">
+        <label>What would you like to report</label>
+        <item>
+          <label>Quantity Available This Month</label>
+          <value>available_this_month</value>
+        </item>
+      </select1>
+      <input ref="/materials_and_supplies/stock/note_2">
+        <label>Use the button below to add items</label>
+      </input>
+      <group ref="/materials_and_supplies/stock/items_repeat">
+        <label></label>
+        <repeat nodeset="/materials_and_supplies/stock/items_repeat" appearance="field-list">
+          <select1 appearance="horizontal" ref="/materials_and_supplies/stock/items_repeat/item">
+            <label>Select the item you would like to report</label>
+            <item>
+              <label>First Line Anti-Malarial (ACT/Coartem)</label>
+              <value>act</value>
+            </item>
+            <item>
+              <label>Amoxicillin Dispersible</label>
+              <value>amoxicilline</value>
+            </item>
+            <item>
+              <label>Paracetamol</label>
+              <value>paracetamol</value>
+            </item>
+            <item>
+              <label>Sanitizer</label>
+              <value>sanitizer</value>
+            </item>
+            <item>
+              <label>Zinc-ORS Co-pack</label>
+              <value>zinc_ors</value>
+            </item>
+            <item>
+              <label>Malaria RDTs</label>
+              <value>mrdts</value>
+            </item>
+            <item>
+              <label>Gloves</label>
+              <value>gloves</value>
+            </item>
+            <item>
+              <label>Masks</label>
+              <value>masks</value>
+            </item>
+            <item>
+              <label>Mama kit</label>
+              <value>mama_kit</value>
+            </item>
+            <item>
+              <label>Condoms</label>
+              <value>condoms</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/materials_and_supplies/stock/items_repeat/act_type">
+            <label>Select ACT type received</label>
+            <item>
+              <label>ACT 6</label>
+              <value>act_6</value>
+            </item>
+            <item>
+              <label>ACT 12</label>
+              <value>act_12</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/materials_and_supplies/stock/items_repeat/amoxicillin_type">
+            <label>Select Amoxicillin type received</label>
+            <item>
+              <label>10 capsules strip</label>
+              <value>strip_10</value>
+            </item>
+            <item>
+              <label>6 capsules strip</label>
+              <value>strip_6</value>
+            </item>
+          </select1>
+          <input ref="/materials_and_supplies/stock/items_repeat/quantity">
+            <label>Quantity of <output value=" /materials_and_supplies/stock/items_repeat/item "/> received</label>
+            <hint>Dispensing unit for <output value=" /materials_and_supplies/stock/items_repeat/item "/> is <output value=" /materials_and_supplies/stock/items_repeat/unit "/></hint></input>
+          <input ref="/materials_and_supplies/stock/items_repeat/note_4">
+            <label>Use the button below to add more items</label>
+          </input>
+        </repeat>
+      </group>
+    </group>
+    <group appearance="field-list summary" ref="/materials_and_supplies/summary">
+      <label>Results/Summary page</label>
+      <input ref="/materials_and_supplies/summary/s_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/materials_and_supplies/summary/r_summary">
+        <label>Item Details</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_act">
+        <label>&lt;h5 style="text-align:center;"&gt; **First Line Anti-Malarial (ACT/Coartem)** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_act_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/act_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_amoxicilline">
+        <label>&lt;h5 style="text-align:center;"&gt; **Amoxicilline Dispersible** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_amoxicilline_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/amoxicilline_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_paracetamol">
+        <label>&lt;h5 style="text-align:center;"&gt; **Paracetamol** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_paracetamol_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/paracetamol_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_sanitizer">
+        <label>&lt;h5 style="text-align:center;"&gt; **Sanitizer** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_sanitizer_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/sanitizer_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_zinc_ors">
+        <label>&lt;h5 style="text-align:center;"&gt; **Zinc-ORS Co-pack** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_zinc_ors_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/zinc_ors_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_mrdts">
+        <label>&lt;h5 style="text-align:center;"&gt; **Malaria RDTs** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_mrdts_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/mrdts_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_gloves">
+        <label>&lt;h5 style="text-align:center;"&gt; **Gloves** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_gloves_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/gloves_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_masks">
+        <label>&lt;h5 style="text-align:center;"&gt; **Masks** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_masks_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/masks_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_mama_kit">
+        <label>&lt;h5 style="text-align:center;"&gt; **Mama kit** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/materials_and_supplies/summary/r_mama_kit_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity received: <output value=" /materials_and_supplies/mama_kit_received "/> &lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/materials_and_supplies/summary/s_followup">
+        <label>Follow Up</label>
+      </input>
+      <input appearance="li" ref="/materials_and_supplies/summary/r_follow_up">
+        <label>If you have stockouts, follow up with your supervisor to know when to go for a refill</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

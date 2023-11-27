@@ -1,0 +1,8 @@
+{
+    "context": {
+      "person": false,
+      "place": true,
+      "expression": "contact.type === 'health_center' && user.role === 'vht_supervisor'"
+    }
+  }
+  

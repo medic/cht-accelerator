@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>ANC Referral Follow Up</h:title>
+    <model>
+      <instance>
+        <anc_referral_follow_up id="anc_referral_follow_up" prefix="J1!anc_referral_follow_up!" delimiter="#" version="2022-08-10 08:08:47">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <task_name/>
+            <anc_appointment_date/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_name_with_s/>
+          <patient_gender/>
+          <group_anc_defaulter>
+            <went_to_hospital/>
+          </group_anc_defaulter>
+          <group_missed_referral_details>
+            <missed_referral_reason/>
+            <missed_referral_reason_other/>
+            <actions_taken/>
+          </group_missed_referral_details>
+          <group_reminder>
+            <note_reminder_to_attend_anc/>
+          </group_reminder>
+          <group_referral_details>
+            <went_to_hospital/>
+            <pregnancy_test_outcome/>
+            <note_enroll_into_care/>
+            <note_fp_counsel/>
+            <reason_not_attended_referral/>
+            <reason_not_attended_referral_other/>
+            <note_counsel_on_early_anc_importance/>
+            <agreed_to_go_to_facility/>
+            <facility_visit_date/>
+          </group_referral_details>
+          <group_summary>
+            <s_note_anc_referral_follow_up/>
+            <s_summary_submit/>
+            <s_note_person_details/>
+            <s_note_person_details_values/>
+            <s_note_findings/>
+            <s_note_findings_value/>
+            <s_note_follow_up/>
+            <s_note_follow_up_value/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </anc_referral_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/anc_referral_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/task_name" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/anc_appointment_date" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/_id" type="db:person" constraint=" /anc_referral_follow_up/is_of_child_bearing_age  = 'true'" jr:constraintMsg="Patient must be a female of child bearing age" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/anc_referral_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /anc_referral_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/anc_referral_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /anc_referral_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/anc_referral_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /anc_referral_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/anc_referral_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /anc_referral_follow_up/patient_age_in_years , if( /anc_referral_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /anc_referral_follow_up/patient_age_in_months  mod 12, if(( /anc_referral_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/anc_referral_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/anc_referral_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/anc_referral_follow_up/patient_name_with_s" type="string" calculate="concat( /anc_referral_follow_up/patient_name , if(regex( /anc_referral_follow_up/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/anc_referral_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/anc_referral_follow_up/group_anc_defaulter" relevant=" /anc_referral_follow_up/inputs/task_name  = 'anc_defaulter_follow_up'"/>
+      <bind nodeset="/anc_referral_follow_up/group_anc_defaulter/went_to_hospital" type="select1" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_missed_referral_details" relevant="../group_anc_defaulter/went_to_hospital = 'no'"/>
+      <bind nodeset="/anc_referral_follow_up/group_missed_referral_details/missed_referral_reason" type="select"/>
+      <bind nodeset="/anc_referral_follow_up/group_missed_referral_details/missed_referral_reason_other" type="string" relevant="selected( /anc_referral_follow_up/group_missed_referral_details/missed_referral_reason , 'other')"/>
+      <bind nodeset="/anc_referral_follow_up/group_missed_referral_details/actions_taken" type="select"/>
+      <bind nodeset="/anc_referral_follow_up/group_reminder" relevant=" /anc_referral_follow_up/inputs/task_name  = 'health_facility_anc_reminder'"/>
+      <bind nodeset="/anc_referral_follow_up/group_reminder/note_reminder_to_attend_anc" readonly="true()" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details" relevant=" /anc_referral_follow_up/inputs/task_name  = 'anc_referral_follow_up'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/went_to_hospital" type="select1" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/pregnancy_test_outcome" type="select1" relevant="../went_to_hospital = 'yes'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/note_enroll_into_care" readonly="true()" type="string" relevant="../pregnancy_test_outcome = 'positive'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/note_fp_counsel" readonly="true()" type="string" relevant="../pregnancy_test_outcome = 'negative'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral" type="select1" relevant="../went_to_hospital = 'no'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral_other" type="string" relevant="../reason_not_attended_referral = 'other'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/note_counsel_on_early_anc_importance" readonly="true()" type="string" relevant="../went_to_hospital = 'no'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility" type="select1" relevant="../went_to_hospital = 'no'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/facility_visit_date" type="date" relevant="../agreed_to_go_to_facility = 'yes'" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;)" jr:constraintMsg="Date can not be in the past" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary" relevant=" /anc_referral_follow_up/inputs/task_name  = 'anc_referral_follow_up'"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_anc_referral_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_person_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_findings" readonly="true()" type="string" relevant=" /anc_referral_follow_up/group_referral_details/pregnancy_test_outcome  = 'negative'"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_findings_value" readonly="true()" type="string" relevant=" /anc_referral_follow_up/group_referral_details/pregnancy_test_outcome  = 'negative'"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_follow_up" readonly="true()" type="string" relevant=" /anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility  = 'yes'"/>
+      <bind nodeset="/anc_referral_follow_up/group_summary/s_note_follow_up_value" readonly="true()" type="string" relevant=" /anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility  = 'yes'"/>
+      <bind nodeset="/anc_referral_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/anc_referral_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/anc_referral_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/anc_referral_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/anc_referral_follow_up/inputs/task_name">
+        <label>Task name</label>
+      </input>
+      <input appearance="hidden" ref="/anc_referral_follow_up/inputs/anc_appointment_date">
+        <label>ANC Appointment Date</label>
+      </input>
+      <group ref="/anc_referral_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/anc_referral_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/anc_referral_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/anc_referral_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/anc_referral_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/anc_referral_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/anc_referral_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/anc_referral_follow_up/group_anc_defaulter">
+      <label>ANC defaulter referral follow up</label>
+      <select1 ref="/anc_referral_follow_up/group_anc_defaulter/went_to_hospital">
+        <label>Did <output value=" /anc_referral_follow_up/patient_name "/> go to the health facility as referred?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group ref="/anc_referral_follow_up/group_missed_referral_details">
+      <label>Missed referral details</label>
+      <select ref="/anc_referral_follow_up/group_missed_referral_details/missed_referral_reason">
+        <label>Why did <output value=" /anc_referral_follow_up/patient_name "/> not go to the health facility as referred?</label>
+        <item>
+          <label>Lack of transport fee</label>
+          <value>lacked_transport</value>
+        </item>
+        <item>
+          <label>Does not consider it important</label>
+          <value>not_important</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select>
+      <input ref="/anc_referral_follow_up/group_missed_referral_details/missed_referral_reason_other">
+        <label>Specifiy Other</label>
+      </input>
+      <select ref="/anc_referral_follow_up/group_missed_referral_details/actions_taken">
+        <label>Select all the actions that you have taken to help {{person_name}}.</label>
+        <item>
+          <label>Referred to the health facility</label>
+          <value>referred</value>
+        </item>
+        <item>
+          <label>Provided key health messages</label>
+          <value>provided_key_messages</value>
+        </item>
+      </select>
+    </group>
+    <group ref="/anc_referral_follow_up/group_reminder">
+      <label>Reminder of Upcoming Health Facility Visit</label>
+      <input ref="/anc_referral_follow_up/group_reminder/note_reminder_to_attend_anc">
+        <label>Please remind the client to attend their ANC visit on <output value=" /anc_referral_follow_up/inputs/anc_appointment_date "/></label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_referral_follow_up/group_referral_details">
+      <label>Referral details</label>
+      <select1 ref="/anc_referral_follow_up/group_referral_details/went_to_hospital">
+        <label>Did <output value=" /anc_referral_follow_up/patient_name "/> go to the health facility as referred?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_referral_follow_up/group_referral_details/pregnancy_test_outcome">
+        <label>What was the outcome of the pregnancy test?</label>
+        <item>
+          <label>Positive</label>
+          <value>positive</value>
+        </item>
+        <item>
+          <label>Negative</label>
+          <value>negative</value>
+        </item>
+      </select1>
+      <input ref="/anc_referral_follow_up/group_referral_details/note_enroll_into_care">
+        <label>Please enroll the woman into care using the pregancy registration form</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_referral_details/note_fp_counsel">
+        <label>Counsel the woman on importance of family planning and refer woman to the health facility if she wants to start family planning</label>
+      </input>
+      <select1 ref="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral">
+        <label>What are the reasons of not attending the referral?</label>
+        <item>
+          <label>The pregnancy is too young to start clinic</label>
+          <value>pregnancy_too_young</value>
+        </item>
+        <item>
+          <label>Lack of transport</label>
+          <value>lacked_transport</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral_other">
+        <label>Specify, other</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_referral_details/note_counsel_on_early_anc_importance">
+        <label>Counsel the woman on importance of early initiation of ANC clinic</label>
+      </input>
+      <select1 ref="/anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility">
+        <label>Has the woman agreed to go to the health facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_referral_follow_up/group_referral_details/facility_visit_date">
+        <label>Please indicate the date <output value=" /anc_referral_follow_up/patient_name "/> has agreed to go to the health facility</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/anc_referral_follow_up/group_summary">
+      <label>Summary Page</label>
+      <input appearance="h1 red" ref="/anc_referral_follow_up/group_summary/s_note_anc_referral_follow_up">
+        <label>ANC Referral Follow-Up</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_summary/s_summary_submit">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/anc_referral_follow_up/group_summary/s_note_person_details">
+        <label>Person Details</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_summary/s_note_person_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /anc_referral_follow_up/patient_name "/>
+<output value=" /anc_referral_follow_up/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/anc_referral_follow_up/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_summary/s_note_findings_value">
+        <label>&lt;p style="text-align:center;"&gt;
+Pregnancy Test: Negative
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/anc_referral_follow_up/group_summary/s_note_follow_up">
+        <label>Follow Up</label>
+      </input>
+      <input ref="/anc_referral_follow_up/group_summary/s_note_follow_up_value">
+        <label>&lt;p style="text-align:center;"&gt;
+The following tasks will appear:
+Please conduct an ANC referral follow-up in 3 days
+&lt;/p&gt;</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

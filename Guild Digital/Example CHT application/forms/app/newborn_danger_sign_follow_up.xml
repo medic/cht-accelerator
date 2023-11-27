@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Newborn danger sign follow up</h:title>
+    <model>
+      <instance>
+        <newborn_danger_sign_follow_up id="newborn_danger_sign_follow_up" prefix="J1!newborn_danger_sign_follow_up!" delimiter="#" version="2021-09-12 19:15:39">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <group_danger_sign_follow_up>
+            <taken_to_health_facility/>
+            <still_experiencing_danger_signs/>
+            <note_great_news/>
+            <note_still_experiencing_danger_signs/>
+            <breathing_difficulty/>
+            <not_breastfeeding_Well/>
+            <feels_hot_or_cold/>
+            <less_active/>
+            <yellow_body/>
+            <has_danger_signs/>
+          </group_danger_sign_follow_up>
+          <group_summary>
+            <s_note_danger_sign/>
+            <s_summary_submit/>
+            <s_note_person_details/>
+            <s_note_person_details_values/>
+            <s_note_referrals/>
+            <s_note_refer_for_review/>
+            <s_note_danger_signs/>
+            <s_note_breathing_difficulty/>
+            <s_note_not_breastfeeding_Well/>
+            <s_note_feels_hot_or_cold/>
+            <s_note_less_active/>
+            <s_note_yellow_body/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </newborn_danger_sign_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /newborn_danger_sign_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /newborn_danger_sign_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /newborn_danger_sign_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /newborn_danger_sign_follow_up/patient_age_in_years , if( /newborn_danger_sign_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /newborn_danger_sign_follow_up/patient_age_in_months  mod 12, if(( /newborn_danger_sign_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/taken_to_health_facility" type="select1" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs" type="select1" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/note_great_news" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'no'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/note_still_experiencing_danger_signs" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/breathing_difficulty" type="select1" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/not_breastfeeding_Well" type="select1" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/feels_hot_or_cold" type="select1" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/less_active" type="select1" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/yellow_body" type="select1" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/has_danger_signs" type="string" calculate="if(( /newborn_danger_sign_follow_up/group_danger_sign_follow_up/breathing_difficulty  = 'yes' or  /newborn_danger_sign_follow_up/group_danger_sign_follow_up/not_breastfeeding_Well  = 'yes' or  /newborn_danger_sign_follow_up/group_danger_sign_follow_up/feels_hot_or_cold  = 'yes' or  /newborn_danger_sign_follow_up/group_danger_sign_follow_up/less_active  = 'yes' or  /newborn_danger_sign_follow_up/group_danger_sign_follow_up/yellow_body  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_danger_sign" readonly="true()" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_person_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_referrals" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_refer_for_review" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_danger_signs" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_breathing_difficulty" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/breathing_difficulty  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_not_breastfeeding_Well" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/not_breastfeeding_Well  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_feels_hot_or_cold" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/feels_hot_or_cold  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_less_active" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/less_active  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/group_summary/s_note_yellow_body" readonly="true()" type="string" relevant=" /newborn_danger_sign_follow_up/group_danger_sign_follow_up/yellow_body  = 'yes'"/>
+      <bind nodeset="/newborn_danger_sign_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/newborn_danger_sign_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/newborn_danger_sign_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/newborn_danger_sign_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/newborn_danger_sign_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/newborn_danger_sign_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/newborn_danger_sign_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/newborn_danger_sign_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/newborn_danger_sign_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/newborn_danger_sign_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/newborn_danger_sign_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up">
+      <label>Danger Sign Follow-up</label>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/taken_to_health_facility">
+        <label>Was <output value=" /newborn_danger_sign_follow_up/patient_name "/> taken to the health facility as recommended?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/still_experiencing_danger_signs">
+        <label>Is <output value=" /newborn_danger_sign_follow_up/patient_name "/> still experiencing any danger signs?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/note_great_news">
+        <label>Great news!</label>
+      </input>
+      <input ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/note_still_experiencing_danger_signs">
+        <label>The caregiver should take the child to the health facility immediately if the baby is experiencing any of these danger signs. 
+Please advise her to do so and accompany her if possible. 
+Please indicate which danger signs <output value=" /newborn_danger_sign_follow_up/patient_name "/> is experiencing.</label>
+      </input>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/breathing_difficulty">
+        <label>Has difficult or fast breathing</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/not_breastfeeding_Well">
+        <label>Is not breastfeeding well</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/feels_hot_or_cold">
+        <label>Feels hot or unusually cold</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/less_active">
+        <label>Has become less active</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/newborn_danger_sign_follow_up/group_danger_sign_follow_up/yellow_body">
+        <label>Whole body has become yellow</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/newborn_danger_sign_follow_up/group_summary">
+      <label>Summary Page</label>
+      <input appearance="h1 red" ref="/newborn_danger_sign_follow_up/group_summary/s_note_danger_sign">
+        <label>Newborn Danger Sign Follow-up</label>
+      </input>
+      <input ref="/newborn_danger_sign_follow_up/group_summary/s_summary_submit">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/newborn_danger_sign_follow_up/group_summary/s_note_person_details">
+        <label>Person Details</label>
+      </input>
+      <input ref="/newborn_danger_sign_follow_up/group_summary/s_note_person_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /newborn_danger_sign_follow_up/patient_name "/>
+<output value=" /newborn_danger_sign_follow_up/patient_age_display "/>
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/newborn_danger_sign_follow_up/group_summary/s_note_referrals">
+        <label>Referrals</label>
+      </input>
+      <input ref="/newborn_danger_sign_follow_up/group_summary/s_note_refer_for_review">
+        <label>Refer to clinic for review</label>
+      </input>
+      <input ref="/newborn_danger_sign_follow_up/group_summary/s_note_danger_signs">
+        <label>Danger Signs:</label>
+      </input>
+      <input appearance="li" ref="/newborn_danger_sign_follow_up/group_summary/s_note_breathing_difficulty">
+        <label>Has difficult or fast breathing</label>
+      </input>
+      <input appearance="li" ref="/newborn_danger_sign_follow_up/group_summary/s_note_not_breastfeeding_Well">
+        <label>Is not breastfeeding well</label>
+      </input>
+      <input appearance="li" ref="/newborn_danger_sign_follow_up/group_summary/s_note_feels_hot_or_cold">
+        <label>Feels hot or unusually cold</label>
+      </input>
+      <input appearance="li" ref="/newborn_danger_sign_follow_up/group_summary/s_note_less_active">
+        <label>Has become less active</label>
+      </input>
+      <input appearance="li" ref="/newborn_danger_sign_follow_up/group_summary/s_note_yellow_body">
+        <label>Whole body has become yellow</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

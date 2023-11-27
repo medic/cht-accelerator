@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Maternal Nutrition</h:title>
+    <model>
+      <instance>
+        <maternal_nutrition_follow_up id="maternal_nutrition_follow_up" prefix="J1!maternal_nutrition_follow_up!" delimiter="#" version="2022-03-19 19:40:07">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <is_referral_follow_up>no</is_referral_follow_up>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <findings_value/>
+          <findings_referral_follow_up_value/>
+          <group_label/>
+          <group_malnutrition_follow_up>
+            <went_to_facility/>
+            <note_nutritional_assessment_importance/>
+            <nutrition_status/>
+            <referred_to_health_facility/>
+            <agreed_facility_visit_date/>
+            <follow_up_outcome/>
+            <next_clinic_visit_date/>
+          </group_malnutrition_follow_up>
+          <group_summary>
+            <s_summary_submit/>
+            <s_note_woman_details/>
+            <s_note_woman_details_values/>
+            <s_note_findings/>
+            <s_note_findings_value/>
+            <s_note_findings_referral_follow_up_value/>
+            <s_note_follow_up_tasks/>
+            <s_note_screen_during_next_visit/>
+            <s_note_screen_during_next_house_hold_visit/>
+            <s_note_follow_up_task_appear_agreed_date/>
+            <s_note_follow_up_task_appear_in_3days/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </maternal_nutrition_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/is_referral_follow_up" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /maternal_nutrition_follow_up/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /maternal_nutrition_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /maternal_nutrition_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /maternal_nutrition_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /maternal_nutrition_follow_up/patient_age_in_years , if( /maternal_nutrition_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /maternal_nutrition_follow_up/patient_age_in_months  mod 12, if(( /maternal_nutrition_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/maternal_nutrition_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/maternal_nutrition_follow_up/findings_value" type="string" calculate="if ( /maternal_nutrition_follow_up/group_malnutrition_follow_up/went_to_facility  = 'no','did not attend facility visit',
+	if ( /maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome  = 'on_follow_up', 'is still on follow up', 'is discharged'))"/>
+      <bind nodeset="/maternal_nutrition_follow_up/findings_referral_follow_up_value" type="string" calculate="if ( /maternal_nutrition_follow_up/group_malnutrition_follow_up/went_to_facility  = 'no','did not attend referral',
+	if ( /maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status  = 'malnourished', 'is malnourished', 'is healthy'))"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_label" type="string" calculate="if( /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'yes','Referral Follow Up', 'Follow Up')"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/went_to_facility" type="select1" required="true()"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/note_nutritional_assessment_importance" readonly="true()" type="string" relevant="../went_to_facility = 'no'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'yes' and ../went_to_facility = 'yes'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/referred_to_health_facility" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../went_to_facility = 'no'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/agreed_facility_visit_date" type="date" jr:constraintMsg="Date can not be in the past and not more than 7 days from today" required="true()" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;) and (decimal-date-time(.) - 7) &lt;= decimal-date-time(today())" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../referred_to_health_facility = 'yes'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../went_to_facility = 'yes'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/next_clinic_visit_date" type="date" required="true()" relevant="../follow_up_outcome = 'on_follow_up' or ../nutrition_status = 'malnourished'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_woman_details" readonly="true()" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_woman_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_findings" readonly="true()" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_findings_value" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_findings_referral_follow_up_value" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'yes'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_tasks" readonly="true()" type="string"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_screen_during_next_visit" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome  = 'discharged'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_screen_during_next_house_hold_visit" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status  = 'healthy'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_task_appear_agreed_date" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome  = 'on_follow_up' or  /maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status  = 'malnourished'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_task_appear_in_3days" readonly="true()" type="string" relevant=" /maternal_nutrition_follow_up/group_malnutrition_follow_up/went_to_facility  = 'no'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/maternal_nutrition_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/is_referral_follow_up">
+        <label>Is Referral Follow up</label>
+      </input>
+      <group ref="/maternal_nutrition_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/maternal_nutrition_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/maternal_nutrition_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/maternal_nutrition_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/maternal_nutrition_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up">
+      <label>Maternal Nutrition <output value=" /maternal_nutrition_follow_up/group_label "/></label>
+      <select1 ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/went_to_facility">
+        <label>Did <output value=" /maternal_nutrition_follow_up/patient_name "/> go to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/note_nutritional_assessment_importance">
+        <label>Remind the woman of the importance of receiving nutritional assessment and treatment at the health facility and encourage her to go the health facility</label>
+      </input>
+      <select1 ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status">
+        <label>What is the nutritional status of the woman?</label>
+        <item>
+          <label>Healthy</label>
+          <value>healthy</value>
+        </item>
+        <item>
+          <label>Malnourished</label>
+          <value>malnourished</value>
+        </item>
+      </select1>
+      <select1 ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/referred_to_health_facility">
+        <label>Have you referred <output value=" /maternal_nutrition_follow_up/patient_name "/> to the health facility for their clinic visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/agreed_facility_visit_date">
+        <label>Select the date the woman has agreed to go to the health facility</label>
+      </input>
+      <select1 ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome">
+        <label>What was the outcome of the follow up visit?</label>
+        <item>
+          <label>Woman discharged</label>
+          <value>discharged</value>
+        </item>
+        <item>
+          <label>Woman on follow up</label>
+          <value>on_follow_up</value>
+        </item>
+      </select1>
+      <input ref="/maternal_nutrition_follow_up/group_malnutrition_follow_up/next_clinic_visit_date">
+        <label>Date for the next nutrition clinic visit</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/maternal_nutrition_follow_up/group_summary">
+      <label>Maternal Nutrition <output value=" /maternal_nutrition_follow_up/group_label "/> Summary Page</label>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_summary_submit">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/maternal_nutrition_follow_up/group_summary/s_note_woman_details">
+        <label>Woman's Details</label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_woman_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /maternal_nutrition_follow_up/patient_name "/>
+<output value=" /maternal_nutrition_follow_up/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/maternal_nutrition_follow_up/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_findings_value">
+        <label><output value=" /maternal_nutrition_follow_up/patient_name "/> <output value=" /maternal_nutrition_follow_up/findings_value "/></label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_findings_referral_follow_up_value">
+        <label><output value=" /maternal_nutrition_follow_up/patient_name "/> <output value=" /maternal_nutrition_follow_up/findings_referral_follow_up_value "/></label>
+      </input>
+      <input appearance="h1 green" ref="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_tasks">
+        <label>Follow Up Tasks</label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_screen_during_next_visit">
+        <label>Remember to screen the woman during the next visit</label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_screen_during_next_house_hold_visit">
+        <label>Remember to screen the woman during the next household visit</label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_task_appear_agreed_date">
+        <label>Follow up task will appear on <output value=" /maternal_nutrition_follow_up/group_malnutrition_follow_up/next_clinic_visit_date "/></label>
+      </input>
+      <input ref="/maternal_nutrition_follow_up/group_summary/s_note_follow_up_task_appear_in_3days">
+        <label>Follow Up Tasks will appear in 3 days</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

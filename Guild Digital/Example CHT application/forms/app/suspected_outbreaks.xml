@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Suspected Outbreaks Form</h:title>
+    <model>
+      <instance>
+        <suspected_outbreaks id="suspected_outbreaks" prefix="J1!suspected_outbreaks!" delimiter="#" version="2023-09-19  21-26">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <outbreaks>
+            <outbreak_count/>
+            <reported_outbreak/>
+            <outbreak_frequency/>
+            <affected_area/>
+            <affected_people_count/>
+          </outbreaks>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </suspected_outbreaks>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/suspected_outbreaks/inputs" relevant="./source='user'"/>
+      <bind nodeset="/suspected_outbreaks/inputs/source" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/source_id" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/name" type="string"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_count" type="select1" required="true()"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/reported_outbreak" type="select" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_frequency" type="select1" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/affected_area" type="string" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/affected_people_count" type="select1" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
+      <bind nodeset="/suspected_outbreaks/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/suspected_outbreaks/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/suspected_outbreaks/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/suspected_outbreaks/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/suspected_outbreaks/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/suspected_outbreaks/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/suspected_outbreaks/outbreaks">
+      <label>OUTBREAKS</label>
+      <select1 ref="/suspected_outbreaks/outbreaks/outbreak_count">
+        <label>How many outbreaks have you reported?</label>
+        <item>
+          <label>0</label>
+          <value>0</value>
+        </item>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <select ref="/suspected_outbreaks/outbreaks/reported_outbreak">
+        <label>What was the reported outbreak?</label>
+        <item>
+          <label>Infectious Disease (e.g., measles, flu, cough)</label>
+          <value>infectious_disease</value>
+        </item>
+        <item>
+          <label>Waterborne Diseases (diarrhea, cholera)</label>
+          <value>waterborne_diseases</value>
+        </item>
+        <item>
+          <label>Vaccine-preventable Diseases (whooping cough, measles)</label>
+          <value>vaccine_preventable_diseases</value>
+        </item>
+        <item>
+          <label>Respiratory Diseases (TB, Covid 19, flu, cough)</label>
+          <value>respiratory_diseases</value>
+        </item>
+      </select>
+      <select1 ref="/suspected_outbreaks/outbreaks/outbreak_frequency">
+        <label>How frequently, on a weekly basis, was the mentioned outbreak reported?</label>
+        <item>
+          <label>Once</label>
+          <value>once</value>
+        </item>
+        <item>
+          <label>Twice</label>
+          <value>twice</value>
+        </item>
+        <item>
+          <label>Thrice</label>
+          <value>thrice</value>
+        </item>
+        <item>
+          <label>More</label>
+          <value>more</value>
+        </item>
+      </select1>
+      <input ref="/suspected_outbreaks/outbreaks/affected_area">
+        <label>What area was affected?</label>
+      </input>
+      <select1 ref="/suspected_outbreaks/outbreaks/affected_people_count">
+        <label>How many people are estimated to have been/are affected?</label>
+        <item>
+          <label>10–20</label>
+          <value>2023-10-20 00:00:00</value>
+        </item>
+        <item>
+          <label>30-40</label>
+          <value>30-40</value>
+        </item>
+        <item>
+          <label>50-60</label>
+          <value>50-60</value>
+        </item>
+        <item>
+          <label>70-80</label>
+          <value>70-80</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

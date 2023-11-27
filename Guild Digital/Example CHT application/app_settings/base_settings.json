@@ -1,0 +1,426 @@
+{
+  "permissions": {
+    "can_export_messages": [
+      "guild_developer"
+    ],
+    "can_export_forms": [
+      "vht_supervisor",
+      "vht",
+      "guild_developer"
+    ],
+    "can_export_contacts": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_export_audit": [
+      "guild_developer"
+    ],
+    "can_export_feedback": [
+      "guild_developer"
+    ],
+    "can_export_server_logs": [
+      "guild_developer"
+    ],
+    "can_access_directly": [
+      "guild_developer"
+    ],
+    "can_view_analytics": [
+      "vht_supervisor",
+      "vht",
+      "public_health_officer"
+    ],
+    "can_view_data_records": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_view_unallocated_data_records": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_edit": [
+      "vht_supervisor",
+      "vht",
+      "guild_developer"
+    ],
+    "can_update_messages": [
+      "guild_developer"
+    ],
+    "can_create_records": [
+      "vht_supervisor",
+      "vht",
+      "guild_developer"
+    ],
+    "can_view_tasks_tab": [
+      "vht_supervisor",
+      "vht",
+      "public_health_officer"
+    ],
+    "can_configure": [
+      "guild_developer"
+    ],
+    "can_view_reports_tab": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_view_analytics_tab": [
+      "vht_supervisor",
+      "vht",
+      "public_health_officer"
+    ],
+    "can_view_contacts_tab": [
+      "vht_supervisor",
+      "vht",
+      "public_health_officer"
+    ],
+    "can_logout": [
+      "vht_supervisor",
+      "vht",
+      "guild_developer"
+    ],
+    "can_edit_profile": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_view_users": [
+      "program_manager",
+      "health_advisor",
+      "public_health_advisor",
+      "guild_developer"
+    ],
+    "can_update_users": [
+      "program_manager",
+      "health_advisor",
+      "public_health_advisor",
+      "guild_developer"
+    ],
+    "can_update_people": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_update_places": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_create_users": [
+      "program_manager",
+      "health_advisor",
+      "public_health_advisor",
+      "guild_developer"
+    ],
+    "can_create_people": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_create_places": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_view_tasks": [
+      "vht_supervisor",
+      "vht"
+    ],
+    "can_view_messages": [
+      "guild_developer"
+    ],
+    "can_view_messages_tab": [
+      "guild_developer"
+    ],
+    "can_view_reports": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_view_contacts": [
+      "vht_supervisor",
+      "public_health_officer",
+      "vht"
+    ],
+    "can_delete_reports": [
+      "guild_developer"
+    ],
+    "can_bulk_delete_reports": [
+      "guild_developer"
+    ],
+    "can_delete_contacts": [
+      "guild_developer"
+    ],
+    "can_delete_messages": [
+      "guild_developer"
+    ],
+    "can_delete_users": [
+      "guild_developer"
+    ],
+    "can_access_gateway_api": [
+      "guild_developer"
+    ],
+    "can_log_out_on_android": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_view_message_action": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_view_call_action": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_verify_reports": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_view_last_visited_date": [
+      "vht_supervisor",
+      "guild_developer",
+      "vht"
+    ],
+    "can_write_wealth_quintiles": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_update_reports": [
+      "guild_developer",
+      "vht"
+    ],
+    "can_edit_verification": [
+      "vht_supervisor",
+      "guild_developer"
+    ],
+    "can_view_outgoing_messages": [
+      "guild_developer"
+    ],
+    "can_export_all": [
+      "guild_developer"
+    ],
+    "can_export_dhis": [
+      "guild_developer"
+    ],
+    "can_view_uhc_stats": [
+      "guild_developer"
+    ],
+    "can_view_tasks_group": [
+      "vht_supervisor",
+      "vht",
+      "guild_developer"
+    ],
+    "can_aggregate_targets": [
+      "guild_developer"
+    ],
+    "can_upgrade": [
+      "guild_developer"
+    ],
+    "can_view_old_filter_and_search": [
+      "guild_developer"
+    ]
+  },
+  "setup_complete": true,
+  "roles": {
+    "vht_supervisor": {
+      "name": "usertype.vht-supervisor",
+      "offline": true,
+      "description": "Supervisor responsible for overseeing VHTs."
+    },
+    "vht": {
+      "name": "usertype.vht",
+      "offline": true,
+      "description": "Community health worker responsible for providing primary health care services at the community level."
+    },
+    "public_health_officer": {
+      "name": "usertype.public-health-officer",
+      "description": "Professional responsible for public health-related activities."
+    },
+    "health_coordinator": {
+      "name": "usertype.health-coordinator",
+      "description": "Coordinator responsible for managing and coordinating health initiatives."
+    },
+    "program_manager": {
+      "name": "usertype.program-manager",
+      "description": "Manager responsible for overseeing health programs."
+    },
+    "health_advisor": {
+      "name": "usertype.health-advisor",
+      "description": "Advisor providing guidance and expertise in the field of health."
+    },
+    "public_health_advisor": {
+      "name": "usertype.public-health-advisor",
+      "description": "Advisor providing guidance and expertise in public health-related matters."
+    },
+    "unchr": {
+      "name": "usertype.unchr",
+      "description": "United Nations High Commissioner for Refugees involved in providing assistance and support to refugees and displaced persons."
+    },
+    "ministry_of_health": {
+      "name": "usertype.ministry-of-health",
+      "description": "Government ministry responsible for overseeing health services and programs at the national level."
+    },
+    "guild_developer": {
+      "name": "usertype.guild-developer",
+      "description": "Developer role with extensive permissions."
+    }
+  },
+  "locales": [
+    {
+      "code": "en",
+      "name": "English"
+    },
+    {
+      "code": "sw",
+      "name": "Swahili"
+    }
+  ],
+  "locale": "en",
+  "locale_outgoing": "en",
+  "date_format": "ddd, MMM Do, YYYY",
+  "reported_date_format": "ddd, MMM Do, YYYY [at] h:mm A",
+  "default_responses": {
+    "start_date": "1970-01-01"
+  },
+  "default_country_code": 256,
+  "id_format": "1111",
+  "contact_display_short": "clinic.name",
+  "statistics_submission": "none",
+  "contact_types": [
+    {
+      "id": "settlement",
+      "name_key": "contact.type.settlement",
+      "group_key": "contact.type.settlement.plural",
+      "create_key": "contact.type.settlement.new",
+      "edit_key": "contact.type.place.edit",
+      "icon": "community",
+      "create_form": "",
+      "edit_form": ""
+  },
+  {
+      "id": "district_hospital",
+      "name_key": "contact.type.district_hospital",
+      "group_key": "contact.type.district_hospital.plural",
+      "create_key": "contact.type.district_hospital.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+          "settlement"
+      ],
+      "icon": "medic-district-hospital",
+      "create_form": "form:contact:district_hospital:create",
+      "edit_form": "form:contact:district_hospital:edit"
+  },
+  {
+      "id": "health_center",
+      "name_key": "contact.type.health_center",
+      "group_key": "contact.type.health_center.plural",
+      "create_key": "contact.type.health_center.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+          "district_hospital"
+      ],
+      "icon": "medic-health-center",
+      "create_form": "form:contact:health_center:create",
+      "edit_form": "form:contact:health_center:edit"
+  },
+  {
+      "id": "clinic",
+      "name_key": "contact.type.clinic",
+      "group_key": "contact.type.clinic.plural",
+      "create_key": "contact.type.clinic.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+          "health_center"
+      ],
+      "icon": "medic-clinic",
+      "create_form": "form:contact:clinic:create",
+      "edit_form": "form:contact:clinic:edit",
+      "count_visits": true
+  },
+  {
+      "id": "person",
+      "name_key": "contact.type.person",
+      "group_key": "contact.type.person.plural",
+      "create_key": "contact.type.person.new",
+      "edit_key": "contact.type.person.edit",
+      "primary_contact_key": "clinic.field.contact",
+      "parents": [
+          "district_hospital",
+          "health_center",
+          "clinic"
+      ],
+      "icon": "medic-person",
+      "create_form": "form:contact:person:create",
+      "edit_form": "form:contact:person:edit",
+      "person": true,
+      "sort_by_dob": true
+  }
+  ],
+  "transitions": {
+    "muting": true,
+    "death_reporting": true,
+    "creat_user_for_contacts": true
+  },
+  "death_reporting": {
+    "mark_deceased_forms": ["death_report"],
+    "date_field": "fields.date_of_death"
+  },
+  "muting": {
+    "mute_forms": ["mute"],
+    "unmute_forms": ["unmute"]
+  },
+  "creat_user_for_contacts":{
+    "replace_forms":[
+      "replace_user"
+    ]
+  },
+  "replication_depth": [
+    {
+      "role": "vht_supervisor",
+      "depth": 2,
+      "report_depth": 2
+    },
+    {
+      "role": "vht",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "public_health_officer",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "health_coordinator",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "program_manager",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "health_advisor",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "public_health_advisor",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "unchr",
+      "depth": 2,
+      "report_depth": 2
+    },
+    {
+      "role": "ministry_of_health",
+      "depth": 2,
+      "report_depth": 2
+    },
+    {
+      "role": "guild_developer",
+      "depth": 1,
+      "report_depth": 1
+    }
+  ]
+}

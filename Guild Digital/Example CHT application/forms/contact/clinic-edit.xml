@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Household</h:title>
+    <model>
+      <instance>
+        <data id="contact:clinic:edit" prefix="J1!contact:clinic:edit!" delimiter="#" version="2016-04-06">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <facility_id/>
+            </user>
+          </inputs>
+          <clinic>
+            <parent/>
+            <name/>
+            <contact/>
+            <geolocation>
+              <latitude/>
+              <longitude/>
+              <altitude/>
+              <accuracy/>
+              <gps/>
+            </geolocation>
+          </clinic>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="0"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/clinic/parent" type="db:health_center" relevant="0"/>
+      <bind nodeset="/data/clinic/name" type="string" required="true()"/>
+      <bind nodeset="/data/clinic/contact" type="db:person"/>
+      <bind nodeset="/data/clinic/geolocation/latitude" type="string" calculate="selected-at( /data/clinic/geolocation/gps , 0)"/>
+      <bind nodeset="/data/clinic/geolocation/longitude" type="string" calculate="selected-at( /data/clinic/geolocation/gps , 1)"/>
+      <bind nodeset="/data/clinic/geolocation/altitude" type="string" calculate="selected-at( /data/clinic/geolocation/gps , 2)"/>
+      <bind nodeset="/data/clinic/geolocation/accuracy" type="string" calculate="selected-at( /data/clinic/geolocation/gps , 3)"/>
+      <bind nodeset="/data/clinic/geolocation/gps" type="geopoint"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/facility_id">
+          <label>Facility ID for the parent user</label>
+        </input>
+      </group>
+    </group>
+    <group ref="/data/clinic">
+      <label>Edit Household</label>
+      <input appearance="db-object bind-id-only hidden" ref="/data/clinic/parent">
+        <label>VHT Area</label>
+        <hint>Select the CHP Area for this family</hint>
+      </input>
+      <input ref="/data/clinic/name">
+        <label>Name</label>
+      </input>
+      <input appearance="db-object bind-id-only hidden" ref="/data/clinic/contact">
+        <label>Contact</label>
+        <hint>mandatory</hint>
+      </input>
+      <group ref="/data/clinic/geolocation">
+        <label></label>
+        <input ref="/data/clinic/geolocation/gps">
+          <label>Household Location</label>
+          <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

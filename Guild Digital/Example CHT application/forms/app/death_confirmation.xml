@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Death Confirmation Form</h:title>
+    <model>
+      <instance>
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-11-13  13-51">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <patient_name/>
+          <patient_age/>
+          <patient_family_id/>
+          <date_of_death/>
+          <death_details>
+            <note_death_confirmation_report/>
+            <note_death_confirmation_sensitive/>
+            <note_death_confirmation_follow_up/>
+            <death_date/>
+            <time_of_death/>
+            <place_of_death/>
+            <presumed_cause/>
+            <pre_existing_health/>
+            <health_conditions/>
+          </death_details>
+          <r_summary>
+            <submit/>
+            <summary_h1/>
+            <s_person_details/>
+            <s_death_info/>
+            <s_death_date/>
+            <s_place_of_death/>
+            <s_presumed_cause/>
+            <s_health_conditions/>
+            <s_instruction/>
+            <s_inform_super/>
+            <s_followup/>
+            <s_followup_note/>
+          </r_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </death_confirmation>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/death_confirmation/inputs" relevant="./source='user'"/>
+      <bind nodeset="/death_confirmation/inputs/source" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/source_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/death_confirmation/inputs/contact/name" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/sex" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/death_confirmation/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/death_confirmation/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/death_confirmation/patient_age" type="string" calculate="floor( difference-in-months(  /death_confirmation/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/death_confirmation/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/death_confirmation/date_of_death" type="string" calculate=" /death_confirmation/death_details/death_date "/>
+      <bind nodeset="/death_confirmation/death_details/note_death_confirmation_report" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/death_details/note_death_confirmation_sensitive" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/death_details/note_death_confirmation_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/death_details/death_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back"/>
+      <bind nodeset="/death_confirmation/death_details/time_of_death" type="time" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/presumed_cause" type="select1" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/pre_existing_health" type="select1" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/health_conditions" type="select1" relevant=" /death_confirmation/death_details/pre_existing_health ='yes'" required="true()"/>
+      <bind nodeset="/death_confirmation/r_summary/submit" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/summary_h1" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_death_info" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_death_date" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_place_of_death" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_presumed_cause" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_health_conditions" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_inform_super" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_followup" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/r_summary/s_followup_note" readonly="true()" type="string"/>
+      <bind nodeset="/death_confirmation/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/death_confirmation/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/death_confirmation/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/death_confirmation/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/death_confirmation/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/death_confirmation/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/death_confirmation/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/death_confirmation/inputs/contact/date_of_birth">
+          <label>Date Of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/death_confirmation/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/death_confirmation/inputs/contact/parent">
+          <label>Family</label>
+          <input appearance="hidden" ref="/death_confirmation/inputs/contact/parent/_id">
+            <label>Family ID</label>
+          </input>
+          <group ref="/death_confirmation/inputs/contact/parent/parent">
+            <label>Health Facility</label>
+            <input appearance="hidden" ref="/death_confirmation/inputs/contact/parent/parent/_id">
+              <label>Health Facility ID</label>
+            </input>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/death_confirmation/death_details">
+      <label>Death details</label>
+      <input ref="/death_confirmation/death_details/note_death_confirmation_report">
+        <label>This form is to be filled out by the supervisor when a death has been reported by a VHT in the community</label>
+      </input>
+      <input ref="/death_confirmation/death_details/note_death_confirmation_sensitive">
+        <label>Please approach this sensitive process with empathy and 
+compassion, you may be interacting with grieving family 
+members or community member.</label>
+      </input>
+      <input ref="/death_confirmation/death_details/note_death_confirmation_follow_up">
+        <label>Please follow up with {VHT_name} to see if <output value=" /death_confirmation/patient_name "/> died. Call: {VHT_phone}</label>
+      </input>
+      <input ref="/death_confirmation/death_details/death_date">
+        <label>Date of death</label>
+      </input>
+      <input ref="/death_confirmation/death_details/time_of_death">
+        <label>Time of death</label>
+      </input>
+      <select1 ref="/death_confirmation/death_details/place_of_death">
+        <label>Where did the death occur from?</label>
+        <item>
+          <label>Health Facility</label>
+          <value>health_facility</value>
+        </item>
+        <item>
+          <label>Home</label>
+          <value>home</value>
+        </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <select1 ref="/death_confirmation/death_details/presumed_cause">
+        <label>What is the presumed cause of death, if known?</label>
+        <item>
+          <label>Malaria</label>
+          <value>malaria</value>
+        </item>
+        <item>
+          <label>Diabetes</label>
+          <value>diabetes</value>
+        </item>
+        <item>
+          <label>Hypertension</label>
+          <value>hypertension</value>
+        </item>
+        <item>
+          <label>Typhoid</label>
+          <value>typhoid</value>
+        </item>
+        <item>
+          <label>HIV</label>
+          <value>hiv</value>
+        </item>
+        <item>
+          <label>TB</label>
+          <value>tb</value>
+        </item>
+        <item>
+          <label>Stroke</label>
+          <value>stroke</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 ref="/death_confirmation/death_details/pre_existing_health">
+        <label>Did the deseased have pre-existing health conditions or recent illnesses?</label>
+        <hint>Comments</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/death_confirmation/death_details/health_conditions">
+        <label>What health conditions did the deseased have?</label>
+        <item>
+          <label>Malaria</label>
+          <value>malaria</value>
+        </item>
+        <item>
+          <label>Diabetes</label>
+          <value>diabetes</value>
+        </item>
+        <item>
+          <label>Hypertension</label>
+          <value>hypertension</value>
+        </item>
+        <item>
+          <label>Typhoid</label>
+          <value>typhoid</value>
+        </item>
+        <item>
+          <label>HIV</label>
+          <value>hiv</value>
+        </item>
+        <item>
+          <label>TB</label>
+          <value>tb</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/death_confirmation/r_summary">
+      <label>Results/Summary page</label>
+      <input ref="/death_confirmation/r_summary/submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/death_confirmation/r_summary/summary_h1">
+        <label>Person Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/death_confirmation/r_summary/s_person_details">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /death_confirmation/patient_name "/>&lt;/h4&gt; &lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /death_confirmation/patient_age "/> years old&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/death_confirmation/r_summary/s_death_info">
+        <label>Death Information</label>
+      </input>
+      <input ref="/death_confirmation/r_summary/s_death_date">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Time of death: <output value=" /death_confirmation/death_details/time_of_death "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/death_confirmation/r_summary/s_place_of_death">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Place of death: <output value=" /death_confirmation/death_details/place_of_death "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/death_confirmation/r_summary/s_presumed_cause">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Presumed cause of Death: <output value=" /death_confirmation/death_details/presumed_cause "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/death_confirmation/r_summary/s_health_conditions">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Deceased Pre-existing Health Conditions : <output value=" /death_confirmation/death_details/health_conditions "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h2 blue" ref="/death_confirmation/r_summary/s_instruction">
+        <label>Key instruction</label>
+      </input>
+      <input appearance="li" ref="/death_confirmation/r_summary/s_inform_super">
+        <label>Inform your supervisor if it is required of you to.</label>
+      </input>
+      <input appearance="h1 green" ref="/death_confirmation/r_summary/s_followup">
+        <label>Follow Up</label>
+      </input>
+      <input appearance="li" ref="/death_confirmation/r_summary/s_followup_note">
+        <label>No tasks for <output value=" /death_confirmation/patient_name "/> will show up for follow up by the VHT</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

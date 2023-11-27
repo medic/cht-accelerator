@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Add VHT Area</h:title>
+    <model>
+      <instance>
+        <data id="contact:health_center:create" prefix="J1!contact:health_center:create!" delimiter="#" version="2016-04-06">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <facility_id/>
+              <contact_id/>
+              <language/>
+            </user>
+            <contact>
+              <_id/>
+            </contact>
+          </inputs>
+          <health_center>
+            <district/>
+            <sub_district/>
+            <county/>
+            <sub_county/>
+            <parish/>
+            <village/>
+            <parent/>
+            <name/>
+            <geolocation/>
+            <contact/>
+            <survey>
+              <improved_cook_stove/>
+              <solar_light/>
+              <water_filter/>
+            </survey>
+          </health_center>
+          <contact>
+            <debug_note/>
+            <parent>PARENT</parent>
+            <name/>
+            <notes/>
+            <sex/>
+            <date_of_birth_method/>
+            <date_of_birth/>
+            <phone/>
+            <alternate_phone/>
+          </contact>
+          <ephemeral_phone>
+            <phone1/>
+            <phone2/>
+          </ephemeral_phone>
+          <ephemeral_dob>
+            <g_sex/>
+            <contact_dob_method>approx</contact_dob_method>
+            <dob_calendar/>
+            <age/>
+            <dob_raw/>
+            <contact_dob_iso/>
+          </ephemeral_dob>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs/user" relevant="0"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/language" type="string"/>
+      <bind nodeset="/data/inputs/contact/_id" type="db:district_hospital"/>
+      <bind nodeset="/data/contact/debug_note" readonly="true()" type="string" relevant="0"/>
+      <bind nodeset="/data/contact/parent" type="string"/>
+      <bind nodeset="/data/contact/name" type="string" required="true()"/>
+      <bind nodeset="/data/contact/notes" type="string"/>
+      <bind nodeset="/data/contact/sex" type="string" calculate=" /data/ephemeral_dob/g_sex "/>
+      <bind nodeset="/data/contact/date_of_birth_method" type="string" calculate=" /data/ephemeral_dob/contact_dob_method "/>
+      <bind nodeset="/data/contact/date_of_birth" type="string" calculate=" /data/ephemeral_dob/contact_dob_iso "/>
+      <bind nodeset="/data/contact/phone" type="string" calculate=" /data/ephemeral_phone/phone1 "/>
+      <bind nodeset="/data/contact/alternate_phone" type="string" calculate=" /data/ephemeral_phone/phone2 "/>
+      <bind nodeset="/data/ephemeral_phone/phone1" type="string" constraint="regex(.,'^(03|04|07)[0-9]{8}$')" jr:constraintMsg="Mobile number should be 10 digits starting with 03/04/07"/>
+      <bind nodeset="/data/ephemeral_phone/phone2" type="string" constraint="regex(.,'^(03|04|07)[0-9]{8}$')" jr:constraintMsg="Mobile number should be 10 digits starting with 03/04/07"/>
+      <bind nodeset="/data/ephemeral_dob/g_sex" type="select1" required="true()"/>
+      <bind nodeset="/data/ephemeral_dob/contact_dob_method" type="select1" required="true()"/>
+      <bind nodeset="/data/ephemeral_dob/dob_calendar" type="date" relevant="selected(../contact_dob_method,'calendar')" constraint=".&lt;today()" jr:constraintMsg="Date must be before today" required="true()"/>
+      <bind nodeset="/data/ephemeral_dob/age" type="int" relevant="selected(../contact_dob_method,'approx')" constraint=". &gt; 0 and . &lt; 120" jr:constraintMsg="Age must be between 0 and 120" required="true()"/>
+      <bind nodeset="/data/ephemeral_dob/dob_raw" type="string" calculate="if(selected( ../contact_dob_method,'calendar'), 
+../dob_calendar,
+format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
+      <bind nodeset="/data/ephemeral_dob/contact_dob_iso" type="string" calculate="format-date-time(../dob_raw,&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/health_center/district" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/sub_district" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/county" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/sub_county" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/parish" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/village" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/parent" type="string" calculate="../../inputs/contact/_id"/>
+      <bind nodeset="/data/health_center/name" type="string" calculate="concat(../../contact/name, ' Area')"/>
+      <bind nodeset="/data/health_center/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
+      <bind nodeset="/data/health_center/contact" type="string" calculate="&quot;NEW&quot;"/>
+      <bind nodeset="/data/health_center/survey" relevant="0"/>
+      <bind nodeset="/data/health_center/survey/improved_cook_stove" type="select1"/>
+      <bind nodeset="/data/health_center/survey/solar_light" type="select1"/>
+      <bind nodeset="/data/health_center/survey/water_filter" type="select1"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/facility_id">
+          <label>Facility ID for the parent user</label>
+        </input>
+        <input ref="/data/inputs/user/contact_id">
+          <label>Contact ID for the parent user</label>
+        </input>
+        <input ref="/data/inputs/user/language">
+          <label>Language</label>
+        </input>
+      </group>
+      <group ref="/data/inputs/contact">
+        <input appearance="db-object bind-id-only" ref="/data/inputs/contact/_id">
+          <label>In what Health center will this VHT be?</label>
+          <hint>Select the facility from the list</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/contact">
+      <label>VHT Information</label>
+      <input ref="/data/contact/debug_note">
+        <label>DEBUG
+Facility ID: <output value=" /data/inputs/contact/_id "/>
+User's facility ID: <output value=" /data/inputs/user/facility_id "/></label></input>
+      <input appearance="hidden" ref="/data/contact/parent">
+        <label>Parent</label>
+        <hint>mandatory</hint>
+      </input>
+      <input ref="/data/contact/name">
+        <label>Names</label>
+      </input>
+      <input ref="/data/contact/notes">
+        <label>Notes (optional)</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/ephemeral_phone">
+      <input appearance="number" ref="/data/ephemeral_phone/phone1">
+        <label>Primary Mobile Number</label>
+        <hint>Mobile number should take this format 03/04/07XXXXXXXX</hint>
+      </input>
+      <input appearance="number" ref="/data/ephemeral_phone/phone2">
+        <label>Secondary Mobile Number</label>
+        <hint>Mobile number should take this format 03/04/07XXXXXXXX</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/ephemeral_dob">
+      <select1 appearance="horizontal" ref="/data/ephemeral_dob/g_sex">
+        <label>Gender</label>
+        <item>
+          <label>Female</label>
+          <value>female</value>
+        </item>
+        <item>
+          <label>Male</label>
+          <value>male</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal hidden" ref="/data/ephemeral_dob/contact_dob_method">
+        <label>Method to select date of birth</label>
+        <item>
+          <label>With calendar (preferred)</label>
+          <value>calendar</value>
+        </item>
+        <item>
+          <label>With current age</label>
+          <value>approx</value>
+        </item>
+      </select1>
+      <input ref="/data/ephemeral_dob/dob_calendar">
+        <label>Date of Birth</label>
+      </input>
+      <input ref="/data/ephemeral_dob/age">
+        <label>Age</label>
+      </input>
+    </group>
+    <group ref="/data/health_center">
+      <input ref="/data/health_center/district">
+        <label>District</label>
+      </input>
+      <input ref="/data/health_center/sub_district">
+        <label>Sub District</label>
+      </input>
+      <input ref="/data/health_center/county">
+        <label>County</label>
+      </input>
+      <input ref="/data/health_center/sub_county">
+        <label>Sub County</label>
+      </input>
+      <input ref="/data/health_center/parish">
+        <label>Parish</label>
+      </input>
+      <input ref="/data/health_center/village">
+        <label>Village</label>
+      </input>
+      <group appearance="field-list" ref="/data/health_center/survey">
+        <label>Example of extra questions abour VHT Area</label>
+        <select1 appearance="horizontal" ref="/data/health_center/survey/improved_cook_stove">
+          <label>Does the family own an improved cook stove?</label>
+          <item>
+            <label>Yes</label>
+            <value>true</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>false</value>
+          </item>
+        </select1>
+        <select1 appearance="horizontal" ref="/data/health_center/survey/solar_light">
+          <label>Does the family own a solar light?</label>
+          <item>
+            <label>Yes</label>
+            <value>true</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>false</value>
+          </item>
+        </select1>
+        <select1 appearance="horizontal" ref="/data/health_center/survey/water_filter">
+          <label>Does the family own a water filter?</label>
+          <item>
+            <label>Yes</label>
+            <value>true</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>false</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+  </h:body>
+</h:html>

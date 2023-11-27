@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Delivery Check</h:title>
+    <model>
+      <instance>
+        <delivery_check id="delivery_check" prefix="J1!delivery_check!" delimiter="#" version="2022-03-19 19:38:57">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <group_pregnancy_status>
+            <has_delivered/>
+            <note_complete_delivery_form/>
+          </group_pregnancy_status>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </delivery_check>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/delivery_check/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/delivery_check/inputs/source" type="string"/>
+      <bind nodeset="/delivery_check/inputs/source_id" type="string"/>
+      <bind nodeset="/delivery_check/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /delivery_check/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/delivery_check/inputs/contact/name" type="string"/>
+      <bind nodeset="/delivery_check/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/delivery_check/inputs/contact/sex" type="string"/>
+      <bind nodeset="/delivery_check/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/delivery_check/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/delivery_check/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /delivery_check/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/delivery_check/patient_age_in_months" type="string" calculate="difference-in-months(  /delivery_check/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/delivery_check/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /delivery_check/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/delivery_check/patient_age_display" type="string" calculate="concat(
+ concat( /delivery_check/patient_age_in_years , if( /delivery_check/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /delivery_check/patient_age_in_months  mod 12, if(( /delivery_check/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/delivery_check/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/delivery_check/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/delivery_check/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/delivery_check/group_pregnancy_status/has_delivered" type="select1" required="true()"/>
+      <bind nodeset="/delivery_check/group_pregnancy_status/note_complete_delivery_form" readonly="true()" type="string" relevant=" /delivery_check/group_pregnancy_status/has_delivered  = 'yes'"/>
+      <bind nodeset="/delivery_check/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/delivery_check/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/delivery_check/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/delivery_check/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/delivery_check/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/delivery_check/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/delivery_check/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/delivery_check/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/delivery_check/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/delivery_check/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/delivery_check/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/delivery_check/group_pregnancy_status">
+      <label>Pregnancy Status</label>
+      <select1 ref="/delivery_check/group_pregnancy_status/has_delivered">
+        <label>Has <output value=" /delivery_check/patient_name "/> delivered?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery_check/group_pregnancy_status/note_complete_delivery_form">
+        <label>Please exit the form and complete a delivery form</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

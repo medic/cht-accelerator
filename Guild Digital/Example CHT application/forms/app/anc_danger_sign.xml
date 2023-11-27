@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>ANC Danger sign</h:title>
+    <model>
+      <instance>
+        <anc_danger_sign id="anc_danger_sign" prefix="J1!anc_danger_sign!" delimiter="#" version="2022-03-19 19:36:28">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <is_follow_up>no</is_follow_up>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <visited_contact_uuid/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_name_with_s/>
+          <patient_gender/>
+          <follow_up_label/>
+          <group_danger_sign_check>
+            <visited_health_facility/>
+            <still_experiencing_danger_signs/>
+            <note_monitor_till_next_anc_check_up_at_Facility/>
+            <note_still_experiencing_danger_signs/>
+            <note_danger_signs/>
+            <vaginal_bleeding/>
+            <lower_abdomen_pain/>
+            <severe_headache/>
+            <very_pale/>
+            <fever/>
+            <reduced_or_no_feotal_movements/>
+            <blurred_vision/>
+            <swelling/>
+            <breathlessness/>
+            <has_danger_signs/>
+            <has_no_danger_signs/>
+            <note_has_no_danger_signs/>
+            <note_has_danger_signs/>
+            <note_complete_follow_up_task/>
+          </group_danger_sign_check>
+          <group_summary>
+            <s_note_danger_sign/>
+            <s_summary_submit/>
+            <s_note_person_details/>
+            <s_note_person_details_values/>
+            <s_note_referrals/>
+            <s_note_refer_immediately_for/>
+            <s_note_vaginal_bleeding/>
+            <s_note_lower_abdomen_pain/>
+            <s_note_severe_headache/>
+            <s_note_very_pale/>
+            <s_note_fever/>
+            <s_note_reduced_or_no_feotal_movements/>
+            <s_note_blurred_vision/>
+            <s_note_swelling/>
+            <s_note_breathlessness/>
+            <s_note_follow_up_task/>
+            <s_note_please_follow_up/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </anc_danger_sign>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/anc_danger_sign/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/anc_danger_sign/inputs/source" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/source_id" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/is_follow_up" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /anc_danger_sign/is_of_child_bearing_age  = 'true'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/inputs/contact/name" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/contact/sex" type="string"/>
+      <bind nodeset="/anc_danger_sign/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/anc_danger_sign/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/anc_danger_sign/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/anc_danger_sign/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /anc_danger_sign/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/anc_danger_sign/patient_age_in_months" type="string" calculate="difference-in-months(  /anc_danger_sign/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/anc_danger_sign/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /anc_danger_sign/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/anc_danger_sign/patient_age_display" type="string" calculate="concat(
+ concat( /anc_danger_sign/patient_age_in_years , if( /anc_danger_sign/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /anc_danger_sign/patient_age_in_months  mod 12, if(( /anc_danger_sign/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/anc_danger_sign/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/anc_danger_sign/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/anc_danger_sign/patient_name_with_s" type="string" calculate="concat( /anc_danger_sign/patient_name , if(regex( /anc_danger_sign/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/anc_danger_sign/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/anc_danger_sign/follow_up_label" type="string" calculate="if( /anc_danger_sign/inputs/is_follow_up  = 'yes', 'Follow Up', '')"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/visited_health_facility" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_monitor_till_next_anc_check_up_at_Facility" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_still_experiencing_danger_signs" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_danger_signs" readonly="true()" type="string" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/vaginal_bleeding" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/lower_abdomen_pain" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/severe_headache" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/very_pale" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/fever" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/reduced_or_no_feotal_movements" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/blurred_vision" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/swelling" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/breathlessness" type="select1" relevant=" /anc_danger_sign/inputs/is_follow_up  = 'no' or  /anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs  = 'yes'" required="true()"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/has_danger_signs" type="string" calculate="if(( /anc_danger_sign/group_danger_sign_check/vaginal_bleeding  = 'yes' or  /anc_danger_sign/group_danger_sign_check/lower_abdomen_pain  = 'yes' or  /anc_danger_sign/group_danger_sign_check/severe_headache  = 'yes' or  /anc_danger_sign/group_danger_sign_check/very_pale  = 'yes' or  /anc_danger_sign/group_danger_sign_check/fever  = 'yes' or  /anc_danger_sign/group_danger_sign_check/reduced_or_no_feotal_movements  = 'yes' or  /anc_danger_sign/group_danger_sign_check/blurred_vision  = 'yes' or  /anc_danger_sign/group_danger_sign_check/swelling  = 'yes' or  /anc_danger_sign/group_danger_sign_check/breathlessness  = 'yes'), 'yes', '')"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/has_no_danger_signs" type="string" calculate="if(( /anc_danger_sign/group_danger_sign_check/vaginal_bleeding  = 'no' and  /anc_danger_sign/group_danger_sign_check/lower_abdomen_pain  = 'no' and  /anc_danger_sign/group_danger_sign_check/severe_headache  = 'no' and  /anc_danger_sign/group_danger_sign_check/very_pale  = 'no' and  /anc_danger_sign/group_danger_sign_check/fever  = 'no' and  /anc_danger_sign/group_danger_sign_check/reduced_or_no_feotal_movements  = 'no' and  /anc_danger_sign/group_danger_sign_check/blurred_vision  = 'no' and  /anc_danger_sign/group_danger_sign_check/swelling  = 'no' and  /anc_danger_sign/group_danger_sign_check/breathlessness  = 'no'), 'yes', '')"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_has_no_danger_signs" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_no_danger_signs  = 'yes' and  /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_has_danger_signs" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes' and  /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_danger_sign_check/note_complete_follow_up_task" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes' and  /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_danger_sign" readonly="true()" type="string"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_person_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_referrals" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_refer_immediately_for" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_vaginal_bleeding" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/vaginal_bleeding  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_lower_abdomen_pain" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/lower_abdomen_pain  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_severe_headache" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/severe_headache  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_very_pale" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/very_pale  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_fever" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/fever  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_reduced_or_no_feotal_movements" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/reduced_or_no_feotal_movements  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_blurred_vision" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/blurred_vision  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_swelling" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/swelling  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_breathlessness" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/breathlessness  = 'yes'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_follow_up_task" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes' and  /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/group_summary/s_note_please_follow_up" readonly="true()" type="string" relevant=" /anc_danger_sign/group_danger_sign_check/has_danger_signs  = 'yes' and  /anc_danger_sign/inputs/is_follow_up  = 'no'"/>
+      <bind nodeset="/anc_danger_sign/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/anc_danger_sign/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/anc_danger_sign/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/anc_danger_sign/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/anc_danger_sign/inputs/is_follow_up">
+        <label>Is a Follow up</label>
+      </input>
+      <group ref="/anc_danger_sign/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/anc_danger_sign/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/anc_danger_sign/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/anc_danger_sign/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/anc_danger_sign/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/anc_danger_sign/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/anc_danger_sign/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/anc_danger_sign/group_danger_sign_check">
+      <label>Danger Sign Check <output value=" /anc_danger_sign/follow_up_label "/></label>
+      <select1 ref="/anc_danger_sign/group_danger_sign_check/visited_health_facility">
+        <label>Did <output value=" /anc_danger_sign/patient_name "/> visit the health facility as recommended?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_danger_sign/group_danger_sign_check/still_experiencing_danger_signs">
+        <label>Is she still experiencing any danger signs?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_monitor_till_next_anc_check_up_at_Facility">
+        <label>Great news! Please closely monitor her until her next scheduled ANC check-up at the health facility</label>
+      </input>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_still_experiencing_danger_signs">
+        <label>The mother should visit the health facility immediately if she is experiencing any of these danger signs
+Please advise her to do so and accompany her if possible
+Please indicate which danger signs <output value=" /anc_danger_sign/patient_name "/> is experiencing</label>
+      </input>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_danger_signs">
+        <label>Does the woman currently have any of these danger signs?</label>
+      </input>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/lower_abdomen_pain">
+        <label>Severe pain on the lower abdomen</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/severe_headache">
+        <label>Severe headache</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/very_pale">
+        <label>Very pale</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/fever">
+        <label>Fever</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/reduced_or_no_feotal_movements">
+        <label>Reduced or no feotal movements</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/blurred_vision">
+        <label>Blurred vision</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/swelling">
+        <label>Swelling of the face, legs or fingers</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/anc_danger_sign/group_danger_sign_check/breathlessness">
+        <label>Breathlessness</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_has_no_danger_signs">
+        <label>Great news! Please closely monitor her until her next scheduled pregnancy visit</label>
+      </input>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_has_danger_signs">
+        <label>Please refer to the health facility immediately. Accompany her if possible</label>
+      </input>
+      <input ref="/anc_danger_sign/group_danger_sign_check/note_complete_follow_up_task">
+        <label>Please complete the follow-up task within 3 days</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/anc_danger_sign/group_summary">
+      <label>Summary Page</label>
+      <input appearance="h1 red" ref="/anc_danger_sign/group_summary/s_note_danger_sign">
+        <label>ANC Danger Sign <output value=" /anc_danger_sign/follow_up_label "/></label>
+      </input>
+      <input ref="/anc_danger_sign/group_summary/s_summary_submit">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/anc_danger_sign/group_summary/s_note_person_details">
+        <label>Person Details</label>
+      </input>
+      <input ref="/anc_danger_sign/group_summary/s_note_person_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /anc_danger_sign/patient_name "/>
+<output value=" /anc_danger_sign/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/anc_danger_sign/group_summary/s_note_referrals">
+        <label>Referrals</label>
+      </input>
+      <input ref="/anc_danger_sign/group_summary/s_note_refer_immediately_for">
+        <label>Refer to clinic immediately for:</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_lower_abdomen_pain">
+        <label>Severe pain on the lower abdomen</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_severe_headache">
+        <label>Severe headache</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_very_pale">
+        <label>Very pale (e.g. finger nails, tongue)</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_fever">
+        <label>Fever</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_reduced_or_no_feotal_movements">
+        <label>Reduced or no feotal movements</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_blurred_vision">
+        <label>Blurred vision</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_swelling">
+        <label>Swelling of the face, legs or fingers</label>
+      </input>
+      <input appearance="li" ref="/anc_danger_sign/group_summary/s_note_breathlessness">
+        <label>Breathlessness</label>
+      </input>
+      <input appearance="h1" ref="/anc_danger_sign/group_summary/s_note_follow_up_task">
+        <label>Follow up Task</label>
+      </input>
+      <input ref="/anc_danger_sign/group_summary/s_note_please_follow_up">
+        <label>&lt;p style="text-align:center;"&gt;Please conduct a danger sign follow-up in 3 days.&lt;/p&gt;</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New VHT Onboarding Form</h:title>
+    <model>
+      <instance>
+        <vht_onboarding id="vht_onboarding" prefix="J1!vht_onboarding!" delimiter="#" version="2023-09-30  18-40">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <introduction/>
+          <onboarding_details>
+            <year_resident/>
+            <language_proficiency/>
+            <app_proficiency/>
+            <note_health_condition_advise/>
+            <has_health_condition/>
+            <condition/>
+          </onboarding_details>
+          <s_summary>
+            <s_year_resident/>
+            <s_language_proficiency/>
+            <s_condition/>
+          </s_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </vht_onboarding>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/vht_onboarding/inputs" relevant="./source='user'"/>
+      <bind nodeset="/vht_onboarding/inputs/source" type="string"/>
+      <bind nodeset="/vht_onboarding/inputs/source_id" type="string"/>
+      <bind nodeset="/vht_onboarding/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/vht_onboarding/inputs/contact/name" type="string"/>
+      <bind nodeset="/vht_onboarding/introduction" readonly="true()" type="string"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/year_resident" type="select1" required="true()"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/language_proficiency" type="select" required="true()"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/app_proficiency" type="select1" required="true()"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/note_health_condition_advise" readonly="true()" type="string"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/has_health_condition" type="select1" required="true()"/>
+      <bind nodeset="/vht_onboarding/onboarding_details/condition" type="select" relevant=" /vht_onboarding/onboarding_details/has_health_condition  = 'yes'"/>
+      <bind nodeset="/vht_onboarding/s_summary/s_year_resident" readonly="true()" type="string"/>
+      <bind nodeset="/vht_onboarding/s_summary/s_language_proficiency" readonly="true()" type="string"/>
+      <bind nodeset="/vht_onboarding/s_summary/s_condition" readonly="true()" type="string"/>
+      <bind nodeset="/vht_onboarding/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/vht_onboarding/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/vht_onboarding/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/vht_onboarding/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/vht_onboarding/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/vht_onboarding/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/vht_onboarding/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <input ref="/vht_onboarding/introduction">
+      <label>This form will be filled by the supervisor in the event of onboarding a new VHT after training.</label>
+    </input>
+    <group ref="/vht_onboarding/onboarding_details">
+      <label>Onboarding Details</label>
+      <select1 ref="/vht_onboarding/onboarding_details/year_resident">
+        <label>How long have you been a resident of this area?</label>
+        <item>
+          <label>1-2 years</label>
+          <value>1-2years</value>
+        </item>
+        <item>
+          <label>3-4 years</label>
+          <value>3-4years</value>
+        </item>
+        <item>
+          <label>5-6 years</label>
+          <value>5-6years</value>
+        </item>
+        <item>
+          <label>7 and above</label>
+          <value>7-8years</value>
+        </item>
+      </select1>
+      <select ref="/vht_onboarding/onboarding_details/language_proficiency">
+        <label>Which languages are you conversant with?</label>
+        <item>
+          <label>English</label>
+          <value>english</value>
+        </item>
+        <item>
+          <label>kiswahili</label>
+          <value>Kiswahili</value>
+        </item>
+        <item>
+          <label>Luganda</label>
+          <value>luganda</value>
+        </item>
+        <item>
+          <label>Luo</label>
+          <value>luo</value>
+        </item>
+        <item>
+          <label>french</label>
+          <value>French</value>
+        </item>
+      </select>
+      <select1 ref="/vht_onboarding/onboarding_details/app_proficiency">
+        <label>Are you well-versed with how the application works?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/vht_onboarding/onboarding_details/note_health_condition_advise">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Assure the VHT that this question has nothing to do with whether they get demoted or continue with their post.&lt;/span&gt;</label>
+      </input>
+      <select1 ref="/vht_onboarding/onboarding_details/has_health_condition">
+        <label>Do you have any health condition that may hinder how you work?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/vht_onboarding/onboarding_details/condition">
+        <label>What is the health condition?</label>
+        <item>
+          <label>Diabetics</label>
+          <value>diabetics</value>
+        </item>
+        <item>
+          <label>Vision issues</label>
+          <value>vision</value>
+        </item>
+        <item>
+          <label>Inability to move long distances</label>
+          <value>move_long_distance</value>
+        </item>
+      </select>
+    </group>
+    <group appearance="field-list summary" ref="/vht_onboarding/s_summary">
+      <label>New VHT Onboarding</label>
+      <input ref="/vht_onboarding/s_summary/s_year_resident">
+        <label>Time spent as a resident: <output value=" /vht_onboarding/onboarding_details/year_resident "/></label>
+      </input>
+      <input ref="/vht_onboarding/s_summary/s_language_proficiency">
+        <label>List of languages: <output value=" /vht_onboarding/onboarding_details/language_proficiency "/></label>
+      </input>
+      <input ref="/vht_onboarding/s_summary/s_condition">
+        <label>Heath Condition: <output value=" /vht_onboarding/onboarding_details/condition "/></label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

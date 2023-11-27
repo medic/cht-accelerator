@@ -1,0 +1,8 @@
+{
+  "title": "Unmute request",
+  "context": {
+    "person": true,
+    "place": true,
+    "expression": "((contact.type === 'person' && summary.firstParentType === 'clinic') || contact.type === 'clinic') && contact.muted && user._id !== contact._id"
+  }
+}

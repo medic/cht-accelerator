@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Referral follow up</h:title>
+    <model>
+      <instance>
+        <referral_follow_up id="referral_follow_up" prefix="J1!referral_follow_up!" delimiter="#" version="2022-03-19 19:42:13">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <referral_follow_up_again/>
+          <group_follow_up>
+            <follow_up_date/>
+            <follow_up_method/>
+          </group_follow_up>
+          <group_person_condition>
+            <patient_condition/>
+          </group_person_condition>
+          <group_referral_information>
+            <went_to_health_facility/>
+            <note_encourage_to_visit_health_facility/>
+            <hc_visit_date/>
+            <hc_attendant/>
+            <hc_attendant_other/>
+            <hc_name/>
+            <action_taken/>
+            <instructions_for_vht/>
+          </group_referral_information>
+          <group_patient_summary>
+            <s_note_referral_follow_up_report/>
+            <s_note_before_submit/>
+            <s_note_patient_details/>
+            <s_note_patient_Details_values/>
+            <s_note_referral_follow_up_info/>
+            <s_note_referral_completed/>
+            <s_note_referral_not_completed/>
+            <s_note_comments_treatment_given/>
+            <s_note_referral_not_improved/>
+            <s_note_key_instruction/>
+            <s_note_key_instruction_accompany_client/>
+            <s_note_followup/>
+            <s_note_followup_instructions1/>
+          </group_patient_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </referral_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/referral_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/referral_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/referral_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/_id" type="db:person" constraint=" /referral_follow_up/patient_age_in_years  &lt;=5" jr:constraintMsg="Patient must be under 5years old" required="true()"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/referral_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /referral_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/referral_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /referral_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/referral_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /referral_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/referral_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /referral_follow_up/patient_age_in_years , if( /referral_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /referral_follow_up/patient_age_in_months  mod 12, if(( /referral_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/referral_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/referral_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/referral_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/referral_follow_up/referral_follow_up_again" type="string" calculate="if( /referral_follow_up/group_person_condition/patient_condition ='no_change' or  /referral_follow_up/group_person_condition/patient_condition ='getting_worse', 'yes', 'no' )"/>
+      <bind nodeset="/referral_follow_up/group_follow_up/follow_up_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_follow_up/follow_up_method" type="select1" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_person_condition/patient_condition" type="select1" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/went_to_health_facility" type="select1" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/note_encourage_to_visit_health_facility" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='no'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_visit_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant" type="select1" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant_other" type="string" relevant=" /referral_follow_up/group_referral_information/hc_attendant ='other'" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_name" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/action_taken" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="false()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/instructions_for_vht" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="false()"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_follow_up_report" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_before_submit" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_patient_Details_values" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_follow_up_info" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility !=''"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_completed" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_not_completed" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='no'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_comments_treatment_given" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_not_improved" readonly="true()" type="string" relevant=" /referral_follow_up/referral_follow_up_again ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_key_instruction" readonly="true()" type="string" relevant=" /referral_follow_up/referral_follow_up_again ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_key_instruction_accompany_client" readonly="true()" type="string" relevant=" /referral_follow_up/referral_follow_up_again ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_followup" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/group_patient_summary/s_note_followup_instructions1" readonly="true()" type="string"/>
+      <bind nodeset="/referral_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/referral_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/referral_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/referral_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/referral_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/referral_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/referral_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/referral_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/referral_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/referral_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/referral_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/referral_follow_up/group_follow_up">
+      <label>Follow up</label>
+      <input ref="/referral_follow_up/group_follow_up/follow_up_date">
+        <label>Date of the referral follow up</label>
+      </input>
+      <select1 ref="/referral_follow_up/group_follow_up/follow_up_method">
+        <label>How are you following up?</label>
+        <item>
+          <label>In person</label>
+          <value>in_person</value>
+        </item>
+        <item>
+          <label>By phone</label>
+          <value>by_phone</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/referral_follow_up/group_person_condition">
+      <label>Person's condition</label>
+      <select1 ref="/referral_follow_up/group_person_condition/patient_condition">
+        <label>How is the condition of <output value=" /referral_follow_up/patient_name "/>?</label>
+        <item>
+          <label>Improving</label>
+          <value>improving</value>
+        </item>
+        <item>
+          <label>No change</label>
+          <value>no_change</value>
+        </item>
+        <item>
+          <label>Getting worse</label>
+          <value>getting_worse</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/referral_follow_up/group_referral_information">
+      <label>Referral Information</label>
+      <select1 ref="/referral_follow_up/group_referral_information/went_to_health_facility">
+        <label>Did <output value=" /referral_follow_up/patient_name "/> go to the health facility as referred?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/referral_follow_up/group_referral_information/note_encourage_to_visit_health_facility">
+        <label>Encourage <output value=" /referral_follow_up/patient_name "/> to go to the Health facility as referred in order to complete the referral</label>
+      </input>
+      <input ref="/referral_follow_up/group_referral_information/hc_visit_date">
+        <label>Date when <output value=" /referral_follow_up/patient_name "/> received care at the Health Facility</label>
+      </input>
+      <select1 ref="/referral_follow_up/group_referral_information/hc_attendant">
+        <label>Who attended to the client when they visited the health facility?</label>
+        <item>
+          <label>Nurse</label>
+          <value>nurse</value>
+        </item>
+        <item>
+          <label>Doctor</label>
+          <value>doctor</value>
+        </item>
+        <item>
+          <label>Clinical Officer</label>
+          <value>clinical_officer</value>
+        </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/referral_follow_up/group_referral_information/hc_attendant_other">
+        <label>Other (Please specify)</label>
+      </input>
+      <input ref="/referral_follow_up/group_referral_information/hc_name">
+        <label>Name of the health facility attended</label>
+      </input>
+      <input ref="/referral_follow_up/group_referral_information/action_taken">
+        <label>Action taken at the health facility</label>
+      </input>
+      <input ref="/referral_follow_up/group_referral_information/instructions_for_vht">
+        <label>Instructions for the VHT</label>
+        <hint>Write none if there are no instructions given</hint>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/referral_follow_up/group_patient_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/referral_follow_up/group_patient_summary/s_note_referral_follow_up_report">
+        <label>&lt;h1 style="text-align:center;"&gt;Referral Follow Up Report&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_before_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/referral_follow_up/group_patient_summary/s_note_patient_details">
+        <label>Patient Details</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_patient_Details_values">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /referral_follow_up/patient_name "/>&lt;/h4&gt;
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /referral_follow_up/patient_gender "/>&lt;/h5&gt; 
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /referral_follow_up/patient_age_display "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h2 blue" ref="/referral_follow_up/group_patient_summary/s_note_referral_follow_up_info">
+        <label>Referral Follow Up Information</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_referral_completed">
+        <label>Referral completed</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_referral_not_completed">
+        <label>Referral not completed</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_comments_treatment_given">
+        <label>Attended to by: <output value=" /referral_follow_up/group_referral_information/hc_attendant "/>&lt;br/&gt; At: <output value=" /referral_follow_up/group_referral_information/hc_name "/>&lt;/br&gt; 
+Action taken: <output value=" /referral_follow_up/group_referral_information/action_taken "/>&lt;br/&gt;Instructions to VHT: <output value=" /referral_follow_up/group_referral_information/instructions_for_vht "/></label></input>
+      <input appearance="h1 red" ref="/referral_follow_up/group_patient_summary/s_note_referral_not_improved">
+        <label>Refer immediately to health facility because the condition of the patient has not improved &lt;i class="fa fa-warning"&gt;&lt;/i&gt;</label>
+      </input>
+      <input appearance="h2 blue" ref="/referral_follow_up/group_patient_summary/s_note_key_instruction">
+        <label>Key instruction</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_key_instruction_accompany_client">
+        <label>It is preferable that you accompany <output value=" /referral_follow_up/patient_name "/> to the nearest health facility. (If there is a re-referral or if client is in critical condition)</label>
+      </input>
+      <input appearance="h1 green" ref="/referral_follow_up/group_patient_summary/s_note_followup">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/referral_follow_up/group_patient_summary/s_note_followup_instructions1">
+        <label>Follow up <output value=" /referral_follow_up/patient_name "/> on return at least once a week until is well</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

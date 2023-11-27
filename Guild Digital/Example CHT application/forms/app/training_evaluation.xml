@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Training Evaluation</h:title>
+    <model>
+      <instance>
+        <training_evaluation id="training_evaluation" prefix="J1!training_evaluation!" delimiter="#" version="2022-03-19 12:44:44">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <form_for_child_in_household_score>0</form_for_child_in_household_score>
+          <option_for_reminder_score>0</option_for_reminder_score>
+          <form_available_to_all_score>0</form_available_to_all_score>
+          <who_is_responsible_for_hh_registration_score>0</who_is_responsible_for_hh_registration_score>
+          <true_false_score>0</true_false_score>
+          <tab_for_graphical_representation_score>0</tab_for_graphical_representation_score>
+          <menu_for_reporting_issues_score>0</menu_for_reporting_issues_score>
+          <option_facilitates_data_upload_score>0</option_facilitates_data_upload_score>
+          <form_for_collecting_symptoms_score>0</form_for_collecting_symptoms_score>
+          <option_for_completing_form_score>0</option_for_completing_form_score>
+          <your_score>0</your_score>
+          <group_test_questions>
+            <trainee_name/>
+            <phone_number/>
+            <note_instructions/>
+            <form_for_child_in_household/>
+            <option_for_reminder/>
+            <form_available_to_all/>
+            <who_is_responsible_for_hh_registration/>
+            <true_false/>
+            <tab_for_graphical_representation/>
+            <menu_for_reporting_issues/>
+            <option_facilitates_data_upload/>
+            <form_for_collecting_symptoms/>
+            <option_for_completing_form/>
+          </group_test_questions>
+          <group_patient_summary>
+            <s_note_before_submit/>
+            <s_note_score_red/>
+            <s_note_score_green/>
+            <s_your_score/>
+          </group_patient_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </training_evaluation>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/training_evaluation/inputs" relevant="./source='user'"/>
+      <bind nodeset="/training_evaluation/inputs/source" type="string"/>
+      <bind nodeset="/training_evaluation/inputs/source_id" type="string"/>
+      <bind nodeset="/training_evaluation/inputs/contact/_id" type="db:health_center" required="true()"/>
+      <bind nodeset="/training_evaluation/inputs/contact/name" type="string"/>
+      <bind nodeset="/training_evaluation/form_for_child_in_household_score" type="string" calculate="if( /training_evaluation/group_test_questions/form_for_child_in_household ='new_person',1,0)"/>
+      <bind nodeset="/training_evaluation/option_for_reminder_score" type="string" calculate="if( /training_evaluation/group_test_questions/option_for_reminder ='task',1,0)"/>
+      <bind nodeset="/training_evaluation/form_available_to_all_score" type="string" calculate="if( /training_evaluation/group_test_questions/form_available_to_all ='death_report',1,0)"/>
+      <bind nodeset="/training_evaluation/who_is_responsible_for_hh_registration_score" type="string" calculate="if( /training_evaluation/group_test_questions/who_is_responsible_for_hh_registration ='vht',1,0)"/>
+      <bind nodeset="/training_evaluation/true_false_score" type="string" calculate="if( /training_evaluation/group_test_questions/true_false ='true',1,0)"/>
+      <bind nodeset="/training_evaluation/tab_for_graphical_representation_score" type="string" calculate="if( /training_evaluation/group_test_questions/tab_for_graphical_representation ='target',1,0)"/>
+      <bind nodeset="/training_evaluation/menu_for_reporting_issues_score" type="string" calculate="if( /training_evaluation/group_test_questions/menu_for_reporting_issues ='report_problem',1,0)"/>
+      <bind nodeset="/training_evaluation/option_facilitates_data_upload_score" type="string" calculate="if( /training_evaluation/group_test_questions/option_facilitates_data_upload ='all',1,0)"/>
+      <bind nodeset="/training_evaluation/form_for_collecting_symptoms_score" type="string" calculate="if( /training_evaluation/group_test_questions/form_for_collecting_symptoms ='assessment_form',1,0)"/>
+      <bind nodeset="/training_evaluation/option_for_completing_form_score" type="string" calculate="if( /training_evaluation/group_test_questions/option_for_completing_form ='action_button',1,0)"/>
+      <bind nodeset="/training_evaluation/your_score" type="string" calculate="10*(int( /training_evaluation/form_for_child_in_household_score )+int( /training_evaluation/option_for_reminder_score )+int( /training_evaluation/form_available_to_all_score )+int( /training_evaluation/who_is_responsible_for_hh_registration_score )+int( /training_evaluation/true_false_score )+int( /training_evaluation/tab_for_graphical_representation_score )+int( /training_evaluation/menu_for_reporting_issues_score )+int( /training_evaluation/option_facilitates_data_upload_score )+int( /training_evaluation/form_for_collecting_symptoms_score )+int( /training_evaluation/option_for_completing_form_score ))"/>
+      <bind nodeset="/training_evaluation/group_test_questions/trainee_name" type="string" jr:constraintMsg="Enter a valid name consisting of only letters starting with a capital letter" required="true()" constraint="regex(.,'^[A-Z]{1}[A-Za-z ]{1,50}$')"/>
+      <bind nodeset="/training_evaluation/group_test_questions/phone_number" type="string" jr:constraintMsg="Mobile number should be 10 digits" required="false()" constraint="regex(.,'^(07)[0-9]{8}$')"/>
+      <bind nodeset="/training_evaluation/group_test_questions/note_instructions" readonly="true()" type="string"/>
+      <bind nodeset="/training_evaluation/group_test_questions/form_for_child_in_household" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/option_for_reminder" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/form_available_to_all" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/who_is_responsible_for_hh_registration" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/true_false" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/tab_for_graphical_representation" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/menu_for_reporting_issues" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/option_facilitates_data_upload" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/form_for_collecting_symptoms" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_test_questions/option_for_completing_form" type="select1" required="true()"/>
+      <bind nodeset="/training_evaluation/group_patient_summary/s_note_before_submit" readonly="true()" type="string"/>
+      <bind nodeset="/training_evaluation/group_patient_summary/s_note_score_red" readonly="true()" type="string" relevant=" /training_evaluation/your_score &lt;50"/>
+      <bind nodeset="/training_evaluation/group_patient_summary/s_note_score_green" readonly="true()" type="string" relevant=" /training_evaluation/your_score &gt;=50"/>
+      <bind nodeset="/training_evaluation/group_patient_summary/s_your_score" readonly="true()" type="string"/>
+      <bind nodeset="/training_evaluation/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/training_evaluation/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/training_evaluation/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/training_evaluation/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/training_evaluation/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/training_evaluation/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/training_evaluation/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/training_evaluation/group_test_questions">
+      <label>Test questions</label>
+      <input ref="/training_evaluation/group_test_questions/trainee_name">
+        <label>Names</label>
+      </input>
+      <input appearance="number" ref="/training_evaluation/group_test_questions/phone_number">
+        <label>Phone number</label>
+        <hint>Mobile number should take this format 07XXXXXXXX</hint>
+      </input>
+      <input ref="/training_evaluation/group_test_questions/note_instructions">
+        <label>Instructions: This pre test/post test is aimed at gauging the knowledge gain following the planned trainings. For each question provide the best answer from among those given. Answer all the questions and hit the submit button upon completion. You will be allowed 20 minutes to complete the test.</label>
+      </input>
+      <select1 ref="/training_evaluation/group_test_questions/form_for_child_in_household">
+        <label>1. If a child is born in a household, which form should be filled on the VHT App?</label>
+        <item>
+          <label>New Action</label>
+          <value>new_action</value>
+        </item>
+        <item>
+          <label>New family/Household</label>
+          <value>new_hh</value>
+        </item>
+        <item>
+          <label>New person</label>
+          <value>new_person</value>
+        </item>
+        <item>
+          <label>Edit</label>
+          <value>edit</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/option_for_reminder">
+        <label>2. Which of the options below represents a reminder flagged for the VHT to conduct an action at the community?</label>
+        <item>
+          <label>Message</label>
+          <value>message</value>
+        </item>
+        <item>
+          <label>Task</label>
+          <value>task</value>
+        </item>
+        <item>
+          <label>People</label>
+          <value>people</value>
+        </item>
+        <item>
+          <label>History</label>
+          <value>history</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/form_available_to_all">
+        <label>3. Which of the following forms is available to all members of the household irrespective of their age or gender?</label>
+        <item>
+          <label>Family Planning</label>
+          <value>family_planning</value>
+        </item>
+        <item>
+          <label>Death Report</label>
+          <value>death_report</value>
+        </item>
+        <item>
+          <label>Delivery form</label>
+          <value>delivery_form</value>
+        </item>
+        <item>
+          <label>All of the above</label>
+          <value>all</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/who_is_responsible_for_hh_registration">
+        <label>4. On the VHT App, who is responsible for registration of households?</label>
+        <item>
+          <label>VHT</label>
+          <value>vht</value>
+        </item>
+        <item>
+          <label>Facility CHA</label>
+          <value>facility_cha</value>
+        </item>
+        <item>
+          <label>Field CHA</label>
+          <value>field_cha</value>
+        </item>
+        <item>
+          <label>SCHMT</label>
+          <value>schmt</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/true_false">
+        <label>5. True or false? The VHT app allows a VHT to collect information from the Household while it's online and offline.</label>
+        <item>
+          <label>TRUE</label>
+          <value>true</value>
+        </item>
+        <item>
+          <label>FALSE</label>
+          <value>false</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/tab_for_graphical_representation">
+        <label>6. Which of the following tabs in the VHT App presents a VHT with a graphical presentation of the data collected on different indicators?</label>
+        <item>
+          <label>Message</label>
+          <value>message</value>
+        </item>
+        <item>
+          <label>Task</label>
+          <value>task</value>
+        </item>
+        <item>
+          <label>VHT summary</label>
+          <value>target</value>
+        </item>
+        <item>
+          <label>Report</label>
+          <value>report</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/menu_for_reporting_issues">
+        <label>7. Which menu within the VHT App facilitates a user to report issues encountered while navigating the application?</label>
+        <item>
+          <label>About</label>
+          <value>about</value>
+        </item>
+        <item>
+          <label>Report a problem</label>
+          <value>report_problem</value>
+        </item>
+        <item>
+          <label>User Settings</label>
+          <value>user_settings</value>
+        </item>
+        <item>
+          <label>Guided Tour</label>
+          <value>guided_tour</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/option_facilitates_data_upload">
+        <label>8. Which of the following actions facilitates a VHT to upload data collected on the Medic Mobile App to the server?</label>
+        <item>
+          <label>Putting the data option on their phones to On status</label>
+          <value>data_option_on</value>
+        </item>
+        <item>
+          <label>Ensuring they have data bundles on their phone</label>
+          <value>have_data_bundles</value>
+        </item>
+        <item>
+          <label>Selecting the sync menu on their phones.</label>
+          <value>sync</value>
+        </item>
+        <item>
+          <label>All of the above</label>
+          <value>all</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/form_for_collecting_symptoms">
+        <label>9. Which one of the following forms on the VHT App will assist a VHT to collect symptoms presenting in a Household member?</label>
+        <item>
+          <label>Assess Client form</label>
+          <value>assessment_form</value>
+        </item>
+        <item>
+          <label>Death Report</label>
+          <value>death_report</value>
+        </item>
+        <item>
+          <label>Pregnancy Form</label>
+          <value>pregnancy_form</value>
+        </item>
+        <item>
+          <label>Immunization Form</label>
+          <value>immunization_form</value>
+        </item>
+      </select1>
+      <select1 ref="/training_evaluation/group_test_questions/option_for_completing_form">
+        <label>10. Which of the following options represent ways through which forms can be completed within the VHT App?</label>
+        <item>
+          <label>Through the action button</label>
+          <value>action_button</value>
+        </item>
+        <item>
+          <label>Through tasks list</label>
+          <value>tasks_list</value>
+        </item>
+        <item>
+          <label>Through Report a bug Menu</label>
+          <value>report_bug_menu</value>
+        </item>
+        <item>
+          <label>All of the above</label>
+          <value>all</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/training_evaluation/group_patient_summary">
+      <label>Scores</label>
+      <input ref="/training_evaluation/group_patient_summary/s_note_before_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 red" ref="/training_evaluation/group_patient_summary/s_note_score_red">
+        <label>Your score</label>
+      </input>
+      <input appearance="h1 green" ref="/training_evaluation/group_patient_summary/s_note_score_green">
+        <label>Your score</label>
+      </input>
+      <input ref="/training_evaluation/group_patient_summary/s_your_score">
+        <label><output value=" /training_evaluation/your_score "/> %</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,728 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Screening</h:title>
+    <model>
+      <instance>
+        <screening id="screening" prefix="J1!screening!" delimiter="#" version="2023-07-05 00:32:36">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <phone1/>
+              <parent>
+                <_id/>
+                <name/>
+              </parent>
+            </contact>
+          </inputs>
+          <visited_contact_uuid/>
+          <patient_phone/>
+          <patient_hh_name/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <patient_name_with_s/>
+          <today_date/>
+          <is_of_child_bearing_age/>
+          <group_pregnancy_screening>
+            <is_pregnant/>
+            <has_started_anc/>
+            <note_refer_to_health_facility_anc/>
+            <referred_to_health_facility_anc/>
+            <note_register_pregnancy/>
+          </group_pregnancy_screening>
+          <group_family_planning_screening>
+            <on_fp_method/>
+            <fp_method/>
+            <fp_method_label/>
+            <experiencing_fp_side_effects/>
+            <note_refer_counsel_and_refer/>
+            <change_fp_method/>
+            <note_counsel_on_all_fp_methods/>
+            <counseled_on_fp_methods/>
+            <referred_for_fp_services/>
+            <follow_up_date_fp_services/>
+            <note_register_using_fp_registration_form/>
+            <knows_lmp/>
+            <lmp_start_date/>
+            <days_elapsed_since_lmp/>
+            <lmp_approximate_date/>
+            <note_refer_for_pregnancy_test/>
+            <note_educate_on_available_fp_services/>
+            <referred_for_pregnancy_test/>
+            <follow_up_date_pregnancy_test/>
+          </group_family_planning_screening>
+          <group_hiv_screening>
+            <test_for_hiv_last3months/>
+            <hiv_test_result_label/>
+            <hiv_test_result/>
+            <on_art_treatment/>
+            <note_attend_art_clinic/>
+            <taking_medication/>
+            <note_explain_importance_taking_med/>
+            <note_encourage_to_continue_taking_med/>
+            <note_encourage_client/>
+            <note_advise_client_check_status/>
+            <note_advise_client_check_status2/>
+          </group_hiv_screening>
+          <group_tb_screening>
+            <has_tb/>
+            <has_cough/>
+            <on_tb_treatment/>
+            <note_refer_not_on_tb_treatment/>
+            <note_assess_all_clients/>
+          </group_tb_screening>
+          <group_other_screening>
+            <received_hpv/>
+            <received_tt_vaccine/>
+            <has_hypertension/>
+            <has_sickle_cell/>
+            <has_diabetes/>
+            <uses_tobacco/>
+            <sleep_under_llin/>
+            <why_not_using_llin/>
+            <why_not_using_llin_other/>
+            <note_vht_assist_how_to_get_llin/>
+            <note_vht_demonstrate_on_llin_use/>
+          </group_other_screening>
+          <group_summary>
+            <hiv_test_summary/>
+            <s_note_patient_details/>
+            <s_note_patient_details_values/>
+            <s_note_findings/>
+            <s_note_referred_for_pregnancy_confirmation/>
+            <s_note_referred_for_fp_services/>
+            <s_note_findings_fp/>
+            <s_note_hiv/>
+            <s_note_has_tb/>
+            <s_note_has_no_tb/>
+            <s_note_follow_up/>
+            <s_note_follow_up_value/>
+            <s_note_thank_you/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </screening>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/screening/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/screening/inputs/source" type="string"/>
+      <bind nodeset="/screening/inputs/source_id" type="string"/>
+      <bind nodeset="/screening/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/screening/inputs/contact/name" type="string"/>
+      <bind nodeset="/screening/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/screening/inputs/contact/sex" type="string"/>
+      <bind nodeset="/screening/inputs/contact/phone1" type="string"/>
+      <bind nodeset="/screening/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/screening/inputs/contact/parent/name" type="string"/>
+      <bind nodeset="/screening/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/screening/patient_phone" type="string" calculate="../inputs/contact/phone1"/>
+      <bind nodeset="/screening/patient_hh_name" type="string" calculate="../inputs/contact/parent/name"/>
+      <bind nodeset="/screening/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /screening/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/screening/patient_age_in_months" type="string" calculate="difference-in-months(  /screening/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/screening/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /screening/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/screening/patient_age_display" type="string" calculate="concat(
+ concat( /screening/patient_age_in_years , if( /screening/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /screening/patient_age_in_months  mod 12, if(( /screening/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/screening/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/screening/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/screening/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/screening/patient_name_with_s" type="string" calculate="concat( /screening/patient_name , if(regex( /screening/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/screening/today_date" type="string" calculate="format-date-time(today(),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/screening/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/screening/group_pregnancy_screening" relevant=" /screening/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/screening/group_pregnancy_screening/is_pregnant" type="select1" required="true()"/>
+      <bind nodeset="/screening/group_pregnancy_screening/has_started_anc" type="select1" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_pregnancy_screening/note_refer_to_health_facility_anc" readonly="true()" type="string" relevant=" /screening/group_pregnancy_screening/has_started_anc  = 'no'"/>
+      <bind nodeset="/screening/group_pregnancy_screening/referred_to_health_facility_anc" type="select1" relevant=" /screening/group_pregnancy_screening/has_started_anc  = 'no'" required="true()"/>
+      <bind nodeset="/screening/group_pregnancy_screening/note_register_pregnancy" readonly="true()" type="string" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'yes' and  /screening/group_pregnancy_screening/has_started_anc  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'no' and  /screening/inputs/contact/sex  = 'female' and  /screening/patient_age_in_years  &gt;= 12 and  /screening/patient_age_in_years  &lt;= 49"/>
+      <bind nodeset="/screening/group_family_planning_screening/on_fp_method" type="select1" required="true()"/>
+      <bind nodeset="/screening/group_family_planning_screening/fp_method" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/fp_method_label" type="string" calculate="jr:choice-name( /screening/group_family_planning_screening/fp_method , ' /screening/group_family_planning_screening/fp_method ')"/>
+      <bind nodeset="/screening/group_family_planning_screening/experiencing_fp_side_effects" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'yes' and  /screening/group_family_planning_screening/fp_method  != 'tl'"/>
+      <bind nodeset="/screening/group_family_planning_screening/note_refer_counsel_and_refer" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/experiencing_fp_side_effects  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/change_fp_method" type="select1" relevant=" /screening/group_family_planning_screening/experiencing_fp_side_effects  = 'yes' and  /screening/group_family_planning_screening/fp_method  != 'tl'"/>
+      <bind nodeset="/screening/group_family_planning_screening/note_counsel_on_all_fp_methods" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no' or  /screening/group_family_planning_screening/change_fp_method  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/counseled_on_fp_methods" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no' or  /screening/group_family_planning_screening/change_fp_method  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/referred_for_fp_services" type="select1" relevant=" /screening/group_family_planning_screening/change_fp_method  = 'yes' or  /screening/group_family_planning_screening/experiencing_fp_side_effects  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_fp_services" type="date" relevant=" /screening/group_family_planning_screening/referred_for_fp_services  = 'yes'" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
+      <bind nodeset="/screening/group_family_planning_screening/note_register_using_fp_registration_form" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/change_fp_method  ='no'"/>
+      <bind nodeset="/screening/group_family_planning_screening/knows_lmp" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no'"/>
+      <bind nodeset="/screening/group_family_planning_screening/lmp_start_date" type="date" relevant=" /screening/group_family_planning_screening/knows_lmp  = 'yes'"/>
+      <bind nodeset="/screening/group_family_planning_screening/days_elapsed_since_lmp" type="string" calculate="floor((decimal-date-time(today()) - decimal-date-time( /screening/group_family_planning_screening/lmp_start_date )))"/>
+      <bind nodeset="/screening/group_family_planning_screening/lmp_approximate_date" type="select1" relevant=" /screening/group_family_planning_screening/knows_lmp  = 'no'"/>
+      <bind nodeset="/screening/group_family_planning_screening/note_refer_for_pregnancy_test" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'more_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &gt; 30"/>
+      <bind nodeset="/screening/group_family_planning_screening/note_educate_on_available_fp_services" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'less_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &lt;= 30"/>
+      <bind nodeset="/screening/group_family_planning_screening/referred_for_pregnancy_test" type="select1" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'more_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &gt; 30"/>
+      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_pregnancy_test" type="date" relevant=" /screening/group_family_planning_screening/referred_for_pregnancy_test  = 'yes'" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
+      <bind nodeset="/screening/group_hiv_screening/test_for_hiv_last3months" type="select1" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/hiv_test_result_label" type="string" calculate="if( /screening/group_hiv_screening/test_for_hiv_last3months ='yes', 
+&quot;What was the result of the HIV test?&quot;,
+&quot;What is the client's HIV status?&quot;)"/>
+      <bind nodeset="/screening/group_hiv_screening/hiv_test_result" type="select1" relevant=" /screening/group_hiv_screening/test_for_hiv_last3months !=''" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/on_art_treatment" type="select1" relevant=" /screening/group_hiv_screening/hiv_test_result ='positive'" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/note_attend_art_clinic" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/on_art_treatment  = 'no'"/>
+      <bind nodeset="/screening/group_hiv_screening/taking_medication" type="select1" relevant=" /screening/group_hiv_screening/on_art_treatment  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/note_explain_importance_taking_med" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/taking_medication  = 'no'"/>
+      <bind nodeset="/screening/group_hiv_screening/note_encourage_to_continue_taking_med" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/taking_medication  = 'yes'"/>
+      <bind nodeset="/screening/group_hiv_screening/note_encourage_client" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='negative'"/>
+      <bind nodeset="/screening/group_hiv_screening/note_advise_client_check_status" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='unknown' and  /screening/group_hiv_screening/test_for_hiv_last3months ='yes'"/>
+      <bind nodeset="/screening/group_hiv_screening/note_advise_client_check_status2" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='unknown' and  /screening/group_hiv_screening/test_for_hiv_last3months ='no'"/>
+      <bind nodeset="/screening/group_tb_screening/has_tb" type="select1" required="true()"/>
+      <bind nodeset="/screening/group_tb_screening/has_cough" type="select1" relevant=" /screening/group_tb_screening/has_tb  = 'no'" required="true()"/>
+      <bind nodeset="/screening/group_tb_screening/on_tb_treatment" type="select1" relevant=" /screening/group_tb_screening/has_tb  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_tb_screening/note_refer_not_on_tb_treatment" readonly="true()" type="string" relevant=" /screening/group_tb_screening/on_tb_treatment  = 'no'"/>
+      <bind nodeset="/screening/group_tb_screening/note_assess_all_clients" readonly="true()" type="string" relevant=" /screening/group_tb_screening/has_tb  = 'yes'"/>
+      <bind nodeset="/screening/group_other_screening/received_hpv" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 10 and  /screening/patient_age_in_years  &lt;=24"/>
+      <bind nodeset="/screening/group_other_screening/received_tt_vaccine" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 10 and  /screening/patient_age_in_years  &lt;=24"/>
+      <bind nodeset="/screening/group_other_screening/has_hypertension" type="select1"/>
+      <bind nodeset="/screening/group_other_screening/has_sickle_cell" type="select1"/>
+      <bind nodeset="/screening/group_other_screening/has_diabetes" type="select1" required="true()"/>
+      <bind nodeset="/screening/group_other_screening/uses_tobacco" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 12"/>
+      <bind nodeset="/screening/group_other_screening/sleep_under_llin" type="select1"/>
+      <bind nodeset="/screening/group_other_screening/why_not_using_llin" type="select1" relevant="selected(../sleep_under_llin, 'no')"/>
+      <bind nodeset="/screening/group_other_screening/why_not_using_llin_other" type="string" relevant="selected(../why_not_using_llin, 'other')"/>
+      <bind nodeset="/screening/group_other_screening/note_vht_assist_how_to_get_llin" readonly="true()" type="string" relevant="selected(../why_not_using_llin, 'has_no_llin') or selected(../why_not_using_llin, 'not_enough_llins')"/>
+      <bind nodeset="/screening/group_other_screening/note_vht_demonstrate_on_llin_use" readonly="true()" type="string" relevant="selected(../why_not_using_llin, 'does_not_know_how_to_use')"/>
+      <bind nodeset="/screening/group_summary/hiv_test_summary" type="string" calculate="if( /screening/group_hiv_screening/test_for_hiv_last3months  = 'yes', &quot;Tested in the last 3 months&quot;, &quot;Has not tested in the last 3 months&quot;)"/>
+      <bind nodeset="/screening/group_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/screening/group_summary/s_note_patient_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/screening/group_summary/s_note_findings" readonly="true()" type="string"/>
+      <bind nodeset="/screening/group_summary/s_note_referred_for_pregnancy_confirmation" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/referred_for_pregnancy_test  = 'yes'"/>
+      <bind nodeset="/screening/group_summary/s_note_referred_for_fp_services" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/referred_for_fp_services  = 'yes'"/>
+      <bind nodeset="/screening/group_summary/s_note_findings_fp" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'yes'"/>
+      <bind nodeset="/screening/group_summary/s_note_hiv" readonly="true()" type="string"/>
+      <bind nodeset="/screening/group_summary/s_note_has_tb" readonly="true()" type="string" relevant=" /screening/group_tb_screening/has_tb  = 'yes'"/>
+      <bind nodeset="/screening/group_summary/s_note_has_no_tb" readonly="true()" type="string" relevant=" /screening/group_tb_screening/has_tb  = 'no'"/>
+      <bind nodeset="/screening/group_summary/s_note_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/screening/group_summary/s_note_follow_up_value" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/follow_up_date_fp_services  != ''"/>
+      <bind nodeset="/screening/group_summary/s_note_thank_you" readonly="true()" type="string"/>
+      <bind nodeset="/screening/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/screening/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/screening/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/screening/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/screening/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/screening/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/screening/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/screening/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/screening/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <input ref="/screening/inputs/contact/phone1"/>
+        <group ref="/screening/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/screening/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+          <input ref="/screening/inputs/contact/parent/name"/>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/screening/group_pregnancy_screening">
+      <label>Pregnancy Screening</label>
+      <select1 appearance="horizontal" ref="/screening/group_pregnancy_screening/is_pregnant">
+        <label>Is <output value=" /screening/patient_name "/> pregnant?</label>
+        <hint>Confirm pregnancy details from the mother-child booklet</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_pregnancy_screening/has_started_anc">
+        <label>Has <output value=" /screening/patient_name "/> started ANC clinic?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_pregnancy_screening/note_refer_to_health_facility_anc">
+        <label>Please refer the woman to the health facility</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_pregnancy_screening/referred_to_health_facility_anc">
+        <label>Have you referred the woman to the health facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_pregnancy_screening/note_register_pregnancy">
+        <label>Please register the woman's pregnancy using pregnancy registration form</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/screening/group_family_planning_screening">
+      <label>Family Planning Screening</label>
+      <select1 ref="/screening/group_family_planning_screening/on_fp_method">
+        <label>Is <output value=" /screening/patient_name "/> currently on any family planning method?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/screening/group_family_planning_screening/fp_method">
+        <label>Which method is <output value=" /screening/patient_name "/> using?</label>
+        <item>
+          <label>COCs-Combined Oral Contraceptive</label>
+          <value>cocs</value>
+        </item>
+        <item>
+          <label>POPs-Progestogen-only Pill</label>
+          <value>pops</value>
+        </item>
+        <item>
+          <label>DMPA-IM</label>
+          <value>dmpa_im</value>
+        </item>
+        <item>
+          <label>DMPA-SC (for e.g. Sayana Press)</label>
+          <value>dmpa_sc</value>
+        </item>
+        <item>
+          <label>Implants</label>
+          <value>implants</value>
+        </item>
+        <item>
+          <label>IUD</label>
+          <value>iud</value>
+        </item>
+        <item>
+          <label>Condoms</label>
+          <value>condoms</value>
+        </item>
+        <item>
+          <label>Tubal Ligation (TL)</label>
+          <value>tl</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/experiencing_fp_side_effects">
+        <label>Is <output value=" /screening/patient_name "/> experiencing any family planning side effects</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/note_refer_counsel_and_refer">
+        <label>Please counsel <output value=" /screening/patient_name "/> and refer them to the health facility&quot;</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/change_fp_method">
+        <label>Would <output value=" /screening/patient_name "/> want to change the family planning method she is currently using</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/note_counsel_on_all_fp_methods">
+        <label>Counsel <output value=" /screening/patient_name "/> on all the family planning methods and refer her to the health facility</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/counseled_on_fp_methods">
+        <label>Have you counseled <output value=" /screening/patient_name "/> on family planning methods?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/referred_for_fp_services">
+        <label>Have you referred <output value=" /screening/patient_name "/> for family planning services</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/follow_up_date_fp_services">
+        <label>Select a date when you will come to find out if <output value=" /screening/patient_name "/> went to the health facility for family planning services</label>
+      </input>
+      <input ref="/screening/group_family_planning_screening/note_register_using_fp_registration_form">
+        <label>Please register the woman for care coordination using the Family Planning Registration form</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/knows_lmp">
+        <label>Does <output value=" /screening/patient_name "/> know the date of the last menstrual cycle?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/lmp_start_date">
+        <label>When was the start date of <output value=" /screening/patient_name_with_s "/> last menstrual cycle?</label>
+      </input>
+      <select1 ref="/screening/group_family_planning_screening/lmp_approximate_date">
+        <label>What is <output value=" /screening/patient_name_with_s "/> approximate date of last cycle?</label>
+        <item>
+          <label>More than 1 month ago</label>
+          <value>more_than_1_month_ago</value>
+        </item>
+        <item>
+          <label>Less than 1 month ago</label>
+          <value>less_than_1_month_ago</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/note_refer_for_pregnancy_test">
+        <label>Refer <output value=" /screening/patient_name "/> to the health facility for pregnancy test</label>
+      </input>
+      <input ref="/screening/group_family_planning_screening/note_educate_on_available_fp_services">
+        <label>Educate and counsel <output value=" /screening/patient_name "/> on all available family planning services and refer them to the health facility for family planning if they are in agreement</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_family_planning_screening/referred_for_pregnancy_test">
+        <label>Have you referred <output value=" /screening/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_family_planning_screening/follow_up_date_pregnancy_test">
+        <label>Select a date when you will come to find out if <output value=" /screening/patient_name "/> went to the health facility for a pregnancy test</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/screening/group_hiv_screening">
+      <label>HIV Screening</label>
+      <select1 appearance="horizontal" ref="/screening/group_hiv_screening/test_for_hiv_last3months">
+        <label>Has client tested for HIV in the last 3 months?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/screening/group_hiv_screening/hiv_test_result">
+        <label><output value=" /screening/group_hiv_screening/hiv_test_result_label "/></label>
+        <item>
+          <label>Positive</label>
+          <value>positive</value>
+        </item>
+        <item>
+          <label>Negative</label>
+          <value>negative</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_hiv_screening/on_art_treatment">
+        <label>Is client on ART treatment?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_hiv_screening/note_attend_art_clinic">
+        <label>Encourage the client to attend ART clinic to begin treatment</label>
+      </input>
+      <select1 appearance="horizontal" ref="/screening/group_hiv_screening/taking_medication">
+        <label>Is the client taking their medication as prescribed?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_hiv_screening/note_explain_importance_taking_med">
+        <label>Explain the importance of the client taking their medication as has been prescribed</label>
+      </input>
+      <input ref="/screening/group_hiv_screening/note_encourage_to_continue_taking_med">
+        <label>Encourage the client to continue taking their medication as has been prescribed</label>
+      </input>
+      <input ref="/screening/group_hiv_screening/note_encourage_client">
+        <label>Encourage the client to reduce their risk of getting HIV and retest after 3 months</label>
+      </input>
+      <input ref="/screening/group_hiv_screening/note_advise_client_check_status">
+        <label>Advise client to check their status and start medication if positive or advise on prevention of HIV practices if negative</label>
+      </input>
+      <input ref="/screening/group_hiv_screening/note_advise_client_check_status2">
+        <label>Encourage and refer the client to the health facility for HIV testing</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/screening/group_tb_screening">
+      <label>TB Screening</label>
+      <select1 appearance="horizontal" ref="/screening/group_tb_screening/has_tb">
+        <label>Does the client have TB?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_tb_screening/has_cough">
+        <label>Have you had a cough for the last 2 weeks?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_tb_screening/on_tb_treatment">
+        <label>Is client on TB Treatment?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/screening/group_tb_screening/note_refer_not_on_tb_treatment">
+        <label>Note: Refer <output value=" /screening/patient_name "/> to the health facility to seek help in order to reduce the risk of spreading TB on to other household members</label>
+      </input>
+      <input ref="/screening/group_tb_screening/note_assess_all_clients">
+        <label>Note: Assess all Clients in the HouseHold for TB</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/screening/group_other_screening">
+      <label>Other forms of screening</label>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/received_hpv">
+        <label>Has the client received HPV Vaccine?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/received_tt_vaccine">
+        <label>Has the client received TT vaccine?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/has_hypertension">
+        <label>Does the client have Hypertension?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/has_sickle_cell">
+        <label>Does the client have Sickle Cell?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/has_diabetes">
+        <label>Does the client have Diabetes?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/screening/group_other_screening/uses_tobacco">
+        <label>Does client use Tobacco?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/screening/group_other_screening/sleep_under_llin">
+        <label>Is the client sleeping under an insecticide treated net (LLIN)?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/screening/group_other_screening/why_not_using_llin">
+        <label>Why is the Client not sleeping under an insecticide treated net (LLIN)?</label>
+        <item>
+          <label>Don't have insecticide treated net (LLIN)</label>
+          <value>has_no_llin</value>
+        </item>
+        <item>
+          <label>There are not enough insecticide treated net (LLIN) for the number of people in household</label>
+          <value>not_enough_llins</value>
+        </item>
+        <item>
+          <label>Don't know how to hang/use insecticide treated net (LLIN)</label>
+          <value>does_not_know_how_to_use</value>
+        </item>
+        <item>
+          <label>Other (Please Specify)</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input appearance="hidden" ref="/screening/group_other_screening/why_not_using_llin_other">
+        <label>Other (Please Specify)</label>
+      </input>
+      <input appearance="hidden" ref="/screening/group_other_screening/note_vht_assist_how_to_get_llin">
+        <label>The VHT should assist or advice the client on how to get an insecticide treated net (LLIN)</label>
+      </input>
+      <input appearance="hidden" ref="/screening/group_other_screening/note_vht_demonstrate_on_llin_use">
+        <label>The VHT should demonstrate how to hang an insecticide treated net (LLIN)</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/screening/group_summary">
+      <label>Summary</label>
+      <input appearance="h1 yellow" ref="/screening/group_summary/s_note_patient_details">
+        <label>Patient Details</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_patient_details_values">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /screening/patient_name "/>&lt;/h4&gt;
+&lt;p style=&quot;text-align:center; font-weight:bold;&quot;&gt;
+<output value=" /screening/patient_age_in_years "/> years
+<output value=" /screening/patient_hh_name "/>
+<output value=" /screening/patient_phone "/>&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/screening/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_referred_for_pregnancy_confirmation">
+        <label>Referred for pregnancy confirmation</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_referred_for_fp_services">
+        <label>Referred for family planning services</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_findings_fp">
+        <label>&lt;p style=&quot;text-align:center&quot;&gt;She is on <output value=" /screening/group_family_planning_screening/fp_method_label "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_hiv">
+        <label>&lt;p style=&quot;text-align:center&quot;&gt;
+HIV Testing: 
+Client tested in the last 3 months: <output value=" /screening/group_hiv_screening/test_for_hiv_last3months "/>
+&lt;/p&gt;</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_has_tb">
+        <label>&lt;p style="text-align:center"&gt;TB Status: Has TB&lt;/p&gt;</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_has_no_tb">
+        <label>&lt;p style="text-align:center"&gt;TB Status: Has No TB&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/screening/group_summary/s_note_follow_up">
+        <label>Follow Up</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_follow_up_value">
+        <label>&lt;p style=&quot;text-align:center&quot;&gt;FP follow ups is due on <output value=" /screening/group_family_planning_screening/follow_up_date_fp_services "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/screening/group_summary/s_note_thank_you">
+        <label>Thank you for assessing <output value=" /screening/patient_name "/>. Please tap on submit to complete this form</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

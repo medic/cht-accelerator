@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Device Functionality  Follow Up Form</h:title>
+    <model>
+      <instance>
+        <device_functionality_follow_up id="device_functionality_follow_up" prefix="J1!device_functionality_follow_up!" delimiter="#" version="2023-11-07  23-56">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <device_functionality_follow_up>
+            <file_report/>
+            <file_report_date/>
+            <file_report_num/>
+            <no_file_report_reason/>
+          </device_functionality_follow_up>
+          <group_functionality_follow_up_summary>
+            <s_note_functionality_follow_up/>
+            <s_note_submit_button/>
+            <s_note_device_follow_up_details/>
+            <s_note_file_report/>
+            <s_note_file_report_date/>
+            <s_note_file_report_num/>
+            <s_note_no_file_report_reason/>
+          </group_functionality_follow_up_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </device_functionality_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/device_functionality_follow_up/inputs" relevant="./source='user'"/>
+      <bind nodeset="/device_functionality_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/device_functionality_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/device_functionality_follow_up/file_report" type="select1" required="true()"/>
+      <bind nodeset="/device_functionality_follow_up/device_functionality_follow_up/file_report_date" type="date" required="true()" relevant=" /device_functionality_follow_up/device_functionality_follow_up/file_report  = 'yes'"/>
+      <bind nodeset="/device_functionality_follow_up/device_functionality_follow_up/file_report_num" type="int" required="true()" relevant=" /device_functionality_follow_up/device_functionality_follow_up/file_report  = 'yes'"/>
+      <bind nodeset="/device_functionality_follow_up/device_functionality_follow_up/no_file_report_reason" type="string" required="true()" relevant=" /device_functionality_follow_up/device_functionality_follow_up/file_report  = 'no'"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_functionality_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_device_follow_up_details" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report_date" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report_num" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_no_file_report_reason" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/device_functionality_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/device_functionality_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/device_functionality_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/device_functionality_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/device_functionality_follow_up/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/device_functionality_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/device_functionality_follow_up/device_functionality_follow_up">
+      <label>DEVICE FUNCTIONALITY FOLLOW UP</label>
+      <select1 appearance="horizontal" ref="/device_functionality_follow_up/device_functionality_follow_up/file_report">
+        <label>Did you file a police report?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/device_functionality_follow_up/device_functionality_follow_up/file_report_date">
+        <label>Date when the police report was filed</label>
+      </input>
+      <input appearance="horizontal" ref="/device_functionality_follow_up/device_functionality_follow_up/file_report_num">
+        <label>Please share police file report number</label>
+      </input>
+      <input ref="/device_functionality_follow_up/device_functionality_follow_up/no_file_report_reason">
+        <label>Why haven't you filed a report yet?</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/device_functionality_follow_up/group_functionality_follow_up_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_functionality_follow_up">
+        <label>&lt;h1 style="text-align:center;"&gt;Device Functionality Follow Up Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_device_follow_up_details">
+        <label>Device Functionality Follow Up Details</label>
+      </input>
+      <input appearance="li" ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report">
+        <label>Filed a report: <output value=" /device_functionality_follow_up/device_functionality_follow_up/file_report "/></label>
+      </input>
+      <input appearance="li" ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report_date">
+        <label>Date: <output value=" /device_functionality_follow_up/device_functionality_follow_up/file_report_date "/></label>
+      </input>
+      <input appearance="li" ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_file_report_num">
+        <label>Police file number: <output value=" /device_functionality_follow_up/device_functionality_follow_up/file_report_num "/></label>
+      </input>
+      <input ref="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_no_file_report_reason">
+        <label>Why no report was filed: <output value=" /device_functionality_follow_up/device_functionality_follow_up/no_file_report_reason "/></label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

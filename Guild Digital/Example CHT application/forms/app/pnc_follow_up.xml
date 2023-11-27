@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Follow Up</h:title>
+    <model>
+      <instance>
+        <pnc_follow_up id="pnc_follow_up" prefix="J1!pnc_follow_up!" delimiter="#" version="2022-03-19 19:41:29">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <task_name>pnc_follow_up_mother</task_name>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <patient_name_with_s/>
+          <nutrition_follow_up_date/>
+          <referred_for_nutrition_follow_up/>
+          <group_label/>
+          <group_pnc_referral_follow_up>
+            <went_facility_as_referred/>
+          </group_pnc_referral_follow_up>
+          <group_missed_referral_details>
+            <missed_referral_reason/>
+            <specify_other/>
+            <missed_referral_actions/>
+          </group_missed_referral_details>
+          <group_mother_condition>
+            <mother_condition/>
+            <date_of_death/>
+          </group_mother_condition>
+          <group_follow_up>
+            <is_available/>
+            <follow_up_again_date/>
+          </group_follow_up>
+          <group_pnc_visit>
+            <has_attended_pnc_facility/>
+            <pnc_visit/>
+            <visit_date/>
+          </group_pnc_visit>
+          <group_missed_pnc_visit>
+            <missed_visit_reason/>
+            <missed_visit_reason_other/>
+            <note_pnc_importance/>
+            <agreed_to_go_for_pnc_visit/>
+            <agreed_date_for_pnc_visit/>
+          </group_missed_pnc_visit>
+          <group_woman_nutritional_status>
+            <note_nutrition_status/>
+            <on_nutrition_follow_up/>
+            <note_use_muac_tape/>
+            <taken_muac/>
+            <muac_measurement/>
+            <note_has_sam/>
+            <note_has_mam/>
+            <note_refer_to_health_facility/>
+            <referred_to_health_facility_nutrition/>
+            <completed_last_nutrition_follow_up/>
+            <next_nutrition_follow_up_date/>
+            <note_thank_you_nutrition_follow_up/>
+            <note_refer_did_not_complete_follow_up/>
+            <referred_to_health_facility_missed_nutrition_follow_up/>
+          </group_woman_nutritional_status>
+          <group_safe_postnatal_practices>
+            <note_eat_well/>
+            <note_exclusive_breast_feeding/>
+            <note_keep_baby_warm/>
+            <note_use_llin/>
+            <note_clean_dry_umbilical_cord/>
+            <note_fp/>
+          </group_safe_postnatal_practices>
+          <group_summary>
+            <woman_condition_choice/>
+            <pnc_visit_choice/>
+            <s_note_pnc_follow_up_report/>
+            <s_note_pnc_referral_follow_up/>
+            <s_summary_submit/>
+            <s_note_patient_details/>
+            <s_note_patient_details_values/>
+            <s_note_woman_condition/>
+            <s_note_woman_condition_value/>
+            <s_note_pnc_details/>
+            <s_note_pnc_details_value/>
+            <s_note_complete_remaining_pnc_visits/>
+            <s_note_follow_up/>
+            <s_note_follow_up_value/>
+            <s_note_findings/>
+            <s_note_referral_completed/>
+            <s_note_referral_not_completed/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </pnc_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/pnc_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/pnc_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/task_name" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /pnc_follow_up/is_of_child_bearing_age  = 'true'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/pnc_follow_up/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/pnc_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /pnc_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/pnc_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /pnc_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/pnc_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /pnc_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/pnc_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /pnc_follow_up/patient_age_in_years , if( /pnc_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /pnc_follow_up/patient_age_in_months  mod 12, if(( /pnc_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/pnc_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/pnc_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/pnc_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/pnc_follow_up/patient_name_with_s" type="string" calculate="concat( /pnc_follow_up/patient_name , if(regex( /pnc_follow_up/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/pnc_follow_up/nutrition_follow_up_date" type="string" calculate=" /pnc_follow_up/group_woman_nutritional_status/next_nutrition_follow_up_date "/>
+      <bind nodeset="/pnc_follow_up/referred_for_nutrition_follow_up" type="string" calculate="if(( /pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_nutrition  = 'yes' or  /pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/pnc_follow_up/group_label" type="string" calculate="if( /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up', 'PNC Referral Follow Up', 'PNC Follow Up')"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_referral_follow_up" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up'"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_referral_details" relevant=" /pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred  = 'no'"/>
+      <bind nodeset="/pnc_follow_up/group_missed_referral_details/missed_referral_reason" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_referral_details/specify_other" type="string" relevant=" /pnc_follow_up/group_missed_referral_details/missed_referral_reason  = 'other'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_referral_details/missed_referral_actions" type="select" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_mother_condition" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother'"/>
+      <bind nodeset="/pnc_follow_up/group_mother_condition/mother_condition" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_mother_condition/date_of_death" type="date" jr:constraintMsg="Date should not be in future" constraint=". &lt;= today()" relevant="../mother_condition = 'dead'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_follow_up" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_follow_up/is_available" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_follow_up/follow_up_again_date" type="date" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" relevant="../is_available = 'no'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit" relevant=" /pnc_follow_up/group_follow_up/is_available  = 'yes' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit/has_attended_pnc_facility" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit/pnc_visit" type="select1" relevant="../has_attended_pnc_facility = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit/visit_date" type="date" jr:constraintMsg="Date should not be in future" constraint=". &lt;= today()" relevant="../has_attended_pnc_facility = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit" relevant="../group_pnc_visit/has_attended_pnc_facility = 'no' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason_other" type="string" relevant="../missed_visit_reason = 'other'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/note_pnc_importance" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/agreed_to_go_for_pnc_visit" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/agreed_date_for_pnc_visit" type="date" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" relevant="../agreed_to_go_for_pnc_visit = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_nutrition_status" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up" type="select1" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_use_muac_tape" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/taken_muac" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/muac_measurement" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/taken_muac  = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_has_sam" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_has_mam" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red' or  /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_nutrition" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red' or  /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/next_nutrition_follow_up_date" type="date" jr:constraintMsg="Date should not be in the past" constraint=". &gt;= today()" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_thank_you_nutrition_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_refer_did_not_complete_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_eat_well" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_exclusive_breast_feeding" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_keep_baby_warm" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_use_llin" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_clean_dry_umbilical_cord" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_fp" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_summary" relevant=" /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/woman_condition_choice" type="string" calculate="jr:choice-name( /pnc_follow_up/group_mother_condition/mother_condition , ' /pnc_follow_up/group_mother_condition/mother_condition ')"/>
+      <bind nodeset="/pnc_follow_up/group_summary/pnc_visit_choice" type="string" calculate="jr:choice-name( /pnc_follow_up/group_pnc_visit/pnc_visit , ' /pnc_follow_up/group_pnc_visit/pnc_visit ')"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_pnc_follow_up_report" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_pnc_referral_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_patient_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_woman_condition" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_woman_condition_value" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_pnc_details" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_pnc_visit/has_attended_pnc_facility  = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_pnc_details_value" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_pnc_visit/has_attended_pnc_facility  = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_complete_remaining_pnc_visits" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_pnc_visit/has_attended_pnc_facility  = 'yes' and  /pnc_follow_up/group_pnc_visit/pnc_visit  != '6_weeks'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_follow_up_value" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_findings" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_referral_completed" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up' and  /pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred  = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_summary/s_note_referral_not_completed" readonly="true()" type="string" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_referral_follow_up' and  /pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred  = 'no'"/>
+      <bind nodeset="/pnc_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/pnc_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/pnc_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/pnc_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/pnc_follow_up/inputs/task_name">
+        <label>Task Name</label>
+      </input>
+      <group ref="/pnc_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/pnc_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/pnc_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/pnc_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/pnc_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/pnc_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/pnc_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group ref="/pnc_follow_up/group_pnc_referral_follow_up">
+      <label>PNC Referral Follow Up</label>
+      <select1 ref="/pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred">
+        <label>Did <output value=" /pnc_follow_up/patient_name "/> go to the health facility as referred?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group ref="/pnc_follow_up/group_missed_referral_details">
+      <label>PNC Referral Follow Up – Missed Referral Details</label>
+      <select1 ref="/pnc_follow_up/group_missed_referral_details/missed_referral_reason">
+        <label>Why did <output value=" /pnc_follow_up/patient_name "/> not go to the health facility as referred?</label>
+        <item>
+          <label>Lack of transport fee</label>
+          <value>lacked_transport</value>
+        </item>
+        <item>
+          <label>Does not consider it important</label>
+          <value>not_important</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_missed_referral_details/specify_other">
+        <label>Specifiy Other</label>
+      </input>
+      <select ref="/pnc_follow_up/group_missed_referral_details/missed_referral_actions">
+        <label>Select all the actions that you have taken to help <output value=" /pnc_follow_up/patient_name "/></label>
+        <item>
+          <label>Referred to the health facility</label>
+          <value>referred</value>
+        </item>
+        <item>
+          <label>Provided key health messages</label>
+          <value>provided_key_message</value>
+        </item>
+      </select>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_mother_condition">
+      <label>PNC Follow Up – Mother's Condition</label>
+      <select1 ref="/pnc_follow_up/group_mother_condition/mother_condition">
+        <label>What is <output value=" /pnc_follow_up/patient_name_with_s "/> condition?</label>
+        <item>
+          <label>Alive</label>
+          <value>alive</value>
+        </item>
+        <item>
+          <label>Dead</label>
+          <value>dead</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_mother_condition/date_of_death">
+        <label>When did the woman die?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_follow_up">
+      <label>PNC Follow Up</label>
+      <select1 ref="/pnc_follow_up/group_follow_up/is_available">
+        <label>Is <output value=" /pnc_follow_up/patient_name "/> available?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_follow_up/follow_up_again_date">
+        <label>When would you like to follow up <output value=" /pnc_follow_up/patient_name "/> again?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_pnc_visit">
+      <label>PNC Follow Up – PNC Visit details</label>
+      <select1 ref="/pnc_follow_up/group_pnc_visit/has_attended_pnc_facility">
+        <label>Has <output value=" /pnc_follow_up/patient_name "/> attended PNC facility visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pnc_follow_up/group_pnc_visit/pnc_visit">
+        <label>Which PNC visit are you reporting?</label>
+        <item>
+          <label>1st visit  (Within 24 hours)</label>
+          <value>within_24_hours</value>
+        </item>
+        <item>
+          <label>2nd visit (7 days)</label>
+          <value>7_days</value>
+        </item>
+        <item>
+          <label>3rd visit (6 weeks)</label>
+          <value>6_weeks</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_pnc_visit/visit_date">
+        <label>When did the visit happen?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_missed_pnc_visit">
+      <label>PNC Follow Up – Missed PNC Visit details</label>
+      <select1 ref="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason">
+        <label>Why did the mother not attend the health facility PNC visit?</label>
+        <item>
+          <label>Relocated</label>
+          <value>relocated</value>
+        </item>
+        <item>
+          <label>Mother did not have transport</label>
+          <value>no_transport</value>
+        </item>
+        <item>
+          <label>Mother had traveled</label>
+          <value>had_traveled</value>
+        </item>
+        <item>
+          <label>Mother does not consider PNC visits important</label>
+          <value>not_important</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason_other">
+        <label>Please specify</label>
+      </input>
+      <input ref="/pnc_follow_up/group_missed_pnc_visit/note_pnc_importance">
+        <label>Please counsel the mother on importance of PNC visit and and refer her to the health facility</label>
+      </input>
+      <select1 ref="/pnc_follow_up/group_missed_pnc_visit/agreed_to_go_for_pnc_visit">
+        <label>Has the mother agreed to go to the health facility for PNC Visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_missed_pnc_visit/agreed_date_for_pnc_visit">
+        <label>Please indicate the date that the caregiver mother has agreed to go to the health facility for PNC visit</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_woman_nutritional_status">
+      <label>PNC Follow Up – Nutrition Status of the Woman</label>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_nutrition_status">
+        <label>It is important to ensure that all pregnant women in your area have optimal nutrition status. This is assessed by using a MUAC tape</label>
+      </input>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up">
+        <label>Is <output value=" /pnc_follow_up/patient_name "/> on nutrition follow up?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_use_muac_tape">
+        <label>Use your MUAC tape to take the woman's MUAC</label>
+      </input>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/taken_muac">
+        <label>Have you taken <output value=" /pnc_follow_up/patient_name "/> MUAC?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/muac_measurement">
+        <label>What is the colour and measurement of the MUAC tape?</label>
+        <item>
+          <label>Red (&lt;19.0 cm)</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Yellow (≥19.0cm but &lt;23.0cm)</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Green (≥23cm)</label>
+          <value>green</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_has_sam">
+        <label>Woman has Severe Acute Malnutrition (SAM)</label>
+      </input>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_has_mam">
+        <label>Woman has Moderate Acute Malnutrition (MAM)</label>
+      </input>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_refer_to_health_facility">
+        <label>Refer <output value=" /pnc_follow_up/patient_name "/> to the health facility for further management</label>
+      </input>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_nutrition">
+        <label>Have you referred <output value=" /pnc_follow_up/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up">
+        <label>Did <output value=" /pnc_follow_up/patient_name "/> complete the last follow up visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/next_nutrition_follow_up_date">
+        <label>Date of next appointment</label>
+      </input>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_thank_you_nutrition_follow_up">
+        <label>Thank you. Tasks for nutrition follow up will be sent when due</label>
+      </input>
+      <input ref="/pnc_follow_up/group_woman_nutritional_status/note_refer_did_not_complete_follow_up">
+        <label>Refer <output value=" /pnc_follow_up/patient_name "/> to the health facility</label>
+      </input>
+      <select1 ref="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up">
+        <label>Have you referred <output value=" /pnc_follow_up/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/pnc_follow_up/group_safe_postnatal_practices">
+      <label>PNC Follow Up – Safe Postnatal Practices</label>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_eat_well">
+        <label>Lactating mothers should eat a variety of foods, especially extra fluids, fruits, and vegetables, to feed their baby well.</label>
+      </input>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_exclusive_breast_feeding">
+        <label>For the first 6 months, give the baby breastmilk only.</label>
+      </input>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_keep_baby_warm">
+        <label>To keep the baby warm, use kangaroo mother care, wrap the baby with clothes and cover the head, and keep the baby in a warm room.</label>
+      </input>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_use_llin">
+        <label>Always sleep with the baby under a long-lasting insecticide treated net (LLIN).</label>
+      </input>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_clean_dry_umbilical_cord">
+        <label>Keep the baby's umbilical cord clean and dry.</label>
+      </input>
+      <input ref="/pnc_follow_up/group_safe_postnatal_practices/note_fp">
+        <label>Please remember to counsel the woman on Family Planning</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/pnc_follow_up/group_summary">
+      <label><output value=" /pnc_follow_up/group_label "/> – Summary</label>
+      <input appearance="h1 brown" ref="/pnc_follow_up/group_summary/s_note_pnc_follow_up_report">
+        <label>PNC Follow Up Report</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_pnc_referral_follow_up">
+        <label>PNC Referral Follow Up</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_summary_submit">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/pnc_follow_up/group_summary/s_note_patient_details">
+        <label>Woman's details</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_patient_details_values">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /pnc_follow_up/patient_name "/>&lt;/h4&gt;
+&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /pnc_follow_up/patient_age_in_years "/> years&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/pnc_follow_up/group_summary/s_note_woman_condition">
+        <label>Woman's Condition</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_woman_condition_value">
+        <label><output value=" /pnc_follow_up/group_summary/woman_condition_choice "/></label>
+      </input>
+      <input appearance="h1 brown" ref="/pnc_follow_up/group_summary/s_note_pnc_details">
+        <label>PNC Visits details</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_pnc_details_value">
+        <label>Completed <output value=" /pnc_follow_up/group_summary/pnc_visit_choice "/></label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_complete_remaining_pnc_visits">
+        <label>Please ensure the woman completes the remaining PNC visits</label>
+      </input>
+      <input appearance="h1 green" ref="/pnc_follow_up/group_summary/s_note_follow_up">
+        <label>Follow Up Tasks</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_follow_up_value">
+        <label>Please ensure the woman completes the remaining PNC visits</label>
+      </input>
+      <input appearance="h1 blue" ref="/pnc_follow_up/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_referral_completed">
+        <label>Referral completed</label>
+      </input>
+      <input ref="/pnc_follow_up/group_summary/s_note_referral_not_completed">
+        <label>Referral not completed</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

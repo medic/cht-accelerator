@@ -1,0 +1,1845 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Assess Client</h:title>
+    <model>
+      <itext>
+        <translation lang="default">
+          <text id="/assessment/group_breathing/note_press_timer:label">
+            <value>**Press timer and count number of breaths for a full 60 seconds**</value>
+            <value form="video">jr://video/timer.mp4</value>
+          </text>
+          <text id="/assessment/group_fever/after_blood_note_bioline:label">
+            <value>Immediately you put blood on the test strip, press the timer. The timer should run for 15 minutes after which you will read the results.</value>
+            <value form="video">jr://video/timer.mp4</value>
+          </text>
+          <text id="/assessment/group_fever/after_blood_note_carestat:label">
+            <value>Immediately you put blood on the test strip, press the timer. The timer should run for 20 minutes after which you will read the results.</value>
+            <value form="video">jr://video/timer.mp4</value>
+          </text>
+          <text id="/assessment/group_fever/note_mrdt_negative:label">
+            <value>Negative MRDT</value>
+            <value form="image">jr://images/negative.png</value>
+          </text>
+          <text id="/assessment/group_fever/note_mrdt_positive:label">
+            <value>Positive MRDT</value>
+            <value form="image">jr://images/positive.png</value>
+          </text>
+          <text id="static_instance-select_breastfeeding-0">
+            <value>Start breastfeeding immediately after birth</value>
+          </text>
+          <text id="static_instance-select_breastfeeding-1">
+            <value>Feed the baby on only breast milk, on demand, at least 8 times a day.</value>
+          </text>
+          <text id="static_instance-select_breastfeeding-2">
+            <value>Ensure the baby is well positioned and attached on the mother's breast.</value>
+          </text>
+          <text id="static_instance-select_cough_duration-0">
+            <value>1 day</value>
+          </text>
+          <text id="static_instance-select_cough_duration-1">
+            <value>3 days or less</value>
+          </text>
+          <text id="static_instance-select_cough_duration-2">
+            <value>4 - 7 days</value>
+          </text>
+          <text id="static_instance-select_cough_duration-3">
+            <value>8 - 13 days</value>
+          </text>
+          <text id="static_instance-select_cough_duration-4">
+            <value>14 - 20 days</value>
+          </text>
+          <text id="static_instance-select_cough_duration-5">
+            <value>21 days or more</value>
+          </text>
+          <text id="static_instance-select_diarrhoea_duration-0">
+            <value>1 day</value>
+          </text>
+          <text id="static_instance-select_diarrhoea_duration-1">
+            <value>2 days or less</value>
+          </text>
+          <text id="static_instance-select_diarrhoea_duration-2">
+            <value>3 - 6 days</value>
+          </text>
+          <text id="static_instance-select_diarrhoea_duration-3">
+            <value>7 days - 14 days</value>
+          </text>
+          <text id="static_instance-select_diarrhoea_duration-4">
+            <value>More than 14 days</value>
+          </text>
+          <text id="static_instance-select_fever_duration-0">
+            <value>1 day</value>
+          </text>
+          <text id="static_instance-select_fever_duration-1">
+            <value>2 days or less</value>
+          </text>
+          <text id="static_instance-select_fever_duration-2">
+            <value>3 - 6 days</value>
+          </text>
+          <text id="static_instance-select_fever_duration-3">
+            <value>7 - 14 days</value>
+          </text>
+          <text id="static_instance-select_fever_duration-4">
+            <value>More than 14 days</value>
+          </text>
+          <text id="static_instance-select_immunization_received-0">
+            <value>1st Immunization: 0-6 Weeks: Polio 0 &amp; BCG</value>
+          </text>
+          <text id="static_instance-select_immunization_received-1">
+            <value>2nd Immunization: 6 Weeks: DPT-HEPB-HIB 1; Pneomococcal Conjugate Vaccine 10 (PCV1); Rotavirus Vaccine 1</value>
+          </text>
+          <text id="static_instance-select_keep_baby_warm-0">
+            <value>Wrap the baby in Warm, dry clothes including the head and feet</value>
+          </text>
+          <text id="static_instance-select_keep_baby_warm-1">
+            <value>Put the baby in skin to skin contact with mother</value>
+          </text>
+          <text id="static_instance-select_keep_baby_warm-2">
+            <value>Delay the baby's first bath untill after 24 hours</value>
+          </text>
+          <text id="static_instance-select_mrdt-0">
+            <value>Positive</value>
+          </text>
+          <text id="static_instance-select_mrdt-1">
+            <value>Negative</value>
+          </text>
+          <text id="static_instance-select_mrdt-2">
+            <value>Invalid</value>
+          </text>
+          <text id="static_instance-select_mrdt-3">
+            <value>Not done</value>
+          </text>
+          <text id="static_instance-select_mrdt_used-0">
+            <value>Carestat</value>
+          </text>
+          <text id="static_instance-select_mrdt_used-1">
+            <value>Bioline</value>
+          </text>
+          <text id="static_instance-select_muac_colour-0">
+            <value>Red</value>
+          </text>
+          <text id="static_instance-select_muac_colour-1">
+            <value>Yellow</value>
+          </text>
+          <text id="static_instance-select_muac_colour-2">
+            <value>Green</value>
+          </text>
+          <text id="static_instance-select_skin_cord_care-0">
+            <value>Wash hands before handling the baby</value>
+          </text>
+          <text id="static_instance-select_skin_cord_care-1">
+            <value>Bathe the baby with a clean cloth using clean soap and water</value>
+          </text>
+          <text id="static_instance-select_skin_cord_care-2">
+            <value>Do not apply anything on the cord. Leave the cord dry and open</value>
+          </text>
+          <text id="static_instance-select_vitamin_a-0">
+            <value>1st Vitamin A dose</value>
+          </text>
+          <text id="static_instance-select_vitamin_a-1">
+            <value>2nd Vitamin A dose</value>
+          </text>
+          <text id="static_instance-select_yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-select_yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="static_instance-select_yes_no_unknown-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-select_yes_no_unknown-1">
+            <value>No</value>
+          </text>
+          <text id="static_instance-select_yes_no_unknown-2">
+            <value>Unknown</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-07-16 13:43:43">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <name/>
+                <parent>
+                  <_id/>
+                  <name/>
+                  <phone/>
+                  <supervisor/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <app_id/>
+          <visited_contact_uuid/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <recently_assessed/>
+          <is_hiv_positive/>
+          <symptom_cough/>
+          <symptom_indrawn_chest/>
+          <symptom_fast_breathing/>
+          <symptom_diarrhoea/>
+          <symptom_fever/>
+          <symptom_malaria_test/>
+          <referral_follow_up/>
+          <give_prereferral_treatment/>
+          <given_prereferral_treatment/>
+          <diagnosis_cough/>
+          <chw_area_id/>
+          <supervisor_id/>
+          <branch_id/>
+          <fever_treatment/>
+          <cough_treatment/>
+          <diarrhoea_treatment/>
+          <act_prereferral_treatment_quantity/>
+          <act_treatment_quantity/>
+          <act_given/>
+          <zinc_given/>
+          <amoxicillin_prereferral_treatment_quantity/>
+          <amoxicillin_treatment_quantity/>
+          <amoxicillin_given/>
+          <mrdt_given/>
+          <rectal_given/>
+          <gloves_given/>
+          <diagnosis_diarrhoea/>
+          <diagnosis_fever/>
+          <treat_child_for_diagnosis/>
+          <group_vht_assessment_date>
+            <vht_assessment_date/>
+          </group_vht_assessment_date>
+          <group_danger_sign_screening>
+            <note_any_danger_signs/>
+            <child_vomits_everything/>
+            <child_has_convulsions/>
+            <child_cannot_drink_breastfeed/>
+            <child_unconscious/>
+            <child_has_low_temp/>
+            <child_has_yellow_eyes_or_palms/>
+            <child_has_infected_umbilical_cord/>
+            <child_has_danger_signs/>
+          </group_danger_sign_screening>
+          <group_cough>
+            <has_cough/>
+            <note_check_fast_breathing/>
+            <cough_duration/>
+            <has_chest_indrawing/>
+            <cough_danger_sign/>
+          </group_cough>
+          <group_breathing>
+            <note_press_timer/>
+            <note_fast_breathing_depends_on/>
+            <breath_count/>
+            <fast_breathing/>
+            <fast_breathing_note_true/>
+            <fast_breathing_note_false/>
+          </group_breathing>
+          <group_diarrhoea>
+            <has_diarrhoea/>
+            <diarrhoea_duration/>
+            <blood_in_stool/>
+            <diarrhoea_danger_sign/>
+          </group_diarrhoea>
+          <group_fever>
+            <has_fever/>
+            <has_thermometer/>
+            <patient_temperature/>
+            <fever_duration/>
+            <note_do_mrdt/>
+            <mrdt_used/>
+            <after_blood_note_carestat>1200</after_blood_note_carestat>
+            <after_blood_note_bioline>900</after_blood_note_bioline>
+            <mrdt_result/>
+            <why_mrdt_not_done/>
+            <note_mrdt_positive/>
+            <note_mrdt_negative/>
+            <note_mrdt_no_results/>
+            <fever_danger_sign/>
+          </group_fever>
+          <group_hiv_tb>
+            <has_hiv_exposure/>
+            <has_tb_exposure/>
+          </group_hiv_tb>
+          <group_malnutrition>
+            <note_use_muac_tape/>
+            <muac_colour/>
+            <swelling_both_feet/>
+            <appears_too_small/>
+            <malnutrition_danger_sign/>
+          </group_malnutrition>
+          <group_other_information>
+            <exclusive_breast_feeding/>
+            <walking_or_crawling/>
+            <note_verify_immunization/>
+            <note_immunization_schedule/>
+            <immunization_received/>
+            <immunization_uptodate/>
+            <note_immunization_not_upto_date/>
+            <child_been_dewormed/>
+            <note_vitamin_a/>
+            <received_vitamin_a/>
+            <which_vitamin_a_received/>
+            <note_vitamin_a_advice/>
+          </group_other_information>
+          <group_routine_care>
+            <keep_baby_warm/>
+            <skin_cord_care/>
+            <breastfeeding_exclusively/>
+          </group_routine_care>
+          <group_patient_summary>
+            <s_note_patient_assessment/>
+            <s_note_before_submit/>
+            <s_note_patient_details/>
+            <s_note_patient_details_values/>
+            <s_note_signs_symptoms/>
+            <s_note_symptom_cough/>
+            <s_note_symptom_indrawn_chest/>
+            <s_note_symptom_fast_breathing/>
+            <s_note_symptom_diarrhoea/>
+            <s_note_symptom_fever/>
+            <s_note_symptom_malaria_test/>
+            <s_note_symptom_malnutrition/>
+            <s_note_swelling_feet/>
+            <s_note_symptom_note/>
+            <s_note_symptom_danger_signs/>
+            <s_note_child_vomits_everything/>
+            <s_note_child_has_convulsions/>
+            <s_note_child_cannot_drink_breastfeed/>
+            <s_note_child_unconscious/>
+            <s_note_child_has_low_temp/>
+            <s_note_child_has_yellow_eyes_or_palms/>
+            <s_note_child_has_infected_umbilical_cord/>
+            <s_note_prereferral_treatment/>
+            <s-note_prerefferral_treatment_cough_main/>
+            <s_note_prereferral_treatment_cough/>
+            <s_note_prereferral_treatment_cough2/>
+            <s_note_prereferral_treatment_cough_instruction/>
+            <cough_prereferral_treatment_given/>
+            <diarrhoea_prerefferal_treatment-header/>
+            <s_note_prereferral_treatment_diarrhoea/>
+            <s_note_prereferral_treatment_diarrhoea2/>
+            <s_note_prereferral_treatment_diarrhoea_instruction/>
+            <diarrhoea_prereferral_treatment_given/>
+            <s_note_prerefferal_treatment_header_fever/>
+            <s_note_prereferral_treatment_fever/>
+            <s_note_prereferral_treatment_fever2/>
+            <s_note_prereferral_treatment_fever_instruction/>
+            <fever_prereferral_treatment_given/>
+            <general_signs_header/>
+            <s_note_prereferral_treatment_danger_sign/>
+            <s_note_prereferral_treatment_danger_sign2/>
+            <s_note_prereferral_treatment_danger_sign_instruction/>
+            <danger_sign_prereferral_treatment_given/>
+            <s_note_prereferral_treatment_newborn_danger_sign/>
+            <s_note_diagnosis/>
+            <s_note_diagnosis_cough/>
+            <s_note_cough_treatment/>
+            <s_note_cough_treatment_dose1/>
+            <s_note_cough_treatment_dose2/>
+            <s_note_cough_special_instruction/>
+            <s_note_cough_special_instruction1/>
+            <cough_treatment_given/>
+            <s_note_diagnosis_diarrhoea/>
+            <s_note_diarrhoea_ors_dose1/>
+            <s_note_diarrhoea_ors_dose2/>
+            <s_note_diarrhoea_zinc_dose1/>
+            <s_note_diarrhoea_zinc_dose2/>
+            <s_note_diarrhoea_special_instruction/>
+            <s_note_diarrhoea_special_instruction_ors1/>
+            <diarrhoea_treatment_given/>
+            <s_note_diagnosis_fever/>
+            <s_note_fever_treatment/>
+            <s_note_fever_dose1/>
+            <s_note_fever_dose2/>
+            <s_note_fever_special_instruction/>
+            <s_note_fever_special_instruction1/>
+            <s_note_fever_special_instruction2/>
+            <fever_treatment_given/>
+            <s_note_referral/>
+            <have_you_referred/>
+            <s_note_important_instruction/>
+            <s_note_important_instruction1/>
+            <s_note_important_instruction_clean_water/>
+            <s_note_important_instruction_ors/>
+            <s_note_important_instruction_advise/>
+            <s_note_important_instruction_advise1/>
+            <s_note_important_instruction_advise2/>
+            <s_note_important_instruction_advise3/>
+            <s_note_important_instruction_advise4/>
+            <s_note_important_instruction_advise5/>
+            <s_note_important_instruction_advise6/>
+            <s_note_important_instruction_newline/>
+            <s_note_important_instruction_finish_treatment/>
+            <s_note_important_instruction_use_llin/>
+            <s_note_important_instruction_vaccine/>
+            <s_note_followup/>
+            <s_note_followup_instructions1/>
+            <s_note_followup_instructions2/>
+          </group_patient_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </assessment>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="select_yes_no">
+        <root>
+          <item>
+            <itextId>static_instance-select_yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_cough_duration">
+        <root>
+          <item>
+            <itextId>static_instance-select_cough_duration-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_cough_duration-1</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_cough_duration-2</itextId>
+            <name>4</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_cough_duration-3</itextId>
+            <name>8</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_cough_duration-4</itextId>
+            <name>14</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_cough_duration-5</itextId>
+            <name>21</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_diarrhoea_duration">
+        <root>
+          <item>
+            <itextId>static_instance-select_diarrhoea_duration-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_diarrhoea_duration-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_diarrhoea_duration-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_diarrhoea_duration-3</itextId>
+            <name>less_than_14</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_diarrhoea_duration-4</itextId>
+            <name>more_than_14</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_fever_duration">
+        <root>
+          <item>
+            <itextId>static_instance-select_fever_duration-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_fever_duration-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_fever_duration-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_fever_duration-3</itextId>
+            <name>7</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_fever_duration-4</itextId>
+            <name>14</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_mrdt">
+        <root>
+          <item>
+            <itextId>static_instance-select_mrdt-0</itextId>
+            <name>positive</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_mrdt-1</itextId>
+            <name>negative</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_mrdt-2</itextId>
+            <name>invalid</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_mrdt-3</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_yes_no_unknown">
+        <root>
+          <item>
+            <itextId>static_instance-select_yes_no_unknown-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_yes_no_unknown-1</itextId>
+            <name>no</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_yes_no_unknown-2</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_muac_colour">
+        <root>
+          <item>
+            <itextId>static_instance-select_muac_colour-0</itextId>
+            <name>red</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_muac_colour-1</itextId>
+            <name>yellow</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_muac_colour-2</itextId>
+            <name>green</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_immunization_received">
+        <root>
+          <item>
+            <itextId>static_instance-select_immunization_received-0</itextId>
+            <name>first_immunization</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_immunization_received-1</itextId>
+            <name>second_immunization</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_vitamin_a">
+        <root>
+          <item>
+            <itextId>static_instance-select_vitamin_a-0</itextId>
+            <name>first_vitamin_a</name>
+            <prefecture>6</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_vitamin_a-1</itextId>
+            <name>second_vitamin_a</name>
+            <prefecture>12</prefecture>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_keep_baby_warm">
+        <root>
+          <item>
+            <itextId>static_instance-select_keep_baby_warm-0</itextId>
+            <name>wrap_baby</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_keep_baby_warm-1</itextId>
+            <name>skin_contact</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_keep_baby_warm-2</itextId>
+            <name>delay_bath</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_skin_cord_care">
+        <root>
+          <item>
+            <itextId>static_instance-select_skin_cord_care-0</itextId>
+            <name>wash_hands</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_skin_cord_care-1</itextId>
+            <name>bathe_baby</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_skin_cord_care-2</itextId>
+            <name>dry_cord</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_breastfeeding">
+        <root>
+          <item>
+            <itextId>static_instance-select_breastfeeding-0</itextId>
+            <name>start_breastfeeding</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_breastfeeding-1</itextId>
+            <name>8_times_day</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_breastfeeding-2</itextId>
+            <name>well_positioned</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_mrdt_used">
+        <root>
+          <item>
+            <itextId>static_instance-select_mrdt_used-0</itextId>
+            <name>carestat</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_mrdt_used-1</itextId>
+            <name>bioline</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/assessment/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/assessment/inputs/source" type="string"/>
+      <bind nodeset="/assessment/inputs/source_id" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be under 5 years old" constraint=" /assessment/patient_age_in_years  &lt;=5 and  /assessment/recently_assessed != 'true'" required="true()"/>
+      <bind nodeset="/assessment/inputs/contact/name" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/sex" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/name" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/parent/name" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/parent/phone" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/parent/supervisor" type="string"/>
+      <bind nodeset="/assessment/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/assessment/app_id" type="string" calculate="instance('contact-summary')/context/appId"/>
+      <bind nodeset="/assessment/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/assessment/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /assessment/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/assessment/patient_age_in_months" type="string" calculate="difference-in-months(  /assessment/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/assessment/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /assessment/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/assessment/patient_age_display" type="string" calculate="concat(
+ concat( /assessment/patient_age_in_years , if( /assessment/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /assessment/patient_age_in_months  mod 12, if(( /assessment/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/assessment/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/assessment/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/assessment/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/assessment/recently_assessed" type="string" calculate="instance('contact-summary')/context/recentlyAssessed"/>
+      <bind nodeset="/assessment/is_hiv_positive" type="string" calculate="instance('contact-summary')/context/isHIVPositive"/>
+      <bind nodeset="/assessment/symptom_cough" type="string" calculate="if ( /assessment/group_cough/has_cough ='yes', 
+ concat (
+ 'Cough', 
+ if( string-length( /assessment/group_cough/cough_duration ) != 0,
+ concat (
+ ' for ', 
+ jr:choice-name( /assessment/group_cough/cough_duration , ' /assessment/group_cough/cough_duration ')
+ ),
+ ''
+ )
+ ),
+ ''
+)"/>
+      <bind nodeset="/assessment/symptom_indrawn_chest" type="string" calculate="if ( /assessment/group_cough/has_chest_indrawing ='yes', 'In-drawn chest', '')"/>
+      <bind nodeset="/assessment/symptom_fast_breathing" type="string" calculate="if ( /assessment/group_breathing/fast_breathing  = 'true', 'Fast breathing', '')"/>
+      <bind nodeset="/assessment/symptom_diarrhoea" type="string" calculate="if ( /assessment/group_diarrhoea/has_diarrhoea ='yes', 
+ concat(
+ 'Diarrhoea', 
+ if( string-length( /assessment/group_diarrhoea/diarrhoea_duration ) != 0,
+ concat (
+ ' for ', 
+ jr:choice-name( /assessment/group_diarrhoea/diarrhoea_duration , ' /assessment/group_diarrhoea/diarrhoea_duration ')
+ ),
+ ''
+ ),
+ if ( /assessment/group_diarrhoea/blood_in_stool ='yes', ' with blood', '')
+ ),
+ ''
+)"/>
+      <bind nodeset="/assessment/symptom_fever" type="string" calculate="if ( /assessment/group_fever/has_fever ='yes' or  /assessment/group_fever/patient_temperature  &gt; 37.5, 
+ concat (
+ if( /assessment/group_fever/patient_temperature  &gt;= 40, 
+ 'Severe fever',
+ 'Fever'
+ ), 
+ if( string-length( /assessment/group_fever/fever_duration ) != 0,
+ concat (
+ ' for ', 
+ jr:choice-name( /assessment/group_fever/fever_duration , ' /assessment/group_fever/fever_duration ')
+ ),
+ ''
+ )
+ ),
+ ''
+)"/>
+      <bind nodeset="/assessment/symptom_malaria_test" type="string" calculate="if( string-length( /assessment/group_fever/mrdt_result ) != 0,
+ concat (
+ 'Malaria: ', 
+ jr:choice-name( /assessment/group_fever/mrdt_result , ' /assessment/group_fever/mrdt_result ')
+ ),
+ ''
+)"/>
+      <bind nodeset="/assessment/referral_follow_up" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' or  /assessment/group_patient_summary/cough_treatment_given ='no' or  /assessment/group_patient_summary/diarrhoea_treatment_given ='no' or  /assessment/group_patient_summary/fever_treatment_given ='no' or  /assessment/group_cough/cough_danger_sign ='yes' or ( /assessment/group_breathing/fast_breathing ='true' and  /assessment/group_cough/cough_duration &gt;=14 ) or  /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' or  /assessment/group_fever/fever_danger_sign ='yes' or  /assessment/group_hiv_tb/has_hiv_exposure ='yes' or  /assessment/group_hiv_tb/has_tb_exposure ='yes' or  /assessment/group_malnutrition/malnutrition_danger_sign ='yes', 'yes', 'no')"/>
+      <bind nodeset="/assessment/give_prereferral_treatment" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' or  /assessment/group_cough/cough_danger_sign ='yes' or ( /assessment/group_breathing/fast_breathing ='true' and  /assessment/group_cough/cough_duration &gt;=14 ) or  /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' or  /assessment/group_fever/fever_danger_sign ='yes', 'yes', 'no')"/>
+      <bind nodeset="/assessment/given_prereferral_treatment" type="string" calculate="if( /assessment/group_patient_summary/fever_prereferral_treatment_given ='yes' or  /assessment/group_patient_summary/cough_prereferral_treatment_given ='yes' or  /assessment/group_patient_summary/diarrhoea_prereferral_treatment_given ='yes','yes','no')"/>
+      <bind nodeset="/assessment/diagnosis_cough" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_cough/has_cough ='yes' and  /assessment/group_cough/cough_duration &lt;14 and  /assessment/group_breathing/fast_breathing ='true', 'yes', 'no')"/>
+      <bind nodeset="/assessment/chw_area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/assessment/supervisor_id" type="string" calculate="../inputs/contact/parent/parent/supervisor"/>
+      <bind nodeset="/assessment/branch_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/assessment/fever_treatment" type="string" calculate="if( /assessment/group_patient_summary/fever_prereferral_treatment_given ='yes' or  /assessment/group_patient_summary/fever_treatment_given ='yes','yes','no')"/>
+      <bind nodeset="/assessment/cough_treatment" type="string" calculate="if( /assessment/group_patient_summary/cough_prereferral_treatment_given ='yes' or  /assessment/group_patient_summary/cough_treatment_given ='yes','yes','no')"/>
+      <bind nodeset="/assessment/diarrhoea_treatment" type="string" calculate="if( /assessment/group_patient_summary/diarrhoea_prereferral_treatment_given ='yes' or  /assessment/group_patient_summary/diarrhoea_treatment_given ='yes','yes','no')"/>
+      <bind nodeset="/assessment/act_prereferral_treatment_quantity" type="string" calculate="if(( /assessment/group_patient_summary/fever_prereferral_treatment_given  = 'yes' and  /assessment/patient_age_in_months &gt;=4 and  /assessment/patient_age_in_months &lt;36),0.1,if(( /assessment/group_patient_summary/fever_prereferral_treatment_given  = 'yes' and  /assessment/patient_age_in_months &gt;=36 and  /assessment/patient_age_in_months &lt;60),0.2,0))"/>
+      <bind nodeset="/assessment/act_treatment_quantity" type="string" calculate="if(( /assessment/group_patient_summary/fever_treatment_given  = 'yes' and  /assessment/patient_age_in_months &gt;=4 and  /assessment/patient_age_in_months &lt;36),1,if(( /assessment/group_patient_summary/fever_treatment_given  = 'yes' and  /assessment/patient_age_in_months &gt;=36 and  /assessment/patient_age_in_months &lt;60),2,0))"/>
+      <bind nodeset="/assessment/act_given" type="string" calculate="if( /assessment/group_patient_summary/fever_treatment_given  = 'yes',  /assessment/act_treatment_quantity , if( /assessment/group_patient_summary/fever_prereferral_treatment_given  = 'yes',  /assessment/act_prereferral_treatment_quantity , 0))"/>
+      <bind nodeset="/assessment/zinc_given" type="string" calculate="if(( /assessment/group_patient_summary/diarrhoea_prereferral_treatment_given  = 'yes' or  /assessment/group_patient_summary/diarrhoea_treatment_given  = 'yes'), 1, 0)"/>
+      <bind nodeset="/assessment/amoxicillin_prereferral_treatment_quantity" type="string" calculate="if(( /assessment/group_patient_summary/cough_prereferral_treatment_given ='yes' and  /assessment/patient_age_in_months &gt;=2 and  /assessment/patient_age_in_months &lt;12),0.1,if(( /assessment/group_patient_summary/cough_prereferral_treatment_given ='yes' and  /assessment/patient_age_in_months &gt;=12 and  /assessment/patient_age_in_months &lt;60),0.2,0))"/>
+      <bind nodeset="/assessment/amoxicillin_treatment_quantity" type="string" calculate="if(( /assessment/group_patient_summary/cough_treatment_given ='yes' and  /assessment/patient_age_in_months &gt;=2 and  /assessment/patient_age_in_months &lt;12),1,if(( /assessment/group_patient_summary/cough_treatment_given ='yes' and  /assessment/patient_age_in_months &gt;=12 and  /assessment/patient_age_in_months &lt;60),2,0))"/>
+      <bind nodeset="/assessment/amoxicillin_given" type="string" calculate="if( /assessment/group_patient_summary/cough_treatment_given ='yes',  /assessment/amoxicillin_treatment_quantity , if( /assessment/group_patient_summary/cough_prereferral_treatment_given ='yes',  /assessment/amoxicillin_prereferral_treatment_quantity , 0))"/>
+      <bind nodeset="/assessment/mrdt_given" type="string" calculate="if( /assessment/group_fever/mrdt_result ='positive' or  /assessment/group_fever/mrdt_result ='negative' or  /assessment/group_fever/mrdt_result ='invalid',1,0)"/>
+      <bind nodeset="/assessment/rectal_given" type="string" calculate="if(( /assessment/group_patient_summary/danger_sign_prereferral_treatment_given  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_years  &lt;= 2),1,if(( /assessment/group_patient_summary/danger_sign_prereferral_treatment_given  = 'yes' and  /assessment/patient_age_in_years  &gt; 2 and  /assessment/patient_age_in_months  &lt;=60),2,0))"/>
+      <bind nodeset="/assessment/gloves_given" type="string" calculate="if( /assessment/mrdt_given  = 1,2,0)"/>
+      <bind nodeset="/assessment/diagnosis_diarrhoea" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_diarrhoea/has_diarrhoea ='yes' and ( /assessment/group_diarrhoea/diarrhoea_duration ='less_than_14' or  /assessment/group_diarrhoea/diarrhoea_duration  &lt;= 3)and  /assessment/group_diarrhoea/blood_in_stool ='no', 'yes', 'no')"/>
+      <bind nodeset="/assessment/diagnosis_fever" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/fever_duration &lt;7 and  /assessment/group_fever/mrdt_result ='positive', 'yes', 'no')"/>
+      <bind nodeset="/assessment/treat_child_for_diagnosis" type="string" calculate="if( /assessment/diagnosis_cough ='yes' or  /assessment/diagnosis_diarrhoea ='yes' or  /assessment/diagnosis_fever ='yes','yes','no')"/>
+      <bind nodeset="/assessment/group_vht_assessment_date/vht_assessment_date" type="date" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/note_any_danger_signs" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_vomits_everything" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_convulsions" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_cannot_drink_breastfeed" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_unconscious" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_low_temp" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_infected_umbilical_cord" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_danger_signs" type="string" calculate="if(( /assessment/group_danger_sign_screening/child_vomits_everything  = 'yes' or  /assessment/group_danger_sign_screening/child_has_convulsions  = 'yes' or  /assessment/group_danger_sign_screening/child_cannot_drink_breastfeed  = 'yes' or  /assessment/group_danger_sign_screening/child_unconscious  = 'yes' or  /assessment/group_danger_sign_screening/child_has_low_temp  = 'yes' or  /assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms  = 'yes' or  /assessment/group_danger_sign_screening/child_has_infected_umbilical_cord  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/assessment/group_cough" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_cough/has_cough" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_cough/note_check_fast_breathing" readonly="true()" type="string" relevant=" /assessment/group_cough/has_cough ='yes'"/>
+      <bind nodeset="/assessment/group_cough/cough_duration" type="select1" relevant=" /assessment/group_cough/has_cough ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_cough/has_chest_indrawing" type="select1" relevant=" /assessment/group_cough/has_cough ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_cough/cough_danger_sign" type="string" calculate="if( /assessment/group_cough/cough_duration &gt;=14 or  /assessment/group_cough/has_chest_indrawing ='yes','yes','no')"/>
+      <bind nodeset="/assessment/group_breathing" relevant=" /assessment/group_cough/has_cough ='yes'"/>
+      <bind nodeset="/assessment/group_breathing/note_press_timer" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_breathing/note_fast_breathing_depends_on" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_breathing/breath_count" type="int" jr:constraintMsg="Breaths per minute must be between 10 and 120" constraint=". &gt;= 10 and . &lt;= 120" required="true()"/>
+      <bind nodeset="/assessment/group_breathing/fast_breathing" type="string" calculate="if(( /assessment/group_breathing/breath_count &gt;=60) and ( /assessment/patient_age_in_days &lt;60), &quot;true&quot;, 
+ if(( /assessment/group_breathing/breath_count &gt;=50) and ( /assessment/patient_age_in_days &gt;=60) and ( /assessment/patient_age_in_days &lt;365), &quot;true&quot;,
+ if(( /assessment/group_breathing/breath_count &gt;=40) and ( /assessment/patient_age_in_days &gt;=365) and ( /assessment/patient_age_in_days &lt;(5*365.25)), &quot;true&quot;,
+ if(( /assessment/group_breathing/breath_count &gt;=30) and ( /assessment/patient_age_in_days &gt;=(5*365.25)), &quot;true&quot;, &quot;false&quot; ))))"/>
+      <bind nodeset="/assessment/group_breathing/fast_breathing_note_true" readonly="true()" type="string" relevant="( /assessment/group_breathing/breath_count  &gt; 0) and ( /assessment/group_breathing/fast_breathing  = &quot;true&quot;)"/>
+      <bind nodeset="/assessment/group_breathing/fast_breathing_note_false" readonly="true()" type="string" relevant="( /assessment/group_breathing/breath_count  &gt; 0) and ( /assessment/group_breathing/fast_breathing  != &quot;true&quot;)"/>
+      <bind nodeset="/assessment/group_diarrhoea" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_diarrhoea/has_diarrhoea" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_diarrhoea/diarrhoea_duration" type="select1" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_diarrhoea/blood_in_stool" type="select1" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_diarrhoea/diarrhoea_danger_sign" type="string" calculate="if( /assessment/group_diarrhoea/diarrhoea_duration ='more_than_14' or  /assessment/group_diarrhoea/blood_in_stool ='yes', 'yes', 'no')"/>
+      <bind nodeset="/assessment/group_fever" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_fever/has_fever" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_fever/has_thermometer" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/patient_temperature" type="decimal" jr:constraintMsg="The temperature should be between 33 °C and 42 °C" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/has_thermometer ='yes'" constraint=". &gt;= 33 and . &lt;= 42" required="true()"/>
+      <bind nodeset="/assessment/group_fever/fever_duration" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/note_do_mrdt" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes'"/>
+      <bind nodeset="/assessment/group_fever/mrdt_used" type="select1" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/app_id  != 'uncdf'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/after_blood_note_carestat" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_used ='carestat' and  /assessment/app_id  != 'uncdf'"/>
+      <bind nodeset="/assessment/group_fever/after_blood_note_bioline" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_used ='bioline' and  /assessment/app_id  != 'uncdf'"/>
+      <bind nodeset="/assessment/group_fever/mrdt_result" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/why_mrdt_not_done" type="string" relevant=" /assessment/group_fever/mrdt_result ='none'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/note_mrdt_positive" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='positive'"/>
+      <bind nodeset="/assessment/group_fever/note_mrdt_negative" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='negative'"/>
+      <bind nodeset="/assessment/group_fever/note_mrdt_no_results" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='invalid'"/>
+      <bind nodeset="/assessment/group_fever/fever_danger_sign" type="string" calculate="if( /assessment/group_fever/fever_duration &gt;=7,'yes','no')"/>
+      <bind nodeset="/assessment/group_hiv_tb" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_hiv_tb/has_hiv_exposure" type="select1" relevant=" /assessment/is_hiv_positive !='true'" required="true()"/>
+      <bind nodeset="/assessment/group_hiv_tb/has_tb_exposure" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_malnutrition" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5 and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_malnutrition/note_use_muac_tape" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_malnutrition/muac_colour" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_malnutrition/swelling_both_feet" type="select1" required="true()"/>
+      <bind nodeset="/assessment/group_malnutrition/appears_too_small" type="select1" relevant=" /assessment/patient_age_in_days  &lt; 29" required="true()"/>
+      <bind nodeset="/assessment/group_malnutrition/malnutrition_danger_sign" type="string" calculate="if( /assessment/group_malnutrition/muac_colour ='yellow' or  /assessment/group_malnutrition/muac_colour ='red' or  /assessment/group_malnutrition/swelling_both_feet ='yes' or  /assessment/group_malnutrition/appears_too_small ='yes', 'yes', 'no')"/>
+      <bind nodeset="/assessment/group_other_information" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_other_information/exclusive_breast_feeding" type="select1" relevant=" /assessment/patient_age_in_months  &lt; 6" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/walking_or_crawling" type="select1" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 1" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/note_verify_immunization" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &lt;= 9"/>
+      <bind nodeset="/assessment/group_other_information/note_immunization_schedule" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &lt;= 9"/>
+      <bind nodeset="/assessment/group_other_information/immunization_received" type="select" relevant=" /assessment/patient_age_in_days  &lt;= 42" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/immunization_uptodate" type="select1" relevant=" /assessment/patient_age_in_months  &lt;= 9" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/note_immunization_not_upto_date" readonly="true()" type="string" relevant=" /assessment/group_other_information/immunization_uptodate  = 'no'"/>
+      <bind nodeset="/assessment/group_other_information/child_been_dewormed" type="select1" relevant=" /assessment/patient_age_in_years  &gt;= 1 and  /assessment/patient_age_in_years  &lt;= 5" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/note_vitamin_a" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5"/>
+      <bind nodeset="/assessment/group_other_information/received_vitamin_a" type="select1" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/which_vitamin_a_received" type="select" relevant=" /assessment/group_other_information/received_vitamin_a ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/note_vitamin_a_advice" readonly="true()" type="string" relevant=" /assessment/group_other_information/received_vitamin_a ='no'"/>
+      <bind nodeset="/assessment/group_routine_care" relevant=" /assessment/patient_age_in_days &lt;=28 and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
+      <bind nodeset="/assessment/group_routine_care/keep_baby_warm" type="select" required="true()"/>
+      <bind nodeset="/assessment/group_routine_care/skin_cord_care" type="select" required="true()"/>
+      <bind nodeset="/assessment/group_routine_care/breastfeeding_exclusively" type="select" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_patient_assessment" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_before_submit" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_patient_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_signs_symptoms" readonly="true()" type="string"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_cough" readonly="true()" type="string" relevant=" /assessment/symptom_cough  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_indrawn_chest" readonly="true()" type="string" relevant=" /assessment/symptom_indrawn_chest  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_fast_breathing" readonly="true()" type="string" relevant=" /assessment/symptom_fast_breathing  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_diarrhoea" readonly="true()" type="string" relevant=" /assessment/symptom_diarrhoea  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_fever" readonly="true()" type="string" relevant=" /assessment/symptom_fever  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_malaria_test" readonly="true()" type="string" relevant=" /assessment/symptom_malaria_test  != ''"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_malnutrition" readonly="true()" type="string" relevant=" /assessment/group_malnutrition/muac_colour  = 'yellow' or  /assessment/group_malnutrition/muac_colour  = 'red'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_swelling_feet" readonly="true()" type="string" relevant=" /assessment/group_malnutrition/swelling_both_feet  = 'yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_note" readonly="true()" type="string" relevant=" /assessment/symptom_cough  = '' and 
+ /assessment/symptom_indrawn_chest  = '' and 
+ /assessment/symptom_fast_breathing  = '' and
+ /assessment/symptom_diarrhoea  = '' and
+ /assessment/symptom_fever  = '' and
+ /assessment/symptom_malaria_test  = '' and 
+( /assessment/group_malnutrition/muac_colour  != 'yellow' and  /assessment/group_malnutrition/muac_colour  != 'red') and 
+ /assessment/group_malnutrition/swelling_both_feet  != 'yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_symptom_danger_signs" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_vomits_everything" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_vomits_everything ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_has_convulsions" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_has_convulsions ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_cannot_drink_breastfeed" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_cannot_drink_breastfeed ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_unconscious" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_unconscious ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_has_low_temp" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_has_low_temp ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_has_yellow_eyes_or_palms" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_child_has_infected_umbilical_cord" readonly="true()" type="string" relevant=" /assessment/group_danger_sign_screening/child_has_infected_umbilical_cord ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment" readonly="true()" type="string" relevant=" /assessment/give_prereferral_treatment  = 'yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s-note_prerefferral_treatment_cough_main" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;12"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough2" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 12 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough_instruction" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/cough_prereferral_treatment_given" type="select1" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/diarrhoea_prerefferal_treatment-header" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt; 24"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea2" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 24"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea_instruction" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2"/>
+      <bind nodeset="/assessment/group_patient_summary/diarrhoea_prereferral_treatment_given" type="select1" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prerefferal_treatment_header_fever" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 36 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;36"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever2" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 36 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever_instruction" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/fever_prereferral_treatment_given" type="select1" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/general_signs_header" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_months  &gt;= 48 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_years  &lt;=2"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign2" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_years  &gt; 2 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign_instruction" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/danger_sign_prereferral_treatment_given" type="select1" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_newborn_danger_sign" readonly="true()" type="string" relevant=" /assessment/patient_age_in_days &lt;=28"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_cough" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_cough_treatment" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_cough_treatment_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;12"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_cough_treatment_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes' and  /assessment/patient_age_in_months  &gt;= 12 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_cough_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_cough_special_instruction1" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/cough_treatment_given" type="select1" relevant=" /assessment/diagnosis_cough ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_diarrhoea" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_zinc_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;6"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_zinc_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes' and  /assessment/patient_age_in_months  &gt;=6 and  /assessment/patient_age_in_months  &lt;=60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction_ors1" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/diarrhoea_treatment_given" type="select1" relevant=" /assessment/diagnosis_diarrhoea ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_fever" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_treatment" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes' and  /assessment/patient_age_in_months  &gt;=4 and  /assessment/patient_age_in_years  &lt;= 2"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes' and  /assessment/patient_age_in_years  &gt;2 and  /assessment/patient_age_in_months  &lt;= 60"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction1" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction2" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/fever_treatment_given" type="select1" relevant=" /assessment/diagnosis_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_referral" readonly="true()" type="string" relevant=" /assessment/referral_follow_up ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/have_you_referred" type="select1" relevant=" /assessment/referral_follow_up ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction1" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_clean_water" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_ors" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise1" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise2" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise3" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise4" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise5" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_advise6" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_newline" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_finish_treatment" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_use_llin" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_vaccine" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_followup" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes' or  /assessment/referral_follow_up ='yes'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_followup_instructions1" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes' and  /assessment/referral_follow_up ='no'"/>
+      <bind nodeset="/assessment/group_patient_summary/s_note_followup_instructions2" readonly="true()" type="string" relevant=" /assessment/referral_follow_up ='yes'"/>
+      <bind nodeset="/assessment/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/assessment/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/assessment/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/assessment/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/assessment/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/assessment/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/assessment/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/assessment/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/assessment/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/assessment/inputs/contact/parent">
+          <label>Parent</label>
+          <input appearance="hidden" ref="/assessment/inputs/contact/parent/_id">
+            <label>Household ID</label>
+          </input>
+          <input ref="/assessment/inputs/contact/parent/name">
+            <label>Household Name</label>
+          </input>
+          <group ref="/assessment/inputs/contact/parent/parent">
+            <label></label>
+            <input appearance="hidden" ref="/assessment/inputs/contact/parent/parent/_id">
+              <label>CHW Area Id</label>
+            </input>
+            <input appearance="hidden" ref="/assessment/inputs/contact/parent/parent/name">
+              <label>CHW Area Name</label>
+            </input>
+            <input appearance="hidden" ref="/assessment/inputs/contact/parent/parent/phone">
+              <label>CHW Phone</label>
+            </input>
+            <input ref="/assessment/inputs/contact/parent/parent/supervisor">
+              <label>Supervisor</label>
+            </input>
+            <group ref="/assessment/inputs/contact/parent/parent/parent">
+              <label></label>
+              <input ref="/assessment/inputs/contact/parent/parent/parent/_id">
+                <label>Branch ID</label>
+              </input>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_vht_assessment_date">
+      <label>VHT Assessment date</label>
+      <input ref="/assessment/group_vht_assessment_date/vht_assessment_date">
+        <label>Date of Assessment</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_danger_sign_screening">
+      <label>General Danger Sign Screening for U5</label>
+      <input ref="/assessment/group_danger_sign_screening/note_any_danger_signs">
+        <label>Does <output value=" /assessment/patient_name "/> have any of these signs?</label>
+      </input>
+      <select1 ref="/assessment/group_danger_sign_screening/child_vomits_everything">
+        <label>Does the child vomit everything they have eaten?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_has_convulsions">
+        <label>Does the child have convulsions?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_cannot_drink_breastfeed">
+        <label>Is the child Not able to drink and breastfeed</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_unconscious">
+        <label>Is the child Very sleepy or unconscious/no movement</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_has_low_temp">
+        <label>Does the child have no fever or low temperature (cold feet and hands)?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms">
+        <label>Does the child have Yellow eyes or palms?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_danger_sign_screening/child_has_infected_umbilical_cord">
+        <label>Does the child have an Infected umbilical cord?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_cough">
+      <label>Cough</label>
+      <select1 ref="/assessment/group_cough/has_cough">
+        <label>Does the child have a cough?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_cough/note_check_fast_breathing">
+        <label>Note to VHT: If Cough is present Check for Fast Breathing</label>
+      </input>
+      <select1 ref="/assessment/group_cough/cough_duration">
+        <label>How long has this cough lasted?</label>
+        <item>
+          <label>1 day</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>3 days or less</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4 - 7 days</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>8 - 13 days</label>
+          <value>8</value>
+        </item>
+        <item>
+          <label>14 - 20 days</label>
+          <value>14</value>
+        </item>
+        <item>
+          <label>21 days or more</label>
+          <value>21</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_cough/has_chest_indrawing">
+        <label>Does the child have chest in-drawing?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_breathing">
+      <label>Breathing</label>
+      <input appearance="countdown-timer" ref="/assessment/group_breathing/note_press_timer">
+        <label ref="jr:itext('/assessment/group_breathing/note_press_timer:label')"/>
+      </input>
+      <input appearance="hidden" ref="/assessment/group_breathing/note_fast_breathing_depends_on">
+        <label>**Fast breathing depends on age**
+0 to 7 day old: _60 or more breaths per minute._
+2 weeks to 11 months: _50 or more breaths per minute._
+12months to 5 years: _40 or more breaths per minute._</label>
+      </input>
+      <input ref="/assessment/group_breathing/breath_count">
+        <label>How many breaths per minute?</label>
+      </input>
+      <input ref="/assessment/group_breathing/fast_breathing_note_true">
+        <label>**The client has fast breathing**</label>
+      </input>
+      <input ref="/assessment/group_breathing/fast_breathing_note_false">
+        <label>The client does not have fast breathing</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_diarrhoea">
+      <label>Diarrhoea</label>
+      <select1 ref="/assessment/group_diarrhoea/has_diarrhoea">
+        <label>Does the child have diarrhoea (3 or more loose stools in 24hrs)?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_diarrhoea/diarrhoea_duration">
+        <label>How long has the diarrhoea lasted?</label>
+        <item>
+          <label>1 day</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2 days or less</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3 - 6 days</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>7 days - 14 days</label>
+          <value>less_than_14</value>
+        </item>
+        <item>
+          <label>More than 14 days</label>
+          <value>more_than_14</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_diarrhoea/blood_in_stool">
+        <label>Is there blood in the stool?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_fever">
+      <label>Fever</label>
+      <select1 ref="/assessment/group_fever/has_fever">
+        <label>Does the child have fever?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_fever/has_thermometer">
+        <label>Do you have a thermometer?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_fever/patient_temperature">
+        <label>What is the Child's Temperature (°C)?</label>
+      </input>
+      <select1 ref="/assessment/group_fever/fever_duration">
+        <label>How long has the fever lasted?</label>
+        <item>
+          <label>1 day</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2 days or less</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3 - 6 days</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>7 - 14 days</label>
+          <value>7</value>
+        </item>
+        <item>
+          <label>More than 14 days</label>
+          <value>14</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_fever/note_do_mrdt">
+        <label>Do the Rapid Diagnostic Test for Malaria (mRDT)</label>
+      </input>
+      <select1 ref="/assessment/group_fever/mrdt_used">
+        <label>Which mRDT test are you using?</label>
+        <item>
+          <label>Carestat</label>
+          <value>carestat</value>
+        </item>
+        <item>
+          <label>Bioline</label>
+          <value>bioline</value>
+        </item>
+      </select1>
+      <input appearance="Countdown-timer" ref="/assessment/group_fever/after_blood_note_carestat">
+        <label ref="jr:itext('/assessment/group_fever/after_blood_note_carestat:label')"/>
+      </input>
+      <input appearance="Countdown-timer" ref="/assessment/group_fever/after_blood_note_bioline">
+        <label ref="jr:itext('/assessment/group_fever/after_blood_note_bioline:label')"/>
+      </input>
+      <select1 ref="/assessment/group_fever/mrdt_result">
+        <label>Rapid Malaria Tests Results</label>
+        <item>
+          <label>Positive</label>
+          <value>positive</value>
+        </item>
+        <item>
+          <label>Negative</label>
+          <value>negative</value>
+        </item>
+        <item>
+          <label>Invalid</label>
+          <value>invalid</value>
+        </item>
+        <item>
+          <label>Not done</label>
+          <value>none</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_fever/why_mrdt_not_done">
+        <label>Why was mRDT not done?</label>
+      </input>
+      <input ref="/assessment/group_fever/note_mrdt_positive">
+        <label ref="jr:itext('/assessment/group_fever/note_mrdt_positive:label')"/>
+      </input>
+      <input ref="/assessment/group_fever/note_mrdt_negative">
+        <label ref="jr:itext('/assessment/group_fever/note_mrdt_negative:label')"/>
+      </input>
+      <input ref="/assessment/group_fever/note_mrdt_no_results">
+        <label>**Note to the VHT: Repeat an mRDT so the client is sure about their malaria diagnosis**</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_hiv_tb">
+      <label>HIV or TB Infection</label>
+      <select1 ref="/assessment/group_hiv_tb/has_hiv_exposure">
+        <label>Does the Child have any contact or exposure to HIV?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_hiv_tb/has_tb_exposure">
+        <label>Does the Child have any contact or exposure to TB?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+        <item>
+          <label>Unknown</label>
+          <value>unknown</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_malnutrition">
+      <label>Malnutrition</label>
+      <input ref="/assessment/group_malnutrition/note_use_muac_tape">
+        <label>Use your MUAC tape to take the childs MUAC</label>
+      </input>
+      <select1 ref="/assessment/group_malnutrition/muac_colour">
+        <label>What is the colour of the MUAC tape?</label>
+        <item>
+          <label>Red</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Yellow</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Green</label>
+          <value>green</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_malnutrition/swelling_both_feet">
+        <label>Swelling of both feet of the child?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_malnutrition/appears_too_small">
+        <label>Does the Newborn appear to be too small for their age?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_other_information">
+      <label>Other U5 Information</label>
+      <select1 ref="/assessment/group_other_information/exclusive_breast_feeding">
+        <label>Is Child exclusively breastfeeding?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/assessment/group_other_information/walking_or_crawling">
+        <label>Is the client Walking or Crawling?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_other_information/note_verify_immunization">
+        <label>**Note: Please verify using the child's immunization card if they have received the 1st and 2nd immunizations. In rare cases when ther card is not available, ask the mother or caregiver to verify this by asking questions like Which side of the child's arm or leg was immunized?**</label>
+      </input>
+      <input ref="/assessment/group_other_information/note_immunization_schedule">
+        <label>**1st Immunization:** 0-6 Weeks: Polio 0 &amp; BCG &lt;br /&gt;
+**2nd Immunization:** 6 Weeks: DPT-HEPB-HIB 1; Pneomococcal Conjugate Vaccine 10 (PCV1); Rotavirus Vaccine 1 &lt;br /&gt;
+**3rd Immunization:** 10 Weeks: Polio 2; DPT-HepB-Hib 2; Pneumococcal Conjugate Vaccine 10 (PCV 2); Rotavirus Vaccine 2 &lt;br /&gt;
+****4th Immunization:** 14 Weeks: Polio 3; Injectable Polio Vaccine (IPV); Pneumococcal Conjugate Vaccine 10 (PCV 3) &lt;br /&gt;
+**5th Immunization:** 36 Weeks: Measles</label>
+      </input>
+      <select ref="/assessment/group_other_information/immunization_received">
+        <label>Which Immunization has the child received?</label>
+        <item>
+          <label>1st Immunization: 0-6 Weeks: Polio 0 &amp; BCG</label>
+          <value>first_immunization</value>
+        </item>
+        <item>
+          <label>2nd Immunization: 6 Weeks: DPT-HEPB-HIB 1; Pneomococcal Conjugate Vaccine 10 (PCV1); Rotavirus Vaccine 1</label>
+          <value>second_immunization</value>
+        </item>
+      </select>
+      <select1 ref="/assessment/group_other_information/immunization_uptodate">
+        <label>Is the child's Immunization up to date?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_other_information/note_immunization_not_upto_date">
+        <label>Encourage the care giver to take the child to the health facility for the missed vaccinations</label>
+      </input>
+      <select1 ref="/assessment/group_other_information/child_been_dewormed">
+        <label>Has the child been dewormed in the last 6 months?</label>
+        <hint>Children between 1-5 years are dewormed twice a year or every six months</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h1 green" ref="/assessment/group_other_information/note_vitamin_a">
+        <label>Note: Vitamin A is given twice a year for U5s. Please verify using the child's health card or ask the mother to establish whether the child has received their Vitaimn A doses</label>
+      </input>
+      <select1 ref="/assessment/group_other_information/received_vitamin_a">
+        <label>Has the child received their Vitamin A?</label>
+        <hint>Vitamin A is given at 6 Months then every 6 Months after that until the child is 5 years old</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/assessment/group_other_information/which_vitamin_a_received">
+        <label>Which Vitamin A dose has the child received?</label>
+        <hint>Vitamin A is given at 6 Months then every 6 Months after that until the child is 5 years old. The 2 doses should be received by the child during a calendar year</hint>
+        <itemset nodeset="instance('select_vitamin_a')/root/item[prefecture&lt;=  /assessment/patient_age_in_months ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+      <input ref="/assessment/group_other_information/note_vitamin_a_advice">
+        <label>Advice Mother to ensure that the child receives Vitamin A</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/assessment/group_routine_care">
+      <label>Routine care for the baby</label>
+      <select ref="/assessment/group_routine_care/keep_baby_warm">
+        <label>Keep baby warm</label>
+        <hint>Select all the advice given</hint>
+        <item>
+          <label>Wrap the baby in Warm, dry clothes including the head and feet</label>
+          <value>wrap_baby</value>
+        </item>
+        <item>
+          <label>Put the baby in skin to skin contact with mother</label>
+          <value>skin_contact</value>
+        </item>
+        <item>
+          <label>Delay the baby's first bath untill after 24 hours</label>
+          <value>delay_bath</value>
+        </item>
+      </select>
+      <select ref="/assessment/group_routine_care/skin_cord_care">
+        <label>Skin and Cord Care</label>
+        <hint>Select all the advice given</hint>
+        <item>
+          <label>Wash hands before handling the baby</label>
+          <value>wash_hands</value>
+        </item>
+        <item>
+          <label>Bathe the baby with a clean cloth using clean soap and water</label>
+          <value>bathe_baby</value>
+        </item>
+        <item>
+          <label>Do not apply anything on the cord. Leave the cord dry and open</label>
+          <value>dry_cord</value>
+        </item>
+      </select>
+      <select ref="/assessment/group_routine_care/breastfeeding_exclusively">
+        <label>Breastfeeding exclusively</label>
+        <hint>Select all the advice given</hint>
+        <item>
+          <label>Start breastfeeding immediately after birth</label>
+          <value>start_breastfeeding</value>
+        </item>
+        <item>
+          <label>Feed the baby on only breast milk, on demand, at least 8 times a day.</label>
+          <value>8_times_day</value>
+        </item>
+        <item>
+          <label>Ensure the baby is well positioned and attached on the mother's breast.</label>
+          <value>well_positioned</value>
+        </item>
+      </select>
+    </group>
+    <group appearance="field-list summary" ref="/assessment/group_patient_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/assessment/group_patient_summary/s_note_patient_assessment">
+        <label>&lt;h1 style="text-align:center;"&gt;Client Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_before_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/assessment/group_patient_summary/s_note_patient_details">
+        <label>Client Details</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_patient_details_values">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /assessment/patient_name "/>&lt;/h4&gt;
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /assessment/patient_gender "/>&lt;/h5&gt; 
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /assessment/patient_age_display "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/assessment/group_patient_summary/s_note_signs_symptoms">
+        <label>Signs &amp; Symptoms</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_cough">
+        <label><output value=" /assessment/symptom_cough "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_indrawn_chest">
+        <label><output value=" /assessment/symptom_indrawn_chest "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_fast_breathing">
+        <label><output value=" /assessment/symptom_fast_breathing "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_diarrhoea">
+        <label><output value=" /assessment/symptom_diarrhoea "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_fever">
+        <label><output value=" /assessment/symptom_fever "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_malaria_test">
+        <label><output value=" /assessment/symptom_malaria_test "/></label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_malnutrition">
+        <label><output value=" /assessment/group_malnutrition/muac_colour "/> MUAC</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_swelling_feet">
+        <label>Swelling of both feet</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_symptom_note">
+        <label>No symptom reported</label>
+      </input>
+      <input appearance="h2 yellow" ref="/assessment/group_patient_summary/s_note_symptom_danger_signs">
+        <label>Danger Signs</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_vomits_everything">
+        <label>&lt;b style="color:red"&gt;Vomits everything&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_has_convulsions">
+        <label>&lt;b style="color:red"&gt;Child has convulsions&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_cannot_drink_breastfeed">
+        <label>&lt;b style="color:red"&gt;Child is not able to drink and breastfeed&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_unconscious">
+        <label>&lt;b style="color:red"&gt;Child is very sleepy/unconscious/no movement&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_has_low_temp">
+        <label>&lt;b style="color:red"&gt;Child has no fever/ low temperature (cold feet and hands)&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_has_yellow_eyes_or_palms">
+        <label>&lt;b style="color:red"&gt;Child has yellow eyes / palms&lt;/b&gt;</label>
+      </input>
+      <input appearance="li red" ref="/assessment/group_patient_summary/s_note_child_has_infected_umbilical_cord">
+        <label>&lt;b style="color:red"&gt;Child has an Infected umbilical cord&lt;/b&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/assessment/group_patient_summary/s_note_prereferral_treatment">
+        <label>Prereferral Treatment</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s-note_prerefferral_treatment_cough_main">
+        <label>Cough</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_cough">
+        <label>Treat with Amoxicillin 250mg &lt;br/&gt;
+1 tab from the pack</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_cough2">
+        <label>Treat with Amoxicillin 250mg &lt;br/&gt;
+2 Tabs from the pack</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_cough_instruction">
+        <label>Give the first dose before you refer</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/cough_prereferral_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given prereferral treatment for cough?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/diarrhoea_prerefferal_treatment-header">
+        <label>Diarrhoea</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea">
+        <label>1. Treat with ORS&lt;br&gt;
+2. 5 to 10 tablespoonfuls after every loose stool</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea2">
+        <label>10 to 20 tablespoonfuls after every loose stool</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea_instruction">
+        <label>Begin giving the child ORS before you refer. Advise caregiver to continue giving ORS to the child on the way to the health centre.</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/diarrhoea_prereferral_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given prereferral treatment for diarrhoea?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_prerefferal_treatment_header_fever">
+        <label>Fever</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_fever">
+        <label>Treat with oral Anti-malarial ACT&lt;br/&gt;
+1 Tab from the pack</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_fever2">
+        <label>Treat with oral Anti-malarial ACT&lt;br/&gt;
+2 Tabs from the pack</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_fever_instruction">
+        <label>Give first dose of oral Anti-Malarial ACT before you refer</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/fever_prereferral_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given prereferral treatment for fever?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/general_signs_header">
+        <label>General Danger Signs</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign">
+        <label>Treat with Rectal Artesunate 100mg&lt;br/&gt;
+1 Capsule</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign2">
+        <label>Treat with Rectal Artesunate 100mg&lt;br/&gt;
+2 Capsules</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign_instruction">
+        <label>Help Caregiver give dose</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/danger_sign_prereferral_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given prereferral treatment for general danger sign?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/assessment/group_patient_summary/s_note_prereferral_treatment_newborn_danger_sign">
+        <label>Newborn with danger sign: REFER and transport in skin to skin position</label>
+      </input>
+      <input appearance="h1 blue" ref="/assessment/group_patient_summary/s_note_diagnosis">
+        <label>Diagnosis &amp; Treatment &lt;i class="fa fa-medkit"&gt;&lt;/i&gt;</label>
+      </input>
+      <input appearance="h2 blue" ref="/assessment/group_patient_summary/s_note_diagnosis_cough">
+        <label>Cough</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_cough_treatment">
+        <label>Treat with Oral Antibiotic - Amoxicilline 250 mgs</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_cough_treatment_dose1">
+        <label>1 tab&lt;br/&gt;twice a day &lt;br/&gt;for 5 days from the PACK&lt;br/&gt;(1 strip of 10 tabs)</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_cough_treatment_dose2">
+        <label>2 tabs&lt;br/&gt;twice a day &lt;br/&gt;for 5 days from the PACK &lt;br/&gt;(2 strips of 10 tabs)</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_cough_special_instruction">
+        <label>Special Instructions</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_cough_special_instruction1">
+        <label>Help the caregiver give the first dose now.</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/cough_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given treatment for cough?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h2 blue" ref="/assessment/group_patient_summary/s_note_diagnosis_diarrhoea">
+        <label>Diarrhoea</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose1">
+        <label>&lt;b&gt;Give ORS. &lt;/b&gt; Help caregiver give child ORS solution in front of you until the child is no longer thirsty.</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose2">
+        <label>&lt;b&gt;Give caregiver an ORS and Zinc COPACK to take home &lt;/b&gt; Advise the caregiver to give as much as child wants, but at least ½ cup ORS solution after each loose stool.</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_diarrhoea_zinc_dose1">
+        <label>&lt;b&gt;Treat with Zinc supplement as follows &lt;/b&gt;&lt;br/&gt;1/2 a tablet&lt;br/&gt;Once a day&lt;br/&gt;For 10 days&lt;br&gt;Total 5 tablets</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_diarrhoea_zinc_dose2">
+        <label>Treat with Zinc supplement&lt;br/&gt;1 tablet&lt;br/&gt;Once a day&lt;br/&gt;For 10 days&lt;br&gt;Total 10 tablets</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction">
+        <label>&lt;b&gt;Demonstrate to the caregiver how to give the first dose&lt;/b&gt;</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction_ors1">
+        <label>Encourage caregiver to give small sips of ORS frequently from a cup. If the child vomits, wait for 10 minutes, then continue giving fluids, but more slowly. If the child can take more, encourage the caregiver to continue giving.</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/diarrhoea_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given treatment for diarrhoea?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h2 blue" ref="/assessment/group_patient_summary/s_note_diagnosis_fever">
+        <label>Fever</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_fever_treatment">
+        <label>Treat with Oral Anti-Malarial ACT</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_fever_dose1">
+        <label>1 tablet&lt;br/&gt;Twice a day&lt;br/&gt;For 3 days&lt;br/&gt;Total 6 tabs</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_fever_dose2">
+        <label>2 tablets&lt;br&gt;Twice a day&lt;br/&gt;For 3 days&lt;br/&gt;Total 12 tabs</label>
+      </input>
+      <input appearance="h3 blue" ref="/assessment/group_patient_summary/s_note_fever_special_instruction">
+        <label>Special Instructions</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_fever_special_instruction1">
+        <label>Help the caregiver give the first dose now.</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_fever_special_instruction2">
+        <label>Advise caregiver to give 2nd dose after 8 hrs and to give dose twice daily for 2 more days</label>
+      </input>
+      <select1 ref="/assessment/group_patient_summary/fever_treatment_given">
+        <label>Has <output value=" /assessment/patient_name "/> been given treatment for fever?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h1 red" ref="/assessment/group_patient_summary/s_note_referral">
+        <label>Refer to a health facility&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</label>
+      </input>
+      <select1 appearance="h3 blue" ref="/assessment/group_patient_summary/have_you_referred">
+        <label>Have you referred <output value=" /assessment/patient_name "/></label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="h3 yellow" ref="/assessment/group_patient_summary/s_note_important_instruction">
+        <label>Important Instructions</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_important_instruction1">
+        <label>Help caregiver give first dose now&lt;br/&gt;Advise caregiver to give more fluids by breastfeeding more and for longer at each feed (If Child &lt;= 6 Months). care giver should also give and plenty of homemade fluids such as:</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_clean_water">
+        <label>Rice water, soup, Yoghurt drinks, Light porridge</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_ors">
+        <label>ORS</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_important_instruction_advise">
+        <label>Advise to go to the health facility if the child:</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise1">
+        <label>Cannot drink, feed or has blood in stool</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise2">
+        <label>Develops any other danger sign</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise3">
+        <label>Has not improved in 2 days</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise4">
+        <label>Child is exposed to HIV</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise5">
+        <label>In-contact with someone on TB treatment</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_advise6">
+        <label>Yellow MUAC tape (No HIV)</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_important_instruction_newline">
+        <label>&lt;br/&gt;</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_finish_treatment">
+        <label>Advise the caregiver to finish the course of the treatment even if the child gets better</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_use_llin">
+        <label>Advise caregiver to ensure the child sleeps under a mosquito net.</label>
+      </input>
+      <input appearance="li" ref="/assessment/group_patient_summary/s_note_important_instruction_vaccine">
+        <label>Advise caregiver if needed, when and where is the next vaccine to be given</label>
+      </input>
+      <input appearance="h1 green" ref="/assessment/group_patient_summary/s_note_followup">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_followup_instructions1">
+        <label>Ask to see the child again in 3 days and 6 days in follow up visits even if the child improves</label>
+      </input>
+      <input ref="/assessment/group_patient_summary/s_note_followup_instructions2">
+        <label>Follow up the child in 3 days to ensure the child went to the nearest health facility for treatment</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

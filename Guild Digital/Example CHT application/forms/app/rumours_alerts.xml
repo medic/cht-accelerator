@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Rumors and Alerts Form</h:title>
+    <model>
+      <instance>
+        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2023-09-19  21-27">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <rumours>
+            <rumours_present/>
+            <rumour_description/>
+            <rumour_addressed/>
+            <rumour_not_addressed_why/>
+            <rumor_address_method/>
+          </rumours>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </rumours_alerts>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/rumours_alerts/inputs" relevant="./source='user'"/>
+      <bind nodeset="/rumours_alerts/inputs/source" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/source_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/name" type="string"/>
+      <bind nodeset="/rumours_alerts/rumours/rumours_present" type="select1" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_description" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_addressed" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_not_addressed_why" type="string" relevant=" /rumours_alerts/rumours/rumour_addressed  = 'no'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumor_address_method" type="select1" relevant=" /rumours_alerts/rumours/rumour_addressed ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/rumours_alerts/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/rumours_alerts/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/rumours_alerts/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/rumours_alerts/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/rumours_alerts/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/rumours_alerts/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/rumours_alerts/rumours">
+      <label>RUMOURS AND ALERTS</label>
+      <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumours_present">
+        <label>Have there been any rumours around the community?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/rumours_alerts/rumours/rumour_description">
+        <label>What was the rumour about?</label>
+        <item>
+          <label>Death</label>
+          <value>death</value>
+        </item>
+        <item>
+          <label>Disease</label>
+          <value>disease</value>
+        </item>
+        <item>
+          <label>War/conflict</label>
+          <value>war_conflict</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumour_addressed">
+        <label>Was the rumour addressed?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/rumours_alerts/rumours/rumour_not_addressed_why">
+        <label>Why was the rumour not addressed?</label>
+      </input>
+      <select1 ref="/rumours_alerts/rumours/rumor_address_method">
+        <label>How was the rumour addressed?</label>
+        <item>
+          <label>Reported to Supervisor</label>
+          <value>reported_supervisor</value>
+        </item>
+        <item>
+          <label>Mentorship</label>
+          <value>mentorship</value>
+        </item>
+        <item>
+          <label>Sensitization</label>
+          <value>sensitization</value>
+        </item>
+        <item>
+          <label>Guidance from health Team</label>
+          <value>guidance_health_team</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

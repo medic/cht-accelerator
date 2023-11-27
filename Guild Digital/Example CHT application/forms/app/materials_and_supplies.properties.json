@@ -1,0 +1,7 @@
+{
+  "context": {
+    "person": false,
+    "place": true,
+    "expression": "health_center' && user.parent && user.parent.type === 'health_center' && user.role === 'vht'"
+  }
+}

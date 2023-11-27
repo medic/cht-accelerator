@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Person</h:title>
+    <model>
+      <itext>
+        <translation lang="default">
+          <text id="static_instance-boy_girl-0">
+            <value>Girl</value>
+          </text>
+          <text id="static_instance-boy_girl-1">
+            <value>Boy</value>
+          </text>
+          <text id="static_instance-lmp_approx-0">
+            <value>Up to 2 months</value>
+          </text>
+          <text id="static_instance-lmp_approx-1">
+            <value>Up to 3 months</value>
+          </text>
+          <text id="static_instance-lmp_approx-2">
+            <value>Up to 4 months</value>
+          </text>
+          <text id="static_instance-lmp_approx-3">
+            <value>Between 5 to 6 months ago</value>
+          </text>
+          <text id="static_instance-lmp_approx-4">
+            <value>Between 7 to 8 months ago</value>
+          </text>
+          <text id="static_instance-lmp_approx-5">
+            <value>One month ago</value>
+          </text>
+          <text id="static_instance-male_female-0">
+            <value>Female</value>
+          </text>
+          <text id="static_instance-male_female-1">
+            <value>Male</value>
+          </text>
+          <text id="static_instance-p_status-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-p_status-1">
+            <value>No</value>
+          </text>
+          <text id="static_instance-p_status-2">
+            <value>Test not done</value>
+          </text>
+          <text id="static_instance-select_client_category-0">
+            <value>National</value>
+          </text>
+          <text id="static_instance-select_client_category-1">
+            <value>Foreigner</value>
+          </text>
+          <text id="static_instance-select_client_category-2">
+            <value>Refugee</value>
+          </text>
+          <text id="static_instance-select_dob_method-0">
+            <value>Date (preferred)</value>
+          </text>
+          <text id="static_instance-select_dob_method-1">
+            <value>Current age</value>
+          </text>
+          <text id="static_instance-select_family_member_type-0">
+            <value>Under 5 Child</value>
+          </text>
+          <text id="static_instance-select_family_member_type-1">
+            <value>Eligible Woman</value>
+          </text>
+          <text id="static_instance-select_hiv_status-0">
+            <value>Positive</value>
+          </text>
+          <text id="static_instance-select_hiv_status-1">
+            <value>Negative</value>
+          </text>
+          <text id="static_instance-select_hiv_status-2">
+            <value>Unknown</value>
+          </text>
+          <text id="static_instance-select_nationality-0">
+            <value>Congolese</value>
+          </text>
+          <text id="static_instance-select_nationality-1">
+            <value>Rwandese</value>
+          </text>
+          <text id="static_instance-select_nationality-2">
+            <value>South Sudanese</value>
+          </text>
+          <text id="static_instance-select_nationality-3">
+            <value>Somali</value>
+          </text>
+          <text id="static_instance-select_nationality-4">
+            <value>Burundian</value>
+          </text>
+          <text id="static_instance-select_nationality-5">
+            <value>Eritrean</value>
+          </text>
+          <text id="static_instance-select_nationality-6">
+            <value>Ethiopian</value>
+          </text>
+          <text id="static_instance-select_nationality-7">
+            <value>Other</value>
+          </text>
+          <text id="static_instance-select_relationship-0">
+            <value>Child</value>
+          </text>
+          <text id="static_instance-select_relationship-1">
+            <value>Spouse</value>
+          </text>
+          <text id="static_instance-select_relationship-2">
+            <value>Sister</value>
+          </text>
+          <text id="static_instance-select_relationship-3">
+            <value>Brother</value>
+          </text>
+          <text id="static_instance-select_relationship-4">
+            <value>Grandchild</value>
+          </text>
+          <text id="static_instance-select_relationship-5">
+            <value>Other (Please Specify)</value>
+          </text>
+          <text id="static_instance-yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-yes_no-1">
+            <value>No</value>
+          </text>
+          <text id="static_instance-yes_no_unknown-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-yes_no_unknown-1">
+            <value>No</value>
+          </text>
+          <text id="static_instance-yes_no_unknown-2">
+            <value>Unknown</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:person:edit" prefix="J1!contact:person:edit!" delimiter="#" version="2016-04-06">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <person>
+            <type>person</type>
+            <parent>PARENT</parent>
+            <_id/>
+            <date_of_birth/>
+            <name/>
+            <role/>
+            <person_notes/>
+            <dob_method>approx</dob_method>
+            <dob_calendar/>
+            <age_years/>
+            <ephemeral_years/>
+            <dob_approx/>
+            <dob_raw/>
+            <c_dob_iso/>
+            <c_dob_debug/>
+            <current_age>0</current_age>
+            <sex/>
+            <phone1/>
+            <phone2/>
+            <date_supervision_visit/>
+            <relationship_with_hh/>
+            <other_relationship/>
+            <client_category>refugee</client_category>
+            <nationality/>
+            <other_nationality/>
+            <registered/>
+            <individual_number/>
+            <group_number/>
+            <nin/>
+          </person>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>static_instance-yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="male_female">
+        <root>
+          <item>
+            <itextId>static_instance-male_female-0</itextId>
+            <name>female</name>
+          </item>
+          <item>
+            <itextId>static_instance-male_female-1</itextId>
+            <name>male</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="boy_girl">
+        <root>
+          <item>
+            <itextId>static_instance-boy_girl-0</itextId>
+            <name>female</name>
+          </item>
+          <item>
+            <itextId>static_instance-boy_girl-1</itextId>
+            <name>male</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_dob_method">
+        <root>
+          <item>
+            <itextId>static_instance-select_dob_method-0</itextId>
+            <name>calendar</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_dob_method-1</itextId>
+            <name>approx</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_family_member_type">
+        <root>
+          <item>
+            <itextId>static_instance-select_family_member_type-0</itextId>
+            <name>member_child</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_family_member_type-1</itextId>
+            <name>member_eligible_woman</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="lmp_approx">
+        <root>
+          <item>
+            <itextId>static_instance-lmp_approx-0</itextId>
+            <name>2mo</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approx-1</itextId>
+            <name>3mo</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approx-2</itextId>
+            <name>4mo</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approx-3</itextId>
+            <name>6mo</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approx-4</itextId>
+            <name>8mo</name>
+          </item>
+          <item>
+            <itextId>static_instance-lmp_approx-5</itextId>
+            <name>1mo</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="p_status">
+        <root>
+          <item>
+            <itextId>static_instance-p_status-0</itextId>
+            <name>true</name>
+          </item>
+          <item>
+            <itextId>static_instance-p_status-1</itextId>
+            <name>false</name>
+          </item>
+          <item>
+            <itextId>static_instance-p_status-2</itextId>
+            <name>not_done</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_relationship">
+        <root>
+          <item>
+            <itextId>static_instance-select_relationship-0</itextId>
+            <name>child</name>
+            <prefecture>1</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_relationship-1</itextId>
+            <name>spouse</name>
+            <prefecture>2</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_relationship-2</itextId>
+            <name>sister</name>
+            <prefecture>3</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_relationship-3</itextId>
+            <name>brother</name>
+            <prefecture>4</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_relationship-4</itextId>
+            <name>grandchild</name>
+            <prefecture>5</prefecture>
+          </item>
+          <item>
+            <itextId>static_instance-select_relationship-5</itextId>
+            <name>other</name>
+            <prefecture>6</prefecture>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_hiv_status">
+        <root>
+          <item>
+            <itextId>static_instance-select_hiv_status-0</itextId>
+            <name>positive</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_hiv_status-1</itextId>
+            <name>negative</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_hiv_status-2</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_client_category">
+        <root>
+          <item>
+            <itextId>static_instance-select_client_category-0</itextId>
+            <name>national</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_client_category-1</itextId>
+            <name>foreigner</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_client_category-2</itextId>
+            <name>refugee</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_nationality">
+        <root>
+          <item>
+            <itextId>static_instance-select_nationality-0</itextId>
+            <name>congolese</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-1</itextId>
+            <name>rwandese</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-2</itextId>
+            <name>s_sudanese</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-3</itextId>
+            <name>somali</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-4</itextId>
+            <name>burundian</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-5</itextId>
+            <name>eritrean</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-6</itextId>
+            <name>ethiopian</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_nationality-7</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="yes_no_unknown">
+        <root>
+          <item>
+            <itextId>static_instance-yes_no_unknown-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-yes_no_unknown-1</itextId>
+            <name>no</name>
+          </item>
+          <item>
+            <itextId>static_instance-yes_no_unknown-2</itextId>
+            <name>unknown</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="0"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/person/type" type="string"/>
+      <bind nodeset="/data/person/parent" type="string"/>
+      <bind nodeset="/data/person/_id" type="string"/>
+      <bind nodeset="/data/person/date_of_birth" type="string" calculate="../c_dob_iso"/>
+      <bind nodeset="/data/person/name" type="string" constraint="regex(.,'^[A-Z][A-Z\s]{1,50}$')" jr:constraintMsg="Enter a valid name consisting of only CAPITAL letters" required="true()"/>
+      <bind nodeset="/data/person/role" type="string"/>
+      <bind nodeset="/data/person/person_notes" type="string"/>
+      <bind nodeset="/data/person/dob_method" type="select1" required="true()"/>
+      <bind nodeset="/data/person/dob_calendar" type="date" constraint=".&lt;today() and floor(difference-in-months(., today() ) div 12 ) &lt;= 120" relevant="selected(../dob_method,'calendar')" jr:constraintMsg="Invalid Date" required="true()"/>
+      <bind nodeset="/data/person/age_years" type="int" constraint=". &gt;= 0" relevant="selected(../dob_method,'approx')" jr:constraintMsg="Invalid Age Value" required="true()"/>
+      <bind nodeset="/data/person/ephemeral_years" type="string" calculate="format-date-time(today(),&quot;%Y&quot;) -../age_years"/>
+      <bind nodeset="/data/person/dob_approx" type="string" calculate="concat(string(../ephemeral_years),'-',string(format-date-time(today(), &quot;%m&quot;)),'-',string(format-date-time(today(), &quot;%d&quot;)))"/>
+      <bind nodeset="/data/person/dob_raw" type="string" calculate="if(not(selected( ../dob_method,'approx')), 
+../dob_calendar,
+../dob_approx)"/>
+      <bind nodeset="/data/person/c_dob_iso" type="string" calculate="format-date-time(../dob_raw,&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/person/c_dob_debug" readonly="true()" type="string" relevant="0"/>
+      <bind nodeset="/data/person/current_age" type="string" calculate="floor(difference-in-months(date( /data/person/c_dob_iso ),today()) div 12)"/>
+      <bind nodeset="/data/person/sex" type="select1" required="true()"/>
+      <bind nodeset="/data/person/phone1" type="string" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" relevant=" /data/person/current_age &gt;18" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" required="false()"/>
+      <bind nodeset="/data/person/phone2" type="string" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" relevant=" /data/person/current_age &gt;18" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" required="false()"/>
+      <bind nodeset="/data/person/date_supervision_visit" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="supervision Visit Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
+      <bind nodeset="/data/person/relationship_with_hh" type="select1" required="true()"/>
+      <bind nodeset="/data/person/other_relationship" type="string" relevant=" /data/person/relationship_with_hh ='other'" required="true()"/>
+      <bind nodeset="/data/person/client_category" type="select1" required="true()"/>
+      <bind nodeset="/data/person/nationality" type="select1" relevant="not(selected(../client_category, 'national'))" required="true()"/>
+      <bind nodeset="/data/person/other_nationality" type="string" relevant="selected(../nationality, 'other')" required="true()"/>
+      <bind nodeset="/data/person/registered" type="select1" relevant="not(selected(../client_category, 'national'))"/>
+      <bind nodeset="/data/person/individual_number" type="string" relevant="selected(../registered, 'yes') and not(selected(../client_category, 'national'))"/>
+      <bind nodeset="/data/person/group_number" type="string" relevant="not(selected(../client_category, 'national'))"/>
+      <bind nodeset="/data/person/nin" type="string" relevant="selected(../client_category, 'national')"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <label></label>
+      <group ref="/data/inputs/user">
+        <label></label>
+        <input ref="/data/inputs/user/contact_id">
+          <label>Contact ID of the logged in user</label>
+        </input>
+        <input ref="/data/inputs/user/facility_id">
+          <label>Place ID of the logged in user</label>
+        </input>
+        <input ref="/data/inputs/user/name">
+          <label>Name of the logged in user</label>
+        </input>
+      </group>
+    </group>
+    <group ref="/data/person">
+      <label>Edit Person</label>
+      <input appearance="hidden" ref="/data/person/type">
+        <label>Person Type</label>
+        <hint>mandatory</hint>
+      </input>
+      <input appearance="hidden" ref="/data/person/parent">
+        <label>Parent</label>
+        <hint>mandatory</hint>
+      </input>
+      <input ref="/data/person/name">
+        <label>Name</label>
+        <hint>Please include both names</hint>
+      </input>
+      <input ref="/data/person/role">
+        <label>Role</label>
+      </input>
+      <input ref="/data/person/person_notes">
+        <label>Notes</label>
+      </input>
+      <select1 appearance="horizontal" ref="/data/person/dob_method">
+        <label>Please choose method to select date of birth</label>
+        <item>
+          <label>Date (preferred)</label>
+          <value>calendar</value>
+        </item>
+        <item>
+          <label>Current age</label>
+          <value>approx</value>
+        </item>
+      </select1>
+      <input ref="/data/person/dob_calendar">
+        <label>Date of Birth</label>
+        <hint>Date must be either today or before today</hint>
+      </input>
+      <input ref="/data/person/age_years">
+        <label>Age (in years)</label>
+        <hint>For under 5's use date of birth option</hint>
+      </input>
+      <input ref="/data/person/c_dob_debug">
+        <label>Year: ../ephemeral_years
+DOB Approx: ../dob_approx
+DOB Calendar: ../dob_calendar
+DOB ISO: ../c_dob_iso</label>
+      </input>
+      <select1 appearance="horizontal" ref="/data/person/sex">
+        <label>Sex</label>
+        <item>
+          <label>Female</label>
+          <value>female</value>
+        </item>
+        <item>
+          <label>Male</label>
+          <value>male</value>
+        </item>
+      </select1>
+      <input appearance="number" ref="/data/person/phone1">
+        <label>Phone number</label>
+        <hint>Mobile number should take this format 07XXXXXXXX or 039XXXXXXX</hint>
+      </input>
+      <input appearance="number" ref="/data/person/phone2">
+        <label>Alternative phone number</label>
+        <hint>Mobile number should take this format 07XXXXXXXX or 039XXXXXXX</hint>
+      </input>
+      <input ref="/data/person/date_supervision_visit">
+        <label>Date of Supervision Visit</label>
+      </input>
+      <select1 appearance="horizontal" ref="/data/person/relationship_with_hh">
+        <label>What is the Relationship with Household Head?</label>
+        <itemset nodeset="instance('select_relationship')/root/item[((prefecture!=3 and  /data/person/sex ='male') or (prefecture!=4 and  /data/person/sex ='female'))
+and 
+((prefecture!=2 and  /data/person/current_age &lt;12) or (prefecture&gt;0 and  /data/person/current_age &gt;=12))]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/data/person/other_relationship">
+        <label>Specify Relationship</label>
+      </input>
+      <select1 appearance="horizontal" ref="/data/person/client_category">
+        <label>What is the client category?</label>
+        <item>
+          <label>National</label>
+          <value>national</value>
+        </item>
+        <item>
+          <label>Foreigner</label>
+          <value>foreigner</value>
+        </item>
+        <item>
+          <label>Refugee</label>
+          <value>refugee</value>
+        </item>
+      </select1>
+      <select1 ref="/data/person/nationality">
+        <label>Nationality</label>
+        <item>
+          <label>Congolese</label>
+          <value>congolese</value>
+        </item>
+        <item>
+          <label>Rwandese</label>
+          <value>rwandese</value>
+        </item>
+        <item>
+          <label>South Sudanese</label>
+          <value>s_sudanese</value>
+        </item>
+        <item>
+          <label>Somali</label>
+          <value>somali</value>
+        </item>
+        <item>
+          <label>Burundian</label>
+          <value>burundian</value>
+        </item>
+        <item>
+          <label>Eritrean</label>
+          <value>eritrean</value>
+        </item>
+        <item>
+          <label>Ethiopian</label>
+          <value>ethiopian</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/data/person/other_nationality">
+        <label>Please specify nationality</label>
+      </input>
+      <select1 appearance="hidden" ref="/data/person/registered">
+        <label>Is the client registered?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input appearance="hidden" ref="/data/person/individual_number">
+        <label>Individual Number</label>
+        <hint>Use mother's number if client is still an infant</hint>
+      </input>
+      <input ref="/data/person/group_number">
+        <label>Group Number</label>
+        <hint>Use mother's number if client is still an infant</hint>
+      </input>
+      <input ref="/data/person/nin">
+        <label>NIN</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,1319 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Delivery</h:title>
+    <model>
+      <itext>
+        <translation lang="default">
+          <text id="static_instance-select_baby_condition-0">
+            <value>Alive and well</value>
+          </text>
+          <text id="static_instance-select_baby_condition-1">
+            <value>Alive and unwell</value>
+          </text>
+          <text id="static_instance-select_delivery_method-0">
+            <value>Normal delivery</value>
+          </text>
+          <text id="static_instance-select_delivery_method-1">
+            <value>Cesarean</value>
+          </text>
+          <text id="static_instance-select_muac_measurement-0">
+            <value>Red (&lt;19.0 cm)</value>
+          </text>
+          <text id="static_instance-select_muac_measurement-1">
+            <value>Yellow (≥19.0cm but &lt;23.0cm)</value>
+          </text>
+          <text id="static_instance-select_muac_measurement-2">
+            <value>Green (≥23cm)</value>
+          </text>
+          <text id="static_instance-select_place-0">
+            <value>Health Facility</value>
+          </text>
+          <text id="static_instance-select_place-1">
+            <value>Home</value>
+          </text>
+          <text id="static_instance-select_place-2">
+            <value>Other</value>
+          </text>
+          <text id="static_instance-select_pnc_visits-0">
+            <value>Within 24 hours (check this box if facility delivery)</value>
+          </text>
+          <text id="static_instance-select_pnc_visits-1">
+            <value>7 days</value>
+          </text>
+          <text id="static_instance-select_pnc_visits-2">
+            <value>6 weeks</value>
+          </text>
+          <text id="static_instance-select_pnc_visits-3">
+            <value>None</value>
+          </text>
+          <text id="static_instance-select_sex-0">
+            <value>Male</value>
+          </text>
+          <text id="static_instance-select_sex-1">
+            <value>Female</value>
+          </text>
+          <text id="static_instance-select_vaccines-0">
+            <value>BCG only</value>
+          </text>
+          <text id="static_instance-select_vaccines-1">
+            <value>Birth Polio only</value>
+          </text>
+          <text id="static_instance-select_vaccines-2">
+            <value>BCG and Birth Polio</value>
+          </text>
+          <text id="static_instance-select_vaccines-3">
+            <value>None</value>
+          </text>
+          <text id="static_instance-select_who_conducted_delivery-0">
+            <value>Skilled health care provider</value>
+          </text>
+          <text id="static_instance-select_who_conducted_delivery-1">
+            <value>Traditional birth attendant</value>
+          </text>
+          <text id="static_instance-select_who_conducted_delivery-2">
+            <value>Other</value>
+          </text>
+          <text id="static_instance-select_woman_outcome-0">
+            <value>Alive and well</value>
+          </text>
+          <text id="static_instance-select_woman_outcome-1">
+            <value>Alive and unwell</value>
+          </text>
+          <text id="static_instance-select_woman_outcome-2">
+            <value>Dead</value>
+          </text>
+          <text id="static_instance-select_yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-select_yes_no-1">
+            <value>No</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <delivery id="delivery" prefix="J1!delivery!" delimiter="#" version="2022-03-19 19:38:30">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <visited_contact_uuid/>
+          <family_id/>
+          <area_id/>
+          <facility_id/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <app_id/>
+          <today_date/>
+          <days_since_delivery_date/>
+          <nutrition_follow_up_date/>
+          <referred_for_nutrition_follow_up/>
+          <delivery_place_label/>
+          <woman_has_danger_signs/>
+          <group_woman_condition>
+            <woman_outcome/>
+          </group_woman_condition>
+          <group_woman_danger_sign_check>
+            <note_has_any_danger_signs_woman/>
+            <woman_danger_sign_fever/>
+            <woman_danger_sign_severe_headache/>
+            <woman_danger_sign_vaginal_bleeding/>
+            <woman_danger_sign_foul_vaginal_discharge/>
+            <woman_danger_sign_convulsions/>
+            <has_danger_signs_woman/>
+            <note_refer_woman_danger_signs/>
+            <referred_woman_danger_signs/>
+            <woman_date_of_death/>
+            <woman_place_of_death/>
+            <woman_place_of_death_other/>
+            <delivered_babies_before_dying/>
+            <woman_dead_additional_notes/>
+            <note_woman_dead_notes_detailed/>
+            <note_chance_to_register_babies_next/>
+          </group_woman_danger_sign_check>
+          <group_delivery_outcomes>
+            <number_of_babies_delivered/>
+            <number_of_babies_alive/>
+          </group_delivery_outcomes>
+          <group_delivery_information>
+            <delivery_date/>
+            <delivery_date_local/>
+            <delivery_place/>
+            <delivery_place_other/>
+            <delivery_method/>
+            <who_conducted_delivery/>
+            <who_conducted_delivery_other/>
+            <note_referred_to_health_facility_danger_signs/>
+            <referred_to_health_facility_home_delivery/>
+            <agreed_health_facility_visit_date/>
+          </group_delivery_information>
+          <group_death_report_baby>
+            <baby_date_of_death/>
+            <baby_place_of_death/>
+            <baby_place_of_death_other/>
+            <still_birth/>
+            <baby_death_additional_notes/>
+          </group_death_report_baby>
+          <group_baby_condition>
+            <note_registration_of_multiple_babies/>
+            <child_repeat_count/>
+            <child_repeat jr:template="">
+              <child_doc db-doc-ref=" /delivery/group_baby_condition/child_repeat/child_profile "/>
+              <child_profile db-doc="true">
+                <type>person</type>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                    <parent>
+                      <_id/>
+                      <parent>
+                        <_id/>
+                      </parent>
+                    </parent>
+                  </parent>
+                </parent>
+                <mother_id/>
+                <date_of_birth/>
+                <created_by_doc db-doc-ref="/delivery"/>
+                <baby_condition/>
+                <name/>
+                <sex/>
+                <vaccines_received/>
+                <note_immunization_counsel/>
+                <is_exclusively_breast_feeding/>
+                <breastfed_within_one_hour/>
+                <note_any_baby_danger_signs/>
+                <baby_danger_sign_infected_umbilical_cord/>
+                <baby_danger_sign_infected_convulsions/>
+                <baby_danger_sign_infected_feeding_difficulty/>
+                <baby_danger_sign_vomits_everything/>
+                <baby_danger_sign_drowsy/>
+                <baby_danger_sign_body_stiffness/>
+                <baby_danger_sign_yellow_skin/>
+                <baby_danger_sign_fever/>
+                <baby_danger_sign_blue_skin/>
+                <has_danger_signs_baby/>
+                <note_refer_baby_danger_signs/>
+                <referred_baby_danger_signs/>
+              </child_profile>
+            </child_repeat>
+          </group_baby_condition>
+          <group_woman_nutritional_status>
+            <note_nutrition_status/>
+            <on_nutrition_follow_up/>
+            <note_use_muac_tape/>
+            <taken_muac/>
+            <muac_measurement/>
+            <note_has_sam/>
+            <note_has_mam/>
+            <note_refer_to_health_facility/>
+            <referred_to_health_facility_nutrition/>
+            <completed_last_nutrition_follow_up/>
+            <next_nutrition_follow_up_date/>
+            <note_thank_you_nutrition_follow_up/>
+            <note_refer_did_not_complete_follow_up/>
+            <referred_to_health_facility_missed_nutrition_follow_up/>
+          </group_woman_nutritional_status>
+          <group_safe_postnatal_practices>
+            <note_eat_well/>
+            <note_exclusive_breastfeeding_counsel/>
+            <note_breast_milk_nutrition/>
+            <note_breast_milk_antibodies/>
+            <note_breast_milk_healthy_weight/>
+            <note_breast_milk_brain_development/>
+            <note_how_to_keep_baby_warm/>
+            <note_sleep_under_llin/>
+            <note_keep_umbilical_cord_clean/>
+          </group_safe_postnatal_practices>
+          <group_pnc_visits>
+            <who_recommendation/>
+            <pnc_visits/>
+          </group_pnc_visits>
+          <group_summary>
+            <s_note_delivery_report/>
+            <s_note_submit/>
+            <s_note_person_details/>
+            <s_note_person_details_values/>
+            <s_note_delivery_date/>
+            <s_note_summary/>
+            <s_note_findings_mother_alive/>
+            <s_note_findings_mother_dead/>
+            <s_note_danger_signs/>
+            <s_note_no_danger_signs/>
+            <s_note_woman_danger_sign_fever/>
+            <s_note_woman_danger_sign_severe_headache/>
+            <s_note_woman_danger_sign_vaginal_bleeding/>
+            <s_note_woman_danger_sign_foul_vaginal_discharge/>
+            <s_note_woman_danger_sign_convulsions/>
+            <s_note_refer_to_health_facility/>
+            <s_note_refer_to_health_facility_immediately/>
+            <s_note_follow_up/>
+            <s_note_task_will_appear/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </delivery>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="select_yes_no">
+        <root>
+          <item>
+            <itextId>static_instance-select_yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_woman_outcome">
+        <root>
+          <item>
+            <itextId>static_instance-select_woman_outcome-0</itextId>
+            <name>alive_well</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_woman_outcome-1</itextId>
+            <name>alive_unwell</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_woman_outcome-2</itextId>
+            <name>dead</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_place">
+        <root>
+          <item>
+            <itextId>static_instance-select_place-0</itextId>
+            <name>health_facility</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_place-1</itextId>
+            <name>home</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_place-2</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_delivery_method">
+        <root>
+          <item>
+            <itextId>static_instance-select_delivery_method-0</itextId>
+            <name>normal</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_delivery_method-1</itextId>
+            <name>cesarean</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_who_conducted_delivery">
+        <root>
+          <item>
+            <itextId>static_instance-select_who_conducted_delivery-0</itextId>
+            <name>skilled_health_care_provider</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_who_conducted_delivery-1</itextId>
+            <name>traditional_birth_attendant</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_who_conducted_delivery-2</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_sex">
+        <root>
+          <item>
+            <itextId>static_instance-select_sex-0</itextId>
+            <name>male</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_sex-1</itextId>
+            <name>female</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_vaccines">
+        <root>
+          <item>
+            <itextId>static_instance-select_vaccines-0</itextId>
+            <name>bcg_only</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_vaccines-1</itextId>
+            <name>polio_only</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_vaccines-2</itextId>
+            <name>bcg_polio</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_vaccines-3</itextId>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_muac_measurement">
+        <root>
+          <item>
+            <itextId>static_instance-select_muac_measurement-0</itextId>
+            <name>red</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_muac_measurement-1</itextId>
+            <name>yellow</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_muac_measurement-2</itextId>
+            <name>green</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_pnc_visits">
+        <root>
+          <item>
+            <itextId>static_instance-select_pnc_visits-0</itextId>
+            <prefecture>0</prefecture>
+            <name>within_24_hours</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_pnc_visits-1</itextId>
+            <prefecture>7</prefecture>
+            <name>7_days</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_pnc_visits-2</itextId>
+            <prefecture>42</prefecture>
+            <name>6_weeks</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_pnc_visits-3</itextId>
+            <prefecture>0</prefecture>
+            <name>none</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="select_baby_condition">
+        <root>
+          <item>
+            <itextId>static_instance-select_baby_condition-0</itextId>
+            <name>alive_well</name>
+          </item>
+          <item>
+            <itextId>static_instance-select_baby_condition-1</itextId>
+            <name>alive_unwell</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/delivery/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/delivery/inputs/source" type="string"/>
+      <bind nodeset="/delivery/inputs/source_id" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/_id" type="db:person" required="true()" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /delivery/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/delivery/inputs/contact/name" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/sex" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/delivery/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/delivery/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/delivery/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/delivery/family_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/delivery/area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/delivery/facility_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/delivery/patient_age_in_years" type="string" calculate="floor( difference-in-months(../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/delivery/patient_age_in_months" type="string" calculate="difference-in-months(../inputs/contact/date_of_birth, today() )"/>
+      <bind nodeset="/delivery/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time(../inputs/contact/date_of_birth) )"/>
+      <bind nodeset="/delivery/patient_age_display" type="string" calculate="concat(
+ concat( /delivery/patient_age_in_years , if( /delivery/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /delivery/patient_age_in_months  mod 12, if(( /delivery/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/delivery/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/delivery/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/delivery/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/delivery/app_id" type="string" calculate="instance('contact-summary')/context/appId"/>
+      <bind nodeset="/delivery/today_date" type="string" calculate="format-date-time(today(),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/delivery/days_since_delivery_date" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /delivery/group_delivery_information/delivery_date ) )"/>
+      <bind nodeset="/delivery/nutrition_follow_up_date" type="string" calculate=" /delivery/group_woman_nutritional_status/next_nutrition_follow_up_date "/>
+      <bind nodeset="/delivery/referred_for_nutrition_follow_up" type="string" calculate="if(( /delivery/group_woman_nutritional_status/referred_to_health_facility_nutrition  = 'yes' or  /delivery/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/delivery/delivery_place_label" type="string" calculate="if( /delivery/group_delivery_information/delivery_place  = 'other', concat('Other: ',  /delivery/group_delivery_information/delivery_place_other ), jr:choice-name( /delivery/group_delivery_information/delivery_place , ' /delivery/group_delivery_information/delivery_place '))"/>
+      <bind nodeset="/delivery/woman_has_danger_signs" type="string" calculate=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman "/>
+      <bind nodeset="/delivery/group_woman_condition/woman_outcome" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/note_has_any_danger_signs_woman" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_danger_sign_fever" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_danger_sign_severe_headache" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_danger_sign_vaginal_bleeding" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_danger_sign_foul_vaginal_discharge" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_danger_sign_convulsions" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/has_danger_signs_woman" type="string" calculate="if(( /delivery/group_woman_danger_sign_check/woman_danger_sign_fever  = 'yes' or  /delivery/group_woman_danger_sign_check/woman_danger_sign_severe_headache  = 'yes' or  /delivery/group_woman_danger_sign_check/woman_danger_sign_vaginal_bleeding  = 'yes' or  /delivery/group_woman_danger_sign_check/woman_danger_sign_foul_vaginal_discharge  = 'yes' or  /delivery/group_woman_danger_sign_check/woman_danger_sign_convulsions  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/note_refer_woman_danger_signs" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman  = 'yes'"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/referred_woman_danger_signs" type="select1" relevant=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman  = 'yes'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_date_of_death" type="date" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead'" required="true()" jr:constraintMsg="Date cannot be in the future and older than a month from today" constraint="((decimal-date-time(.)+30) &gt;= decimal-date-time(today())) and . &lt;= today()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_place_of_death" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_place_of_death_other" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_place_of_death  = 'other'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/delivered_babies_before_dying" type="select1" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/woman_dead_additional_notes" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead'" constraint="string-length(.) &lt;= 300" jr:constraintMsg="Maximum 300 characters allowed."/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/note_woman_dead_notes_detailed" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead' and  /delivery/group_woman_danger_sign_check/woman_date_of_death  != '' and  /delivery/group_woman_danger_sign_check/woman_place_of_death  != ''"/>
+      <bind nodeset="/delivery/group_woman_danger_sign_check/note_chance_to_register_babies_next" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_delivery_outcomes" relevant=" /delivery/group_woman_danger_sign_check/delivered_babies_before_dying  != 'no'"/>
+      <bind nodeset="/delivery/group_delivery_outcomes/number_of_babies_delivered" type="int" required="true()" jr:constraintMsg="Number of babies delivered should be more than zero" constraint=". &gt; 0"/>
+      <bind nodeset="/delivery/group_delivery_outcomes/number_of_babies_alive" type="int" relevant=" /delivery/group_delivery_outcomes/number_of_babies_delivered  &gt; 0" required="true()" jr:constraintMsg="The number of babies alive can not be more than the number of babies delivered" constraint=". &gt;= 0 and . &lt;=  /delivery/group_delivery_outcomes/number_of_babies_delivered "/>
+      <bind nodeset="/delivery/group_delivery_information/delivery_date" type="date" required="true()" jr:constraintMsg="Date cannot be in the future and older than a month from today" constraint="((decimal-date-time(.)+30) &gt;= decimal-date-time(today())) and . &lt;= today()"/>
+      <bind nodeset="/delivery/group_delivery_information/delivery_date_local" type="string" calculate="format-date-time( /delivery/group_delivery_information/delivery_date , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/delivery/group_delivery_information/delivery_place" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_delivery_information/delivery_place_other" type="string" relevant=" /delivery/group_delivery_information/delivery_place  = 'other'" required="true()" jr:constraintMsg="Maximum 100 characters allowed." constraint="string-length(.) &lt;= 100"/>
+      <bind nodeset="/delivery/group_delivery_information/delivery_method" type="select1" relevant=" /delivery/group_delivery_information/delivery_place  = 'health_facility'" required="true()"/>
+      <bind nodeset="/delivery/group_delivery_information/who_conducted_delivery" type="select1" relevant=" /delivery/group_delivery_information/delivery_place  = 'home' or  /delivery/group_delivery_information/delivery_place  = 'other'" required="true()"/>
+      <bind nodeset="/delivery/group_delivery_information/who_conducted_delivery_other" type="string" relevant=" /delivery/group_delivery_information/who_conducted_delivery  = 'other'" constraint="string-length(.) &lt;= 100" jr:constraintMsg="Maximum 100 characters allowed."/>
+      <bind nodeset="/delivery/group_delivery_information/note_referred_to_health_facility_danger_signs" readonly="true()" type="string" relevant=" /delivery/group_delivery_information/delivery_place  = 'home' or  /delivery/group_delivery_information/delivery_place  = 'other'"/>
+      <bind nodeset="/delivery/group_delivery_information/referred_to_health_facility_home_delivery" type="select1" relevant=" /delivery/group_delivery_information/delivery_place  = 'home' or  /delivery/group_delivery_information/delivery_place  = 'other'" required="true()"/>
+      <bind nodeset="/delivery/group_delivery_information/agreed_health_facility_visit_date" type="date" relevant=" /delivery/group_delivery_information/referred_to_health_facility_home_delivery  = 'yes'" required="true()" jr:constraintMsg="Date can not be in the past" constraint=". &gt;=  /delivery/today_date "/>
+      <bind nodeset="/delivery/group_death_report_baby" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &lt;  /delivery/group_delivery_outcomes/number_of_babies_delivered "/>
+      <bind nodeset="/delivery/group_death_report_baby/baby_date_of_death" type="date" required="true()" jr:constraintMsg="Date cannot be in the future and older than a month from today" constraint="((decimal-date-time(.)+30) &gt;= decimal-date-time(today())) and . &lt;= today()"/>
+      <bind nodeset="/delivery/group_death_report_baby/baby_place_of_death" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_death_report_baby/baby_place_of_death_other" type="string" relevant=" /delivery/group_death_report_baby/baby_place_of_death  = 'other'" required="true()"/>
+      <bind nodeset="/delivery/group_death_report_baby/still_birth" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_death_report_baby/baby_death_additional_notes" type="string" constraint="string-length(.) &lt;= 300" jr:constraintMsg="Maximum 300 characters allowed."/>
+      <bind nodeset="/delivery/group_baby_condition" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_baby_condition/note_registration_of_multiple_babies" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat_count" type="string" readonly="true()" calculate="int( /delivery/group_delivery_outcomes/number_of_babies_alive )"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_doc" type="string" calculate=" /delivery/group_baby_condition/child_repeat/child_profile "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/type" type="string"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/parent/_id" type="string" calculate=" /delivery/family_id "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent/_id" type="string" calculate=" /delivery/area_id "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent/parent/_id" type="string" calculate=" /delivery/facility_id "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent/parent/parent/_id" type="string" calculate=" /delivery/app_id "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/mother_id" type="string" calculate=" /delivery/patient_id "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/date_of_birth" type="string" calculate=" /delivery/group_delivery_information/delivery_date "/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/created_by_doc" type="string" calculate="."/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_condition" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/name" type="string" required="true()" jr:constraintMsg="Enter a valid name starting with a capital letter" constraint="regex(.,'^[A-Z]{1}[A-Za-z ]{1,99}$')"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/sex" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/vaccines_received" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/note_immunization_counsel" readonly="true()" type="string" relevant=" /delivery/group_baby_condition/child_repeat/child_profile/vaccines_received  = 'none'"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/is_exclusively_breast_feeding" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/breastfed_within_one_hour" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/note_any_baby_danger_signs" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_umbilical_cord" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_convulsions" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_feeding_difficulty" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_vomits_everything" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_drowsy" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_body_stiffness" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_yellow_skin" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_fever" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_blue_skin" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/has_danger_signs_baby" type="string" calculate="if(( /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_umbilical_cord  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_convulsions  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_feeding_difficulty  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_vomits_everything  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_drowsy  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_body_stiffness  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_yellow_skin  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_fever  = 'yes' or  /delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_blue_skin  = 'yes'), 'yes', 'no')" required="true()"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/note_refer_baby_danger_signs" readonly="true()" type="string" relevant=" /delivery/group_baby_condition/child_repeat/child_profile/has_danger_signs_baby  = 'yes'"/>
+      <bind nodeset="/delivery/group_baby_condition/child_repeat/child_profile/referred_baby_danger_signs" type="select1" relevant=" /delivery/group_baby_condition/child_repeat/child_profile/has_danger_signs_baby  = 'yes'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_nutrition_status" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/on_nutrition_follow_up" type="select1" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_use_muac_tape" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/taken_muac" type="select1" relevant=" /delivery/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/muac_measurement" type="select1" relevant=" /delivery/group_woman_nutritional_status/taken_muac  = 'yes'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_has_sam" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/muac_measurement  = 'red'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_has_mam" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/muac_measurement  = 'red' or  /delivery/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/referred_to_health_facility_nutrition" type="select1" relevant=" /delivery/group_woman_nutritional_status/muac_measurement  = 'red' or  /delivery/group_woman_nutritional_status/muac_measurement  = 'yellow'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/completed_last_nutrition_follow_up" type="select1" relevant=" /delivery/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/next_nutrition_follow_up_date" type="date" relevant=" /delivery/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'yes'" required="true()"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_thank_you_nutrition_follow_up" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/note_refer_did_not_complete_follow_up" readonly="true()" type="string" relevant=" /delivery/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/delivery/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" relevant=" /delivery/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'" required="true()"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_eat_well" readonly="true()" type="string" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_exclusive_breastfeeding_counsel" readonly="true()" type="string" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_breast_milk_nutrition" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_breast_milk_antibodies" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_breast_milk_healthy_weight" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_breast_milk_brain_development" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_how_to_keep_baby_warm" readonly="true()" type="string" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_sleep_under_llin" readonly="true()" type="string" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_safe_postnatal_practices/note_keep_umbilical_cord_clean" readonly="true()" type="string" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0"/>
+      <bind nodeset="/delivery/group_pnc_visits" relevant=" /delivery/group_delivery_outcomes/number_of_babies_alive  &gt; 0 or  /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_pnc_visits/who_recommendation" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_pnc_visits/pnc_visits" type="select" required="true()" jr:constraintMsg="The None option can not be selected with another option" constraint="not (selected(., 'none') and count-selected(.) &gt; 1)"/>
+      <bind nodeset="/delivery/group_summary/s_note_delivery_report" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_submit" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_person_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_delivery_date" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_summary" readonly="true()" type="string"/>
+      <bind nodeset="/delivery/group_summary/s_note_findings_mother_alive" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_summary/s_note_findings_mother_dead" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  = 'dead'"/>
+      <bind nodeset="/delivery/group_summary/s_note_danger_signs" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_summary/s_note_no_danger_signs" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman  = 'no' and  /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_summary/s_note_woman_danger_sign_fever" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_danger_sign_fever  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_woman_danger_sign_severe_headache" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_danger_sign_severe_headache  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_woman_danger_sign_vaginal_bleeding" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_danger_sign_vaginal_bleeding  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_woman_danger_sign_foul_vaginal_discharge" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_danger_sign_foul_vaginal_discharge  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_woman_danger_sign_convulsions" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/woman_danger_sign_convulsions  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_refer_to_health_facility" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_refer_to_health_facility_immediately" readonly="true()" type="string" relevant=" /delivery/group_woman_danger_sign_check/has_danger_signs_woman  = 'yes'"/>
+      <bind nodeset="/delivery/group_summary/s_note_follow_up" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/group_summary/s_note_task_will_appear" readonly="true()" type="string" relevant=" /delivery/group_woman_condition/woman_outcome  != 'dead'"/>
+      <bind nodeset="/delivery/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/delivery/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/delivery/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/delivery/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/delivery/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/delivery/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/delivery/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/delivery/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/delivery/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/delivery/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/delivery/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+          <group appearance="hidden" ref="/delivery/inputs/contact/parent/parent">
+            <label>Parent</label>
+            <input appearance="hidden" ref="/delivery/inputs/contact/parent/parent/_id">
+              <label>Facility ID</label>
+            </input>
+            <group appearance="hidden" ref="/delivery/inputs/contact/parent/parent/parent">
+              <label>Parent</label>
+              <input appearance="hidden" ref="/delivery/inputs/contact/parent/parent/parent/_id">
+                <label>Area ID</label>
+              </input>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_woman_condition">
+      <label>Woman's Condition</label>
+      <select1 ref="/delivery/group_woman_condition/woman_outcome">
+        <label>What is the outcome for the woman?</label>
+        <item>
+          <label>Alive and well</label>
+          <value>alive_well</value>
+        </item>
+        <item>
+          <label>Alive and unwell</label>
+          <value>alive_unwell</value>
+        </item>
+        <item>
+          <label>Dead</label>
+          <value>dead</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_woman_danger_sign_check">
+      <label>Postnatal Danger Sign Check – Woman</label>
+      <input ref="/delivery/group_woman_danger_sign_check/note_has_any_danger_signs_woman">
+        <label>Does the woman have any of the following danger signs?</label>
+      </input>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_danger_sign_fever">
+        <label>Fever</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_danger_sign_severe_headache">
+        <label>Severe headache</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_danger_sign_vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_danger_sign_foul_vaginal_discharge">
+        <label>Foul smelling vaginal discharge</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_danger_sign_convulsions">
+        <label>Convulsions</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_danger_sign_check/note_refer_woman_danger_signs">
+        <label>Refer <output value=" /delivery/patient_name "/> to the health facility immediately</label>
+      </input>
+      <select1 ref="/delivery/group_woman_danger_sign_check/referred_woman_danger_signs">
+        <label>Have you referred <output value=" /delivery/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_danger_sign_check/woman_date_of_death">
+        <label>Date of death</label>
+      </input>
+      <select1 ref="/delivery/group_woman_danger_sign_check/woman_place_of_death">
+        <label>What was the place of death?</label>
+        <item>
+          <label>Health Facility</label>
+          <value>health_facility</value>
+        </item>
+        <item>
+          <label>Home</label>
+          <value>home</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_danger_sign_check/woman_place_of_death_other">
+        <label>Specify Other</label>
+      </input>
+      <select1 ref="/delivery/group_woman_danger_sign_check/delivered_babies_before_dying">
+        <label>Did the woman deliver any babies before she died?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_danger_sign_check/woman_dead_additional_notes">
+        <label>Additional notes</label>
+      </input>
+      <input ref="/delivery/group_woman_danger_sign_check/note_woman_dead_notes_detailed">
+        <label>After reporting a death, the person's profile will be locked. If reported in error, you may undo the death report from the profile.</label>
+      </input>
+      <input ref="/delivery/group_woman_danger_sign_check/note_chance_to_register_babies_next">
+        <label>If babies were delivered, you will have the chance to report on them next.</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_delivery_outcomes">
+      <label>Delivery Outcomes</label>
+      <input ref="/delivery/group_delivery_outcomes/number_of_babies_delivered">
+        <label>How many babies were delivered?</label>
+      </input>
+      <input ref="/delivery/group_delivery_outcomes/number_of_babies_alive">
+        <label>How many babies are alive?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_delivery_information">
+      <label>Delivery Information</label>
+      <input ref="/delivery/group_delivery_information/delivery_date">
+        <label>Date of delivery</label>
+      </input>
+      <select1 ref="/delivery/group_delivery_information/delivery_place">
+        <label>Where did delivery take place?</label>
+        <item>
+          <label>Health Facility</label>
+          <value>health_facility</value>
+        </item>
+        <item>
+          <label>Home</label>
+          <value>home</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_delivery_information/delivery_place_other">
+        <label>Please specify other</label>
+      </input>
+      <select1 ref="/delivery/group_delivery_information/delivery_method">
+        <label>How did she deliver?</label>
+        <item>
+          <label>Normal delivery</label>
+          <value>normal</value>
+        </item>
+        <item>
+          <label>Cesarean</label>
+          <value>cesarean</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_delivery_information/who_conducted_delivery">
+        <label>Who conducted the delivery?</label>
+        <item>
+          <label>Skilled health care provider</label>
+          <value>skilled_health_care_provider</value>
+        </item>
+        <item>
+          <label>Traditional birth attendant</label>
+          <value>traditional_birth_attendant</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_delivery_information/who_conducted_delivery_other">
+        <label>Please specify other</label>
+      </input>
+      <input ref="/delivery/group_delivery_information/note_referred_to_health_facility_danger_signs">
+        <label>Please refer the woman to the health facility for PNC services</label>
+      </input>
+      <select1 ref="/delivery/group_delivery_information/referred_to_health_facility_home_delivery">
+        <label>Have you referred the woman to the health facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_delivery_information/agreed_health_facility_visit_date">
+        <label>Please indicate the date the woman has agreed to go to the health facility</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_death_report_baby">
+      <label>Death Report – Baby</label>
+      <input ref="/delivery/group_death_report_baby/baby_date_of_death">
+        <label>Date of death</label>
+      </input>
+      <select1 ref="/delivery/group_death_report_baby/baby_place_of_death">
+        <label>Place of death</label>
+        <item>
+          <label>Health Facility</label>
+          <value>health_facility</value>
+        </item>
+        <item>
+          <label>Home</label>
+          <value>home</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_death_report_baby/baby_place_of_death_other">
+        <label>Specify Other</label>
+      </input>
+      <select1 ref="/delivery/group_death_report_baby/still_birth">
+        <label>Was this a stillbirth?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_death_report_baby/baby_death_additional_notes">
+        <label>Additional notes about baby's death</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_baby_condition">
+      <label>Baby's Condition</label>
+      <input ref="/delivery/group_baby_condition/note_registration_of_multiple_babies">
+        <label>Sections will repeat if multiple babies were delivered. Please fill out one section per baby.</label>
+      </input>
+      <group ref="/delivery/group_baby_condition/child_repeat">
+        <label></label>
+        <repeat nodeset="/delivery/group_baby_condition/child_repeat" jr:count=" /delivery/group_baby_condition/child_repeat_count ">
+          <group appearance="field-list" ref="/delivery/group_baby_condition/child_repeat/child_profile">
+            <label></label>
+            <input appearance="hidden" ref="/delivery/group_baby_condition/child_repeat/child_profile/type">
+              <label>Person Type</label>
+              <hint>mandatory</hint>
+            </input>
+            <group appearance="hidden" ref="/delivery/group_baby_condition/child_repeat/child_profile/parent">
+              <label></label>
+              <group appearance="hidden" ref="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent">
+                <label></label>
+                <group appearance="hidden" ref="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent/parent">
+                  <label></label>
+                  <group ref="/delivery/group_baby_condition/child_repeat/child_profile/parent/parent/parent/parent">
+                    <label></label>
+                  </group>
+                </group>
+              </group>
+            </group>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_condition">
+              <label>What is the condition of baby?</label>
+              <hint>Select one</hint>
+              <item>
+                <label>Alive and well</label>
+                <value>alive_well</value>
+              </item>
+              <item>
+                <label>Alive and unwell</label>
+                <value>alive_unwell</value>
+              </item>
+            </select1>
+            <input ref="/delivery/group_baby_condition/child_repeat/child_profile/name">
+              <label>Name</label>
+              <hint>Please enter a name for the baby to identify them in the app. You can change it later</hint>
+            </input>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/sex">
+              <label>Sex</label>
+              <item>
+                <label>Male</label>
+                <value>male</value>
+              </item>
+              <item>
+                <label>Female</label>
+                <value>female</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/vaccines_received">
+              <label>What vaccines have they received?</label>
+              <hint>Select one</hint>
+              <item>
+                <label>BCG only</label>
+                <value>bcg_only</value>
+              </item>
+              <item>
+                <label>Birth Polio only</label>
+                <value>polio_only</value>
+              </item>
+              <item>
+                <label>BCG and Birth Polio</label>
+                <value>bcg_polio</value>
+              </item>
+              <item>
+                <label>None</label>
+                <value>none</value>
+              </item>
+            </select1>
+            <input ref="/delivery/group_baby_condition/child_repeat/child_profile/note_immunization_counsel">
+              <label>Please counsel the family and refer the child to the nearest health center where the baby can be immunized.</label>
+            </input>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/is_exclusively_breast_feeding">
+              <label>Is the child exclusively breastfeeding?</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/breastfed_within_one_hour">
+              <label>Were they initiated on breastfeeding within one hour of delivery?</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <input ref="/delivery/group_baby_condition/child_repeat/child_profile/note_any_baby_danger_signs">
+              <label>Does the baby have any of the following danger signs?</label>
+            </input>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_umbilical_cord">
+              <label>Infected umbilical cord</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_convulsions">
+              <label>Convulsions</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_infected_feeding_difficulty">
+              <label>Difficulty feeding or drinking</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_vomits_everything">
+              <label>Vomits everything</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_drowsy">
+              <label>Drowsy or unconscious</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_body_stiffness">
+              <label>Body stiffness</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_yellow_skin">
+              <label>Yellow skin color</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_fever">
+              <label>Fever</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/baby_danger_sign_blue_skin">
+              <label>Blue skin color (hypothermia)</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+            <input ref="/delivery/group_baby_condition/child_repeat/child_profile/note_refer_baby_danger_signs">
+              <label>Refer <output value=" /delivery/patient_name "/> to the health facility immediately</label>
+            </input>
+            <select1 ref="/delivery/group_baby_condition/child_repeat/child_profile/referred_baby_danger_signs">
+              <label>Have you referred <output value=" /delivery/patient_name "/> to the health facility</label>
+              <item>
+                <label>Yes</label>
+                <value>yes</value>
+              </item>
+              <item>
+                <label>No</label>
+                <value>no</value>
+              </item>
+            </select1>
+          </group>
+        </repeat>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_woman_nutritional_status">
+      <label>Nutrition Status of the Woman</label>
+      <input ref="/delivery/group_woman_nutritional_status/note_nutrition_status">
+        <label>It is important to ensure that all pregnant women in your area have optimal nutrition status. This is assessed by using a MUAC tape</label>
+      </input>
+      <select1 ref="/delivery/group_woman_nutritional_status/on_nutrition_follow_up">
+        <label>Is <output value=" /delivery/patient_name "/> on nutrition follow up?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_nutritional_status/note_use_muac_tape">
+        <label>Use your MUAC tape to take the woman's MUAC</label>
+      </input>
+      <select1 ref="/delivery/group_woman_nutritional_status/taken_muac">
+        <label>Have you taken <output value=" /delivery/patient_name "/> MUAC?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_nutritional_status/muac_measurement">
+        <label>What is the colour and measurement of the MUAC tape?</label>
+        <item>
+          <label>Red (&lt;19.0 cm)</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Yellow (≥19.0cm but &lt;23.0cm)</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Green (≥23cm)</label>
+          <value>green</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_nutritional_status/note_has_sam">
+        <label>Woman has Severe Acute Malnutrition (SAM)</label>
+      </input>
+      <input ref="/delivery/group_woman_nutritional_status/note_has_mam">
+        <label>Woman has Moderate Acute Malnutrition (MAM)</label>
+      </input>
+      <input ref="/delivery/group_woman_nutritional_status/note_refer_to_health_facility">
+        <label>Refer <output value=" /delivery/patient_name "/> to the health facility for further management</label>
+      </input>
+      <select1 ref="/delivery/group_woman_nutritional_status/referred_to_health_facility_nutrition">
+        <label>Have you referred <output value=" /delivery/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/delivery/group_woman_nutritional_status/completed_last_nutrition_follow_up">
+        <label>Did <output value=" /delivery/patient_name "/> complete the last follow up visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/delivery/group_woman_nutritional_status/next_nutrition_follow_up_date">
+        <label>Date of next appointment</label>
+      </input>
+      <input ref="/delivery/group_woman_nutritional_status/note_thank_you_nutrition_follow_up">
+        <label>Thank you. Tasks for nutrition follow up will be sent when due</label>
+      </input>
+      <input ref="/delivery/group_woman_nutritional_status/note_refer_did_not_complete_follow_up">
+        <label>Refer <output value=" /delivery/patient_name "/> to the health facility</label>
+      </input>
+      <select1 ref="/delivery/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up">
+        <label>Have you referred <output value=" /delivery/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_safe_postnatal_practices">
+      <label>Safe Postnatal Practices</label>
+      <input ref="/delivery/group_safe_postnatal_practices/note_eat_well">
+        <label>Lactating mothers should eat a variety of foods, especially extra fluids, fruits, and vegetables, to feed their baby well</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_exclusive_breastfeeding_counsel">
+        <label>Counsel the woman on importance of exclusive breastfeeding</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_breast_milk_nutrition">
+        <label>Breast milk provides the ideal nutrition for infants</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_breast_milk_antibodies">
+        <label>Breast milk contains antibodies that help your baby fight off infection</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_breast_milk_healthy_weight">
+        <label>Breast milk promotes a healthy weight</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_breast_milk_brain_development">
+        <label>Breast milk promotes brain development</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_how_to_keep_baby_warm">
+        <label>To keep the baby warm, use kangaroo mother care, wrap the baby with clothes and cover the head, and keep the baby in a warm room</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_sleep_under_llin">
+        <label>Always sleep with the baby under a long-lasting insecticide treated net (LLIN)</label>
+      </input>
+      <input ref="/delivery/group_safe_postnatal_practices/note_keep_umbilical_cord_clean">
+        <label>Keep the baby's umbilical cord clean and dry</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/delivery/group_pnc_visits">
+      <label>PNC Visits</label>
+      <input ref="/delivery/group_pnc_visits/who_recommendation">
+        <label>The MoH recommends PNC visits within 24 hours and in 7 days, and 6 weeks from date of delivery</label>
+      </input>
+      <select ref="/delivery/group_pnc_visits/pnc_visits">
+        <label>Which PNC visits have taken place so far?</label>
+        <itemset nodeset="instance('select_pnc_visits')/root/item[prefecture &lt;=  /delivery/days_since_delivery_date ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+    </group>
+    <group appearance="field-list summary" ref="/delivery/group_summary">
+      <label>Summary Page</label>
+      <input appearance="h1 red" ref="/delivery/group_summary/s_note_delivery_report">
+        <label>Delivery Report</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_submit">
+        <label>&lt;p style="text-align:center;"&gt;Be sure you submit to complete this action&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/delivery/group_summary/s_note_person_details">
+        <label>Patient Details</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_person_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /delivery/patient_name "/>
+<output value=" /delivery/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_delivery_date">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Date of delivery: <output value=" /delivery/group_delivery_information/delivery_date_local "/>&lt;/p&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/delivery/group_summary/s_note_summary">
+        <label>Findings</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_findings_mother_alive">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+Place of delivery: <output value=" /delivery/group_delivery_information/delivery_place "/>
+Number of babies born: <output value=" /delivery/group_delivery_outcomes/number_of_babies_delivered "/>
+Number of living babies: <output value=" /delivery/group_delivery_outcomes/number_of_babies_alive "/>
+&lt;/p&gt;</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_findings_mother_dead">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+Mother dead
+Next action:
+Remember to submit a death report for <output value=" /delivery/patient_name "/> after submission of this delivery report form
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h2" ref="/delivery/group_summary/s_note_danger_signs">
+        <label>Danger signs (mother)</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_no_danger_signs">
+        <label>&lt;p style="text-align:center;"&gt;No danger signs&lt;/p&gt;</label>
+      </input>
+      <input appearance="li" ref="/delivery/group_summary/s_note_woman_danger_sign_fever">
+        <label>Fever</label>
+      </input>
+      <input appearance="li" ref="/delivery/group_summary/s_note_woman_danger_sign_severe_headache">
+        <label>Severe headache</label>
+      </input>
+      <input appearance="li" ref="/delivery/group_summary/s_note_woman_danger_sign_vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+      </input>
+      <input appearance="li" ref="/delivery/group_summary/s_note_woman_danger_sign_foul_vaginal_discharge">
+        <label>Foul smelling vaginal discharge</label>
+      </input>
+      <input appearance="li" ref="/delivery/group_summary/s_note_woman_danger_sign_convulsions">
+        <label>Convulsions</label>
+      </input>
+      <input appearance="h1 red" ref="/delivery/group_summary/s_note_refer_to_health_facility">
+        <label>Refer to health facility</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_refer_to_health_facility_immediately">
+        <label>&lt;p style="text-align:center;"&gt;Refer immediately for Danger Signs management&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/delivery/group_summary/s_note_follow_up">
+        <label>Follow up</label>
+      </input>
+      <input ref="/delivery/group_summary/s_note_task_will_appear">
+        <label>&lt;p style="text-align:center;"&gt;Task will appear when follow up is needed&lt;/p&gt;</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

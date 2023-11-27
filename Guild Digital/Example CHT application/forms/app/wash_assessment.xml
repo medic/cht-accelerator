@@ -1,0 +1,578 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>WASH Assessment  Form</h:title>
+    <model>
+      <instance>
+        <wash_assessment id="wash_assessment" prefix="J1!wash_assessment!" delimiter="#" version="2023-11-06  13-42">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <wash_assessment>
+            <wash_note/>
+            <wash_houses_received/>
+            <wash_sessions_given/>
+            <wash_session_delivery/>
+            <wash_alarm_information/>
+            <wash_alarm_about/>
+          </wash_assessment>
+          <home_visits>
+            <conduct_home_visits/>
+            <num_home_visits/>
+            <num_female_in_house/>
+            <num_male_in_house/>
+            <num_female_below_18/>
+            <num_female_above_18/>
+            <num_male_below_18/>
+            <num_male_above_18/>
+            <wash_topics_covered/>
+            <safe_excreta_disposal/>
+            <handwashing_facility/>
+            <safe_water_chain/>
+            <jerrycan_campaign_sessions/>
+            <num_jerrycans_cleaned/>
+          </home_visits>
+          <sanitation_meetings>
+            <completed_meetings/>
+            <num_females_attended/>
+            <num_males_attended/>
+            <total_attendees/>
+            <females_below_18/>
+            <females_above_18/>
+            <males_below_18/>
+            <males_above_18/>
+            <alarming_information/>
+            <alarm_info_details/>
+          </sanitation_meetings>
+          <sanitary_facilities>
+            <cluster_zone_report/>
+            <num_latrines_in_use/>
+            <num_bathing_shelters/>
+            <num_drying_racks/>
+            <num_drying_lines/>
+            <num_refuse_pits/>
+            <num_handwashing_facilities/>
+            <num_animal_shelters/>
+          </sanitary_facilities>
+          <s_summary>
+            <s_submit/>
+            <r_summary/>
+            <s_group_home_visit/>
+            <s_conduct_home_visits/>
+            <s_num_home_visits/>
+            <s_num_female/>
+            <s_num_male/>
+            <s_num_female_below_18/>
+            <s_num_female_above_18/>
+            <s_num_male_below_18/>
+            <s_num_male_above_18/>
+            <s_wash_topic_covered/>
+            <s_safe_excreta_disposal/>
+            <s_handwashing_facility/>
+            <s_safe_water_chain/>
+            <s_num_jerrycan_campaigns/>
+            <s_num_jerrycans_cleaned/>
+            <s_group_community/>
+            <s_completed_meetings/>
+            <s_community_health_type/>
+            <s_num_females/>
+            <s_num_males/>
+            <s_total_attendance/>
+            <s_females_below_18/>
+            <s_females_above_18/>
+            <s_males_below_18/>
+            <s_males_above_18/>
+            <s_alarming_info/>
+            <s_alarm_about/>
+            <g_new_facility/>
+            <s_cluster_zone/>
+            <s_new_latrines/>
+            <s_new_bathing_shelters/>
+            <s_new_dry_racks/>
+            <s_new_drying_lines/>
+            <s_new_refuse_pits/>
+            <s_new_handwashing_facilities/>
+            <s_new_animal_shelter/>
+          </s_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </wash_assessment>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/wash_assessment/inputs" relevant="./source='user'"/>
+      <bind nodeset="/wash_assessment/inputs/source" type="string"/>
+      <bind nodeset="/wash_assessment/inputs/source_id" type="string"/>
+      <bind nodeset="/wash_assessment/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/wash_assessment/inputs/contact/name" type="string"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_note" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_houses_received" type="select1" required="true()"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_sessions_given" type="string" required="true()"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_session_delivery" type="select1" required="true()"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_alarm_information" type="select1" required="true()"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_alarm_about" type="select1" required="true()" relevant=" /wash_assessment/wash_assessment/wash_alarm_information ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/conduct_home_visits" type="select1" required="true()"/>
+      <bind nodeset="/wash_assessment/home_visits/num_home_visits" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_female_in_house" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_male_in_house" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_female_below_18" type="int" constraint=".&lt;  /wash_assessment/home_visits/num_female_in_house " required="true()" jr:constraintMsg="Should be less than or equal to the to the total number of females in the household" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_female_above_18" type="int" constraint=".&lt;  /wash_assessment/home_visits/num_female_in_house " required="true()" jr:constraintMsg="Should be less than or equal to the to the total number of females in the household" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_male_below_18" type="int" constraint=".&lt;  /wash_assessment/home_visits/num_male_in_house " required="true()" jr:constraintMsg="Should be less than or equal to the to the total number of males in the household" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_male_above_18" type="int" constraint=".&lt;  /wash_assessment/home_visits/num_male_in_house " required="true()" jr:constraintMsg="Should be less than or equal to the to the total number of males in the household" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/wash_topics_covered" type="string" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/safe_excreta_disposal" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/handwashing_facility" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/safe_water_chain" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/jerrycan_campaign_sessions" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/home_visits/num_jerrycans_cleaned" type="int" required="true()" relevant=" /wash_assessment/home_visits/conduct_home_visits ='yes'"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/completed_meetings" type="select" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/num_females_attended" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/num_males_attended" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/total_attendees" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/females_below_18" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/females_above_18" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/males_below_18" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/males_above_18" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/alarming_information" type="select1" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitation_meetings/alarm_info_details" type="select" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/cluster_zone_report" type="string" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_latrines_in_use" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_bathing_shelters" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_drying_racks" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_drying_lines" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_refuse_pits" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_handwashing_facilities" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/sanitary_facilities/num_animal_shelters" type="int" required="true()"/>
+      <bind nodeset="/wash_assessment/s_summary/s_submit" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/r_summary" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_group_home_visit" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_conduct_home_visits" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_home_visits" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_female" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_male" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_female_below_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_female_above_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_male_below_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_male_above_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_wash_topic_covered" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_safe_excreta_disposal" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_handwashing_facility" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_safe_water_chain" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_jerrycan_campaigns" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_jerrycans_cleaned" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_group_community" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_completed_meetings" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_community_health_type" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_females" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_num_males" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_total_attendance" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_females_below_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_females_above_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_males_below_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_males_above_18" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_alarming_info" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_alarm_about" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/g_new_facility" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_cluster_zone" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_latrines" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_bathing_shelters" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_dry_racks" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_drying_lines" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_refuse_pits" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_handwashing_facilities" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/s_summary/s_new_animal_shelter" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/wash_assessment/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/wash_assessment/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/wash_assessment/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/wash_assessment/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/wash_assessment/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/wash_assessment/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/wash_assessment/wash_assessment">
+      <label>Wash Assessment</label>
+      <input ref="/wash_assessment/wash_assessment/wash_note">
+        <label>Encourage the VHT to report on things including those just observed</label>
+      </input>
+      <select1 ref="/wash_assessment/wash_assessment/wash_houses_received">
+        <label>How many houses received WASH mentorship sessions?</label>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4</label>
+          <value>4</value>
+        </item>
+      </select1>
+      <input appearance="multiline" ref="/wash_assessment/wash_assessment/wash_sessions_given">
+        <label>What sessions were given?</label>
+      </input>
+      <select1 appearance="multiline" ref="/wash_assessment/wash_assessment/wash_session_delivery">
+        <label>How was the session given?</label>
+        <item>
+          <label>physical</label>
+          <value>wash_physical</value>
+        </item>
+        <item>
+          <label>demonstrations</label>
+          <value>wash_demonstrations</value>
+        </item>
+        <item>
+          <label>drama</label>
+          <value>wash_drama</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/wash_assessment/wash_assessment/wash_alarm_information">
+        <label>Is there any alarming information under WASH that needs to be captured in the community?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="multiline" ref="/wash_assessment/wash_assessment/wash_alarm_about">
+        <label>What is the alarm about?</label>
+        <item>
+          <label>Filled up latrines</label>
+          <value>latrine_fill</value>
+        </item>
+        <item>
+          <label>water shortage</label>
+          <value>water_shortage</value>
+        </item>
+        <item>
+          <label>shortage of latrines</label>
+          <value>latrine_shortage</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/wash_assessment/home_visits">
+      <label>Home Visits</label>
+      <select1 ref="/wash_assessment/home_visits/conduct_home_visits">
+        <label>Did you conduct any home visits?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/wash_assessment/home_visits/num_home_visits">
+        <label>How many home visits did you conduct?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_female_in_house">
+        <label>How many people within the visited household are female?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_male_in_house">
+        <label>How many people within the visited household are male?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_female_below_18">
+        <label>Of the number of females within the visited household, how many are below 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_female_above_18">
+        <label>Of the number of females within the visited household, how many are above 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_male_below_18">
+        <label>Of the number of males within the visited household, how many are below 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_male_above_18">
+        <label>Of the number of males within the visited household, how many are above 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/wash_topics_covered">
+        <label>What WASH sensitization topics were covered?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/safe_excreta_disposal">
+        <label>How many of the households you visited practice safe excreta disposal?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/handwashing_facility">
+        <label>How many of the households you visited have a handwashing facility?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/safe_water_chain">
+        <label>How many of the households you visited have a safe water chain?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/jerrycan_campaign_sessions">
+        <label>How many jerrycan cleaning campaign sessions did you conduct?</label>
+      </input>
+      <input ref="/wash_assessment/home_visits/num_jerrycans_cleaned">
+        <label>How many jerrycans were cleaned during the session?</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/wash_assessment/sanitation_meetings">
+      <label>Community Health, Hygiene, and Sanitation Awareness Meetings</label>
+      <select ref="/wash_assessment/sanitation_meetings/completed_meetings">
+        <label>Choose the community health, hygiene, and sanitation awareness meeting you completed.</label>
+        <item>
+          <label>Covid-19</label>
+          <value>covid-19</value>
+        </item>
+        <item>
+          <label>Cholera</label>
+          <value>cholera</value>
+        </item>
+        <item>
+          <label>Vector control</label>
+          <value>Vector-control</value>
+        </item>
+        <item>
+          <label>Handwashing</label>
+          <value>Hand-washing</value>
+        </item>
+        <item>
+          <label>Environmental cleanup campaign</label>
+          <value>Environmental-cleanup</value>
+        </item>
+        <item>
+          <label>Safe Excreta disposal</label>
+          <value>Safe-excreta-disposal</value>
+        </item>
+        <item>
+          <label>Diarrhoea</label>
+          <value>diarrhoea</value>
+        </item>
+        <item>
+          <label>Community Health</label>
+          <value>communityhealth</value>
+        </item>
+        <item>
+          <label>Hygiene and Sanitation</label>
+          <value>hygiene-and-sanitation</value>
+        </item>
+      </select>
+      <input ref="/wash_assessment/sanitation_meetings/num_females_attended">
+        <label>How many people who attended were female?</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/num_males_attended">
+        <label>How many people who attended were male?</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/total_attendees">
+        <label>Enter the total number of people who attended.</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/females_below_18">
+        <label>Of the number of females who attended, how many were below 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/females_above_18">
+        <label>Of the number of females who attended, how many were above 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/males_below_18">
+        <label>Of the number of males who attended, how many were below 18 years?</label>
+      </input>
+      <input ref="/wash_assessment/sanitation_meetings/males_above_18">
+        <label>Of the number of males who attended, how many were above 18 years?</label>
+      </input>
+      <select1 ref="/wash_assessment/sanitation_meetings/alarming_information">
+        <label>Is there any alarming information under WASH that needs to be captured in the community?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/wash_assessment/sanitation_meetings/alarm_info_details">
+        <label>What is the alarming information about?</label>
+        <item>
+          <label>Safe Drinking Water</label>
+          <value>Safe-drinking-water</value>
+        </item>
+        <item>
+          <label>Mosquito Net Use</label>
+          <value>Mosquito-net-use</value>
+        </item>
+        <item>
+          <label>Hand Washing Facilities</label>
+          <value>Hand-washing-facilities</value>
+        </item>
+      </select>
+    </group>
+    <group appearance="field-list" ref="/wash_assessment/sanitary_facilities">
+      <label>New Sanitary Facilities</label>
+      <input ref="/wash_assessment/sanitary_facilities/cluster_zone_report">
+        <label>Which cluster or zone are you reporting from?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_latrines_in_use">
+        <label>How many new complete latrines and in use are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_bathing_shelters">
+        <label>How many new bathing shelters are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_drying_racks">
+        <label>How many new drying racks are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_drying_lines">
+        <label>How many new drying lines are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_refuse_pits">
+        <label>How many new refuse pits are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_handwashing_facilities">
+        <label>How many new handwashing facilities are you reporting this week?</label>
+      </input>
+      <input ref="/wash_assessment/sanitary_facilities/num_animal_shelters">
+        <label>How many new animal shelters are you reporting this week?</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/wash_assessment/s_summary">
+      <label>WASH</label>
+      <input ref="/wash_assessment/s_summary/s_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/wash_assessment/s_summary/r_summary">
+        <label>Item Details</label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_group_home_visit">
+        <label>&lt;h3&gt;Home Visits&lt;/h3&gt;</label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_conduct_home_visits">
+        <label>Did you conduct any home visits?: <output value=" /wash_assessment/home_visits/conduct_home_visits "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_home_visits">
+        <label>Number of home visits conducted: <output value=" /wash_assessment/home_visits/num_home_visits "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_female">
+        <label>Number of females: <output value=" /wash_assessment/home_visits/num_female_in_house "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_male">
+        <label>Number of males: <output value=" /wash_assessment/home_visits/num_male_in_house "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_female_below_18">
+        <label>Number of females below 18: {num_female_below_18}</label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_female_above_18">
+        <label>Number of females above 18: <output value=" /wash_assessment/home_visits/num_female_above_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_male_below_18">
+        <label>Number of males below 18: <output value=" /wash_assessment/home_visits/num_male_below_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_male_above_18">
+        <label>Number of males above 18: <output value=" /wash_assessment/home_visits/num_male_above_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_wash_topic_covered">
+        <label>Wash topic covered: <output value=" /wash_assessment/home_visits/wash_topics_covered "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_safe_excreta_disposal">
+        <label>Household with safe excreta disposal:<output value=" /wash_assessment/home_visits/safe_excreta_disposal "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_handwashing_facility">
+        <label>Household with handwashing facility: <output value=" /wash_assessment/home_visits/handwashing_facility "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_safe_water_chain">
+        <label>Household with safe water chain: <output value=" /wash_assessment/home_visits/safe_water_chain "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_jerrycan_campaigns">
+        <label>Number of jerrycan campaigns: <output value=" /wash_assessment/home_visits/jerrycan_campaign_sessions "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_jerrycans_cleaned">
+        <label>Number of jerrycans cleaned: <output value=" /wash_assessment/home_visits/num_jerrycans_cleaned "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_group_community">
+        <label>&lt;h3&gt;Community Health, 
+Hygiene, and 
+Sanitation Awareness 
+Meetings&lt;/h3&gt;</label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_completed_meetings">
+        <label>Community health meeting completed: <output value=" /wash_assessment/sanitation_meetings "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_community_health_type">
+        <label>Choose the community health, hygiene, and sanitation awareness meeting you completed:<output value=" /wash_assessment/sanitation_meetings/completed_meetings "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_females">
+        <label>Number of females: <output value=" /wash_assessment/sanitation_meetings/num_females_attended "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_num_males">
+        <label>Number of males: <output value=" /wash_assessment/sanitation_meetings/num_males_attended "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_total_attendance">
+        <label>Total number in attendance: <output value=" /wash_assessment/sanitation_meetings/total_attendees "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_females_below_18">
+        <label>Number of females below 18: <output value=" /wash_assessment/sanitation_meetings/females_below_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_females_above_18">
+        <label>Number of females above 18: <output value=" /wash_assessment/sanitation_meetings/females_above_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_males_below_18">
+        <label>Number of males below 18: <output value=" /wash_assessment/sanitation_meetings/males_below_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_males_above_18">
+        <label>Number of males above 18: <output value=" /wash_assessment/sanitation_meetings/males_above_18 "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_alarming_info">
+        <label>Alarming information under WASH that needs to be captured in the community: <output value=" /wash_assessment/sanitation_meetings/alarming_information "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_alarm_about">
+        <label>What the alarm was about: <output value=" /wash_assessment/sanitation_meetings/alarm_info_details "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/g_new_facility">
+        <label>&lt;h3&gt; New Facilities&lt;/h3&gt;</label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_cluster_zone">
+        <label>Cluster or zone reporting from: <output value=" /wash_assessment/sanitary_facilities/cluster_zone_report "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_latrines">
+        <label>Number of new complete latrines and in use: <output value=" /wash_assessment/sanitary_facilities/num_latrines_in_use "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_bathing_shelters">
+        <label>Number of new bathing shelters: <output value=" /wash_assessment/sanitary_facilities/num_bathing_shelters "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_dry_racks">
+        <label>Number of new drying racks: <output value=" /wash_assessment/sanitary_facilities/num_drying_racks "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_drying_lines">
+        <label>Number of new drying lines: <output value=" /wash_assessment/sanitary_facilities/num_drying_lines "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_refuse_pits">
+        <label>Number of new refuse pits: <output value=" /wash_assessment/sanitary_facilities/num_refuse_pits "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_handwashing_facilities">
+        <label>Number of new handwashing facilities: <output value=" /wash_assessment/sanitary_facilities/num_handwashing_facilities "/></label>
+      </input>
+      <input ref="/wash_assessment/s_summary/s_new_animal_shelter">
+        <label>Number of new animal shelters: <output value=" /wash_assessment/sanitary_facilities/num_animal_shelters "/></label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

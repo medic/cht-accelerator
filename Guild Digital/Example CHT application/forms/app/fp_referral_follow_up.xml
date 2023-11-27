@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Family Planning Referral Follow up</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp/no:label">
+            <value>No</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp:label">
+            <value>Was <output value=" /fp_referral_follow_up/patient_name "/> enrolled into any family planning method?</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/n_fp_registration:label">
+            <value>_Please register the woman into Family planning using the family planning registration form._</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/n_pregnancy_registration:label">
+            <value>_Please register the woman's pregnancy using pregancy registration form._</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp/is_pregnant:label">
+            <value>Is pregnant</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp/refused:label">
+            <value>Declined to take up any FP method</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp:label">
+            <value>Why was the woman not enrolled into any family planning method?</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/visited_facility/no:label">
+            <value>No</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/visited_facility/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up/visited_facility:label">
+            <value>Did <output value=" /fp_referral_follow_up/patient_name "/> go to the health facility as referred?</value>
+          </text>
+          <text id="/fp_referral_follow_up/fp_ref_follow_up:label">
+            <value>FP Referral Follow Up</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_findings_title:label">
+            <value>Findings</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_fp_method:label">
+            <value>&lt;p style="text-align:center;"&gt;Woman was enrolled into FP Method&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_patient_details:label">
+            <value>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /fp_referral_follow_up/patient_name "/>
+<output value=" /fp_referral_follow_up/age "/> years
+&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_patient_details_title:label">
+            <value>Patient Details</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_submit:label">
+            <value>&lt;p style="text-align:center;"&gt;Be sure you submit to complete this action&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review/n_summary_title:label">
+            <value>Family Planning Referral Follow up</value>
+          </text>
+          <text id="/fp_referral_follow_up/group_review:label">
+            <value>Summary</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/_id:label">
+            <value>id</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/parent/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/parent/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/fp_referral_follow_up/inputs:label">
+            <value>Patient</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <fp_referral_follow_up id="fp_referral_follow_up" prefix="J1!fp_referral_follow_up!" delimiter="#" version="2021-08-25 00:00:00">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <source/>
+          <source_id/>
+          <patient_uuid/>
+          <patient_id/>
+          <patient_name/>
+          <patient_date_of_birth/>
+          <patient_age_in_years/>
+          <age/>
+          <date_of_birth/>
+          <chw_name/>
+          <chw_phone/>
+          <fp_ref_follow_up>
+            <visited_facility/>
+            <enrolled_fp/>
+            <n_fp_registration/>
+            <reason_not_enrolled_fp/>
+            <n_pregnancy_registration/>
+          </fp_ref_follow_up>
+          <group_review>
+            <n_summary_title/>
+            <n_submit/>
+            <n_patient_details_title/>
+            <n_patient_details/>
+            <n_findings_title/>
+            <n_fp_method/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </fp_referral_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/fp_referral_follow_up/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/_id" type="db:person" constraint="db-object"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/source" type="string" calculate="../inputs/source"/>
+      <bind nodeset="/fp_referral_follow_up/source_id" type="string" calculate="../inputs/source_id"/>
+      <bind nodeset="/fp_referral_follow_up/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/fp_referral_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/fp_referral_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/fp_referral_follow_up/patient_date_of_birth" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/fp_referral_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /fp_referral_follow_up/patient_date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/fp_referral_follow_up/age" type="string" calculate="../patient_age_in_years"/>
+      <bind nodeset="/fp_referral_follow_up/date_of_birth" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/fp_referral_follow_up/chw_name" type="string" calculate="../inputs/contact/parent/parent/contact/name"/>
+      <bind nodeset="/fp_referral_follow_up/chw_phone" type="string" calculate="../inputs/contact/parent/parent/contact/phone"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/visited_facility" type="select1" required="true()"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp" type="select1" required="true()" relevant="selected(../visited_facility, 'yes')"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/n_fp_registration" readonly="true()" type="string" relevant="selected(../enrolled_fp, 'yes')"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp" type="select1" required="true()" relevant="selected(../enrolled_fp, 'no')"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/n_pregnancy_registration" readonly="true()" type="string" relevant="selected(../reason_not_enrolled_fp, 'is_pregnant')"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_summary_title" readonly="true()" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_submit" readonly="true()" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_patient_details_title" readonly="true()" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_findings_title" readonly="true()" type="string" relevant=" /fp_referral_follow_up/fp_ref_follow_up/enrolled_fp = 'yes'"/>
+      <bind nodeset="/fp_referral_follow_up/group_review/n_fp_method" readonly="true()" type="string" relevant=" /fp_referral_follow_up/fp_ref_follow_up/enrolled_fp = 'yes'"/>
+      <bind nodeset="/fp_referral_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/fp_referral_follow_up/inputs">
+      <label ref="jr:itext('/fp_referral_follow_up/inputs:label')"/>
+      <group ref="/fp_referral_follow_up/inputs/contact">
+        <label ref="jr:itext('/fp_referral_follow_up/inputs/contact:label')"/>
+        <input ref="/fp_referral_follow_up/inputs/contact/_id">
+          <label ref="jr:itext('/fp_referral_follow_up/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/fp_referral_follow_up/inputs/contact/parent">
+          <label ref="jr:itext('/fp_referral_follow_up/inputs/contact/parent:label')"/>
+          <group ref="/fp_referral_follow_up/inputs/contact/parent/parent">
+            <label ref="jr:itext('/fp_referral_follow_up/inputs/contact/parent/parent:label')"/>
+            <group ref="/fp_referral_follow_up/inputs/contact/parent/parent/contact">
+              <label ref="jr:itext('/fp_referral_follow_up/inputs/contact/parent/parent/contact:label')"/>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/fp_referral_follow_up/fp_ref_follow_up">
+      <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up:label')"/>
+      <select1 ref="/fp_referral_follow_up/fp_ref_follow_up/visited_facility">
+        <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/visited_facility:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/visited_facility/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/visited_facility/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp">
+        <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/fp_referral_follow_up/fp_ref_follow_up/n_fp_registration">
+        <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/n_fp_registration:label')"/>
+      </input>
+      <select1 ref="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp">
+        <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp/is_pregnant:label')"/>
+          <value>is_pregnant</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp/refused:label')"/>
+          <value>refused</value>
+        </item>
+      </select1>
+      <input ref="/fp_referral_follow_up/fp_ref_follow_up/n_pregnancy_registration">
+        <label ref="jr:itext('/fp_referral_follow_up/fp_ref_follow_up/n_pregnancy_registration:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/fp_referral_follow_up/group_review">
+      <label ref="jr:itext('/fp_referral_follow_up/group_review:label')"/>
+      <input appearance="h1 red" ref="/fp_referral_follow_up/group_review/n_summary_title">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_summary_title:label')"/>
+      </input>
+      <input ref="/fp_referral_follow_up/group_review/n_submit">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_submit:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/fp_referral_follow_up/group_review/n_patient_details_title">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_patient_details_title:label')"/>
+      </input>
+      <input ref="/fp_referral_follow_up/group_review/n_patient_details">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_patient_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/fp_referral_follow_up/group_review/n_findings_title">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_findings_title:label')"/>
+      </input>
+      <input ref="/fp_referral_follow_up/group_review/n_fp_method">
+        <label ref="jr:itext('/fp_referral_follow_up/group_review/n_fp_method:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

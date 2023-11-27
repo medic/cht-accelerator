@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>WASH Report</h:title>
+    <model>
+      <instance>
+        <wash_report id="wash_report" prefix="J1!wash_report!" delimiter="#" version="2023-07-31 20:15:17">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+            </contact>
+          </inputs>
+          <visited_contact_uuid/>
+          <place_id/>
+          <place_name/>
+          <group_wash>
+            <hh_in_sanitary_dwelling_house/>
+            <hh_access_safe_water_source/>
+            <hh_have_safe_drinking_water/>
+            <hh_water_safe_method/>
+            <hh_have_sanitary_kitchen/>
+            <hh_have_drying_rack/>
+            <hh_have_backyard_garden/>
+            <hh_have_rubbish_pit/>
+            <hh_bath_shelter/>
+            <hh_bath_shelter_requirements/>
+            <hh_have_latrine/>
+            <hh_have_improved_latrine/>
+            <hh_latrine_access/>
+            <hh_latrine_stage/>
+            <hh_feaces_dispose/>
+            <hh_is_odf/>
+            <hh_sleeping_spaces/>
+            <hh_treated_nets/>
+            <hh_functional_handwashing_facility/>
+          </group_wash>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </wash_report>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/wash_report/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/wash_report/inputs/source" type="string"/>
+      <bind nodeset="/wash_report/inputs/source_id" type="string"/>
+      <bind nodeset="/wash_report/inputs/contact/_id" type="db:clinic" required="true()"/>
+      <bind nodeset="/wash_report/inputs/contact/name" type="string"/>
+      <bind nodeset="/wash_report/visited_contact_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/wash_report/place_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/wash_report/place_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/wash_report/group_wash/hh_in_sanitary_dwelling_house" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_access_safe_water_source" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_safe_drinking_water" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_water_safe_method" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_sanitary_kitchen" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_drying_rack" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_backyard_garden" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_rubbish_pit" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_bath_shelter" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_bath_shelter_requirements" type="select" relevant="selected(../hh_bath_shelter, 'yes')" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_latrine" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_have_improved_latrine" type="select1" relevant=" /wash_report/group_wash/hh_have_latrine ='yes'" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_latrine_access" type="select1" relevant=" /wash_report/group_wash/hh_have_latrine ='no'" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_latrine_stage" type="select1" relevant=" /wash_report/group_wash/hh_have_latrine ='yes'" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_feaces_dispose" type="select" relevant=" /wash_report/group_wash/hh_latrine_stage  != 'complete' and  /wash_report/group_wash/hh_latrine_stage  != ''" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_is_odf" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_sleeping_spaces" type="int" constraint=". &gt;= 0" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_treated_nets" type="int" constraint=". &gt;= 0" required="true()"/>
+      <bind nodeset="/wash_report/group_wash/hh_functional_handwashing_facility" type="select1" required="true()"/>
+      <bind nodeset="/wash_report/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/wash_report/inputs">
+      <label>Family</label>
+      <input appearance="hidden" ref="/wash_report/inputs/source">
+        <label>Source</label>
+        <hint>user</hint>
+      </input>
+      <input appearance="hidden" ref="/wash_report/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/wash_report/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/wash_report/inputs/contact/_id">
+          <label>What is the family's name?</label>
+        </input>
+        <input appearance="hidden" ref="/wash_report/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/wash_report/group_wash">
+      <label>Household: water, food, and sanitation: [WASH].</label>
+      <select1 ref="/wash_report/group_wash/hh_in_sanitary_dwelling_house">
+        <label>Is the Household living in a sanitary dwelling house?</label>
+        <hint>A Sanitary dwelling house is one which has: 1. Adequate light and Ventilation, 2. Free of dampness, 3. A raised Floor, 4. A floor that is well maintained and dust free, 5. Smooth floor and walls.</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_access_safe_water_source">
+        <label>Does the Household have access to a safe water source?</label>
+        <hint>Safe water refers to water from bore holes, piped water and protected springs</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_safe_drinking_water">
+        <label>Does the Household have safe drinking water?</label>
+        <hint>Safe drinking water refers to water that is either boiled or treated through chlorination, solar disinfection, segmentation; and Bio sand filters</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_water_safe_method">
+        <label>What do you do to make water safe for drinking?</label>
+        <item>
+          <label>Boiling</label>
+          <value>boiling</value>
+        </item>
+        <item>
+          <label>Water Guard</label>
+          <value>water_guard</value>
+        </item>
+        <item>
+          <label>Water Purification Filter</label>
+          <value>filter</value>
+        </item>
+        <item>
+          <label>Nothing</label>
+          <value>nothing</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_sanitary_kitchen">
+        <label>Does the Household have a sanitary Kitchen?</label>
+        <hint>A sanitary kitchen is one which provides a smoke escape or chimney, raised fire place and is well kept/clean</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_drying_rack">
+        <label>Does the Household have a drying rack for dishes?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_backyard_garden">
+        <label>Does the Household have a vegetable garden?</label>
+        <hint>A backyard garden is one with fruits and vegetables within close proximity of the home</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_rubbish_pit">
+        <label>Does the Household have a rubbish pit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_bath_shelter">
+        <label>Does the household have a bath shelter?</label>
+        <hint>A soak pit is a hole filled with hard core, covered with a polythene and earth/soil on top</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/wash_report/group_wash/hh_bath_shelter_requirements">
+        <label>Does the household's bath shelter have the following?</label>
+        <item>
+          <label>Drainage Channel</label>
+          <value>drainage</value>
+        </item>
+        <item>
+          <label>Privacy curtain/cover</label>
+          <value>cover_curtain</value>
+        </item>
+        <item>
+          <label>Raised floor</label>
+          <value>raised_floor</value>
+        </item>
+        <item>
+          <label>Bare ground</label>
+          <value>bare_ground</value>
+        </item>
+        <item>
+          <label>Soak pit</label>
+          <value>soak_pit</value>
+        </item>
+      </select>
+      <select1 ref="/wash_report/group_wash/hh_have_latrine">
+        <label>Does the Household have a latrine?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_have_improved_latrine">
+        <label>Does the Household have an improved latrine?</label>
+        <hint>An improved latrine is one that has a washable floor</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_latrine_access">
+        <label>Does the Household have access to a safe+clean latrine?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/wash_report/group_wash/hh_latrine_stage">
+        <label>At what stage is the latrine?</label>
+        <item>
+          <label>Excavation Ongoing</label>
+          <value>excavation</value>
+        </item>
+        <item>
+          <label>Pit</label>
+          <value>pit</value>
+        </item>
+        <item>
+          <label>Slab</label>
+          <value>slab</value>
+        </item>
+        <item>
+          <label>Incomplete SuperStructure</label>
+          <value>incomplete</value>
+        </item>
+        <item>
+          <label>Complete (In Use)</label>
+          <value>complete</value>
+        </item>
+        <item>
+          <label>Not in use</label>
+          <value>not_in_use</value>
+        </item>
+        <item>
+          <label>Full</label>
+          <value>full</value>
+        </item>
+      </select1>
+      <select ref="/wash_report/group_wash/hh_feaces_dispose">
+        <label>Where do HH members dispose off their feaces?</label>
+        <item>
+          <label>Garden</label>
+          <value>garden</value>
+        </item>
+        <item>
+          <label>Bury the feaces</label>
+          <value>bury</value>
+        </item>
+        <item>
+          <label>Use community latrine</label>
+          <value>community_latrine</value>
+        </item>
+        <item>
+          <label>Use neighbour latrine</label>
+          <value>neighbour_latrine</value>
+        </item>
+        <item>
+          <label>Use nearby bush</label>
+          <value>bush</value>
+        </item>
+      </select>
+      <select1 ref="/wash_report/group_wash/hh_is_odf">
+        <label>Is the Household free of any Open Defeacation?</label>
+        <hint>A Household being ODF means no visible feaces around the household, presence of a functional handwashing facility and a fly proof latrine</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/wash_report/group_wash/hh_sleeping_spaces">
+        <label>How many sleeping spaces are in this HH?</label>
+      </input>
+      <input ref="/wash_report/group_wash/hh_treated_nets">
+        <label>How many functional insecticide treated nets does this HH have?</label>
+      </input>
+      <select1 ref="/wash_report/group_wash/hh_functional_handwashing_facility">
+        <label>Does the Household have a functional hand-washing facility</label>
+        <hint>Functional handwashing facility means availability and evidence of usage of water and soap/ash and the availability of a soak pit (This soak pit is a hole filled with hard core and may be open)</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

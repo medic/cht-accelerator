@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Mute request</h:title>
+    <model>
+      <instance>
+        <mute id="mute" prefix="J1!mute!" delimiter="#" version="2023-09-19  21-50">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <contact_name/>
+          <mute_reason/>
+          <mute_reason_other/>
+          <person_muting>
+            <g_mute_reason/>
+            <g_mute_reason_other/>
+          </person_muting>
+          <muting_summary>
+            <r_summary/>
+            <r_contact_info/>
+            <r_mute_reasons_label/>
+            <r_mute_reason0/>
+            <r_mute_reason1/>
+            <r_mute_reason2/>
+            <r_mute_reasons_other/>
+            <r_followup/>
+            <r_followup_instructions/>
+          </muting_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </mute>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/mute/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/mute/inputs/source" type="string"/>
+      <bind nodeset="/mute/inputs/source_id" type="string"/>
+      <bind nodeset="/mute/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/mute/inputs/contact/name" type="string"/>
+      <bind nodeset="/mute/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/mute/contact_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/mute/mute_reason" type="string" calculate=" /mute/person_muting/g_mute_reason "/>
+      <bind nodeset="/mute/mute_reason_other" type="string" calculate=" /mute/person_muting/g_mute_reason_other "/>
+      <bind nodeset="/mute/person_muting/g_mute_reason" type="select" jr:constraintMsg="Temporary relocation can not be selected with permanent relocation" constraint="not(selected(.,'temp_relocation') and selected(.,'perm_relocation'))" required="true()"/>
+      <bind nodeset="/mute/person_muting/g_mute_reason_other" type="string" relevant="selected( /mute/person_muting/g_mute_reason ,'other')" required="true()"/>
+      <bind nodeset="/mute/muting_summary/r_summary" readonly="true()" type="string"/>
+      <bind nodeset="/mute/muting_summary/r_contact_info" readonly="true()" type="string"/>
+      <bind nodeset="/mute/muting_summary/r_mute_reasons_label" readonly="true()" type="string"/>
+      <bind nodeset="/mute/muting_summary/r_mute_reason0" readonly="true()" type="string" relevant="selected( /mute/person_muting/g_mute_reason ,'refused_services')"/>
+      <bind nodeset="/mute/muting_summary/r_mute_reason1" readonly="true()" type="string" relevant="selected( /mute/person_muting/g_mute_reason ,'temp_relocation')"/>
+      <bind nodeset="/mute/muting_summary/r_mute_reason2" readonly="true()" type="string" relevant="selected( /mute/person_muting/g_mute_reason ,'perm_relocation')"/>
+      <bind nodeset="/mute/muting_summary/r_mute_reasons_other" readonly="true()" type="string" relevant=" /mute/person_muting/g_mute_reason_other  != ''"/>
+      <bind nodeset="/mute/muting_summary/r_followup" readonly="true()" type="string"/>
+      <bind nodeset="/mute/muting_summary/r_followup_instructions" readonly="true()" type="string"/>
+      <bind nodeset="/mute/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/mute/inputs">
+      <label>Contact</label>
+      <input appearance="hidden" ref="/mute/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/mute/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/mute/inputs/contact">
+        <label>Contact</label>
+        <input appearance="db-object" ref="/mute/inputs/contact/_id">
+          <label>Contact ID</label>
+          <hint>Select a contact from list</hint>
+        </input>
+        <input appearance="hidden" ref="/mute/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/mute/person_muting">
+      <label>Mute Details</label>
+      <select appearance="horizontal" ref="/mute/person_muting/g_mute_reason">
+        <label>Reasons for mute request</label>
+        <item>
+          <label>Refusal of services</label>
+          <value>refused_services</value>
+        </item>
+        <item>
+          <label>Temporary relocation</label>
+          <value>temp_relocation</value>
+        </item>
+        <item>
+          <label>Permanent relocation</label>
+          <value>perm_relocation</value>
+        </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
+      </select>
+      <input appearance="horizontal" ref="/mute/person_muting/g_mute_reason_other">
+        <label>Please Specify</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/mute/muting_summary">
+      <label></label>
+      <input appearance="h1 yellow" ref="/mute/muting_summary/r_summary">
+        <label>Mute Request Summary&lt;I class="fa fa-user"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/mute/muting_summary/r_contact_info">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /mute/contact_name "/>&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/mute/muting_summary/r_mute_reasons_label">
+        <label>Reason for Mute request</label>
+      </input>
+      <input appearance="li" ref="/mute/muting_summary/r_mute_reason0">
+        <label>Refusal of services</label>
+      </input>
+      <input appearance="li" ref="/mute/muting_summary/r_mute_reason1">
+        <label>Temporary relocation</label>
+      </input>
+      <input appearance="li" ref="/mute/muting_summary/r_mute_reason2">
+        <label>Permanently relocation</label>
+      </input>
+      <input appearance="li" ref="/mute/muting_summary/r_mute_reasons_other">
+        <label><output value=" /mute/person_muting/g_mute_reason_other "/></label>
+      </input>
+      <input appearance="h1 green" ref="/mute/muting_summary/r_followup">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/mute/muting_summary/r_followup_instructions">
+        <label>Tasks for &lt;b&gt;<output value=" /mute/contact_name "/>&lt;/b&gt; will stop showing until you submit unmute request.</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

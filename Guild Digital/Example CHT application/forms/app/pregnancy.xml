@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Pregnancy Registration</h:title>
+    <model>
+      <instance>
+        <pregnancy id="pregnancy" prefix="J1!pregnancy!" delimiter="#" version="2022-03-19 19:41:55">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <visited_contact_uuid/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <edd_std/>
+          <edd_local/>
+          <lmp/>
+          <nutrition_follow_up_date/>
+          <referred_for_nutrition_follow_up/>
+          <group_gestational_Age>
+            <note_pregnancy_registration_introduction/>
+            <pregnancy_report_method/>
+            <lmp_start_date/>
+            <lmp_start_date_local/>
+            <estimated_edd_std/>
+            <estimated_edd_local/>
+            <note_entered_lmp/>
+            <note_estimated_edd/>
+            <entered_edd/>
+            <entered_edd_local/>
+            <pregnancy_age_in_weeks/>
+            <note_entered_edd/>
+            <note_pregnancy_age/>
+            <note_no_information/>
+          </group_gestational_Age>
+          <group_past_anc_visits>
+            <number_of_anc_visits/>
+            <anc_visits/>
+            <date_anc_1/>
+            <date_anc_2/>
+            <date_anc_3/>
+            <date_anc_4/>
+            <date_anc_5/>
+            <date_anc_6/>
+            <date_anc_7/>
+            <date_anc_8/>
+            <hiv_test_done/>
+          </group_past_anc_visits>
+          <group_scheduled_anc_visits>
+            <note_check_for_upcoming_anc_visits/>
+            <anc_appointment_date/>
+          </group_scheduled_anc_visits>
+          <group_danger_sign_check>
+            <note_danger_signs/>
+            <vaginal_bleeding/>
+            <lower_abdomen_pain/>
+            <severe_headache/>
+            <very_pale/>
+            <fever/>
+            <reduced_or_no_feotal_movements/>
+            <blurred_vision/>
+            <swelling/>
+            <breathlessness/>
+            <has_danger_signs/>
+            <has_no_danger_signs/>
+            <note_has_no_danger_signs/>
+            <note_has_danger_signs/>
+            <referred_to_health_facility_danger_signs/>
+            <note_complete_follow_up_task/>
+          </group_danger_sign_check>
+          <group_nutrition_status>
+            <note_nutrition_status/>
+            <on_nutrition_follow_up/>
+            <note_use_muac_tape/>
+            <taken_muac/>
+            <muac_measurement/>
+            <note_has_sam/>
+            <note_has_mam/>
+            <note_refer_to_health_facility/>
+            <referred_to_health_facility_nutrition/>
+            <completed_last_nutrition_follow_up/>
+            <next_nutrition_follow_up_date/>
+            <note_thank_you_nutrition_follow_up/>
+            <note_refer_did_not_complete_follow_up/>
+            <referred_to_health_facility_missed_nutrition_follow_up/>
+          </group_nutrition_status>
+          <group_safe_pregnancy_practices>
+            <using_llin/>
+            <note_llin_prevents_malaria/>
+            <received_tt_immunizations/>
+            <note_tt_protects_newborn_and_mother/>
+            <note_two_tt_vaccines_per_pregnancy/>
+          </group_safe_pregnancy_practices>
+          <group_summary>
+            <s_note_pregnancy_registration/>
+            <s_note_summary_pregnancy_registration/>
+            <s_note_person_details/>
+            <s_note_person_details_values/>
+            <s_note_summary/>
+            <s_note_pregnancy_age/>
+            <s_note_edd/>
+            <s_note_nutrition_status/>
+            <s_note_nutrition_status_healthy/>
+            <s_note_nutrition_status_malnourished/>
+            <s_note_danger_signs/>
+            <s_note_vaginal_bleeding/>
+            <s_note_lower_abdomen_pain/>
+            <s_note_severe_headache/>
+            <s_note_very_pale/>
+            <s_note_fever/>
+            <s_note_reduced_or_no_feotal_movements/>
+            <s_note_blurred_vision/>
+            <s_note_swelling/>
+            <s_note_breathlessness/>
+            <s_note_findings/>
+            <s_note_follow_up_in_3_days/>
+            <s_note_nutrition_follow_up_task_when_due/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </pregnancy>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/pregnancy/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/pregnancy/inputs/source" type="string"/>
+      <bind nodeset="/pregnancy/inputs/source_id" type="string"/>
+      <bind nodeset="/pregnancy/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /pregnancy/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/pregnancy/inputs/contact/name" type="string"/>
+      <bind nodeset="/pregnancy/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/pregnancy/inputs/contact/sex" type="string"/>
+      <bind nodeset="/pregnancy/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/pregnancy/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/pregnancy/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/pregnancy/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /pregnancy/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/pregnancy/patient_age_in_months" type="string" calculate="difference-in-months(  /pregnancy/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/pregnancy/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /pregnancy/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/pregnancy/patient_age_display" type="string" calculate="concat(
+ concat( /pregnancy/patient_age_in_years , if( /pregnancy/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /pregnancy/patient_age_in_months  mod 12, if(( /pregnancy/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/pregnancy/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/pregnancy/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/pregnancy/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/pregnancy/edd_std" type="string" calculate="if( /pregnancy/group_gestational_Age/pregnancy_report_method  = 'lmp',
+	 /pregnancy/group_gestational_Age/estimated_edd_std ,
+		if( /pregnancy/group_gestational_Age/pregnancy_report_method  = 'edd',
+			 /pregnancy/group_gestational_Age/entered_edd , 
+			format-date-time(date-time(decimal-date-time(today())+252), &quot;%Y-%m-%d&quot;)))"/>
+      <bind nodeset="/pregnancy/edd_local" type="string" calculate="format-date-time( /pregnancy/edd_std , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/pregnancy/lmp" type="string" calculate="if( /pregnancy/group_gestational_Age/pregnancy_report_method  = 'lmp',
+	 /pregnancy/group_gestational_Age/lmp_start_date ,
+		if( /pregnancy/group_gestational_Age/pregnancy_report_method  = 'edd',
+			format-date-time(date-time(decimal-date-time( /pregnancy/group_gestational_Age/entered_edd )-280), &quot;%Y-%m-%d&quot;),
+				format-date-time(date-time(decimal-date-time(today())-28), &quot;%Y-%m-%d&quot;)))"/>
+      <bind nodeset="/pregnancy/nutrition_follow_up_date" type="string" calculate=" /pregnancy/group_nutrition_status/next_nutrition_follow_up_date "/>
+      <bind nodeset="/pregnancy/referred_for_nutrition_follow_up" type="string" calculate="if(( /pregnancy/group_nutrition_status/referred_to_health_facility_nutrition  = 'yes' or  /pregnancy/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_pregnancy_registration_introduction" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/pregnancy_report_method" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/lmp_start_date" type="date" jr:constraintMsg="Date can not be less than 1 month from today and not more than 40 weeks from today" required="true()" constraint="((decimal-date-time(.)+30) &lt;= decimal-date-time(today())) and ((decimal-date-time(.)+280) &gt;= decimal-date-time(today()))" relevant=" /pregnancy/group_gestational_Age/pregnancy_report_method  = 'lmp'"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/lmp_start_date_local" type="string" calculate="format-date-time( /pregnancy/group_gestational_Age/lmp_start_date , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/estimated_edd_std" type="string" calculate="format-date-time(date-time(decimal-date-time( /pregnancy/group_gestational_Age/lmp_start_date )+280), &quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/estimated_edd_local" type="string" calculate="format-date-time(date-time(decimal-date-time( /pregnancy/group_gestational_Age/lmp_start_date )+280), &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_entered_lmp" readonly="true()" type="string" relevant=" /pregnancy/group_gestational_Age/lmp_start_date  != ''"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_estimated_edd" readonly="true()" type="string" relevant=" /pregnancy/group_gestational_Age/lmp_start_date  != ''"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/entered_edd" type="date" jr:constraintMsg="Date cannot be in the past and not more than 40 weeks in the future" required="true()" constraint=". &gt; today() and (decimal-date-time(.)-280) &lt;= decimal-date-time(today())" relevant=" /pregnancy/group_gestational_Age/pregnancy_report_method  = 'edd'"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/entered_edd_local" type="string" calculate="format-date-time( /pregnancy/group_gestational_Age/entered_edd , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/pregnancy_age_in_weeks" type="string" calculate="floor((280 - (decimal-date-time( /pregnancy/edd_std ) - decimal-date-time(today()))) div 7)"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_entered_edd" readonly="true()" type="string" relevant=" /pregnancy/group_gestational_Age/entered_edd  != ''"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_pregnancy_age" readonly="true()" type="string" relevant=" /pregnancy/group_gestational_Age/entered_edd  != ''"/>
+      <bind nodeset="/pregnancy/group_gestational_Age/note_no_information" readonly="true()" type="string" relevant=" /pregnancy/group_gestational_Age/pregnancy_report_method  = 'no_information'"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/number_of_anc_visits" type="int" jr:constraintMsg="Value can not be less than zero (0)" required="true()" constraint=". &gt;= 0"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/anc_visits" type="select" jr:constraintMsg="You can not select more than the number of visits" required="true()" constraint="count-selected(.) &lt;=  /pregnancy/group_past_anc_visits/number_of_anc_visits " relevant=" /pregnancy/group_past_anc_visits/number_of_anc_visits  &gt; 0"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_1" type="date" jr:constraintMsg="Date cant not be in the future" required="true()" constraint=". &lt;= today()" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_1')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_2" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_1" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_2')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_3" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_2" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_3')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_4" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_3" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_4')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_5" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_4" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_5')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_6" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_5" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_6')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_7" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_6" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_7')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/date_anc_8" type="date" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." required="true()" constraint=". &lt;= today() and . &gt; ../date_anc_7" relevant="selected( /pregnancy/group_past_anc_visits/anc_visits , 'anc_8')"/>
+      <bind nodeset="/pregnancy/group_past_anc_visits/hiv_test_done" type="select1" required="true()" relevant=" /pregnancy/group_past_anc_visits/number_of_anc_visits  &gt; 0"/>
+      <bind nodeset="/pregnancy/group_scheduled_anc_visits/note_check_for_upcoming_anc_visits" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_scheduled_anc_visits/anc_appointment_date" type="date" jr:constraintMsg="Date should be in the future" required="true()" constraint=". &gt; today()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/note_danger_signs" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/vaginal_bleeding" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/lower_abdomen_pain" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/severe_headache" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/very_pale" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/fever" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/reduced_or_no_feotal_movements" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/blurred_vision" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/swelling" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/breathlessness" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/has_danger_signs" type="string" calculate="if(( /pregnancy/group_danger_sign_check/vaginal_bleeding  = 'yes' or  /pregnancy/group_danger_sign_check/lower_abdomen_pain  = 'yes' or  /pregnancy/group_danger_sign_check/severe_headache  = 'yes' or  /pregnancy/group_danger_sign_check/very_pale  = 'yes' or  /pregnancy/group_danger_sign_check/fever  = 'yes' or  /pregnancy/group_danger_sign_check/reduced_or_no_feotal_movements  = 'yes' or  /pregnancy/group_danger_sign_check/blurred_vision  = 'yes' or  /pregnancy/group_danger_sign_check/swelling  = 'yes' or  /pregnancy/group_danger_sign_check/breathlessness  = 'yes'), 'yes', '')"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/has_no_danger_signs" type="string" calculate="if(( /pregnancy/group_danger_sign_check/vaginal_bleeding  = 'no' and  /pregnancy/group_danger_sign_check/lower_abdomen_pain  = 'no' and  /pregnancy/group_danger_sign_check/severe_headache  = 'no' and  /pregnancy/group_danger_sign_check/very_pale  = 'no' and  /pregnancy/group_danger_sign_check/fever  = 'no' and  /pregnancy/group_danger_sign_check/reduced_or_no_feotal_movements  = 'no' and  /pregnancy/group_danger_sign_check/blurred_vision  = 'no' and  /pregnancy/group_danger_sign_check/swelling  = 'no' and  /pregnancy/group_danger_sign_check/breathlessness  = 'no'), 'yes', '')"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/note_has_no_danger_signs" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/has_no_danger_signs  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/note_has_danger_signs" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/referred_to_health_facility_danger_signs" type="select1" relevant=" /pregnancy/group_danger_sign_check/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_danger_sign_check/note_complete_follow_up_task" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/referred_to_health_facility_danger_signs  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_nutrition_status" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/on_nutrition_follow_up" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_use_muac_tape" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/taken_muac" type="select1" required="true()" relevant=" /pregnancy/group_nutrition_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/muac_measurement" type="select1" required="true()" relevant=" /pregnancy/group_nutrition_status/taken_muac  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_has_sam" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'red'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_has_mam" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'red' or  /pregnancy/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/referred_to_health_facility_nutrition" type="select1" required="true()" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'red' or  /pregnancy/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/completed_last_nutrition_follow_up" type="select1" required="true()" relevant=" /pregnancy/group_nutrition_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/next_nutrition_follow_up_date" type="date" required="true()" relevant=" /pregnancy/group_nutrition_status/completed_last_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_thank_you_nutrition_follow_up" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/note_refer_did_not_complete_follow_up" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pregnancy/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" required="true()" relevant=" /pregnancy/group_nutrition_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pregnancy/group_safe_pregnancy_practices/using_llin" type="select1" required="true()"/>
+      <bind nodeset="/pregnancy/group_safe_pregnancy_practices/note_llin_prevents_malaria" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_safe_pregnancy_practices/received_tt_immunizations" type="select1" required="true()" relevant=" /pregnancy/group_past_anc_visits/number_of_anc_visits  &gt; 0"/>
+      <bind nodeset="/pregnancy/group_safe_pregnancy_practices/note_tt_protects_newborn_and_mother" readonly="true()" type="string" relevant=" /pregnancy/group_past_anc_visits/number_of_anc_visits  &gt; 0"/>
+      <bind nodeset="/pregnancy/group_safe_pregnancy_practices/note_two_tt_vaccines_per_pregnancy" readonly="true()" type="string" relevant=" /pregnancy/group_past_anc_visits/number_of_anc_visits  &gt; 0"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_pregnancy_registration" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_summary_pregnancy_registration" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_person_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_summary" readonly="true()" type="string"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_pregnancy_age" readonly="true()" type="string" relevant=" /pregnancy/edd_std  != ''"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_edd" readonly="true()" type="string" relevant=" /pregnancy/edd_std  != ''"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_nutrition_status" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  != ''"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_nutrition_status_healthy" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'green'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_nutrition_status_malnourished" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/muac_measurement  = 'red' or  /pregnancy/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_danger_signs" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/has_danger_signs  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_vaginal_bleeding" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/vaginal_bleeding  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_lower_abdomen_pain" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/lower_abdomen_pain  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_severe_headache" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/severe_headache  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_very_pale" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/very_pale  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_fever" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/fever  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_reduced_or_no_feotal_movements" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/reduced_or_no_feotal_movements  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_blurred_vision" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/blurred_vision  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_swelling" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/swelling  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_breathlessness" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/breathlessness  = 'yes'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_findings" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/has_danger_signs  = 'yes' or  /pregnancy/group_nutrition_status/completed_last_nutrition_follow_up  = 'no' or  /pregnancy/group_nutrition_status/next_nutrition_follow_up_date  != ''"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_follow_up_in_3_days" readonly="true()" type="string" relevant=" /pregnancy/group_danger_sign_check/has_danger_signs  = 'yes' or  /pregnancy/group_nutrition_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pregnancy/group_summary/s_note_nutrition_follow_up_task_when_due" readonly="true()" type="string" relevant=" /pregnancy/group_nutrition_status/next_nutrition_follow_up_date  != ''"/>
+      <bind nodeset="/pregnancy/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/pregnancy/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/pregnancy/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/pregnancy/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/pregnancy/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/pregnancy/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/pregnancy/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/pregnancy/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/pregnancy/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/pregnancy/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/pregnancy/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_gestational_Age">
+      <label>Gestational Age</label>
+      <input ref="/pregnancy/group_gestational_Age/note_pregnancy_registration_introduction">
+        <label>Registering a pregnancy will help you to provide timely guidance and support to the expecting mother. Please refer to the antenatal card of the woman as you register their pregnancy into the application.</label>
+      </input>
+      <select1 ref="/pregnancy/group_gestational_Age/pregnancy_report_method">
+        <label>How would you like to report the pregnancy?</label>
+        <hint>Select one</hint>
+        <item>
+          <label>Last menstrual period (LMP)</label>
+          <value>lmp</value>
+        </item>
+        <item>
+          <label>Expected date of delivery (EDD)</label>
+          <value>edd</value>
+        </item>
+        <item>
+          <label>No information</label>
+          <value>no_information</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_gestational_Age/lmp_start_date">
+        <label>Please enter the start date of the LMP</label>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/note_entered_lmp">
+        <label>You entered an LMP <output value=" /pregnancy/group_gestational_Age/lmp_start_date_local "/></label>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/note_estimated_edd">
+        <label>The estimated date of delivery is <output value=" /pregnancy/group_gestational_Age/estimated_edd_local "/></label>
+        <hint>If this doesn't look right, update the pregnancy information</hint>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/entered_edd">
+        <label>Please enter the expected date of delivery</label>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/note_entered_edd">
+        <label>You entered the EDD <output value=" /pregnancy/group_gestational_Age/entered_edd_local "/></label>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/note_pregnancy_age">
+        <label>The expecting mother is <output value=" /pregnancy/group_gestational_Age/pregnancy_age_in_weeks "/> weeks pregnant</label>
+        <hint>If this doesn't look right, update the pregnancy information</hint>
+      </input>
+      <input ref="/pregnancy/group_gestational_Age/note_no_information">
+        <label>Please be sure to update gestation age of <output value=" /pregnancy/patient_name "/> once known</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_past_anc_visits">
+      <label>ANC Visits at Health Facility (Past)</label>
+      <input ref="/pregnancy/group_past_anc_visits/number_of_anc_visits">
+        <label>How many times has the woman been to the health facility for ANC?</label>
+        <hint>Kindly, use the mother's ANC card to confirm attendance</hint>
+      </input>
+      <select ref="/pregnancy/group_past_anc_visits/anc_visits">
+        <label>Which ANC visit (s) do you want to report?</label>
+        <hint>Use the ANC card to fill this section</hint>
+        <item>
+          <label>First ANC visit</label>
+          <value>anc_1</value>
+        </item>
+        <item>
+          <label>Second ANC visit</label>
+          <value>anc_2</value>
+        </item>
+        <item>
+          <label>Third ANC visit</label>
+          <value>anc_3</value>
+        </item>
+        <item>
+          <label>Fourth ANC visit</label>
+          <value>anc_4</value>
+        </item>
+        <item>
+          <label>Fifth ANC visit</label>
+          <value>anc_5</value>
+        </item>
+        <item>
+          <label>Sixth ANC visit</label>
+          <value>anc_6</value>
+        </item>
+        <item>
+          <label>Seventh ANC visit</label>
+          <value>anc_7</value>
+        </item>
+        <item>
+          <label>Eighth ANC visit</label>
+          <value>anc_8</value>
+        </item>
+        <item>
+          <label>More than eight ANC visits</label>
+          <value>anc_gt_8</value>
+        </item>
+      </select>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_1">
+        <label>Date of First ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_2">
+        <label>Date of Second ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_3">
+        <label>Date of Third ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_4">
+        <label>Date of Fourth ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_5">
+        <label>Date of Fifth ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_6">
+        <label>Date of Sixth ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_7">
+        <label>Date of Seventh ANC visit</label>
+      </input>
+      <input ref="/pregnancy/group_past_anc_visits/date_anc_8">
+        <label>Date of Eighth ANC visit</label>
+      </input>
+      <select1 ref="/pregnancy/group_past_anc_visits/hiv_test_done">
+        <label>Was an HIV test done?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_scheduled_anc_visits">
+      <label>ANC Visits at Health Facility (Scheduled)</label>
+      <input ref="/pregnancy/group_scheduled_anc_visits/note_check_for_upcoming_anc_visits">
+        <label>Please check the clinic booklet or any official note from the health facility for upcoming ANC visits</label>
+      </input>
+      <input ref="/pregnancy/group_scheduled_anc_visits/anc_appointment_date">
+        <label>If the woman has a specific upcoming ANC appointment date, enter it here. You will receive a task three days before to remind her to attend</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_danger_sign_check">
+      <label>Danger Sign Check</label>
+      <input ref="/pregnancy/group_danger_sign_check/note_danger_signs">
+        <label>Does the woman currently have any of these danger signs?</label>
+      </input>
+      <select1 ref="/pregnancy/group_danger_sign_check/vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/lower_abdomen_pain">
+        <label>Severe pain on the lower abdomen</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/severe_headache">
+        <label>Severe headache</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/very_pale">
+        <label>Very pale (e.g. finger nails, tongue)</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/fever">
+        <label>Fever</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/reduced_or_no_feotal_movements">
+        <label>Reduced or no feotal movements</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/blurred_vision">
+        <label>Blurred vision</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/swelling">
+        <label>Swelling of the face, legs or fingers</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_danger_sign_check/breathlessness">
+        <label>Breathlessness</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_danger_sign_check/note_has_no_danger_signs">
+        <label>Great news! Please closely monitor her until her next scheduled pregnancy visit</label>
+      </input>
+      <input ref="/pregnancy/group_danger_sign_check/note_has_danger_signs">
+        <label>Please refer to the health facility immediately. Accompany her if possible</label>
+      </input>
+      <select1 ref="/pregnancy/group_danger_sign_check/referred_to_health_facility_danger_signs">
+        <label>Have you referred the woman to the health facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_danger_sign_check/note_complete_follow_up_task">
+        <label>Please complete the follow-up task within 3 days</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_nutrition_status">
+      <label>Nutrition Status</label>
+      <input ref="/pregnancy/group_nutrition_status/note_nutrition_status">
+        <label>It is important to ensure that all pregnant women in your area have optimal nutrition status. This is assessed by using a MUAC tape</label>
+      </input>
+      <select1 ref="/pregnancy/group_nutrition_status/on_nutrition_follow_up">
+        <label>Is <output value=" /pregnancy/patient_name "/> on nutrition follow up?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_nutrition_status/note_use_muac_tape">
+        <label>Use your MUAC tape to take the woman's MUAC</label>
+      </input>
+      <select1 ref="/pregnancy/group_nutrition_status/taken_muac">
+        <label>Have you taken <output value=" /pregnancy/patient_name "/> MUAC?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_nutrition_status/muac_measurement">
+        <label>What is the colour and measurement of the MUAC tape?</label>
+        <item>
+          <label>Red (&lt;19.0 cm)</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Yellow (≥19.0cm but &lt;23.0cm)</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Green (≥23cm)</label>
+          <value>green</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_nutrition_status/note_has_sam">
+        <label>Woman has Severe Acute Malnutrition (SAM)</label>
+      </input>
+      <input ref="/pregnancy/group_nutrition_status/note_has_mam">
+        <label>Woman has Moderate Acute Malnutrition (MAM)</label>
+      </input>
+      <input ref="/pregnancy/group_nutrition_status/note_refer_to_health_facility">
+        <label>Refer <output value=" /pregnancy/patient_name "/> to the health facility for further management</label>
+      </input>
+      <select1 ref="/pregnancy/group_nutrition_status/referred_to_health_facility_nutrition">
+        <label>Have you referred <output value=" /pregnancy/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/pregnancy/group_nutrition_status/completed_last_nutrition_follow_up">
+        <label>Did <output value=" /pregnancy/patient_name "/> complete the last follow up visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_nutrition_status/next_nutrition_follow_up_date">
+        <label>Date of next appointment</label>
+      </input>
+      <input ref="/pregnancy/group_nutrition_status/note_thank_you_nutrition_follow_up">
+        <label>Thank you. Tasks for nutrition follow up will be sent when due</label>
+      </input>
+      <input ref="/pregnancy/group_nutrition_status/note_refer_did_not_complete_follow_up">
+        <label>Refer <output value=" /pregnancy/patient_name "/> to the health facility</label>
+      </input>
+      <select1 ref="/pregnancy/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up">
+        <label>Have you referred <output value=" /pregnancy/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/pregnancy/group_safe_pregnancy_practices">
+      <label>Safe Pregnancy Practices</label>
+      <select1 ref="/pregnancy/group_safe_pregnancy_practices/using_llin">
+        <label>Does <output value=" /pregnancy/patient_name "/> use a long-lasting insecticidal net (LLIN)?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_safe_pregnancy_practices/note_llin_prevents_malaria">
+        <label>Sleeping under an LLIN EVERY night prevents malaria</label>
+      </input>
+      <select1 ref="/pregnancy/group_safe_pregnancy_practices/received_tt_immunizations">
+        <label>Has the woman received any Tetanus Toxoid (TT) immunizations during this pregnancy?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/pregnancy/group_safe_pregnancy_practices/note_tt_protects_newborn_and_mother">
+        <label>Immunizing with at least two doses of tetanus toxoid before or during pregnancy protects the newborn for the first few weeks of life and protects the mother</label>
+      </input>
+      <input ref="/pregnancy/group_safe_pregnancy_practices/note_two_tt_vaccines_per_pregnancy">
+        <label>Women can receive up to two TT vaccines per pregnancy. After five TT vaccines, they are vaccinated for life</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/pregnancy/group_summary">
+      <label>Summary Page</label>
+      <input appearance="h1 red" ref="/pregnancy/group_summary/s_note_pregnancy_registration">
+        <label>Pregnancy Registration</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_summary_pregnancy_registration">
+        <label>&lt;p style="text-align:center;"&gt;Click the Submit button at the bottom of the form&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/pregnancy/group_summary/s_note_person_details">
+        <label>Person Details</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_person_details_values">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /pregnancy/patient_name "/>
+<output value=" /pregnancy/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/pregnancy/group_summary/s_note_summary">
+        <label>Summary</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_pregnancy_age">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;<output value=" /pregnancy/group_gestational_Age/pregnancy_age_in_weeks "/> weeks pregnant&lt;/p&gt;</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_edd">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;EDD <output value=" /pregnancy/edd_local "/>&lt;/p&gt;</label>
+      </input>
+      <input appearance="h2" ref="/pregnancy/group_summary/s_note_nutrition_status">
+        <label>Nutrition Status</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_nutrition_status_healthy">
+        <label>&lt;p style="text-align:center;"&gt;Healthy&lt;/p&gt;</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_nutrition_status_malnourished">
+        <label>&lt;p style="text-align:center;"&gt;Malnourished&lt;/p&gt;</label>
+      </input>
+      <input appearance="h2" ref="/pregnancy/group_summary/s_note_danger_signs">
+        <label>New danger signs</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_vaginal_bleeding">
+        <label>Vaginal bleeding</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_lower_abdomen_pain">
+        <label>Severe pain on the lower abdomen</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_severe_headache">
+        <label>Severe headache</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_very_pale">
+        <label>Very pale</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_fever">
+        <label>Fever</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_reduced_or_no_feotal_movements">
+        <label>Reduced or no feotal movements</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_blurred_vision">
+        <label>Blurred vision</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_swelling">
+        <label>Swelling of the face, legs or fingers</label>
+      </input>
+      <input appearance="li" ref="/pregnancy/group_summary/s_note_breathlessness">
+        <label>Breathlessness</label>
+      </input>
+      <input appearance="h1 blue" ref="/pregnancy/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_follow_up_in_3_days">
+        <label>Please follow up with the woman in 3 days</label>
+      </input>
+      <input ref="/pregnancy/group_summary/s_note_nutrition_follow_up_task_when_due">
+        <label>Thank you, tasks on nutrition follow up will appear when due</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

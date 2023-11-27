@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Death Report Form</h:title>
+    <model>
+      <instance>
+        <death_report id="death_report" prefix="J1!death_report!" delimiter="#" version="2023-11-13  13-15">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <patient_name/>
+          <patient_age/>
+          <patient_family_id/>
+          <date_of_death/>
+          <death_details>
+            <death_date/>
+            <place_of_death/>
+            <specify_death/>
+            <other_comments/>
+          </death_details>
+          <r_summary>
+            <submit/>
+            <summary_h1/>
+            <s_person_details/>
+            <s_death_info/>
+            <s_death_date/>
+            <s_comments/>
+            <s_warning/>
+            <s_instruction/>
+            <s_inform_super/>
+            <s_followup/>
+            <s_followup_note/>
+          </r_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </death_report>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/death_report/inputs" relevant="./source='user'"/>
+      <bind nodeset="/death_report/inputs/source" type="string"/>
+      <bind nodeset="/death_report/inputs/source_id" type="string"/>
+      <bind nodeset="/death_report/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/death_report/inputs/contact/name" type="string"/>
+      <bind nodeset="/death_report/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/death_report/inputs/contact/sex" type="string"/>
+      <bind nodeset="/death_report/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/death_report/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/death_report/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/death_report/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/death_report/patient_age" type="string" calculate="floor( difference-in-months(  /death_report/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/death_report/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/death_report/date_of_death" type="string" calculate=" /death_report/death_details/death_date "/>
+      <bind nodeset="/death_report/death_details/death_date" type="date" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))"/>
+      <bind nodeset="/death_report/death_details/place_of_death" type="select1" required="true()"/>
+      <bind nodeset="/death_report/death_details/specify_death" type="string" required="true()" relevant="selected( /death_report/death_details/place_of_death ,'other')"/>
+      <bind nodeset="/death_report/death_details/other_comments" type="string"/>
+      <bind nodeset="/death_report/r_summary/submit" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/summary_h1" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_person_details" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_death_info" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_death_date" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_comments" readonly="true()" type="string" relevant=" /death_report/death_details/other_comments !=''"/>
+      <bind nodeset="/death_report/r_summary/s_warning" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_inform_super" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_followup" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/r_summary/s_followup_note" readonly="true()" type="string"/>
+      <bind nodeset="/death_report/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/death_report/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/death_report/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/death_report/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/death_report/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/death_report/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/death_report/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/death_report/inputs/contact/date_of_birth">
+          <label>Date Of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/death_report/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/death_report/inputs/contact/parent">
+          <label>Family</label>
+          <input appearance="hidden" ref="/death_report/inputs/contact/parent/_id">
+            <label>Family ID</label>
+          </input>
+          <group ref="/death_report/inputs/contact/parent/parent">
+            <label>Health Facility</label>
+            <input appearance="hidden" ref="/death_report/inputs/contact/parent/parent/_id">
+              <label>Health Facility ID</label>
+            </input>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/death_report/death_details">
+      <label>Death details</label>
+      <input ref="/death_report/death_details/death_date">
+        <label>Date of death</label>
+      </input>
+      <select1 ref="/death_report/death_details/place_of_death">
+        <label>Place of death</label>
+        <item>
+          <label>Health Facility</label>
+          <value>health_facility</value>
+        </item>
+        <item>
+          <label>Home</label>
+          <value>home</value>
+        </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/death_report/death_details/specify_death">
+        <label>Other (Please specify)</label>
+      </input>
+      <input ref="/death_report/death_details/other_comments">
+        <label>Provide any other relevant information related to the death</label>
+        <hint>Comments</hint>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/death_report/r_summary">
+      <label>Results/Summary page</label>
+      <input ref="/death_report/r_summary/submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/death_report/r_summary/summary_h1">
+        <label>Person Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/death_report/r_summary/s_person_details">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /death_report/patient_name "/>&lt;/h4&gt; &lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /death_report/patient_age "/> years old&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/death_report/r_summary/s_death_info">
+        <label>Death Information</label>
+      </input>
+      <input ref="/death_report/r_summary/s_death_date">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Date of death: <output value=" /death_report/date_of_death "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/death_report/r_summary/s_comments">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Comments: <output value=" /death_report/death_details/other_comments "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 red" ref="/death_report/r_summary/s_warning">
+        <label><output value=" /death_report/patient_name "/> will be moved to the deceased section of the household profile &lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;</label>
+      </input>
+      <input appearance="h2 blue" ref="/death_report/r_summary/s_instruction">
+        <label>Key instruction</label>
+      </input>
+      <input appearance="li" ref="/death_report/r_summary/s_inform_super">
+        <label>Inform your supervisor if it is required of you to.</label>
+      </input>
+      <input appearance="h1 green" ref="/death_report/r_summary/s_followup">
+        <label>Follow Up</label>
+      </input>
+      <input appearance="li" ref="/death_report/r_summary/s_followup_note">
+        <label>You will not recieve any more tasks for this person</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>VHT Visit  Form</h:title>
+    <model>
+      <instance>
+        <vht_visit id="vht_visit" prefix="J1!vht_visit!" delimiter="#" version="2023-11-10  22-40">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <vht_is_available>
+            <note_vht-visit/>
+            <_id/>
+            <vht_visit_date/>
+            <vht_available/>
+            <Visit-details>
+              <note_same_phone/>
+              <same_phone/>
+              <new_phone/>
+              <vht_package/>
+            </Visit-details>
+            <group_device_summary>
+              <s_note_vht_visit/>
+              <s_note_submit_button/>
+              <s_note_device_details/>
+              <s_year_resident/>
+              <s_language_proficiency/>
+              <s_condition/>
+              <s_vht_package/>
+            </group_device_summary>
+          </vht_is_available>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </vht_visit>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/vht_visit/inputs" relevant="./source='user'"/>
+      <bind nodeset="/vht_visit/inputs/source" type="string"/>
+      <bind nodeset="/vht_visit/inputs/source_id" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/vht_visit/inputs/contact/name" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/note_vht-visit" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/_id" type="db:district_hospital" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/vht_visit_date" type="date" jr:constraintMsg="VHT visit date can't be more than 30 days ago. Also can't be a future date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 30)))"/>
+      <bind nodeset="/vht_visit/vht_is_available/vht_available" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/Visit-details" relevant=" /vht_visit/vht_is_available/vht_available ='yes'"/>
+      <bind nodeset="/vht_visit/vht_is_available/Visit-details/note_same_phone" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/Visit-details/same_phone" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/Visit-details/new_phone" type="string" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" relevant=" /vht_visit/vht_is_available/Visit-details/same_phone  = 'no'" required="true()" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')"/>
+      <bind nodeset="/vht_visit/vht_is_available/Visit-details/vht_package" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_vht_visit" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_device_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_year_resident" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_language_proficiency" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_condition" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_vht_package" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/vht_visit/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/vht_visit/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/vht_visit/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/vht_visit/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/vht_visit/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/vht_visit/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group ref="/vht_visit/vht_is_available">
+      <label></label>
+      <input ref="/vht_visit/vht_is_available/note_vht-visit">
+        <label>The form should be filled out when the Supervisor visits the VHT for supervisory activities</label>
+      </input>
+      <input appearance="db-object bind-id-only" ref="/vht_visit/vht_is_available/_id">
+        <label>Place/ Health facility the VHT is under.</label>
+        <hint>Choice selection from health Facility list</hint>
+      </input>
+      <input ref="/vht_visit/vht_is_available/vht_visit_date">
+        <label>Date of Visit</label>
+      </input>
+      <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/vht_available">
+        <label>Is the VHT Available at the time of the visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <group appearance="field-list" ref="/vht_visit/vht_is_available/Visit-details">
+        <label></label>
+        <input ref="/vht_visit/vht_is_available/Visit-details/note_same_phone">
+          <label>Find out how the VHT is doing before continuing with this visit.</label>
+        </input>
+        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/Visit-details/same_phone">
+          <label>Is the VHT still using the same Contact?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input appearance="numbers" ref="/vht_visit/vht_is_available/Visit-details/new_phone">
+          <label>What is the new Contact Number?</label>
+        </input>
+        <select1 ref="/vht_visit/vht_is_available/Visit-details/vht_package">
+          <label>Is the VHT implementing full package?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+      </group>
+      <group appearance="field-list summary" ref="/vht_visit/vht_is_available/group_device_summary">
+        <label>Results/Summary Page:</label>
+        <input appearance="h1 red" ref="/vht_visit/vht_is_available/group_device_summary/s_note_vht_visit">
+          <label>&lt;h1 style="text-align:center;"&gt;Vht visit Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/group_device_summary/s_note_submit_button">
+          <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+        </input>
+        <input appearance="h1 yellow" ref="/vht_visit/vht_is_available/group_device_summary/s_note_device_details">
+          <label>Vht visit Details</label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/group_device_summary/s_year_resident">
+          <label>Date of Visit: <output value=" /vht_visit/vht_is_available/vht_visit_date "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/group_device_summary/s_language_proficiency">
+          <label>VHT availability: <output value=" /vht_visit/vht_is_available/vht_available "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/group_device_summary/s_condition">
+          <label>VHT still using same contact: <output value=" /vht_visit/vht_is_available/Visit-details/same_phone "/></label>
+        </input>
+        <input ref="/vht_visit/vht_is_available/group_device_summary/s_vht_package">
+          <label>If the VHT is implementing full package: <output value=" /vht_visit/vht_is_available/Visit-details/vht_package "/></label>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

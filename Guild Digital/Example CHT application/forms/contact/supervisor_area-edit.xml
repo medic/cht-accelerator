@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Suoervion  Area</h:title>
+    <model>
+      <instance>
+        <data id="contact:supervisor_area:edit" prefix="J1!contact:supervisor_area:edit!" delimiter="#" version="2023-09-30  23-17">
+          <vht_supervisor_area>
+            <name/>
+            <contact/>
+            <parent/>
+            <district/>
+            <sub_district/>
+            <county/>
+            <sub_county/>
+            <parish/>
+            <village/>
+          </vht_supervisor_area>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/vht_supervisor_area/name" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/contact" type="db:person"/>
+      <bind nodeset="/data/vht_supervisor_area/parent" type="db:district_hospital"/>
+      <bind nodeset="/data/vht_supervisor_area/district" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/sub_district" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/county" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/sub_county" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/parish" type="string" required="true()"/>
+      <bind nodeset="/data/vht_supervisor_area/village" type="string" required="true()"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/vht_supervisor_area">
+      <label>Edit Supervision Area</label>
+      <input ref="/data/vht_supervisor_area/name">
+        <label>Area Name</label>
+      </input>
+      <input appearance="db-object bind-id-only" ref="/data/vht_supervisor_area/contact">
+        <label>Supervisor</label>
+        <hint>Select the VHT for this VHT Area</hint>
+      </input>
+      <input appearance="db-object bind-id-only" ref="/data/vht_supervisor_area/parent">
+        <label>Facility</label>
+        <hint>Select the Health Facility for this VHT Area</hint>
+      </input>
+      <input ref="/data/vht_supervisor_area/district">
+        <label>District</label>
+      </input>
+      <input ref="/data/vht_supervisor_area/sub_district">
+        <label>Sub District</label>
+      </input>
+      <input ref="/data/vht_supervisor_area/county">
+        <label>County</label>
+      </input>
+      <input ref="/data/vht_supervisor_area/sub_county">
+        <label>Sub County</label>
+      </input>
+      <input ref="/data/vht_supervisor_area/parish">
+        <label>Parish</label>
+      </input>
+      <input ref="/data/vht_supervisor_area/village">
+        <label>Village</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

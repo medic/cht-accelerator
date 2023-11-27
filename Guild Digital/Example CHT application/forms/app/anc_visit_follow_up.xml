@@ -1,0 +1,874 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>ANC Visit Follow Up</h:title>
+    <model>
+      <instance>
+        <anc_visit_follow_up id="anc_visit_follow_up" prefix="J1!anc_visit_follow_up!" delimiter="#" version="2022-03-19 19:37:11">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <current_edd_std/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <is_of_child_bearing_age/>
+          <visited_contact_uuid/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_name_with_s/>
+          <patient_gender/>
+          <current_edd_local/>
+          <current_pregnancy_age_in_weeks/>
+          <edd_std/>
+          <edd_local/>
+          <pregnancy_ended/>
+          <pregnancy_ended_label/>
+          <nutrition_follow_up_date/>
+          <referred_for_nutrition_follow_up/>
+          <newest_anc_appointment_date/>
+          <newest_anc_appointment_date_local/>
+          <group_follow_up>
+            <is_available/>
+            <new_follow_up_date/>
+          </group_follow_up>
+          <group_pregnancy_summary>
+            <note_current_weeks_pregnant_label/>
+            <note_current_weeks_pregnant_value/>
+            <note_edd_label/>
+            <note_current_edd_value/>
+            <pregnancy_status/>
+          </group_pregnancy_summary>
+          <update_pregnancy>
+            <is_gestation_age_correct/>
+            <gestation_age_method/>
+            <entered_gestation_age_in_weeks/>
+            <estimated_edd/>
+            <entered_edd/>
+            <new_edd/>
+            <new_edd_local/>
+            <new_gestation_age_in_weeks/>
+            <note_confirm_new_information/>
+            <note_old/>
+            <note_old_pregnancy_age_label/>
+            <note_old_pregnancy_age_value/>
+            <note_old_edd_label/>
+            <note_old_edd_value/>
+            <note_new/>
+            <note_new_pregnancy_age_label/>
+            <note_new_pregnancy_age_value/>
+            <note_new_edd_label/>
+            <note_new_edd_value/>
+            <note_refer_for_miscarriage/>
+            <date_of_miscarriage/>
+            <note_reported_abortion/>
+            <note_reported_refused_care/>
+            <refused_care_action/>
+            <note_reported_migrated/>
+            <migrated_action/>
+            <note_submitting_will_end_pregnancy/>
+            <note_can_still_submit_pregnancy_visits/>
+            <note_continue/>
+            <note_prev/>
+            <note_submit_delivery_report/>
+            <note_submit_death_report/>
+          </update_pregnancy>
+          <group_past_anc_visits>
+            <completed_scheduled_anc_visit/>
+            <anc_visits/>
+            <date_anc_1/>
+            <date_anc_2/>
+            <date_anc_3/>
+            <date_anc_4/>
+            <date_anc_5/>
+            <date_anc_6/>
+            <date_anc_7/>
+            <date_anc_8/>
+          </group_past_anc_visits>
+          <group_upcoming_anc_visits>
+            <anc_appointment_date/>
+            <anc_appointment_date_local/>
+          </group_upcoming_anc_visits>
+          <group_missed_anc_visits>
+            <why_missed_anc_visit/>
+            <note_encourage_to_go_for_anc/>
+            <missed_anc_actions_taken/>
+            <facility_visit_date_for_missed_anc/>
+            <facility_visit_date_for_missed_anc_local/>
+          </group_missed_anc_visits>
+          <group_safe_pregnancy_practices>
+            <using_llin/>
+            <note_llin_prevents_malaria/>
+            <tested_for_hiv_past3months/>
+            <received_tt_immunization/>
+            <note_tt_immunization_importance/>
+            <note_tt_vaccination_protocol/>
+          </group_safe_pregnancy_practices>
+          <group_nutrition_status>
+            <note_nutrition_status/>
+            <on_nutrition_follow_up/>
+            <note_use_muac_tape/>
+            <taken_muac/>
+            <muac_measurement/>
+            <note_has_sam/>
+            <note_has_mam/>
+            <note_refer_to_health_facility/>
+            <referred_to_health_facility_nutrition/>
+            <completed_last_nutrition_follow_up/>
+            <next_nutrition_follow_up_date/>
+            <note_thank_you_nutrition_follow_up/>
+            <note_refer_did_not_complete_follow_up/>
+            <referred_to_health_facility_missed_nutrition_follow_up/>
+          </group_nutrition_status>
+          <group_summary>
+            <s_note_anc_follow_up/>
+            <s_note_be_sure_to_submit/>
+            <s_note_pregnancy_details/>
+            <s_note_patient_details/>
+            <s_note_edd/>
+            <s_note_next_anc_visit_date/>
+            <s_note_pregnancy_ended/>
+            <s_note_submit_delivery_report/>
+            <s_note_death_notification/>
+            <s_note_social_support_for_miscarriage/>
+            <s_note_findings/>
+            <s_note_appreciate_for_attending_anc/>
+            <s_note_refer_for_facility_anc/>
+            <s_note_not_available/>
+            <s_note_refused_care/>
+            <s_note_migrated/>
+            <s_note_follow_up/>
+            <s_note_follow_up1/>
+            <s_note_follow_up2/>
+            <s_note_follow_up3/>
+            <s_note_no_more_follow_ups/>
+            <s_note_follow_up_on_agreed_date/>
+            <s_note_follow_up_as_per_schedule/>
+          </group_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </anc_visit_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/anc_visit_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/current_edd_std" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/contact/_id" type="db:person" required="true()" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /anc_visit_follow_up/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
+      <bind nodeset="/anc_visit_follow_up/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/anc_visit_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /anc_visit_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/anc_visit_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /anc_visit_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/anc_visit_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /anc_visit_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/anc_visit_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /anc_visit_follow_up/patient_age_in_years , if( /anc_visit_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /anc_visit_follow_up/patient_age_in_months  mod 12, if(( /anc_visit_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/anc_visit_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/anc_visit_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/anc_visit_follow_up/patient_name_with_s" type="string" calculate="concat( /anc_visit_follow_up/patient_name , if(regex( /anc_visit_follow_up/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/anc_visit_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/anc_visit_follow_up/current_edd_local" type="string" calculate="format-date-time( /anc_visit_follow_up/inputs/current_edd_std , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/current_pregnancy_age_in_weeks" type="string" calculate="floor((280 - (decimal-date-time( /anc_visit_follow_up/inputs/current_edd_std ) - decimal-date-time(today()))) div 7)"/>
+      <bind nodeset="/anc_visit_follow_up/edd_std" type="string" calculate="if( /anc_visit_follow_up/update_pregnancy/is_gestation_age_correct  = 'no',  /anc_visit_follow_up/update_pregnancy/new_edd ,  /anc_visit_follow_up/inputs/current_edd_std )"/>
+      <bind nodeset="/anc_visit_follow_up/edd_local" type="string" calculate="format-date-time( /anc_visit_follow_up/edd_std , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/pregnancy_ended" type="string" calculate="if(( /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'delivered' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'died'), 'yes', 'no')"/>
+      <bind nodeset="/anc_visit_follow_up/pregnancy_ended_label" type="string" calculate="if( /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'delivered', 'Delivered',
+	if( /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage', 'Miscarried',
+		if( /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion', 'Aborted',
+			if( /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'died', 'Died', ''))))"/>
+      <bind nodeset="/anc_visit_follow_up/nutrition_follow_up_date" type="string" calculate=" /anc_visit_follow_up/group_nutrition_status/next_nutrition_follow_up_date "/>
+      <bind nodeset="/anc_visit_follow_up/referred_for_nutrition_follow_up" type="string" calculate="if(( /anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_nutrition  = 'yes' or  /anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/anc_visit_follow_up/newest_anc_appointment_date" type="string" calculate="instance('contact-summary')/context/newestANCAppointmentDate"/>
+      <bind nodeset="/anc_visit_follow_up/newest_anc_appointment_date_local" type="string" calculate="format-date-time( /anc_visit_follow_up/newest_anc_appointment_date , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/group_follow_up/is_available" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_follow_up/new_follow_up_date" type="date" required="true()" jr:constraintMsg="Date cannot be in the past and not more than 7 in the future" constraint=". &gt; today() and (decimal-date-time(.)-7) &lt;= decimal-date-time(today())" relevant="../is_available = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary" relevant=" /anc_visit_follow_up/group_follow_up/is_available  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary/note_current_weeks_pregnant_label" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary/note_current_weeks_pregnant_value" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary/note_edd_label" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary/note_current_edd_value" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_pregnancy_summary/pregnancy_status" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/is_gestation_age_correct" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'still_pregnant'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/gestation_age_method" type="select1" required="true()" relevant="../is_gestation_age_correct = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/entered_gestation_age_in_weeks" type="int" required="true()" jr:constraintMsg="Must be between 4 to 40 weeks" constraint=". &gt;= 4 and . &lt;= 40" relevant="../gestation_age_method = 'weeks_pregnant'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/estimated_edd" type="string" calculate="format-date-time(date-time(decimal-date-time(today()) + (280 - 7 *  /anc_visit_follow_up/update_pregnancy/entered_gestation_age_in_weeks )),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/entered_edd" type="date" required="true()" jr:constraintMsg="Date cannot be in the past and not more than 40 weeks in the future" constraint=". &gt; today() and (decimal-date-time(.)-280) &lt;= decimal-date-time(today())" relevant="../gestation_age_method = 'edd'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/new_edd" type="string" calculate="if( /anc_visit_follow_up/update_pregnancy/gestation_age_method  = 'weeks_pregnant',  /anc_visit_follow_up/update_pregnancy/estimated_edd ,  /anc_visit_follow_up/update_pregnancy/entered_edd )"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/new_edd_local" type="string" calculate="format-date-time( /anc_visit_follow_up/update_pregnancy/new_edd , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/new_gestation_age_in_weeks" type="string" calculate="if( /anc_visit_follow_up/update_pregnancy/gestation_age_method  = 'weeks_pregnant', /anc_visit_follow_up/update_pregnancy/entered_gestation_age_in_weeks ,floor((280 - (decimal-date-time( /anc_visit_follow_up/update_pregnancy/entered_edd ) - decimal-date-time(today()))) div 7))"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_confirm_new_information" readonly="true()" type="string" relevant="(../entered_gestation_age_in_weeks != '' or ../entered_edd !='') and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_old" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_old_pregnancy_age_label" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_old_pregnancy_age_value" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_old_edd_label" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_old_edd_value" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_new" readonly="true()" type="string" relevant="(../entered_gestation_age_in_weeks != '' or ../entered_edd !='') and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_new_pregnancy_age_label" readonly="true()" type="string" relevant="../entered_gestation_age_in_weeks != '' and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_new_pregnancy_age_value" readonly="true()" type="string" relevant="../entered_gestation_age_in_weeks != '' and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_new_edd_label" readonly="true()" type="string" relevant="../entered_edd !='' and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_new_edd_value" readonly="true()" type="string" relevant="../entered_edd !='' and  /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_refer_for_miscarriage" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/date_of_miscarriage" type="date" jr:constraintMsg="Date cannot be in the future" constraint=". &lt;= today()" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_reported_abortion" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_reported_refused_care" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refused_care'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/refused_care_action" type="select1" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refused_care'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_reported_migrated" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/migrated_action" type="select1" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_submitting_will_end_pregnancy" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_can_still_submit_pregnancy_visits" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refusing_care' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_continue" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refusing_care' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_prev" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'abortion' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refusing_care' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_submit_delivery_report" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'delivered'"/>
+      <bind nodeset="/anc_visit_follow_up/update_pregnancy/note_submit_death_report" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'died'"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'still_pregnant' and  /anc_visit_follow_up/newest_anc_appointment_date_local  != '' and  /anc_visit_follow_up/newest_anc_appointment_date  &lt;= today()"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit" type="select1" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'still_pregnant'"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/anc_visits" type="select" required="true()" relevant="../completed_scheduled_anc_visit = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_1" type="date" required="true()" jr:constraintMsg="Date cant not be in the future" constraint=". &lt;= today()" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_1')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_2" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_1" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_2')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_3" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_2" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_3')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_4" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_3" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_4')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_5" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_4" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_5')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_6" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_5" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_6')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_7" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_6" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_7')"/>
+      <bind nodeset="/anc_visit_follow_up/group_past_anc_visits/date_anc_8" type="date" required="true()" jr:constraintMsg="Date cant not be in the future. It also has to be after the first ANC Visit date." constraint=". &lt;= today() and . &gt; ../date_anc_7" relevant="selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits , 'anc_8')"/>
+      <bind nodeset="/anc_visit_follow_up/group_upcoming_anc_visits" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'still_pregnant' and  /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  != 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_upcoming_anc_visits/anc_appointment_date" type="date" required="false()" jr:constraintMsg="Date can not be in the past" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/group_upcoming_anc_visits/anc_appointment_date_local" type="string" calculate="format-date-time( /anc_visit_follow_up/group_upcoming_anc_visits/anc_appointment_date , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits/why_missed_anc_visit" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits/note_encourage_to_go_for_anc" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits/missed_anc_actions_taken" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits/facility_visit_date_for_missed_anc" type="date" required="true()" jr:constraintMsg="Date can not be in the past" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;)" relevant="../missed_anc_actions_taken = 'referred' or ../missed_anc_actions_taken = 'accompanied_to_facility'"/>
+      <bind nodeset="/anc_visit_follow_up/group_missed_anc_visits/facility_visit_date_for_missed_anc_local" type="string" calculate="format-date-time( /anc_visit_follow_up/group_missed_anc_visits/facility_visit_date_for_missed_anc , &quot;%d/%m/%Y&quot;)"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'still_pregnant'"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/using_llin" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/note_llin_prevents_malaria" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/tested_for_hiv_past3months" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/received_tt_immunization" type="select1" required="true()" relevant="count-selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits ) &gt; 0"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/note_tt_immunization_importance" readonly="true()" type="string" relevant="count-selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits ) &gt; 0"/>
+      <bind nodeset="/anc_visit_follow_up/group_safe_pregnancy_practices/note_tt_vaccination_protocol" readonly="true()" type="string" relevant="count-selected( /anc_visit_follow_up/group_past_anc_visits/anc_visits ) &gt; 0"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_nutrition_status" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up" type="select1" required="true()"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_use_muac_tape" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/taken_muac" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/muac_measurement" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/taken_muac  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_has_sam" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'red'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_has_mam" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'red' or  /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_nutrition" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'red' or  /anc_visit_follow_up/group_nutrition_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/completed_last_nutrition_follow_up" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/next_nutrition_follow_up_date" type="date" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/completed_last_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_thank_you_nutrition_follow_up" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/note_refer_did_not_complete_follow_up" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_nutrition_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" required="true()" relevant=" /anc_visit_follow_up/group_nutrition_status/completed_last_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_anc_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_be_sure_to_submit" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_pregnancy_details" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_edd" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_next_anc_visit_date" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_pregnancy_ended" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_submit_delivery_report" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'delivered'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_death_notification" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'died'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_social_support_for_miscarriage" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'miscarriage'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_findings" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_appreciate_for_attending_anc" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_refer_for_facility_anc" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_not_available" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_follow_up/is_available  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_refused_care" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refusing_care'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_migrated" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up1" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up2" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up3" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_missed_anc_visits/missed_anc_actions_taken  = 'referred' or  /anc_visit_follow_up/group_missed_anc_visits/missed_anc_actions_taken  = 'accompanied_to_facility'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_no_more_follow_ups" readonly="true()" type="string" relevant=" /anc_visit_follow_up/pregnancy_ended  = 'yes'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up_on_agreed_date" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_follow_up/is_available  = 'no'"/>
+      <bind nodeset="/anc_visit_follow_up/group_summary/s_note_follow_up_as_per_schedule" readonly="true()" type="string" relevant=" /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'refusing_care' or  /anc_visit_follow_up/group_pregnancy_summary/pregnancy_status  = 'migrated'"/>
+      <bind nodeset="/anc_visit_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/anc_visit_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/anc_visit_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/anc_visit_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/anc_visit_follow_up/inputs/current_edd_std">
+        <label>Current EDD</label>
+      </input>
+      <group ref="/anc_visit_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/anc_visit_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/anc_visit_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/anc_visit_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/anc_visit_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/anc_visit_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/anc_visit_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_follow_up">
+      <label>Follow Up</label>
+      <select1 ref="/anc_visit_follow_up/group_follow_up/is_available">
+        <label>Is <output value=" /anc_visit_follow_up/patient_name "/> available?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_follow_up/new_follow_up_date">
+        <label>When would you like to follow up <output value=" /anc_visit_follow_up/patient_name "/> again</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_pregnancy_summary">
+      <label>Pregnancy Summary</label>
+      <input ref="/anc_visit_follow_up/group_pregnancy_summary/note_current_weeks_pregnant_label">
+        <label>Current Weeks Pregnant</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_pregnancy_summary/note_current_weeks_pregnant_value">
+        <label><output value=" /anc_visit_follow_up/current_pregnancy_age_in_weeks "/></label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_pregnancy_summary/note_edd_label">
+        <label>Expected Date of Delivery (EDD)</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_pregnancy_summary/note_current_edd_value">
+        <label><output value=" /anc_visit_follow_up/current_edd_local "/></label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_pregnancy_summary/pregnancy_status">
+        <label>Do you want to start this pregnancy visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>still_pregnant</value>
+        </item>
+        <item>
+          <label>Delivered</label>
+          <value>delivered</value>
+        </item>
+        <item>
+          <label>Miscarried</label>
+          <value>miscarriage</value>
+        </item>
+        <item>
+          <label>Aborted</label>
+          <value>abortion</value>
+        </item>
+        <item>
+          <label>Refusing care</label>
+          <value>refusing_care</value>
+        </item>
+        <item>
+          <label>Migrated out of area</label>
+          <value>migrated</value>
+        </item>
+        <item>
+          <label>Woman died</label>
+          <value>died</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/update_pregnancy">
+      <label>Update Pregnancy</label>
+      <select1 ref="/anc_visit_follow_up/update_pregnancy/is_gestation_age_correct">
+        <label>Is the gestational age below correct?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_visit_follow_up/update_pregnancy/gestation_age_method">
+        <label>How would you like to update gestational age?</label>
+        <item>
+          <label>Current weeks pregnant</label>
+          <value>weeks_pregnant</value>
+        </item>
+        <item>
+          <label>EDD</label>
+          <value>edd</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/update_pregnancy/entered_gestation_age_in_weeks">
+        <label>Please enter the new current weeks pregnant.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/entered_edd">
+        <label>Please enter the new EDD.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_confirm_new_information">
+        <label>Please confirm the new information and then click Next.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_old">
+        <label>&lt;b&gt;Old&lt;/b&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_old_pregnancy_age_label">
+        <label>Current Weeks Pregnant</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_old_pregnancy_age_value">
+        <label><output value=" /anc_visit_follow_up/current_pregnancy_age_in_weeks "/> week(s)</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_old_edd_label">
+        <label>EDD</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_old_edd_value">
+        <label><output value=" /anc_visit_follow_up/current_edd_local "/></label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_new">
+        <label>&lt;b&gt;New&lt;/b&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_new_pregnancy_age_label">
+        <label>Current Weeks Pregnant</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_new_pregnancy_age_value">
+        <label><output value=" /anc_visit_follow_up/update_pregnancy/new_gestation_age_in_weeks "/> week(s)</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_new_edd_label">
+        <label>EDD</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_new_edd_value">
+        <label><output value=" /anc_visit_follow_up/update_pregnancy/new_edd_local "/></label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_refer_for_miscarriage">
+        <label>You have reported the woman has had a miscarriage. If she has not been seen by a care provider, please refer to the health facility.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/date_of_miscarriage">
+        <label>Date of miscarriage</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_reported_abortion">
+        <label>You have reported the woman has had an abortion. If she has not been seen by a care provider, please refer to the health facility.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_reported_refused_care">
+        <label>You have reported the woman has refused care.</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/update_pregnancy/refused_care_action">
+        <label>What would you like to do?</label>
+        <item>
+          <label>Clear task for this visit only. Continue to receive tasks for this pregnancy.</label>
+          <value>clear_this_task</value>
+        </item>
+        <item>
+          <label>Do not receive any more tasks about this pregnancy.</label>
+          <value>no_more_tasks</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_reported_migrated">
+        <label>You have reported the woman has moved out of the area.</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/update_pregnancy/migrated_action">
+        <label>What would you like to do?</label>
+        <item>
+          <label>Clear task for this visit only. Continue to receive tasks for this pregnancy.</label>
+          <value>clear_this_task</value>
+        </item>
+        <item>
+          <label>Do not receive any more tasks about this pregnancy.</label>
+          <value>no_more_tasks</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_submitting_will_end_pregnancy">
+        <label>Submitting this form will end the pregnancy. You will not receive any additional tasks.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_can_still_submit_pregnancy_visits">
+        <label>You can still submit pregnancy visits from the profile until the EDD is reached.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_continue">
+        <label>Click Next to continue.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_prev">
+        <label>Click Prev to edit.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_submit_delivery_report">
+        <label>Kindly submit the Delivery Report for this delivery to be recorded</label>
+      </input>
+      <input ref="/anc_visit_follow_up/update_pregnancy/note_submit_death_report">
+        <label>Kindly submit the Death Report for this death to be recorded</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_past_anc_visits">
+      <label>ANC Visits at Health Facility (Past/most recent )</label>
+      <select1 ref="/anc_visit_follow_up/group_past_anc_visits/completed_scheduled_anc_visit">
+        <label>Did the woman complete the health facility ANC visit scheduled for <output value=" /anc_visit_follow_up/newest_anc_appointment_date_local "/>?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select ref="/anc_visit_follow_up/group_past_anc_visits/anc_visits">
+        <label>Which ANC visit (s) do you want to report?</label>
+        <hint>Use the ANC card to fill this section</hint>
+        <item>
+          <label>First ANC visit</label>
+          <value>anc_1</value>
+        </item>
+        <item>
+          <label>Second ANC visit</label>
+          <value>anc_2</value>
+        </item>
+        <item>
+          <label>Third ANC visit</label>
+          <value>anc_3</value>
+        </item>
+        <item>
+          <label>Fourth ANC visit</label>
+          <value>anc_4</value>
+        </item>
+        <item>
+          <label>Fifth ANC visit</label>
+          <value>anc_5</value>
+        </item>
+        <item>
+          <label>Sixth ANC visit</label>
+          <value>anc_6</value>
+        </item>
+        <item>
+          <label>Seventh ANC visit</label>
+          <value>anc_7</value>
+        </item>
+        <item>
+          <label>Eighth ANC visit</label>
+          <value>anc_8</value>
+        </item>
+        <item>
+          <label>More than eight ANC visits</label>
+          <value>anc_gt_8</value>
+        </item>
+      </select>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_1">
+        <label>Date of First ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_2">
+        <label>Date of Second ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_3">
+        <label>Date of Third ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_4">
+        <label>Date of Fourth ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_5">
+        <label>Date of Fifth ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_6">
+        <label>Date of Sixth ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_7">
+        <label>Date of Seventh ANC visit</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_past_anc_visits/date_anc_8">
+        <label>Date of Eighth ANC visit</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_upcoming_anc_visits">
+      <label>ANC Visits at Health Facility (Upcoming)</label>
+      <input ref="/anc_visit_follow_up/group_upcoming_anc_visits/anc_appointment_date">
+        <label>If the woman has a specific upcoming ANC appointment date, enter it here. You will receive a task to remind her to attend.</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_missed_anc_visits">
+      <label>Missed ANC visit details</label>
+      <select1 ref="/anc_visit_follow_up/group_missed_anc_visits/why_missed_anc_visit">
+        <label>Why did the <output value=" /anc_visit_follow_up/patient_name "/> NOT go for the ANC visit?</label>
+        <item>
+          <label>She wasn't reminded</label>
+          <value>was_not_reminded</value>
+        </item>
+        <item>
+          <label>Had traveled</label>
+          <value>had_traveled</value>
+        </item>
+        <item>
+          <label>Feels its too early to start clinic</label>
+          <value>too_early_start_clinic</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_missed_anc_visits/note_encourage_to_go_for_anc">
+        <label>Encourage <output value=" /anc_visit_follow_up/patient_name "/> to go for her ANC clinics in order to ensure that she and her baby are healthy and to plan for her delivery.</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_missed_anc_visits/missed_anc_actions_taken">
+        <label>What action have you taken with <output value=" /anc_visit_follow_up/patient_name "/> to ensure she goes for the missed ANC visit?</label>
+        <item>
+          <label>Referred the mother</label>
+          <value>referred</value>
+        </item>
+        <item>
+          <label>Provided key health message</label>
+          <value>provided_key_health_message</value>
+        </item>
+        <item>
+          <label>Accompany the mother to the facility</label>
+          <value>accompanied_to_facility</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_missed_anc_visits/facility_visit_date_for_missed_anc">
+        <label>Date when <output value=" /anc_visit_follow_up/patient_name "/> will go to the health facility</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_safe_pregnancy_practices">
+      <label>Safe Pregnancy Practices</label>
+      <select1 ref="/anc_visit_follow_up/group_safe_pregnancy_practices/using_llin">
+        <label>Does the woman use a long-lasting insecticidal net (LLIN)?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_safe_pregnancy_practices/note_llin_prevents_malaria">
+        <label>Sleeping under a LLIN EVERY night prevents malaria.</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_safe_pregnancy_practices/tested_for_hiv_past3months">
+        <label>Has the woman been tested for HIV in the past 3 months?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_visit_follow_up/group_safe_pregnancy_practices/received_tt_immunization">
+        <label>Has the woman received any Tetanus Toxoid (TT) immunizations during this pregnancy?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_safe_pregnancy_practices/note_tt_immunization_importance">
+        <label>Immunizing with at least two doses of tetanus toxoid before or during pregnancy protects the newborn for the first few weeks of life and protects the mother.</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_safe_pregnancy_practices/note_tt_vaccination_protocol">
+        <label>Women can receive up to two TT vaccines per pregnancy. After five TT vaccines, they are vaccinated for life.</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/anc_visit_follow_up/group_nutrition_status">
+      <label>Nutrition Status</label>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_nutrition_status">
+        <label>It is important to ensure that all pregnant women in your area have optimal nutrition status. This is assessed by using a MUAC tape</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/on_nutrition_follow_up">
+        <label>Is <output value=" /anc_visit_follow_up/patient_name "/> on nutrition follow up?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_use_muac_tape">
+        <label>Use your MUAC tape to take the woman's MUAC</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/taken_muac">
+        <label>Have you taken <output value=" /anc_visit_follow_up/patient_name "/> MUAC?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/muac_measurement">
+        <label>What is the colour and measurement of the MUAC tape?</label>
+        <item>
+          <label>Red (&lt;19.0 cm)</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Yellow (≥19.0cm but &lt;23.0cm)</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Green (≥23cm)</label>
+          <value>green</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_has_sam">
+        <label>Woman has Severe Acute Malnutrition (SAM)</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_has_mam">
+        <label>Woman has Moderate Acute Malnutrition (MAM)</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_refer_to_health_facility">
+        <label>Refer <output value=" /anc_visit_follow_up/patient_name "/> to the health facility for further management</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_nutrition">
+        <label>Have you referred <output value=" /anc_visit_follow_up/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/completed_last_nutrition_follow_up">
+        <label>Did <output value=" /anc_visit_follow_up/patient_name "/> complete the last follow up visit?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/next_nutrition_follow_up_date">
+        <label>Date of next appointment</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_thank_you_nutrition_follow_up">
+        <label>Thank you. Tasks for nutrition follow up will be sent when due</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_nutrition_status/note_refer_did_not_complete_follow_up">
+        <label>Refer <output value=" /anc_visit_follow_up/patient_name "/> to the health facility</label>
+      </input>
+      <select1 ref="/anc_visit_follow_up/group_nutrition_status/referred_to_health_facility_missed_nutrition_follow_up">
+        <label>Have you referred <output value=" /anc_visit_follow_up/patient_name "/> to the health facility</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list summary" ref="/anc_visit_follow_up/group_summary">
+      <label>Results/Summary Page</label>
+      <input appearance="h1 red" ref="/anc_visit_follow_up/group_summary/s_note_anc_follow_up">
+        <label>ANC Visit Follow Up</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_be_sure_to_submit">
+        <label>Be sure you submit to complete this action</label>
+      </input>
+      <input appearance="h1 yellow" ref="/anc_visit_follow_up/group_summary/s_note_pregnancy_details">
+        <label>Pregnancy Details</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_patient_details">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /anc_visit_follow_up/patient_name "/>
+<output value=" /anc_visit_follow_up/patient_age_in_years "/> years
+&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_edd">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Estimated Date of Delivery: <output value=" /anc_visit_follow_up/edd_local "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_next_anc_visit_date">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Next ANC Visit is on <output value=" /anc_visit_follow_up/group_upcoming_anc_visits/anc_appointment_date_local "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_pregnancy_ended">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;<output value=" /anc_visit_follow_up/pregnancy_ended_label "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_submit_delivery_report">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Kindly submit the Delivery Report for <output value=" /anc_visit_follow_up/patient_name_with_s "/> delivery to be recorded&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_death_notification">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Kindly notify the nurse at the facility about the death of <output value=" /anc_visit_follow_up/patient_name "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_social_support_for_miscarriage">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Ensure <output value=" /anc_visit_follow_up/patient_name "/> has the social support she needs following the miscarriage&lt;/p&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/anc_visit_follow_up/group_summary/s_note_findings">
+        <label>Findings</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_appreciate_for_attending_anc">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Appreciate <output value=" /anc_visit_follow_up/patient_name "/> for attending her ANCs&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_refer_for_facility_anc">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;ANC visit not attended
+Refer <output value=" /anc_visit_follow_up/patient_name "/> for facility ANC immediately for a her and her baby's health check up&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_not_available">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;<output value=" /anc_visit_follow_up/patient_name "/> Not available for follow up&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_refused_care">
+        <label>&lt;p style="text-align:center;"&gt;Refused care&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_migrated">
+        <label>&lt;p style="text-align:center;"&gt;Migrated&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/anc_visit_follow_up/group_summary/s_note_follow_up">
+        <label>Follow Up</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_follow_up1">
+        <label>&lt;p style="text-align:center;"&gt;Task will appear when follow up is needed&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_follow_up2">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Thank you for conducting this pregnancy follow up of <output value=" /anc_visit_follow_up/patient_name "/>. Please tap on submit to complete this form.&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_follow_up3">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;The next Pregnancy follow up will be on: <output value=" /anc_visit_follow_up/group_missed_anc_visits/facility_visit_date_for_missed_anc_local "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_no_more_follow_ups">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;There will be no more follow ups for <output value=" /anc_visit_follow_up/patient_name "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_follow_up_on_agreed_date">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Follow up task for <output value=" /anc_visit_follow_up/patient_name "/> will appear on the agreed date&lt;/p&gt;</label>
+      </input>
+      <input ref="/anc_visit_follow_up/group_summary/s_note_follow_up_as_per_schedule">
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;Follow up task for <output value=" /anc_visit_follow_up/patient_name "/> will appear as per the schedule&lt;/p&gt;</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

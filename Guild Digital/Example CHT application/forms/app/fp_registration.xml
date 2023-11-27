@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Family Planning Registration</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/fp_registration/fp_registration/can_supply_fp_commodities/no:label">
+            <value>No</value>
+          </text>
+          <text id="/fp_registration/fp_registration/can_supply_fp_commodities/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/fp_registration/fp_registration/can_supply_fp_commodities:label">
+            <value>Are you able to supply FP commodities to <output value=" /fp_registration/patient_name "/> now?</value>
+          </text>
+          <text id="/fp_registration/fp_registration/commodities_supplied_qty:label">
+            <value>Quantity supplied</value>
+          </text>
+          <text id="/fp_registration/fp_registration/continue_current_fp_method/no:label">
+            <value>No</value>
+          </text>
+          <text id="/fp_registration/fp_registration/continue_current_fp_method/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/fp_registration/fp_registration/continue_current_fp_method:label">
+            <value>Does she accept to continue with the current FP method?</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/combined_oral_contraceptives:label">
+            <value>Combined Oral Contraceptive Pills- COCs</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/condoms:label">
+            <value>Condoms</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/dmpa_im:label">
+            <value>DMPA-IM</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/dmpa_sc:label">
+            <value>DMPA-SC (for e.g. Sayana Press)</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/implant:label">
+            <value>Implants</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/iud:label">
+            <value>Intrauterine Device (IUD)</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/none:label">
+            <value>None</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/progestreone_only_pills:label">
+            <value>Progesterone Only Pills (POPs)</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method/tubal_ligation:label">
+            <value>Tubal Ligation</value>
+          </text>
+          <text id="/fp_registration/fp_registration/fp_method:label">
+            <value>Which method is <output value=" /fp_registration/patient_name "/> using?</value>
+          </text>
+          <text id="/fp_registration/fp_registration/n_fp_referral_note:label">
+            <value>_Refer <output value=" /fp_registration/patient_name "/> for initiation of a new family planning method at the health facility._</value>
+          </text>
+          <text id="/fp_registration/fp_registration/next_appt_date:jr:constraintMsg">
+            <value>Date cannot be in the past!</value>
+          </text>
+          <text id="/fp_registration/fp_registration/next_appt_date:label">
+            <value>Date for next family planning method appointment</value>
+          </text>
+          <text id="/fp_registration/fp_registration/patient_referred/no:label">
+            <value>No</value>
+          </text>
+          <text id="/fp_registration/fp_registration/patient_referred/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/fp_registration/fp_registration/patient_referred:label">
+            <value>Have you referred <output value=" /fp_registration/patient_name "/> the to the health facility?</value>
+          </text>
+          <text id="/fp_registration/fp_registration:label">
+            <value>FP Registration</value>
+          </text>
+          <text id="/fp_registration/group_review/n_findings_title:label">
+            <value>Summary</value>
+          </text>
+          <text id="/fp_registration/group_review/n_follow_up:label">
+            <value>&lt;p style=&quot;text-align:center;&quot;&gt;Family Planning follow up is due on <output value=" /fp_registration/fp_registration/format_next_appt_date "/>&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_registration/group_review/n_follow_up_title:label">
+            <value>Follow Up</value>
+          </text>
+          <text id="/fp_registration/group_review/n_fp_method:label">
+            <value>&lt;p style=&quot;text-align:center;&quot;&gt;She is on <output value=" /fp_registration/current_fp_method_label "/>&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_registration/group_review/n_patient_details:label">
+            <value>&lt;p style=&quot;text-align:center;&quot;&gt;
+<output value=" /fp_registration/patient_name "/>
+<output value=" /fp_registration/age "/> years
+&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_registration/group_review/n_patient_details_title:label">
+            <value>Patient Details</value>
+          </text>
+          <text id="/fp_registration/group_review/n_submit:label">
+            <value>&lt;p style="text-align:center;"&gt;Be sure you submit to complete this action&lt;/p&gt;</value>
+          </text>
+          <text id="/fp_registration/group_review/n_summary_title:label">
+            <value>Family Planning Registration</value>
+          </text>
+          <text id="/fp_registration/group_review/n_thank_you:label">
+            <value>_Thank you <output value=" /fp_registration/chw_name "/> for assessing <output value=" /fp_registration/patient_name "/>. Please tap on submit to complete this form._</value>
+          </text>
+          <text id="/fp_registration/group_review:label">
+            <value>Summary</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/_id:label">
+            <value>id</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/name:label">
+            <value>Household Name</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/_id:label">
+            <value>CHW Area Id</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/parent/_id:label">
+            <value>Branch ID</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent/supervisor:label">
+            <value>Supervisor</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent/parent:label">
+            <value>Contact</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/fp_registration/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/fp_registration/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/fp_registration/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/fp_registration/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/fp_registration/inputs:label">
+            <value>Patient</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <fp_registration id="fp_registration" prefix="J1!fp_registration!" delimiter="#" version="2021-08-25 00:00:00">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <name/>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                  <_id/>
+                  <supervisor/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <source/>
+          <source_id/>
+          <patient_uuid/>
+          <patient_id/>
+          <patient_name/>
+          <patient_date_of_birth/>
+          <patient_age_in_years/>
+          <age/>
+          <date_of_birth/>
+          <chw_name/>
+          <chw_phone/>
+          <current_fp_method_label/>
+          <chw_area_id/>
+          <supervisor_id/>
+          <branch_id/>
+          <fp_next_appt_date/>
+          <coc_given/>
+          <condoms_given/>
+          <pop_given/>
+          <needs_method_change/>
+          <fp_registration>
+            <fp_method/>
+            <continue_current_fp_method/>
+            <n_fp_referral_note/>
+            <patient_referred/>
+            <can_supply_fp_commodities/>
+            <commodities_supplied_qty/>
+            <next_appt_date/>
+            <format_next_appt_date/>
+          </fp_registration>
+          <group_review>
+            <n_summary_title/>
+            <n_submit/>
+            <n_patient_details_title/>
+            <n_patient_details/>
+            <n_findings_title/>
+            <n_fp_method/>
+            <n_follow_up_title/>
+            <n_follow_up/>
+            <n_thank_you/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </fp_registration>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/fp_registration/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_registration/inputs/source" type="string"/>
+      <bind nodeset="/fp_registration/inputs/source_id" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/_id" type="db:person" constraint="db-object"/>
+      <bind nodeset="/fp_registration/inputs/contact/name" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/sex" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/name" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/parent/supervisor" type="string"/>
+      <bind nodeset="/fp_registration/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/fp_registration/source" type="string" calculate="../inputs/source"/>
+      <bind nodeset="/fp_registration/source_id" type="string" calculate="../inputs/source_id"/>
+      <bind nodeset="/fp_registration/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/fp_registration/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/fp_registration/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/fp_registration/patient_date_of_birth" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/fp_registration/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /fp_registration/patient_date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/fp_registration/age" type="string" calculate="../patient_age_in_years"/>
+      <bind nodeset="/fp_registration/date_of_birth" type="string" calculate="../inputs/contact/date_of_birth"/>
+      <bind nodeset="/fp_registration/chw_name" type="string" calculate="../inputs/contact/parent/parent/contact/name"/>
+      <bind nodeset="/fp_registration/chw_phone" type="string" calculate="../inputs/contact/parent/parent/contact/phone"/>
+      <bind nodeset="/fp_registration/current_fp_method_label" type="string" calculate="jr:choice-name( /fp_registration/fp_registration/fp_method , ' /fp_registration/fp_registration/fp_method ')"/>
+      <bind nodeset="/fp_registration/chw_area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/fp_registration/supervisor_id" type="string" calculate="../inputs/contact/parent/parent/supervisor"/>
+      <bind nodeset="/fp_registration/branch_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/fp_registration/fp_next_appt_date" type="string" calculate=" /fp_registration/fp_registration/next_appt_date "/>
+      <bind nodeset="/fp_registration/coc_given" type="string" calculate="if(( /fp_registration/fp_registration/fp_method  = 'combined_oral_contraceptives' and  /fp_registration/fp_registration/can_supply_fp_commodities  = 'yes'),  /fp_registration/fp_registration/commodities_supplied_qty , 0)"/>
+      <bind nodeset="/fp_registration/condoms_given" type="string" calculate="if(( /fp_registration/fp_registration/fp_method  = 'condoms' and  /fp_registration/fp_registration/can_supply_fp_commodities  = 'yes'),  /fp_registration/fp_registration/commodities_supplied_qty , 0)"/>
+      <bind nodeset="/fp_registration/pop_given" type="string" calculate="if(( /fp_registration/fp_registration/fp_method  = 'progestreone_only_pills' and  /fp_registration/fp_registration/can_supply_fp_commodities  = 'yes'),  /fp_registration/fp_registration/commodities_supplied_qty , 0)"/>
+      <bind nodeset="/fp_registration/needs_method_change" type="string" calculate=" /fp_registration/fp_registration/continue_current_fp_method ='no'"/>
+      <bind nodeset="/fp_registration/fp_registration/fp_method" type="select1" required="true()"/>
+      <bind nodeset="/fp_registration/fp_registration/continue_current_fp_method" type="select1" required="true()" relevant="count-selected(../fp_method) &gt; 0 and not(selected(../fp_method, 'tubal_ligation')) and not(selected(../fp_method, 'none'))"/>
+      <bind nodeset="/fp_registration/fp_registration/n_fp_referral_note" readonly="true()" type="string" relevant="selected(../continue_current_fp_method, 'no') or selected(../fp_method, 'none')"/>
+      <bind nodeset="/fp_registration/fp_registration/patient_referred" type="select1" required="true()" relevant="selected(../continue_current_fp_method, 'no') or selected(../fp_method, 'none')"/>
+      <bind nodeset="/fp_registration/fp_registration/can_supply_fp_commodities" type="select1" required="true()" relevant="selected(../continue_current_fp_method, 'yes') and (selected(../fp_method,'combined_oral_contraceptives') or selected(../fp_method, 'progestreone_only_pills') or selected(../fp_method,'condoms'))"/>
+      <bind nodeset="/fp_registration/fp_registration/commodities_supplied_qty" type="int" required="true()" relevant="selected(../can_supply_fp_commodities, 'yes')"/>
+      <bind nodeset="/fp_registration/fp_registration/next_appt_date" type="date" required="true()" relevant="selected(../continue_current_fp_method, 'yes') and not(selected(../fp_method, 'tubal_ligation'))" constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" jr:constraintMsg="jr:itext('/fp_registration/fp_registration/next_appt_date:jr:constraintMsg')"/>
+      <bind nodeset="/fp_registration/fp_registration/format_next_appt_date" type="string" calculate="format-date-time( /fp_registration/fp_registration/next_appt_date , &quot;%d-%m-%Y&quot;)"/>
+      <bind nodeset="/fp_registration/group_review/n_summary_title" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_submit" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_patient_details_title" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_findings_title" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_fp_method" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/group_review/n_follow_up_title" readonly="true()" type="string" relevant=" /fp_registration/fp_registration/next_appt_date  != ''"/>
+      <bind nodeset="/fp_registration/group_review/n_follow_up" readonly="true()" type="string" relevant=" /fp_registration/fp_registration/next_appt_date  != ''"/>
+      <bind nodeset="/fp_registration/group_review/n_thank_you" readonly="true()" type="string"/>
+      <bind nodeset="/fp_registration/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/fp_registration/inputs">
+      <label ref="jr:itext('/fp_registration/inputs:label')"/>
+      <group ref="/fp_registration/inputs/contact">
+        <label ref="jr:itext('/fp_registration/inputs/contact:label')"/>
+        <input ref="/fp_registration/inputs/contact/_id">
+          <label ref="jr:itext('/fp_registration/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/fp_registration/inputs/contact/parent">
+          <label ref="jr:itext('/fp_registration/inputs/contact/parent:label')"/>
+          <input appearance="hidden" ref="/fp_registration/inputs/contact/parent/_id">
+            <label ref="jr:itext('/fp_registration/inputs/contact/parent/_id:label')"/>
+          </input>
+          <input ref="/fp_registration/inputs/contact/parent/name">
+            <label ref="jr:itext('/fp_registration/inputs/contact/parent/name:label')"/>
+          </input>
+          <group ref="/fp_registration/inputs/contact/parent/parent">
+            <label ref="jr:itext('/fp_registration/inputs/contact/parent/parent:label')"/>
+            <group ref="/fp_registration/inputs/contact/parent/parent/contact"/>
+            <input appearance="hidden" ref="/fp_registration/inputs/contact/parent/parent/_id">
+              <label ref="jr:itext('/fp_registration/inputs/contact/parent/parent/_id:label')"/>
+            </input>
+            <input ref="/fp_registration/inputs/contact/parent/parent/supervisor">
+              <label ref="jr:itext('/fp_registration/inputs/contact/parent/parent/supervisor:label')"/>
+            </input>
+            <group ref="/fp_registration/inputs/contact/parent/parent/parent">
+              <label ref="jr:itext('/fp_registration/inputs/contact/parent/parent/parent:label')"/>
+              <input ref="/fp_registration/inputs/contact/parent/parent/parent/_id">
+                <label ref="jr:itext('/fp_registration/inputs/contact/parent/parent/parent/_id:label')"/>
+              </input>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/fp_registration/fp_registration">
+      <label ref="jr:itext('/fp_registration/fp_registration:label')"/>
+      <select1 ref="/fp_registration/fp_registration/fp_method">
+        <label ref="jr:itext('/fp_registration/fp_registration/fp_method:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/combined_oral_contraceptives:label')"/>
+          <value>combined_oral_contraceptives</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/progestreone_only_pills:label')"/>
+          <value>progestreone_only_pills</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/dmpa_im:label')"/>
+          <value>dmpa_im</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/dmpa_sc:label')"/>
+          <value>dmpa_sc</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/implant:label')"/>
+          <value>implant</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/iud:label')"/>
+          <value>iud</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/condoms:label')"/>
+          <value>condoms</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/tubal_ligation:label')"/>
+          <value>tubal_ligation</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/fp_method/none:label')"/>
+          <value>none</value>
+        </item>
+      </select1>
+      <select1 ref="/fp_registration/fp_registration/continue_current_fp_method">
+        <label ref="jr:itext('/fp_registration/fp_registration/continue_current_fp_method:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/continue_current_fp_method/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/continue_current_fp_method/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/fp_registration/fp_registration/n_fp_referral_note">
+        <label ref="jr:itext('/fp_registration/fp_registration/n_fp_referral_note:label')"/>
+      </input>
+      <select1 ref="/fp_registration/fp_registration/patient_referred">
+        <label ref="jr:itext('/fp_registration/fp_registration/patient_referred:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/patient_referred/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/patient_referred/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/fp_registration/fp_registration/can_supply_fp_commodities">
+        <label ref="jr:itext('/fp_registration/fp_registration/can_supply_fp_commodities:label')"/>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/can_supply_fp_commodities/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/fp_registration/fp_registration/can_supply_fp_commodities/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/fp_registration/fp_registration/commodities_supplied_qty">
+        <label ref="jr:itext('/fp_registration/fp_registration/commodities_supplied_qty:label')"/>
+      </input>
+      <input ref="/fp_registration/fp_registration/next_appt_date">
+        <label ref="jr:itext('/fp_registration/fp_registration/next_appt_date:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/fp_registration/group_review">
+      <label ref="jr:itext('/fp_registration/group_review:label')"/>
+      <input appearance="h1 red" ref="/fp_registration/group_review/n_summary_title">
+        <label ref="jr:itext('/fp_registration/group_review/n_summary_title:label')"/>
+      </input>
+      <input ref="/fp_registration/group_review/n_submit">
+        <label ref="jr:itext('/fp_registration/group_review/n_submit:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/fp_registration/group_review/n_patient_details_title">
+        <label ref="jr:itext('/fp_registration/group_review/n_patient_details_title:label')"/>
+      </input>
+      <input ref="/fp_registration/group_review/n_patient_details">
+        <label ref="jr:itext('/fp_registration/group_review/n_patient_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/fp_registration/group_review/n_findings_title">
+        <label ref="jr:itext('/fp_registration/group_review/n_findings_title:label')"/>
+      </input>
+      <input ref="/fp_registration/group_review/n_fp_method">
+        <label ref="jr:itext('/fp_registration/group_review/n_fp_method:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/fp_registration/group_review/n_follow_up_title">
+        <label ref="jr:itext('/fp_registration/group_review/n_follow_up_title:label')"/>
+      </input>
+      <input ref="/fp_registration/group_review/n_follow_up">
+        <label ref="jr:itext('/fp_registration/group_review/n_follow_up:label')"/>
+      </input>
+      <input ref="/fp_registration/group_review/n_thank_you">
+        <label ref="jr:itext('/fp_registration/group_review/n_thank_you:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

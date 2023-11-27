@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Treatment follow up</h:title>
+    <model>
+      <instance>
+        <treatment_follow_up id="treatment_follow_up" prefix="J1!treatment_follow_up!" delimiter="#" version="2022-03-19 19:44:41">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <latest_referral_status>no</latest_referral_status>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <referral_follow_up/>
+          <trigger_referral_follow_up/>
+          <group_danger_signs>
+            <follow_up_date/>
+            <follow_up_method/>
+            <note_look_for_danger_signs/>
+            <any_danger_signs/>
+            <note_refer_urgently/>
+            <child_referred/>
+          </group_danger_signs>
+          <group_follow_up>
+            <how_is_child/>
+            <note_if_better/>
+            <child_referred/>
+            <note_refer_to_health_facility/>
+            <note_cured/>
+          </group_follow_up>
+          <group_key_health_messages>
+            <feeding_advice/>
+          </group_key_health_messages>
+          <group_patient_summary>
+            <s_note_patient_assessment/>
+            <s_note_before_submit/>
+            <s_note_patient_details/>
+            <s_note_patient_details_values/>
+            <s_condition_of_child/>
+            <s_note_has_danger_signs/>
+            <s_note_danger_sign0/>
+            <s_note_danger_sign1/>
+            <s_note_danger_sign2/>
+            <s_note_danger_sign3/>
+            <s_note_danger_sign4/>
+            <s_note_danger_sign5/>
+            <s_note_danger_sign6/>
+            <s_note_danger_sign7/>
+            <s_note_danger_sign8/>
+            <s_note_danger_sign9/>
+            <s_note_danger_sign10/>
+            <s_note_danger_sign11/>
+            <s_note_how_is_child0/>
+            <s_note_how_is_child1/>
+            <s_note_how_is_child2/>
+            <s_note_referral/>
+            <s_note_followup/>
+            <s_note_followup_task/>
+          </group_patient_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </treatment_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/treatment_follow_up/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/treatment_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/latest_referral_status" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be under 5 years old" constraint=" /treatment_follow_up/patient_age_in_years  &lt;= 5" required="true()"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/name" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/sex" type="string"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/treatment_follow_up/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /treatment_follow_up/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/treatment_follow_up/patient_age_in_months" type="string" calculate="difference-in-months(  /treatment_follow_up/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/treatment_follow_up/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /treatment_follow_up/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/treatment_follow_up/patient_age_display" type="string" calculate="concat(
+ concat( /treatment_follow_up/patient_age_in_years , if( /treatment_follow_up/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /treatment_follow_up/patient_age_in_months  mod 12, if(( /treatment_follow_up/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/treatment_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/treatment_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/treatment_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/treatment_follow_up/referral_follow_up" type="string" calculate="if(not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) or  /treatment_follow_up/group_follow_up/how_is_child ='not_better', 'yes', 'no')"/>
+      <bind nodeset="/treatment_follow_up/trigger_referral_follow_up" type="string" calculate="if( /treatment_follow_up/referral_follow_up ='yes' and  /treatment_follow_up/inputs/latest_referral_status ='no','yes','no')"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/follow_up_date" type="date" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/follow_up_method" type="select1" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/note_look_for_danger_signs" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/any_danger_signs" type="select" jr:constraintMsg="'None' can not be selected in combination with other options" constraint="not(selected(., 'none') and count-selected(.) &gt;=2)" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/note_refer_urgently" readonly="true()" type="string" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) and count-selected( /treatment_follow_up/group_danger_signs/any_danger_signs ) &gt;=1"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/child_referred" type="select1" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) and count-selected( /treatment_follow_up/group_danger_signs/any_danger_signs ) &gt;=1" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/how_is_child" type="select1" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/note_if_better" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='is_better'"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/child_referred" type="select1" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/note_cured" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='cured'"/>
+      <bind nodeset="/treatment_follow_up/group_key_health_messages/feeding_advice" type="select" required="false()"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_patient_assessment" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_before_submit" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_patient_details_values" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_condition_of_child" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_has_danger_signs" readonly="true()" type="string" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none'))"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign0" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'convulsions')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign1" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'vomits_everything')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign2" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'fast_breathing')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign3" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'very_sleepy')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign4" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'yellow_eyes_palms')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign5" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'chest_indrawing')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign6" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'cough')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign7" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'unable_to_drink_breastfeed')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign8" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'infected_umbilical_chord')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign9" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'low_temperature')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign10" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'fever_more_than7days')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_danger_sign11" readonly="true()" type="string" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'muac_red_yellow')"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_how_is_child0" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='is_better'"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_how_is_child1" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_how_is_child2" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='cured'"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_referral" readonly="true()" type="string" relevant=" /treatment_follow_up/referral_follow_up  = 'yes'"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_followup" readonly="true()" type="string" relevant=" /treatment_follow_up/referral_follow_up  = 'no'"/>
+      <bind nodeset="/treatment_follow_up/group_patient_summary/s_note_followup_task" readonly="true()" type="string" relevant=" /treatment_follow_up/referral_follow_up  = 'no'"/>
+      <bind nodeset="/treatment_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/treatment_follow_up/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/treatment_follow_up/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/treatment_follow_up/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <input appearance="hidden" ref="/treatment_follow_up/inputs/latest_referral_status">
+        <label>Latest Referral Status</label>
+      </input>
+      <group ref="/treatment_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/treatment_follow_up/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/treatment_follow_up/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/treatment_follow_up/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/treatment_follow_up/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/treatment_follow_up/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/treatment_follow_up/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/treatment_follow_up/group_danger_signs">
+      <label>Danger Signs</label>
+      <input ref="/treatment_follow_up/group_danger_signs/follow_up_date">
+        <label>Date of the treatment follow up</label>
+      </input>
+      <select1 ref="/treatment_follow_up/group_danger_signs/follow_up_method">
+        <label>How are you following up?</label>
+        <item>
+          <label>In person</label>
+          <value>in_person</value>
+        </item>
+        <item>
+          <label>By phone</label>
+          <value>by_phone</value>
+        </item>
+      </select1>
+      <input ref="/treatment_follow_up/group_danger_signs/note_look_for_danger_signs">
+        <label>After greeting the patient, ask and look for danger signs</label>
+      </input>
+      <select ref="/treatment_follow_up/group_danger_signs/any_danger_signs">
+        <label>Does <output value=" /treatment_follow_up/patient_name "/> have any danger signs</label>
+        <item>
+          <label>Convulsions</label>
+          <value>convulsions</value>
+        </item>
+        <item>
+          <label>Vomits everything</label>
+          <value>vomits_everything</value>
+        </item>
+        <item>
+          <label>Fast breathing</label>
+          <value>fast_breathing</value>
+        </item>
+        <item>
+          <label>Very sleepy or unconscious/No movement</label>
+          <value>very_sleepy</value>
+        </item>
+        <item>
+          <label>Yellow eyes or palms</label>
+          <value>yellow_eyes_palms</value>
+        </item>
+        <item>
+          <label>Chest In-drawing</label>
+          <value>chest_indrawing</value>
+        </item>
+        <item>
+          <label>Unable to drink &amp; breastfeed</label>
+          <value>unable_to_drink_breastfeed</value>
+        </item>
+        <item>
+          <label>Cough</label>
+          <value>cough</value>
+        </item>
+        <item>
+          <label>Infected umbilical chord</label>
+          <value>infected_umbilical_chord</value>
+        </item>
+        <item>
+          <label>No fever or low temperature (Cold feet &amp; Hands)</label>
+          <value>low_temperature</value>
+        </item>
+        <item>
+          <label>Fever for more than 7 days</label>
+          <value>fever_more_than7days</value>
+        </item>
+        <item>
+          <label>MUAC Red or Yellow</label>
+          <value>muac_red_yellow</value>
+        </item>
+        <item>
+          <label>None</label>
+          <value>none</value>
+        </item>
+      </select>
+      <input ref="/treatment_follow_up/group_danger_signs/note_refer_urgently">
+        <label>Refer URGENTLY to health facility</label>
+      </input>
+      <select1 ref="/treatment_follow_up/group_danger_signs/child_referred">
+        <label>Have you referred the child to the nearest Health Facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/treatment_follow_up/group_follow_up">
+      <label>Follow up</label>
+      <select1 ref="/treatment_follow_up/group_follow_up/how_is_child">
+        <label>How is the child doing?</label>
+        <item>
+          <label>Is better (Improving)</label>
+          <value>is_better</value>
+        </item>
+        <item>
+          <label>Not better</label>
+          <value>not_better</value>
+        </item>
+        <item>
+          <label>Cured</label>
+          <value>cured</value>
+        </item>
+      </select1>
+      <input ref="/treatment_follow_up/group_follow_up/note_if_better">
+        <label>Check if the caregiver is giving the medicine correctly&lt;/br&gt;Continue treating at home, advice caregiver to continue giving the medicine as recommended</label>
+      </input>
+      <select1 ref="/treatment_follow_up/group_follow_up/child_referred">
+        <label>Have you referred the child to the nearest Health Facility?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/treatment_follow_up/group_follow_up/note_refer_to_health_facility">
+        <label>Refer URGENTLY to health facility</label>
+      </input>
+      <input ref="/treatment_follow_up/group_follow_up/note_cured">
+        <label>Advice the caregiver to ensure that the child completes all the doses that the child was given</label>
+        <hint>Follow ups should be on day 1, 3 and 7 for all U5 children from the time the child visited the Health Facility</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/treatment_follow_up/group_key_health_messages">
+      <label>Key Health Messages</label>
+      <select ref="/treatment_follow_up/group_key_health_messages/feeding_advice">
+        <label>Advice the caregiver on feeding the sick child</label>
+        <hint>Select key message given</hint>
+        <item>
+          <label>Give more liquids, such as porridge, soup, and natural fruit juices. If child is breastfeeding continue breastfeeding</label>
+          <value>give_more_liquids</value>
+        </item>
+        <item>
+          <label>Give soft foods, offer small amounts of food frequently.</label>
+          <value>give_soft_foods</value>
+        </item>
+        <item>
+          <label>Actively encourage the child to eat as much as he/she is willing.</label>
+          <value>encourage_child2eat</value>
+        </item>
+        <item>
+          <label>Speed recovery and growth with more and varied foods, especially extra snacks.</label>
+          <value>varied_foods</value>
+        </item>
+      </select>
+    </group>
+    <group appearance="field-list summary" ref="/treatment_follow_up/group_patient_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/treatment_follow_up/group_patient_summary/s_note_patient_assessment">
+        <label>&lt;h1 style="text-align:center;"&gt;Patient Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_before_submit">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/treatment_follow_up/group_patient_summary/s_note_patient_details">
+        <label>Patient Details</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_patient_details_values">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /treatment_follow_up/patient_name "/>&lt;/h4&gt;
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /treatment_follow_up/patient_gender "/>&lt;/h5&gt; 
+&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /treatment_follow_up/patient_age_display "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/treatment_follow_up/group_patient_summary/s_condition_of_child">
+        <label>Condition of Child</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_has_danger_signs">
+        <label>Has these Danger signs:</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign0">
+        <label>Convulsions</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign1">
+        <label>Vomits everything</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign2">
+        <label>Fast breathing</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign3">
+        <label>Very sleepy or unconscious/No movement</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign4">
+        <label>Yellow eyes or palms</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign5">
+        <label>Chest In-drawing</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign6">
+        <label>Cough</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign7">
+        <label>Unable to drink &amp; breastfeed</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign8">
+        <label>Infected umbilical chord</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign9">
+        <label>No fever or low temperature (Cold feet &amp; Hands)</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign10">
+        <label>Fever for more than 7 days</label>
+      </input>
+      <input appearance="li" ref="/treatment_follow_up/group_patient_summary/s_note_danger_sign11">
+        <label>MUAC Red or Yellow</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_how_is_child0">
+        <label>Child is better</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_how_is_child1">
+        <label>Child is not better</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_how_is_child2">
+        <label>Child is cured</label>
+      </input>
+      <input appearance="h1 red" ref="/treatment_follow_up/group_patient_summary/s_note_referral">
+        <label>Refer to a health facility&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/treatment_follow_up/group_patient_summary/s_note_followup">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/treatment_follow_up/group_patient_summary/s_note_followup_task">
+        <label>Follow up task will show up on day 3 and 7 after initial assessement</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

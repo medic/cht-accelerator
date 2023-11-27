@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Supplies and Materials Form</h:title>
+    <model>
+      <instance>
+        <supplies_materials id="supplies_materials" prefix="J1!supplies_materials!" delimiter="#" version="2023-09-19  21-29">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id>0</_id>
+              <name/>
+            </contact>
+          </inputs>
+          <supplies_materials>
+            <drugs_locked_box/>
+            <supervisor_note_a/>
+            <supplies_clean_dry/>
+            <supervisor_note_b/>
+            <ors_sachets_6_or_more/>
+            <ors_sachets_6_or_more_note/>
+            <zinc_blisters_2_or_more/>
+          </supplies_materials>
+          <items_received>
+            <items_distributed/>
+            <received_for_distribution jr:template="">
+              <item_type/>
+              <item_quantity/>
+            </received_for_distribution>
+            <households_received/>
+          </items_received>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </supplies_materials>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/supplies_materials/inputs" relevant="./source='user'"/>
+      <bind nodeset="/supplies_materials/inputs/source" type="string"/>
+      <bind nodeset="/supplies_materials/inputs/source_id" type="string"/>
+      <bind nodeset="/supplies_materials/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/supplies_materials/inputs/contact/name" type="string"/>
+      <bind nodeset="/supplies_materials/supplies_materials/drugs_locked_box" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_a" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/drugs_locked_box  = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/supplies_clean_dry" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_b" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/supplies_clean_dry = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/ors_sachets_6_or_more  = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/zinc_blisters_2_or_more" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/items_distributed" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_type" type="select1" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of items distributed should be more than zero"/>
+      <bind nodeset="/supplies_materials/items_received/households_received" type="select1" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/supplies_materials/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/supplies_materials/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/supplies_materials/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/supplies_materials/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/supplies_materials/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/supplies_materials/inputs/contact/_id">
+          <label></label>
+        </input>
+        <input appearance="hidden" ref="/supplies_materials/inputs/contact/name">
+          <label>Name</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/supplies_materials/supplies_materials">
+      <label>SUPPLIES AND MATERIALS</label>
+      <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/drugs_locked_box">
+        <label>Are drugs kept in a locked box in a dry place?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/supplies_materials/supplies_materials/supervisor_note_a">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all drugs are stored in a dry place to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+      </input>
+      <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/supplies_clean_dry">
+        <label>Are the supplies kept clean and dry?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/supplies_materials/supplies_materials/supervisor_note_b">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all supplies are kept clean and dry to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+      </input>
+      <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/ors_sachets_6_or_more">
+        <label>Do you have 6 or more ORS sachets?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to go for a refill immediately&lt;/span&gt;</label>
+      </input>
+      <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/zinc_blisters_2_or_more">
+        <label>Do you have 2 or more Zinc blisters?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/supplies_materials/items_received">
+      <label>ITEMS DISTRIBUTED</label>
+      <select1 appearance="horizontal" ref="/supplies_materials/items_received/items_distributed">
+        <label>Did you distribute any items this month?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <group ref="/supplies_materials/items_received/received_for_distribution">
+        <label>How many items were received for distribution?</label>
+        <repeat nodeset="/supplies_materials/items_received/received_for_distribution">
+          <select1 ref="/supplies_materials/items_received/received_for_distribution/item_type">
+            <label>Select Item Type</label>
+            <item>
+              <label>Mosquito nets</label>
+              <value>mosquito_nets</value>
+            </item>
+            <item>
+              <label>Menstrual Hygiene Supplies</label>
+              <value>menstrual_hygiene</value>
+            </item>
+          </select1>
+          <input ref="/supplies_materials/items_received/received_for_distribution/item_quantity">
+            <label>Quantity:</label>
+          </input>
+        </repeat>
+      </group>
+      <select1 ref="/supplies_materials/items_received/households_received">
+        <label>How many households received items?</label>
+        <item>
+          <label>0-20</label>
+          <value>0-20</value>
+        </item>
+        <item>
+          <label>20-30</label>
+          <value>20-30</value>
+        </item>
+        <item>
+          <label>30-70</label>
+          <value>30-70</value>
+        </item>
+        <item>
+          <label>70-100</label>
+          <value>70-100</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>
