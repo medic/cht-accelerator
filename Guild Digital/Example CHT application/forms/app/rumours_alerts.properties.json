@@ -2,7 +2,7 @@
     "context": {
       "person": false,
       "place": true,
-      "expression": "contact.type === 'health_center' && user.role === 'vht_supervisor'"
+      "expression": "((contact.type === 'person' && summary.firstParentType === 'clinic') || contact.type === 'clinic') && !contact.muted && user._id !== contact._id"
     }
   }
   
