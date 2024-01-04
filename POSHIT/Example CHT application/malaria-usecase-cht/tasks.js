@@ -104,7 +104,42 @@ module.exports = [
       },
     ]
   },
- 
+  //{
+  //   name: 'pregnant_mother_treatment_follow_up',
+  //   icon: 'malaria-assessment-for-pregnant-mothers',
+  //   title: TASKS.PREGNANT_MOTHER_TREATMENT_FOLLOW_UP,
+  //   appliesTo: 'reports',
+  //   appliesToType: [FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS],
+  //   appliesIf: function (contact, report) {
+  //     return isAlive(contact) && !isPregnancyTaskMuted(contact) && Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.treatment_referral_follow_up_date');
+  //   },
+
+  //   resolvedIf: function (contact, report, event, dueDate) {
+  //     if(isPregnancyTaskMuted(contact) && !isAlive(contact)) {return true;}
+  //     const startTime = Math.max(Utils.addDate(dueDate, -event.start).getTime(), report.reported_date + 1);
+  //     const endTime = Utils.addDate(dueDate, event.end + 1).getTime();
+  //     return isFormArraySubmittedInWindow(contact.reports, [FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS], startTime, endTime);
+  //   },
+  //   actions: [
+  //     {
+  //       type: 'report',
+  //       form: FORMS.MALARIA_TREATMENT_FOLLOW_UP,
+  //       modifyContent: function (content){
+  //         content.visitType = 'follow_up';
+  //       } 
+  //     }
+  //   ],
+  //   events: [
+  //     {
+  //       id: FORMS.MALARIA_TREATMENT_FOLLOW_UP,
+  //       start: 30,
+  //       end: 30,
+  //       dueDate: function (event, contact, report) {
+  //         return new Date(Utils.getField(report, 'group_malaria_assessment_for_pregnant_mothers.referral_follow_up_date'));
+  //       }
+  //     }
+  //   ]
+  // },
   {
     name: 'pregnant_mother_treatment_follow_up',
     icon: 'malaria-assessment-for-pregnant-mothers',

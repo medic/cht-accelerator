@@ -1,5 +1,5 @@
 {
   "context": {
-    "expression": "!contact.muted && !contact.date_of_death && contact.contact_type  === 'household'"
+    "expression": "!contact.muted && !contact.date_of_death"
   }
 }

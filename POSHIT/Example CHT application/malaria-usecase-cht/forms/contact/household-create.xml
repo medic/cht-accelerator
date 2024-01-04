@@ -408,9 +408,9 @@
       <bind nodeset="/data/inputs/contact/contact_name" type="string" required="true()"/>
       <bind nodeset="/data/inputs/contact/g_sex" type="select1" required="true()"/>
       <bind nodeset="/data/inputs/contact/dob_known" type="select1" required="true()"/>
-      <bind nodeset="/data/inputs/contact/dob_calendar" type="date" relevant="../dob_known = 'yes'" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()"/>
+      <bind nodeset="/data/inputs/contact/dob_calendar" type="date" required="true()" relevant="../dob_known = 'yes'" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" jr:constraintMsg="You've chosen a future date. Future date is not allowed"/>
       <bind nodeset="/data/inputs/contact/age_note" readonly="true()" type="string" relevant="../dob_known = 'no'"/>
-      <bind nodeset="/data/inputs/contact/age" type="int" relevant="../dob_known = 'no'" constraint=". &gt;= 10 and . &lt;= 100" jr:constraintMsg="Please enter a valid age." required="true()"/>
+      <bind nodeset="/data/inputs/contact/age" type="int" required="true()" relevant="../dob_known = 'no'" constraint=". &gt;= 10 and . &lt;= 100" jr:constraintMsg="Please enter a valid age."/>
       <bind nodeset="/data/inputs/contact/months" type="int" relevant="../dob_known = 'no'" constraint=". &gt;= 1 and . &lt;= 11" jr:constraintMsg="Months must be between 1 and 11"/>
       <bind nodeset="/data/inputs/contact/dob_raw" type="string" calculate="if(../dob_known = 'yes', ../dob_calendar, format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
       <bind nodeset="/data/inputs/contact/contact_dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
@@ -428,7 +428,7 @@
       <bind nodeset="/data/contact/phone" type="string" calculate=" /data/inputs/contact/phone1 "/>
       <bind nodeset="/data/contact/geopoint" type="geopoint"/>
       <bind nodeset="/data/repeat-guard/other_household_members" type="select1"/>
-      <bind nodeset="/data/repeat-guard/child" type="select1" relevant=" /data/repeat-guard/other_household_members  = 'yes'" required="true()"/>
+      <bind nodeset="/data/repeat-guard/child" type="select1" required="true()" relevant=" /data/repeat-guard/other_household_members  = 'yes'"/>
       <bind nodeset="/data/repeat-guard/n_registration" readonly="true()" type="string" relevant="../child = 'true'"/>
       <bind nodeset="/data/repeat-guard/n_assessment" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat" relevant="/data/repeat-guard/child = 'true'"/>
@@ -442,10 +442,10 @@
       <bind nodeset="/data/repeat/child/sex" type="select1" required="true()"/>
       <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/repeat/child/age_set" type="select1" required="true()"/>
-      <bind nodeset="/data/repeat/child/dob_known" type="select1" relevant="../age_set = 'over5'" required="true()"/>
-      <bind nodeset="/data/repeat/child/dob_calendar" type="date" relevant="../age_set = 'under5' or ../dob_known = 'yes'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()"/>
+      <bind nodeset="/data/repeat/child/dob_known" type="select1" required="true()" relevant="../age_set = 'over5'"/>
+      <bind nodeset="/data/repeat/child/dob_calendar" type="date" required="true()" relevant="../age_set = 'under5' or ../dob_known = 'yes'" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" jr:constraintMsg="You've chosen a future date. Future date is not allowed"/>
       <bind nodeset="/data/repeat/child/age_notes" readonly="true()" type="string" relevant="../dob_known = 'no'"/>
-      <bind nodeset="/data/repeat/child/age_years" type="int" relevant="../age_set = 'over5' and ../dob_known = 'no'" constraint=". &gt;= 0 and . &lt;=100" jr:constraintMsg="Please enter a valid age." required="true()"/>
+      <bind nodeset="/data/repeat/child/age_years" type="int" required="true()" relevant="../age_set = 'over5' and ../dob_known = 'no'" constraint=". &gt;= 0 and . &lt;=100" jr:constraintMsg="Please enter a valid age."/>
       <bind nodeset="/data/repeat/child/agen_months" type="int" relevant="../dob_known = 'no'" constraint=". &gt;= 1 and . &lt;= 11" jr:constraintMsg="Months must be between 1 and 11"/>
       <bind nodeset="/data/repeat/child/age_months" type="string" calculate="0"/>
       <bind nodeset="/data/repeat/child/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
@@ -459,7 +459,7 @@
       <bind nodeset="/data/repeat/child/phone" type="tel" relevant=" /data/repeat/child/person_age_years  &gt;=10" constraint="1" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
       <bind nodeset="/data/repeat/child/secondary_phone" type="tel" relevant=" /data/repeat/child/person_age_years  &gt;=10" constraint="1" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678"/>
       <bind nodeset="/data/repeat/child/relationship_to_primary_caregiver" type="select1" required="true()"/>
-      <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" relevant="../relationship_to_primary_caregiver = 'other'" required="true()"/>
+      <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" required="true()" relevant="../relationship_to_primary_caregiver = 'other'"/>
       <bind nodeset="/data/repeat/child/n_member_assessment" readonly="true()" type="string"/>
       <bind nodeset="/data/repeat/note" readonly="true()" type="string"/>
       <bind nodeset="/data/household/parent" type="string"/>

@@ -452,18 +452,18 @@
       <bind nodeset="/malaria_assessment_treatment_followup/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
       <bind nodeset="/malaria_assessment_treatment_followup/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/malaria_assessment_treatment_followup/visit_type" type="string" calculate="../inputs/visitType"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/treatment_follow_up_date" type="string" calculate="date-time(decimal-date-time(today()) + 3)" relevant="selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'worsening') or selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'no_change')"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/treatment_follow_up_date" type="string" relevant="selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'worsening') or selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'no_change')" calculate="date-time(decimal-date-time(today()) + 3)"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/available" type="select1" required="true()"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/followup_date" type="date" required="true()" relevant="selected(../available, 'no')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/went_to_facility" type="select1" required="true()" relevant="selected(../available, 'yes')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/inattendance_reason" type="select1" required="true()" relevant="selected(../went_to_facility, 'no')"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/followup_date" type="date" relevant="selected(../available, 'no')" required="true()"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/went_to_facility" type="select1" relevant="selected(../available, 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/inattendance_reason" type="select1" relevant="selected(../went_to_facility, 'no')" required="true()"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/other_reason" type="string" relevant="selected(../inattendance_reason, 'other')"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/referral_message" readonly="true()" type="string" relevant="selected(../went_to_facility, 'no')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/visit_date" type="date" required="true()" relevant="selected(../went_to_facility, 'no')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/test_done" type="select1" required="true()" relevant="selected(../went_to_facility, 'yes')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/confirmed_malaria" type="select1" required="true()" relevant="selected(../went_to_facility, 'yes') and selected(../test_done, 'yes')"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/visit_date" type="date" relevant="selected(../went_to_facility, 'no')" required="true()"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/test_done" type="select1" relevant="selected(../went_to_facility, 'yes')" required="true()"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/confirmed_malaria" type="select1" relevant="selected(../went_to_facility, 'yes') and selected(../test_done, 'yes')" required="true()"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/other_diagnosis" type="string" relevant="selected(../confirmed_malaria, 'no')"/>
-      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition" type="select1" required="true()" relevant="selected(../available, 'yes')"/>
+      <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition" type="select1" relevant="selected(../available, 'yes')" required="true()"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/referral_message_2" readonly="true()" type="string" relevant="selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'worsening') or selected( /malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/current_condition , 'no_change')"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/referral_message_3" readonly="true()" type="string" relevant="selected(../current_condition, 'improving')"/>
       <bind nodeset="/malaria_assessment_treatment_followup/group_pregnant_referral_follow_up/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>

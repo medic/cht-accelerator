@@ -235,7 +235,9 @@ const cards = [
         
         if(report && report.fields.group_pregnancy_registration_form.estimated_delivery_date !== null){
           targetDate = new Date(report.fields.group_pregnancy_registration_form.estimated_delivery_date);
-          ancVisits = report.fields.group_pregnancy_registration_form.no_of_antenatal_visits;
+          // fields.push(
+          //   {label: 'Number of ANC Visits', value : report.fields.group_pregnancy_registration_form.no_of_antenatal_visits}
+          // );
         }
 
         if(followUpReport && followUpReport.fields.group_pregnancy_registration_followup_form.estimated_delivery_date !== null){

@@ -14,7 +14,17 @@ function ageInMonths(dateOfBirth) {
   return now.diff(dob, 'months').months;
 }
 
-
+// function getMostRecentReportForm(reports, form) {
+//   let result = null;
+//   reports.forEach(function(r) {
+//     if (form.indexOf(r.form) >= 0 &&
+//         !r.deleted &&
+//         (!result || r.reported_date > result.reported_date)) {
+//       result = r;
+//     }
+//   });
+//   return result;
+// }
 function getMostRecentReportForm(reports, form) {
   let result;
   reports.forEach(function (report) {
