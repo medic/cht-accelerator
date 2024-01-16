@@ -1,0 +1,13 @@
+{
+    "title":  [
+        {
+            "locale":  "en",
+            "content":  "Cholera Case Verification"
+        }
+    ],
+    "icon": "icon-diarrhoea",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

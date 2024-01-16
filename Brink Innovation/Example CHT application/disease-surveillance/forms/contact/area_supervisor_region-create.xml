@@ -1,0 +1,879 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New Supervisor Region</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>No, I want to name it manually</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>Yes</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>Would you like to name the region after the primary contact: &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>Please provide additional information related to this region</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>Notes</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>Alternate Phone Number</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>New Person</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Create a new person</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Skip this step</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Select an existing person</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>Set the Primary Contact</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>Name of this <output value=" /data/init/place_type_translation "/></value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value><output value=" /data/init/contact_name "/>'s Health Facility</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value><output value=" /data/init/contact_name "/>'s Supervisor Region</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value><output value=" /data/init/contact_name "/>'s Community Health Area</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value><output value=" /data/init/contact_name "/>'s Household</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>Health Facility</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>Supervisor Region</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>Community Health Area</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>Household</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>Enter the name of this place</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>Select the Primary Contact</value>
+          </text>
+        </translation>
+        <translation lang="fr">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>Non, je veux nommer ça manuellement</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>Oui</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Créer une nouvelle personne</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Sauter cette section</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Selectiionner une personne existant</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>District de <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>Centre de santé de <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>Zone de <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>District</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>Centre de santé</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>Zone</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="hi">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>नहीं, मैं इसे मैन्युअल रूप से नाम देना चाहता हूं</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>हाँ</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>एक नया व्यक्ति बनाएं</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>इस स्टेप को छोड़ दें</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>मौजूदा व्यक्ति चुनें</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value><output value=" /data/init/contact_name "/> का ज़िला</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value><output value=" /data/init/contact_name "/> का स्वास्थ्य केंद्र</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value><output value=" /data/init/contact_name "/> का क्षेत्र</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>ज़िला</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>स्वास्थ्य केंद्र</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>क्षेत्र</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="id">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>Tidak, saya ingin nama itu secara manual</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>Iya</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Buat orang baru</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Lewati langkah ini</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Pilih orang yang ada</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>Kabupaten <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>Fasilitas Kesehatan <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>Daerah <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>Kabupaten</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>Fasilitas Kesehatan</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>Daerah</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="ne">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>होइन, म आफैँ नाम दिन चाहन्छु</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>हो</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/manual_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>एक नया व्यक्ति बनाउनुस</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>एख</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>व्यक्ति छान्नुहोस्</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value><output value=" /data/init/contact_name "/>को जिल्ला</value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value><output value=" /data/init/contact_name "/>को स्वास्थ्य केन्द्र</value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value><output value=" /data/init/contact_name "/>को क्षेत्र</value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/generated_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>जिल्ला</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>स्वास्थ्य केन्द्र</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>क्षेत्र</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/contact_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/user:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/area_supervisor_region/is_name_generated/false:label">
+            <value>Hapana, ningependa kuijaza mwenyewe</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated/true:label">
+            <value>Ndio</value>
+          </text>
+          <text id="/data/area_supervisor_region/is_name_generated:label">
+            <value>Je, Ungependa kuita eneo hii kama mwasilishi mkuu wa eneo hii? &quot;<output value=" /data/init/generated_name_translation "/>&quot;?</value>
+          </text>
+          <text id="/data/area_supervisor_region/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:hint">
+            <value>-</value>
+          </text>
+          <text id="/data/area_supervisor_region/notes:label">
+            <value>Maelezo</value>
+          </text>
+          <text id="/data/contact/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/contact/phone:label">
+            <value>Namba ya Simi</value>
+          </text>
+          <text id="/data/contact/phone_alternate:label">
+            <value>Namba Ya</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>Mtu Mpya</value>
+          </text>
+          <text id="/data/init/create_new_person/new_person:label">
+            <value>Ongeza mtumizi mpya</value>
+          </text>
+          <text id="/data/init/create_new_person/none:label">
+            <value>Ruka hatua ii</value>
+          </text>
+          <text id="/data/init/create_new_person/old_person:label">
+            <value>Chagua mtumizi aliyesajlishwa apo awali</value>
+          </text>
+          <text id="/data/init/create_new_person:label">
+            <value>Weka mwasiliwa mkuu</value>
+          </text>
+          <text id="/data/init/custom_place_name:label">
+            <value>Jaza jina la eneo hii</value>
+          </text>
+          <text id="/data/init/generated_name/area_health_facility:label">
+            <value>WIlaya ya  <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/area_supervisor_region:label">
+            <value>Kituo cha afya cha  <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/community_health_area:label">
+            <value>Eneo ya  <output value=" /data/init/contact_name "/></value>
+          </text>
+          <text id="/data/init/generated_name/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type/area_health_facility:label">
+            <value>Wilaya</value>
+          </text>
+          <text id="/data/init/place_type/area_supervisor_region:label">
+            <value>Kituo cha afya</value>
+          </text>
+          <text id="/data/init/place_type/community_health_area:label">
+            <value>Eneo</value>
+          </text>
+          <text id="/data/init/place_type/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/init/place_type:label">
+            <value>Jaza jina la eneo hii</value>
+          </text>
+          <text id="/data/init/select_person:label">
+            <value>Chagua Mwasiliwa mkuu</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:area_supervisor_region:create" prefix="J1!contact:area_supervisor_region:create!" delimiter="#" version="2023-11-08  15-19">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <area_supervisor_region>
+            <parent>PARENT</parent>
+            <type/>
+            <is_name_generated>true</is_name_generated>
+            <manual_name/>
+            <name/>
+            <notes/>
+            <contact/>
+            <geolocation/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </area_supervisor_region>
+          <init>
+            <create_new_person/>
+            <select_person/>
+            <name/>
+            <contact_name/>
+            <custom_place_name/>
+            <place_type>area_supervisor_region</place_type>
+            <place_type_translation/>
+            <generated_name>area_supervisor_region</generated_name>
+            <generated_name_translation/>
+          </init>
+          <contact>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>area_community_health_supervisor</contact_type>
+            <name/>
+            <phone/>
+            <phone_alternate/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </contact>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/init/create_new_person" type="select1" required="true()"/>
+      <bind nodeset="/data/init/select_person" type="db:person" relevant="selected( /data/init/create_new_person ,'old_person')" required="true()"/>
+      <bind nodeset="/data/init/name" type="string"/>
+      <bind nodeset="/data/init/contact_name" type="string" calculate="coalesce(../name, ../../contact/name)"/>
+      <bind nodeset="/data/init/custom_place_name" type="string" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated , 'false') or selected( /data/area_supervisor_region/is_name_generated , 'no')" required="true()"/>
+      <bind nodeset="/data/init/place_type" type="select1"/>
+      <bind nodeset="/data/init/place_type_translation" type="string" calculate="jr:choice-name( /data/init/place_type ,' /data/init/place_type ')"/>
+      <bind nodeset="/data/init/generated_name" type="select1"/>
+      <bind nodeset="/data/init/generated_name_translation" type="string" calculate="jr:choice-name( /data/init/generated_name ,' /data/init/generated_name ')"/>
+      <bind nodeset="/data/contact" relevant="selected( /data/init/create_new_person ,'new_person')"/>
+      <bind nodeset="/data/contact/parent" type="string"/>
+      <bind nodeset="/data/contact/type" type="string"/>
+      <bind nodeset="/data/contact/contact_type" type="string"/>
+      <bind nodeset="/data/contact/name" type="string" required="true()"/>
+      <bind nodeset="/data/contact/phone" type="string" constraint="regex(., '^(01\d{8}|07\d{8})$')" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX."/>
+      <bind nodeset="/data/contact/phone_alternate" type="string" constraint="regex(., '^(01\d{8}|07\d{8})$')" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX."/>
+      <bind nodeset="/data/contact/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/contact/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/contact/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/area_supervisor_region/parent" type="string"/>
+      <bind nodeset="/data/area_supervisor_region/type" type="string"/>
+      <bind nodeset="/data/area_supervisor_region/is_name_generated" type="select1" relevant="not(selected( /data/init/create_new_person ,'none'))" required="true()"/>
+      <bind nodeset="/data/area_supervisor_region/manual_name" type="string" relevant="selected( /data/init/create_new_person ,'none') or selected( /data/area_supervisor_region/is_name_generated ,'false')" required="true()"/>
+      <bind nodeset="/data/area_supervisor_region/name" type="string" required="true()" calculate="if( ( selected( /data/area_supervisor_region/is_name_generated , 'true') or selected( /data/area_supervisor_region/is_name_generated , 'yes') ),  /data/init/generated_name_translation ,  /data/area_supervisor_region/manual_name )"/>
+      <bind nodeset="/data/area_supervisor_region/notes" type="string"/>
+      <bind nodeset="/data/area_supervisor_region/contact" type="string" calculate="if(selected( /data/init/create_new_person ,'none'), &quot;&quot;, coalesce( /data/init/select_person ,&quot;NEW&quot;))"/>
+      <bind nodeset="/data/area_supervisor_region/geolocation" type="string" calculate="concat(../../inputs/meta/location/lat, concat(' ', ../../inputs/meta/location/long))"/>
+      <bind nodeset="/data/area_supervisor_region/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/area_supervisor_region/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/area_supervisor_region/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/init">
+      <select1 ref="/data/init/create_new_person">
+        <label ref="jr:itext('/data/init/create_new_person:label')"/>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/new_person:label')"/>
+          <value>new_person</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/old_person:label')"/>
+          <value>old_person</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/create_new_person/none:label')"/>
+          <value>none</value>
+        </item>
+      </select1>
+      <input appearance="db-object" ref="/data/init/select_person">
+        <label ref="jr:itext('/data/init/select_person:label')"/>
+      </input>
+      <input appearance="hidden" ref="/data/init/name"/>
+      <select1 appearance="hidden" ref="/data/init/place_type">
+        <label ref="jr:itext('/data/init/place_type:label')"/>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/place_type/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
+      <select1 appearance="hidden" ref="/data/init/generated_name">
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/area_health_facility:label')"/>
+          <value>area_health_facility</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/area_supervisor_region:label')"/>
+          <value>area_supervisor_region</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/community_health_area:label')"/>
+          <value>community_health_area</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/init/generated_name/household:label')"/>
+          <value>household</value>
+        </item>
+      </select1>
+      <group appearance="field-list" ref="/data/contact">
+        <label ref="jr:itext('/data/contact:label')"/>
+        <input ref="/data/contact/name">
+          <label ref="jr:itext('/data/contact/name:label')"/>
+        </input>
+        <input ref="/data/contact/phone">
+          <label ref="jr:itext('/data/contact/phone:label')"/>
+        </input>
+        <input ref="/data/contact/phone_alternate">
+          <label ref="jr:itext('/data/contact/phone_alternate:label')"/>
+        </input>
+        <group appearance="hidden" ref="/data/contact/meta"/>
+        </group>
+      </group>
+    <group appearance="field-list" ref="/data/area_supervisor_region">
+      <select1 ref="/data/area_supervisor_region/is_name_generated">
+        <label ref="jr:itext('/data/area_supervisor_region/is_name_generated:label')"/>
+        <item>
+          <label ref="jr:itext('/data/area_supervisor_region/is_name_generated/true:label')"/>
+          <value>true</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/area_supervisor_region/is_name_generated/false:label')"/>
+          <value>false</value>
+        </item>
+      </select1>
+      <input ref="/data/area_supervisor_region/manual_name">
+        <label ref="jr:itext('/data/area_supervisor_region/manual_name:label')"/>
+      </input>
+      <input appearance="multiline" ref="/data/area_supervisor_region/notes">
+        <label ref="jr:itext('/data/area_supervisor_region/notes:label')"/>
+        <hint ref="jr:itext('/data/area_supervisor_region/notes:hint')"/>
+      </input>
+      <group appearance="hidden" ref="/data/area_supervisor_region/meta"/>
+    </group>
+  </h:body>
+</h:html>

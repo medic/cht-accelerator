@@ -1,0 +1,13 @@
+{
+    "title":  [
+        {
+            "locale":  "en",
+            "content":  "Death Report Verification"
+        }
+    ],
+    "icon": "icon-death-general",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}

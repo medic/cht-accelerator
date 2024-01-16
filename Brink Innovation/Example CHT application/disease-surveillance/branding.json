@@ -1,7 +1,7 @@
 {
-    "title": "Disease Surveillance",
+    "title": "Cholera",
     "resources": {
-        "logo":"app_logo.png",
-        "favicon": "app_logo.png"
+        "logo":"appLogo.svg",
+        "favicon": "appLogo.svg"
     }
 }

@@ -1,0 +1,12 @@
+{
+    "title": [{
+      "locale": "en",
+      "content": "Collected Specimen Details"
+    }],
+    "icon": "laboratory-specimen",
+    "context": {
+      "person": false,
+      "place": false,
+      "expression": "!contact.date_of_death && !contact.muted && contact.contact_type  === 'dso'"
+    }
+  }

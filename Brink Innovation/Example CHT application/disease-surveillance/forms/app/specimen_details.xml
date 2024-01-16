@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Collected Specimen Detail</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/specimen_details/cholera_specimen/availability/no:label">
+            <value>No</value>
+          </text>
+          <text id="/specimen_details/cholera_specimen/availability/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/specimen_details/cholera_specimen/availability:label">
+            <value>Did <output value=" /specimen_details/patient_name "/> get to the health facility?</value>
+          </text>
+          <text id="/specimen_details/cholera_specimen/follow_up_date:label">
+            <value>When did the patient visit the health facility?</value>
+          </text>
+          <text id="/specimen_details/cholera_specimen/note:label">
+            <value>Please exit the workflow. The patient is not taken to the Health facility yet!</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/parent/parent/_id:label">
+            <value>Area ID</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/parent/parent/parent/_id:label">
+            <value>Health Facility ID</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/specimen_details/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/specimen_details/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/specimen_details/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/specimen_details/inputs/user/contact_id:label">
+            <value>Contact ID</value>
+          </text>
+          <text id="/specimen_details/inputs/user/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/specimen_details/inputs/user/phone:label">
+            <value>Phone</value>
+          </text>
+          <text id="/specimen_details/inputs/user:label">
+            <value>User</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/more_specimen_details:label">
+            <value>Any additional information about this specimen</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/result/negative:label">
+            <value>Negative</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/result/positive:label">
+            <value>Positive</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/result:label">
+            <value>What was the outcome of the test?</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/specimen_id:label">
+            <value>What is the cholera specimen number?</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/specimen_type/both:label">
+            <value>Both</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/specimen_type/fresh_stool:label">
+            <value>Fresh stool</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/specimen_type/rectal_swab:label">
+            <value>Rectal swab</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group/specimen_type:label">
+            <value>What was the type of specimen collected?</value>
+          </text>
+          <text id="/specimen_details/specimen_details_group:label">
+            <value>Specimen Details</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <specimen_details id="specimen_form" prefix="J1!specimen_form!" delimiter="#" version="2023-12-08 14:35:37">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <household_id tag="hidden"/>
+          <area_id tag="hidden"/>
+          <facility_id tag="hidden"/>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <cholera_specimen>
+            <availability/>
+            <note/>
+            <follow_up_date/>
+          </cholera_specimen>
+          <specimen_details_group>
+            <specimen_type/>
+            <specimen_id/>
+            <result/>
+            <more_specimen_details/>
+          </specimen_details_group>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </specimen_details>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/specimen_details/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/specimen_details/inputs/source" type="string"/>
+      <bind nodeset="/specimen_details/inputs/source_id" type="string"/>
+      <bind nodeset="/specimen_details/inputs/user/contact_id" type="db:person"/>
+      <bind nodeset="/specimen_details/inputs/user/name" type="string"/>
+      <bind nodeset="/specimen_details/inputs/user/phone" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/specimen_details/inputs/contact/name" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/sex" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/specimen_details/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/specimen_details/household_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/specimen_details/area_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/specimen_details/facility_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/specimen_details/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/specimen_details/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/specimen_details/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/specimen_details/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/specimen_details/cholera_specimen/availability" type="select1" required="true()"/>
+      <bind nodeset="/specimen_details/cholera_specimen/note" readonly="true()" type="string" relevant="selected( /specimen_details/cholera_specimen/availability ,'no')"/>
+      <bind nodeset="/specimen_details/cholera_specimen/follow_up_date" type="date" relevant="selected( /specimen_details/cholera_specimen/availability ,'yes')" required="true()"/>
+      <bind nodeset="/specimen_details/specimen_details_group" relevant="selected( /specimen_details/cholera_specimen/availability ,'yes')"/>
+      <bind nodeset="/specimen_details/specimen_details_group/specimen_type" type="select1" required="true()"/>
+      <bind nodeset="/specimen_details/specimen_details_group/specimen_id" type="string" required="true()"/>
+      <bind nodeset="/specimen_details/specimen_details_group/result" type="select1"/>
+      <bind nodeset="/specimen_details/specimen_details_group/more_specimen_details" type="string"/>
+      <bind nodeset="/specimen_details/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/specimen_details/inputs">
+      <group ref="/specimen_details/inputs/user">
+        <label ref="jr:itext('/specimen_details/inputs/user:label')"/>
+        <input appearance="db-object" ref="/specimen_details/inputs/user/contact_id">
+          <label ref="jr:itext('/specimen_details/inputs/user/contact_id:label')"/>
+        </input>
+      </group>
+      <group ref="/specimen_details/inputs/contact">
+        <input appearance="db-object" ref="/specimen_details/inputs/contact/_id">
+          <label ref="jr:itext('/specimen_details/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/specimen_details/inputs/contact/parent">
+          <input appearance="hidden" ref="/specimen_details/inputs/contact/parent/_id">
+            <label ref="jr:itext('/specimen_details/inputs/contact/parent/_id:label')"/>
+          </input>
+          <group ref="/specimen_details/inputs/contact/parent/parent">
+            <input appearance="hidden" ref="/specimen_details/inputs/contact/parent/parent/_id">
+              <label ref="jr:itext('/specimen_details/inputs/contact/parent/parent/_id:label')"/>
+            </input>
+            <group ref="/specimen_details/inputs/contact/parent/parent/parent">
+              <input appearance="hidden" ref="/specimen_details/inputs/contact/parent/parent/parent/_id">
+                <label ref="jr:itext('/specimen_details/inputs/contact/parent/parent/parent/_id:label')"/>
+              </input>
+            </group>
+            <group ref="/specimen_details/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/specimen_details/cholera_specimen">
+      <select1 ref="/specimen_details/cholera_specimen/availability">
+        <label ref="jr:itext('/specimen_details/cholera_specimen/availability:label')"/>
+        <item>
+          <label ref="jr:itext('/specimen_details/cholera_specimen/availability/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/specimen_details/cholera_specimen/availability/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/specimen_details/cholera_specimen/note">
+        <label ref="jr:itext('/specimen_details/cholera_specimen/note:label')"/>
+      </input>
+      <input ref="/specimen_details/cholera_specimen/follow_up_date">
+        <label ref="jr:itext('/specimen_details/cholera_specimen/follow_up_date:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/specimen_details/specimen_details_group">
+      <label ref="jr:itext('/specimen_details/specimen_details_group:label')"/>
+      <select1 ref="/specimen_details/specimen_details_group/specimen_type">
+        <label ref="jr:itext('/specimen_details/specimen_details_group/specimen_type:label')"/>
+        <item>
+          <label ref="jr:itext('/specimen_details/specimen_details_group/specimen_type/rectal_swab:label')"/>
+          <value>rectal_swab</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/specimen_details/specimen_details_group/specimen_type/fresh_stool:label')"/>
+          <value>fresh_stool</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/specimen_details/specimen_details_group/specimen_type/both:label')"/>
+          <value>both</value>
+        </item>
+      </select1>
+      <input ref="/specimen_details/specimen_details_group/specimen_id">
+        <label ref="jr:itext('/specimen_details/specimen_details_group/specimen_id:label')"/>
+      </input>
+      <select1 ref="/specimen_details/specimen_details_group/result">
+        <label ref="jr:itext('/specimen_details/specimen_details_group/result:label')"/>
+        <item>
+          <label ref="jr:itext('/specimen_details/specimen_details_group/result/positive:label')"/>
+          <value>positive</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/specimen_details/specimen_details_group/result/negative:label')"/>
+          <value>negative</value>
+        </item>
+      </select1>
+      <input ref="/specimen_details/specimen_details_group/more_specimen_details">
+        <label ref="jr:itext('/specimen_details/specimen_details_group/more_specimen_details:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

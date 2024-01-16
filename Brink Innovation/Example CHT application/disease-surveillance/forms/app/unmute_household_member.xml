@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Unmute Household Member</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/unmute_household_member/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Important Information&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /unmute_household_member/patient_name "/>
+<output value=" /unmute_household_member/group_review/r_member_age "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_mute_info:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;Reason for muting: <output value=" /unmute_household_member/group_unmute_household_member/reason_for_unmuting "/>. <output value=" /unmute_household_member/group_unmute_household_member/other_reason_for_unmuting "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_referral:label">
+            <value>Tasks for <output value=" /unmute_household_member/patient_name "/> will start to show after you submit this unmute request. Thank you</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_summary_details:label">
+            <value>Household Member Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_undo:label">
+            <value>You will be able to mute <output value=" /unmute_household_member/patient_name "/>, if needed.</value>
+          </text>
+          <text id="/unmute_household_member/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/came_back:label">
+            <value>Came Back</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/has_accepted_chv_services:label">
+            <value>Has now accepted CHV services</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting:label">
+            <value>Why do you want to unmute <output value=" /unmute_household_member/patient_name "/> ?</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/_id:label">
+            <value>Household ID</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/unmute_household_member/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/unmute_household_member/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/unmute_household_member/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Habari Muhimu&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_member_age:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /unmute_household_member/patient_name "/>
+<output value=" /unmute_household_member/group_review/r_member_age "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_mute_info:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;Sababu ya kunyamazisha: <output value=" /unmute_household_member/group_unmute_household_member/reason_for_unmuting "/>. <output value=" /unmute_household_member/group_unmute_household_member/other_reason_for_unmuting "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_referral:label">
+            <value>Majukumu ya <output value=" /unmute_household_member/patient_name "/> yataanza kuonekana baada ya kutuma ombi hili la kurejesha sauti. Asante</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_summary_details:label">
+            <value>Maelezo ya Mwanakaya&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review/r_undo:label">
+            <value>Utaweza kutoa <output value=" /unmute_household_member/patient_name "/>, ikihitajika.</value>
+          </text>
+          <text id="/unmute_household_member/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;Ili kumaliza, hakikisha kuwa umebofya kitufe cha Wasilisha.&lt;/h4&gt;</value>
+          </text>
+          <text id="/unmute_household_member/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta/household_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta/source:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/came_back:label">
+            <value>Alirudi</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/has_accepted_chv_services:label">
+            <value>Sasa amekubali huduma za CHV</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting/other:label">
+            <value>Nyingine</value>
+          </text>
+          <text id="/unmute_household_member/group_unmute_household_member/reason_for_unmuting:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/_id:label">
+            <value>Jina la mgonjwa ni nani?</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/date_of_birth:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/_id:label">
+            <value>Kitambulisho cha Kaya</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact/name:label">
+            <value>Jina la CHW</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact/phone:label">
+            <value>Simu ya CHW</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/patient_id:label">
+            <value>Kitambulisho cha Mgonjwa</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact/sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/unmute_household_member/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/unmute_household_member/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <unmute_household_member id="unmute_household_member" prefix="J1!unmute_household_member!" delimiter="#" version="2023-06-19 09:49:13">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden">0</patient_age_in_years>
+          <patient_age_in_months tag="hidden">0</patient_age_in_months>
+          <patient_age_in_days tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <group_unmute_household_member>
+            <reason_for_unmuting/>
+            <other_reason_for_unmuting/>
+            <meta tag="hidden">
+              <patient_uuid/>
+              <patient_id/>
+              <household_uuid/>
+              <source/>
+              <source_id/>
+            </meta>
+          </group_unmute_household_member>
+          <group_review tag="hidden">
+            <submit/>
+            <r_summary_details/>
+            <r_member_age/>
+            <r_member_details/>
+            <r_key_instruction/>
+            <r_mute_info/>
+            <r_referral/>
+            <r_undo/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </unmute_household_member>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/unmute_household_member/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/unmute_household_member/inputs/source" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/source_id" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/name" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/sex" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/unmute_household_member/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/unmute_household_member/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /unmute_household_member/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/unmute_household_member/patient_age_in_months" type="string" calculate="difference-in-months(  /unmute_household_member/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/unmute_household_member/patient_age_in_days" type="string" calculate="floor(decimal-date-time(today()) - decimal-date-time( /unmute_household_member/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/unmute_household_member/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/unmute_household_member/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/unmute_household_member/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/reason_for_unmuting" type="select1" required="true()"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting" type="string" relevant="selected(../reason_for_unmuting, 'other')" required="true()"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/household_uuid" type="string" calculate="../../../inputs/contact/parent/_id"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/unmute_household_member/group_unmute_household_member/meta/source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/unmute_household_member/group_review/submit" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_summary_details" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_member_age" type="string" calculate="if(../../patient_age_in_days &lt; 31, 
+concat(../../patient_age_in_days, ' days old'),
+if(../../patient_age_in_months &lt; 12, 
+concat(../../patient_age_in_months, ' months old'), 
+concat(../../patient_age_in_years, ' years old')))"/>
+      <bind nodeset="/unmute_household_member/group_review/r_member_details" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_key_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_mute_info" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_referral" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/group_review/r_undo" readonly="true()" type="string"/>
+      <bind nodeset="/unmute_household_member/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/unmute_household_member/inputs">
+      <group ref="/unmute_household_member/inputs/contact">
+        <label ref="jr:itext('/unmute_household_member/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/unmute_household_member/inputs/contact/_id">
+          <label ref="jr:itext('/unmute_household_member/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/unmute_household_member/inputs/contact/parent">
+          <group ref="/unmute_household_member/inputs/contact/parent/parent">
+            <group ref="/unmute_household_member/inputs/contact/parent/parent/contact">
+              <label ref="jr:itext('/unmute_household_member/inputs/contact/parent/parent/contact:label')"/>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/unmute_household_member/group_unmute_household_member">
+      <select1 ref="/unmute_household_member/group_unmute_household_member/reason_for_unmuting">
+        <label ref="jr:itext('/unmute_household_member/group_unmute_household_member/reason_for_unmuting:label')"/>
+        <item>
+          <label ref="jr:itext('/unmute_household_member/group_unmute_household_member/reason_for_unmuting/came_back:label')"/>
+          <value>came_back</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/unmute_household_member/group_unmute_household_member/reason_for_unmuting/has_accepted_chv_services:label')"/>
+          <value>has_accepted_chv_services</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/unmute_household_member/group_unmute_household_member/reason_for_unmuting/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting">
+        <label ref="jr:itext('/unmute_household_member/group_unmute_household_member/other_reason_for_unmuting:label')"/>
+      </input>
+      <group appearance="hidden" ref="/unmute_household_member/group_unmute_household_member/meta"/>
+    </group>
+    <group appearance="field-list summary" ref="/unmute_household_member/group_review">
+      <input ref="/unmute_household_member/group_review/submit">
+        <label ref="jr:itext('/unmute_household_member/group_review/submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/unmute_household_member/group_review/r_summary_details">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_summary_details:label')"/>
+      </input>
+      <input ref="/unmute_household_member/group_review/r_member_details">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_member_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/unmute_household_member/group_review/r_key_instruction">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_key_instruction:label')"/>
+      </input>
+      <input ref="/unmute_household_member/group_review/r_mute_info">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_mute_info:label')"/>
+      </input>
+      <input appearance="h1 red" ref="/unmute_household_member/group_review/r_referral">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_referral:label')"/>
+      </input>
+      <input ref="/unmute_household_member/group_review/r_undo">
+        <label ref="jr:itext('/unmute_household_member/group_review/r_undo:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Community Health Volunteer</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/community_health_volunteer/dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/community_health_volunteer/name:label">
+            <value>Full Name</value>
+          </text>
+          <text id="/data/community_health_volunteer/primary_phone:label">
+            <value>Primary Mobile Number</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/community_health_volunteer/dob:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender/female:label">
+            <value>Kike</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender/male:label">
+            <value>Kiume</value>
+          </text>
+          <text id="/data/community_health_volunteer/gender:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/data/community_health_volunteer/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/data/community_health_volunteer/name:label">
+            <value>Jina Kamiri</value>
+          </text>
+          <text id="/data/community_health_volunteer/primary_phone:label">
+            <value>Namba ya simu</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:community_health_volunteer:edit" prefix="J1!contact:community_health_volunteer:edit!" delimiter="#" version="2023-06-02  12-55">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <community_health_volunteer>
+            <parent>PARENT</parent>
+            <type>person</type>
+            <contact_type>community_health_volunteer</contact_type>
+            <name/>
+            <gender/>
+            <dob/>
+            <primary_phone/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+            </meta>
+          </community_health_volunteer>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/community_health_volunteer/parent" type="string"/>
+      <bind nodeset="/data/community_health_volunteer/type" type="string"/>
+      <bind nodeset="/data/community_health_volunteer/contact_type" type="string"/>
+      <bind nodeset="/data/community_health_volunteer/name" type="string" required="true()"/>
+      <bind nodeset="/data/community_health_volunteer/gender" type="select1" required="true()"/>
+      <bind nodeset="/data/community_health_volunteer/dob" type="date" required="true()"/>
+      <bind nodeset="/data/community_health_volunteer/primary_phone" type="tel" constraint="true()" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" required="true()"/>
+      <bind nodeset="/data/community_health_volunteer/meta/created_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/community_health_volunteer/meta/created_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/community_health_volunteer/meta/created_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/community_health_volunteer">
+      <input ref="/data/community_health_volunteer/name">
+        <label ref="jr:itext('/data/community_health_volunteer/name:label')"/>
+      </input>
+      <select1 ref="/data/community_health_volunteer/gender">
+        <label ref="jr:itext('/data/community_health_volunteer/gender:label')"/>
+        <item>
+          <label ref="jr:itext('/data/community_health_volunteer/gender/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/community_health_volunteer/gender/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input ref="/data/community_health_volunteer/dob">
+        <label ref="jr:itext('/data/community_health_volunteer/dob:label')"/>
+      </input>
+      <input ref="/data/community_health_volunteer/primary_phone">
+        <label ref="jr:itext('/data/community_health_volunteer/primary_phone:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/community_health_volunteer/meta"/>
+    </group>
+  </h:body>
+</h:html>

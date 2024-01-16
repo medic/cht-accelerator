@@ -1,6 +1,6 @@
 {
-  "community_unit": "Household",
-  "health_center": "Health Center",
-  "subcounty_hospital": "Sub County Facility"
-  
+  "area_health_facility": "Health Facility",
+  "area_supervisor_region": "Supervisor Region",
+  "community_health_area": "Community Health Area",
+  "household": "Household"
 }
