@@ -5,7 +5,55 @@ module.exports = [
    Create a Task when a new contact is created
    NOTE: Only show if the current user is a CHW  
    */
+  /*Create a Task when chw submits an assessment form NOTE: Only the supervisor should get this task
+   */
+  {
+    name: 'padr-after-assessment',
+    icon: 'icon-healthcare',
+    title: 'Household Member Visit',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    // actions: [{ form: 'padr' }],
+    actions: [{
+      type: 'report',
+      form: 'padr',
+      // Pass content that will be used within the task form
+      modifyContent: function (content, contact, report) {
 
+        var type = '';
+        const reaction = Utils.getField(report, 'reporter.group_report.group_report_adr.reaction');
+        if (reaction === 'Yes') {
+          type = 'Reaction';
+        }
+        const quality = Utils.getField(report, 'reporter.group_report.group_report_quality.medicine');
+        if (quality === 'Yes') {
+          type = 'Medicine';
+        }
+        content.select = type;
+      }
+    }],
+    events: [
+      {
+        id: 'padr-form',
+        days: 7,
+        start: 7,
+        end: 2,
+      }
+    ],
+    appliesIf: function (contact, report) {
+      return (Utils.getField(report, 'reporter.group_report.group_report_adr.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_death.death') === 'No' && user.role === 'chw_supervisor')
+        || (Utils.getField(report, 'reporter.group_report.group_report_quality.medicine') === 'Yes' && Utils.getField(report, 'reporter.group_report.group_report_death.death') === 'No' && user.role === 'chw_supervisor');
+    },
+    resolvedIf: function (contact, report, event, dueDate) {
+      return Utils.isFormSubmittedInWindow(
+        contact.reports,
+        'padr',
+        Utils.addDate(dueDate, -event.start).getTime(),
+        Utils.addDate(dueDate, event.end + 1).getTime()
+      );
+    }
+
+  },
   {
     name: 'assessment-after-registration',
     icon: 'icon-healthcare',
@@ -36,12 +84,12 @@ module.exports = [
   {
     name: 'chw-follow-up',
     icon: 'icon-followup',
-    title: 'CHW Referral Follow Up',
+    title: 'CHP Referral Follow Up',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' || 
-      Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
+      return (Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Not Recovered/Not Resolved' && user.role === 'chw' ||
+        Utils.getField(report, 'form.outcome_details.group_outcome_details.outcome') === 'Unknown' && user.role === 'chw');
     },
     actions: [{ form: 'chw_follow' }],
     events: [
@@ -72,7 +120,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.death') === 'Yes' && user.role === 'chw_supervisor');
+      return (Utils.getField(report, 'reporter.group_report.group_report_death.death') === 'Yes' && user.role === 'chw_supervisor');
     },
     actions: [{ form: 'death_confirmation' }],
     events: [
@@ -126,13 +174,22 @@ module.exports = [
   {
     name: 'supervisor-padr-follow-up',
     icon: 'icon-followup',
-    title: 'CHW Supervisor Follow Up',
+    title: 'CHP Supervisor Follow Up',
     appliesTo: 'reports',
     appliesToType: ['padr'],
     appliesIf: function (contact, report) {
       return (Utils.getField(report, 'availability.availability_report.available') === 'No' && user.role === 'chw_supervisor');
     },
-    actions: [{ form: 'padr' }],
+    // actions: [{ form: 'padr' }],
+    actions: [{
+      type: 'report',
+      form: 'padr',
+      // Pass content that will be used within the task form
+      modifyContent: function (content, contact, report) {
+        var type = Utils.getField(report, 'inputs.select');
+        content.select = type;
+      }
+    }],
     events: [
       {
         id: 'padr-follow-up-report',
@@ -141,7 +198,7 @@ module.exports = [
         end: 2,
       }
     ],
-    resolvedIf: function (contact, report, event, dueDate) { 
+    resolvedIf: function (contact, report, event, dueDate) {
       // Check if the 'padr' form has been submitted within the specified window
       const formSubmittedInWindow = Utils.isFormSubmittedInWindow(
         contact.reports,
@@ -160,44 +217,14 @@ module.exports = [
     }
 
   },
-  /*Create a Task when chw submits an assessment form
-  NOTE: Only the supervisor should get this task
-  */
-  {
-    name: 'padr-after-assessment',
-    icon: 'icon-healthcare',
-    title: 'Household Visit',
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    actions: [{ form: 'padr' }],
-    events: [
-      {
-        id: 'padr-form',
-        days: 7,
-        start: 7,
-        end: 2,
-      }
-    ],
-    appliesIf: function (contact, report) {
-      return (Utils.getField(report, 'reporter.group_report.reaction') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.quality') === 'Yes' && Utils.getField(report, 'reporter.group_report.death') === 'No' && user.role === 'chw_supervisor');
-    },
-    resolvedIf: function (contact, report, event, dueDate) {
-      return Utils.isFormSubmittedInWindow(
-        contact.reports,
-        'padr',
-        Utils.addDate(dueDate, -event.start).getTime(),
-        Utils.addDate(dueDate, event.end + 1).getTime()
-      );
-    }
 
-  },
 
 
   // Show Task for Supervisor when the patient is not recovered after visit
   {
     name: 'no-recovery-after-referral',
     icon: 'icon-followup',
-    title: 'Post CHW Follow Up',
+    title: 'Post CHP Follow Up',
     appliesTo: 'reports',
     appliesToType: ['chw_follow'],
     actions: [{ form: 'follow' }],
@@ -213,7 +240,7 @@ module.exports = [
       level: 'high',
     },
     appliesIf: function (contact, report) {
-      return Utils.getField(report, 'reporter.group_report.status') === 'Patient has not recovered' && user.role === 'chw_supervisor';
+      return (Utils.getField(report, 'reporter.group_report.status') === 'Patient has not recovered' && user.role === 'chw_supervisor') || (Utils.getField(report, 'reporter.group_report.fully_recovered') === 'No' && user.role === 'chw_supervisor');
     },
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(

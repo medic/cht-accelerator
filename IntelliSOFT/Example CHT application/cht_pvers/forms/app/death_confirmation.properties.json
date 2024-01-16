@@ -3,7 +3,6 @@
     "title": "Death Confirmation",
     "context": {
         "person": false,
-        "place": false,
-        "expression": "contact.type === 'person'"
+        "place": false
     }
 }

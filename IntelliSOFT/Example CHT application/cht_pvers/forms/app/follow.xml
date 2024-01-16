@@ -54,12 +54,12 @@
             <value>Yes</value>
           </text>
           <text id="/follow/reporter/group_report/revisit:label">
-            <value>The patient <output value=" /follow/patient_name "/> has not recovered after the facilty referral follow up. Do you confirm request for a new CHW Visit?</value>
+            <value>The patient <output value=" /follow/patient_name "/> has not recovered after the facilty referral follow up. Do you confirm request for a new CHP Visit?</value>
           </text>
         </translation>
       </itext>
       <instance>
-        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-07-30 23:22:15">
+        <follow id="follow" prefix="J1!follow!" delimiter="#" version="2023-11-23 10:52:40">
           <inputs>
             <meta>
               <location>
