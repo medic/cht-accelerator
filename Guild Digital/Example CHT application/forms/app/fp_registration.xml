@@ -252,7 +252,7 @@
         </fp_registration>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/fp_registration/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_registration/inputs" constraint="field-list" relevant="./source= 'user'"/>
       <bind nodeset="/fp_registration/inputs/source" type="string"/>
       <bind nodeset="/fp_registration/inputs/source_id" type="string"/>
       <bind nodeset="/fp_registration/inputs/contact/_id" type="db:person" constraint="db-object"/>
@@ -288,12 +288,12 @@
       <bind nodeset="/fp_registration/pop_given" type="string" calculate="if(( /fp_registration/fp_registration/fp_method  = 'progestreone_only_pills' and  /fp_registration/fp_registration/can_supply_fp_commodities  = 'yes'),  /fp_registration/fp_registration/commodities_supplied_qty , 0)"/>
       <bind nodeset="/fp_registration/needs_method_change" type="string" calculate=" /fp_registration/fp_registration/continue_current_fp_method ='no'"/>
       <bind nodeset="/fp_registration/fp_registration/fp_method" type="select1" required="true()"/>
-      <bind nodeset="/fp_registration/fp_registration/continue_current_fp_method" type="select1" required="true()" relevant="count-selected(../fp_method) &gt; 0 and not(selected(../fp_method, 'tubal_ligation')) and not(selected(../fp_method, 'none'))"/>
+      <bind nodeset="/fp_registration/fp_registration/continue_current_fp_method" type="select1" relevant="count-selected(../fp_method) &gt; 0 and not(selected(../fp_method, 'tubal_ligation')) and not(selected(../fp_method, 'none'))" required="true()"/>
       <bind nodeset="/fp_registration/fp_registration/n_fp_referral_note" readonly="true()" type="string" relevant="selected(../continue_current_fp_method, 'no') or selected(../fp_method, 'none')"/>
-      <bind nodeset="/fp_registration/fp_registration/patient_referred" type="select1" required="true()" relevant="selected(../continue_current_fp_method, 'no') or selected(../fp_method, 'none')"/>
-      <bind nodeset="/fp_registration/fp_registration/can_supply_fp_commodities" type="select1" required="true()" relevant="selected(../continue_current_fp_method, 'yes') and (selected(../fp_method,'combined_oral_contraceptives') or selected(../fp_method, 'progestreone_only_pills') or selected(../fp_method,'condoms'))"/>
-      <bind nodeset="/fp_registration/fp_registration/commodities_supplied_qty" type="int" required="true()" relevant="selected(../can_supply_fp_commodities, 'yes')"/>
-      <bind nodeset="/fp_registration/fp_registration/next_appt_date" type="date" required="true()" relevant="selected(../continue_current_fp_method, 'yes') and not(selected(../fp_method, 'tubal_ligation'))" constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" jr:constraintMsg="jr:itext('/fp_registration/fp_registration/next_appt_date:jr:constraintMsg')"/>
+      <bind nodeset="/fp_registration/fp_registration/patient_referred" type="select1" relevant="selected(../continue_current_fp_method, 'no') or selected(../fp_method, 'none')" required="true()"/>
+      <bind nodeset="/fp_registration/fp_registration/can_supply_fp_commodities" type="select1" relevant="selected(../continue_current_fp_method, 'yes') and (selected(../fp_method,'combined_oral_contraceptives') or selected(../fp_method, 'progestreone_only_pills') or selected(../fp_method,'condoms'))" required="true()"/>
+      <bind nodeset="/fp_registration/fp_registration/commodities_supplied_qty" type="int" relevant="selected(../can_supply_fp_commodities, 'yes')" required="true()"/>
+      <bind nodeset="/fp_registration/fp_registration/next_appt_date" type="date" constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" relevant="selected(../continue_current_fp_method, 'yes') and not(selected(../fp_method, 'tubal_ligation'))" jr:constraintMsg="jr:itext('/fp_registration/fp_registration/next_appt_date:jr:constraintMsg')" required="true()"/>
       <bind nodeset="/fp_registration/fp_registration/format_next_appt_date" type="string" calculate="format-date-time( /fp_registration/fp_registration/next_appt_date , &quot;%d-%m-%Y&quot;)"/>
       <bind nodeset="/fp_registration/group_review/n_summary_title" readonly="true()" type="string"/>
       <bind nodeset="/fp_registration/group_review/n_submit" readonly="true()" type="string"/>

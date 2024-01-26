@@ -88,7 +88,7 @@
       <bind nodeset="/pnc_danger_sign/inputs/source" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/source_id" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/is_follow_up" type="string"/>
-      <bind nodeset="/pnc_danger_sign/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /pnc_danger_sign/is_of_child_bearing_age  = 'true'" required="true()"/>
+      <bind nodeset="/pnc_danger_sign/inputs/contact/_id" type="db:person" required="true()" constraint=" /pnc_danger_sign/is_of_child_bearing_age  = 'true'" jr:constraintMsg="Patient must be a female of child bearing age"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/name" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/sex" type="string"/>

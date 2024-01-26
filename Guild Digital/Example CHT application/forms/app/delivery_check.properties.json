@@ -2,6 +2,6 @@
     "context": {
       "person": false,
       "place": false,
-      "expression": "!!contact"
+      "expression": "!!contact && user.role === 'vht'"
     }
   }

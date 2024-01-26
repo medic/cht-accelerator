@@ -1,8 +1,9 @@
-{
+{"icon": "icon-vht-visit",
     "context": {
-      "person": false,
-      "place": true,
-      "expression": "((contact.type === 'person' && summary.firstParentType === 'clinic') || contact.type === 'clinic') && !contact.muted && user._id !== contact._id && user.role === 'vht_supervisor'"
+      "person": true,
+        "place": false,
+        "expression": "contact.type === 'person' && summary.firstParentType === 'health_center' && user.role === 'vht_supervisor'"
     }
   }
+  
   

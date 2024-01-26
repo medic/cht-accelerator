@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>ICCM Assessment  Form</h:title>
+    <h:title>ICCM Assessment</h:title>
     <model>
       <instance>
-        <iccm_assessment id="iccm_assessment" prefix="J1!iccm_assessment!" delimiter="#" version="2023-11-08  13-28">
+        <iccm_assessment id="iccm_assessment" prefix="J1!iccm_assessment!" delimiter="#" version="2023-11-29  1-10">
           <inputs>
             <meta>
               <location>
@@ -51,7 +51,7 @@
       <bind nodeset="/iccm_assessment/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/iccm_assessment/inputs/contact/name" type="string"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/note_iccm_assessment" readonly="true()" type="string"/>
-      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_sessions_conducted" type="select1" required="true()" jr:constraintMsg="Number of ICCM sessions conducted should be more than zero" constraint=". &gt;= 0"/>
+      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_sessions_conducted" type="select1" constraint=". &gt;= 0" jr:constraintMsg="Number of ICCM sessions conducted should be more than zero" required="true()"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_challenges" type="select1" required="true()"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/vht_iccm_challenge_list" type="select" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'" required="true()"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_challenging_situation" type="select" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'" required="true()"/>

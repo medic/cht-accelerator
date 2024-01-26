@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Device Functionality  Form</h:title>
+    <h:title>Device Functionality</h:title>
     <model>
       <instance>
-        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2023-11-26  19-27">
+        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2024-01-12  16-54">
           <inputs>
             <meta>
               <location>
@@ -14,17 +14,40 @@
                 <message/>
               </location>
             </meta>
-            <source>user</source>
+            <source/>
             <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <phone/>
+            </user>
             <contact>
-              <_id>0</_id>
+              <_id/>
               <name/>
-              <date_of_birth/>
-              <sex/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
             </contact>
           </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
           <g_device_functionality>
             <working_condition/>
+            <records_synched/>
             <device_condition/>
             <stolen_device_reported/>
             <police_report_advice/>
@@ -35,6 +58,12 @@
             <s_note_vht_details/>
             <s_vht_details/>
             <s_device_condition/>
+            <s_device_condition_1/>
+            <s_device_condition_2/>
+            <s_device_condition_3/>
+            <s_device_condition_4/>
+            <s_followup/>
+            <s_followup_note/>
           </group_device_summary>
           <meta tag="hidden">
             <instanceID/>
@@ -42,45 +71,83 @@
         </device_functionality>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/device_functionality/inputs" relevant="./source='user'"/>
+      <bind nodeset="/device_functionality/inputs" relevant="false()"/>
       <bind nodeset="/device_functionality/inputs/source" type="string"/>
       <bind nodeset="/device_functionality/inputs/source_id" type="string"/>
-      <bind nodeset="/device_functionality/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/device_functionality/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/device_functionality/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/device_functionality/inputs/user/phone" type="string"/>
+      <bind nodeset="/device_functionality/inputs/contact/_id" type="string"/>
       <bind nodeset="/device_functionality/inputs/contact/name" type="string"/>
-      <bind nodeset="/device_functionality/inputs/contact/date_of_birth" type="string"/>
-      <bind nodeset="/device_functionality/inputs/contact/sex" type="string"/>
+      <bind nodeset="/device_functionality/inputs/contact/role" type="string"/>
+      <bind nodeset="/device_functionality/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/device_functionality/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/device_functionality/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/device_functionality/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/device_functionality/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/device_functionality/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/device_functionality/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/device_functionality/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/device_functionality/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/device_functionality/created_by" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/device_functionality/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/device_functionality/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
       <bind nodeset="/device_functionality/g_device_functionality/working_condition" type="select1" required="true()"/>
-      <bind nodeset="/device_functionality/g_device_functionality/device_condition" type="select1" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'"/>
-      <bind nodeset="/device_functionality/g_device_functionality/stolen_device_reported" type="select1" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
+      <bind nodeset="/device_functionality/g_device_functionality/records_synched" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/working_condition  = 'yes'"/>
+      <bind nodeset="/device_functionality/g_device_functionality/device_condition" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'"/>
+      <bind nodeset="/device_functionality/g_device_functionality/stolen_device_reported" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'"/>
       <bind nodeset="/device_functionality/g_device_functionality/police_report_advice" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/stolen_device_reported  = 'no'"/>
       <bind nodeset="/device_functionality/group_device_summary/s_note_device_functionality_1" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality/group_device_summary/s_note_vht_details" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality/group_device_summary/s_vht_details" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality/group_device_summary/s_device_condition" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_1" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'broken')"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_2" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'not_charged')"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_3" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen')"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_4" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'device_freeze')"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_followup" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen') and selected( /device_functionality/g_device_functionality/stolen_device_reported , 'no')"/>
+      <bind nodeset="/device_functionality/group_device_summary/s_followup_note" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen') and selected( /device_functionality/g_device_functionality/stolen_device_reported , 'no')"/>
       <bind nodeset="/device_functionality/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
   <h:body class="pages">
     <group appearance="field-list" ref="/device_functionality/inputs">
-      <label>Patient</label>
-      <input appearance="hidden" ref="/device_functionality/inputs/source">
-        <label>Source</label>
-      </input>
-      <input appearance="hidden" ref="/device_functionality/inputs/source_id">
-        <label>Source ID</label>
-      </input>
+      <label></label>
+      <group ref="/device_functionality/inputs/user">
+        <label></label>
+      </group>
       <group ref="/device_functionality/inputs/contact">
         <label></label>
-        <input appearance="db-object" ref="/device_functionality/inputs/contact/_id">
-          <label></label>
+        <input appearance="select-contact type-person" ref="/device_functionality/inputs/contact/_id">
+          <label>The user being replaced</label>
         </input>
+        <group appearance="hidden" ref="/device_functionality/inputs/contact/parent">
+          <label></label>
+          <group ref="/device_functionality/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/device_functionality/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
       </group>
     </group>
     <group appearance="field-list" ref="/device_functionality/g_device_functionality">
       <label>Device Functionality</label>
       <select1 appearance="horizontal" ref="/device_functionality/g_device_functionality/working_condition">
         <label>Is your device in good working condition?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/device_functionality/g_device_functionality/records_synched">
+        <label>Have you synced all your records today?</label>
         <item>
           <label>Yes</label>
           <value>yes</value>
@@ -127,7 +194,7 @@
     <group appearance="field-list summary" ref="/device_functionality/group_device_summary">
       <label>Results/Summary Page:</label>
       <input appearance="h1 red" ref="/device_functionality/group_device_summary/s_note_device_functionality_1">
-        <label>&lt;h1 style="text-align:center;"&gt;Device Functionality Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+        <label>Device Functionality Summary</label>
       </input>
       <input ref="/device_functionality/group_device_summary/s_note_submit_button">
         <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
@@ -136,12 +203,28 @@
         <label>VHT Details</label>
       </input>
       <input ref="/device_functionality/group_device_summary/s_vht_details">
-        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /device_functionality/inputs/contact/name "/>&lt;/h4&gt;
-&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /device_functionality/inputs/contact/date_of_birth "/>&lt;/h5&gt;
-&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /device_functionality/inputs/contact/sex "/>&lt;/h5&gt;</label>
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /device_functionality/inputs/contact/name "/>&lt;/h4&gt;</label>
       </input>
-      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition">
-        <label>Device status: <output value=" /device_functionality/g_device_functionality/device_condition "/></label>
+      <input appearance="h1 blue" ref="/device_functionality/group_device_summary/s_device_condition">
+        <label>Status of the device</label>
+      </input>
+      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_1">
+        <label>&lt;h5 style="text-align:center;"&gt; Broken &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_2">
+        <label>&lt;h5 style="text-align:center;"&gt;Not Charged &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_3">
+        <label>&lt;h5 style="text-align:center;"&gt; Stolen (tablet or charger) &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_4">
+        <label>&lt;h5 style="text-align:center;"&gt;Device freezes &lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/device_functionality/group_device_summary/s_followup">
+        <label>Follow Up</label>
+      </input>
+      <input ref="/device_functionality/group_device_summary/s_followup_note">
+        <label>You will receive a devise follow-up task in due in 5 days</label>
       </input>
     </group>
   </h:body>

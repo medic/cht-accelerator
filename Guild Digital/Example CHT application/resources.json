@@ -1,5 +1,21 @@
 {
+  "icon-spot_check_vht_visit30days-followup":"icon-vht-visit-follow.png",
+  "icon-alerts-followup":"icon-alerts-followup.png",
+  "icon-device-functionality-followup":"icon-device-functionality-followup.png",
+  "icon-spot-check":"icon-spot-check.png",
+  "icon-alerts":"icon-alerts.png",
+  "icon-home-visit-with-vht":"icon-home-visit-with-vht.png",
+  "icon-confirmed-death":"icon-confirmed-death.png",
+  "icon-vhts-with-broken":"icon-vhts-with-broken.png",
+  "icon-vhts-with-stockout":"icon-vhts-with-stockout.png",
+  "icon-vhts-with-hh":"icon-vhts-with-hh.png",
+  "icon-outbreaks":"icon-outbreaks.png",
+  "icon-wash":"icon-wash.png",
+  "icon-num-mentorship-2":"icon-num-mentorship-2.png",
+  "icon-stock-count":"icon-stock-count.png",
+  "icon-vht-visit-follow":"icon-vht-visit-follow.png",
   "delivery": "mother-child.png",
+  "icon-vht-visit":"icon-vht-visit.png",
   "pregnancy": "pregnancy-1.png",
   "survey": "family.png",
   "child": "child.png",
@@ -28,7 +44,7 @@
   "a50-adult":"a50.png",
   "male":"male.png",
   "female":"female.png",
-  "device": "device.png",
+  "icon-device": "icon-device@2x.svg",
   "mrdt-positive": "icon-healthcare-mrdt-positive.svg", 
   "diarrhea": "icon-condition-diarrhea.svg", 
   "pneumonia": "icon-condition-cough.svg", 
@@ -41,6 +57,10 @@
   "nutrition": "icon-nutrition.png",
   "community": "icon-community.svg",
   "icon-disabled": "disabled.svg",
-  "calendar": "calendar.png"
+  "calendar": "calendar.png",
+  "mentorship":"mentorship.png",
+  "outbreak":"outbreak.png",
+  "wash":"wash.png",
+  "icon-general":"icon-general.png"
 
 }

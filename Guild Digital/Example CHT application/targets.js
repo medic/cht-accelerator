@@ -1,6 +1,6 @@
 const {
   isChildUnder5,
-  isPersonAbove50,
+  // isPersonAbove50,
   receivedTreatment,
   receivedCoughTreatment,
   receivedDiarrhoeaTreatment,
@@ -16,7 +16,7 @@ const under5DeathsTarget = (id, translation_key, goal) => ({
   type: 'count',
   icon: 'death',
   goal,
-  context: 'user.role === "vht_supervisor"',
+  context: 'user.role === "vht"',
   //aggregate:true,
   translation_key,
   subtitle_translation_key: 'targets.duration.monthly',
@@ -68,45 +68,254 @@ const washTargets = (id, translation_key, washField, icon = 'hat') => (
 
 module.exports = [
   {
-    id: 'a50-registration-alltime',
+    id: 'hh-covered-spotchecks',
     type: 'count',
-    icon: 'a50-adult',
-    goal: -1,
-    //aggregate:true,
-    translation_key: 'targets.a50-registration-alltime.title',
-    subtitle_translation_key: 'targets.duration.alltime',
-    appliesTo: 'contacts',
+    icon: 'mother-child',
+    goal: 15,
     context: 'user.role === "vht_supervisor"',
-    appliesToType: ['person'],
-    appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isPersonAbove50(c),
-    date: 'now'
+    translation_key: 'targets.hh-covered-spotchecks.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['spot_check'],
+    date: 'now',
   },
-
   {
-    id: 'hh-registration-alltime',
+    id: 'vhts-needing-mentorship-this-quarter',
     type: 'count',
-    icon: 'household',
+    icon: 'icon-num-mentorship-2',
     goal: -1,
-    translation_key: 'targets.hh-registration-alltime.title',
+    translation_key: 'targets.vht.needing-mentorship.title',
+    context: 'user.role === "vht_supervisor"',
+    appliesTo: 'reports',
+    appliesToType: ['spot_check'],
+    appliesIf: (c, report) => !c.contact.muted && Utils.getField(report, 'g_vht_feedback.is_vht_knowledgeable') === 'no',
+    date: 'now',
+    //aggregate: true
+  },
+  {
+    id: 'individuals-reached-mentorships',
+    type: 'count',
+    icon: 'mentorship',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.individuals-reached-mentorships.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['community_mentorship'],
+    date: 'reported',
+    appliesIf: (contact, report) => Utils.getField(report, 'mentorship.num_people_attend')
+
+  },
+  {
+    id: 'wash-assessments',
+    type: 'count',
+    icon: 'icon-wash',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.wash-assessments.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['wash'],
+    date: 'reported'
+  },
+  {
+    id: 'outbreak-incidents',
+    type: 'count',
+    icon: 'icon-outbreaks',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.outbreak-incidents.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['suspected_outbreaks'],
+    date: 'reported'
+  },
+  {
+    id: 'vhts-hh-visits-percentage',
+    type: 'percent',
+    icon: 'icon-vhts-with-hh',
+    goal: 100,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.vhts-hh-visits-percentage.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'contacts',
+    appliesToType: ['person'],
+    date: 'reported',
+    appliesIf: function(contact) {
+      return contact.parent && contact.parent.type === 'health_center';
+    },
+    passesIf: function(contact, reports) {
+      return reports.some(report => report.contact._id === contact._id);
+    }
+  },
+  {
+    id: 'u5-assessment-malaria-mo',
+    type: 'count',
+    goal: -1,
+    context: 'user.role === "vht"',
+    translation_key: 'targets.u5-assessment-malaria-mo.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    date: 'reported',
+    appliesIf: (c, report) => isChildUnder5(c, report) && Utils.getField(report, 'symptom_malaria_test') === 'Malaria: Positive'
+  },
+  {
+    id: 'deaths-reported',
+    type: 'count',
+    icon: 'death',
+    goal: 0,
+    //aggregate: true,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.deaths-reported.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['death_report'],
+    date: 'reported',
+    appliesIf: (report) => isDead(report)
+  },
+  {
+    id: 'deaths-confirmed',
+    type: 'count',
+    icon: 'icon-confirmed-death',
+    goal: 0,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.deaths-confirmed.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['death_confirmation'],
+    date: 'reported',
+    appliesIf: (report) => isDead(report)
+  },
+  {
+    id: 'vhts-visited-percentage',
+    type: 'count',
+    icon: 'community',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.vhts-visited-percentage.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['vht_visit'],
+    date: 'reported'
+  },
+  {
+    id: 'vhts-stock-out',
+    type: 'count',
+    icon: 'icon-vhts-with-stockout',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.vhts-stock-out.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['stock_count', 'vht_visit'],
+    date: 'reported',
+    appliesIf: (contact, report) => {
+      const form = report.form;
+      const numBrokenStolen = form === 'stock_count' || form === 'vht_visit' &&
+        Utils.getField(report, 'stock.report_stockout.stockout_supplies_drugs') === 'yes';
+
+      return numBrokenStolen;
+    }
+  },
+  {
+    id: 'vhts-devices-lost-stolen',
+    type: 'count',
+    icon: 'icon-vhts-with-broken',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.vhts-devices-lost-stolen.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['device_functionality', 'vht_visit'],
+    date: 'reported',
+    appliesIf: (contact, report) => {
+      const form = report.form;
+      const numBrokenStolen = form === 'device_functionality' || form === 'vht_visit' &&
+        (Utils.getField(report, 'g_device_functionality.device_condition') === 'broken' ||
+          Utils.getField(report, 'g_device_functionality.device_condition') === 'stolen');
+
+      return numBrokenStolen;
+    }
+  },
+  {
+    id: 'u5-referrals',
+    type: 'count',
+    icon: 'child',
+    goal: -1,
+    context: 'user.role === "vht_supervisor"',
+    translation_key: 'targets.u5-referrals.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['referral'],
+    date: 'reported',
+    appliesIf: (c, report) =>
+      Utils.getField(report, 'referral_information.age_group') === 'U5'
+  },
+  {
+    id: 'disabled-clients',
+    type: 'count',
+    icon: 'icon-disabled',
+    goal: -1,
+    translation_key: 'targets.disabled-clients.title',
     subtitle_translation_key: 'targets.duration.alltime',
     appliesTo: 'contacts',
-    appliesToType: ['clinic'],
-    appliesIf: c => !c.contact.muted,
-    date: 'now'
+    appliesToType: ['person'],
+    date: 'now',
+    appliesIf: (c) => !c.contact.muted && c.contact.has_disability === 'yes'
+  },
+  {
+    id: 'pregnancy-registrations',
+    type: 'count',
+    icon: 'pregnancy-1',
+    goal: -1,
+    translation_key: 'targets.pregnancy-registrations.title',
+    subtitle_translation_key: 'targets.duration.monthly',
+    appliesTo: 'reports',
+    appliesToType: ['pregnancy'],
+    date: 'reported'
   },
 
-  {
-    id: 'u5-registration-alltime',
-    type: 'count',
-    icon: 'u5-infant',
-    goal: -1,
-    translation_key: 'targets.u5-registration-alltime.title',
-    subtitle_translation_key: 'targets.duration.alltime',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isChildUnder5(c),
-    date: 'now'
-  },
+  /**{
+     id: 'a50-registration-alltime',
+     type: 'count',
+     icon: 'a50-adult',
+     goal: -1,
+     //aggregate:true,
+     translation_key: 'targets.a50-registration-alltime.title',
+     subtitle_translation_key: 'targets.duration.alltime',
+     appliesTo: 'contacts',
+     context: 'user.role === "vht_supervisor"',
+     appliesToType: ['person'],
+     appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isPersonAbove50(c),
+     date: 'now'
+   },
+ 
+   {
+     id: 'hh-registration-alltime',
+     type: 'count',
+     icon: 'household',
+     goal: -1,
+     translation_key: 'targets.hh-registration-alltime.title',
+     subtitle_translation_key: 'targets.duration.alltime',
+     appliesTo: 'contacts',
+     appliesToType: ['clinic'],
+     appliesIf: c => !c.contact.muted,
+     date: 'now'
+   },
+ 
+   {
+     id: 'u5-registration-alltime',
+     type: 'count',
+     icon: 'u5-infant',
+     goal: -1,
+     translation_key: 'targets.u5-registration-alltime.title',
+     subtitle_translation_key: 'targets.duration.alltime',
+     appliesTo: 'contacts',
+     appliesToType: ['person'],
+     appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isChildUnder5(c),
+     date: 'now'
+   },*/
 
   // Under 5 deaths target for a specific time period (e.g., month)
   under5DeathsTarget(
@@ -121,7 +330,7 @@ module.exports = [
     'targets.u5-assessment-malaria-mo.title',
     -1
   ),
- 
+
   {
     id: 'u5-assessment-mo',
     type: 'count',
@@ -134,19 +343,6 @@ module.exports = [
     appliesToType: ['assessment'],
     date: 'reported',
     appliesIf: (c, report) => isChildUnder5(c, report)
-  },
-  {
-    id: 'u5-assessment-malaria-mo',
-    type: 'count',
-    icon: 'mrdt-positive',
-    goal: -1,
-    context: 'user.role === "vht"',
-    translation_key: 'targets.u5-assessment-malaria-mo.title',
-    subtitle_translation_key: 'targets.duration.monthly',
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    date: 'reported',
-    appliesIf: (c, report) => isChildUnder5(c, report) && Utils.getField(report, 'symptom_malaria_test') === 'Malaria: Positive'
   },
   {
     id: 'u5-assessment-diarrhoea-mo',
@@ -257,18 +453,7 @@ module.exports = [
       return isChildUnder5(c, report) && mrdtResult;
     }
   },
-  {
-    id: 'pregnancy-registrations',
-    type: 'count',
-    icon: 'pregnancy-1',
-    goal: -1,
-    context: 'user.role === "vht"',
-    translation_key: 'targets.pregnancy-registrations.title',
-    subtitle_translation_key: 'targets.duration.monthly',
-    appliesTo: 'reports',
-    appliesToType: ['pregnancy'],
-    date: 'reported'
-  },
+
   {
     id: 'anc-visits',
     type: 'count',
@@ -364,17 +549,5 @@ module.exports = [
   washTargets('hh-improve-latrine-registrations', 'targets.improve-latrine-registrations.title', 'hh_have_improved_latrine'),
   washTargets('hh-handwashing-facility-registrations', 'targets.handwashing-facility-registrations.title', 'hh_functional_handwashing_facility', 'hand-wash'),
   washTargets('hh-safe-water-registrations', 'targets.safe-water-registrations.title', 'hh_have_safe_drinking_water', 'tap'),
-  {
-    id: 'disabled-clients',
-    type: 'count',
-    icon: 'icon-disabled',
-    goal: -1,
-    context: 'user.role === "vht"',
-    translation_key: 'targets.disabled-clients.title',
-    subtitle_translation_key: 'targets.duration.alltime',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    date: 'now',
-    appliesIf: (c) => !c.contact.muted && c.contact.has_disability === 'yes'
-  },
+
 ];

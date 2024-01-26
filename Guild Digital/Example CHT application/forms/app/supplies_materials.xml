@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Supplies and Materials Form</h:title>
+    <h:title>Supplies and Materials</h:title>
     <model>
       <instance>
-        <supplies_materials id="supplies_materials" prefix="J1!supplies_materials!" delimiter="#" version="2023-09-19  21-29">
+        <supplies_materials id="supplies_materials" prefix="J1!supplies_materials!" delimiter="#" version="2023-12-02  15-25">
           <inputs>
             <meta>
               <location>
@@ -57,10 +57,10 @@
       <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/ors_sachets_6_or_more  = 'no'"/>
       <bind nodeset="/supplies_materials/supplies_materials/zinc_blisters_2_or_more" type="select1" required="true()"/>
       <bind nodeset="/supplies_materials/items_received/items_distributed" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/items_received/received_for_distribution" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
       <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_type" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of items distributed should be more than zero"/>
-      <bind nodeset="/supplies_materials/items_received/households_received" type="select1" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'" required="true()"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" required="true()" constraint=". &gt;= 0" jr:constraintMsg="Number of items distributed should be more than zero"/>
+      <bind nodeset="/supplies_materials/items_received/households_received" type="select1" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
       <bind nodeset="/supplies_materials/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>

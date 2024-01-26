@@ -4,7 +4,6 @@ const {
   resolveIfClosure_isReportInEventWindow,
   getLatestReferralStatus,
   isVHT,
-  //isSupervisor,
   toDate,
   pregnancyEnded,
   isMuted,
@@ -20,7 +19,7 @@ const ancReferralTemplate = (taskName, appliesIf, events, reportForm = 'anc_visi
   appliesTo: 'reports',
   appliesToType: [reportForm],
   appliesIf,
-  resolvedIf: (contact, report, event, dueDate) =>
+  resolvedIf: (contact, report, event, dueDate) => 
     (pregnancyEnded(contact, report) ||
     formInSubmittedWindowMatchesFields(contact, event, dueDate, 'anc_referral_follow_up',
       { 'inputs.task_name': taskName })),
@@ -79,30 +78,155 @@ const maternalNutritionFollowUpTemplate = (taskName, appliesIf, isReferralFollow
 });
 
 module.exports = [
-
+  {
+    name: 'vht_visit_follow_up',
+    icon: 'icon-vht-visit-follow',
+    title: 'VHT Visit Follow-Up',
+    appliesTo: 'reports',
+    appliesToType: ['vht_visit'],
+    appliesIf: function () {
+      return user.role === 'vht_supervisor';
+    },
+    /**resolvedIf: function(contact) {
+      return contact.reports.some(function(r) {
+        return r.form === 'vht_visit';
+      });
+    },*/
+    actions: [{
+      type: 'report',
+      form: 'vht_visit',
+      label: 'Conduct another VHT Visit',
+    }],
+    events: [{
+      start: 5,
+      end: 0,
+      days: 5  
+    }],
+  },
   {
     name: 'device_functionality_report_follow_up',
-    icon: 'device',
-    title: 'task.device_functionality',
+    icon: 'icon-device-functionality-followup',
+    title: 'Device Functionality Follow-Up',
     appliesTo: 'reports',
-    appliesToType: [ 'device_functionality'],
-    appliesIf: function (report) {
-      return Utils.getField(report, 'g_device_functionality.stolen_device_reported') === 'no';
-    },  
-    resolvedIf: (report ) => formInSubmittedWindowMatchesFields( report,
-      {'file_report': 'yes' }),
+    appliesToType: ['device_functionality', 'vht_visit'],
+    appliesIf: function (contact, report) {
+      return user.role === 'vht_supervisor' && Utils.getField(report, 'g_device_functionality.stolen_device_reported') === 'no';
+    },
+    resolvedIf: function (contact) {
+      return contact.reports.some(function (r) {
+        return r.form === 'device_functionality_follow_up' &&
+          Utils.getField(r, 'g_device_functionality_follow_up.file_report') === 'yes';
+      });
+    },
+    actions: [{
+      type: 'report',
+      form: 'device_functionality_follow_up',
+      label: 'Complete Device Functionality Follow-Up',
+    }],
+    events: [{
+      start: 5,
+      end: 0,
+      days: 5
+    }],
+  },
+  {
+    name: 'rumours_alerts_follow_up',
+    icon: 'icon-alerts-followup',
+    title: 'task.rumours_alerts.follow_up',
+    appliesTo: 'reports',
+    appliesToType: ['rumours_alerts'],
+    appliesIf: function (contact, report) {
+      return user.role === 'vht_supervisor' && Utils.getField(report, 'rumours.rumour_addressed') === 'no';
+    },
+    resolvedIf: function (contact) {
+      return contact.reports.some(function (r) {
+        return r.form === 'rumours_alerts_follow_up' &&
+          Utils.getField(r, 'g_rumours_follow_up.rumours_addressed') === 'yes';
+      });
+    },
+    actions: [{
+      type: 'report',
+      form: 'rumours_alerts_follow_up',
+      label: 'task.rumours_alerts.follow_up.label',
+    }],
+    events: [{
+      start: 5,
+      end: 0,
+      days: 5
+    }],
+  },
+  {
+    name: 'spot_check_vht_visit30days_follow_up',
+    icon: 'icon-spot_check_vht_visit30days-followup',
+    title: 'task.spot_check_vht_visit30days.follow_up',
+    appliesTo: 'reports',
+    appliesToType: ['spot_check'],
+    appliesIf: function (contact, report) {
+      return user.role === 'vht' && Utils.getField(report, 'home_visit.vht_has_visited_30') === 'no';
+    },
+    resolvedIf: function (contact) {
+      return contact.reports.some(function (r) {
+        return r.form === 'assessment' ;
+      });
+    },
+    actions: [{
+      type: 'report',
+      form: 'assessment',
+      label: 'task.spot_check_vht_visit30days.follow_up.label',
+    }],
+    events: [{
+      start: 5,
+      end: 0,
+      days: 5
+    }],
+  }
+
+  ,
+  {
+    name: 'mentorship_follow_up',
+    icon: 'icon-mentorship',
+    title: 'Mentorship Follow-Up',
+    appliesTo: 'reports',
+    appliesToType: ['spot_check'],
+    appliesIf: function (contact, report) {
+      return user.role === 'vht_supervisor' && Utils.getField(report, 'g_vht_feedback.is_vht_knowledgeable') === 'no';
+    },
+    resolvedIf: function (contact) {
+      return contact.reports.some(function (r) {
+        return r.form === 'community_mentorship';
+      });
+    },
+    actions: [{
+      type: 'report',
+      form: 'community_mentorship',
+      label: 'Complete Mentorship Form',
+    }],
+    events: [{
+      start: 7,
+      end: 0,
+      days: 7
+    }],
+  },
+  {
+    name: 'death_confirmation_follow_up',
+    icon: 'death-confirmation',
+    title: 'task.death_confirmation_follow_up',
+    appliesTo: 'reports',
+    appliesToType: ['death_report'],
+    appliesIf: () => user.role === 'vht_supervisor',
     actions: [
       {
-        type:'report',
-        form: 'device_functionality_follow_up',
-        label: 'task.device_functionality.label',
+        type: 'report',
+        form: 'death_confirmation',
+        label: 'task.death_confirmation_follow_up',
       },
     ],
     events: [
       {
-        start: 0,
-        days: 30,
-        end: 30,
+        start: 3,
+        end: 0,
+        days: 3
+
       }
     ],
   },
@@ -113,7 +237,7 @@ module.exports = [
     title: 'task.assessement_treatment.title',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
-    appliesIf: (contact, report) => isVHT() && !isMuted(contact) && 
+    appliesIf: (contact, report) => isVHT() && !isMuted(contact) &&
       Utils.getField(report, 'treat_child_for_diagnosis') === 'yes',
     resolvedIf: resolveIfClosure_isReportInEventWindow('treatment_follow_up'),
     actions: [
@@ -232,10 +356,10 @@ module.exports = [
       ((Utils.getField(report, 'inputs.is_follow_up') === 'no' && report.form === 'anc_danger_sign')
         || report.form === 'pregnancy')
     ),
-    resolvedIf: (contact, report, event, dueDate) =>
+    resolvedIf: (contact, report, event, dueDate) => 
       (pregnancyEnded(contact, report) ||
-        formInSubmittedWindowMatchesFields(contact, event, dueDate, 'anc_danger_sign',
-          { 'inputs.is_follow_up': 'yes' })),
+      formInSubmittedWindowMatchesFields(contact, event, dueDate, 'anc_danger_sign',
+        { 'inputs.is_follow_up': 'yes' })),
     actions: [{
       type: 'report',
       form: 'anc_danger_sign',
@@ -290,7 +414,7 @@ module.exports = [
     actions: [{ form: 'fp_referral_follow_up' }],
     events: [{
       id: 'fp-referral-follow-up',
-      start: 3, 
+      start: 3,
       end: 14,
       days: 3
     }]
@@ -303,7 +427,7 @@ module.exports = [
     appliesToType: ['fp_registration', 'fp_follow_up'],
     appliesIf: (contact, report) => isVHT() && !isMuted(contact) && Utils.getField(report, `${report.form}.continue_current_fp_method`) === 'yes',
     actions: [{ form: 'fp_follow_up' }],
-    events:[{
+    events: [{
       id: 'fp-follow-up',
       start: 2,
       end: 14,
@@ -393,10 +517,10 @@ module.exports = [
       end: 2,
     }],
   },
-   
+
   maternalNutritionFollowUpTemplate(
     'maternal_nutrition_referral_follow_up',
-    (contact, report) => isVHT() && !isMuted(contact) && Utils.fieldsMatch(report, {'referred_for_nutrition_follow_up': 'yes'}),
+    (contact, report) => isVHT() && !isMuted(contact) && Utils.fieldsMatch(report, { 'referred_for_nutrition_follow_up': 'yes' }),
     'yes',
     [{ start: 3, days: 7, end: 4 }]
   ),
@@ -415,34 +539,8 @@ module.exports = [
       end: 4
     }]
   ),
-  /**{
-    name: 'vht_visit',
-    icon: 'calendar',
-    title: 'task.vht_visit',
-    appliesTo: 'contacts',
-    appliesToType: ['clinic'],
-    resolvedIf: resolveIfClosure_isReportInEventWindow('task.vht_visit'),
-    actions: [
-      {
-        type: 'report',
-        form: 'vht_visit',
-        label: 'task.vht_visit',
-      },
-    ],
-    events: ['01', '04', '07', '10'].map(month => {
-      const year = Utils.now().getFullYear();
-      const dueDate = DateTime.fromObject({ year, month, day: 1 });
 
-      return {
-        id: `vht_visit_report_${dueDate.month}-${dueDate.year}`,
-        dueDate: () => dueDate.toJSDate(),
-        start: 1,
-        end: 14,
-      };
-    }),
-  },*/
-    
-  
+
 ];
 
 

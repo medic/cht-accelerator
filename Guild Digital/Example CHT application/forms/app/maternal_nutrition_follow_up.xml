@@ -70,7 +70,7 @@
       <bind nodeset="/maternal_nutrition_follow_up/inputs/source" type="string"/>
       <bind nodeset="/maternal_nutrition_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/maternal_nutrition_follow_up/inputs/is_referral_follow_up" type="string"/>
-      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /maternal_nutrition_follow_up/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/_id" type="db:person" required="true()" constraint=" /maternal_nutrition_follow_up/is_of_child_bearing_age  = 'true'" jr:constraintMsg="Patient must be a female of child bearing age"/>
       <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/maternal_nutrition_follow_up/inputs/contact/sex" type="string"/>
@@ -95,7 +95,7 @@
       <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/note_nutritional_assessment_importance" readonly="true()" type="string" relevant="../went_to_facility = 'no'"/>
       <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/nutrition_status" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'yes' and ../went_to_facility = 'yes'"/>
       <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/referred_to_health_facility" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../went_to_facility = 'no'"/>
-      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/agreed_facility_visit_date" type="date" jr:constraintMsg="Date can not be in the past and not more than 7 days from today" required="true()" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;) and (decimal-date-time(.) - 7) &lt;= decimal-date-time(today())" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../referred_to_health_facility = 'yes'"/>
+      <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/agreed_facility_visit_date" type="date" required="true()" jr:constraintMsg="Date can not be in the past and not more than 7 days from today" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;) and (decimal-date-time(.) - 7) &lt;= decimal-date-time(today())" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../referred_to_health_facility = 'yes'"/>
       <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/follow_up_outcome" type="select1" required="true()" relevant=" /maternal_nutrition_follow_up/inputs/is_referral_follow_up  = 'no' and ../went_to_facility = 'yes'"/>
       <bind nodeset="/maternal_nutrition_follow_up/group_malnutrition_follow_up/next_clinic_visit_date" type="date" required="true()" relevant="../follow_up_outcome = 'on_follow_up' or ../nutrition_status = 'malnourished'"/>
       <bind nodeset="/maternal_nutrition_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>

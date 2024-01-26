@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Community Mentorship</h:title>
+    <model>
+      <instance>
+        <community_mentorship id="community_mentorship" prefix="J1!community_mentorship!" delimiter="#" version="2023-12-21  9-32">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <mentorship>
+            <date_mentorship/>
+            <mentorship_visit_date/>
+            <num_people_attend/>
+            <num_female/>
+            <topics_mentorship/>
+            <other_topic_mentorship/>
+            <takeaways/>
+          </mentorship>
+          <geolocation>
+            <latitude/>
+            <longitude/>
+            <altitude/>
+            <accuracy/>
+            <gps/>
+          </geolocation>
+          <group_community_mentorship>
+            <s_note_Community_mentorship/>
+            <s_note_submit_button/>
+            <s_note_mentorship_details/>
+            <s_people_attended/>
+            <s_people_attended_value/>
+            <s_topics_covered/>
+            <s_topics_covered_value1/>
+            <s_topics_covered_value2/>
+            <s_topics_covered_value3/>
+            <s_topics_covered_value4/>
+            <s_topics_covered_value5/>
+            <s_topics_covered_value6/>
+            <s_topics_covered_value7/>
+            <s_takeaways/>
+            <s_takeaways_value/>
+            <s_followup/>
+            <s_followup_note/>
+          </group_community_mentorship>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </community_mentorship>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/community_mentorship/inputs" relevant="false()"/>
+      <bind nodeset="/community_mentorship/inputs/source" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/source_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/user/phone" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/name" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/role" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/community_mentorship/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/community_mentorship/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/community_mentorship/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/community_mentorship/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/community_mentorship/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/community_mentorship/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/community_mentorship/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/community_mentorship/created_by" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/community_mentorship/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/community_mentorship/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/community_mentorship/mentorship/date_mentorship" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/mentorship/mentorship_visit_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 2)))" jr:constraintMsg="Supervisor visit date cannot be more than 2 days ago or a future date"/>
+      <bind nodeset="/community_mentorship/mentorship/num_people_attend" type="int" required="true()"/>
+      <bind nodeset="/community_mentorship/mentorship/num_female" type="int" required="true()" constraint=".&lt;= /community_mentorship/mentorship/num_people_attend " jr:constraintMsg="Number of females attendees should be less or equal to the total number of attendance."/>
+      <bind nodeset="/community_mentorship/mentorship/topics_mentorship" type="select" required="true()"/>
+      <bind nodeset="/community_mentorship/mentorship/other_topic_mentorship" type="string" required="true()" relevant=" /community_mentorship/mentorship/topics_mentorship  = 'other'"/>
+      <bind nodeset="/community_mentorship/mentorship/takeaways" type="string"/>
+      <bind nodeset="/community_mentorship/geolocation/latitude" type="string" calculate="selected-at( /community_mentorship/geolocation/gps , 0)"/>
+      <bind nodeset="/community_mentorship/geolocation/longitude" type="string" calculate="selected-at( /community_mentorship/geolocation/gps , 1)"/>
+      <bind nodeset="/community_mentorship/geolocation/altitude" type="string" calculate="selected-at( /community_mentorship/geolocation/gps , 2)"/>
+      <bind nodeset="/community_mentorship/geolocation/accuracy" type="string" calculate="selected-at( /community_mentorship/geolocation/gps , 3)"/>
+      <bind nodeset="/community_mentorship/geolocation/gps" type="geopoint"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_note_Community_mentorship" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_note_mentorship_details" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_people_attended" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_people_attended_value" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value1" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'hygiene')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value2" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'breastfeeding')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value3" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'communical-diseases-in-U5')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value4" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'covid-19')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value5" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'malaria-prevention')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value6" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'danger-signs')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_topics_covered_value7" readonly="true()" type="string" relevant="selected( /community_mentorship/mentorship/topics_mentorship , 'other')"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_takeaways" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_takeaways_value" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_followup" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/group_community_mentorship/s_followup_note" readonly="true()" type="string"/>
+      <bind nodeset="/community_mentorship/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/community_mentorship/inputs">
+      <label></label>
+      <group ref="/community_mentorship/inputs/user">
+        <label></label>
+      </group>
+      <group ref="/community_mentorship/inputs/contact">
+        <label></label>
+        <input appearance="select-contact type-person" ref="/community_mentorship/inputs/contact/_id">
+          <label>The user being replaced</label>
+        </input>
+        <group appearance="hidden" ref="/community_mentorship/inputs/contact/parent">
+          <label></label>
+          <group ref="/community_mentorship/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/community_mentorship/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/community_mentorship/mentorship">
+      <label></label>
+      <input ref="/community_mentorship/mentorship/date_mentorship">
+        <label>The form should be filled out when the Supervisor conducts a community mentorship</label>
+      </input>
+      <input ref="/community_mentorship/mentorship/mentorship_visit_date">
+        <label>Date of community mentorship</label>
+        <hint>Date must take this format yyyy-mm-dd</hint>
+      </input>
+      <input appearance="horizontal" ref="/community_mentorship/mentorship/num_people_attend">
+        <label>How many people attended the session?</label>
+      </input>
+      <input ref="/community_mentorship/mentorship/num_female">
+        <label>How many females are attending the outreach?</label>
+      </input>
+      <select appearance="horizontal" ref="/community_mentorship/mentorship/topics_mentorship">
+        <label>What topic are you covering today?</label>
+        <item>
+          <label>Hygiene</label>
+          <value>hygiene</value>
+        </item>
+        <item>
+          <label>Breastfeeding</label>
+          <value>breastfeeding</value>
+        </item>
+        <item>
+          <label>Communical diseases in U5</label>
+          <value>communical-diseases-in-U5</value>
+        </item>
+        <item>
+          <label>Covid 19</label>
+          <value>covid-19</value>
+        </item>
+        <item>
+          <label>Malaria prevention</label>
+          <value>malaria-prevention</value>
+        </item>
+        <item>
+          <label>Danger signs</label>
+          <value>danger-signs</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select>
+      <input ref="/community_mentorship/mentorship/other_topic_mentorship">
+        <label>Please specify</label>
+      </input>
+      <input ref="/community_mentorship/mentorship/takeaways">
+        <label>What are the important takeaways from the session?</label>
+      </input>
+    </group>
+    <group ref="/community_mentorship/geolocation">
+      <label></label>
+      <input ref="/community_mentorship/geolocation/gps">
+        <label>Session Location</label>
+        <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/community_mentorship/group_community_mentorship">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/community_mentorship/group_community_mentorship/s_note_Community_mentorship">
+        <label>Community Mentorship Summary</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/community_mentorship/group_community_mentorship/s_note_mentorship_details">
+        <label>Session Attendance Details</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_people_attended">
+        <label>&lt;h5 style="text-align:center;"&gt;**Number of people who attended**&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_people_attended_value">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /community_mentorship/mentorship/num_people_attend "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/community_mentorship/group_community_mentorship/s_topics_covered">
+        <label>Topics covered</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value1">
+        <label>&lt;h5 style="text-align:center;"&gt;Hygiene&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value2">
+        <label>&lt;h5 style="text-align:center;"&gt;Breastfeeding&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value3">
+        <label>&lt;h5 style="text-align:center;"&gt;Communical diseases in U5&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value4">
+        <label>&lt;h5 style="text-align:center;"&gt;Covid 19&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value5">
+        <label>&lt;h5 style="text-align:center;"&gt;Malaria prevention&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value6">
+        <label>&lt;h5 style="text-align:center;"&gt;Danger signs&lt;/h5&gt;</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_topics_covered_value7">
+        <label>&lt;h5 style="text-align:center;"&gt;Other&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/community_mentorship/group_community_mentorship/s_takeaways">
+        <label>Important takeaways</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_takeaways_value">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /community_mentorship/mentorship/takeaways "/>&lt;/h5&gt;</label>
+      </input>
+      <input appearance="h1 green" ref="/community_mentorship/group_community_mentorship/s_followup">
+        <label>Follow Up</label>
+      </input>
+      <input ref="/community_mentorship/group_community_mentorship/s_followup_note">
+        <label>A reminder will be displayed 3 days before date of next appointment</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

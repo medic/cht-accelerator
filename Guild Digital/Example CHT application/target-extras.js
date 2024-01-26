@@ -43,9 +43,12 @@ function reportHasReferralFollowUp(report) {
   return (report.form === 'assessment' && Utils.getField(report, 'referral_follow_up') === 'yes') ||
     (report.form === 'treatment_follow_up' && Utils.getField(report, 'trigger_referral_follow_up') === 'yes');
 }
+
 function isDead(report) {
-  return Utils.getField(report, 'death_details.place_of_death') === 'health_facility' || 'home' || 'other';
+  const placeOfDeath = Utils.getField(report, 'death_details.place_of_death');
+  return placeOfDeath === 'health_facility' || placeOfDeath === 'home' || placeOfDeath === 'other';
 }
+
 
 function getNumFemaleBelow18(report) {
   const numFemaleBelow18 = Utils.getField(report, 'home_visits.num_female_below_18');
@@ -65,7 +68,7 @@ function isActiveVht(contact) {
     return false;
   }).length;
 
-  return numberOfAssessmentForms >= 1; // VHT is considered active if they have submitted at least two assessment forms in the current month
+  return numberOfAssessmentForms >= 2; // VHT is considered active if they have submitted at least two assessment forms in the current month
 }
 function isVHT() {
   return user.parent.type === 'health_center';

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>VHT Visit  Form</h:title>
+    <h:title>VHT Visit</h:title>
     <model>
       <instance>
-        <vht_visit id="vht_visit" prefix="J1!vht_visit!" delimiter="#" version="2023-11-10  22-40">
+        <vht_visit id="vht_visit" prefix="J1!vht_visit!" delimiter="#" version="2024-01-01  19-35">
           <inputs>
             <meta>
               <location>
@@ -14,96 +14,311 @@
                 <message/>
               </location>
             </meta>
-            <source>user</source>
+            <source/>
             <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+            </user>
             <contact>
-              <_id>0</_id>
+              <_id/>
               <name/>
+              <role/>
+              <phone/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
             </contact>
           </inputs>
-          <vht_is_available>
-            <note_vht-visit/>
-            <_id/>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <act_remaining/>
+          <act_type/>
+          <amoxicilline_remaining/>
+          <amoxicillin_type/>
+          <paracetamol_remaining/>
+          <zinc_ors_remaining/>
+          <mrdts_remaining/>
+          <coartem6_remaining/>
+          <coartem12_remaining/>
+          <condoms_remaining/>
+          <sanitizer_remaining/>
+          <gloves_remaining/>
+          <masks_remaining/>
+          <mama_kit_remaining/>
+          <vht_visit_details>
+            <note_vht_supervision/>
             <vht_visit_date/>
             <vht_available/>
-            <Visit-details>
-              <note_same_phone/>
+            <visit-details>
               <same_phone/>
+              <phone_read_only/>
               <new_phone/>
-              <vht_package/>
-            </Visit-details>
-            <group_device_summary>
-              <s_note_vht_visit/>
-              <s_note_submit_button/>
-              <s_note_device_details/>
-              <s_year_resident/>
-              <s_language_proficiency/>
-              <s_condition/>
-              <s_vht_package/>
-            </group_device_summary>
-          </vht_is_available>
+              <phone/>
+              <new_captured_phone/>
+              <note_vht_status/>
+              <vht_completed_onboarding/>
+            </visit-details>
+            <g_vht_not_available>
+              <vht_not_available/>
+            </g_vht_not_available>
+          </vht_visit_details>
+          <g_device_functionality>
+            <working_condition/>
+            <records_synched/>
+            <note_synch/>
+            <device_condition/>
+            <stolen_device_reported/>
+            <police_report_advice/>
+          </g_device_functionality>
+          <stock>
+            <note_1/>
+            <drugs_locked_box/>
+            <note_dry_place/>
+            <vht_registers/>
+            <referal_forms/>
+            <reporting/>
+            <note_2/>
+            <items_repeat jr:template="">
+              <item/>
+              <unit/>
+              <act_type/>
+              <amoxicillin_type/>
+              <quantity/>
+              <note_4/>
+            </items_repeat>
+            <report_stockout>
+              <stockout_supplies_drugs/>
+              <report_stockout_supplies_drugs/>
+              <item_expiry/>
+            </report_stockout>
+          </stock>
+          <geolocation>
+            <latitude/>
+            <longitude/>
+            <altitude/>
+            <accuracy/>
+            <gps/>
+          </geolocation>
+          <group_device_summary>
+            <s_note_vht_visit/>
+            <s_note_submit_button/>
+            <s_vht_visit_value/>
+            <s_device_condition/>
+            <s_device_condition_1/>
+            <s_device_condition_2/>
+            <s_device_condition_3/>
+            <s_device_condition_4/>
+            <s_material_supplies/>
+            <r_gloves/>
+            <r_gloves_quantity/>
+            <r_masks/>
+            <r_masks_quantity/>
+            <r_sanitizer/>
+            <r_sanitizer_quantity/>
+            <r_mrdts/>
+            <r_mrdts_quantity/>
+            <r_condoms/>
+            <r_condoms_quantity/>
+            <s_drugs/>
+            <r_paracetamol/>
+            <r_paracetamol_quantity/>
+            <r_zinc_ors/>
+            <r_zinc_ors_quantity/>
+            <r_amoxicilline/>
+            <r_amoxicilline_quantity/>
+            <r_coartem6/>
+            <r_coartem6_quantity/>
+            <r_coartem12/>
+            <r_coartem12_quantity/>
+            <r_act/>
+            <r_act_quantity/>
+            <s_follow_up_tasks/>
+            <s_device_functionality_follow/>
+            <s_vht_visit_follow/>
+          </group_device_summary>
+          <group_device_summary_1>
+            <s_note_vht_visit/>
+            <s_note_submit_button/>
+            <s_vht_visit_value/>
+            <s_vht_not_available/>
+            <s_follow_up_tasks/>
+            <s_device_functionality_follow/>
+            <s_vht_visit_follow/>
+          </group_device_summary_1>
           <meta tag="hidden">
             <instanceID/>
           </meta>
         </vht_visit>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/vht_visit/inputs" relevant="./source='user'"/>
+      <bind nodeset="/vht_visit/inputs" relevant="false()"/>
       <bind nodeset="/vht_visit/inputs/source" type="string"/>
       <bind nodeset="/vht_visit/inputs/source_id" type="string"/>
-      <bind nodeset="/vht_visit/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/vht_visit/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/vht_visit/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/_id" type="string"/>
       <bind nodeset="/vht_visit/inputs/contact/name" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/note_vht-visit" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/_id" type="db:district_hospital" required="true()"/>
-      <bind nodeset="/vht_visit/vht_is_available/vht_visit_date" type="date" jr:constraintMsg="VHT visit date can't be more than 30 days ago. Also can't be a future date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 30)))"/>
-      <bind nodeset="/vht_visit/vht_is_available/vht_available" type="select1" required="true()"/>
-      <bind nodeset="/vht_visit/vht_is_available/Visit-details" relevant=" /vht_visit/vht_is_available/vht_available ='yes'"/>
-      <bind nodeset="/vht_visit/vht_is_available/Visit-details/note_same_phone" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/Visit-details/same_phone" type="select1" required="true()"/>
-      <bind nodeset="/vht_visit/vht_is_available/Visit-details/new_phone" type="string" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" relevant=" /vht_visit/vht_is_available/Visit-details/same_phone  = 'no'" required="true()" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')"/>
-      <bind nodeset="/vht_visit/vht_is_available/Visit-details/vht_package" type="select1" required="true()"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_vht_visit" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_note_device_details" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_year_resident" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_language_proficiency" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_condition" readonly="true()" type="string"/>
-      <bind nodeset="/vht_visit/vht_is_available/group_device_summary/s_vht_package" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/role" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/phone" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/vht_visit/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/vht_visit/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/vht_visit/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/vht_visit/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/vht_visit/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/vht_visit/user_phone" type="string" calculate="../inputs/contact/phone"/>
+      <bind nodeset="/vht_visit/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/vht_visit/created_by" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/vht_visit/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/vht_visit/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/vht_visit/act_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'act']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/act_type" type="string" calculate="/vht_visit/stock/items_repeat[item = 'act']/act_type"/>
+      <bind nodeset="/vht_visit/amoxicilline_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'amoxicilline']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/amoxicillin_type" type="string" calculate="/vht_visit/stock/items_repeat[item = 'amoxicilline']/amoxicillin_type"/>
+      <bind nodeset="/vht_visit/paracetamol_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'paracetamol']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/zinc_ors_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'zinc_ors']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/mrdts_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'mrdts']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/coartem6_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'coartem6']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/coartem12_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'coartem12']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/condoms_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'condoms']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/sanitizer_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'sanitizer']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/gloves_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'gloves']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/masks_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'masks']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/mama_kit_remaining" type="string" calculate="coalesce(/vht_visit/stock/items_repeat[item = 'mama_kit']/quantity, 0)"/>
+      <bind nodeset="/vht_visit/vht_visit_details/note_vht_supervision" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_visit_details/vht_visit_date" type="date" jr:constraintMsg="VHT visit date can't be more than 30 days ago. Also can't be a future date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 30)))"/>
+      <bind nodeset="/vht_visit/vht_visit_details/vht_available" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details" relevant=" /vht_visit/vht_visit_details/vht_available ='yes'"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/same_phone" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/phone_read_only" type="string" readonly="true()" relevant=" /vht_visit/vht_visit_details/visit-details/same_phone  = 'no'" calculate=" /vht_visit/user_phone "/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/new_phone" type="string" jr:constraintMsg="The phone number should be a 10 digit number and should start with either 07 or 039" relevant=" /vht_visit/vht_visit_details/visit-details/same_phone  = 'no'" required="true()" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/phone" type="string" readonly="true()" calculate="coalesce( /vht_visit/vht_visit_details/visit-details/new_phone ,  /vht_visit/user_phone )"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/new_captured_phone" type="string" readonly="true()" relevant=" /vht_visit/vht_visit_details/visit-details/new_phone  != ''" calculate=" /vht_visit/vht_visit_details/visit-details/new_phone "/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/note_vht_status" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/vht_visit_details/visit-details/vht_completed_onboarding" type="select1" relevant=" /vht_visit/vht_visit_details/vht_available ='yes'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_visit_details/g_vht_not_available" relevant=" /vht_visit/vht_visit_details/vht_available ='no'" required="true()"/>
+      <bind nodeset="/vht_visit/vht_visit_details/g_vht_not_available/vht_not_available" type="select" required="true()"/>
+      <bind nodeset="/vht_visit/g_device_functionality/working_condition" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/g_device_functionality/records_synched" type="select1" relevant=" /vht_visit/g_device_functionality/working_condition  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/g_device_functionality/note_synch" readonly="true()" type="string" relevant=" /vht_visit/g_device_functionality/records_synched  = 'no'"/>
+      <bind nodeset="/vht_visit/g_device_functionality/device_condition" type="select1" relevant=" /vht_visit/g_device_functionality/working_condition  = 'no'" required="true()"/>
+      <bind nodeset="/vht_visit/g_device_functionality/stolen_device_reported" type="select1" relevant=" /vht_visit/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
+      <bind nodeset="/vht_visit/g_device_functionality/police_report_advice" readonly="true()" type="string" relevant=" /vht_visit/g_device_functionality/stolen_device_reported  = 'no'"/>
+      <bind nodeset="/vht_visit/stock/note_1" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/stock/drugs_locked_box" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/stock/note_dry_place" readonly="true()" type="string" relevant=" /vht_visit/stock/drugs_locked_box  = 'no'"/>
+      <bind nodeset="/vht_visit/stock/vht_registers" type="int" required="true()"/>
+      <bind nodeset="/vht_visit/stock/referal_forms" type="int" required="true()"/>
+      <bind nodeset="/vht_visit/stock/reporting" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/stock/note_2" readonly="true()" type="string" relevant=" /vht_visit/stock/reporting  != ''"/>
+      <bind nodeset="/vht_visit/stock/items_repeat" relevant=" /vht_visit/stock/reporting  != ''"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/item" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/unit" type="string" calculate="if(selected( /vht_visit/stock/items_repeat/item , 'act'), 'blisters', if(selected( /vht_visit/stock/items_repeat/item ,'zinc_ors'),'Co-pack', if(selected( /vht_visit/stock/items_repeat/item ,'mrdts') or selected( /vht_visit/stock/items_repeat/item , 'amoxicilline') or selected( /vht_visit/stock/items_repeat/item , 'paracetamol'), 'strips', if(selected( /vht_visit/stock/items_repeat/item , 'mama_kit'),'kits', if(selected( /vht_visit/stock/items_repeat/item , 'condoms'),'boxes', 'pieces')))))"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/act_type" type="select1" relevant=" /vht_visit/stock/items_repeat/item  = 'act'" required="true()"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/amoxicillin_type" type="select1" relevant=" /vht_visit/stock/items_repeat/item  = 'amoxicilline'" required="true()"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/quantity" type="int" relevant=" /vht_visit/stock/items_repeat/item  != ''" required="true()" constraint=". &gt; 0"/>
+      <bind nodeset="/vht_visit/stock/items_repeat/note_4" readonly="true()" type="string" relevant=" /vht_visit/stock/items_repeat/quantity  != ''"/>
+      <bind nodeset="/vht_visit/stock/report_stockout/stockout_supplies_drugs" type="select1" required="true()"/>
+      <bind nodeset="/vht_visit/stock/report_stockout/report_stockout_supplies_drugs" type="select" relevant=" /vht_visit/stock/report_stockout/stockout_supplies_drugs  = 'yes'" required="true()"/>
+      <bind nodeset="/vht_visit/stock/report_stockout/item_expiry" type="select" required="true()"/>
+      <bind nodeset="/vht_visit/geolocation/latitude" type="string" calculate="selected-at( /vht_visit/geolocation/gps , 0)"/>
+      <bind nodeset="/vht_visit/geolocation/longitude" type="string" calculate="selected-at( /vht_visit/geolocation/gps , 1)"/>
+      <bind nodeset="/vht_visit/geolocation/altitude" type="string" calculate="selected-at( /vht_visit/geolocation/gps , 2)"/>
+      <bind nodeset="/vht_visit/geolocation/accuracy" type="string" calculate="selected-at( /vht_visit/geolocation/gps , 3)"/>
+      <bind nodeset="/vht_visit/geolocation/gps" type="geopoint"/>
+      <bind nodeset="/vht_visit/group_device_summary" relevant=" /vht_visit/vht_visit_details/vht_available ='yes'"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_note_vht_visit" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_vht_visit_value" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_condition" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_condition_1" readonly="true()" type="string" relevant="selected( /vht_visit/g_device_functionality/device_condition , 'broken')"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_condition_2" readonly="true()" type="string" relevant="selected( /vht_visit/g_device_functionality/device_condition , 'not_charged')"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_condition_3" readonly="true()" type="string" relevant="selected( /vht_visit/g_device_functionality/device_condition , 'stolen')"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_condition_4" readonly="true()" type="string" relevant="selected( /vht_visit/g_device_functionality/device_condition , 'device_freeze')"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_material_supplies" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_gloves" readonly="true()" type="string" relevant="int( /vht_visit/gloves_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_gloves_quantity" readonly="true()" type="string" relevant="int( /vht_visit/gloves_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_masks" readonly="true()" type="string" relevant="int( /vht_visit/masks_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_masks_quantity" readonly="true()" type="string" relevant="int( /vht_visit/masks_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_sanitizer" readonly="true()" type="string" relevant="int( /vht_visit/sanitizer_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_sanitizer_quantity" readonly="true()" type="string" relevant="int( /vht_visit/sanitizer_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_mrdts" readonly="true()" type="string" relevant="int( /vht_visit/mrdts_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_mrdts_quantity" readonly="true()" type="string" relevant="int( /vht_visit/mrdts_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_condoms" readonly="true()" type="string" relevant="int( /vht_visit/condoms_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_condoms_quantity" readonly="true()" type="string" relevant="int( /vht_visit/condoms_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_drugs" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_paracetamol" readonly="true()" type="string" relevant="int( /vht_visit/paracetamol_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_paracetamol_quantity" readonly="true()" type="string" relevant="int( /vht_visit/paracetamol_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_zinc_ors" readonly="true()" type="string" relevant="int( /vht_visit/zinc_ors_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_zinc_ors_quantity" readonly="true()" type="string" relevant="int( /vht_visit/zinc_ors_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_amoxicilline" readonly="true()" type="string" relevant="int( /vht_visit/amoxicilline_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_amoxicilline_quantity" readonly="true()" type="string" relevant="int( /vht_visit/amoxicilline_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_coartem6" readonly="true()" type="string" relevant="int( /vht_visit/coartem6_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_coartem6_quantity" readonly="true()" type="string" relevant="int( /vht_visit/coartem6_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_coartem12" readonly="true()" type="string" relevant="int( /vht_visit/coartem12_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_coartem12_quantity" readonly="true()" type="string" relevant="int( /vht_visit/coartem12_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_act" readonly="true()" type="string" relevant="int( /vht_visit/act_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/r_act_quantity" readonly="true()" type="string" relevant="int( /vht_visit/act_remaining ) &gt; 0"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_follow_up_tasks" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_device_functionality_follow" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary/s_vht_visit_follow" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1" relevant=" /vht_visit/vht_visit_details/vht_available ='no'"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_note_vht_visit" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_vht_visit_value" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_vht_not_available" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_follow_up_tasks" readonly="true()" type="string"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_device_functionality_follow" readonly="true()" type="string" relevant="selected( /vht_visit/g_device_functionality/device_condition , 'stolen') and selected( /vht_visit/g_device_functionality/stolen_device_reported , 'no')"/>
+      <bind nodeset="/vht_visit/group_device_summary_1/s_vht_visit_follow" readonly="true()" type="string"/>
       <bind nodeset="/vht_visit/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
   <h:body class="pages">
     <group appearance="field-list" ref="/vht_visit/inputs">
-      <label>Patient</label>
-      <input appearance="hidden" ref="/vht_visit/inputs/source">
-        <label>Source</label>
-      </input>
-      <input appearance="hidden" ref="/vht_visit/inputs/source_id">
-        <label>Source ID</label>
-      </input>
+      <label></label>
+      <group ref="/vht_visit/inputs/user">
+        <label></label>
+      </group>
       <group ref="/vht_visit/inputs/contact">
         <label></label>
-        <input appearance="db-object" ref="/vht_visit/inputs/contact/_id">
+        <input appearance="select-contact type-person" ref="/vht_visit/inputs/contact/_id">
+          <label>The user being replaced</label>
+        </input>
+        <group appearance="hidden" ref="/vht_visit/inputs/contact/parent">
           <label></label>
-        </input>
-        <input appearance="hidden" ref="/vht_visit/inputs/contact/name">
-          <label>Name</label>
-        </input>
+          <group ref="/vht_visit/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/vht_visit/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
       </group>
     </group>
-    <group ref="/vht_visit/vht_is_available">
-      <label></label>
-      <input ref="/vht_visit/vht_is_available/note_vht-visit">
+    <group appearance="Field-list" ref="/vht_visit/vht_visit_details">
+      <label>VHT Availability</label>
+      <input ref="/vht_visit/vht_visit_details/note_vht_supervision">
         <label>The form should be filled out when the Supervisor visits the VHT for supervisory activities</label>
       </input>
-      <input appearance="db-object bind-id-only" ref="/vht_visit/vht_is_available/_id">
-        <label>Place/ Health facility the VHT is under.</label>
-        <hint>Choice selection from health Facility list</hint>
-      </input>
-      <input ref="/vht_visit/vht_is_available/vht_visit_date">
+      <input ref="/vht_visit/vht_visit_details/vht_visit_date">
         <label>Date of Visit</label>
       </input>
-      <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/vht_available">
+      <select1 appearance="horizontal" ref="/vht_visit/vht_visit_details/vht_available">
         <label>Is the VHT Available at the time of the visit?</label>
         <item>
           <label>Yes</label>
@@ -114,12 +329,9 @@
           <value>no</value>
         </item>
       </select1>
-      <group appearance="field-list" ref="/vht_visit/vht_is_available/Visit-details">
+      <group appearance="field-list" ref="/vht_visit/vht_visit_details/visit-details">
         <label></label>
-        <input ref="/vht_visit/vht_is_available/Visit-details/note_same_phone">
-          <label>Find out how the VHT is doing before continuing with this visit.</label>
-        </input>
-        <select1 appearance="horizontal" ref="/vht_visit/vht_is_available/Visit-details/same_phone">
+        <select1 appearance="horizontal" ref="/vht_visit/vht_visit_details/visit-details/same_phone">
           <label>Is the VHT still using the same Contact?</label>
           <item>
             <label>Yes</label>
@@ -130,11 +342,20 @@
             <value>no</value>
           </item>
         </select1>
-        <input appearance="numbers" ref="/vht_visit/vht_is_available/Visit-details/new_phone">
-          <label>What is the new Contact Number?</label>
+        <input ref="/vht_visit/vht_visit_details/visit-details/phone_read_only">
+          <label>VHT's Current Phone Number</label>
         </input>
-        <select1 ref="/vht_visit/vht_is_available/Visit-details/vht_package">
-          <label>Is the VHT implementing full package?</label>
+        <input appearance="numbers" ref="/vht_visit/vht_visit_details/visit-details/new_phone">
+          <label>Capture VHT's new contact</label>
+        </input>
+        <input ref="/vht_visit/vht_visit_details/visit-details/new_captured_phone">
+          <label>VHT's new contact</label>
+        </input>
+        <input ref="/vht_visit/vht_visit_details/visit-details/note_vht_status">
+          <label>Find out how the VHT is doing before continuing with this visit.</label>
+        </input>
+        <select1 ref="/vht_visit/vht_visit_details/visit-details/vht_completed_onboarding">
+          <label>Has the VHT completed onboarding?</label>
           <item>
             <label>Yes</label>
             <value>yes</value>
@@ -145,30 +366,480 @@
           </item>
         </select1>
       </group>
-      <group appearance="field-list summary" ref="/vht_visit/vht_is_available/group_device_summary">
-        <label>Results/Summary Page:</label>
-        <input appearance="h1 red" ref="/vht_visit/vht_is_available/group_device_summary/s_note_vht_visit">
-          <label>&lt;h1 style="text-align:center;"&gt;Vht visit Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
-        </input>
-        <input ref="/vht_visit/vht_is_available/group_device_summary/s_note_submit_button">
-          <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
-        </input>
-        <input appearance="h1 yellow" ref="/vht_visit/vht_is_available/group_device_summary/s_note_device_details">
-          <label>Vht visit Details</label>
-        </input>
-        <input ref="/vht_visit/vht_is_available/group_device_summary/s_year_resident">
-          <label>Date of Visit: <output value=" /vht_visit/vht_is_available/vht_visit_date "/></label>
-        </input>
-        <input ref="/vht_visit/vht_is_available/group_device_summary/s_language_proficiency">
-          <label>VHT availability: <output value=" /vht_visit/vht_is_available/vht_available "/></label>
-        </input>
-        <input ref="/vht_visit/vht_is_available/group_device_summary/s_condition">
-          <label>VHT still using same contact: <output value=" /vht_visit/vht_is_available/Visit-details/same_phone "/></label>
-        </input>
-        <input ref="/vht_visit/vht_is_available/group_device_summary/s_vht_package">
-          <label>If the VHT is implementing full package: <output value=" /vht_visit/vht_is_available/Visit-details/vht_package "/></label>
-        </input>
+      <group ref="/vht_visit/vht_visit_details/g_vht_not_available">
+        <label></label>
+        <select ref="/vht_visit/vht_visit_details/g_vht_not_available/vht_not_available">
+          <label>Why is the VHT not available at the time of the visit?</label>
+          <item>
+            <label>Travelled</label>
+            <value>traveled</value>
+          </item>
+          <item>
+            <label>Sick</label>
+            <value>sick</value>
+          </item>
+          <item>
+            <label>Responding to a community emergency</label>
+            <value>emergency</value>
+          </item>
+        </select>
       </group>
+    </group>
+    <group appearance="field-list" ref="/vht_visit/g_device_functionality">
+      <label>Device Functionality</label>
+      <select1 appearance="horizontal" ref="/vht_visit/g_device_functionality/working_condition">
+        <label>Is your device in good working condition?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/vht_visit/g_device_functionality/records_synched">
+        <label>Have you synced all your records today?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/vht_visit/g_device_functionality/note_synch">
+        <label>**Please offer support to the VHT to ensure successful synchronization of data on their handset now**</label>
+      </input>
+      <select1 ref="/vht_visit/g_device_functionality/device_condition">
+        <label>What is the condition of the device?</label>
+        <item>
+          <label>Broken</label>
+          <value>broken</value>
+        </item>
+        <item>
+          <label>Not charged</label>
+          <value>not_charged</value>
+        </item>
+        <item>
+          <label>Stolen (tablet or charger)</label>
+          <value>stolen</value>
+        </item>
+        <item>
+          <label>Device freeze</label>
+          <value>device_freeze</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/vht_visit/g_device_functionality/stolen_device_reported">
+        <label>Was the stolen device reported?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/vht_visit/g_device_functionality/police_report_advice">
+        <label>&lt;span style="color:#FF0000"&gt;Advise the vht to go to the police report and obtain a police letter&lt;/span&gt;</label>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/vht_visit/stock">
+      <label>Drugs &amp; Supplies</label>
+      <input ref="/vht_visit/stock/note_1">
+        <label>Use this section to capture on quantity available at the end of each month.</label>
+      </input>
+      <select1 appearance="horizontal" ref="/vht_visit/stock/drugs_locked_box">
+        <label>Are the drugs and supplies kept in a dry locked box?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/vht_visit/stock/note_dry_place">
+        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all drugs are stored in a dry place to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+      </input>
+      <input ref="/vht_visit/stock/vht_registers">
+        <label>How many VHT registers do you have?</label>
+      </input>
+      <input appearance="horizontal" ref="/vht_visit/stock/referal_forms">
+        <label>How many Referral Form books do you have?</label>
+      </input>
+      <select1 ref="/vht_visit/stock/reporting">
+        <label>What would you like to capture</label>
+        <item>
+          <label>Quantity Available This Month</label>
+          <value>available_this_month</value>
+        </item>
+      </select1>
+      <input ref="/vht_visit/stock/note_2">
+        <label>Use the button below to add items</label>
+      </input>
+      <group ref="/vht_visit/stock/items_repeat">
+        <label></label>
+        <repeat nodeset="/vht_visit/stock/items_repeat" appearance="field-list">
+          <select1 appearance="horizontal" ref="/vht_visit/stock/items_repeat/item">
+            <label>Select the item you would like to report</label>
+            <item>
+              <label>MRDT kits</label>
+              <value>mrdts</value>
+            </item>
+            <item>
+              <label>Pairs of Gloves</label>
+              <value>gloves</value>
+            </item>
+            <item>
+              <label>Masks_ Surgical/Cloths</label>
+              <value>masks</value>
+            </item>
+            <item>
+              <label>Hand Sanitizer bottles</label>
+              <value>sanitizer</value>
+            </item>
+            <item>
+              <label>Condoms</label>
+              <value>condoms</value>
+            </item>
+            <item>
+              <label>Zinc-ORS Co-pack</label>
+              <value>zinc_ors</value>
+            </item>
+            <item>
+              <label>First Line Anti-Malarial (ACT/Coartem)</label>
+              <value>act</value>
+            </item>
+            <item>
+              <label>Amoxicillin Dispersible</label>
+              <value>amoxicilline</value>
+            </item>
+            <item>
+              <label>ORS sachets</label>
+              <value>ORS</value>
+            </item>
+            <item>
+              <label>Pediatric Amoxicillin</label>
+              <value>pediatric</value>
+            </item>
+            <item>
+              <label>Coartem – 6pack</label>
+              <value>coartem6</value>
+            </item>
+            <item>
+              <label>Coartem - 12 pack</label>
+              <value>coartem12</value>
+            </item>
+            <item>
+              <label>Paracetamol</label>
+              <value>paracetamol</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/vht_visit/stock/items_repeat/act_type">
+            <label>Select ACT type remaining</label>
+            <item>
+              <label>ACT 6</label>
+              <value>act_6</value>
+            </item>
+            <item>
+              <label>ACT 12</label>
+              <value>act_12</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/vht_visit/stock/items_repeat/amoxicillin_type">
+            <label>Select Amoxicillin type remaining</label>
+            <item>
+              <label>10 capsules strip</label>
+              <value>strip_10</value>
+            </item>
+            <item>
+              <label>6 capsules strip</label>
+              <value>strip_6</value>
+            </item>
+          </select1>
+          <input ref="/vht_visit/stock/items_repeat/quantity">
+            <label>Quantity of <output value=" /vht_visit/stock/items_repeat/item "/> remaining</label>
+            <hint>Dispensing unit for <output value=" /vht_visit/stock/items_repeat/item "/> is <output value=" /vht_visit/stock/items_repeat/unit "/></hint></input>
+          <input ref="/vht_visit/stock/items_repeat/note_4">
+            <label>Use the button below to add more items</label>
+          </input>
+        </repeat>
+      </group>
+      <group ref="/vht_visit/stock/report_stockout">
+        <label>Report on Stockout and Stocks' Expiration status</label>
+        <select1 ref="/vht_visit/stock/report_stockout/stockout_supplies_drugs">
+          <label>Do you want to report any stock out of drugs and supplies?</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select ref="/vht_visit/stock/report_stockout/report_stockout_supplies_drugs">
+          <label>Report any stock out of the items below</label>
+          <item>
+            <label>Zinc-ORS Co-pack</label>
+            <value>zinc_ors</value>
+          </item>
+          <item>
+            <label>First Line Anti-Malarial (ACT/Coartem)</label>
+            <value>act</value>
+          </item>
+          <item>
+            <label>Amoxicillin Dispersible</label>
+            <value>amoxicilline</value>
+          </item>
+          <item>
+            <label>ORS sachets</label>
+            <value>ORS</value>
+          </item>
+          <item>
+            <label>Pediatric Amoxicillin</label>
+            <value>pediatric</value>
+          </item>
+          <item>
+            <label>Coartem – 6pack</label>
+            <value>coartem6</value>
+          </item>
+          <item>
+            <label>Coartem - 12 pack</label>
+            <value>coartem12</value>
+          </item>
+          <item>
+            <label>Paracetamol</label>
+            <value>paracetamol</value>
+          </item>
+          <item>
+            <label>MRDT kits</label>
+            <value>mrdt</value>
+          </item>
+          <item>
+            <label>Pairs of Gloves</label>
+            <value>gloves</value>
+          </item>
+          <item>
+            <label>Masks_ Surgical/Cloths</label>
+            <value>mask</value>
+          </item>
+          <item>
+            <label>Hand Sanitizer bottles</label>
+            <value>sanitizer</value>
+          </item>
+          <item>
+            <label>Condoms</label>
+            <value>condoms</value>
+          </item>
+          <item>
+            <label>None</label>
+            <value>none</value>
+          </item>
+        </select>
+        <select ref="/vht_visit/stock/report_stockout/item_expiry">
+          <label>Which items have an expiry date within the next 2 weeks?</label>
+          <item>
+            <label>Zinc-ORS Co-pack</label>
+            <value>zinc_ors</value>
+          </item>
+          <item>
+            <label>First Line Anti-Malarial (ACT/Coartem)</label>
+            <value>act</value>
+          </item>
+          <item>
+            <label>Amoxicillin Dispersible</label>
+            <value>amoxicilline</value>
+          </item>
+          <item>
+            <label>ORS sachets</label>
+            <value>ORS</value>
+          </item>
+          <item>
+            <label>Pediatric Amoxicillin</label>
+            <value>pediatric</value>
+          </item>
+          <item>
+            <label>Coartem – 6pack</label>
+            <value>coartem6</value>
+          </item>
+          <item>
+            <label>Coartem - 12 pack</label>
+            <value>coartem12</value>
+          </item>
+          <item>
+            <label>Paracetamol</label>
+            <value>paracetamol</value>
+          </item>
+          <item>
+            <label>MRDT kits</label>
+            <value>mrdt</value>
+          </item>
+          <item>
+            <label>Pairs of Gloves</label>
+            <value>gloves</value>
+          </item>
+          <item>
+            <label>Masks_ Surgical/Cloths</label>
+            <value>mask</value>
+          </item>
+          <item>
+            <label>Hand Sanitizer bottles</label>
+            <value>sanitizer</value>
+          </item>
+          <item>
+            <label>Condoms</label>
+            <value>condoms</value>
+          </item>
+          <item>
+            <label>None</label>
+            <value>none</value>
+          </item>
+        </select>
+      </group>
+    </group>
+    <group ref="/vht_visit/geolocation">
+      <label></label>
+      <input ref="/vht_visit/geolocation/gps">
+        <label>Visit Location</label>
+        <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/vht_visit/group_device_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 yellow" ref="/vht_visit/group_device_summary/s_note_vht_visit">
+        <label>Vht visit Summary</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_vht_visit_value">
+        <label>&lt;p style=&quot;text-align: center;&quot;&gt;Name of the VHT: <output value=" /vht_visit/inputs/contact/name "/>&lt;/p&gt;</label>
+      </input>
+      <input appearance="h1 blue" ref="/vht_visit/group_device_summary/s_device_condition">
+        <label>Status of the device</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_device_condition_1">
+        <label>&lt;h5 style="text-align:center;"&gt; Broken &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_device_condition_2">
+        <label>&lt;h5 style="text-align:center;"&gt;Not Charged &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_device_condition_3">
+        <label>&lt;h5 style="text-align:center;"&gt; Stolen (tablet or charger) &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_device_condition_4">
+        <label>&lt;h5 style="text-align:center;"&gt;Device freezes &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_material_supplies">
+        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Materials and Supplies **&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_gloves">
+        <label>&lt;h5 style="text-align:center;"&gt; **Gloves** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_gloves_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/gloves_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_masks">
+        <label>&lt;h5 style="text-align:center;"&gt; **Masks** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_masks_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/masks_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_sanitizer">
+        <label>&lt;h5 style="text-align:center;"&gt; **Sanitizer** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_sanitizer_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/sanitizer_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_mrdts">
+        <label>&lt;h5 style="text-align:center;"&gt; **Malaria RDTs** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_mrdts_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/mrdts_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_condoms">
+        <label>&lt;h5 style="text-align:center;"&gt; **Condoms** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_condoms_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/condoms_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_drugs">
+        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Drugs **&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_paracetamol">
+        <label>&lt;h5 style="text-align:center;"&gt; **Paracetamol** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_paracetamol_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/paracetamol_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_zinc_ors">
+        <label>&lt;h5 style="text-align:center;"&gt; **Zinc-ORS Co-pack** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_zinc_ors_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/zinc_ors_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_amoxicilline">
+        <label>&lt;h5 style="text-align:center;"&gt; **Amoxicillin Dispersible** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_amoxicilline_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/amoxicilline_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_coartem6">
+        <label>&lt;h5 style="text-align:center;"&gt; **Coartem – 6pack** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_coartem6_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/coartem6_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_coartem12">
+        <label>&lt;h5 style="text-align:center;"&gt; **Coartem – 12pack** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_coartem12_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/coartem12_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_act">
+        <label>&lt;h5 style="text-align:center;"&gt; **First Line Anti-Malarial (ACT/Coartem)** &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/r_act_quantity">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /vht_visit/act_remaining "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_follow_up_tasks">
+        <label>&lt;h4 style="text-align:center;background-color:#ff7276;"&gt;Follow up tasks&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_device_functionality_follow">
+        <label>**Please conduct a device functionality follow up task in 5 days**</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary/s_vht_visit_follow">
+        <label>**Please conduct another VHT Visit task in 30 days**</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/vht_visit/group_device_summary_1">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 yellow" ref="/vht_visit/group_device_summary_1/s_note_vht_visit">
+        <label>&lt;h1 style="text-align:center;"&gt;Vht visit Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary_1/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary_1/s_vht_visit_value">
+        <label>&lt;p style=&quot;text-align: center;&quot;&gt;<output value=" /vht_visit/inputs/contact/name "/>&lt;/p&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_visit/group_device_summary_1/s_vht_not_available">
+        <label>&lt;p style=&quot;text-align: center;&quot;&gt;<output value=" /vht_visit/vht_visit_details/g_vht_not_available/vht_not_available "/>&lt;/p&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary_1/s_follow_up_tasks">
+        <label>&lt;h4 style="text-align:center;background-color:#ff7276;"&gt;Follow up tasks&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary_1/s_device_functionality_follow">
+        <label>**Please conduct a device functionality follow up task in 5 days**</label>
+      </input>
+      <input ref="/vht_visit/group_device_summary_1/s_vht_visit_follow">
+        <label>**Please conduct another VHT Visit within 5 days**</label>
+      </input>
     </group>
   </h:body>
 </h:html>

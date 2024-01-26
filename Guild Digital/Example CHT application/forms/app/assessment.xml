@@ -562,13 +562,13 @@
         <root>
           <item>
             <itextId>static_instance-select_vitamin_a-0</itextId>
-            <name>first_vitamin_a</name>
             <prefecture>6</prefecture>
+            <name>first_vitamin_a</name>
           </item>
           <item>
             <itextId>static_instance-select_vitamin_a-1</itextId>
-            <name>second_vitamin_a</name>
             <prefecture>12</prefecture>
+            <name>second_vitamin_a</name>
           </item>
         </root>
       </instance>
@@ -635,7 +635,7 @@
       <bind nodeset="/assessment/inputs" relevant="./source = 'user'"/>
       <bind nodeset="/assessment/inputs/source" type="string"/>
       <bind nodeset="/assessment/inputs/source_id" type="string"/>
-      <bind nodeset="/assessment/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be under 5 years old" constraint=" /assessment/patient_age_in_years  &lt;=5 and  /assessment/recently_assessed != 'true'" required="true()"/>
+      <bind nodeset="/assessment/inputs/contact/_id" type="db:person" required="true()" jr:constraintMsg="Patient must be under 5 years old" constraint=" /assessment/patient_age_in_years  &lt;=5 and  /assessment/recently_assessed != 'true'"/>
       <bind nodeset="/assessment/inputs/contact/name" type="string"/>
       <bind nodeset="/assessment/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/assessment/inputs/contact/sex" type="string"/>
@@ -735,26 +735,26 @@
       <bind nodeset="/assessment/diagnosis_diarrhoea" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_diarrhoea/has_diarrhoea ='yes' and ( /assessment/group_diarrhoea/diarrhoea_duration ='less_than_14' or  /assessment/group_diarrhoea/diarrhoea_duration  &lt;= 3)and  /assessment/group_diarrhoea/blood_in_stool ='no', 'yes', 'no')"/>
       <bind nodeset="/assessment/diagnosis_fever" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/fever_duration &lt;7 and  /assessment/group_fever/mrdt_result ='positive', 'yes', 'no')"/>
       <bind nodeset="/assessment/treat_child_for_diagnosis" type="string" calculate="if( /assessment/diagnosis_cough ='yes' or  /assessment/diagnosis_diarrhoea ='yes' or  /assessment/diagnosis_fever ='yes','yes','no')"/>
-      <bind nodeset="/assessment/group_vht_assessment_date/vht_assessment_date" type="date" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" required="true()"/>
+      <bind nodeset="/assessment/group_vht_assessment_date/vht_assessment_date" type="date" required="true()" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))"/>
       <bind nodeset="/assessment/group_danger_sign_screening/note_any_danger_signs" readonly="true()" type="string"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_vomits_everything" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_has_convulsions" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_cannot_drink_breastfeed" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_unconscious" type="select1" required="true()"/>
-      <bind nodeset="/assessment/group_danger_sign_screening/child_has_low_temp" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
-      <bind nodeset="/assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
-      <bind nodeset="/assessment/group_danger_sign_screening/child_has_infected_umbilical_cord" type="select1" relevant=" /assessment/patient_age_in_days &lt;=28" required="true()"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_low_temp" type="select1" required="true()" relevant=" /assessment/patient_age_in_days &lt;=28"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms" type="select1" required="true()" relevant=" /assessment/patient_age_in_days &lt;=28"/>
+      <bind nodeset="/assessment/group_danger_sign_screening/child_has_infected_umbilical_cord" type="select1" required="true()" relevant=" /assessment/patient_age_in_days &lt;=28"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_has_danger_signs" type="string" calculate="if(( /assessment/group_danger_sign_screening/child_vomits_everything  = 'yes' or  /assessment/group_danger_sign_screening/child_has_convulsions  = 'yes' or  /assessment/group_danger_sign_screening/child_cannot_drink_breastfeed  = 'yes' or  /assessment/group_danger_sign_screening/child_unconscious  = 'yes' or  /assessment/group_danger_sign_screening/child_has_low_temp  = 'yes' or  /assessment/group_danger_sign_screening/child_has_yellow_eyes_or_palms  = 'yes' or  /assessment/group_danger_sign_screening/child_has_infected_umbilical_cord  = 'yes'), 'yes', 'no')"/>
       <bind nodeset="/assessment/group_cough" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_cough/has_cough" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_cough/note_check_fast_breathing" readonly="true()" type="string" relevant=" /assessment/group_cough/has_cough ='yes'"/>
-      <bind nodeset="/assessment/group_cough/cough_duration" type="select1" relevant=" /assessment/group_cough/has_cough ='yes'" required="true()"/>
-      <bind nodeset="/assessment/group_cough/has_chest_indrawing" type="select1" relevant=" /assessment/group_cough/has_cough ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_cough/cough_duration" type="select1" required="true()" relevant=" /assessment/group_cough/has_cough ='yes'"/>
+      <bind nodeset="/assessment/group_cough/has_chest_indrawing" type="select1" required="true()" relevant=" /assessment/group_cough/has_cough ='yes'"/>
       <bind nodeset="/assessment/group_cough/cough_danger_sign" type="string" calculate="if( /assessment/group_cough/cough_duration &gt;=14 or  /assessment/group_cough/has_chest_indrawing ='yes','yes','no')"/>
       <bind nodeset="/assessment/group_breathing" relevant=" /assessment/group_cough/has_cough ='yes'"/>
       <bind nodeset="/assessment/group_breathing/note_press_timer" readonly="true()" type="string"/>
       <bind nodeset="/assessment/group_breathing/note_fast_breathing_depends_on" readonly="true()" type="string"/>
-      <bind nodeset="/assessment/group_breathing/breath_count" type="int" jr:constraintMsg="Breaths per minute must be between 10 and 120" constraint=". &gt;= 10 and . &lt;= 120" required="true()"/>
+      <bind nodeset="/assessment/group_breathing/breath_count" type="int" required="true()" jr:constraintMsg="Breaths per minute must be between 10 and 120" constraint=". &gt;= 10 and . &lt;= 120"/>
       <bind nodeset="/assessment/group_breathing/fast_breathing" type="string" calculate="if(( /assessment/group_breathing/breath_count &gt;=60) and ( /assessment/patient_age_in_days &lt;60), &quot;true&quot;, 
  if(( /assessment/group_breathing/breath_count &gt;=50) and ( /assessment/patient_age_in_days &gt;=60) and ( /assessment/patient_age_in_days &lt;365), &quot;true&quot;,
  if(( /assessment/group_breathing/breath_count &gt;=40) and ( /assessment/patient_age_in_days &gt;=365) and ( /assessment/patient_age_in_days &lt;(5*365.25)), &quot;true&quot;,
@@ -763,45 +763,45 @@
       <bind nodeset="/assessment/group_breathing/fast_breathing_note_false" readonly="true()" type="string" relevant="( /assessment/group_breathing/breath_count  &gt; 0) and ( /assessment/group_breathing/fast_breathing  != &quot;true&quot;)"/>
       <bind nodeset="/assessment/group_diarrhoea" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_diarrhoea/has_diarrhoea" type="select1" required="true()"/>
-      <bind nodeset="/assessment/group_diarrhoea/diarrhoea_duration" type="select1" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'" required="true()"/>
-      <bind nodeset="/assessment/group_diarrhoea/blood_in_stool" type="select1" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_diarrhoea/diarrhoea_duration" type="select1" required="true()" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'"/>
+      <bind nodeset="/assessment/group_diarrhoea/blood_in_stool" type="select1" required="true()" relevant=" /assessment/group_diarrhoea/has_diarrhoea ='yes'"/>
       <bind nodeset="/assessment/group_diarrhoea/diarrhoea_danger_sign" type="string" calculate="if( /assessment/group_diarrhoea/diarrhoea_duration ='more_than_14' or  /assessment/group_diarrhoea/blood_in_stool ='yes', 'yes', 'no')"/>
       <bind nodeset="/assessment/group_fever" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_fever/has_fever" type="select1" required="true()"/>
-      <bind nodeset="/assessment/group_fever/has_thermometer" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
-      <bind nodeset="/assessment/group_fever/patient_temperature" type="decimal" jr:constraintMsg="The temperature should be between 33 °C and 42 °C" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/has_thermometer ='yes'" constraint=". &gt;= 33 and . &lt;= 42" required="true()"/>
-      <bind nodeset="/assessment/group_fever/fever_duration" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/has_thermometer" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes'"/>
+      <bind nodeset="/assessment/group_fever/patient_temperature" type="decimal" required="true()" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/has_thermometer ='yes'" jr:constraintMsg="The temperature should be between 33 °C and 42 °C" constraint=". &gt;= 33 and . &lt;= 42"/>
+      <bind nodeset="/assessment/group_fever/fever_duration" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes'"/>
       <bind nodeset="/assessment/group_fever/note_do_mrdt" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes'"/>
-      <bind nodeset="/assessment/group_fever/mrdt_used" type="select1" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/app_id  != 'uncdf'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/mrdt_used" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/app_id  != 'uncdf'"/>
       <bind nodeset="/assessment/group_fever/after_blood_note_carestat" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_used ='carestat' and  /assessment/app_id  != 'uncdf'"/>
       <bind nodeset="/assessment/group_fever/after_blood_note_bioline" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_used ='bioline' and  /assessment/app_id  != 'uncdf'"/>
-      <bind nodeset="/assessment/group_fever/mrdt_result" type="select1" relevant=" /assessment/group_fever/has_fever ='yes'" required="true()"/>
-      <bind nodeset="/assessment/group_fever/why_mrdt_not_done" type="string" relevant=" /assessment/group_fever/mrdt_result ='none'" required="true()"/>
+      <bind nodeset="/assessment/group_fever/mrdt_result" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes'"/>
+      <bind nodeset="/assessment/group_fever/why_mrdt_not_done" type="string" required="true()" relevant=" /assessment/group_fever/mrdt_result ='none'"/>
       <bind nodeset="/assessment/group_fever/note_mrdt_positive" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='positive'"/>
       <bind nodeset="/assessment/group_fever/note_mrdt_negative" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='negative'"/>
       <bind nodeset="/assessment/group_fever/note_mrdt_no_results" readonly="true()" type="string" relevant=" /assessment/group_fever/mrdt_result ='invalid'"/>
       <bind nodeset="/assessment/group_fever/fever_danger_sign" type="string" calculate="if( /assessment/group_fever/fever_duration &gt;=7,'yes','no')"/>
       <bind nodeset="/assessment/group_hiv_tb" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
-      <bind nodeset="/assessment/group_hiv_tb/has_hiv_exposure" type="select1" relevant=" /assessment/is_hiv_positive !='true'" required="true()"/>
+      <bind nodeset="/assessment/group_hiv_tb/has_hiv_exposure" type="select1" required="true()" relevant=" /assessment/is_hiv_positive !='true'"/>
       <bind nodeset="/assessment/group_hiv_tb/has_tb_exposure" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_malnutrition" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5 and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_malnutrition/note_use_muac_tape" readonly="true()" type="string"/>
       <bind nodeset="/assessment/group_malnutrition/muac_colour" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_malnutrition/swelling_both_feet" type="select1" required="true()"/>
-      <bind nodeset="/assessment/group_malnutrition/appears_too_small" type="select1" relevant=" /assessment/patient_age_in_days  &lt; 29" required="true()"/>
+      <bind nodeset="/assessment/group_malnutrition/appears_too_small" type="select1" required="true()" relevant=" /assessment/patient_age_in_days  &lt; 29"/>
       <bind nodeset="/assessment/group_malnutrition/malnutrition_danger_sign" type="string" calculate="if( /assessment/group_malnutrition/muac_colour ='yellow' or  /assessment/group_malnutrition/muac_colour ='red' or  /assessment/group_malnutrition/swelling_both_feet ='yes' or  /assessment/group_malnutrition/appears_too_small ='yes', 'yes', 'no')"/>
       <bind nodeset="/assessment/group_other_information" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
-      <bind nodeset="/assessment/group_other_information/exclusive_breast_feeding" type="select1" relevant=" /assessment/patient_age_in_months  &lt; 6" required="true()"/>
-      <bind nodeset="/assessment/group_other_information/walking_or_crawling" type="select1" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 1" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/exclusive_breast_feeding" type="select1" required="true()" relevant=" /assessment/patient_age_in_months  &lt; 6"/>
+      <bind nodeset="/assessment/group_other_information/walking_or_crawling" type="select1" required="true()" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 1"/>
       <bind nodeset="/assessment/group_other_information/note_verify_immunization" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &lt;= 9"/>
       <bind nodeset="/assessment/group_other_information/note_immunization_schedule" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &lt;= 9"/>
-      <bind nodeset="/assessment/group_other_information/immunization_received" type="select" relevant=" /assessment/patient_age_in_days  &lt;= 42" required="true()"/>
-      <bind nodeset="/assessment/group_other_information/immunization_uptodate" type="select1" relevant=" /assessment/patient_age_in_months  &lt;= 9" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/immunization_received" type="select" required="true()" relevant=" /assessment/patient_age_in_days  &lt;= 42"/>
+      <bind nodeset="/assessment/group_other_information/immunization_uptodate" type="select1" required="true()" relevant=" /assessment/patient_age_in_months  &lt;= 9"/>
       <bind nodeset="/assessment/group_other_information/note_immunization_not_upto_date" readonly="true()" type="string" relevant=" /assessment/group_other_information/immunization_uptodate  = 'no'"/>
-      <bind nodeset="/assessment/group_other_information/child_been_dewormed" type="select1" relevant=" /assessment/patient_age_in_years  &gt;= 1 and  /assessment/patient_age_in_years  &lt;= 5" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/child_been_dewormed" type="select1" required="true()" relevant=" /assessment/patient_age_in_years  &gt;= 1 and  /assessment/patient_age_in_years  &lt;= 5"/>
       <bind nodeset="/assessment/group_other_information/note_vitamin_a" readonly="true()" type="string" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5"/>
-      <bind nodeset="/assessment/group_other_information/received_vitamin_a" type="select1" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5" required="true()"/>
-      <bind nodeset="/assessment/group_other_information/which_vitamin_a_received" type="select" relevant=" /assessment/group_other_information/received_vitamin_a ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_other_information/received_vitamin_a" type="select1" required="true()" relevant=" /assessment/patient_age_in_months  &gt;= 6 and  /assessment/patient_age_in_years  &lt;= 5"/>
+      <bind nodeset="/assessment/group_other_information/which_vitamin_a_received" type="select" required="true()" relevant=" /assessment/group_other_information/received_vitamin_a ='yes'"/>
       <bind nodeset="/assessment/group_other_information/note_vitamin_a_advice" readonly="true()" type="string" relevant=" /assessment/group_other_information/received_vitamin_a ='no'"/>
       <bind nodeset="/assessment/group_routine_care" relevant=" /assessment/patient_age_in_days &lt;=28 and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_routine_care/keep_baby_warm" type="select" required="true()"/>
@@ -841,22 +841,22 @@
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;12"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough2" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 12 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_cough_instruction" readonly="true()" type="string" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
-      <bind nodeset="/assessment/group_patient_summary/cough_prereferral_treatment_given" type="select1" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/cough_prereferral_treatment_given" type="select1" required="true()" relevant=" /assessment/group_cough/cough_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/diarrhoea_prerefferal_treatment-header" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2 and  /assessment/patient_age_in_months  &lt; 24"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea2" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 24"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_diarrhoea_instruction" readonly="true()" type="string" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2"/>
-      <bind nodeset="/assessment/group_patient_summary/diarrhoea_prereferral_treatment_given" type="select1" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/diarrhoea_prereferral_treatment_given" type="select1" required="true()" relevant=" /assessment/group_diarrhoea/diarrhoea_danger_sign ='yes' and  /assessment/patient_age_in_months  &gt;= 2"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prerefferal_treatment_header_fever" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 36 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;36"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever2" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 36 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_fever_instruction" readonly="true()" type="string" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
-      <bind nodeset="/assessment/group_patient_summary/fever_prereferral_treatment_given" type="select1" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/fever_prereferral_treatment_given" type="select1" required="true()" relevant=" /assessment/group_fever/fever_danger_sign ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/general_signs_header" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_months  &gt;= 48 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_years  &lt;=2"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign2" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs ='yes' and  /assessment/patient_age_in_years  &gt; 2 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_danger_sign_instruction" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
-      <bind nodeset="/assessment/group_patient_summary/danger_sign_prereferral_treatment_given" type="select1" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/danger_sign_prereferral_treatment_given" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_danger_sign_screening/child_has_danger_signs  = 'yes' and  /assessment/patient_age_in_months  &gt;= 4 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_prereferral_treatment_newborn_danger_sign" readonly="true()" type="string" relevant=" /assessment/patient_age_in_days &lt;=28"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_cough" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
@@ -865,7 +865,7 @@
       <bind nodeset="/assessment/group_patient_summary/s_note_cough_treatment_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes' and  /assessment/patient_age_in_months  &gt;= 12 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_cough_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_cough_special_instruction1" readonly="true()" type="string" relevant=" /assessment/diagnosis_cough ='yes'"/>
-      <bind nodeset="/assessment/group_patient_summary/cough_treatment_given" type="select1" relevant=" /assessment/diagnosis_cough ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/cough_treatment_given" type="select1" required="true()" relevant=" /assessment/diagnosis_cough ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_diarrhoea" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_ors_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
@@ -873,7 +873,7 @@
       <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_zinc_dose2" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes' and  /assessment/patient_age_in_months  &gt;=6 and  /assessment/patient_age_in_months  &lt;=60"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diarrhoea_special_instruction_ors1" readonly="true()" type="string" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
-      <bind nodeset="/assessment/group_patient_summary/diarrhoea_treatment_given" type="select1" relevant=" /assessment/diagnosis_diarrhoea ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/diarrhoea_treatment_given" type="select1" required="true()" relevant=" /assessment/diagnosis_diarrhoea ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_diagnosis_fever" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_fever_treatment" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_fever_dose1" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes' and  /assessment/patient_age_in_months  &gt;=4 and  /assessment/patient_age_in_years  &lt;= 2"/>
@@ -881,9 +881,9 @@
       <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction1" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_fever_special_instruction2" readonly="true()" type="string" relevant=" /assessment/diagnosis_fever ='yes'"/>
-      <bind nodeset="/assessment/group_patient_summary/fever_treatment_given" type="select1" relevant=" /assessment/diagnosis_fever ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/fever_treatment_given" type="select1" required="true()" relevant=" /assessment/diagnosis_fever ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_referral" readonly="true()" type="string" relevant=" /assessment/referral_follow_up ='yes'"/>
-      <bind nodeset="/assessment/group_patient_summary/have_you_referred" type="select1" relevant=" /assessment/referral_follow_up ='yes'" required="true()"/>
+      <bind nodeset="/assessment/group_patient_summary/have_you_referred" type="select1" required="true()" relevant=" /assessment/referral_follow_up ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction1" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>
       <bind nodeset="/assessment/group_patient_summary/s_note_important_instruction_clean_water" readonly="true()" type="string" relevant=" /assessment/treat_child_for_diagnosis ='yes'"/>

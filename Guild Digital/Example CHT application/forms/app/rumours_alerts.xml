@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Rumors and Alerts Form</h:title>
+    <h:title>Rumors and Alerts</h:title>
     <model>
       <instance>
-        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2023-09-19  21-27">
+        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2024-01-12  14-42">
           <inputs>
             <meta>
               <location>
@@ -14,16 +14,48 @@
                 <message/>
               </location>
             </meta>
-            <source>user</source>
+            <source/>
             <source_id/>
-            <contact>
-              <_id>0</_id>
+            <user>
+              <contact_id/>
+              <facility_id/>
               <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
             </contact>
           </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <geolocation>
+            <latitude/>
+            <longitude/>
+            <altitude/>
+            <accuracy/>
+            <gps/>
+          </geolocation>
           <rumours>
             <rumours_present/>
             <rumour_description/>
+            <other_specify/>
             <rumour_addressed/>
             <rumour_not_addressed_why/>
             <rumor_address_method/>
@@ -34,13 +66,35 @@
         </rumours_alerts>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/rumours_alerts/inputs" relevant="./source='user'"/>
+      <bind nodeset="/rumours_alerts/inputs" relevant="false()"/>
       <bind nodeset="/rumours_alerts/inputs/source" type="string"/>
       <bind nodeset="/rumours_alerts/inputs/source_id" type="string"/>
-      <bind nodeset="/rumours_alerts/inputs/contact/_id" type="db:person" required="true()"/>
-      <bind nodeset="/rumours_alerts/inputs/contact/name" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/name" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/phone" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/role" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/rumours_alerts/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/rumours_alerts/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/rumours_alerts/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/rumours_alerts/created_by" type="string" calculate="../inputs/user/name"/>
+      <bind nodeset="/rumours_alerts/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/rumours_alerts/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/rumours_alerts/geolocation/latitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 0)"/>
+      <bind nodeset="/rumours_alerts/geolocation/longitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 1)"/>
+      <bind nodeset="/rumours_alerts/geolocation/altitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 2)"/>
+      <bind nodeset="/rumours_alerts/geolocation/accuracy" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 3)"/>
+      <bind nodeset="/rumours_alerts/geolocation/gps" type="geopoint"/>
       <bind nodeset="/rumours_alerts/rumours/rumours_present" type="select1" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumour_description" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/other_specify" type="string" relevant=" /rumours_alerts/rumours/rumour_description  = 'other'" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumour_addressed" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumour_not_addressed_why" type="string" relevant=" /rumours_alerts/rumours/rumour_addressed  = 'no'" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumor_address_method" type="select1" relevant=" /rumours_alerts/rumours/rumour_addressed ='yes'" required="true()"/>
@@ -49,25 +103,35 @@
   </h:head>
   <h:body class="pages">
     <group appearance="field-list" ref="/rumours_alerts/inputs">
-      <label>Patient</label>
-      <input appearance="hidden" ref="/rumours_alerts/inputs/source">
-        <label>Source</label>
-      </input>
-      <input appearance="hidden" ref="/rumours_alerts/inputs/source_id">
-        <label>Source ID</label>
-      </input>
+      <label></label>
+      <group ref="/rumours_alerts/inputs/user">
+        <label></label>
+      </group>
       <group ref="/rumours_alerts/inputs/contact">
         <label></label>
-        <input appearance="db-object" ref="/rumours_alerts/inputs/contact/_id">
+        <input appearance="select-contact type-person" ref="/rumours_alerts/inputs/contact/_id">
+          <label>The user being replaced</label>
+        </input>
+        <group appearance="hidden" ref="/rumours_alerts/inputs/contact/parent">
           <label></label>
-        </input>
-        <input appearance="hidden" ref="/rumours_alerts/inputs/contact/name">
-          <label>Name</label>
-        </input>
+          <group ref="/rumours_alerts/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/rumours_alerts/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
       </group>
     </group>
+    <group ref="/rumours_alerts/geolocation">
+      <label></label>
+      <input ref="/rumours_alerts/geolocation/gps">
+        <label>Rumours And Alerts</label>
+        <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+      </input>
+    </group>
     <group appearance="field-list" ref="/rumours_alerts/rumours">
-      <label>RUMOURS AND ALERTS</label>
+      <label>Rumours And Alerts</label>
       <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumours_present">
         <label>Have there been any rumours around the community?</label>
         <item>
@@ -93,7 +157,14 @@
           <label>War/conflict</label>
           <value>war_conflict</value>
         </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
       </select1>
+      <input ref="/rumours_alerts/rumours/other_specify">
+        <label>Other (Please specify)</label>
+      </input>
       <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumour_addressed">
         <label>Was the rumour addressed?</label>
         <item>
@@ -125,6 +196,10 @@
         <item>
           <label>Guidance from health Team</label>
           <value>guidance_health_team</value>
+        </item>
+        <item>
+          <label>Advice from VHT</label>
+          <value>advice_from_vht</value>
         </item>
       </select1>
     </group>

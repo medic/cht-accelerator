@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Rumors and Alerts Follow Up</h:title>
+    <model>
+      <instance>
+        <rumours_alerts_follow_up id="rumours_alerts_follow_up" prefix="J1!rumours_alerts_follow_up!" delimiter="#" version="2023-12-09  0-14">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <g_rumours_follow_up>
+            <note_rumours/>
+            <rumours_addressed/>
+            <rumour_description/>
+            <rumour_concern/>
+          </g_rumours_follow_up>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </rumours_alerts_follow_up>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs" relevant="false()"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/source" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/source_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/user/name" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/user/phone" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/contact/_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/contact/role" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/rumours_alerts_follow_up/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/rumours_alerts_follow_up/created_by" type="string" calculate="../inputs/user/name"/>
+      <bind nodeset="/rumours_alerts_follow_up/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/rumours_alerts_follow_up/g_rumours_follow_up/note_rumours" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts_follow_up/g_rumours_follow_up/rumours_addressed" type="select1" required="true()"/>
+      <bind nodeset="/rumours_alerts_follow_up/g_rumours_follow_up/rumour_description" type="select1" required="true()" relevant=" /rumours_alerts_follow_up/g_rumours_follow_up/rumours_addressed ='yes'"/>
+      <bind nodeset="/rumours_alerts_follow_up/g_rumours_follow_up/rumour_concern" type="select1" required="true()" relevant=" /rumours_alerts_follow_up/g_rumours_follow_up/rumours_addressed ='yes'"/>
+      <bind nodeset="/rumours_alerts_follow_up/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/rumours_alerts_follow_up/inputs">
+      <label></label>
+      <group ref="/rumours_alerts_follow_up/inputs/user">
+        <label></label>
+      </group>
+      <group ref="/rumours_alerts_follow_up/inputs/contact">
+        <label></label>
+        <input appearance="select-contact type-person" ref="/rumours_alerts_follow_up/inputs/contact/_id">
+          <label>The user being replaced</label>
+        </input>
+        <group appearance="hidden" ref="/rumours_alerts_follow_up/inputs/contact/parent">
+          <label></label>
+          <group ref="/rumours_alerts_follow_up/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/rumours_alerts_follow_up/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/rumours_alerts_follow_up/g_rumours_follow_up">
+      <label>Rumours And Alerts</label>
+      <input ref="/rumours_alerts_follow_up/g_rumours_follow_up/note_rumours">
+        <label>Find out if the reported rumour was addressed</label>
+      </input>
+      <select1 ref="/rumours_alerts_follow_up/g_rumours_follow_up/rumours_addressed">
+        <label>Was the rumour addressed?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/rumours_alerts_follow_up/g_rumours_follow_up/rumour_description">
+        <label>How was the rumour addressed?</label>
+        <item>
+          <label>Reported to Supervisor</label>
+          <value>reported_supervisor</value>
+        </item>
+        <item>
+          <label>Mentorship</label>
+          <value>mentorship</value>
+        </item>
+        <item>
+          <label>Sensitization</label>
+          <value>sensitization</value>
+        </item>
+        <item>
+          <label>Guidance from health Team</label>
+          <value>guidance_health_team</value>
+        </item>
+      </select1>
+      <select1 ref="/rumours_alerts_follow_up/g_rumours_follow_up/rumour_concern">
+        <label>Is the rumour still a concern in your community?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

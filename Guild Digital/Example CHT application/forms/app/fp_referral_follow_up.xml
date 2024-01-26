@@ -170,7 +170,7 @@
         </fp_referral_follow_up>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/fp_referral_follow_up/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_referral_follow_up/inputs" constraint="field-list" relevant="./source= 'user'"/>
       <bind nodeset="/fp_referral_follow_up/inputs/source" type="string"/>
       <bind nodeset="/fp_referral_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/fp_referral_follow_up/inputs/contact/_id" type="db:person" constraint="db-object"/>
@@ -192,9 +192,9 @@
       <bind nodeset="/fp_referral_follow_up/chw_name" type="string" calculate="../inputs/contact/parent/parent/contact/name"/>
       <bind nodeset="/fp_referral_follow_up/chw_phone" type="string" calculate="../inputs/contact/parent/parent/contact/phone"/>
       <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/visited_facility" type="select1" required="true()"/>
-      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp" type="select1" required="true()" relevant="selected(../visited_facility, 'yes')"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/enrolled_fp" type="select1" relevant="selected(../visited_facility, 'yes')" required="true()"/>
       <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/n_fp_registration" readonly="true()" type="string" relevant="selected(../enrolled_fp, 'yes')"/>
-      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp" type="select1" required="true()" relevant="selected(../enrolled_fp, 'no')"/>
+      <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/reason_not_enrolled_fp" type="select1" relevant="selected(../enrolled_fp, 'no')" required="true()"/>
       <bind nodeset="/fp_referral_follow_up/fp_ref_follow_up/n_pregnancy_registration" readonly="true()" type="string" relevant="selected(../reason_not_enrolled_fp, 'is_pregnant')"/>
       <bind nodeset="/fp_referral_follow_up/group_review/n_summary_title" readonly="true()" type="string"/>
       <bind nodeset="/fp_referral_follow_up/group_review/n_submit" readonly="true()" type="string"/>

@@ -4,7 +4,7 @@
     <h:title>Add VHT Area</h:title>
     <model>
       <instance>
-        <data id="contact:health_center:create" prefix="J1!contact:health_center:create!" delimiter="#" version="2016-04-06">
+        <data id="contact:health_center:create" prefix="J1!contact:health_center:create!" delimiter="#" version="2023-12-03 14:02:19">
           <inputs>
             <meta>
               <location>
@@ -86,8 +86,8 @@
       <bind nodeset="/data/ephemeral_phone/phone2" type="string" constraint="regex(.,'^(03|04|07)[0-9]{8}$')" jr:constraintMsg="Mobile number should be 10 digits starting with 03/04/07"/>
       <bind nodeset="/data/ephemeral_dob/g_sex" type="select1" required="true()"/>
       <bind nodeset="/data/ephemeral_dob/contact_dob_method" type="select1" required="true()"/>
-      <bind nodeset="/data/ephemeral_dob/dob_calendar" type="date" relevant="selected(../contact_dob_method,'calendar')" constraint=".&lt;today()" jr:constraintMsg="Date must be before today" required="true()"/>
-      <bind nodeset="/data/ephemeral_dob/age" type="int" relevant="selected(../contact_dob_method,'approx')" constraint=". &gt; 0 and . &lt; 120" jr:constraintMsg="Age must be between 0 and 120" required="true()"/>
+      <bind nodeset="/data/ephemeral_dob/dob_calendar" type="date" relevant="selected(../contact_dob_method,'calendar')" constraint=".&lt;today()" required="true()" jr:constraintMsg="Date must be before today"/>
+      <bind nodeset="/data/ephemeral_dob/age" type="int" relevant="selected(../contact_dob_method,'approx')" constraint=". &gt; 0 and . &lt; 120" required="true()" jr:constraintMsg="Age must be between 0 and 120"/>
       <bind nodeset="/data/ephemeral_dob/dob_raw" type="string" calculate="if(selected( ../contact_dob_method,'calendar'), 
 ../dob_calendar,
 format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>

@@ -33,19 +33,31 @@ module.exports = {
   fields: [
     { appliesToType: 'person', label: 'patient_id', value: contact.patient_id, width: 3 },
     { appliesToType: 'person', label: 'contact.sex', value: contact.sex, width: 3 },
-    { appliesToType: 'person', label: 'Notes', value: contact.notes, width: 12 },
     { appliesToType: 'person', label: 'contact.age', value: contact.date_of_birth, width: 4, filter: 'age' },
-    { appliesToType: 'person', label: 'Phone Number', value: contact.phone, width: 8, filter: 'phone' },
+    { appliesToType: 'person', label: 'Phone Number', value: contact.phone, width: 4, filter: 'phone' },
     { appliesToType: 'person', label: 'contact.parent', value: lineage, filter: 'lineage' },
-    { appliesToType: 'person', label: 'reports', value: reports, width: 12, filter: 'json' },
     { appliesToType: ['health_center', 'district_hospital', 'clinic'], label: 'contact.parent', value: lineage, width: 12, filter: 'lineage' },
   ],
   
   cards: [
     {
+      label: 'contact.profile.death.title',
+      appliesToType: 'person',
+      appliesIf: () => contact && contact.date_of_date,
+      fields: () => ([
+        { 
+          label: 'contact.profile.death.date', 
+          value: contact.date_of_death, 
+          filter: 'simpleDate', 
+          translate: false, 
+          width: 6
+        }
+      ]),
+    },
+    {
       label: 'contact.profile.family_planning',
       appliesToType: 'person',
-      appliesIf: () => isOfChildBearingAge,
+      appliesIf: () => isOfChildBearingAge && !contact.role === 'vht',
       fields: () => familyPlanningCard.fields,
       modifyContext: (context) => {
         context.fpMethodLabel = familyPlanningCard.context.method_label;
@@ -54,13 +66,13 @@ module.exports = {
     {
       label: 'contact.profile.pregnancy',
       appliesToType: 'person',
-      appliesIf: () => isPregnant(reports),
+      appliesIf: () => isPregnant(reports) && !contact.role === 'vht',
       fields: getPregnancyFields(reports, eddDate)
     },
     {
       label: 'contact.profile.pnc',
       appliesToType: 'person',
-      appliesIf: () => pncFields.length > 0,
+      appliesIf: () => pncFields.length > 0 && !contact.role === 'vht',
       fields: pncFields
     },
     {

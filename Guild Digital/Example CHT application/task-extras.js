@@ -70,6 +70,13 @@ const toDate = (val, plusDays = 0) => {
   return Utils.addDate(parsedDate, plusDays);
 };
 
+const isFormArraySubmittedInWindow = (reports, formsArray, startTime, endTime) => {
+  if(typeof formsArray === 'string') { 
+    formsArray = [ formsArray ];
+  }
+  return formsArray.some(f => Utils.isFormSubmittedInWindow(reports, f, startTime, endTime));
+};
+
 const pregnancyEndedInSubsequentVisit = (contact, report) => {
   const latestANCVisit = Utils.getMostRecentReport(contact.reports, 'anc_visit_follow_up');
   if (!latestANCVisit) { return; }
@@ -104,5 +111,6 @@ module.exports = {
   isMuted,
   formInSubmittedWindowMatchesFields,
   ANC_VISITS,
-  getDaysToNextANCVisit
+  getDaysToNextANCVisit,
+  isFormArraySubmittedInWindow,
 };

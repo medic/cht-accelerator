@@ -151,9 +151,9 @@
       <bind nodeset="/screening/is_of_child_bearing_age" type="string" calculate="instance('contact-summary')/context/isOfChildBearingAge"/>
       <bind nodeset="/screening/group_pregnancy_screening" relevant=" /screening/is_of_child_bearing_age  = 'true'"/>
       <bind nodeset="/screening/group_pregnancy_screening/is_pregnant" type="select1" required="true()"/>
-      <bind nodeset="/screening/group_pregnancy_screening/has_started_anc" type="select1" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_pregnancy_screening/has_started_anc" type="select1" required="true()" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'yes'"/>
       <bind nodeset="/screening/group_pregnancy_screening/note_refer_to_health_facility_anc" readonly="true()" type="string" relevant=" /screening/group_pregnancy_screening/has_started_anc  = 'no'"/>
-      <bind nodeset="/screening/group_pregnancy_screening/referred_to_health_facility_anc" type="select1" relevant=" /screening/group_pregnancy_screening/has_started_anc  = 'no'" required="true()"/>
+      <bind nodeset="/screening/group_pregnancy_screening/referred_to_health_facility_anc" type="select1" required="true()" relevant=" /screening/group_pregnancy_screening/has_started_anc  = 'no'"/>
       <bind nodeset="/screening/group_pregnancy_screening/note_register_pregnancy" readonly="true()" type="string" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'yes' and  /screening/group_pregnancy_screening/has_started_anc  = 'yes'"/>
       <bind nodeset="/screening/group_family_planning_screening" relevant=" /screening/group_pregnancy_screening/is_pregnant  = 'no' and  /screening/inputs/contact/sex  = 'female' and  /screening/patient_age_in_years  &gt;= 12 and  /screening/patient_age_in_years  &lt;= 49"/>
       <bind nodeset="/screening/group_family_planning_screening/on_fp_method" type="select1" required="true()"/>
@@ -165,7 +165,7 @@
       <bind nodeset="/screening/group_family_planning_screening/note_counsel_on_all_fp_methods" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no' or  /screening/group_family_planning_screening/change_fp_method  = 'yes'"/>
       <bind nodeset="/screening/group_family_planning_screening/counseled_on_fp_methods" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no' or  /screening/group_family_planning_screening/change_fp_method  = 'yes'"/>
       <bind nodeset="/screening/group_family_planning_screening/referred_for_fp_services" type="select1" relevant=" /screening/group_family_planning_screening/change_fp_method  = 'yes' or  /screening/group_family_planning_screening/experiencing_fp_side_effects  = 'yes'"/>
-      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_fp_services" type="date" relevant=" /screening/group_family_planning_screening/referred_for_fp_services  = 'yes'" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
+      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_fp_services" type="date" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" relevant=" /screening/group_family_planning_screening/referred_for_fp_services  = 'yes'" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
       <bind nodeset="/screening/group_family_planning_screening/note_register_using_fp_registration_form" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/change_fp_method  ='no'"/>
       <bind nodeset="/screening/group_family_planning_screening/knows_lmp" type="select1" relevant=" /screening/group_family_planning_screening/on_fp_method  = 'no'"/>
       <bind nodeset="/screening/group_family_planning_screening/lmp_start_date" type="date" relevant=" /screening/group_family_planning_screening/knows_lmp  = 'yes'"/>
@@ -174,23 +174,23 @@
       <bind nodeset="/screening/group_family_planning_screening/note_refer_for_pregnancy_test" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'more_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &gt; 30"/>
       <bind nodeset="/screening/group_family_planning_screening/note_educate_on_available_fp_services" readonly="true()" type="string" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'less_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &lt;= 30"/>
       <bind nodeset="/screening/group_family_planning_screening/referred_for_pregnancy_test" type="select1" relevant=" /screening/group_family_planning_screening/lmp_approximate_date  = 'more_than_1_month_ago' or  /screening/group_family_planning_screening/days_elapsed_since_lmp  &gt; 30"/>
-      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_pregnancy_test" type="date" relevant=" /screening/group_family_planning_screening/referred_for_pregnancy_test  = 'yes'" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
+      <bind nodeset="/screening/group_family_planning_screening/follow_up_date_pregnancy_test" type="date" constraint=". &gt;=  /screening/today_date  and ((decimal-date-time(.) - 14) &lt;= decimal-date-time(today()))" relevant=" /screening/group_family_planning_screening/referred_for_pregnancy_test  = 'yes'" jr:constraintMsg="The date should not be in the past and not more than 14 days from today"/>
       <bind nodeset="/screening/group_hiv_screening/test_for_hiv_last3months" type="select1" required="true()"/>
       <bind nodeset="/screening/group_hiv_screening/hiv_test_result_label" type="string" calculate="if( /screening/group_hiv_screening/test_for_hiv_last3months ='yes', 
 &quot;What was the result of the HIV test?&quot;,
 &quot;What is the client's HIV status?&quot;)"/>
-      <bind nodeset="/screening/group_hiv_screening/hiv_test_result" type="select1" relevant=" /screening/group_hiv_screening/test_for_hiv_last3months !=''" required="true()"/>
-      <bind nodeset="/screening/group_hiv_screening/on_art_treatment" type="select1" relevant=" /screening/group_hiv_screening/hiv_test_result ='positive'" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/hiv_test_result" type="select1" required="true()" relevant=" /screening/group_hiv_screening/test_for_hiv_last3months !=''"/>
+      <bind nodeset="/screening/group_hiv_screening/on_art_treatment" type="select1" required="true()" relevant=" /screening/group_hiv_screening/hiv_test_result ='positive'"/>
       <bind nodeset="/screening/group_hiv_screening/note_attend_art_clinic" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/on_art_treatment  = 'no'"/>
-      <bind nodeset="/screening/group_hiv_screening/taking_medication" type="select1" relevant=" /screening/group_hiv_screening/on_art_treatment  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_hiv_screening/taking_medication" type="select1" required="true()" relevant=" /screening/group_hiv_screening/on_art_treatment  = 'yes'"/>
       <bind nodeset="/screening/group_hiv_screening/note_explain_importance_taking_med" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/taking_medication  = 'no'"/>
       <bind nodeset="/screening/group_hiv_screening/note_encourage_to_continue_taking_med" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/taking_medication  = 'yes'"/>
       <bind nodeset="/screening/group_hiv_screening/note_encourage_client" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='negative'"/>
       <bind nodeset="/screening/group_hiv_screening/note_advise_client_check_status" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='unknown' and  /screening/group_hiv_screening/test_for_hiv_last3months ='yes'"/>
       <bind nodeset="/screening/group_hiv_screening/note_advise_client_check_status2" readonly="true()" type="string" relevant=" /screening/group_hiv_screening/hiv_test_result ='unknown' and  /screening/group_hiv_screening/test_for_hiv_last3months ='no'"/>
       <bind nodeset="/screening/group_tb_screening/has_tb" type="select1" required="true()"/>
-      <bind nodeset="/screening/group_tb_screening/has_cough" type="select1" relevant=" /screening/group_tb_screening/has_tb  = 'no'" required="true()"/>
-      <bind nodeset="/screening/group_tb_screening/on_tb_treatment" type="select1" relevant=" /screening/group_tb_screening/has_tb  = 'yes'" required="true()"/>
+      <bind nodeset="/screening/group_tb_screening/has_cough" type="select1" required="true()" relevant=" /screening/group_tb_screening/has_tb  = 'no'"/>
+      <bind nodeset="/screening/group_tb_screening/on_tb_treatment" type="select1" required="true()" relevant=" /screening/group_tb_screening/has_tb  = 'yes'"/>
       <bind nodeset="/screening/group_tb_screening/note_refer_not_on_tb_treatment" readonly="true()" type="string" relevant=" /screening/group_tb_screening/on_tb_treatment  = 'no'"/>
       <bind nodeset="/screening/group_tb_screening/note_assess_all_clients" readonly="true()" type="string" relevant=" /screening/group_tb_screening/has_tb  = 'yes'"/>
       <bind nodeset="/screening/group_other_screening/received_hpv" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 10 and  /screening/patient_age_in_years  &lt;=24"/>

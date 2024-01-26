@@ -4,7 +4,7 @@
     <h:title>Add household</h:title>
     <model>
       <instance>
-        <data id="contact:clinic:create" prefix="J1!contact:clinic:create!" delimiter="#" version="2023-11-25 23:43:04">
+        <data id="contact:clinic:create" prefix="J1!contact:clinic:create!" delimiter="#" version="2023-12-10 19:37:59">
           <inputs>
             <meta>
               <location>
@@ -42,7 +42,6 @@
             <date_of_birth_method/>
             <date_of_birth/>
             <phone/>
-            <date_supervision_visit/>
             <hh_head_alive/>
             <note_be_sensitive/>
             <g_hh_head_alive/>
@@ -58,7 +57,6 @@
             <hh_current_age>0</hh_current_age>
             <phone1/>
             <phone2/>
-            <g_date_supervision_visit/>
             <client_category>refugee</client_category>
             <nationality/>
             <other_nationality/>
@@ -84,28 +82,26 @@
       <bind nodeset="/data/contact/date_of_birth_method" type="string" calculate=" /data/contact/contact_dob_method "/>
       <bind nodeset="/data/contact/date_of_birth" type="string" calculate=" /data/contact/contact_dob_iso "/>
       <bind nodeset="/data/contact/phone" type="string" calculate=" /data/contact/phone1 "/>
-      <bind nodeset="/data/contact/date_supervision_visit" type="string" calculate=" /data/contact/g_date_supervision_visit "/>
       <bind nodeset="/data/contact/hh_head_alive" type="string" calculate=" /data/contact/g_hh_head_alive "/>
       <bind nodeset="/data/contact/note_be_sensitive" readonly="true()" type="string"/>
       <bind nodeset="/data/contact/g_hh_head_alive" type="select1" required="true()"/>
       <bind nodeset="/data/contact/note_register_new_hh_head" readonly="true()" type="string" relevant=" /data/contact/g_hh_head_alive ='no'"/>
-      <bind nodeset="/data/contact/contact_name" type="string" jr:constraintMsg="Enter a valid name consisting of only CAPITAL letters" constraint="regex(.,'^[A-Z][A-Z\s]{1,50}$')" required="true()"/>
+      <bind nodeset="/data/contact/contact_name" type="string" constraint="regex(.,'^[A-Z][A-Z\s]{1,50}$')" required="true()" jr:constraintMsg="Enter a valid name consisting of only CAPITAL letters"/>
       <bind nodeset="/data/contact/hh_notes" type="string"/>
       <bind nodeset="/data/contact/g_sex" type="select1" required="true()"/>
       <bind nodeset="/data/contact/contact_dob_method" type="select1" required="true()"/>
-      <bind nodeset="/data/contact/dob_calendar" type="date" jr:constraintMsg="Date must be before today" constraint=".&lt;today()" required="true()" relevant="selected(../contact_dob_method,'calendar')"/>
-      <bind nodeset="/data/contact/age" type="int" jr:constraintMsg="Age must be between 12 and 120 for the household head" constraint=". &gt;= 12 and . &lt;= 120" required="true()" relevant="selected(../contact_dob_method,'approx')"/>
+      <bind nodeset="/data/contact/dob_calendar" type="date" constraint=".&lt;today()" relevant="selected(../contact_dob_method,'calendar')" required="true()" jr:constraintMsg="Date must be before today"/>
+      <bind nodeset="/data/contact/age" type="int" constraint=". &gt;= 12 and . &lt;= 120" relevant="selected(../contact_dob_method,'approx')" required="true()" jr:constraintMsg="Age must be between 12 and 120 for the household head"/>
       <bind nodeset="/data/contact/dob_raw" type="string" calculate="if(selected( ../contact_dob_method,'calendar'), 
 ../dob_calendar,
 concat(format-date-time(today(),&quot;%Y&quot;) -  /data/contact/age ,'-',format-date-time(today(),&quot;%m&quot;),'-',format-date-time(today(),&quot;%d&quot;)) )"/>
       <bind nodeset="/data/contact/contact_dob_iso" type="string" calculate="format-date-time(../dob_raw,&quot;%Y-%m-%d&quot;)"/>
       <bind nodeset="/data/contact/hh_current_age" type="string" calculate="floor(difference-in-months(date( /data/contact/contact_dob_iso ),today()) div 12)"/>
-      <bind nodeset="/data/contact/phone1" type="string" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" required="false()"/>
-      <bind nodeset="/data/contact/phone2" type="string" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" required="false()" relevant=" /data/contact/phone1  != ''"/>
-      <bind nodeset="/data/contact/g_date_supervision_visit" type="date" jr:constraintMsg="supervision Visit Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" required="true()"/>
+      <bind nodeset="/data/contact/phone1" type="string" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" required="false()" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
+      <bind nodeset="/data/contact/phone2" type="string" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" relevant=" /data/contact/phone1  != ''" required="false()" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
       <bind nodeset="/data/contact/client_category" type="select1" required="true()"/>
-      <bind nodeset="/data/contact/nationality" type="select1" required="true()" relevant="not(selected(../client_category, 'national'))"/>
-      <bind nodeset="/data/contact/other_nationality" type="string" required="true()" relevant="selected(../nationality, 'other')"/>
+      <bind nodeset="/data/contact/nationality" type="select1" relevant="not(selected(../client_category, 'national'))" required="true()"/>
+      <bind nodeset="/data/contact/other_nationality" type="string" relevant="selected(../nationality, 'other')" required="true()"/>
       <bind nodeset="/data/contact/registered" type="select1" relevant="not(selected(../client_category, 'national'))"/>
       <bind nodeset="/data/contact/individual_number" type="string" relevant="selected(../registered, 'yes') and not(selected(../client_category, 'national'))"/>
       <bind nodeset="/data/contact/group_number" type="string" relevant="not(selected(../client_category, 'national'))"/>
@@ -201,9 +197,6 @@ concat(format-date-time(today(),&quot;%Y&quot;) -  /data/contact/age ,'-',format
       <input appearance="number" ref="/data/contact/phone2">
         <label>Alternative phone number</label>
         <hint>Mobile number should take this format 07XXXXXXXX or 039XXXXXXX</hint>
-      </input>
-      <input ref="/data/contact/g_date_supervision_visit">
-        <label>Date of Supervision Visit</label>
       </input>
       <select1 appearance="horizontal" ref="/data/contact/client_category">
         <label>What is the Household head's category?</label>

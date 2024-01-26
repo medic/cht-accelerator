@@ -39,9 +39,9 @@
       <bind nodeset="/sensitization/inputs/contact/_id" type="db:health_center" required="true()"/>
       <bind nodeset="/sensitization/inputs/contact/name" type="string"/>
       <bind nodeset="/sensitization/sensitization_group/health_activities" type="select1" required="true()"/>
-      <bind nodeset="/sensitization/sensitization_group/topic" type="string" required="true()" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')"/>
-      <bind nodeset="/sensitization/sensitization_group/male_served" type="int" required="true()" constraint=". &gt; 0" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')"/>
-      <bind nodeset="/sensitization/sensitization_group/female_served" type="int" required="true()" constraint=". &gt; 0" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')"/>
+      <bind nodeset="/sensitization/sensitization_group/topic" type="string" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')" required="true()"/>
+      <bind nodeset="/sensitization/sensitization_group/male_served" type="int" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')" required="true()" constraint=". &gt; 0"/>
+      <bind nodeset="/sensitization/sensitization_group/female_served" type="int" relevant="selected( /sensitization/sensitization_group/health_activities , 'yes')" required="true()" constraint=". &gt; 0"/>
       <bind nodeset="/sensitization/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>

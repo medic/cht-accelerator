@@ -2,6 +2,6 @@
   "context": {
     "person": true,
     "place": false,
-    "expression": "!contact.muted && !contact.date_of_death && ageInYears(contact) <= 5 && !summary.recentlyAssessed"
+    "expression": "!contact.muted && !contact.date_of_death && ageInYears(contact) <= 5 && !summary.recentlyAssessed && user.role === 'vht'"
   }
 }

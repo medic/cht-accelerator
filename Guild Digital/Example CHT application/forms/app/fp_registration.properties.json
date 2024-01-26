@@ -2,7 +2,7 @@
     "context": {
       "person": true,
       "place": false,
-      "expression": "!contact.muted && !contact.date_of_death && summary.isOfChildBearingAge && !summary.isPregnant"
+      "expression": "!contact.muted && !contact.date_of_death && summary.isOfChildBearingAge && !summary.isPregnant && user.role === 'vht'"
     }
   }
   

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Death Confirmation Form</h:title>
+    <h:title>Death Report Validaton</h:title>
     <model>
       <instance>
-        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-11-13  13-51">
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-12-10  17-07">
           <inputs>
             <meta>
               <location>
@@ -14,22 +14,38 @@
                 <message/>
               </location>
             </meta>
-            <source>user</source>
+            <source/>
             <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <phone/>
+            </user>
             <contact>
-              <_id>0</_id>
+              <_id/>
               <name/>
+              <role/>
               <date_of_birth/>
-              <sex/>
               <parent>
                 <_id/>
                 <parent>
                   <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
                 </parent>
               </parent>
             </contact>
           </inputs>
           <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
           <patient_name/>
           <patient_age/>
           <patient_family_id/>
@@ -54,8 +70,6 @@
             <s_place_of_death/>
             <s_presumed_cause/>
             <s_health_conditions/>
-            <s_instruction/>
-            <s_inform_super/>
             <s_followup/>
             <s_followup_note/>
           </r_summary>
@@ -65,16 +79,28 @@
         </death_confirmation>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/death_confirmation/inputs" relevant="./source='user'"/>
+      <bind nodeset="/death_confirmation/inputs" relevant="false()"/>
       <bind nodeset="/death_confirmation/inputs/source" type="string"/>
       <bind nodeset="/death_confirmation/inputs/source_id" type="string"/>
-      <bind nodeset="/death_confirmation/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/death_confirmation/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/user/phone" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/_id" type="string"/>
       <bind nodeset="/death_confirmation/inputs/contact/name" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/role" type="string"/>
       <bind nodeset="/death_confirmation/inputs/contact/date_of_birth" type="string"/>
-      <bind nodeset="/death_confirmation/inputs/contact/sex" type="string"/>
       <bind nodeset="/death_confirmation/inputs/contact/parent/_id" type="string"/>
       <bind nodeset="/death_confirmation/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/death_confirmation/inputs/contact/parent/parent/parent/_id" type="string"/>
       <bind nodeset="/death_confirmation/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/death_confirmation/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/death_confirmation/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/death_confirmation/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/death_confirmation/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/death_confirmation/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/death_confirmation/created_by" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/death_confirmation/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/death_confirmation/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
       <bind nodeset="/death_confirmation/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/death_confirmation/patient_age" type="string" calculate="floor( difference-in-months(  /death_confirmation/inputs/contact/date_of_birth , today() ) div 12 )"/>
       <bind nodeset="/death_confirmation/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
@@ -82,12 +108,12 @@
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_report" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_sensitive" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_follow_up" readonly="true()" type="string"/>
-      <bind nodeset="/death_confirmation/death_details/death_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back"/>
+      <bind nodeset="/death_confirmation/death_details/death_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" required="true()" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back"/>
       <bind nodeset="/death_confirmation/death_details/time_of_death" type="time" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/presumed_cause" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/pre_existing_health" type="select1" required="true()"/>
-      <bind nodeset="/death_confirmation/death_details/health_conditions" type="select1" relevant=" /death_confirmation/death_details/pre_existing_health ='yes'" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/health_conditions" type="select1" required="true()" relevant=" /death_confirmation/death_details/pre_existing_health ='yes'"/>
       <bind nodeset="/death_confirmation/r_summary/submit" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/summary_h1" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_person_details" readonly="true()" type="string"/>
@@ -96,8 +122,6 @@
       <bind nodeset="/death_confirmation/r_summary/s_place_of_death" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_presumed_cause" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_health_conditions" readonly="true()" type="string"/>
-      <bind nodeset="/death_confirmation/r_summary/s_instruction" readonly="true()" type="string"/>
-      <bind nodeset="/death_confirmation/r_summary/s_inform_super" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_followup" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_followup_note" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -105,37 +129,25 @@
   </h:head>
   <h:body class="pages">
     <group appearance="field-list" ref="/death_confirmation/inputs">
-      <label>Patient</label>
-      <input appearance="hidden" ref="/death_confirmation/inputs/source">
-        <label>Source</label>
-      </input>
-      <input appearance="hidden" ref="/death_confirmation/inputs/source_id">
-        <label>Source ID</label>
-      </input>
+      <label></label>
+      <group ref="/death_confirmation/inputs/user">
+        <label></label>
+      </group>
       <group ref="/death_confirmation/inputs/contact">
         <label></label>
-        <input appearance="db-object" ref="/death_confirmation/inputs/contact/_id">
-          <label></label>
-        </input>
-        <input appearance="hidden" ref="/death_confirmation/inputs/contact/name">
-          <label>Name</label>
+        <input appearance="select-contact type-person" ref="/death_confirmation/inputs/contact/_id">
+          <label>The user being replaced</label>
         </input>
         <input appearance="hidden" ref="/death_confirmation/inputs/contact/date_of_birth">
           <label>Date Of Birth</label>
         </input>
-        <input appearance="hidden" ref="/death_confirmation/inputs/contact/sex">
-          <label>Sex</label>
-        </input>
-        <group ref="/death_confirmation/inputs/contact/parent">
-          <label>Family</label>
-          <input appearance="hidden" ref="/death_confirmation/inputs/contact/parent/_id">
-            <label>Family ID</label>
-          </input>
+        <group appearance="hidden" ref="/death_confirmation/inputs/contact/parent">
+          <label></label>
           <group ref="/death_confirmation/inputs/contact/parent/parent">
-            <label>Health Facility</label>
-            <input appearance="hidden" ref="/death_confirmation/inputs/contact/parent/parent/_id">
-              <label>Health Facility ID</label>
-            </input>
+            <label></label>
+            <group ref="/death_confirmation/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
           </group>
         </group>
       </group>
@@ -151,8 +163,7 @@ compassion, you may be interacting with grieving family
 members or community member.</label>
       </input>
       <input ref="/death_confirmation/death_details/note_death_confirmation_follow_up">
-        <label>Please follow up with {VHT_name} to see if <output value=" /death_confirmation/patient_name "/> died. Call: {VHT_phone}</label>
-      </input>
+        <label>Please follow up with <output value=" /death_confirmation/inputs/contact/name "/> to confirm the death. Call: <output value=" /death_confirmation/user_phone "/></label></input>
       <input ref="/death_confirmation/death_details/death_date">
         <label>Date of death</label>
       </input>
@@ -275,17 +286,11 @@ members or community member.</label>
       <input ref="/death_confirmation/r_summary/s_health_conditions">
         <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Deceased Pre-existing Health Conditions : <output value=" /death_confirmation/death_details/health_conditions "/>&lt;/h5&gt;</label>
       </input>
-      <input appearance="h2 blue" ref="/death_confirmation/r_summary/s_instruction">
-        <label>Key instruction</label>
-      </input>
-      <input appearance="li" ref="/death_confirmation/r_summary/s_inform_super">
-        <label>Inform your supervisor if it is required of you to.</label>
-      </input>
       <input appearance="h1 green" ref="/death_confirmation/r_summary/s_followup">
         <label>Follow Up</label>
       </input>
       <input appearance="li" ref="/death_confirmation/r_summary/s_followup_note">
-        <label>No tasks for <output value=" /death_confirmation/patient_name "/> will show up for follow up by the VHT</label>
+        <label>No tasks for the patient will show up for follow up by the VHT</label>
       </input>
     </group>
   </h:body>

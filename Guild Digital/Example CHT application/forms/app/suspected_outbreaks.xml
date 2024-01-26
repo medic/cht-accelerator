@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Suspected Outbreaks Form</h:title>
+    <h:title>Suspected Outbreaks</h:title>
     <model>
       <instance>
-        <suspected_outbreaks id="suspected_outbreaks" prefix="J1!suspected_outbreaks!" delimiter="#" version="2023-09-19  21-26">
+        <suspected_outbreaks id="suspected_outbreaks" prefix="J1!suspected_outbreaks!" delimiter="#" version="2023-12-08  14-18">
           <inputs>
             <meta>
               <location>
@@ -19,8 +19,20 @@
             <contact>
               <_id>0</_id>
               <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                </parent>
+              </parent>
             </contact>
           </inputs>
+          <patient_id/>
+          <patient_name/>
+          <patient_age/>
+          <patient_family_id/>
           <outbreaks>
             <outbreak_count/>
             <reported_outbreak/>
@@ -39,6 +51,14 @@
       <bind nodeset="/suspected_outbreaks/inputs/source_id" type="string"/>
       <bind nodeset="/suspected_outbreaks/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/suspected_outbreaks/inputs/contact/name" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/sex" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/suspected_outbreaks/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/suspected_outbreaks/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/suspected_outbreaks/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/suspected_outbreaks/patient_age" type="string" calculate="floor( difference-in-months(  /suspected_outbreaks/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/suspected_outbreaks/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
       <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_count" type="select1" required="true()"/>
       <bind nodeset="/suspected_outbreaks/outbreaks/reported_outbreak" type="select" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
       <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_frequency" type="select1" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
@@ -64,6 +84,24 @@
         <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/name">
           <label>Name</label>
         </input>
+        <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/date_of_birth">
+          <label>Date Of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/suspected_outbreaks/inputs/contact/parent">
+          <label>Family</label>
+          <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/parent/_id">
+            <label>Family ID</label>
+          </input>
+          <group ref="/suspected_outbreaks/inputs/contact/parent/parent">
+            <label>Health Facility</label>
+            <input appearance="hidden" ref="/suspected_outbreaks/inputs/contact/parent/parent/_id">
+              <label>Health Facility ID</label>
+            </input>
+          </group>
+        </group>
       </group>
     </group>
     <group appearance="field-list" ref="/suspected_outbreaks/outbreaks">

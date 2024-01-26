@@ -108,14 +108,11 @@
       "guild_developer"
     ],
     "can_create_people": [
-      "vht_supervisor",
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_create_places": [
-      "vht_supervisor",
-      "guild_developer",
-      "vht"
+      
+      "guild_developer"
     ],
     "can_view_tasks": [
       "vht_supervisor",
@@ -129,8 +126,7 @@
     ],
     "can_view_reports": [
       "vht_supervisor",
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_view_contacts": [
       "vht_supervisor",
@@ -321,6 +317,19 @@
       "edit_form": "form:contact:health_center:edit"
   },
   {
+    "id": "vht_supervisor",
+    "name_key": "contact.type.vht_supervisor",
+    "group_key": "contact.type.vht_supervisor.plural",
+    "create_key": "contact.type.vht_supervisor.new",
+    "edit_key": "contact.type.place.edit",
+    "parents": [
+      "district_hospital"
+    ],
+    "icon": "medic-supervisor",
+    "create_form": "form:contact:vht_supervisor:create",
+    "edit_form": "form:contact:vht_supervisor:edit"
+  },  
+  {
       "id": "clinic",
       "name_key": "contact.type.clinic",
       "group_key": "contact.type.clinic.plural",
@@ -359,8 +368,10 @@
     "creat_user_for_contacts": true
   },
   "death_reporting": {
-    "mark_deceased_forms": ["death_report"],
-    "date_field": "fields.date_of_death"
+    "mark_deceased_forms": [
+      "death_report"
+    ],
+    "date_field": "death_details.death_date"
   },
   "muting": {
     "mute_forms": ["mute"],
@@ -374,13 +385,13 @@
   "replication_depth": [
     {
       "role": "vht_supervisor",
-      "depth": 2,
-      "report_depth": 2
+      "depth": 3,
+      "report_depth": 3
     },
     {
       "role": "vht",
-      "depth": 1,
-      "report_depth": 1
+      "depth": 3,
+      "report_depth": 2
     },
     {
       "role": "public_health_officer",
