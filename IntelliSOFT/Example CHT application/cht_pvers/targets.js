@@ -16,14 +16,9 @@ module.exports = [
     context: 'user.contact_type === "chw"',
     goal: 80,
     appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    // appliesIf: function (contact, report) {
-    //   return (Utils.getField(report, 'reporter.group_report.medication') === 'Yes' && Utils.getField(report, 'reporter.group_report.reaction') === 'Yes');
-    // },
+    appliesToType: ['assessment'], 
     date: 'now',
-    aggregate: true,
-    // groupBy: contact => getHouseholdId(contact),
-    // passesIfGroupCount: { gte: 2 }
+    aggregate: true, 
 
   },
 
@@ -52,10 +47,7 @@ module.exports = [
     goal: 80,
     appliesTo: 'reports',
     appliesToType: ['chw_follow'],
-    context: 'user.contact_type === "chw"',
-    // appliesIf: function (contact, report) {
-    //   return  Utils.getField(report, 'reporter.group_report.status') === 'Patient recovered' || Utils.getField(report, 'reporter.group_report.fully_recovered') === 'Yes';
-    // },
+    context: 'user.contact_type === "chw"', 
     date: 'now',
     aggregate: true,
     groupBy: contact => getHouseholdId(contact),
