@@ -304,10 +304,10 @@
       <bind nodeset="/data/household_member/date_of_birth" type="string" calculate="../dob_iso"/>
       <bind nodeset="/data/household_member/age_set" type="select1" required="true()"/>
       <bind nodeset="/data/household_member/dob_known" type="select1" required="true()" relevant="../age_set = 'over5'"/>
-      <bind nodeset="/data/household_member/dob_calendar" type="date" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" relevant="../age_set = 'under5' or ../dob_known = 'yes'"/>
+      <bind nodeset="/data/household_member/dob_calendar" type="date" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100" jr:constraintMsg="You've chosen a future date. Future date is not allowed" required="true()" relevant="../age_set = 'under5' or ../dob_known = 'yes'"/>
       <bind nodeset="/data/household_member/age_note" readonly="true()" type="string" relevant="../dob_known = 'no'"/>
-      <bind nodeset="/data/household_member/age_years" type="int" jr:constraintMsg="Please enter a valid age." required="true()" constraint=". &gt;= 0 and . &lt;=100" relevant="../age_set = 'over5' and ../dob_known = 'no'"/>
-      <bind nodeset="/data/household_member/months" type="int" jr:constraintMsg="Months must be between 1 and 11" constraint=". &gt;= 1 and . &lt;= 11" relevant="../dob_known = 'no'"/>
+      <bind nodeset="/data/household_member/age_years" type="int" constraint=". &gt;= 0 and . &lt;=100" jr:constraintMsg="Please enter a valid age." required="true()" relevant="../age_set = 'over5' and ../dob_known = 'no'"/>
+      <bind nodeset="/data/household_member/months" type="int" constraint=". &gt;= 1 and . &lt;= 11" jr:constraintMsg="Months must be between 1 and 11" relevant="../dob_known = 'no'"/>
       <bind nodeset="/data/household_member/age_months" type="string" calculate="0"/>
       <bind nodeset="/data/household_member/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
       <bind nodeset="/data/household_member/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
@@ -317,8 +317,8 @@
       <bind nodeset="/data/household_member/person_age_years" type="string" calculate="floor( difference-in-months( ../dob_iso, today() ) div 12 )"/>
       <bind nodeset="/data/household_member/person_age_months" type="string" calculate="floor(difference-in-months( ../dob_iso, today() ))"/>
       <bind nodeset="/data/household_member/n_age" readonly="true()" type="string" relevant="false()"/>
-      <bind nodeset="/data/household_member/phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10"/>
-      <bind nodeset="/data/household_member/secondary_phone" type="tel" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" constraint="1" relevant=" /data/household_member/person_age_years  &gt;=10"/>
+      <bind nodeset="/data/household_member/phone" type="tel" constraint="1" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" relevant=" /data/household_member/person_age_years  &gt;=10"/>
+      <bind nodeset="/data/household_member/secondary_phone" type="tel" constraint="1" jr:constraintMsg="Please enter a valid local number, or use the standard international format, which includes a plus sign (+) and country code. For example: +254712345678" relevant=" /data/household_member/person_age_years  &gt;=10"/>
       <bind nodeset="/data/household_member/relationship_to_primary_caregiver" type="select1" required="true()"/>
       <bind nodeset="/data/household_member/relationship_to_pc_other" type="string" required="true()" relevant="../relationship_to_primary_caregiver = 'other'"/>
       <bind nodeset="/data/household_member/meta/created_by" type="string" calculate="../../../inputs/user/name"/>

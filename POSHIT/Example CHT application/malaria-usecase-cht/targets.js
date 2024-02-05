@@ -11,8 +11,8 @@ module.exports = [
     percentage_count_translation_key: 'targets.assessments.percentage.with.lln',
     appliesTo: 'reports',
     appliesToType: [FORMS.HOUSEHOLD_ASSESSMENT],
-    appliesIf: function (c) {
-      return !c.contact.date_of_death && !c.contact.muted;
+    appliesIf: function (contact) {
+      return !contact.contact.date_of_death && !contact.contact.muted;
     },
     passesIf: function(contact, report) {
       return Utils.getField(report, 'household_assessment.number_of_nets') >= 2;
@@ -46,13 +46,13 @@ module.exports = [
     subtitle_translation_key: 'targets.members.with.malaria.symptoms.subtitle',
     appliesTo: 'contacts',
     appliesToType: [CONTACT_TYPES.HOUSEHOLD_MEMBER],
-    appliesIf: function(c) {
-      return isContactValid(c);
+    appliesIf: function(contact) {
+      return isContactValid(contact);
     },
-    passesIf: function(c) {
-      return c.reports.some(function(r) {
-        const under5 = r.form === FORMS.CHILD_ASSESSMENT && Utils.getField(r, 'children_under_assessment.suspected_of_malaria') === 'Yes';
-        const over5 = r.form === FORMS.HOUSEHOLD_MEMBER_ASSESSMENT && Utils.getField(r, 'group_household_member_assessment.suspected_of_malaria') === 'Yes';
+    passesIf: function(contact) {
+      return contact.reports.some(function(report) {
+        const under5 = report.form === FORMS.CHILD_ASSESSMENT && Utils.getField(report, 'children_under_assessment.suspected_of_malaria') === 'Yes';
+        const over5 = report.form === FORMS.HOUSEHOLD_MEMBER_ASSESSMENT && Utils.getField(report, 'group_household_member_assessment.suspected_of_malaria') === 'Yes';
         return under5 && over5;
       });
     },
@@ -67,13 +67,13 @@ module.exports = [
     subtitle_translation_key: 'targets.under5_assessments_percentage.subtitle',
     appliesTo: 'contacts',
     appliesToType: [CONTACT_TYPES.HOUSEHOLD_MEMBER],
-    appliesIf: function(c) {
-      return ageInMonths(c.contact.date_of_birth) < 60 && isContactValid(c);
+    appliesIf: function(contact) {
+      return ageInMonths(contact.contact.date_of_birth) < 60 && isContactValid(contact);
     },
-    passesIf: function(c) {
-      ageInMonths(c.contact.date_of_birth) < 60;
-      return c.reports.some(function(r) {
-        return r.form === FORMS.CHILD_ASSESSMENT && Utils.getField(r, 'children_under_assessment.suspected_of_malaria') === 'Yes';
+    passesIf: function(contact) {
+      ageInMonths(contact.contact.date_of_birth) < 60;
+      return contact.reports.some(function(report) {
+        return report.form === FORMS.CHILD_ASSESSMENT && Utils.getField(report, 'children_under_assessment.suspected_of_malaria') === 'Yes';
       });
     },
     date: 'reported',

@@ -19,8 +19,6 @@ const fields = [
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.name', value: thisContact.contact && thisContact.contact.name, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'contact.phone', value: thisContact.contact && thisContact.contact.phone, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, translate: true, label: 'Household Head', value: thisContact.contact && thisContact.contact.name, width: 4 },
-  { appliesToType: CONTACT_TYPES.HOUSEHOLD, label: 'contact.sex', value: thisContact.contact && thisContact.contact.sex, width: 4 },
-  { appliesToType: CONTACT_TYPES.HOUSEHOLD, label:'contact.age', value: thisContact.contact && thisContact.contact.date_of_birth, width: 4, filter: 'age'},
   { appliesToType: CONTACT_TYPES.HOUSEHOLD, label: 'contact.parent', value: thisLineage, filter: 'lineage' },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER, label:'patient_id', value: thisContact.patient_id, width: 4 },
   { appliesToType: CONTACT_TYPES.HOUSEHOLD_MEMBER, label:'contact.age', value: thisContact.date_of_birth, width: 4, filter: 'age'},

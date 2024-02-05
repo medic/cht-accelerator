@@ -217,7 +217,7 @@
       <bind nodeset="/mute_household/place_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/mute_household/place_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/mute_household/group_mute_household/reason_for_muting" type="select1" required="true()"/>
-      <bind nodeset="/mute_household/group_mute_household/other_reason_for_muting" type="string" required="true()" relevant="selected(../reason_for_muting, 'other')"/>
+      <bind nodeset="/mute_household/group_mute_household/other_reason_for_muting" type="string" relevant="selected(../reason_for_muting, 'other')" required="true()"/>
       <bind nodeset="/mute_household/group_mute_household/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/mute_household/group_mute_household/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/mute_household/group_mute_household/meta/source" type="string" calculate="../../../inputs/source"/>

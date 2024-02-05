@@ -818,9 +818,9 @@
       <bind nodeset="/household_assessment/referral_follow_up_date" type="string" jr:constraintMsg="jr:itext('/household_assessment/referral_follow_up_date:jr:constraintMsg')" calculate="../household_assessment/amendment_date"/>
       <bind nodeset="/household_assessment/household_assessment/wire_mesh_on_inlets" type="select1" required="true()"/>
       <bind nodeset="/household_assessment/household_assessment/recommend_wiremesh_inlets" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/wire_mesh_on_inlets , 'no')"/>
-      <bind nodeset="/household_assessment/household_assessment/household_members" type="int" jr:constraintMsg="jr:itext('/household_assessment/household_assessment/household_members:jr:constraintMsg')" relevant=" /household_assessment/visit_type  != 'follow_up'" constraint=". &gt; 0" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/household_members" type="int" required="true()" jr:constraintMsg="jr:itext('/household_assessment/household_assessment/household_members:jr:constraintMsg')" relevant=" /household_assessment/visit_type  != 'follow_up'" constraint=". &gt; 0"/>
       <bind nodeset="/household_assessment/household_assessment/nets_availability" type="select1" required="true()"/>
-      <bind nodeset="/household_assessment/household_assessment/number_of_nets" type="int" jr:constraintMsg="jr:itext('/household_assessment/household_assessment/number_of_nets:jr:constraintMsg')" relevant="selected( /household_assessment/household_assessment/nets_availability , 'yes')" constraint=". &gt; 0" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/number_of_nets" type="int" required="true()" jr:constraintMsg="jr:itext('/household_assessment/household_assessment/number_of_nets:jr:constraintMsg')" relevant="selected( /household_assessment/household_assessment/nets_availability , 'yes')" constraint=". &gt; 0"/>
       <bind nodeset="/household_assessment/household_assessment/teach_on_net" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/nets_availability , 'no')"/>
       <bind nodeset="/household_assessment/household_assessment/repellant_usage" type="select1" required="true()"/>
       <bind nodeset="/household_assessment/household_assessment/resedual_spraying" type="select1" required="true()"/>
@@ -829,7 +829,7 @@
       <bind nodeset="/household_assessment/household_assessment/teach_on_stagnant_water" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/stagnant_water ,'yes')"/>
       <bind nodeset="/household_assessment/household_assessment/tall_grass" type="select1" required="true()"/>
       <bind nodeset="/household_assessment/household_assessment/teach_on_tall_grass" readonly="true()" type="string" relevant="selected( /household_assessment/household_assessment/tall_grass , 'yes')"/>
-      <bind nodeset="/household_assessment/household_assessment/amendment_date" type="date" relevant=" /household_assessment/malaria_prone  = 'true'" constraint=". &gt; today() - 1" required="true()"/>
+      <bind nodeset="/household_assessment/household_assessment/amendment_date" type="date" required="true()" relevant=" /household_assessment/malaria_prone  = 'true'" constraint=". &gt; today() - 1"/>
       <bind nodeset="/household_assessment/household_assessment/additional_notes" type="string" required="false()"/>
       <bind nodeset="/household_assessment/group_review/r_action" readonly="true()" type="string"/>
       <bind nodeset="/household_assessment/group_review/r_summary" readonly="true()" type="string"/>

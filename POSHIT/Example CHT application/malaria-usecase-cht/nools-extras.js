@@ -6,7 +6,7 @@ const isFormArraySubmittedInWindow = (reports, formsArray, startTime, endTime) =
   if(typeof formsArray === 'string') { 
     formsArray = [ formsArray ];
   }
-  return formsArray.some(f => Utils.isFormSubmittedInWindow(reports, f, startTime, endTime));
+  return formsArray.some(form => Utils.isFormSubmittedInWindow(reports, form, startTime, endTime));
 };
 function ageInMonths(dateOfBirth) {
   const dob = DateTime.fromISO(dateOfBirth);
@@ -14,17 +14,6 @@ function ageInMonths(dateOfBirth) {
   return now.diff(dob, 'months').months;
 }
 
-// function getMostRecentReportForm(reports, form) {
-//   let result = null;
-//   reports.forEach(function(r) {
-//     if (form.indexOf(r.form) >= 0 &&
-//         !r.deleted &&
-//         (!result || r.reported_date > result.reported_date)) {
-//       result = r;
-//     }
-//   });
-//   return result;
-// }
 function getMostRecentReportForm(reports, form) {
   let result;
   reports.forEach(function (report) {
@@ -60,7 +49,6 @@ const isFollowUpForm = (reports) => {
 
 const isContactStillPregnant = (records) => {
   const latestReport = getMostRecentReportForm(records, FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS);
-  //const latestReport = getNewestSubsequentAssessmentFollowUps(contact.reports, malariaAssessmentForPregnantMother);
   return latestReport && getField(latestReport, 'group_malaria_assessment_for_pregnant_mothers.pregnancy_state') === 'yes'?true:false;
 };
 

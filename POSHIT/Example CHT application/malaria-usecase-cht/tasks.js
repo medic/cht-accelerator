@@ -224,8 +224,6 @@ module.exports = [
 
     resolvedIf: function (contact, report, event, dueDate) {
       if(!isAlive(contact)) {return true;}
-      // eslint-disable-next-line
-      //console.log(report)
       const startTime = Math.max(Utils.addDate(dueDate, -event.start).getTime(), report.reported_date + 1);
       const endTime = Utils.addDate(dueDate, event.end + 1).getTime();
       return isFormArraySubmittedInWindow(contact.reports, [FORMS.PREGNANCY_REGISTRATION,FORMS.PREGNANCY_REGISTRATION_FOLLOWUP], startTime, endTime);
@@ -235,9 +233,7 @@ module.exports = [
         type: 'report',
         form: FORMS.PREGNANCY_REGISTRATION_FOLLOWUP,
         modifyContent: function (content){
-          //content.visitType = 'follow_up';
-          // eslint-disable-next-line
-          console.log(content);
+          return content;
         } 
       }
     ],
