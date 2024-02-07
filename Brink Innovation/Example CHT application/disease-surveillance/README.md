@@ -30,6 +30,7 @@ This is an implementation to automate the workflows for Community Health Promote
    * `npm run test-tasks` : Test tasks
    * `npm run test-forms` : Test forms
    * `npm run test-summaries`: Test contact summaries
+   * `npm run test-targets`: Test targets
 
 ### Project Requirements
 1. You should have latest node version installed (20 or higher)
