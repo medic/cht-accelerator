@@ -1,0 +1,8 @@
+{
+  "icon": "household-member-assessment",
+  "context": {
+    "place": false,
+    "person": true,
+    "expression": "!contact.date_of_death && !summary.muted && ageInYears(contact) > 0"
+  }
+}

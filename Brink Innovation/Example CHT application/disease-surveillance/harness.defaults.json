@@ -1,1 +1,54 @@
-{}
+{
+  "coreVersion": "4.0.0",
+  "user": "chp_contact_id",
+  "subject": "patient_id",
+  "ownedBySubject": true,
+
+  "docs": [
+    {
+      "_id": "patient_id",
+      "type": "contact",
+      "contact_type": "household",
+      "name": "Household Head",
+      "role": "household_contact",
+      "date_of_birth": "1970-07-09",
+      "sex": "female",
+      "reported_date": 1706720381,
+      "contact":{
+        "name": "Household Head"
+      },
+      "parent": {
+        "_id": "household_id",
+        "parent": {
+          "_id": "community_health_area_id",
+          "parent": {
+            "_id": "area_community_health_supervisor_id"
+          }
+        }
+      }
+    },
+
+    {
+      "_id": "chp_contact_id",
+      "name": "CHP Name",
+      "type": "person",
+      "contact_type": "community_health_volunteer",
+      "reported_date": 1550761498368,
+      "parent": {
+        "_id": "community_health_area_id",
+        "parent": {
+          "_id": "area_supervisor_region_id"
+        },
+        "contact": {
+          "_id": "community_health_area_id",
+          "parent": {
+            "_id": "area_supervisor_region_id",
+            "parent": {
+              "_id": "area_health_facility_id"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

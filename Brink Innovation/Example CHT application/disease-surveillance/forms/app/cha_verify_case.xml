@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Cholera Verification Form</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/cha_verify_case/danger_signs/confirm_case/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/cha_verify_case/danger_signs/confirm_case:label">
+            <value>Ask CHP To Verify Case For <output value=" /cha_verify_case/patient_name "/>?</value>
+          </text>
+          <text id="/cha_verify_case/danger_signs:label">
+            <value>Cholera Case Verification Form</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/cha_verify_case/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/cha_verify_case/inputs/delivery_uuid:label">
+            <value>Delivery Report ID</value>
+          </text>
+          <text id="/cha_verify_case/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/cha_verify_case/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <cha_verify_case id="cha_verify_case" prefix="J1!cha_verify_case!" delimiter="#" version="2023-12-06 10:49:54">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <delivery_uuid/>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <danger_signs>
+            <confirm_case/>
+          </danger_signs>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </cha_verify_case>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/cha_verify_case/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/cha_verify_case/inputs/source" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/source_id" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/delivery_uuid" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/name" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/sex" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/cha_verify_case/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/cha_verify_case/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/cha_verify_case/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/cha_verify_case/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/cha_verify_case/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/cha_verify_case/danger_signs/confirm_case" type="select1" required="true()"/>
+      <bind nodeset="/cha_verify_case/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/cha_verify_case/inputs">
+      <group ref="/cha_verify_case/inputs/contact">
+        <input appearance="db-object" ref="/cha_verify_case/inputs/contact/_id">
+          <label ref="jr:itext('/cha_verify_case/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/cha_verify_case/inputs/contact/parent">
+          <group ref="/cha_verify_case/inputs/contact/parent/parent">
+            <group ref="/cha_verify_case/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/cha_verify_case/danger_signs">
+      <label ref="jr:itext('/cha_verify_case/danger_signs:label')"/>
+      <select1 ref="/cha_verify_case/danger_signs/confirm_case">
+        <label ref="jr:itext('/cha_verify_case/danger_signs/confirm_case:label')"/>
+        <item>
+          <label ref="jr:itext('/cha_verify_case/danger_signs/confirm_case/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

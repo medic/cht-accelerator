@@ -1,1 +1,3 @@
 .snapshots/
+node_modules/
+.~lock.*

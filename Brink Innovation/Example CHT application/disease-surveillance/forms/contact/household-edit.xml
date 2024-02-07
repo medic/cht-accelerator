@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit House Hold</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/household/geopoint:label">
+            <value>Location</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>Name</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/household/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/geopoint:label">
+            <value>Mahali</value>
+          </text>
+          <text id="/data/household/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="contact:household:edit" prefix="J1!contact:household:edit!" delimiter="#" version="2023-06-07  18-06">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <household>
+            <parent/>
+            <type/>
+            <contact_type/>
+            <name/>
+            <geopoint/>
+            <meta tag="hidden">
+              <created_by/>
+              <created_by_person_uuid/>
+              <created_by_place_uuid/>
+              <last_edited_by/>
+              <last_edited_by_person_uuid/>
+              <last_edited_by_place_uuid/>
+            </meta>
+          </household>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="false()"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/household/parent" type="string"/>
+      <bind nodeset="/data/household/type" type="string"/>
+      <bind nodeset="/data/household/contact_type" type="string"/>
+      <bind nodeset="/data/household/name" type="string"/>
+      <bind nodeset="/data/household/geopoint" type="geopoint"/>
+      <bind nodeset="/data/household/meta/created_by" type="string"/>
+      <bind nodeset="/data/household/meta/created_by_person_uuid" type="string"/>
+      <bind nodeset="/data/household/meta/created_by_place_uuid" type="string"/>
+      <bind nodeset="/data/household/meta/last_edited_by" type="string" calculate="../../../inputs/user/name"/>
+      <bind nodeset="/data/household/meta/last_edited_by_person_uuid" type="string" calculate="../../../inputs/user/contact_id"/>
+      <bind nodeset="/data/household/meta/last_edited_by_place_uuid" type="string" calculate="../../../inputs/user/facility_id"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <group ref="/data/inputs/user">
+        <input ref="/data/inputs/user/contact_id"/>
+        <input ref="/data/inputs/user/facility_id"/>
+        <input ref="/data/inputs/user/name"/>
+      </group>
+    </group>
+    <group ref="/data/household">
+      <input ref="/data/household/name">
+        <label ref="jr:itext('/data/household/name:label')"/>
+      </input>
+      <input ref="/data/household/geopoint">
+        <label ref="jr:itext('/data/household/geopoint:label')"/>
+      </input>
+      <group appearance="hidden" ref="/data/household/meta"/>
+    </group>
+  </h:body>
+</h:html>

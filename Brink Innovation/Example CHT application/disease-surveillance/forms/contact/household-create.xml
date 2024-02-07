@@ -1,0 +1,1054 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>New Household</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/data/Wash/advise:label">
+            <value>&lt;p style = "color:red; font-weight:bold"&gt;Advice the household member on the importance of water treatment.&lt;/p&gt;</value>
+          </text>
+          <text id="/data/Wash/encourage:label">
+            <value>&lt;p style = "color:green; font-weight:bold"&gt;Encourage the household head to keep treating water&lt;/p&gt;</value>
+          </text>
+          <text id="/data/Wash/handwashing:label">
+            <value>Does the household have hand washing facility?</value>
+          </text>
+          <text id="/data/Wash/handwashings:label">
+            <value>&lt;p style = "color:red; font-weight:bold"&gt;Teach the household on the importance of hand washing facility in the household.&lt;/p&gt;</value>
+          </text>
+          <text id="/data/Wash/latrine:label">
+            <value>Does the household have a functional latrine that is in use?</value>
+          </text>
+          <text id="/data/Wash/latrines:label">
+            <value>&lt;p style = "color:red; font-weight:bold"&gt;Encourage the household to get a functional latrine.&lt;/p&gt;</value>
+          </text>
+          <text id="/data/Wash/manner_of_treatment:label">
+            <value>How do you treat the water?</value>
+          </text>
+          <text id="/data/Wash/treatment:label">
+            <value>Do you treat the water before consuming it?</value>
+          </text>
+          <text id="/data/Wash/water:label">
+            <value>Water is the source of the household cooking and drinking water?</value>
+          </text>
+          <text id="/data/Wash:label">
+            <value>Household Information</value>
+          </text>
+          <text id="/data/contact/geopoint:label">
+            <value>Location</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>Household Information</value>
+          </text>
+          <text id="/data/household/findings:label">
+            <value>Household Data &lt;i class="fa fa-warning" aria-hidden="true"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/data/household/handfacility:label">
+            <value>Hand washing Facility is available</value>
+          </text>
+          <text id="/data/household/latriness:label">
+            <value>They have a functional latrine</value>
+          </text>
+          <text id="/data/household/n_hh_name:label">
+            <value>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /data/household/household_name "/>&lt;/h4&gt;</value>
+          </text>
+          <text id="/data/household/n_hh_phone:label">
+            <value>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /data/inputs/contact/pri_phone "/>&lt;/h4&gt;</value>
+          </text>
+          <text id="/data/household/n_submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;Submit to complete this action.&lt;/h4&gt;</value>
+          </text>
+          <text id="/data/household/nohandfacility:label">
+            <value>No hand washing facility</value>
+          </text>
+          <text id="/data/household/nolatrine:label">
+            <value>No functional latrine</value>
+          </text>
+          <text id="/data/household/nowatertreatment:label">
+            <value>They do not treat water</value>
+          </text>
+          <text id="/data/household/summary_name:label">
+            <value>Household Registration summary&lt;i class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/data/household/watertreatment:label">
+            <value>They treat water</value>
+          </text>
+          <text id="/data/input/user/contact_id:label">
+            <value>Contact ID of the logged in user</value>
+          </text>
+          <text id="/data/input/user/facility_id:label">
+            <value>Place ID of the logged in user</value>
+          </text>
+          <text id="/data/input/user/name:label">
+            <value>Name of the logged in user</value>
+          </text>
+          <text id="/data/inputs/contact/age:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/inputs/contact/check/household_area:label">
+            <value>Is this household in your area?</value>
+          </text>
+          <text id="/data/inputs/contact/check/registered:label">
+            <value>Has this Household been registered by another CHP?</value>
+          </text>
+          <text id="/data/inputs/contact/check/serving_household:label">
+            <value>Why are you serving this household?</value>
+          </text>
+          <text id="/data/inputs/contact/check/specify:label">
+            <value>Please specify</value>
+          </text>
+          <text id="/data/inputs/contact/contact_name:label">
+            <value>Name</value>
+          </text>
+          <text id="/data/inputs/contact/dob_calendar:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/inputs/contact/dob_known:label">
+            <value>Does <output value=" /data/inputs/contact/contact_name "/> know their date of birth?</value>
+          </text>
+          <text id="/data/inputs/contact/g_sex:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/inputs/contact/init/conduct_registration:label">
+            <value>How are you conducting this household registration?</value>
+          </text>
+          <text id="/data/inputs/contact/init/ensure:label">
+            <value>&lt;p style = "color:red; font-weight:bold"&gt;Ensure you are dressed in personal protective equipment (PPE) (2 -3 steps)&lt;/p&gt;</value>
+          </text>
+          <text id="/data/inputs/contact/phone_note:label">
+            <value>**Please verify that the phone numbers are accurate**
+**Primary Number:** <output value=" /data/inputs/contact/phone1 "/>
+**Secondary Number:** <output value=" /data/inputs/contact/phone2 "/></value></text>
+          <text id="/data/inputs/contact/pri_phone:label">
+            <value>Primary Mobile Number</value>
+          </text>
+          <text id="/data/inputs/contact/sec_phone:label">
+            <value>Secondary Mobile Number</value>
+          </text>
+          <text id="/data/inputs/contact:label">
+            <value>Primary Contact</value>
+          </text>
+          <text id="/data/repeat-guard/child:label">
+            <value>Do you want to register other household members now?</value>
+          </text>
+          <text id="/data/repeat-guard/n_registration:label">
+            <value>Please follow the next steps in the next page to add other household members .</value>
+          </text>
+          <text id="/data/repeat-guard/other_household_members:label">
+            <value>Are there other household members currently living in <output value=" /data/inputs/contact/contact_name "/>'s homestead?</value>
+          </text>
+          <text id="/data/repeat-guard:label">
+            <value>Other Household Members</value>
+          </text>
+          <text id="/data/repeat/child/age_set:label">
+            <value>What is the age set of <output value=" /data/repeat/child/display_name "/>?</value>
+          </text>
+          <text id="/data/repeat/child/age_years:label">
+            <value>Age</value>
+          </text>
+          <text id="/data/repeat/child/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/repeat/child/delimiter:label">
+            <value>&lt;hr style="margin:0 auto;"&gt;</value>
+          </text>
+          <text id="/data/repeat/child/dob_calendar:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/repeat/child/dob_known:label">
+            <value>Does <output value=" /data/repeat/child/display_name "/> know their date of birth?</value>
+          </text>
+          <text id="/data/repeat/child/n_age:label">
+            <value>AGE: <output value=" /data/repeat/child/person_age_years "/> <output value=" /data/repeat/child/dob_iso "/></value>
+          </text>
+          <text id="/data/repeat/child/name:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/repeat/child/notes:label">
+            <value>Notes (optional)</value>
+          </text>
+          <text id="/data/repeat/child/phone:label">
+            <value>Primary Mobile Number</value>
+          </text>
+          <text id="/data/repeat/child/relationship_to_pc_other:label">
+            <value>Specify other:</value>
+          </text>
+          <text id="/data/repeat/child/relationship_to_primary_caregiver:label">
+            <value>What is the relationship to the household head?</value>
+          </text>
+          <text id="/data/repeat/child/secs_phone:label">
+            <value>Secondary Mobile Number</value>
+          </text>
+          <text id="/data/repeat/child/sex:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/repeat/note:label">
+            <value>&lt;span style="color:#888;font-size:11px;"&gt;**Add another member by pressing the add button.**</value>
+          </text>
+          <text id="/data/repeat:label">
+            <value>Other Household Members</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/data/Wash/advise:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/encourage:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/handwashing:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/handwashings:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/latrine:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/latrines:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/manner_of_treatment:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/treatment:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash/water:label">
+            <value>-</value>
+          </text>
+          <text id="/data/Wash:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/geopoint:label">
+            <value>Mahali</value>
+          </text>
+          <text id="/data/contact/name:label">
+            <value>Majina</value>
+          </text>
+          <text id="/data/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/findings:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/handfacility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/latriness:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/n_hh_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/n_hh_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/n_submit:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/nohandfacility:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/nolatrine:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/nowatertreatment:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/summary_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household/watertreatment:label">
+            <value>-</value>
+          </text>
+          <text id="/data/household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/input/user/facility_id:label">
+            <value>-</value>
+          </text>
+          <text id="/data/input/user/name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/age:label">
+            <value>Umri</value>
+          </text>
+          <text id="/data/inputs/contact/check/household_area:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/check/registered:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/check/serving_household:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/check/specify:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/check:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/contact_dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/contact_name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/data/inputs/contact/dob_calendar:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/inputs/contact/dob_known:label">
+            <value>Je, <output value=" /data/inputs/contact/contact_name "/> anajua tarehe yake ya kuzaliwa?</value>
+          </text>
+          <text id="/data/inputs/contact/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/g_sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/data/inputs/contact/init/conduct_registration:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/init/ensure:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/init:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/phone1:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/phone2:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs/contact/phone_note:label">
+            <value>**Tafadhali thibitisha kuwa nambari za simu ni sahihi** **Nambari ya Msingi:** <output value=" /data/inputs/contact/phone1 "/> **Nambari ya Pili:** <output value=" /data/inputs/contact/phone2 "/></value></text>
+          <text id="/data/inputs/contact/pri_phone:label">
+            <value>Nambari ya Msingi ya Simu ya Mkononi</value>
+          </text>
+          <text id="/data/inputs/contact/sec_phone:label">
+            <value>Nambari ya Sekondari ya Simu ya Mkononi</value>
+          </text>
+          <text id="/data/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/data/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat-guard/child:label">
+            <value>Je, unataka kusajili wanakaya wengine sasa?</value>
+          </text>
+          <text id="/data/repeat-guard/n_registration:label">
+            <value>Tafadhali fuata hatua zinazofuata katika ukurasa unaofuata ili kuongeza wanakaya wengine.</value>
+          </text>
+          <text id="/data/repeat-guard/other_household_members:label">
+            <value>Je, kuna wanakaya wengine wanaoishi katika nyumba ya <output value=" /data/inputs/contact/contact_name "/> kwa sasa?</value>
+          </text>
+          <text id="/data/repeat-guard:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/age_set:label">
+            <value>Seti ya umri ya <output value=" /data/repeat/child/display_name "/> ni ipi?</value>
+          </text>
+          <text id="/data/repeat/child/age_years:label">
+            <value>Umri</value>
+          </text>
+          <text id="/data/repeat/child/contact_type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/date_of_birth:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/repeat/child/delimiter:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/display_name:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/dob_approx:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/dob_calendar:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/data/repeat/child/dob_iso:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/dob_known:label">
+            <value>Je, <output value=" /data/repeat/child/display_name "/> anajua tarehe yake ya kuzaliwa?</value>
+          </text>
+          <text id="/data/repeat/child/dob_raw:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/ephemeral_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/ephemeral_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/n_age:label">
+            <value>UMRI: <output value=" /data/repeat/child/person_age_years "/> <output value=" /data/repeat/child/dob_iso "/></value>
+          </text>
+          <text id="/data/repeat/child/name:label">
+            <value>Majina</value>
+          </text>
+          <text id="/data/repeat/child/notes:label">
+            <value>Vidokezo (si lazima)</value>
+          </text>
+          <text id="/data/repeat/child/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/person_age_months:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/person_age_years:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child/phone:label">
+            <value>Nambari ya Msingi ya Simu ya Mkononi</value>
+          </text>
+          <text id="/data/repeat/child/relationship_to_pc_other:label">
+            <value>Bainisha zingine:</value>
+          </text>
+          <text id="/data/repeat/child/relationship_to_primary_caregiver:label">
+            <value>Je, kuna uhusiano gani na mkuu wa kaya?</value>
+          </text>
+          <text id="/data/repeat/child/secs_phone:label">
+            <value>Nambari ya Msingi ya Simu ya Mkononi</value>
+          </text>
+          <text id="/data/repeat/child/sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/data/repeat/child/type:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat/child:label">
+            <value>Habari ya mwanakaya mpya</value>
+          </text>
+          <text id="/data/repeat/note:label">
+            <value>-</value>
+          </text>
+          <text id="/data/repeat:label">
+            <value>Wanakaya Wengine</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <data id="household_create" prefix="J1!household_create!" delimiter="#" version="2020-01-27">
+          <input>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </input>
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <contact>
+              <init>
+                <conduct_registration/>
+                <ensure/>
+              </init>
+              <check>
+                <registered/>
+                <household_area/>
+                <serving_household/>
+                <specify/>
+              </check>
+              <contact_name/>
+              <g_sex/>
+              <dob_known/>
+              <dob_calendar/>
+              <age/>
+              <dob_raw/>
+              <contact_dob_iso/>
+              <pri_phone/>
+              <sec_phone/>
+              <phone1/>
+              <phone2/>
+              <phone_note/>
+            </contact>
+          </inputs>
+          <household>
+            <parent>PARENT</parent>
+            <name/>
+            <household_name/>
+            <geolocation/>
+            <contact/>
+            <summary_name/>
+            <n_hh_name/>
+            <n_hh_phone/>
+            <findings/>
+            <watertreatment/>
+            <nowatertreatment/>
+            <handfacility/>
+            <nohandfacility/>
+            <latriness/>
+            <nolatrine/>
+            <n_submit/>
+          </household>
+          <Wash>
+            <water/>
+            <treatment/>
+            <advise/>
+            <manner_of_treatment/>
+            <encourage/>
+            <handwashing/>
+            <handwashings/>
+            <latrine/>
+            <latrines/>
+          </Wash>
+          <contact>
+            <parent>PARENT</parent>
+            <type>contact</type>
+            <contact_type>household_contact</contact_type>
+            <date_of_birth/>
+            <sex/>
+            <name/>
+            <phone/>
+            <geopoint/>
+          </contact>
+          <repeat-guard>
+            <other_household_members/>
+            <child/>
+            <n_registration/>
+          </repeat-guard>
+          <repeat>
+            <child jr:template="">
+              <delimiter/>
+              <type>contact</type>
+              <contact_type>household_contact</contact_type>
+              <parent>PARENT</parent>
+              <name/>
+              <display_name/>
+              <notes/>
+              <sex/>
+              <date_of_birth/>
+              <age_set/>
+              <dob_known/>
+              <dob_calendar/>
+              <age_years/>
+              <age_months>0</age_months>
+              <ephemeral_months/>
+              <ephemeral_years/>
+              <dob_approx/>
+              <dob_raw/>
+              <dob_iso/>
+              <person_age_years/>
+              <person_age_months/>
+              <n_age/>
+              <phone/>
+              <secs_phone/>
+              <relationship_to_primary_caregiver/>
+              <relationship_to_pc_other/>
+            </child>
+            <note/>
+          </repeat>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/input" relevant="false()"/>
+      <bind nodeset="/data/input/user/contact_id" type="string"/>
+      <bind nodeset="/data/input/user/facility_id" type="string"/>
+      <bind nodeset="/data/input/user/name" type="string"/>
+      <bind nodeset="/data/inputs/contact/init/conduct_registration" type="select1" required="true()"/>
+      <bind nodeset="/data/inputs/contact/init/ensure" readonly="true()" type="string" relevant=" /data/inputs/contact/init/conduct_registration  = 'person'"/>
+      <bind nodeset="/data/inputs/contact/check/registered" type="select1" required="true()" jr:constraintMsg="Please exit the workflow. The household is already registered !" constraint="selected( /data/inputs/contact/check/registered ,'no')"/>
+      <bind nodeset="/data/inputs/contact/check/household_area" type="select1" relevant="selected( /data/inputs/contact/check/registered , 'no')" required="true()" jr:constraintMsg="This field is required"/>
+      <bind nodeset="/data/inputs/contact/check/serving_household" type="select1" relevant="selected( /data/inputs/contact/check/household_area , 'no')" required="true()" jr:constraintMsg="This field is required"/>
+      <bind nodeset="/data/inputs/contact/check/specify" type="string" relevant="selected( /data/inputs/contact/check/serving_household , 'other')" required="true()" jr:constraintMsg="This field is required"/>
+      <bind nodeset="/data/inputs/contact/contact_name" type="string" required="true()"/>
+      <bind nodeset="/data/inputs/contact/g_sex" type="select1" required="true()"/>
+      <bind nodeset="/data/inputs/contact/dob_known" type="select1" required="true()"/>
+      <bind nodeset="/data/inputs/contact/dob_calendar" type="date" relevant="../dob_known = 'yes'" required="true()" jr:constraintMsg="Age must be between 10 and 100" constraint="floor( difference-in-months( . , today() ) div 12 ) &gt;=10 and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
+      <bind nodeset="/data/inputs/contact/age" type="int" relevant="../dob_known = 'no'" required="true()" jr:constraintMsg="Age must be between 10 and 100" constraint=". &gt;= 10 and . &lt;= 100"/>
+      <bind nodeset="/data/inputs/contact/dob_raw" type="string" calculate="if(../dob_known = 'yes', ../dob_calendar, format-date-time( decimal-date-time( today() ) - (365.25 * ../age) , &quot;%Y-%m-%d&quot;) )"/>
+      <bind nodeset="/data/inputs/contact/contact_dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/inputs/contact/pri_phone" type="string" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX." constraint="regex(., '^(01\d{8}|07\d{8})$')"/>
+      <bind nodeset="/data/inputs/contact/sec_phone" type="string" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX." constraint="regex(., '^(01\d{8}|07\d{8})$')"/>
+      <bind nodeset="/data/inputs/contact/phone1" type="string" calculate=" /data/inputs/contact/pri_phone "/>
+      <bind nodeset="/data/inputs/contact/phone2" type="string" calculate=" /data/inputs/contact/sec_phone "/>
+      <bind nodeset="/data/inputs/contact/phone_note" readonly="true()" type="string"/>
+      <bind nodeset="/data/Wash/water" type="select" required="true()"/>
+      <bind nodeset="/data/Wash/treatment" type="select1" required="true()"/>
+      <bind nodeset="/data/Wash/advise" readonly="true()" type="string" relevant=" /data/Wash/treatment  = 'no'"/>
+      <bind nodeset="/data/Wash/manner_of_treatment" type="select" relevant="selected( /data/Wash/treatment , 'yes')"/>
+      <bind nodeset="/data/Wash/encourage" readonly="true()" type="string" relevant=" /data/Wash/manner_of_treatment  = True"/>
+      <bind nodeset="/data/Wash/handwashing" type="select1"/>
+      <bind nodeset="/data/Wash/handwashings" readonly="true()" type="string" relevant=" /data/Wash/handwashing  = 'no'"/>
+      <bind nodeset="/data/Wash/latrine" type="select1" required="true()"/>
+      <bind nodeset="/data/Wash/latrines" readonly="true()" type="string" relevant=" /data/Wash/latrine  = 'no'"/>
+      <bind nodeset="/data/contact/parent" type="string"/>
+      <bind nodeset="/data/contact/type" type="string"/>
+      <bind nodeset="/data/contact/contact_type" type="string"/>
+      <bind nodeset="/data/contact/date_of_birth" type="string" calculate=" /data/inputs/contact/contact_dob_iso "/>
+      <bind nodeset="/data/contact/sex" type="string" calculate=" /data/inputs/contact/g_sex "/>
+      <bind nodeset="/data/contact/name" type="string" calculate=" /data/inputs/contact/contact_name "/>
+      <bind nodeset="/data/contact/phone" type="string" calculate=" /data/inputs/contact/phone1 "/>
+      <bind nodeset="/data/contact/geopoint" type="geopoint"/>
+      <bind nodeset="/data/repeat-guard/other_household_members" type="select1"/>
+      <bind nodeset="/data/repeat-guard/child" type="select1" relevant=" /data/repeat-guard/other_household_members  = 'yes'" required="true()"/>
+      <bind nodeset="/data/repeat-guard/n_registration" readonly="true()" type="string" relevant="../child = 'true'"/>
+      <bind nodeset="/data/repeat" relevant="/data/repeat-guard/child = 'true'"/>
+      <bind nodeset="/data/repeat/child/delimiter" readonly="true()" type="string"/>
+      <bind nodeset="/data/repeat/child/type" type="string"/>
+      <bind nodeset="/data/repeat/child/contact_type" type="string"/>
+      <bind nodeset="/data/repeat/child/parent" type="string"/>
+      <bind nodeset="/data/repeat/child/name" type="string" required="true()"/>
+      <bind nodeset="/data/repeat/child/display_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/repeat/child/notes" type="string"/>
+      <bind nodeset="/data/repeat/child/sex" type="select1" required="true()"/>
+      <bind nodeset="/data/repeat/child/date_of_birth" type="string" calculate="../dob_iso"/>
+      <bind nodeset="/data/repeat/child/age_set" type="select1" required="true()"/>
+      <bind nodeset="/data/repeat/child/dob_known" type="select1" relevant="../age_set = 'over5'" required="true()"/>
+      <bind nodeset="/data/repeat/child/dob_calendar" type="date" relevant="../age_set = 'under5' or ../dob_known = 'yes'" required="true()" jr:constraintMsg="Age must be between 0 and 100" constraint="floor(decimal-date-time(.)) &lt;= floor(decimal-date-time(today())) and floor( difference-in-months( . , today() ) div 12 ) &lt;= 100"/>
+      <bind nodeset="/data/repeat/child/age_years" type="int" relevant="../age_set = 'over5' and ../dob_known = 'no'" required="true()" jr:constraintMsg="Age must be between 0 and 100" constraint=". &gt;= 0 and . &lt;=100"/>
+      <bind nodeset="/data/repeat/child/age_months" type="string" calculate="0"/>
+      <bind nodeset="/data/repeat/child/ephemeral_months" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%m&quot;) - ../age_months + 12, format-date-time(today(),&quot;%m&quot;) - ../age_months)"/>
+      <bind nodeset="/data/repeat/child/ephemeral_years" type="string" calculate="if(format-date-time(today(),&quot;%m&quot;) - ../age_months &lt; 0, format-date-time(today(),&quot;%Y&quot;) - ../age_years - 1, format-date-time(today(),&quot;%Y&quot;) -../age_years)"/>
+      <bind nodeset="/data/repeat/child/dob_approx" type="string" calculate="date(concat(string(../ephemeral_years),'-',if(../ephemeral_months&lt;10, concat('0',string(../ephemeral_months)), ../ephemeral_months),'-',string(format-date-time(today(), &quot;%d&quot;))))"/>
+      <bind nodeset="/data/repeat/child/dob_raw" type="string" calculate="if(../dob_known = 'yes' or ../age_set = 'under5', ../dob_calendar,../dob_approx )"/>
+      <bind nodeset="/data/repeat/child/dob_iso" type="string" calculate="format-date-time(decimal-date-time(../dob_raw),&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/repeat/child/person_age_years" type="string" calculate="floor( difference-in-months( ../dob_iso, today() ) div 12 )"/>
+      <bind nodeset="/data/repeat/child/person_age_months" type="string" calculate="floor(difference-in-months( ../dob_iso, today() ))"/>
+      <bind nodeset="/data/repeat/child/n_age" readonly="true()" type="string" relevant="0"/>
+      <bind nodeset="/data/repeat/child/phone" type="string" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX." constraint="regex(., '^(01\d{8}|07\d{8})$')"/>
+      <bind nodeset="/data/repeat/child/secs_phone" type="string" jr:constraintMsg="Please make sure the number is not already in use by another person and is in the format 07XX XXX XXX or 01XX XXX XXX." constraint="regex(., '^(01\d{8}|07\d{8})$')"/>
+      <bind nodeset="/data/repeat/child/relationship_to_primary_caregiver" type="select1" required="true()"/>
+      <bind nodeset="/data/repeat/child/relationship_to_pc_other" type="string" relevant="../relationship_to_primary_caregiver = 'other'" required="true()"/>
+      <bind nodeset="/data/repeat/note" readonly="true()" type="string"/>
+      <bind nodeset="/data/household/parent" type="string"/>
+      <bind nodeset="/data/household/name" type="string" calculate="concat( /data/inputs/contact/contact_name , ' Household')"/>
+      <bind nodeset="/data/household/household_name" type="string" calculate="../name"/>
+      <bind nodeset="/data/household/geolocation" type="string" calculate=" /data/contact/geopoint "/>
+      <bind nodeset="/data/household/contact" readonly="true()" type="string" calculate="&quot;NEW&quot;"/>
+      <bind nodeset="/data/household/summary_name" readonly="true()" type="string"/>
+      <bind nodeset="/data/household/n_hh_name" readonly="true()" type="string"/>
+      <bind nodeset="/data/household/n_hh_phone" readonly="true()" type="string"/>
+      <bind nodeset="/data/household/findings" readonly="true()" type="string"/>
+      <bind nodeset="/data/household/watertreatment" readonly="true()" type="string" relevant=" /data/Wash/treatment  = 'yes'"/>
+      <bind nodeset="/data/household/nowatertreatment" readonly="true()" type="string" relevant=" /data/Wash/treatment  = 'no'"/>
+      <bind nodeset="/data/household/handfacility" readonly="true()" type="string" relevant=" /data/Wash/handwashing  = 'yes'"/>
+      <bind nodeset="/data/household/nohandfacility" readonly="true()" type="string" relevant=" /data/Wash/handwashing  = 'no'"/>
+      <bind nodeset="/data/household/latriness" readonly="true()" type="string" relevant=" /data/Wash/latrine  = 'yes'"/>
+      <bind nodeset="/data/household/nolatrine" readonly="true()" type="string" relevant=" /data/Wash/latrine  = 'no'"/>
+      <bind nodeset="/data/household/n_submit" readonly="true()" type="string"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/data/input">
+      <group ref="/data/input/user">
+        <input ref="/data/input/user/contact_id">
+          <label ref="jr:itext('/data/input/user/contact_id:label')"/>
+        </input>
+        <input ref="/data/input/user/facility_id">
+          <label ref="jr:itext('/data/input/user/facility_id:label')"/>
+        </input>
+        <input ref="/data/input/user/name">
+          <label ref="jr:itext('/data/input/user/name:label')"/>
+        </input>
+      </group>
+    </group>
+    <group ref="/data/inputs">
+      <group appearance="field-list" ref="/data/inputs/contact">
+        <label ref="jr:itext('/data/inputs/contact:label')"/>
+        <group appearance="field-list" ref="/data/inputs/contact/init">
+          <select1 ref="/data/inputs/contact/init/conduct_registration">
+            <label ref="jr:itext('/data/inputs/contact/init/conduct_registration:label')"/>
+            <item>
+              <label>In Person</label>
+              <value>person</value>
+            </item>
+            <item>
+              <label>By Phone</label>
+              <value>phone</value>
+            </item>
+          </select1>
+          <input ref="/data/inputs/contact/init/ensure">
+            <label ref="jr:itext('/data/inputs/contact/init/ensure:label')"/>
+          </input>
+        </group>
+        <group appearance="field-list" ref="/data/inputs/contact/check">
+          <select1 ref="/data/inputs/contact/check/registered">
+            <label ref="jr:itext('/data/inputs/contact/check/registered:label')"/>
+            <item>
+              <label>Yes</label>
+              <value>yes</value>
+            </item>
+            <item>
+              <label>No</label>
+              <value>no</value>
+            </item>
+          </select1>
+          <select1 ref="/data/inputs/contact/check/household_area">
+            <label ref="jr:itext('/data/inputs/contact/check/household_area:label')"/>
+            <item>
+              <label>Yes</label>
+              <value>yes</value>
+            </item>
+            <item>
+              <label>No</label>
+              <value>no</value>
+            </item>
+          </select1>
+          <select1 ref="/data/inputs/contact/check/serving_household">
+            <label ref="jr:itext('/data/inputs/contact/check/serving_household:label')"/>
+            <item>
+              <label>There is no CHV in the clients area</label>
+              <value>no_chv</value>
+            </item>
+            <item>
+              <label>Patient needs treatment</label>
+              <value>treatment</value>
+            </item>
+            <item>
+              <label>Boundaries of my area are not clear</label>
+              <value>boundaries</value>
+            </item>
+            <item>
+              <label>Other</label>
+              <value>other</value>
+            </item>
+          </select1>
+          <input ref="/data/inputs/contact/check/specify">
+            <label ref="jr:itext('/data/inputs/contact/check/specify:label')"/>
+          </input>
+        </group>
+        <input ref="/data/inputs/contact/contact_name">
+          <label ref="jr:itext('/data/inputs/contact/contact_name:label')"/>
+          <hint>Please use three names.</hint>
+        </input>
+        <select1 appearance="horizontal" ref="/data/inputs/contact/g_sex">
+          <label ref="jr:itext('/data/inputs/contact/g_sex:label')"/>
+          <item>
+            <label>Female</label>
+            <value>female</value>
+          </item>
+          <item>
+            <label>Male</label>
+            <value>male</value>
+          </item>
+        </select1>
+        <select1 appearance="horizontal" ref="/data/inputs/contact/dob_known">
+          <label ref="jr:itext('/data/inputs/contact/dob_known:label')"/>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <input ref="/data/inputs/contact/dob_calendar">
+          <label ref="jr:itext('/data/inputs/contact/dob_calendar:label')"/>
+        </input>
+        <input ref="/data/inputs/contact/age">
+          <label ref="jr:itext('/data/inputs/contact/age:label')"/>
+        </input>
+        <input ref="/data/inputs/contact/pri_phone">
+          <label ref="jr:itext('/data/inputs/contact/pri_phone:label')"/>
+        </input>
+        <input ref="/data/inputs/contact/sec_phone">
+          <label ref="jr:itext('/data/inputs/contact/sec_phone:label')"/>
+        </input>
+        <input ref="/data/inputs/contact/phone_note">
+          <label ref="jr:itext('/data/inputs/contact/phone_note:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/data/Wash">
+      <label ref="jr:itext('/data/Wash:label')"/>
+      <select ref="/data/Wash/water">
+        <label ref="jr:itext('/data/Wash/water:label')"/>
+        <item>
+          <label>River</label>
+          <value>river</value>
+        </item>
+        <item>
+          <label>Borehole</label>
+          <value>borehole</value>
+        </item>
+        <item>
+          <label>Rain Water</label>
+          <value>rain_water</value>
+        </item>
+        <item>
+          <label>County Government</label>
+          <value>county_government</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select>
+      <select1 ref="/data/Wash/treatment">
+        <label ref="jr:itext('/data/Wash/treatment:label')"/>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/Wash/advise">
+        <label ref="jr:itext('/data/Wash/advise:label')"/>
+      </input>
+      <select ref="/data/Wash/manner_of_treatment">
+        <label ref="jr:itext('/data/Wash/manner_of_treatment:label')"/>
+        <item>
+          <label>Chlorination</label>
+          <value>chlorination</value>
+        </item>
+        <item>
+          <label>Boiling</label>
+          <value>boiling</value>
+        </item>
+        <item>
+          <label>Filtration</label>
+          <value>filtration</value>
+        </item>
+      </select>
+      <input ref="/data/Wash/encourage">
+        <label ref="jr:itext('/data/Wash/encourage:label')"/>
+      </input>
+      <select1 ref="/data/Wash/handwashing">
+        <label ref="jr:itext('/data/Wash/handwashing:label')"/>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/Wash/handwashings">
+        <label ref="jr:itext('/data/Wash/handwashings:label')"/>
+      </input>
+      <select1 ref="/data/Wash/latrine">
+        <label ref="jr:itext('/data/Wash/latrine:label')"/>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/data/Wash/latrines">
+        <label ref="jr:itext('/data/Wash/latrines:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/contact">
+      <label ref="jr:itext('/data/contact:label')"/>
+      <input ref="/data/contact/geopoint">
+        <label ref="jr:itext('/data/contact/geopoint:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/repeat-guard">
+      <label ref="jr:itext('/data/repeat-guard:label')"/>
+      <select1 appearance="horizontal" ref="/data/repeat-guard/other_household_members">
+        <label ref="jr:itext('/data/repeat-guard/other_household_members:label')"/>
+        <hint>Make sure to register all children under 5 now. You can register other household members at a later time.</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 appearance="horizontal" ref="/data/repeat-guard/child">
+        <label ref="jr:itext('/data/repeat-guard/child:label')"/>
+        <item>
+          <label>Yes</label>
+          <value>true</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>false</value>
+        </item>
+      </select1>
+      <input ref="/data/repeat-guard/n_registration">
+        <label ref="jr:itext('/data/repeat-guard/n_registration:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/data/repeat">
+      <label ref="jr:itext('/data/repeat:label')"/>
+      <group ref="/data/repeat/child">
+        <label ref="jr:itext('/data/repeat/child:label')"/>
+        <repeat nodeset="/data/repeat/child">
+          <input ref="/data/repeat/child/delimiter">
+            <label ref="jr:itext('/data/repeat/child/delimiter:label')"/>
+          </input>
+          <input ref="/data/repeat/child/name">
+            <label ref="jr:itext('/data/repeat/child/name:label')"/>
+            <hint>Please use three names.</hint>
+          </input>
+          <input appearance="hidden" ref="/data/repeat/child/notes">
+            <label ref="jr:itext('/data/repeat/child/notes:label')"/>
+          </input>
+          <select1 appearance="horizontal" ref="/data/repeat/child/sex">
+            <label ref="jr:itext('/data/repeat/child/sex:label')"/>
+            <item>
+              <label>Female</label>
+              <value>female</value>
+            </item>
+            <item>
+              <label>Male</label>
+              <value>male</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/data/repeat/child/age_set">
+            <label ref="jr:itext('/data/repeat/child/age_set:label')"/>
+            <item>
+              <label>Under 5</label>
+              <value>under5</value>
+            </item>
+            <item>
+              <label>Over 5</label>
+              <value>over5</value>
+            </item>
+          </select1>
+          <select1 appearance="horizontal" ref="/data/repeat/child/dob_known">
+            <label ref="jr:itext('/data/repeat/child/dob_known:label')"/>
+            <item>
+              <label>Yes</label>
+              <value>yes</value>
+            </item>
+            <item>
+              <label>No</label>
+              <value>no</value>
+            </item>
+          </select1>
+          <input ref="/data/repeat/child/dob_calendar">
+            <label ref="jr:itext('/data/repeat/child/dob_calendar:label')"/>
+          </input>
+          <input ref="/data/repeat/child/age_years">
+            <label ref="jr:itext('/data/repeat/child/age_years:label')"/>
+            <hint>Age in years</hint>
+          </input>
+          <input ref="/data/repeat/child/n_age">
+            <label ref="jr:itext('/data/repeat/child/n_age:label')"/>
+          </input>
+          <input ref="/data/repeat/child/phone">
+            <label ref="jr:itext('/data/repeat/child/phone:label')"/>
+          </input>
+          <input ref="/data/repeat/child/secs_phone">
+            <label ref="jr:itext('/data/repeat/child/secs_phone:label')"/>
+          </input>
+          <select1 ref="/data/repeat/child/relationship_to_primary_caregiver">
+            <label ref="jr:itext('/data/repeat/child/relationship_to_primary_caregiver:label')"/>
+            <item>
+              <label>Spouse</label>
+              <value>spouse</value>
+            </item>
+            <item>
+              <label>Child</label>
+              <value>child</value>
+            </item>
+            <item>
+              <label>Grandchild</label>
+              <value>grandchild</value>
+            </item>
+            <item>
+              <label>Brother</label>
+              <value>brother</value>
+            </item>
+            <item>
+              <label>Sister</label>
+              <value>sister</value>
+            </item>
+            <item>
+              <label>Other</label>
+              <value>other</value>
+            </item>
+          </select1>
+          <input ref="/data/repeat/child/relationship_to_pc_other">
+            <label ref="jr:itext('/data/repeat/child/relationship_to_pc_other:label')"/>
+          </input>
+        </repeat>
+      </group>
+      <input ref="/data/repeat/note">
+        <label ref="jr:itext('/data/repeat/note:label')"/>
+      </input>
+    </group>
+    <group appearance="Field-list summary" ref="/data/household">
+      <input ref="/data/household/contact"/>
+      <input appearance="h1 blue" ref="/data/household/summary_name">
+        <label ref="jr:itext('/data/household/summary_name:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/n_hh_name">
+        <label ref="jr:itext('/data/household/n_hh_name:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/n_hh_phone">
+        <label ref="jr:itext('/data/household/n_hh_phone:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/data/household/findings">
+        <label ref="jr:itext('/data/household/findings:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/watertreatment">
+        <label ref="jr:itext('/data/household/watertreatment:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/nowatertreatment">
+        <label ref="jr:itext('/data/household/nowatertreatment:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/handfacility">
+        <label ref="jr:itext('/data/household/handfacility:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/nohandfacility">
+        <label ref="jr:itext('/data/household/nohandfacility:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/latriness">
+        <label ref="jr:itext('/data/household/latriness:label')"/>
+      </input>
+      <input appearance="h5 center" ref="/data/household/nolatrine">
+        <label ref="jr:itext('/data/household/nolatrine:label')"/>
+      </input>
+      <input ref="/data/household/n_submit">
+        <label ref="jr:itext('/data/household/n_submit:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

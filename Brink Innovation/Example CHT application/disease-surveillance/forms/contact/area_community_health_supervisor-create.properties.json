@@ -1,0 +1,6 @@
+{
+  "icon": "area-community-health-supervisor",
+  "context": {
+    "permission": "can_create_supervisor"
+  }
+}
