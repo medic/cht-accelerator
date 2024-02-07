@@ -1,0 +1,40 @@
+{
+    "coreVersion": "4.0.0",
+    "user": "dso_contact_id",
+    "subject": "patient_id",
+    "ownedBySubject": true,
+  
+    "docs": [
+      {
+        "_id": "patient_id",
+        "type": "person",
+        "name": "Patient Name",
+        "role": "patient",
+        "date_of_birth": "1970-07-09",
+        "sex": "female",
+        "reported_date": 1706720381,
+        "parent": {
+          "_id": "household_id",
+          "parent": {
+            "_id": "community_health_area_id",
+            "parent": {
+              "_id": "area_community_health_supervisor_id"
+            }
+          }
+        }
+      },
+      {
+        "_id": "dso_contact_id",
+        "name": "DSO Name",
+        "type": "person",
+        "contact_type": "area_health_facility_nurse",
+        "parent": {
+          "_id": "area_health_facility_id",
+          "contact": {
+            "_id": "area_health_facility_nurse_id"
+          }
+        }
+      }
+    ]
+  }
+  

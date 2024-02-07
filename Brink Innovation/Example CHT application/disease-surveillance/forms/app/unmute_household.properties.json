@@ -1,0 +1,14 @@
+{
+  "title": [
+    {
+      "locale": "en",
+      "content": "Unmute Household"
+    }
+  ],
+  "icon": "unmute-household",
+  "context": {
+    "person": false,
+    "place": true,
+    "expression": "contact.muted && contact.contact_type  === 'household'"
+  }
+}

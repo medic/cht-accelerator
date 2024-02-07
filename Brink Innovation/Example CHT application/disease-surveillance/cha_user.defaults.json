@@ -1,0 +1,43 @@
+{
+    "coreVersion": "4.0.0",
+    "user": "cha_contact_id",
+    "subject": "patient_id",
+    "ownedBySubject": true,
+  
+    "docs": [
+      {
+        "_id": "patient_id",
+        "type": "person",
+        "name": "Patient Name",
+        "role": "patient",
+        "date_of_birth": "1970-07-09",
+        "sex": "female",
+        "reported_date": 1706720381,
+        "parent": {
+          "_id": "household_id",
+          "parent": {
+            "_id": "community_health_area_id",
+            "parent": {
+              "_id": "area_community_health_supervisor_id"
+            }
+          }
+        }
+      },
+      {
+        "_id": "cha_contact_id",
+        "name": "CHA Name",
+        "type": "person",
+        "contact_type": "area_community_health_supervisor",
+        "parent": {
+          "_id": "area_supervisor_region_id",
+          "contact": {
+            "_id": "area_supervisor_region_id",
+            "parent": {
+              "_id": "area_health_facility_id"
+            }
+          }
+        }
+      }
+    ]
+  }
+  

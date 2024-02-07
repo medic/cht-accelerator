@@ -1,1 +1,26 @@
-{}
+{
+  "icon-healthcare-assessment": "icon-followup-general.svg",
+  "icon-diarrhoea": "icon-condition-diarrhea.svg",
+  "icon-household": "icon-places-household.svg",
+  "icon-referral": "icon-referral.svg",
+  "community-health-area": "icon-community.svg",
+  "area-health-facility": "icon-places-hospital.svg",
+  "area-health-facility-nurse": "icon-facility-nurse.svg",
+  "community-health-volunteer": "icon-people-CHW-crop.svg",
+  "icon-people-family": "icon-people-family.svg",
+  "area-community-health-supervisor": "icon-people-manager-crop.svg",
+  "area-supervisor-region": "supervisor-region.svg",
+  "household-member": "medic-person.svg",
+  "mute-household": "mute-household.svg",
+  "unmute-household": "unmute-household.svg",
+  "icon-report": "icon-report.svg",
+  "household-member-assessment": "household-member-assessment.svg",
+  "icon-death-general": "icon-death-coffin.svg",
+  "laboratory-specimen": "laboratory-specimen.svg",
+  "add-member": "icon-people-person-general.svg",
+  "health-condition": "health-condition.svg",
+  "cholera-verification": "cholera-verification.svg",
+  "cholera-report": "report-cholera.svg",
+  "lab-test": "lab-test.svg",
+  "undo-death": "undo-death.svg"
+}

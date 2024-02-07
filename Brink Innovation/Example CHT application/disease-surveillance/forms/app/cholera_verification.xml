@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Cholera Verification Form</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/cholera_verification/danger_signs/confirm_case/no:label">
+            <value>No</value>
+          </text>
+          <text id="/cholera_verification/danger_signs/confirm_case/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/cholera_verification/danger_signs/confirm_case:label">
+            <value>Is <output value=" /cholera_verification/patient_name "/> Cholera Case Confirmed?</value>
+          </text>
+          <text id="/cholera_verification/danger_signs/reason:label">
+            <value>&lt;p style="color:red"&gt;Requested for Immediate Confirmation of Suspected Cholera Case.&lt;/p&gt;</value>
+          </text>
+          <text id="/cholera_verification/danger_signs/refarall:label">
+            <value>&lt;p style=&quot;color:blue&quot;&gt; Refer <output value=" /cholera_verification/patient_name "/> to health facility&lt;/p&gt;</value>
+          </text>
+          <text id="/cholera_verification/danger_signs:label">
+            <value>Cholera Verification Form</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/parent/_id:label">
+            <value>Parent ID</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/parent/parent/contact/chw_name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/cholera_verification/inputs/contact/short_name:label">
+            <value>Short Name</value>
+          </text>
+          <text id="/cholera_verification/inputs/delivery_uuid:label">
+            <value>Delivery Report ID</value>
+          </text>
+          <text id="/cholera_verification/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/cholera_verification/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <cholera_verification id="cholera_verification" prefix="J1!cholera_verification!" delimiter="#" version="2024-01-25 22:52:15">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <delivery_uuid/>
+            <contact>
+              <_id/>
+              <name/>
+              <short_name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <_id/>
+                <parent>
+                  <contact>
+                    <chw_name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_age_in_years tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name tag="hidden"/>
+          <danger_signs>
+            <confirm_case/>
+            <reason/>
+            <refarall/>
+          </danger_signs>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </cholera_verification>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/cholera_verification/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/cholera_verification/inputs/source" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/source_id" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/delivery_uuid" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/cholera_verification/inputs/contact/name" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/short_name" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/sex" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/parent/parent/contact/chw_name" type="string"/>
+      <bind nodeset="/cholera_verification/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind nodeset="/cholera_verification/patient_age_in_years" type="string" calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )"/>
+      <bind nodeset="/cholera_verification/patient_uuid" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/cholera_verification/patient_id" type="string" calculate="../inputs/contact/patient_id"/>
+      <bind nodeset="/cholera_verification/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/cholera_verification/danger_signs/confirm_case" type="select1" required="true()"/>
+      <bind nodeset="/cholera_verification/danger_signs/reason" readonly="true()" type="string" relevant=" /cholera_verification/danger_signs/confirm_case  = 'no'"/>
+      <bind nodeset="/cholera_verification/danger_signs/refarall" readonly="true()" type="string" relevant=" /cholera_verification/danger_signs/confirm_case  = 'yes'"/>
+      <bind nodeset="/cholera_verification/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/cholera_verification/inputs">
+      <group ref="/cholera_verification/inputs/contact">
+        <input appearance="db-object" ref="/cholera_verification/inputs/contact/_id">
+          <label ref="jr:itext('/cholera_verification/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/cholera_verification/inputs/contact/parent">
+          <group ref="/cholera_verification/inputs/contact/parent/parent">
+            <group ref="/cholera_verification/inputs/contact/parent/parent/contact"/>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/cholera_verification/danger_signs">
+      <label ref="jr:itext('/cholera_verification/danger_signs:label')"/>
+      <select1 ref="/cholera_verification/danger_signs/confirm_case">
+        <label ref="jr:itext('/cholera_verification/danger_signs/confirm_case:label')"/>
+        <item>
+          <label ref="jr:itext('/cholera_verification/danger_signs/confirm_case/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/cholera_verification/danger_signs/confirm_case/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/cholera_verification/danger_signs/reason">
+        <label ref="jr:itext('/cholera_verification/danger_signs/reason:label')"/>
+      </input>
+      <input ref="/cholera_verification/danger_signs/refarall">
+        <label ref="jr:itext('/cholera_verification/danger_signs/refarall:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

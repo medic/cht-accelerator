@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Mute Household</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/mute_household/group_mute_household/other_reason_for_muting:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label">
+            <value>All household members have relocated</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label">
+            <value>Household refused CHV services</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting:label">
+            <value>Why do you want to mute <output value=" /mute_household/place_name "/> ?</value>
+          </text>
+          <text id="/mute_household/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Important Information&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /mute_household/place_name "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_mute_info:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;Reason for muting: <output value=" /mute_household/group_mute_household/reason_for_muting "/>. <output value=" /mute_household/group_mute_household/other_reason_for_muting "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_referral:label">
+            <value>Tasks for <output value=" /mute_household/place_name "/> will stop once you submit this form</value>
+          </text>
+          <text id="/mute_household/group_review/r_summary_details:label">
+            <value>Household Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_undo:label">
+            <value>You will be able to unmute <output value=" /mute_household/place_name "/>, if needed.</value>
+          </text>
+          <text id="/mute_household/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;To finish, be sure to click the Submit button.&lt;/h4&gt;</value>
+          </text>
+          <text id="/mute_household/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/mute_household/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/mute_household/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/mute_household/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/mute_household/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/mute_household/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/mute_household/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/mute_household/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+        </translation>
+        <translation lang="sw">
+          <text id="/mute_household/group_mute_household/meta/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/meta/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/meta/source:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/meta/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/meta:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/other_reason_for_muting:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label">
+            <value>Wanakaya wote wamehama</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label">
+            <value>Kaya ilikataa huduma za CHV</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting/other:label">
+            <value>Nyingine</value>
+          </text>
+          <text id="/mute_household/group_mute_household/reason_for_muting:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_review/r_blank_note:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/group_review/r_key_instruction:label">
+            <value>&lt;b&gt;Habari Muhimu&lt;/b&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_member_details:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;<output value=" /mute_household/place_name "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_mute_info:label">
+            <value>&lt;div style=&quot;text-align:center;&quot;&gt;Sababu ya kunyamazisha: <output value=" /mute_household/group_mute_household/reason_for_muting "/>. <output value=" /mute_household/group_mute_household/other_reason_for_muting "/>&lt;/div&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_referral:label">
+            <value>Majukumu ya <output value=" /mute_household/place_name "/> yatakoma mara tu utakapowasilisha fomu hii</value>
+          </text>
+          <text id="/mute_household/group_review/r_summary_details:label">
+            <value>Maelezo ya Kaya&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/mute_household/group_review/r_undo:label">
+            <value>Utaweza kurejesha sauti ya <output value=" /mute_household/place_name "/>, ikihitajika.</value>
+          </text>
+          <text id="/mute_household/group_review/submit:label">
+            <value>&lt;h4 style="text-align:center;"&gt;Ili kumaliza, hakikisha kuwa umebofya kitufe cha Wasilisha.&lt;/h4&gt;</value>
+          </text>
+          <text id="/mute_household/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/inputs/contact/_id:label">
+            <value>Jina la mgonjwa ni nani?</value>
+          </text>
+          <text id="/mute_household/inputs/contact/date_of_birth:label">
+            <value>Tarehe ya kuzaliwa</value>
+          </text>
+          <text id="/mute_household/inputs/contact/name:label">
+            <value>Jina</value>
+          </text>
+          <text id="/mute_household/inputs/contact/patient_id:label">
+            <value>Kitambulisho cha Mgonjwa</value>
+          </text>
+          <text id="/mute_household/inputs/contact/sex:label">
+            <value>Jinsia</value>
+          </text>
+          <text id="/mute_household/inputs/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/mute_household/inputs:label">
+            <value>-</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <mute_household id="mute_household" prefix="J1!mute_household!" delimiter="#" version="2023-06-16 14:18:55">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+            </contact>
+          </inputs>
+          <source/>
+          <source_id/>
+          <place_id/>
+          <place_name/>
+          <group_mute_household>
+            <reason_for_muting/>
+            <other_reason_for_muting/>
+            <meta tag="hidden">
+              <patient_uuid/>
+              <patient_id/>
+              <source/>
+              <source_id/>
+            </meta>
+          </group_mute_household>
+          <group_review tag="hidden">
+            <submit/>
+            <r_summary_details/>
+            <r_member_details/>
+            <r_mute_info/>
+            <r_key_instruction/>
+            <r_blank_note/>
+            <r_referral/>
+            <r_undo/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </mute_household>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/mute_household/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/mute_household/inputs/source" type="string"/>
+      <bind nodeset="/mute_household/inputs/source_id" type="string"/>
+      <bind nodeset="/mute_household/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/mute_household/inputs/contact/name" type="string"/>
+      <bind nodeset="/mute_household/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/mute_household/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/mute_household/inputs/contact/sex" type="string"/>
+      <bind nodeset="/mute_household/source" type="string" calculate="../inputs/source"/>
+      <bind nodeset="/mute_household/source_id" type="string" calculate="../inputs/source_id"/>
+      <bind nodeset="/mute_household/place_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/mute_household/place_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/mute_household/group_mute_household/reason_for_muting" type="select1" required="true()"/>
+      <bind nodeset="/mute_household/group_mute_household/other_reason_for_muting" type="string" relevant="selected(../reason_for_muting, 'other')" required="true()"/>
+      <bind nodeset="/mute_household/group_mute_household/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
+      <bind nodeset="/mute_household/group_mute_household/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
+      <bind nodeset="/mute_household/group_mute_household/meta/source" type="string" calculate="../../../inputs/source"/>
+      <bind nodeset="/mute_household/group_mute_household/meta/source_id" type="string" calculate="../../../inputs/source_id"/>
+      <bind nodeset="/mute_household/group_review/submit" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_summary_details" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_member_details" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_mute_info" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_key_instruction" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_blank_note" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_referral" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/group_review/r_undo" readonly="true()" type="string"/>
+      <bind nodeset="/mute_household/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/mute_household/inputs">
+      <group ref="/mute_household/inputs/contact">
+        <label ref="jr:itext('/mute_household/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/mute_household/inputs/contact/_id">
+          <label ref="jr:itext('/mute_household/inputs/contact/_id:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/mute_household/group_mute_household">
+      <select1 ref="/mute_household/group_mute_household/reason_for_muting">
+        <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting:label')"/>
+        <item>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label')"/>
+          <value>all_members_relocated</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label')"/>
+          <value>household_refused_chv_services</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/mute_household/group_mute_household/other_reason_for_muting">
+        <label ref="jr:itext('/mute_household/group_mute_household/other_reason_for_muting:label')"/>
+      </input>
+      <group appearance="hidden" ref="/mute_household/group_mute_household/meta"/>
+    </group>
+    <group appearance="field-list summary" ref="/mute_household/group_review">
+      <input ref="/mute_household/group_review/submit">
+        <label ref="jr:itext('/mute_household/group_review/submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/mute_household/group_review/r_summary_details">
+        <label ref="jr:itext('/mute_household/group_review/r_summary_details:label')"/>
+      </input>
+      <input ref="/mute_household/group_review/r_member_details">
+        <label ref="jr:itext('/mute_household/group_review/r_member_details:label')"/>
+      </input>
+      <input ref="/mute_household/group_review/r_mute_info">
+        <label ref="jr:itext('/mute_household/group_review/r_mute_info:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/mute_household/group_review/r_key_instruction">
+        <label ref="jr:itext('/mute_household/group_review/r_key_instruction:label')"/>
+      </input>
+      <input ref="/mute_household/group_review/r_blank_note"/>
+      <input appearance="h1 red" ref="/mute_household/group_review/r_referral">
+        <label ref="jr:itext('/mute_household/group_review/r_referral:label')"/>
+      </input>
+      <input ref="/mute_household/group_review/r_undo">
+        <label ref="jr:itext('/mute_household/group_review/r_undo:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>
