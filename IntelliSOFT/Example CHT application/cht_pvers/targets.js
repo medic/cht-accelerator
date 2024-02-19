@@ -53,7 +53,7 @@ module.exports = [
     groupBy: contact => getHouseholdId(contact),
     passesIfGroupCount: { gte: 2 }
   },
- 
+ // Target for number of households registered by a specific CHP
   {
     id: 'padr-this-month',
     type: 'percent',
