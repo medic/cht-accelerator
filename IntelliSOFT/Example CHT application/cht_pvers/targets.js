@@ -66,7 +66,6 @@ module.exports = [
     appliesToType: ['household'],
     date: 'now',
     aggregate: true,
-    passesIfGroupCount: { gte: 2 }
   },
   // PADRs: Display households registered this month with a target of 15
   {
