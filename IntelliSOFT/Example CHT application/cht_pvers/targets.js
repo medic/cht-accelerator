@@ -59,7 +59,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-sadr',
     goal: 15,
-    context: 'user.contact_type === "chw"',
+    context: 'user.role === "chw"',
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'contacts',
