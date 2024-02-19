@@ -58,7 +58,7 @@ module.exports = [
     id: 'padr-this-month',
     type: 'count',
     icon: 'icon-sadr',
-    goal: 75,
+    goal: 15,
     context: 'user.contact_type === "chw"',
     translation_key: 'targets.padr.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
