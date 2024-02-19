@@ -56,7 +56,7 @@ module.exports = [
  // Target for number of households registered by a specific CHP
   {
     id: 'padr-this-month',
-    type: 'percent',
+    type: 'count',
     icon: 'icon-sadr',
     goal: 75,
     context: 'user.contact_type === "chw"',
