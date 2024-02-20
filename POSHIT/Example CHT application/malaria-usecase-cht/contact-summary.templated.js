@@ -1,7 +1,7 @@
 const { CONTACT_TYPES, FORMS } = require('./shared-extras');
 const {DateTime} = require('luxon');
 const { getField, getMostRecentReport,isFirstReportNewer } = require('cht-nootils')();
-const { getMostRecentReportForm, ageInMonths, isPregnancyBeforeDelivery, isContactStillPregnant } = require('./nools-extras');
+const { getMostRecentReportForm, ageInMonths, isBeforeEDD, isContactStillPregnant } = require('./nools-extras');
 
 const thisContact = contact;
 const thisLineage = lineage;
@@ -210,7 +210,7 @@ const cards = [
           const deliveryDate = getField(report, 'group_pregnancy_registration_form.estimated_delivery_date');
           return DateTime.now() < DateTime.fromISO(deliveryDate);
         }
-        return isPregnancyBeforeDelivery(report);
+        return isBeforeEDD(report);
       }
     },
     fields: function () {

@@ -1,6 +1,6 @@
 const { DateTime } = require('luxon');
 const { FORMS } = require('./shared-extras');
-const { getField, isFirstReportNewer } = require('cht-nootils')();
+const { getField } = require('cht-nootils')();
 
 const isFormArraySubmittedInWindow = (reports, formsArray, startTime, endTime) => {
   if(typeof formsArray === 'string') { 
@@ -35,16 +35,12 @@ const isPregnancyTaskMuted = (contact) => {
   return latestVisit && isPregnancyTreatmentFollowUpForm(latestVisit) && getField(latestVisit, 'treatment_referral_follow_up_date') === '';
 };
 
-const isPregnancyBeforeDelivery = (report) => {
+const isBeforeEDD = (report) => {
   DateTime.now() < DateTime.fromISO(getField(report, 'group_pregnancy_registration_form.estimated_delivery_date'));
 };
 
-const isPregnancyBeforeDeliveryFollowUp = (report) => {
+const isBeforeEDDFollowUp = (report) => {
   DateTime.now() < DateTime.fromISO(getField(report, 'group_pregnancy_registration_followup_form.estimated_delivery_date'));
-};
-
-const isFollowUpForm = (reports) => {
-  return isFirstReportNewer(getMostRecentReportForm(reports, FORMS.MALARIA_ASSESSMENT_FOR_PREGNANT_MOTHERS, getMostRecentReportForm(reports, FORMS.PREGNANCY_REGISTRATION)));
 };
 
 const isContactStillPregnant = (records) => {
@@ -60,8 +56,7 @@ module.exports = {
   getMostRecentReportForm,
   isAlive,
   isPregnancyTaskMuted, 
-  isPregnancyBeforeDelivery,
+  isBeforeEDD,
   isContactStillPregnant, 
-  isFollowUpForm,
-  isPregnancyBeforeDeliveryFollowUp
+  isBeforeEDDFollowUp
 };
