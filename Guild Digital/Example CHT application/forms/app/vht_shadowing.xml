@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Home Visits with VHT</h:title>
+    <model>
+      <instance>
+        <vht_shadowing id="vht_shadowing" prefix="J1!vht_shadowing!" delimiter="#" version="2024-01-12  13-16">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <name/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <shadowing_details>
+            <note_vht_shadowing/>
+            <shadowing_date/>
+            <vht_name/>
+          </shadowing_details>
+          <geolocation>
+            <latitude/>
+            <longitude/>
+            <altitude/>
+            <accuracy/>
+            <gps/>
+          </geolocation>
+          <g_vht_shadowing>
+            <shadowing_area/>
+            <shadowing_findings/>
+            <shadowing_area_improvements/>
+            <shadowing_recommendations/>
+            <other_specify/>
+          </g_vht_shadowing>
+          <g_vht_shadowing_summary>
+            <s_note_vht_shadowing/>
+            <s_note_submit_button/>
+            <s_note_vht_shadowing_details/>
+            <s_vht_details/>
+            <s_issue_areas_observed/>
+            <s_vht_self_introduction/>
+            <s_vht_use_of_device/>
+            <s_language_and_communication/>
+            <s_qoc/>
+            <s_completion_of_workflows/>
+            <s_handling_exit/>
+            <s_issue_areas_of_improvement/>
+            <s_improvement/>
+            <s_key_recommendations/>
+            <s_refresher_training_program/>
+            <s_refresher_training_digital/>
+            <s_replace_vht/>
+            <s_other_specify/>
+          </g_vht_shadowing_summary>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </vht_shadowing>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/vht_shadowing/inputs" relevant="false()"/>
+      <bind nodeset="/vht_shadowing/inputs/source" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/source_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/user/phone" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/name" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/role" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/vht_shadowing/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/vht_shadowing/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/vht_shadowing/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/vht_shadowing/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/vht_shadowing/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/vht_shadowing/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/vht_shadowing/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/vht_shadowing/created_by" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/vht_shadowing/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/vht_shadowing/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/vht_shadowing/shadowing_details/note_vht_shadowing" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/shadowing_details/shadowing_date" type="date" jr:constraintMsg="Shadowing visit date can't be in the past. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) )))"/>
+      <bind nodeset="/vht_shadowing/shadowing_details/vht_name" type="string"/>
+      <bind nodeset="/vht_shadowing/geolocation/latitude" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 0)"/>
+      <bind nodeset="/vht_shadowing/geolocation/longitude" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 1)"/>
+      <bind nodeset="/vht_shadowing/geolocation/altitude" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 2)"/>
+      <bind nodeset="/vht_shadowing/geolocation/accuracy" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 3)"/>
+      <bind nodeset="/vht_shadowing/geolocation/gps" type="geopoint"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_area" type="select" required="true()"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_findings" type="select1" required="true()"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_area_improvements" type="string" required="true()"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_recommendations" type="select1" required="true()"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/other_specify" type="string" required="true()" relevant=" /vht_shadowing/g_vht_shadowing/shadowing_recommendations ='other_specify'"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_issue_areas_observed" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_vht_self_introduction" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'vht_self_introduction')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_vht_use_of_device" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'vht_use_of_device')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_language_and_communication" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'language_and_communication')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_qoc" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'qoc')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_completion_of_workflows" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'completion_of_workflows')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_handling_exit" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_area , 'handling_exit')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_issue_areas_of_improvement" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_improvement" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_key_recommendations" readonly="true()" type="string"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_refresher_training_program" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_recommendations , 'refresher_training_program')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_refresher_training_digital" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_recommendations , 'refresher_training_digital')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_replace_vht" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_recommendations , 'replace_vht')"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_other_specify" readonly="true()" type="string" relevant="selected( /vht_shadowing/g_vht_shadowing/shadowing_recommendations , 'other_specify')"/>
+      <bind nodeset="/vht_shadowing/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/vht_shadowing/inputs">
+      <label></label>
+      <group ref="/vht_shadowing/inputs/user">
+        <label></label>
+      </group>
+      <group ref="/vht_shadowing/inputs/contact">
+        <label></label>
+        <input appearance="select-contact type-person" ref="/vht_shadowing/inputs/contact/_id">
+          <label></label>
+        </input>
+        <group appearance="hidden" ref="/vht_shadowing/inputs/contact/parent">
+          <label></label>
+          <group ref="/vht_shadowing/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/vht_shadowing/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/vht_shadowing/shadowing_details">
+      <label>Shadowing Details</label>
+      <input ref="/vht_shadowing/shadowing_details/note_vht_shadowing">
+        <label>To complete this form, you must be observing a VHT at work!</label>
+      </input>
+      <input ref="/vht_shadowing/shadowing_details/shadowing_date">
+        <label>Date of shadowing appointment</label>
+      </input>
+      <input ref="/vht_shadowing/shadowing_details/vht_name">
+        <label>VHT Name</label>
+      </input>
+    </group>
+    <group ref="/vht_shadowing/geolocation">
+      <label></label>
+      <input ref="/vht_shadowing/geolocation/gps">
+        <label>VHT Shadowing</label>
+        <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/vht_shadowing/g_vht_shadowing">
+      <label>Shadowing</label>
+      <select appearance="horizontal" ref="/vht_shadowing/g_vht_shadowing/shadowing_area">
+        <label>Issue Area</label>
+        <item>
+          <label>VHT Self Introduction</label>
+          <value>vht_self_introduction</value>
+        </item>
+        <item>
+          <label>VHT use of device during visit</label>
+          <value>vht_use_of_device</value>
+        </item>
+        <item>
+          <label>Language and Communication</label>
+          <value>language_and_communication</value>
+        </item>
+        <item>
+          <label>Quality of Care</label>
+          <value>qoc</value>
+        </item>
+        <item>
+          <label>Completion of workflows</label>
+          <value>completion_of_workflows</value>
+        </item>
+        <item>
+          <label>Handling Exit</label>
+          <value>handling_exit</value>
+        </item>
+      </select>
+      <select1 ref="/vht_shadowing/g_vht_shadowing/shadowing_findings">
+        <label>Findings</label>
+        <item>
+          <label>VHT Self Introduction</label>
+          <value>vht_self_introduction</value>
+        </item>
+        <item>
+          <label>VHT use of device during visit</label>
+          <value>vht_use_of_device</value>
+        </item>
+        <item>
+          <label>Language and Communication</label>
+          <value>language_and_communication</value>
+        </item>
+        <item>
+          <label>Quality of Care</label>
+          <value>qoc</value>
+        </item>
+        <item>
+          <label>Completion of workflows</label>
+          <value>completion_of_workflows</value>
+        </item>
+        <item>
+          <label>Handling Exit</label>
+          <value>handling_exit</value>
+        </item>
+      </select1>
+      <input appearance="multiline" ref="/vht_shadowing/g_vht_shadowing/shadowing_area_improvements">
+        <label>Briefly highlight key areas for improvement:</label>
+      </input>
+      <select1 ref="/vht_shadowing/g_vht_shadowing/shadowing_recommendations">
+        <label>Recommendations</label>
+        <item>
+          <label>Refresher Training – Program</label>
+          <value>refresher_training_program</value>
+        </item>
+        <item>
+          <label>Refresher Training – Digital</label>
+          <value>refresher_training_digital</value>
+        </item>
+        <item>
+          <label>Replace VHT</label>
+          <value>replace_vht</value>
+        </item>
+        <item>
+          <label>Other ( Please Specify)</label>
+          <value>other_specify</value>
+        </item>
+      </select1>
+      <input ref="/vht_shadowing/g_vht_shadowing/other_specify">
+        <label>Other (Specify)</label>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/vht_shadowing/g_vht_shadowing_summary">
+      <label>Results/Summary Page:</label>
+      <input appearance="h1 red" ref="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing">
+        <label>&lt;h1 style="text-align:center;"&gt;VHT Shadowing Summary&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h1 yellow" ref="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing_details">
+        <label>Shadowing Details</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_vht_details">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /vht_shadowing/shadowing_details/vht_name "/>&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_issue_areas_observed">
+        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Issues Areas Observed **&lt;/h4&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_vht_self_introduction">
+        <label>&lt;h5 style="text-align:center;"&gt; VHT Self Introduction &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_vht_use_of_device">
+        <label>&lt;h5 style="text-align:center;"&gt; VHT use of device during visit &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_language_and_communication">
+        <label>&lt;h5 style="text-align:center;"&gt; Language and Communication&lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_qoc">
+        <label>&lt;h5 style="text-align:center;"&gt; Quality of Care &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_completion_of_workflows">
+        <label>&lt;h5 style="text-align:center;"&gt; Completion of workflows &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_handling_exit">
+        <label>&lt;h5 style="text-align:center;"&gt; Handling Exit &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_issue_areas_of_improvement">
+        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Areas of Improvement **&lt;/h4&gt;</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_improvement">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; <output value=" /vht_shadowing/g_vht_shadowing/shadowing_area_improvements "/> &lt;/h5&gt;</label>
+      </input>
+      <input ref="/vht_shadowing/g_vht_shadowing_summary/s_key_recommendations">
+        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Key Recommendations **&lt;/h4&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_refresher_training_program">
+        <label>&lt;h5 style="text-align:center;"&gt; Refresher Training – Program&lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_refresher_training_digital">
+        <label>&lt;h5 style="text-align:center;"&gt; Refresher Training – Digital &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_replace_vht">
+        <label>&lt;h5 style="text-align:center;"&gt; Replace VHT &lt;/h5&gt;</label>
+      </input>
+      <input appearance="li" ref="/vht_shadowing/g_vht_shadowing_summary/s_other_specify">
+        <label>&lt;h5 style="text-align:center;"&gt; Other Specified recommendations &lt;/h5&gt;</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

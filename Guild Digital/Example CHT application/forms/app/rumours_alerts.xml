@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Rumors and Alerts</h:title>
+    <model>
+      <instance>
+        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2024-01-12  14-42">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source/>
+            <source_id/>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+              <phone/>
+            </user>
+            <contact>
+              <_id/>
+              <role/>
+              <parent>
+                <_id/>
+                <parent>
+                  <_id/>
+                  <parent>
+                    <_id/>
+                  </parent>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <patient_id/>
+          <parent_1_id/>
+          <parent_2_id/>
+          <parent_3_id/>
+          <user_phone/>
+          <contact_role/>
+          <created_by/>
+          <created_by_person_uuid/>
+          <created_by_place_uuid/>
+          <geolocation>
+            <latitude/>
+            <longitude/>
+            <altitude/>
+            <accuracy/>
+            <gps/>
+          </geolocation>
+          <rumours>
+            <rumours_present/>
+            <rumour_description/>
+            <other_specify/>
+            <rumour_addressed/>
+            <rumour_not_addressed_why/>
+            <rumor_address_method/>
+          </rumours>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </rumours_alerts>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/rumours_alerts/inputs" relevant="false()"/>
+      <bind nodeset="/rumours_alerts/inputs/source" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/source_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/name" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/user/phone" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/role" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/inputs/contact/parent/parent/parent/_id" type="string"/>
+      <bind nodeset="/rumours_alerts/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/rumours_alerts/parent_1_id" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/rumours_alerts/parent_2_id" type="string" calculate="../inputs/contact/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts/parent_3_id" type="string" calculate="../inputs/contact/parent/parent/parent/_id"/>
+      <bind nodeset="/rumours_alerts/user_phone" type="string" calculate="../inputs/user/phone"/>
+      <bind nodeset="/rumours_alerts/contact_role" type="string" calculate="../inputs/contact/role"/>
+      <bind nodeset="/rumours_alerts/created_by" type="string" calculate="../inputs/user/name"/>
+      <bind nodeset="/rumours_alerts/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
+      <bind nodeset="/rumours_alerts/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
+      <bind nodeset="/rumours_alerts/geolocation/latitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 0)"/>
+      <bind nodeset="/rumours_alerts/geolocation/longitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 1)"/>
+      <bind nodeset="/rumours_alerts/geolocation/altitude" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 2)"/>
+      <bind nodeset="/rumours_alerts/geolocation/accuracy" type="string" calculate="selected-at( /rumours_alerts/geolocation/gps , 3)"/>
+      <bind nodeset="/rumours_alerts/geolocation/gps" type="geopoint"/>
+      <bind nodeset="/rumours_alerts/rumours/rumours_present" type="select1" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_description" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/other_specify" type="string" relevant=" /rumours_alerts/rumours/rumour_description  = 'other'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_addressed" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumour_not_addressed_why" type="string" relevant=" /rumours_alerts/rumours/rumour_addressed  = 'no'" required="true()"/>
+      <bind nodeset="/rumours_alerts/rumours/rumor_address_method" type="select1" relevant=" /rumours_alerts/rumours/rumour_addressed ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/rumours_alerts/inputs">
+      <label></label>
+      <group ref="/rumours_alerts/inputs/user">
+        <label></label>
+      </group>
+      <group ref="/rumours_alerts/inputs/contact">
+        <label></label>
+        <input appearance="select-contact type-person" ref="/rumours_alerts/inputs/contact/_id">
+          <label>The user being replaced</label>
+        </input>
+        <group appearance="hidden" ref="/rumours_alerts/inputs/contact/parent">
+          <label></label>
+          <group ref="/rumours_alerts/inputs/contact/parent/parent">
+            <label></label>
+            <group ref="/rumours_alerts/inputs/contact/parent/parent/parent">
+              <label></label>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group ref="/rumours_alerts/geolocation">
+      <label></label>
+      <input ref="/rumours_alerts/geolocation/gps">
+        <label>Rumours And Alerts</label>
+        <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/rumours_alerts/rumours">
+      <label>Rumours And Alerts</label>
+      <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumours_present">
+        <label>Have there been any rumours around the community?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/rumours_alerts/rumours/rumour_description">
+        <label>What was the rumour about?</label>
+        <item>
+          <label>Death</label>
+          <value>death</value>
+        </item>
+        <item>
+          <label>Disease</label>
+          <value>disease</value>
+        </item>
+        <item>
+          <label>War/conflict</label>
+          <value>war_conflict</value>
+        </item>
+        <item>
+          <label>Other (Please specify)</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/rumours_alerts/rumours/other_specify">
+        <label>Other (Please specify)</label>
+      </input>
+      <select1 appearance="horizontal" ref="/rumours_alerts/rumours/rumour_addressed">
+        <label>Was the rumour addressed?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/rumours_alerts/rumours/rumour_not_addressed_why">
+        <label>Why was the rumour not addressed?</label>
+      </input>
+      <select1 ref="/rumours_alerts/rumours/rumor_address_method">
+        <label>How was the rumour addressed?</label>
+        <item>
+          <label>Reported to Supervisor</label>
+          <value>reported_supervisor</value>
+        </item>
+        <item>
+          <label>Mentorship</label>
+          <value>mentorship</value>
+        </item>
+        <item>
+          <label>Sensitization</label>
+          <value>sensitization</value>
+        </item>
+        <item>
+          <label>Guidance from health Team</label>
+          <value>guidance_health_team</value>
+        </item>
+        <item>
+          <label>Advice from VHT</label>
+          <value>advice_from_vht</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

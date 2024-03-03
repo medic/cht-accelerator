@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit Person</h:title>
+    <model>
+      <instance>
+        <data id="contact:person:edit" prefix="J1!contact:person:edit!" delimiter="#" version="2023-12-30 19:49:16">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <user>
+              <contact_id/>
+              <facility_id/>
+              <name/>
+            </user>
+          </inputs>
+          <person>
+            <type>person</type>
+            <parent>PARENT</parent>
+            <_id/>
+            <date_of_birth/>
+            <name/>
+            <role/>
+            <dob_method>approx</dob_method>
+            <dob_calendar/>
+            <age_years/>
+            <ephemeral_years/>
+            <dob_approx/>
+            <dob_raw/>
+            <c_dob_iso/>
+            <c_dob_debug/>
+            <current_age>0</current_age>
+            <phone/>
+            <phone2/>
+            <nin/>
+            <supervision_metadata>
+              <organization/>
+              <program_area/>
+              <supervion_training/>
+              <digital_traininig/>
+              <own_tablet/>
+            </supervision_metadata>
+          </person>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/inputs" relevant="0"/>
+      <bind nodeset="/data/inputs/user/contact_id" type="string"/>
+      <bind nodeset="/data/inputs/user/facility_id" type="string"/>
+      <bind nodeset="/data/inputs/user/name" type="string"/>
+      <bind nodeset="/data/person/type" type="string"/>
+      <bind nodeset="/data/person/parent" type="string"/>
+      <bind nodeset="/data/person/_id" type="string"/>
+      <bind nodeset="/data/person/date_of_birth" type="string" calculate="../c_dob_iso"/>
+      <bind nodeset="/data/person/name" type="string" required="true()"/>
+      <bind nodeset="/data/person/role" type="string"/>
+      <bind nodeset="/data/person/dob_method" type="select1" required="true()"/>
+      <bind nodeset="/data/person/dob_calendar" type="date" required="true()" relevant="selected(../dob_method,'calendar')" constraint=".&lt;today() and floor(difference-in-months(., today() ) div 12 ) &lt;= 120" jr:constraintMsg="Invalid Date"/>
+      <bind nodeset="/data/person/age_years" type="int" required="true()" relevant="selected(../dob_method,'approx')" constraint=". &gt;= 0 and .&lt;=120" jr:constraintMsg="Invalid Age Value"/>
+      <bind nodeset="/data/person/ephemeral_years" type="string" calculate="format-date-time(today(),&quot;%Y&quot;) -../age_years"/>
+      <bind nodeset="/data/person/dob_approx" type="string" calculate="concat(string(../ephemeral_years),'-',string(format-date-time(today(), &quot;%m&quot;)),'-',string(format-date-time(today(), &quot;%d&quot;)))"/>
+      <bind nodeset="/data/person/dob_raw" type="string" calculate="if(not(selected( ../dob_method,'approx')), 
+../dob_calendar,
+../dob_approx)"/>
+      <bind nodeset="/data/person/c_dob_iso" type="string" calculate="format-date-time(../dob_raw,&quot;%Y-%m-%d&quot;)"/>
+      <bind nodeset="/data/person/c_dob_debug" readonly="true()" type="string" relevant="0"/>
+      <bind nodeset="/data/person/current_age" type="string" calculate="floor(difference-in-months(date( /data/person/c_dob_iso ),today()) div 12)"/>
+      <bind nodeset="/data/person/phone" type="string" required="false()" relevant=" /data/person/current_age &gt;18" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
+      <bind nodeset="/data/person/phone2" type="string" required="false()" relevant=" /data/person/current_age &gt;18 and  /data/person/phone  != ''" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
+      <bind nodeset="/data/person/nin" type="string"/>
+      <bind nodeset="/data/person/supervision_metadata" relevant=" /data/person/role  = 'vht_supervisor'"/>
+      <bind nodeset="/data/person/supervision_metadata/organization" type="select1"/>
+      <bind nodeset="/data/person/supervision_metadata/program_area" type="select"/>
+      <bind nodeset="/data/person/supervision_metadata/supervion_training" type="select1"/>
+      <bind nodeset="/data/person/supervision_metadata/digital_traininig" type="select1"/>
+      <bind nodeset="/data/person/supervision_metadata/own_tablet" type="select1"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/inputs">
+      <label></label>
+      <group ref="/data/inputs/user">
+        <label></label>
+        <input ref="/data/inputs/user/contact_id">
+          <label>Contact ID of the logged in user</label>
+        </input>
+        <input ref="/data/inputs/user/facility_id">
+          <label>Place ID of the logged in user</label>
+        </input>
+        <input ref="/data/inputs/user/name">
+          <label>Name of the logged in user</label>
+        </input>
+      </group>
+    </group>
+    <group ref="/data/person">
+      <label>Add Person</label>
+      <input appearance="hidden" ref="/data/person/type">
+        <label>Person Type</label>
+        <hint>mandatory</hint>
+      </input>
+      <input appearance="hidden" ref="/data/person/parent">
+        <label>Parent</label>
+        <hint>mandatory</hint>
+      </input>
+      <input ref="/data/person/name">
+        <label>Name</label>
+        <hint>Please include both names</hint>
+      </input>
+      <input ref="/data/person/role">
+        <label>Assign Role</label>
+      </input>
+      <select1 appearance="horizontal" ref="/data/person/dob_method">
+        <label>Please choose method to select date of birth</label>
+        <item>
+          <label>Date (preferred)</label>
+          <value>calendar</value>
+        </item>
+        <item>
+          <label>Current age</label>
+          <value>approx</value>
+        </item>
+      </select1>
+      <input ref="/data/person/dob_calendar">
+        <label>Date of Birth</label>
+        <hint>Date must be either today or before today</hint>
+      </input>
+      <input ref="/data/person/age_years">
+        <label>Age (in years)</label>
+      </input>
+      <input ref="/data/person/c_dob_debug">
+        <label>Year: ../ephemeral_years
+DOB Approx: ../dob_approx
+DOB Calendar: ../dob_calendar
+DOB ISO: ../c_dob_iso</label>
+      </input>
+      <input appearance="number" ref="/data/person/phone">
+        <label>Phone number</label>
+        <hint>Mobile number should take this format 07XXXXXXXX or 039XXXXXXX</hint>
+      </input>
+      <input appearance="number" ref="/data/person/phone2">
+        <label>Alternative phone number</label>
+        <hint>Mobile number should take this format 07XXXXXXXX or 039XXXXXXX</hint>
+      </input>
+      <input ref="/data/person/nin">
+        <label>NIN</label>
+      </input>
+      <group ref="/data/person/supervision_metadata">
+        <label></label>
+        <select1 ref="/data/person/supervision_metadata/organization">
+          <label>Which organization are you affiliated to?</label>
+          <item>
+            <label>UNHCR</label>
+            <value>unchr</value>
+          </item>
+          <item>
+            <label>Medical Teams International</label>
+            <value>mti</value>
+          </item>
+          <item>
+            <label>International Rescue Commiittee</label>
+            <value>irc</value>
+          </item>
+          <item>
+            <label>OXFAM</label>
+            <value>oxfam</value>
+          </item>
+          <item>
+            <label>Save The Children</label>
+            <value>save_the_children</value>
+          </item>
+          <item>
+            <label>Africa Humanitarian Action Ltd</label>
+            <value>aha</value>
+          </item>
+          <item>
+            <label>Water Mission</label>
+            <value>water_mission</value>
+          </item>
+          <item>
+            <label>Other</label>
+            <value>other</value>
+          </item>
+        </select1>
+        <select ref="/data/person/supervision_metadata/program_area">
+          <label>In which program area do you primarily work?</label>
+          <item>
+            <label>WASH</label>
+            <value>wash</value>
+          </item>
+          <item>
+            <label>Child Health</label>
+            <value>child_health</value>
+          </item>
+          <item>
+            <label>Maternal Health</label>
+            <value>maternal_health</value>
+          </item>
+          <item>
+            <label>Disability</label>
+            <value>disability</value>
+          </item>
+          <item>
+            <label>Livelihoods</label>
+            <value>livelihood</value>
+          </item>
+          <item>
+            <label>Education</label>
+            <value>education</value>
+          </item>
+          <item>
+            <label>Capacity Building</label>
+            <value>capacity_building</value>
+          </item>
+          <item>
+            <label>Other</label>
+            <value>other</value>
+          </item>
+        </select>
+        <select1 ref="/data/person/supervision_metadata/supervion_training">
+          <label>Have you received training in supervision skills</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select1 ref="/data/person/supervision_metadata/digital_traininig">
+          <label>Have you received training in Digital Health skills</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+        <select1 ref="/data/person/supervision_metadata/own_tablet">
+          <label>Do you own a tablet for work purposes</label>
+          <item>
+            <label>Yes</label>
+            <value>yes</value>
+          </item>
+          <item>
+            <label>No</label>
+            <value>no</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+  </h:body>
+</h:html>

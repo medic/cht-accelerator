@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>Edit VHT Area</h:title>
+    <model>
+      <instance>
+        <data id="contact:health_center:edit" prefix="J1!contact:health_center:edit!" delimiter="#" version="2016-04-06">
+          <health_center>
+            <name/>
+            <contact/>
+            <parent/>
+            <district/>
+            <sub_district/>
+            <county/>
+            <sub_county/>
+            <parish/>
+            <village/>
+          </health_center>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </data>
+      </instance>
+      <bind nodeset="/data/health_center/name" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/contact" type="db:person"/>
+      <bind nodeset="/data/health_center/parent" type="db:district_hospital"/>
+      <bind nodeset="/data/health_center/district" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/sub_district" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/county" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/sub_county" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/parish" type="string" required="true()"/>
+      <bind nodeset="/data/health_center/village" type="string" required="true()"/>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/health_center">
+      <label>Edit VHT Area</label>
+      <input ref="/data/health_center/name">
+        <label>Area Name</label>
+      </input>
+      <input appearance="db-object bind-id-only" ref="/data/health_center/contact">
+        <label>VHT</label>
+        <hint>Select the VHT for this VHT Area</hint>
+      </input>
+      <input appearance="db-object bind-id-only" ref="/data/health_center/parent">
+        <label>Health Facility</label>
+        <hint>Select the Health Facility for this VHT Area</hint>
+      </input>
+      <input ref="/data/health_center/district">
+        <label>District</label>
+      </input>
+      <input ref="/data/health_center/sub_district">
+        <label>Sub District</label>
+      </input>
+      <input ref="/data/health_center/county">
+        <label>County</label>
+      </input>
+      <input ref="/data/health_center/sub_county">
+        <label>Sub County</label>
+      </input>
+      <input ref="/data/health_center/parish">
+        <label>Parish</label>
+      </input>
+      <input ref="/data/health_center/village">
+        <label>Village</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

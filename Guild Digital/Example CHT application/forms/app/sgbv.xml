@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>SGBV Reporting</h:title>
+    <model>
+      <instance>
+        <sgbv id="sgbv" prefix="J1!sgbv!" delimiter="#" version="2022-09-12 19:18:29">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source>user</source>
+            <source_id/>
+            <contact>
+              <_id/>
+              <name/>
+              <date_of_birth/>
+              <sex/>
+              <parent>
+                <_id/>
+              </parent>
+            </contact>
+          </inputs>
+          <visited_contact_uuid/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_display/>
+          <patient_id/>
+          <patient_name/>
+          <patient_gender/>
+          <sgbv>
+            <have_pads/>
+            <misunderstandings/>
+            <relationship_hurt/>
+            <relationship_threat/>
+            <relationship_force/>
+          </sgbv>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </sgbv>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/sgbv/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/sgbv/inputs/source" type="string"/>
+      <bind nodeset="/sgbv/inputs/source_id" type="string"/>
+      <bind nodeset="/sgbv/inputs/contact/_id" type="db:person" required="true()"/>
+      <bind nodeset="/sgbv/inputs/contact/name" type="string"/>
+      <bind nodeset="/sgbv/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/sgbv/inputs/contact/sex" type="string"/>
+      <bind nodeset="/sgbv/inputs/contact/parent/_id" type="string"/>
+      <bind nodeset="/sgbv/visited_contact_uuid" type="string" calculate="../inputs/contact/parent/_id"/>
+      <bind nodeset="/sgbv/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /sgbv/inputs/contact/date_of_birth , today() ) div 12 )"/>
+      <bind nodeset="/sgbv/patient_age_in_months" type="string" calculate="difference-in-months(  /sgbv/inputs/contact/date_of_birth , today() )"/>
+      <bind nodeset="/sgbv/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /sgbv/inputs/contact/date_of_birth ) )"/>
+      <bind nodeset="/sgbv/patient_age_display" type="string" calculate="concat(
+ concat( /sgbv/patient_age_in_years , if( /sgbv/patient_age_in_years =1,' year and ',' years and ')),
+ concat( /sgbv/patient_age_in_months  mod 12, if(( /sgbv/patient_age_in_months  mod 12)=1,' month old',' months old'))
+)"/>
+      <bind nodeset="/sgbv/patient_id" type="string" calculate="../inputs/contact/_id"/>
+      <bind nodeset="/sgbv/patient_name" type="string" calculate="../inputs/contact/name"/>
+      <bind nodeset="/sgbv/patient_gender" type="string" calculate="../inputs/contact/sex"/>
+      <bind nodeset="/sgbv/sgbv/have_pads" type="select1" required="true()"/>
+      <bind nodeset="/sgbv/sgbv/misunderstandings" type="select1" required="true()"/>
+      <bind nodeset="/sgbv/sgbv/relationship_hurt" type="select1" required="true()"/>
+      <bind nodeset="/sgbv/sgbv/relationship_threat" type="select1" required="true()"/>
+      <bind nodeset="/sgbv/sgbv/relationship_force" type="select1" required="true()"/>
+      <bind nodeset="/sgbv/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/sgbv/inputs">
+      <label>Patient</label>
+      <input appearance="hidden" ref="/sgbv/inputs/source">
+        <label>Source</label>
+      </input>
+      <input appearance="hidden" ref="/sgbv/inputs/source_id">
+        <label>Source ID</label>
+      </input>
+      <group ref="/sgbv/inputs/contact">
+        <label></label>
+        <input appearance="db-object" ref="/sgbv/inputs/contact/_id">
+          <label>What is the patient's name?</label>
+          <hint>Select a person from list</hint>
+        </input>
+        <input appearance="hidden" ref="/sgbv/inputs/contact/name">
+          <label>Name</label>
+        </input>
+        <input appearance="hidden" ref="/sgbv/inputs/contact/date_of_birth">
+          <label>Date of Birth</label>
+        </input>
+        <input appearance="hidden" ref="/sgbv/inputs/contact/sex">
+          <label>Sex</label>
+        </input>
+        <group ref="/sgbv/inputs/contact/parent">
+          <label>Parent</label>
+          <input ref="/sgbv/inputs/contact/parent/_id">
+            <label>parent ID</label>
+          </input>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/sgbv/sgbv">
+      <label>SGBV Reporting</label>
+      <select1 ref="/sgbv/sgbv/have_pads">
+        <label>Do the women and girls in the household have sanitary pads OR towels?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/sgbv/sgbv/misunderstandings">
+        <label>Have you lately had any misunderstandings within your household that could have resulted in verbal, emotional or physical exchange??</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/sgbv/sgbv/relationship_hurt">
+        <label>Are you currently in an intimate relationship with a person (e.g. husband, wife, boyfriend/man friend, girl friend) who physically hurts you?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/sgbv/sgbv/relationship_threat">
+        <label>Are you currently in an intimate relationship with a person (e.g. husband, boyfriend/man friend/girl friend) who threatens, frightens, or insults you, or treats you badly?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/sgbv/sgbv/relationship_force">
+        <label>Are you currently in an intimate relationship with a person (e.g. husband, boyfriend/man friend/girl friend) who forces you to participate in sexual activities that make you feel uncomfortable?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

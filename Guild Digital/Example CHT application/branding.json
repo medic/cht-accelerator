@@ -1,0 +1,8 @@
+{
+   "title": "UNHCR App",
+   "resources": {
+     "logo": "logo.png",
+     "favicon": "small_icon.png",
+     "icon": "large_icon.png"
+   }
+ }

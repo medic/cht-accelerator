@@ -1,7 +1,6 @@
 {
   "permissions": {
     "can_export_messages": [
-      "vht",
       "guild_developer"
     ],
     "can_export_forms": [
@@ -109,31 +108,25 @@
       "guild_developer"
     ],
     "can_create_people": [
-      "vht_supervisor",
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_create_places": [
-      "vht_supervisor",
-      "guild_developer",
-      "vht"
+      
+      "guild_developer"
     ],
     "can_view_tasks": [
       "vht_supervisor",
       "vht"
     ],
     "can_view_messages": [
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_view_messages_tab": [
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_view_reports": [
       "vht_supervisor",
-      "guild_developer",
-      "vht"
+      "guild_developer"
     ],
     "can_view_contacts": [
       "vht_supervisor",
@@ -211,7 +204,6 @@
       "guild_developer"
     ],
     "can_aggregate_targets": [
-      "vht_supervisor",
       "guild_developer"
     ],
     "can_upgrade": [
@@ -297,55 +289,78 @@
       "icon": "community",
       "create_form": "",
       "edit_form": ""
-    },
-    {
+  },
+  {
       "id": "district_hospital",
       "name_key": "contact.type.district_hospital",
       "group_key": "contact.type.district_hospital.plural",
       "create_key": "contact.type.district_hospital.new",
       "edit_key": "contact.type.place.edit",
-      "parents": ["settlement"],
+      "parents": [
+          "settlement"
+      ],
       "icon": "medic-district-hospital",
       "create_form": "form:contact:district_hospital:create",
       "edit_form": "form:contact:district_hospital:edit"
-    },
-    {
+  },
+  {
       "id": "health_center",
       "name_key": "contact.type.health_center",
       "group_key": "contact.type.health_center.plural",
       "create_key": "contact.type.health_center.new",
       "edit_key": "contact.type.place.edit",
-      "parents": ["district_hospital"],
+      "parents": [
+          "district_hospital"
+      ],
       "icon": "medic-health-center",
       "create_form": "form:contact:health_center:create",
       "edit_form": "form:contact:health_center:edit"
-    },
-    {
+  },
+  {
+    "id": "vht_supervisor",
+    "name_key": "contact.type.vht_supervisor",
+    "group_key": "contact.type.vht_supervisor.plural",
+    "create_key": "contact.type.vht_supervisor.new",
+    "edit_key": "contact.type.place.edit",
+    "parents": [
+      "district_hospital"
+    ],
+    "icon": "medic-supervisor",
+    "create_form": "form:contact:vht_supervisor:create",
+    "edit_form": "form:contact:vht_supervisor:edit"
+  },  
+  {
       "id": "clinic",
       "name_key": "contact.type.clinic",
       "group_key": "contact.type.clinic.plural",
       "create_key": "contact.type.clinic.new",
       "edit_key": "contact.type.place.edit",
-      "parents": ["health_center"],
+      "parents": [
+          "health_center"
+      ],
       "icon": "medic-clinic",
       "create_form": "form:contact:clinic:create",
       "edit_form": "form:contact:clinic:edit",
       "count_visits": true
-    },
-    {
+  },
+  {
       "id": "person",
       "name_key": "contact.type.person",
       "group_key": "contact.type.person.plural",
       "create_key": "contact.type.person.new",
       "edit_key": "contact.type.person.edit",
       "primary_contact_key": "clinic.field.contact",
-      "parents": ["district_hospital", "health_center", "clinic"],
+      "parents": [
+          "district_hospital",
+          "health_center",
+          "clinic"
+      ],
       "icon": "medic-person",
       "create_form": "form:contact:person:create",
       "edit_form": "form:contact:person:edit",
       "person": true,
       "sort_by_dob": true
-    }
+  }
   ],
   "transitions": {
     "muting": true,
@@ -353,8 +368,10 @@
     "creat_user_for_contacts": true
   },
   "death_reporting": {
-    "mark_deceased_forms": ["death_report"],
-    "date_field": "fields.date_of_death"
+    "mark_deceased_forms": [
+      "death_report"
+    ],
+    "date_field": "death_details.death_date"
   },
   "muting": {
     "mute_forms": ["mute"],
@@ -365,21 +382,16 @@
       "replace_user"
     ]
   },
-  "token_login":{
-    "enabled":true,
-    "translation_key": "sms.token.login.help"
-  },
-  "app_url":"https://cht.guilddigital.co/",
   "replication_depth": [
     {
       "role": "vht_supervisor",
-      "depth": 2,
-      "report_depth": 1
+      "depth": 3,
+      "report_depth": 3
     },
     {
       "role": "vht",
-      "depth": 1,
-      "report_depth": 1
+      "depth": 3,
+      "report_depth": 2
     },
     {
       "role": "public_health_officer",
