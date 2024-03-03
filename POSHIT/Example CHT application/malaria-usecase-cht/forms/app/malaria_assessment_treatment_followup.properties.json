@@ -1,0 +1,8 @@
+{
+    "icon": "malaria-assessment-for-pregnant-mothers",
+    "context": {
+      "place": false,
+      "person": false,
+      "expression": "!contact.date_of_death && !summary.muted && ageInYears(contact) >= 12 && ageInYears(contact) <= 49 && summary.is_active_pregnancy && contact.sex === 'female'"
+    }
+  }

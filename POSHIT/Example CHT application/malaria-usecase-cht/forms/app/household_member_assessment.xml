@@ -17,6 +17,9 @@
           <text id="/household_member_assessment/group_household_member_assessment/condition:label">
             <value>Has <output value=" /household_member_assessment/patient_name "/> noticed any changes in your symptoms over time?</value>
           </text>
+          <text id="/household_member_assessment/group_household_member_assessment/medication_period:jr:constraintMsg">
+            <value>Number cannot be less than 0</value>
+          </text>
           <text id="/household_member_assessment/group_household_member_assessment/medication_period:label">
             <value>For how long has <output value=" /household_member_assessment/patient_name "/> been on these medications</value>
           </text>
@@ -208,6 +211,9 @@
           <text id="/household_member_assessment/group_household_member_assessment/condition:label">
             <value>-</value>
           </text>
+          <text id="/household_member_assessment/group_household_member_assessment/medication_period:jr:constraintMsg">
+            <value>-</value>
+          </text>
           <text id="/household_member_assessment/group_household_member_assessment/medication_period:label">
             <value>-</value>
           </text>
@@ -254,6 +260,9 @@
             <value>-</value>
           </text>
           <text id="/household_member_assessment/group_household_member_assessment/specify_other:label">
+            <value>-</value>
+          </text>
+          <text id="/household_member_assessment/group_household_member_assessment/suspected_of_malaria:label">
             <value>-</value>
           </text>
           <text id="/household_member_assessment/group_household_member_assessment/symptoms/blood_in_stool:label">
@@ -439,6 +448,9 @@
             <value>-</value>
           </text>
           <text id="/household_member_assessment/group_household_member_assessment/condition:label">
+            <value>-</value>
+          </text>
+          <text id="/household_member_assessment/group_household_member_assessment/medication_period:jr:constraintMsg">
             <value>-</value>
           </text>
           <text id="/household_member_assessment/group_household_member_assessment/medication_period:label">
@@ -654,7 +666,7 @@
         </translation>
       </itext>
       <instance>
-        <household_member_assessment id="household_member_assessment" prefix="J1!household_member_assessment!" delimiter="#" version="2023-07-13 17:46:12">
+        <household_member_assessment id="household_member_assessment" prefix="J1!household_member_assessment!" delimiter="#" version="2023-10-02 09:49:38">
           <inputs>
             <meta>
               <location>
@@ -715,6 +727,7 @@
             <medication_period/>
             <condition/>
             <refer_to_facility>no</refer_to_facility>
+            <suspected_of_malaria/>
           </group_household_member_assessment>
           <group_review>
             <r_summary/>
@@ -769,9 +782,10 @@
       <bind nodeset="/household_member_assessment/group_household_member_assessment/specify_other" type="string" relevant="selected( /household_member_assessment/group_household_member_assessment/other_symptoms ,'yes')" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/period" type="int" relevant="selected( /household_member_assessment/group_household_member_assessment/symptoms ,'fever') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'vomiting') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'diarrhoea') or selected( /household_member_assessment/group_household_member_assessment/symptoms , 'fatigue') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'loss_of_appetite') or selected( /household_member_assessment/group_household_member_assessment/symptoms ,'blood_in_stool')" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/treatment" type="select1" required="true()"/>
-      <bind nodeset="/household_member_assessment/group_household_member_assessment/medication_period" type="int" relevant="selected( /household_member_assessment/group_household_member_assessment/treatment ,'yes')" required="true()"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/medication_period" type="int" jr:constraintMsg="jr:itext('/household_member_assessment/group_household_member_assessment/medication_period:jr:constraintMsg')" relevant="selected( /household_member_assessment/group_household_member_assessment/treatment ,'yes')" required="true()" constraint=". &gt; 0"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/condition" type="select1" required="true()"/>
       <bind nodeset="/household_member_assessment/group_household_member_assessment/refer_to_facility" type="select1" required="true()"/>
+      <bind nodeset="/household_member_assessment/group_household_member_assessment/suspected_of_malaria" type="string" calculate="if((selected( /household_member_assessment/group_household_member_assessment/symptoms , '')),'No','Yes')"/>
       <bind nodeset="/household_member_assessment/group_review" jr:constraintMsg="jr:itext('/household_member_assessment/group_review:jr:constraintMsg')"/>
       <bind nodeset="/household_member_assessment/group_review/r_summary" readonly="true()" type="string"/>
       <bind nodeset="/household_member_assessment/group_review/r_action" readonly="true()" type="string"/>
