@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>MOH_502</h:title>
+    <model>
+      <instance>
+        <moh_502 id="MOH_502" prefix="J1!MOH_502!" delimiter="#" version="2023-09-13 00:00:00">
+          <cha_details_group>
+            <source/>
+            <source_id/>
+            <_id/>
+          </cha_details_group>
+          <patient_details_group>
+            <patient_name/>
+            <patient_gender/>
+            <patient_location/>
+          </patient_details_group>
+          <specimen_details_group>
+            <specimen_disease/>
+            <specimen_id/>
+            <datetime_collected/>
+            <more_specimen_details/>
+          </specimen_details_group>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </moh_502>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/moh_502/cha_details_group" relevant="./source='user'"/>
+      <bind nodeset="/moh_502/cha_details_group/source" type="string"/>
+      <bind nodeset="/moh_502/cha_details_group/source_id" type="string"/>
+      <bind nodeset="/moh_502/cha_details_group/_id" type="db:person"/>
+      <bind nodeset="/moh_502/patient_details_group/patient_name" type="string" required="true()"/>
+      <bind nodeset="/moh_502/patient_details_group/patient_gender" type="select1" required="true()"/>
+      <bind nodeset="/moh_502/patient_details_group/patient_location" type="string" required="true()"/>
+      <bind nodeset="/moh_502/specimen_details_group/specimen_disease" type="select1" required="true()"/>
+      <bind nodeset="/moh_502/specimen_details_group/specimen_id" type="string" required="true()"/>
+      <bind nodeset="/moh_502/specimen_details_group/datetime_collected" type="dateTime" required="true()"/>
+      <bind nodeset="/moh_502/specimen_details_group/more_specimen_details" type="string"/>
+      <bind nodeset="/moh_502/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group ref="/moh_502/cha_details_group">
+      <label>CHA's Details</label>
+      <input ref="/moh_502/cha_details_group/_id">
+        <label>Contact</label>
+      </input>
+    </group>
+    <group ref="/moh_502/patient_details_group">
+      <label>Patient Details</label>
+      <input ref="/moh_502/patient_details_group/patient_name">
+        <label>What is the patient's name?</label>
+      </input>
+      <select1 ref="/moh_502/patient_details_group/patient_gender">
+        <label>What is the patient's gender</label>
+        <item>
+          <label>Male</label>
+          <value>male</value>
+        </item>
+        <item>
+          <label>Female</label>
+          <value>female</value>
+        </item>
+      </select1>
+      <input ref="/moh_502/patient_details_group/patient_location">
+        <label>What is the patient's home location?</label>
+      </input>
+    </group>
+    <group ref="/moh_502/specimen_details_group">
+      <label>Specimen Details</label>
+      <select1 ref="/moh_502/specimen_details_group/specimen_disease">
+        <label>What is the disease being tested?</label>
+        <item>
+          <label>Cholera</label>
+          <value>cholera</value>
+        </item>
+      </select1>
+      <input ref="/moh_502/specimen_details_group/specimen_id">
+        <label>What is the specimen number?</label>
+      </input>
+      <input ref="/moh_502/specimen_details_group/datetime_collected">
+        <label>When was the specimen collected?</label>
+      </input>
+      <input ref="/moh_502/specimen_details_group/more_specimen_details">
+        <label>Any additional information about this specimen</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

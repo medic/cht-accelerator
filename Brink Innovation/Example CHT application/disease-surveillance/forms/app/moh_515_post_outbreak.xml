@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>MOH 515 (Post Outbreak)</h:title>
+    <model>
+      <instance>
+        <moh_515_post_outbreak id="moh_515_post_outbreak" prefix="J1!moh_515_post_outbreak!" delimiter="#" version="`1.0`">
+          <hidden_inputs>
+            <source/>
+            <source_id/>
+            <_id/>
+          </hidden_inputs>
+          <form_summary>
+            <cha_facility/>
+            <cha_county/>
+            <chp_total/>
+            <chp_reported_total/>
+          </form_summary>
+          <household_indicators>
+            <total_households/>
+            <new_households/>
+            <total_households_visited/>
+            <households_with_clean_water/>
+            <new_households_with_latrines/>
+          </household_indicators>
+          <old_revisited/>
+          <cholera_cases>
+            <num_screened/>
+            <num_referred/>
+            <num_referred_reached/>
+            <num_confirmed_cases/>
+            <num_deaths/>
+          </cholera_cases>
+          <community_activities>
+            <total_dialogue_days/>
+            <total_action_days/>
+            <total_units_meetings_days/>
+          </community_activities>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </moh_515_post_outbreak>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/moh_515_post_outbreak/hidden_inputs" relevant="./source='user'"/>
+      <bind nodeset="/moh_515_post_outbreak/hidden_inputs/source" type="string"/>
+      <bind nodeset="/moh_515_post_outbreak/hidden_inputs/source_id" type="string"/>
+      <bind nodeset="/moh_515_post_outbreak/hidden_inputs/_id" type="db:person"/>
+      <bind nodeset="/moh_515_post_outbreak/form_summary/cha_facility" type="string" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/form_summary/cha_county" type="string" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/form_summary/chp_total" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/form_summary/chp_reported_total" type="int" relevant=" /moh_515_post_outbreak/form_summary/chp_total  &gt;0" constraint=".&lt;= /moh_515_post_outbreak/form_summary/chp_total " jr:constraintMsg="Number cannot exceed that of total CHPs" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/household_indicators/total_households" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/household_indicators/new_households" type="int" constraint=".&lt;= /moh_515_post_outbreak/household_indicators/total_households " jr:constraintMsg="Number should be less than or equal to total households" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/household_indicators/total_households_visited" type="int" constraint=".&gt;= /moh_515_post_outbreak/household_indicators/new_households  and .&lt;= /moh_515_post_outbreak/household_indicators/total_households " jr:constraintMsg="Number should be &gt;= new households and &lt;= total households" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/household_indicators/households_with_clean_water" type="int" relevant=" /moh_515_post_outbreak/household_indicators/total_households_visited  &gt;0" constraint=".&lt;= /moh_515_post_outbreak/household_indicators/total_households_visited " jr:constraintMsg="Number cannot exceed that of total households visited" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/household_indicators/new_households_with_latrines" type="int" relevant=" /moh_515_post_outbreak/household_indicators/new_households  &gt;0" constraint=".&lt;=  /moh_515_post_outbreak/household_indicators/new_households " jr:constraintMsg="Number cannot exceed that of new households" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/old_revisited" type="string" calculate=" /moh_515_post_outbreak/household_indicators/total_households_visited  -  /moh_515_post_outbreak/household_indicators/new_households "/>
+      <bind nodeset="/moh_515_post_outbreak/cholera_cases/num_screened" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/cholera_cases/num_referred" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/cholera_cases/num_referred_reached" type="int" relevant=" /moh_515_post_outbreak/cholera_cases/num_referred  &gt;0" constraint=".&lt;= /moh_515_post_outbreak/cholera_cases/num_referred " jr:constraintMsg="Number cannot exceed those referred" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/cholera_cases/num_confirmed_cases" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/cholera_cases/num_deaths" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/community_activities/total_dialogue_days" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/community_activities/total_action_days" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/community_activities/total_units_meetings_days" type="int" constraint=".&gt;=0" jr:constraintMsg="Number should be greater or equal to zero" required="true()"/>
+      <bind nodeset="/moh_515_post_outbreak/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/moh_515_post_outbreak/hidden_inputs">
+      <label>CHA's Details</label>
+      <input ref="/moh_515_post_outbreak/hidden_inputs/_id">
+        <label>Contact</label>
+      </input>
+    </group>
+    <group ref="/moh_515_post_outbreak/form_summary">
+      <label>Form Summary</label>
+      <input ref="/moh_515_post_outbreak/form_summary/cha_facility">
+        <label>What Is Your Linked Facility?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/form_summary/cha_county">
+        <label>What County Do You Belong To?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/form_summary/chp_total">
+        <label>How Many CHPs Are In Your Area?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/form_summary/chp_reported_total">
+        <label>How Many CHPs Submitted Monthly Report?</label>
+      </input>
+    </group>
+    <group ref="/moh_515_post_outbreak/household_indicators">
+      <label>Household Indicators</label>
+      <input ref="/moh_515_post_outbreak/household_indicators/total_households">
+        <label>Total Households In The Area?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/household_indicators/new_households">
+        <label>Number Of New Households Registered This Month?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/household_indicators/total_households_visited">
+        <label>Total Number Of Households Visited This Month?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/household_indicators/households_with_clean_water">
+        <label>Number Of Households Visited This Month With Clean Water Access?</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/household_indicators/new_households_with_latrines">
+        <label>Number Of New Households Visited This Month With Latrines/Toilets?</label>
+      </input>
+    </group>
+    <group ref="/moh_515_post_outbreak/cholera_cases">
+      <label>Cholera Cases</label>
+      <input ref="/moh_515_post_outbreak/cholera_cases/num_screened">
+        <label>Number Of Persons Screened For Cholera</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/cholera_cases/num_referred">
+        <label>Number Of Presumptive Cholera Persons Referred For Diagnosis</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/cholera_cases/num_referred_reached">
+        <label>Number Of Referred Persons Who Reached Health Facility</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/cholera_cases/num_confirmed_cases">
+        <label>Number Of Confirmed Cholera Cases At Health Facility</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/cholera_cases/num_deaths">
+        <label>Number Of Deaths Due To Cholera In The Month</label>
+      </input>
+    </group>
+    <group ref="/moh_515_post_outbreak/community_activities">
+      <label>Community Activities</label>
+      <input ref="/moh_515_post_outbreak/community_activities/total_dialogue_days">
+        <label>Total Number Of Dialogue Days Held</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/community_activities/total_action_days">
+        <label>Total Number Of Action Days Held</label>
+      </input>
+      <input ref="/moh_515_post_outbreak/community_activities/total_units_meetings_days">
+        <label>Total Number Of Units Meetings Held</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

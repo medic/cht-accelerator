@@ -1,0 +1,8 @@
+{
+    "icon": "icon-outbreak",
+    "title": "moh_502 Form",
+    "context": {
+        "person": false,
+        "place": false
+    }
+}
