@@ -47,7 +47,7 @@
       <bind nodeset="/delivery_check/inputs" relevant="./source = 'user'"/>
       <bind nodeset="/delivery_check/inputs/source" type="string"/>
       <bind nodeset="/delivery_check/inputs/source_id" type="string"/>
-      <bind nodeset="/delivery_check/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /delivery_check/is_of_child_bearing_age  = 'true'"/>
+      <bind nodeset="/delivery_check/inputs/contact/_id" type="db:person" constraint=" /delivery_check/is_of_child_bearing_age  = 'true'" required="true()" jr:constraintMsg="Patient must be a female of child bearing age"/>
       <bind nodeset="/delivery_check/inputs/contact/name" type="string"/>
       <bind nodeset="/delivery_check/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/delivery_check/inputs/contact/sex" type="string"/>

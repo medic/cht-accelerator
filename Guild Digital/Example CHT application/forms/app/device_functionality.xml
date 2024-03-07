@@ -4,7 +4,7 @@
     <h:title>Device Functionality</h:title>
     <model>
       <instance>
-        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2024-01-12  16-54">
+        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2024-02-26  13-13">
           <inputs>
             <meta>
               <location>
@@ -48,6 +48,7 @@
           <g_device_functionality>
             <working_condition/>
             <records_synched/>
+            <help_vht/>
             <device_condition/>
             <stolen_device_reported/>
             <police_report_advice/>
@@ -93,9 +94,10 @@
       <bind nodeset="/device_functionality/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
       <bind nodeset="/device_functionality/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
       <bind nodeset="/device_functionality/g_device_functionality/working_condition" type="select1" required="true()"/>
-      <bind nodeset="/device_functionality/g_device_functionality/records_synched" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/working_condition  = 'yes'"/>
-      <bind nodeset="/device_functionality/g_device_functionality/device_condition" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'"/>
-      <bind nodeset="/device_functionality/g_device_functionality/stolen_device_reported" type="select1" required="true()" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'"/>
+      <bind nodeset="/device_functionality/g_device_functionality/records_synched" type="select1" relevant=" /device_functionality/g_device_functionality/working_condition  = 'yes'" required="true()"/>
+      <bind nodeset="/device_functionality/g_device_functionality/help_vht" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/records_synched  = 'no'"/>
+      <bind nodeset="/device_functionality/g_device_functionality/device_condition" type="select1" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'" required="true()"/>
+      <bind nodeset="/device_functionality/g_device_functionality/stolen_device_reported" type="select1" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
       <bind nodeset="/device_functionality/g_device_functionality/police_report_advice" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/stolen_device_reported  = 'no'"/>
       <bind nodeset="/device_functionality/group_device_summary/s_note_device_functionality_1" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
@@ -157,6 +159,9 @@
           <value>no</value>
         </item>
       </select1>
+      <input ref="/device_functionality/g_device_functionality/help_vht">
+        <label>Kindly help the VHT to perform a complete sync. Do this now</label>
+      </input>
       <select1 ref="/device_functionality/g_device_functionality/device_condition">
         <label>What is the condition of the device?</label>
         <item>

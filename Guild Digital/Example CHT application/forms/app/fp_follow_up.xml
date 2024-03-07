@@ -250,7 +250,7 @@ Advice <output value=" /fp_follow_up/patient_name "/> to reach out to you if the
         </fp_follow_up>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/fp_follow_up/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_follow_up/inputs" constraint="field-list" relevant="./source= 'user'"/>
       <bind nodeset="/fp_follow_up/inputs/source" type="string"/>
       <bind nodeset="/fp_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/fp_follow_up/inputs/contact/_id" type="db:person" constraint="db-object"/>
@@ -276,18 +276,18 @@ Advice <output value=" /fp_follow_up/patient_name "/> to reach out to you if the
       <bind nodeset="/fp_follow_up/wants_or_is_pregnant" type="string" calculate=" /fp_follow_up/fp_follow_up/not_on_fp_reason ='is_pregnant' or  /fp_follow_up/fp_follow_up/not_on_fp_reason ='wants_baby'"/>
       <bind nodeset="/fp_follow_up/needs_method_change" type="string" calculate=" /fp_follow_up/fp_follow_up/not_on_fp_reason ='wants_change_fp' or  /fp_follow_up/fp_follow_up/not_on_fp_reason = 'side_effects' or  /fp_follow_up/fp_follow_up/continue_current_fp_method ='no'"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/on_fp" type="select1" required="true()"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/not_on_fp_reason" type="select1" relevant="selected(../on_fp, 'no')" required="true()"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/not_on_fp_reason_other" type="string" relevant="selected(../not_on_fp_reason, 'other')" required="true()"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/not_on_fp_reason" type="select1" required="true()" relevant="selected(../on_fp, 'no')"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/not_on_fp_reason_other" type="string" required="true()" relevant="selected(../not_on_fp_reason, 'other')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_thank_patient" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_baby')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_refer_change_fp" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_not_on_fp" type="select1" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')" required="true()"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_not_on_fp" type="select1" required="true()" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_enroll_pregnancy" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_baby')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_counsel_woman" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'spouse_refused') or selected(../not_on_fp_reason, 'other')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_fp_method" readonly="true()" type="string" relevant="selected(../on_fp, 'yes')"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/continue_current_fp_method" type="select1" relevant="selected(../on_fp, 'yes')" required="true()"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/continue_current_fp_method" type="select1" required="true()" relevant="selected(../on_fp, 'yes')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_refer_patient_change_fp" readonly="true()" type="string" relevant="selected(../continue_current_fp_method, 'no')"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_change_fp" type="select1" relevant="selected(../continue_current_fp_method, 'no')" required="true()"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/next_appt_date" type="date" constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" relevant="selected(../continue_current_fp_method, 'yes')" required="true()"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_change_fp" type="select1" required="true()" relevant="selected(../continue_current_fp_method, 'no')"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/next_appt_date" type="date" required="true()" constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" relevant="selected(../continue_current_fp_method, 'yes')"/>
       <bind nodeset="/fp_follow_up/group_review/n_summary_title" readonly="true()" type="string"/>
       <bind nodeset="/fp_follow_up/group_review/n_submit" readonly="true()" type="string"/>
       <bind nodeset="/fp_follow_up/group_review/n_patient_details_title" readonly="true()" type="string"/>
