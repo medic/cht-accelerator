@@ -161,7 +161,7 @@
       <bind nodeset="/stock_count/masks_remaining" type="string" calculate="coalesce(/stock_count/stock/items_repeat[item = 'masks']/quantity, 0)"/>
       <bind nodeset="/stock_count/mama_kit_remaining" type="string" calculate="coalesce(/stock_count/stock/items_repeat[item = 'mama_kit']/quantity, 0)"/>
       <bind nodeset="/stock_count/stock/note_1" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/stock/date_remaining" type="date" jr:constraintMsg="Date cant be in the Future" constraint=". &lt;= today()" required="true()"/>
+      <bind nodeset="/stock_count/stock/date_remaining" type="date" constraint=". &lt;= today()" required="true()" jr:constraintMsg="Date cant be in the Future"/>
       <bind nodeset="/stock_count/stock/drugs_locked_box" type="select1" required="true()"/>
       <bind nodeset="/stock_count/stock/note_dry_place" readonly="true()" type="string" relevant=" /stock_count/stock/drugs_locked_box  = 'no'"/>
       <bind nodeset="/stock_count/stock/drugs_clean_box" type="select1" required="true()"/>
@@ -175,7 +175,7 @@
       <bind nodeset="/stock_count/stock/items_repeat/unit" type="string" calculate="if(selected( /stock_count/stock/items_repeat/item , 'act'), 'blisters', if(selected( /stock_count/stock/items_repeat/item ,'zinc_ors'),'Co-pack', if(selected( /stock_count/stock/items_repeat/item ,'mrdts') or selected( /stock_count/stock/items_repeat/item , 'amoxicilline') or selected( /stock_count/stock/items_repeat/item , 'paracetamol'), 'strips', if(selected( /stock_count/stock/items_repeat/item , 'mama_kit'),'kits', if(selected( /stock_count/stock/items_repeat/item , 'condoms'),'boxes', 'pieces')))))"/>
       <bind nodeset="/stock_count/stock/items_repeat/act_type" type="select1" relevant=" /stock_count/stock/items_repeat/item  = 'act'" required="true()"/>
       <bind nodeset="/stock_count/stock/items_repeat/amoxicillin_type" type="select1" relevant=" /stock_count/stock/items_repeat/item  = 'amoxicilline'" required="true()"/>
-      <bind nodeset="/stock_count/stock/items_repeat/quantity" type="int" relevant=" /stock_count/stock/items_repeat/item  != ''" constraint=". &gt; 0" required="true()"/>
+      <bind nodeset="/stock_count/stock/items_repeat/quantity" type="int" constraint=". &gt; 0" relevant=" /stock_count/stock/items_repeat/item  != ''" required="true()"/>
       <bind nodeset="/stock_count/stock/items_repeat/note_4" readonly="true()" type="string" relevant=" /stock_count/stock/items_repeat/quantity  != ''"/>
       <bind nodeset="/stock_count/stock/report_stockout/stockout_supplies_drugs" type="select1" required="true()"/>
       <bind nodeset="/stock_count/stock/report_stockout/report_stockout_supplies_drugs" type="select" relevant=" /stock_count/stock/report_stockout/stockout_supplies_drugs  = 'yes'" required="true()"/>

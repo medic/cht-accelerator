@@ -152,7 +152,7 @@
       <bind nodeset="/spot_check/geolocation/gps" type="geopoint"/>
       <bind nodeset="/spot_check/home_visit/r_person_present" type="select1" required="true()"/>
       <bind nodeset="/spot_check/home_visit/reason_person_present" type="string" required="true()" relevant=" /spot_check/home_visit/r_person_present  = 'no'"/>
-      <bind nodeset="/spot_check/home_visit/reschedule_appointment" type="date" required="true()" constraint=". &gt;= today()" relevant=" /spot_check/home_visit/r_person_present  = 'no'" jr:constraintMsg="Date can only be future date"/>
+      <bind nodeset="/spot_check/home_visit/reschedule_appointment" type="date" jr:constraintMsg="Date can only be future date" required="true()" relevant=" /spot_check/home_visit/r_person_present  = 'no'" constraint=". &gt;= today()"/>
       <bind nodeset="/spot_check/home_visit/vht_has_visited_30" type="select1" required="true()" relevant=" /spot_check/home_visit/r_person_present  = 'yes'"/>
       <bind nodeset="/spot_check/g_iccm_assessment/u5_hh_present" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_iccm_assessment/note_u5_evaluate" readonly="true()" type="string" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'"/>

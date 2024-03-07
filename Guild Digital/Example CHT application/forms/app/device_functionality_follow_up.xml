@@ -4,7 +4,7 @@
     <h:title>Device Functionality  Follow Up Form</h:title>
     <model>
       <instance>
-        <device_functionality_follow_up id="device_functionality_follow_up" prefix="J1!device_functionality_follow_up!" delimiter="#" version="2023-12-28  22-13">
+        <device_functionality_follow_up id="device_functionality_follow_up" prefix="J1!device_functionality_follow_up!" delimiter="#" version="2024-02-26  15-00">
           <inputs>
             <meta>
               <location>
@@ -23,6 +23,7 @@
           </inputs>
           <g_device_functionality_follow_up>
             <file_report/>
+            <police_report/>
             <file_report_date/>
             <file_report_num/>
             <no_file_report_reason/>
@@ -52,9 +53,10 @@
       <bind nodeset="/device_functionality_follow_up/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/device_functionality_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/file_report" type="select1" required="true()"/>
-      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/file_report_date" type="date" required="true()" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'yes'"/>
-      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/file_report_num" type="int" required="true()" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'yes'"/>
-      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/no_file_report_reason" type="string" required="true()" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'no'"/>
+      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/police_report" readonly="true()" type="string" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'no'"/>
+      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/file_report_date" type="date" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'yes'" jr:constraintMsg="The date should not be from the future" constraint=". &lt;= today()" required="true()"/>
+      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/file_report_num" type="int" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'yes'" required="true()"/>
+      <bind nodeset="/device_functionality_follow_up/g_device_functionality_follow_up/no_file_report_reason" type="string" relevant=" /device_functionality_follow_up/g_device_functionality_follow_up/file_report  = 'no'" required="true()"/>
       <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_functionality_follow_up" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/device_functionality_follow_up/group_functionality_follow_up_summary/s_note_device_follow_up_details" readonly="true()" type="string"/>
@@ -101,6 +103,9 @@
           <value>no</value>
         </item>
       </select1>
+      <input ref="/device_functionality_follow_up/g_device_functionality_follow_up/police_report">
+        <label>If, No advise the VHT to make a police Report immediately</label>
+      </input>
       <input ref="/device_functionality_follow_up/g_device_functionality_follow_up/file_report_date">
         <label>Date when the police report was filed</label>
       </input>

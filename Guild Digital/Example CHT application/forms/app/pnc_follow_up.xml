@@ -120,7 +120,7 @@
       <bind nodeset="/pnc_follow_up/inputs/source" type="string"/>
       <bind nodeset="/pnc_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/pnc_follow_up/inputs/task_name" type="string"/>
-      <bind nodeset="/pnc_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /pnc_follow_up/is_of_child_bearing_age  = 'true'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/inputs/contact/_id" type="db:person" constraint=" /pnc_follow_up/is_of_child_bearing_age  = 'true'" jr:constraintMsg="Patient must be a female of child bearing age" required="true()"/>
       <bind nodeset="/pnc_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/pnc_follow_up/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/pnc_follow_up/inputs/contact/sex" type="string"/>
@@ -144,39 +144,39 @@
       <bind nodeset="/pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred" type="select1" required="true()"/>
       <bind nodeset="/pnc_follow_up/group_missed_referral_details" relevant=" /pnc_follow_up/group_pnc_referral_follow_up/went_facility_as_referred  = 'no'"/>
       <bind nodeset="/pnc_follow_up/group_missed_referral_details/missed_referral_reason" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_missed_referral_details/specify_other" type="string" relevant=" /pnc_follow_up/group_missed_referral_details/missed_referral_reason  = 'other'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_referral_details/specify_other" type="string" required="true()" relevant=" /pnc_follow_up/group_missed_referral_details/missed_referral_reason  = 'other'"/>
       <bind nodeset="/pnc_follow_up/group_missed_referral_details/missed_referral_actions" type="select" required="true()"/>
       <bind nodeset="/pnc_follow_up/group_mother_condition" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother'"/>
       <bind nodeset="/pnc_follow_up/group_mother_condition/mother_condition" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_mother_condition/date_of_death" type="date" jr:constraintMsg="Date should not be in future" relevant="../mother_condition = 'dead'" constraint=". &lt;= today()" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_mother_condition/date_of_death" type="date" constraint=". &lt;= today()" jr:constraintMsg="Date should not be in future" required="true()" relevant="../mother_condition = 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_follow_up" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_follow_up/is_available" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_follow_up/follow_up_again_date" type="date" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" relevant="../is_available = 'no'" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_follow_up/follow_up_again_date" type="date" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" required="true()" relevant="../is_available = 'no'"/>
       <bind nodeset="/pnc_follow_up/group_pnc_visit" relevant=" /pnc_follow_up/group_follow_up/is_available  = 'yes' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_pnc_visit/has_attended_pnc_facility" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_pnc_visit/pnc_visit" type="select1" relevant="../has_attended_pnc_facility = 'yes'" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_pnc_visit/visit_date" type="date" jr:constraintMsg="Date should not be in future" relevant="../has_attended_pnc_facility = 'yes'" constraint=". &lt;= today()" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit/pnc_visit" type="select1" required="true()" relevant="../has_attended_pnc_facility = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_pnc_visit/visit_date" type="date" constraint=". &lt;= today()" jr:constraintMsg="Date should not be in future" required="true()" relevant="../has_attended_pnc_facility = 'yes'"/>
       <bind nodeset="/pnc_follow_up/group_missed_pnc_visit" relevant="../group_pnc_visit/has_attended_pnc_facility = 'no' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason_other" type="string" relevant="../missed_visit_reason = 'other'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/missed_visit_reason_other" type="string" required="true()" relevant="../missed_visit_reason = 'other'"/>
       <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/note_pnc_importance" readonly="true()" type="string"/>
       <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/agreed_to_go_for_pnc_visit" type="select1" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/agreed_date_for_pnc_visit" type="date" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" relevant="../agreed_to_go_for_pnc_visit = 'yes'" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_missed_pnc_visit/agreed_date_for_pnc_visit" type="date" constraint=". &gt; today() and (decimal-date-time(.) - decimal-date-time(today())) &lt;= 7" jr:constraintMsg="Date should not be in the past and not more than 7 days from today's date" required="true()" relevant="../agreed_to_go_for_pnc_visit = 'yes'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_nutrition_status" readonly="true()" type="string"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up" type="select1" required="true()"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_use_muac_tape" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/taken_muac" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/muac_measurement" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/taken_muac  = 'yes'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/taken_muac" type="select1" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'no'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/muac_measurement" type="select1" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/taken_muac  = 'yes'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_has_sam" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_has_mam" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red' or  /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_nutrition" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red' or  /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'" required="true()"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/next_nutrition_follow_up_date" type="date" jr:constraintMsg="Date should not be in the past" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'yes'" constraint=". &gt;= today()" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_nutrition" type="select1" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'red' or  /pnc_follow_up/group_woman_nutritional_status/muac_measurement  = 'yellow'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up" type="select1" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/next_nutrition_follow_up_date" type="date" constraint=". &gt;= today()" jr:constraintMsg="Date should not be in the past" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'yes'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_thank_you_nutrition_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/on_nutrition_follow_up  = 'yes'"/>
       <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/note_refer_did_not_complete_follow_up" readonly="true()" type="string" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'"/>
-      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'" required="true()"/>
+      <bind nodeset="/pnc_follow_up/group_woman_nutritional_status/referred_to_health_facility_missed_nutrition_follow_up" type="select1" required="true()" relevant=" /pnc_follow_up/group_woman_nutritional_status/completed_last_nutrition_follow_up  = 'no'"/>
       <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices" relevant=" /pnc_follow_up/inputs/task_name  = 'pnc_follow_up_mother' and  /pnc_follow_up/group_mother_condition/mother_condition  != 'dead'"/>
       <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_eat_well" readonly="true()" type="string"/>
       <bind nodeset="/pnc_follow_up/group_safe_postnatal_practices/note_exclusive_breast_feeding" readonly="true()" type="string"/>

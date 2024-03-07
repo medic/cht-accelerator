@@ -4,7 +4,7 @@
     <h:title>WASH Assessment</h:title>
     <model>
       <instance>
-        <wash_assessment id="wash_assessment" prefix="J1!wash_assessment!" delimiter="#" version="2024-01-14  14-39">
+        <wash_assessment id="wash_assessment" prefix="J1!wash_assessment!" delimiter="#" version="2024-02-27  13-00">
           <inputs>
             <meta>
               <location>
@@ -27,19 +27,17 @@
             <wash_area_conducted/>
             <wash_session_alarm/>
             <wash_alarm_about/>
+            <wash_assessment_interventions_made/>
+            <how_did_you_intervene/>
+            <wash_assessment_assign_VHT_to_follow/>
           </wash_assessment>
-          <hh_visits>
-            <num_hh_visits/>
-            <num_hh_safe_excreta/>
-            <num_hh_hand_wash/>
-            <num_hh_safe_water/>
-          </hh_visits>
           <group_wash_summary>
             <s_note_wash_assessment/>
             <s_note_submit_button/>
             <s_note_vht_details/>
             <s_num_wash_assessment/>
             <s_area_wash_assessment/>
+            <s_alarm_about/>
           </group_wash_summary>
           <meta tag="hidden">
             <instanceID/>
@@ -56,16 +54,16 @@
       <bind nodeset="/wash_assessment/wash_assessment/wash_houses_made" type="int" required="true()"/>
       <bind nodeset="/wash_assessment/wash_assessment/wash_area_conducted" type="db:health_center" required="true()"/>
       <bind nodeset="/wash_assessment/wash_assessment/wash_session_alarm" type="select1" required="true()"/>
-      <bind nodeset="/wash_assessment/wash_assessment/wash_alarm_about" type="select" required="true()" relevant=" /wash_assessment/wash_assessment/wash_session_alarm ='yes'"/>
-      <bind nodeset="/wash_assessment/hh_visits/num_hh_visits" type="int" jr:constraintMsg="The count should be greater than zero" required="true()" constraint=".&gt;0"/>
-      <bind nodeset="/wash_assessment/hh_visits/num_hh_safe_excreta" type="int" jr:constraintMsg="The count should be less or equal to the number of home visits conducted. And should be greater than zero." required="true()" constraint=".&lt;= /wash_assessment/hh_visits/num_hh_visits  and .&gt;0"/>
-      <bind nodeset="/wash_assessment/hh_visits/num_hh_hand_wash" type="int" jr:constraintMsg="The count should be less or equal to the number of home visits conducted. And should be greater than zero." required="true()" constraint=".&lt;= /wash_assessment/hh_visits/num_hh_visits  and .&gt;1"/>
-      <bind nodeset="/wash_assessment/hh_visits/num_hh_safe_water" type="int" jr:constraintMsg="The count should be less or equal to the number of home visits conducted. And should be greater than zero." required="true()" constraint=".&lt;= /wash_assessment/hh_visits/num_hh_visits  and .&gt;2"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_alarm_about" type="select" relevant=" /wash_assessment/wash_assessment/wash_session_alarm ='yes'" required="true()"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_assessment_interventions_made" type="select"/>
+      <bind nodeset="/wash_assessment/wash_assessment/how_did_you_intervene" type="string" relevant="selected( /wash_assessment/wash_assessment/wash_assessment_interventions_made , 'Other' )"/>
+      <bind nodeset="/wash_assessment/wash_assessment/wash_assessment_assign_VHT_to_follow" type="select1"/>
       <bind nodeset="/wash_assessment/group_wash_summary/s_note_wash_assessment" readonly="true()" type="string"/>
       <bind nodeset="/wash_assessment/group_wash_summary/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/wash_assessment/group_wash_summary/s_note_vht_details" readonly="true()" type="string"/>
       <bind nodeset="/wash_assessment/group_wash_summary/s_num_wash_assessment" readonly="true()" type="string"/>
       <bind nodeset="/wash_assessment/group_wash_summary/s_area_wash_assessment" readonly="true()" type="string"/>
+      <bind nodeset="/wash_assessment/group_wash_summary/s_alarm_about" readonly="true()" type="string"/>
       <bind nodeset="/wash_assessment/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -96,7 +94,7 @@
       <input ref="/wash_assessment/wash_assessment/wash_houses_made">
         <label>How many WASH assessment visits have you made?</label>
       </input>
-      <input appearance="db-object bind-id-only" ref="/wash_assessment/wash_assessment/wash_area_conducted">
+      <input appearance="db-object" ref="/wash_assessment/wash_assessment/wash_area_conducted">
         <label>Where have you conducted these WASH assessments</label>
       </input>
       <select1 ref="/wash_assessment/wash_assessment/wash_session_alarm">
@@ -114,32 +112,66 @@
         <label>What is the alarm about?</label>
         <item>
           <label>Filled up latrines</label>
-          <value>latrine_fill</value>
+          <value>Filled_up_latrines</value>
         </item>
         <item>
-          <label>water shortage</label>
-          <value>water_shortage</value>
+          <label>Water shortage</label>
+          <value>Water_shortage</value>
         </item>
         <item>
-          <label>shortage of latrines</label>
-          <value>latrine_shortage</value>
+          <label>Shortage of latrines</label>
+          <value>Shortage_of_latrines</value>
+        </item>
+        <item>
+          <label>Leaking sewage</label>
+          <value>Leaking_sewage</value>
+        </item>
+        <item>
+          <label>Broken Containers</label>
+          <value>Broken_Containers</value>
+        </item>
+        <item>
+          <label>Poor waste disposal</label>
+          <value>Poor_waste_disposal</value>
         </item>
       </select>
-    </group>
-    <group appearance="field-list" ref="/wash_assessment/hh_visits">
-      <label>Household Visits</label>
-      <input ref="/wash_assessment/hh_visits/num_hh_visits">
-        <label>How many household visits did you conduct?</label>
+      <select ref="/wash_assessment/wash_assessment/wash_assessment_interventions_made">
+        <label>What intervention have you made?</label>
+        <item>
+          <label>Sending a latrine construction team</label>
+          <value>Sending_a_latrine_construction_team</value>
+        </item>
+        <item>
+          <label>Issuing mosquito nets</label>
+          <value>Issuing_mosquito_nets</value>
+        </item>
+        <item>
+          <label>Retraining</label>
+          <value>Retraining</value>
+        </item>
+        <item>
+          <label>Task to VHT</label>
+          <value>Task_to_VHT</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>Other</value>
+        </item>
+      </select>
+      <input ref="/wash_assessment/wash_assessment/how_did_you_intervene">
+        <label>How did you intervene</label>
       </input>
-      <input ref="/wash_assessment/hh_visits/num_hh_safe_excreta">
-        <label>How many of the households you visited practice safe excreta disposal?</label>
-      </input>
-      <input ref="/wash_assessment/hh_visits/num_hh_hand_wash">
-        <label>How many of the households you visited have a handwashing facility?</label>
-      </input>
-      <input ref="/wash_assessment/hh_visits/num_hh_safe_water">
-        <label>How many of the households you visited have a safe water chain?</label>
-      </input>
+      <select1 ref="/wash_assessment/wash_assessment/wash_assessment_assign_VHT_to_follow">
+        <label>Would you like to assign a VHT to follow up</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
     </group>
     <group appearance="field-list summary" ref="/wash_assessment/group_wash_summary">
       <label>Results/Summary Page:</label>
@@ -156,7 +188,10 @@
         <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Number of WASH assessment visits made: <output value=" /wash_assessment/wash_assessment/wash_houses_made "/>&lt;/h5&gt;</label>
       </input>
       <input ref="/wash_assessment/group_wash_summary/s_area_wash_assessment">
-        <label>&lt;h5 style="text-align:center;"&gt; WASH assessment Areas: &lt;/h5&gt;</label>
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; WASH assessment Areas: <output value=" /wash_assessment/wash_assessment/wash_area_conducted "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/wash_assessment/group_wash_summary/s_alarm_about">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; What is the alarm about: <output value=" /wash_assessment/wash_assessment/wash_alarm_about "/>&lt;/h5&gt;</label>
       </input>
     </group>
   </h:body>

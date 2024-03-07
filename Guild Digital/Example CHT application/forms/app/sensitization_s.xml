@@ -48,10 +48,10 @@
       <bind nodeset="/sensitization_s/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/sensitization_s/inputs/contact/name" type="string"/>
       <bind nodeset="/sensitization_s/sensitization_group/sensitization_note" readonly="true()" type="string"/>
-      <bind nodeset="/sensitization_s/sensitization_group/sensitization_date" type="date" required="true()" jr:constraintMsg="Supervisor visit date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))"/>
+      <bind nodeset="/sensitization_s/sensitization_group/sensitization_date" type="date" jr:constraintMsg="Supervisor visit date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" required="true()"/>
       <bind nodeset="/sensitization_s/sensitization_group/sensitization_areas" type="string" required="true()"/>
       <bind nodeset="/sensitization_s/sensitization_group/topic" type="select1" required="true()"/>
-      <bind nodeset="/sensitization_s/sensitization_group/n_people" type="select1" required="true()" constraint=". &gt; 0"/>
+      <bind nodeset="/sensitization_s/sensitization_group/n_people" type="select1" constraint=". &gt; 0" required="true()"/>
       <bind nodeset="/sensitization_s/sensitization_group/lessons_learned" type="string" required="true()"/>
       <bind nodeset="/sensitization_s/s_summary/s_sensitization_date" readonly="true()" type="string"/>
       <bind nodeset="/sensitization_s/s_summary/s_sensitization_areas" readonly="true()" type="string"/>

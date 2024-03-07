@@ -59,7 +59,7 @@
       <bind nodeset="/supplies_materials/items_received/items_distributed" type="select1" required="true()"/>
       <bind nodeset="/supplies_materials/items_received/received_for_distribution" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
       <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_type" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" required="true()" constraint=". &gt;= 0" jr:constraintMsg="Number of items distributed should be more than zero"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" constraint=". &gt;= 0" required="true()" jr:constraintMsg="Number of items distributed should be more than zero"/>
       <bind nodeset="/supplies_materials/items_received/households_received" type="select1" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
       <bind nodeset="/supplies_materials/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>

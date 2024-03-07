@@ -80,7 +80,7 @@
       <bind nodeset="/anc_referral_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/anc_referral_follow_up/inputs/task_name" type="string"/>
       <bind nodeset="/anc_referral_follow_up/inputs/anc_appointment_date" type="string"/>
-      <bind nodeset="/anc_referral_follow_up/inputs/contact/_id" type="db:person" required="true()" constraint=" /anc_referral_follow_up/is_of_child_bearing_age  = 'true'" jr:constraintMsg="Patient must be a female of child bearing age"/>
+      <bind nodeset="/anc_referral_follow_up/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" required="true()" constraint=" /anc_referral_follow_up/is_of_child_bearing_age  = 'true'"/>
       <bind nodeset="/anc_referral_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/anc_referral_follow_up/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/anc_referral_follow_up/inputs/contact/sex" type="string"/>
@@ -107,14 +107,14 @@
       <bind nodeset="/anc_referral_follow_up/group_reminder/note_reminder_to_attend_anc" readonly="true()" type="string"/>
       <bind nodeset="/anc_referral_follow_up/group_referral_details" relevant=" /anc_referral_follow_up/inputs/task_name  = 'anc_referral_follow_up'"/>
       <bind nodeset="/anc_referral_follow_up/group_referral_details/went_to_hospital" type="select1" required="true()"/>
-      <bind nodeset="/anc_referral_follow_up/group_referral_details/pregnancy_test_outcome" type="select1" required="true()" relevant="../went_to_hospital = 'yes'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/pregnancy_test_outcome" type="select1" relevant="../went_to_hospital = 'yes'" required="true()"/>
       <bind nodeset="/anc_referral_follow_up/group_referral_details/note_enroll_into_care" readonly="true()" type="string" relevant="../pregnancy_test_outcome = 'positive'"/>
       <bind nodeset="/anc_referral_follow_up/group_referral_details/note_fp_counsel" readonly="true()" type="string" relevant="../pregnancy_test_outcome = 'negative'"/>
-      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral" type="select1" required="true()" relevant="../went_to_hospital = 'no'"/>
-      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral_other" type="string" required="true()" relevant="../reason_not_attended_referral = 'other'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral" type="select1" relevant="../went_to_hospital = 'no'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/reason_not_attended_referral_other" type="string" relevant="../reason_not_attended_referral = 'other'" required="true()"/>
       <bind nodeset="/anc_referral_follow_up/group_referral_details/note_counsel_on_early_anc_importance" readonly="true()" type="string" relevant="../went_to_hospital = 'no'"/>
-      <bind nodeset="/anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility" type="select1" required="true()" relevant="../went_to_hospital = 'no'"/>
-      <bind nodeset="/anc_referral_follow_up/group_referral_details/facility_visit_date" type="date" required="true()" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;)" jr:constraintMsg="Date can not be in the past" relevant="../agreed_to_go_to_facility = 'yes'"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/agreed_to_go_to_facility" type="select1" relevant="../went_to_hospital = 'no'" required="true()"/>
+      <bind nodeset="/anc_referral_follow_up/group_referral_details/facility_visit_date" type="date" relevant="../agreed_to_go_to_facility = 'yes'" jr:constraintMsg="Date can not be in the past" required="true()" constraint=". &gt;= format-date-time(today(),&quot;%Y-%m-%d&quot;)"/>
       <bind nodeset="/anc_referral_follow_up/group_summary" relevant=" /anc_referral_follow_up/inputs/task_name  = 'anc_referral_follow_up'"/>
       <bind nodeset="/anc_referral_follow_up/group_summary/s_note_anc_referral_follow_up" readonly="true()" type="string"/>
       <bind nodeset="/anc_referral_follow_up/group_summary/s_summary_submit" readonly="true()" type="string"/>
