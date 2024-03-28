@@ -4,7 +4,7 @@
     <h:title>Community Engagement</h:title>
     <model>
       <instance>
-        <community_engagement id="community_engagement" prefix="J1!community_engagement!" delimiter="#" version="2024-02-28  13-44">
+        <community_engagement id="community_engagement" prefix="J1!community_engagement!" delimiter="#" version="2024-03-22  10-51">
           <inputs>
             <meta>
               <location>
@@ -113,9 +113,9 @@
       <bind nodeset="/community_engagement/mentorship/num_people_attend" type="int" required="true()"/>
       <bind nodeset="/community_engagement/mentorship/num_female" type="int" required="true()" jr:constraintMsg="Number of females attendees should be less or equal to the total number of attendance." constraint=".&lt;= /community_engagement/mentorship/num_people_attend "/>
       <bind nodeset="/community_engagement/mentorship/topics_mentorship" type="select" required="true()"/>
-      <bind nodeset="/community_engagement/mentorship/other_topic_mentorship" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'other' )" required="true()"/>
+      <bind nodeset="/community_engagement/mentorship/other_topic_mentorship" type="string" required="true()" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'other' )"/>
       <bind nodeset="/community_engagement/mentorship/takeaways" type="string" required="true()"/>
-      <bind nodeset="/community_engagement/mentorship/next_engagement_date" type="date" required="true()" jr:constraintMsg="Next Appointment should be within the next 7 days" constraint=". &gt;= today() and (floor(decimal-date-time(.)) &lt;= (floor(decimal-date-time(today()) + 7)))"/>
+      <bind nodeset="/community_engagement/mentorship/next_engagement_date" type="date" required="true()" jr:constraintMsg="Schedule dates within a month" constraint=". &gt;= today() and (floor(decimal-date-time(.)) &lt;= (floor(decimal-date-time(today()) + 30)))"/>
       <bind nodeset="/community_engagement/geolocation/latitude" type="string" calculate="selected-at( /community_engagement/geolocation/gps , 0)"/>
       <bind nodeset="/community_engagement/geolocation/longitude" type="string" calculate="selected-at( /community_engagement/geolocation/gps , 1)"/>
       <bind nodeset="/community_engagement/geolocation/altitude" type="string" calculate="selected-at( /community_engagement/geolocation/gps , 2)"/>
