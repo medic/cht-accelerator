@@ -80,7 +80,7 @@ module.exports = [
     }
 
   },
-  // Create a CHW Task to ensure the Patient went to the hospital: :7 Days
+  // Create a CHW Task to ensure the Patient went to the hospital: :7 Days grace period 2
   {
     name: 'chw-follow-up',
     icon: 'icon-followup',
