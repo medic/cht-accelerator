@@ -12,9 +12,9 @@ describe('Assessment form test', () => {
         return await harness.stop();
     });
     beforeEach(async () => {
-        await harness.clear();
+         await harness.clear();
         // set harnes date to Jan 1st 2023
-        return await harness.setNow('2024-04-03');
+        return await harness.setNow(new Date());
     });
     afterEach(() => {
         expect(harness.consoleErrors).to.be.empty;
@@ -34,7 +34,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.reaction': 'Yes'
+            'reporter.group_report.group_report_adr.medication': 'Yes'
         });
         
     });
@@ -47,7 +47,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.medicine': 'Yes'
+            'reporter.group_report.group_report_quality.medicine': 'Yes'
         });
         
     });
@@ -59,7 +59,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.immunization_time': 'Within the Immunization Window'
+            'reporter.group_report.group_report_adr.immunization_time': 'Within the Immunization Window'
         });
     });
 
@@ -71,7 +71,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.death': 'Yes',
+            'reporter.group_report.group_report_death.death': 'Yes',
         });
         
     });
