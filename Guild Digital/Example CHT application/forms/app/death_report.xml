@@ -73,9 +73,9 @@
       <bind nodeset="/death_report/patient_age" type="string" calculate="floor( difference-in-months(  /death_report/inputs/contact/date_of_birth , today() ) div 12 )"/>
       <bind nodeset="/death_report/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
       <bind nodeset="/death_report/date_of_death" type="string" calculate=" /death_report/death_details/death_date "/>
-      <bind nodeset="/death_report/death_details/death_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" required="true()" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back"/>
+      <bind nodeset="/death_report/death_details/death_date" type="date" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))"/>
       <bind nodeset="/death_report/death_details/place_of_death" type="select1" required="true()"/>
-      <bind nodeset="/death_report/death_details/specify_death" type="string" relevant="selected( /death_report/death_details/place_of_death ,'other')" required="true()"/>
+      <bind nodeset="/death_report/death_details/specify_death" type="string" required="true()" relevant="selected( /death_report/death_details/place_of_death ,'other')"/>
       <bind nodeset="/death_report/death_details/other_comments" type="string"/>
       <bind nodeset="/death_report/r_summary/submit" readonly="true()" type="string"/>
       <bind nodeset="/death_report/r_summary/summary_h1" readonly="true()" type="string"/>
@@ -151,7 +151,7 @@
       <input ref="/death_report/death_details/specify_death">
         <label>Other (Please specify)</label>
       </input>
-      <input appearance="multiline" ref="/death_report/death_details/other_comments">
+      <input ref="/death_report/death_details/other_comments">
         <label>Provide any other relevant information related to the death</label>
         <hint>Comments</hint>
       </input>

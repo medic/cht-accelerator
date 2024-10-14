@@ -157,7 +157,7 @@
         </translation>
       </itext>
       <instance>
-        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2023-07-16 13:43:43">
+        <assessment id="assessment" prefix="J1!assessment!" delimiter="#" version="2024-09-10 14:52:06">
           <inputs>
             <meta>
               <location>
@@ -635,7 +635,7 @@
       <bind nodeset="/assessment/inputs" relevant="./source = 'user'"/>
       <bind nodeset="/assessment/inputs/source" type="string"/>
       <bind nodeset="/assessment/inputs/source_id" type="string"/>
-      <bind nodeset="/assessment/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be under 5 years old" required="true()" constraint=" /assessment/patient_age_in_years  &lt;=5 and  /assessment/recently_assessed != 'true'"/>
+      <bind nodeset="/assessment/inputs/contact/_id" type="db:person" required="true()" constraint=" /assessment/patient_age_in_years  &lt;=5 and  /assessment/recently_assessed != 'true'" jr:constraintMsg="Patient must be under 5 years old"/>
       <bind nodeset="/assessment/inputs/contact/name" type="string"/>
       <bind nodeset="/assessment/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/assessment/inputs/contact/sex" type="string"/>
@@ -735,7 +735,7 @@
       <bind nodeset="/assessment/diagnosis_diarrhoea" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_diarrhoea/has_diarrhoea ='yes' and ( /assessment/group_diarrhoea/diarrhoea_duration ='less_than_14' or  /assessment/group_diarrhoea/diarrhoea_duration  &lt;= 3)and  /assessment/group_diarrhoea/blood_in_stool ='no', 'yes', 'no')"/>
       <bind nodeset="/assessment/diagnosis_fever" type="string" calculate="if( /assessment/group_danger_sign_screening/child_has_danger_signs ='no' and  /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/fever_duration &lt;7 and  /assessment/group_fever/mrdt_result ='positive', 'yes', 'no')"/>
       <bind nodeset="/assessment/treat_child_for_diagnosis" type="string" calculate="if( /assessment/diagnosis_cough ='yes' or  /assessment/diagnosis_diarrhoea ='yes' or  /assessment/diagnosis_fever ='yes','yes','no')"/>
-      <bind nodeset="/assessment/group_vht_assessment_date/vht_assessment_date" type="date" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))"/>
+      <bind nodeset="/assessment/group_vht_assessment_date/vht_assessment_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date"/>
       <bind nodeset="/assessment/group_danger_sign_screening/note_any_danger_signs" readonly="true()" type="string"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_vomits_everything" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_danger_sign_screening/child_has_convulsions" type="select1" required="true()"/>
@@ -754,7 +754,7 @@
       <bind nodeset="/assessment/group_breathing" relevant=" /assessment/group_cough/has_cough ='yes'"/>
       <bind nodeset="/assessment/group_breathing/note_press_timer" readonly="true()" type="string"/>
       <bind nodeset="/assessment/group_breathing/note_fast_breathing_depends_on" readonly="true()" type="string"/>
-      <bind nodeset="/assessment/group_breathing/breath_count" type="int" jr:constraintMsg="Breaths per minute must be between 10 and 120" required="true()" constraint=". &gt;= 10 and . &lt;= 120"/>
+      <bind nodeset="/assessment/group_breathing/breath_count" type="int" required="true()" constraint=". &gt;= 10 and . &lt;= 120" jr:constraintMsg="Breaths per minute must be between 10 and 120"/>
       <bind nodeset="/assessment/group_breathing/fast_breathing" type="string" calculate="if(( /assessment/group_breathing/breath_count &gt;=60) and ( /assessment/patient_age_in_days &lt;60), &quot;true&quot;, 
  if(( /assessment/group_breathing/breath_count &gt;=50) and ( /assessment/patient_age_in_days &gt;=60) and ( /assessment/patient_age_in_days &lt;365), &quot;true&quot;,
  if(( /assessment/group_breathing/breath_count &gt;=40) and ( /assessment/patient_age_in_days &gt;=365) and ( /assessment/patient_age_in_days &lt;(5*365.25)), &quot;true&quot;,
@@ -769,7 +769,7 @@
       <bind nodeset="/assessment/group_fever" relevant=" /assessment/group_danger_sign_screening/child_has_danger_signs  = 'no'"/>
       <bind nodeset="/assessment/group_fever/has_fever" type="select1" required="true()"/>
       <bind nodeset="/assessment/group_fever/has_thermometer" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes'"/>
-      <bind nodeset="/assessment/group_fever/patient_temperature" type="decimal" jr:constraintMsg="The temperature should be between 33 °C and 42 °C" required="true()" constraint=". &gt;= 33 and . &lt;= 42" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/has_thermometer ='yes'"/>
+      <bind nodeset="/assessment/group_fever/patient_temperature" type="decimal" required="true()" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/group_fever/has_thermometer ='yes'" constraint=". &gt;= 33 and . &lt;= 42" jr:constraintMsg="The temperature should be between 33 °C and 42 °C"/>
       <bind nodeset="/assessment/group_fever/fever_duration" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes'"/>
       <bind nodeset="/assessment/group_fever/note_do_mrdt" readonly="true()" type="string" relevant=" /assessment/group_fever/has_fever ='yes'"/>
       <bind nodeset="/assessment/group_fever/mrdt_used" type="select1" required="true()" relevant=" /assessment/group_fever/has_fever ='yes' and  /assessment/app_id  != 'uncdf'"/>

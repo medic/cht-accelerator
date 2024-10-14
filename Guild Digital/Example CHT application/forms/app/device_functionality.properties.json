@@ -3,7 +3,8 @@
     "context": {
       "person": true,
         "place": false,
-        "expression": "contact.type === 'person' && summary.firstParentType === 'health_center' && user.role === 'vht_supervisor'"
+        "expression": "(contact.type === 'person' && summary.firstParentType === 'health_center')  && user.role === 'vht_supervisor'"
+         
     }
   }
   

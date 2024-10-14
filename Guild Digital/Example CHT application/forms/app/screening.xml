@@ -4,7 +4,7 @@
     <h:title>Screening</h:title>
     <model>
       <instance>
-        <screening id="screening" prefix="J1!screening!" delimiter="#" version="2023-07-05 00:32:36">
+        <screening id="screening" prefix="J1!screening!" delimiter="#" version="2024-09-17 11:20:02">
           <inputs>
             <meta>
               <location>
@@ -193,8 +193,8 @@
       <bind nodeset="/screening/group_tb_screening/on_tb_treatment" type="select1" relevant=" /screening/group_tb_screening/has_tb  = 'yes'" required="true()"/>
       <bind nodeset="/screening/group_tb_screening/note_refer_not_on_tb_treatment" readonly="true()" type="string" relevant=" /screening/group_tb_screening/on_tb_treatment  = 'no'"/>
       <bind nodeset="/screening/group_tb_screening/note_assess_all_clients" readonly="true()" type="string" relevant=" /screening/group_tb_screening/has_tb  = 'yes'"/>
-      <bind nodeset="/screening/group_other_screening/received_hpv" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 10 and  /screening/patient_age_in_years  &lt;=24"/>
-      <bind nodeset="/screening/group_other_screening/received_tt_vaccine" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 10 and  /screening/patient_age_in_years  &lt;=24"/>
+      <bind nodeset="/screening/group_other_screening/received_hpv" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 9 and  /screening/patient_age_in_years  &lt;= 45"/>
+      <bind nodeset="/screening/group_other_screening/received_tt_vaccine" type="select1" relevant=" /screening/patient_age_in_years  &gt;= 9 and  /screening/patient_age_in_years  &lt;=45"/>
       <bind nodeset="/screening/group_other_screening/has_hypertension" type="select1"/>
       <bind nodeset="/screening/group_other_screening/has_sickle_cell" type="select1"/>
       <bind nodeset="/screening/group_other_screening/has_diabetes" type="select1" required="true()"/>

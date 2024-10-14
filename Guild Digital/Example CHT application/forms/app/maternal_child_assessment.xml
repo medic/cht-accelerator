@@ -54,7 +54,7 @@
       <bind nodeset="/maternal_child_assessment/maternal_assessment/maternal_challenges_facing" type="select" relevant=" /maternal_child_assessment/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
       <bind nodeset="/maternal_child_assessment/maternal_assessment/maternal_challenging_situation" type="select" relevant=" /maternal_child_assessment/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
       <bind nodeset="/maternal_child_assessment/maternal_assessment/maternal_solved" type="select" relevant=" /maternal_child_assessment/maternal_assessment/maternal_challenges  = 'yes'" required="true()"/>
-      <bind nodeset="/maternal_child_assessment/maternal_assessment/maternal_sessions_conducted" type="int" jr:constraintMsg="Number of Maternal Health sessions should be more than zero" constraint=". &gt;= 0" required="true()"/>
+      <bind nodeset="/maternal_child_assessment/maternal_assessment/maternal_sessions_conducted" type="int" jr:constraintMsg="Number of Maternal Health sessions should be more than zero" required="true()" constraint=". &gt;= 0"/>
       <bind nodeset="/maternal_child_assessment/group_maternal_health_summary/s_note_maternal_health_summary" readonly="true()" type="string"/>
       <bind nodeset="/maternal_child_assessment/group_maternal_health_summary/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/maternal_child_assessment/group_maternal_health_summary/s_note_maternal_health_details" readonly="true()" type="string"/>

@@ -4,7 +4,7 @@
     <h:title>Rumors and Alerts</h:title>
     <model>
       <instance>
-        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2024-01-12  14-42">
+        <rumours_alerts id="rumours_alerts" prefix="J1!rumours_alerts!" delimiter="#" version="2024-05-13  13-58">
           <inputs>
             <meta>
               <location>
@@ -60,6 +60,17 @@
             <rumour_not_addressed_why/>
             <rumor_address_method/>
           </rumours>
+          <summary_page>
+            <s_note_submit_button/>
+            <s_note_vht_details/>
+            <s_name_of_the_vht/>
+            <s_note_rumours/>
+            <s_topics_covered_value1/>
+            <s_other/>
+            <s_addressed/>
+            <s_note_follow_up_details/>
+            <s_task/>
+          </summary_page>
           <meta tag="hidden">
             <instanceID/>
           </meta>
@@ -98,6 +109,15 @@
       <bind nodeset="/rumours_alerts/rumours/rumour_addressed" type="select1" relevant=" /rumours_alerts/rumours/rumours_present ='yes'" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumour_not_addressed_why" type="string" relevant=" /rumours_alerts/rumours/rumour_addressed  = 'no'" required="true()"/>
       <bind nodeset="/rumours_alerts/rumours/rumor_address_method" type="select1" relevant=" /rumours_alerts/rumours/rumour_addressed ='yes'" required="true()"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_note_submit_button" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_note_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_name_of_the_vht" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_note_rumours" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_topics_covered_value1" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_other" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_addressed" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_note_follow_up_details" readonly="true()" type="string"/>
+      <bind nodeset="/rumours_alerts/summary_page/s_task" readonly="true()" type="string"/>
       <bind nodeset="/rumours_alerts/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -202,6 +222,36 @@
           <value>advice_from_vht</value>
         </item>
       </select1>
+    </group>
+    <group appearance="field-list summary" ref="/rumours_alerts/summary_page">
+      <label>&lt;h3 style="text-align:center; color:black; background-color:yellow;"&gt;Summary&lt;/h3&gt;</label>
+      <input ref="/rumours_alerts/summary_page/s_note_submit_button">
+        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_note_vht_details">
+        <label>&lt;h4 style="text-align:center; background-color: #FFA500;"&gt;VHT Details&lt;/h4&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_name_of_the_vht">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Name of VHT : <output value=" /rumours_alerts/inputs/user/name "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_note_rumours">
+        <label>&lt;h4 style="text-align:center; background-color:#add8e6; "&gt;Rumours &lt;/h4&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_topics_covered_value1">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /rumours_alerts/rumours/rumour_description "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_other">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /rumours_alerts/rumours/other_specify "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_addressed">
+        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /rumours_alerts/rumours/rumor_address_method "/>&lt;/h5&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_note_follow_up_details">
+        <label>&lt;h4 style="text-align:center;"&gt;Follow up tasks &lt;/h4&gt;</label>
+      </input>
+      <input ref="/rumours_alerts/summary_page/s_task">
+        <label>&lt;h5 style="text-align:center;"&gt; Please conduct a suspected outbreak follow up task in 3 days &lt;/h5&gt;</label>
+      </input>
     </group>
   </h:body>
 </h:html>

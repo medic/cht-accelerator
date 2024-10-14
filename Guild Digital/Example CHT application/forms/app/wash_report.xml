@@ -4,7 +4,7 @@
     <h:title>WASH Report</h:title>
     <model>
       <instance>
-        <wash_report id="wash_report" prefix="J1!wash_report!" delimiter="#" version="2023-07-31 20:15:17">
+        <wash_report id="wash_report" prefix="J1!wash_report!" delimiter="#" version="2023-04-23 15:00:31">
           <inputs>
             <meta>
               <location>
@@ -182,7 +182,7 @@
         </item>
       </select1>
       <select1 ref="/wash_report/group_wash/hh_have_backyard_garden">
-        <label>Does the Household have a vegetable garden?</label>
+        <label>Does the Household have a backyard garden?</label>
         <hint>A backyard garden is one with fruits and vegetables within close proximity of the home</hint>
         <item>
           <label>Yes</label>

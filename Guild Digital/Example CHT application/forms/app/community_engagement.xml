@@ -4,7 +4,7 @@
     <h:title>Community Engagement</h:title>
     <model>
       <instance>
-        <community_engagement id="community_engagement" prefix="J1!community_engagement!" delimiter="#" version="2024-03-22  10-51">
+        <community_engagement id="community_engagement" prefix="J1!community_engagement!" delimiter="#" version="2024-07-08  13-43">
           <inputs>
             <meta>
               <location>
@@ -62,9 +62,7 @@
             <accuracy/>
             <gps/>
           </geolocation>
-          <group_community_mentorship>
-            <s_note_Community_mentorship/>
-            <s_note_submit_button/>
+          <s_note_submit_button>
             <s_note_mentorship_details/>
             <s_people_attended/>
             <s_people_attended_value/>
@@ -80,7 +78,7 @@
             <s_takeaways_value/>
             <s_followup/>
             <s_followup_note/>
-          </group_community_mentorship>
+          </s_note_submit_button>
           <meta tag="hidden">
             <instanceID/>
           </meta>
@@ -121,23 +119,21 @@
       <bind nodeset="/community_engagement/geolocation/altitude" type="string" calculate="selected-at( /community_engagement/geolocation/gps , 2)"/>
       <bind nodeset="/community_engagement/geolocation/accuracy" type="string" calculate="selected-at( /community_engagement/geolocation/gps , 3)"/>
       <bind nodeset="/community_engagement/geolocation/gps" type="geopoint"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_note_Community_mentorship" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_note_submit_button" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_note_mentorship_details" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_people_attended" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_people_attended_value" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value1" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'hygiene')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value2" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'breastfeeding')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value3" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'communical-diseases-in-U5')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value4" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'covid-19')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value5" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'malaria-prevention')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value6" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'danger-signs')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_topics_covered_value7" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'other')"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_takeaways" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_takeaways_value" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_followup" readonly="true()" type="string"/>
-      <bind nodeset="/community_engagement/group_community_mentorship/s_followup_note" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_note_mentorship_details" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_people_attended" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_people_attended_value" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value1" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'hygiene')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value2" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'breastfeeding')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value3" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'communical-diseases-in-U5')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value4" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'covid-19')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value5" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'malaria-prevention')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value6" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'danger-signs')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_topics_covered_value7" readonly="true()" type="string" relevant="selected( /community_engagement/mentorship/topics_mentorship , 'other')"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_takeaways" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_takeaways_value" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_followup" readonly="true()" type="string"/>
+      <bind nodeset="/community_engagement/s_note_submit_button/s_followup_note" readonly="true()" type="string"/>
       <bind nodeset="/community_engagement/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -226,58 +222,52 @@
         <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
       </input>
     </group>
-    <group appearance="field-list summary" ref="/community_engagement/group_community_mentorship">
-      <label>Results/Summary Page:</label>
-      <input appearance="h1 red" ref="/community_engagement/group_community_mentorship/s_note_Community_mentorship">
-        <label>Community Mentorship Summary</label>
+    <group appearance="field-list summary" ref="/community_engagement/s_note_submit_button">
+      <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input appearance="h1 yellow" ref="/community_engagement/s_note_submit_button/s_note_mentorship_details">
+        <label>Session Attendance Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_note_submit_button">
-        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input appearance="h2 yellow" ref="/community_engagement/s_note_submit_button/s_people_attended">
+        <label>**Number of people who attended**</label>
       </input>
-      <input appearance="h1 yellow" ref="/community_engagement/group_community_mentorship/s_note_mentorship_details">
-        <label>Session Attendance Details</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_people_attended_value">
+        <label><output value=" /community_engagement/mentorship/num_people_attend "/></label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_people_attended">
-        <label>&lt;h5 style="text-align:center;"&gt;**Number of people who attended**&lt;/h5&gt;</label>
-      </input>
-      <input ref="/community_engagement/group_community_mentorship/s_people_attended_value">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /community_engagement/mentorship/num_people_attend "/>&lt;/h5&gt;</label>
-      </input>
-      <input appearance="h1 blue" ref="/community_engagement/group_community_mentorship/s_topics_covered">
+      <input appearance="h2 yellow" ref="/community_engagement/s_note_submit_button/s_topics_covered">
         <label>Topics covered</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value1">
-        <label>&lt;h5 style="text-align:center;"&gt;Hygiene&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value1">
+        <label>Hygiene</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value2">
-        <label>&lt;h5 style="text-align:center;"&gt;Breastfeeding&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value2">
+        <label>Breastfeeding</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value3">
-        <label>&lt;h5 style="text-align:center;"&gt;Communical diseases in U5&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value3">
+        <label>Communical diseases in U5</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value4">
-        <label>&lt;h5 style="text-align:center;"&gt;Covid 19&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value4">
+        <label>Covid 19</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value5">
-        <label>&lt;h5 style="text-align:center;"&gt;Malaria prevention&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value5">
+        <label>Malaria prevention</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value6">
-        <label>&lt;h5 style="text-align:center;"&gt;Danger signs&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value6">
+        <label>Danger signs</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_topics_covered_value7">
-        <label>&lt;h5 style="text-align:center;"&gt;Other&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_topics_covered_value7">
+        <label>Other</label>
       </input>
-      <input appearance="h1 blue" ref="/community_engagement/group_community_mentorship/s_takeaways">
+      <input appearance="h2 yellow" ref="/community_engagement/s_note_submit_button/s_takeaways">
         <label>Important takeaways</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_takeaways_value">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /community_engagement/mentorship/takeaways "/>&lt;/h5&gt;</label>
+      <input appearance="li" ref="/community_engagement/s_note_submit_button/s_takeaways_value">
+        <label><output value=" /community_engagement/mentorship/takeaways "/></label>
       </input>
-      <input appearance="h1 green" ref="/community_engagement/group_community_mentorship/s_followup">
-        <label>Follow Up</label>
+      <input appearance="h1 green" ref="/community_engagement/s_note_submit_button/s_followup">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/community_engagement/group_community_mentorship/s_followup_note">
-        <label>A reminder will be displayed 3 days before date of next appointment</label>
+      <input ref="/community_engagement/s_note_submit_button/s_followup_note">
+        <label>&lt;h4 style=""&gt;A reminder will be displayed 3 days before date of next appointment&lt;/h4&gt;</label>
       </input>
     </group>
   </h:body>

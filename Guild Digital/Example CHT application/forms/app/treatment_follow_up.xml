@@ -90,7 +90,7 @@
       <bind nodeset="/treatment_follow_up/inputs/source" type="string"/>
       <bind nodeset="/treatment_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/treatment_follow_up/inputs/latest_referral_status" type="string"/>
-      <bind nodeset="/treatment_follow_up/inputs/contact/_id" type="db:person" constraint=" /treatment_follow_up/patient_age_in_years  &lt;= 5" jr:constraintMsg="Patient must be under 5 years old" required="true()"/>
+      <bind nodeset="/treatment_follow_up/inputs/contact/_id" type="db:person" required="true()" constraint=" /treatment_follow_up/patient_age_in_years  &lt;= 5" jr:constraintMsg="Patient must be under 5 years old"/>
       <bind nodeset="/treatment_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/treatment_follow_up/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/treatment_follow_up/inputs/contact/sex" type="string"/>
@@ -107,16 +107,16 @@
       <bind nodeset="/treatment_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/treatment_follow_up/referral_follow_up" type="string" calculate="if(not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) or  /treatment_follow_up/group_follow_up/how_is_child ='not_better', 'yes', 'no')"/>
       <bind nodeset="/treatment_follow_up/trigger_referral_follow_up" type="string" calculate="if( /treatment_follow_up/referral_follow_up ='yes' and  /treatment_follow_up/inputs/latest_referral_status ='no','yes','no')"/>
-      <bind nodeset="/treatment_follow_up/group_danger_signs/follow_up_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/follow_up_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date"/>
       <bind nodeset="/treatment_follow_up/group_danger_signs/follow_up_method" type="select1" required="true()"/>
       <bind nodeset="/treatment_follow_up/group_danger_signs/note_look_for_danger_signs" readonly="true()" type="string"/>
-      <bind nodeset="/treatment_follow_up/group_danger_signs/any_danger_signs" type="select" constraint="not(selected(., 'none') and count-selected(.) &gt;=2)" jr:constraintMsg="'None' can not be selected in combination with other options" required="true()"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/any_danger_signs" type="select" required="true()" constraint="not(selected(., 'none') and count-selected(.) &gt;=2)" jr:constraintMsg="'None' can not be selected in combination with other options"/>
       <bind nodeset="/treatment_follow_up/group_danger_signs/note_refer_urgently" readonly="true()" type="string" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) and count-selected( /treatment_follow_up/group_danger_signs/any_danger_signs ) &gt;=1"/>
-      <bind nodeset="/treatment_follow_up/group_danger_signs/child_referred" type="select1" required="true()" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) and count-selected( /treatment_follow_up/group_danger_signs/any_danger_signs ) &gt;=1"/>
+      <bind nodeset="/treatment_follow_up/group_danger_signs/child_referred" type="select1" relevant="not(selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')) and count-selected( /treatment_follow_up/group_danger_signs/any_danger_signs ) &gt;=1" required="true()"/>
       <bind nodeset="/treatment_follow_up/group_follow_up" relevant="selected( /treatment_follow_up/group_danger_signs/any_danger_signs , 'none')"/>
       <bind nodeset="/treatment_follow_up/group_follow_up/how_is_child" type="select1" required="true()"/>
       <bind nodeset="/treatment_follow_up/group_follow_up/note_if_better" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='is_better'"/>
-      <bind nodeset="/treatment_follow_up/group_follow_up/child_referred" type="select1" required="true()" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'"/>
+      <bind nodeset="/treatment_follow_up/group_follow_up/child_referred" type="select1" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'" required="true()"/>
       <bind nodeset="/treatment_follow_up/group_follow_up/note_refer_to_health_facility" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='not_better'"/>
       <bind nodeset="/treatment_follow_up/group_follow_up/note_cured" readonly="true()" type="string" relevant=" /treatment_follow_up/group_follow_up/how_is_child ='cured'"/>
       <bind nodeset="/treatment_follow_up/group_key_health_messages/feeding_advice" type="select" required="false()"/>

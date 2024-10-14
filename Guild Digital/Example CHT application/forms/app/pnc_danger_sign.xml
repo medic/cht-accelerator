@@ -4,7 +4,7 @@
     <h:title>PNC Danger Sign</h:title>
     <model>
       <instance>
-        <pnc_danger_sign id="pnc_danger_sign" prefix="J1!pnc_danger_sign!" delimiter="#" version="2022-03-19 19:41:04">
+        <pnc_danger_sign id="pnc_danger_sign" prefix="J1!pnc_danger_sign!" delimiter="#" version="2024-09-10 14:55:47">
           <inputs>
             <meta>
               <location>
@@ -84,11 +84,11 @@
         </pnc_danger_sign>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/pnc_danger_sign/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/pnc_danger_sign/inputs" relevant="./source = &amp;apos;user&amp;apos;"/>
       <bind nodeset="/pnc_danger_sign/inputs/source" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/source_id" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/is_follow_up" type="string"/>
-      <bind nodeset="/pnc_danger_sign/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /pnc_danger_sign/is_of_child_bearing_age  = 'true'" required="true()"/>
+      <bind nodeset="/pnc_danger_sign/inputs/contact/_id" type="db:person" jr:constraintMsg="Patient must be a female of child bearing age" constraint=" /pnc_danger_sign/is_of_child_bearing_age  = &amp;apos;true&amp;apos;" required="true()"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/name" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/pnc_danger_sign/inputs/contact/sex" type="string"/>
@@ -98,13 +98,10 @@
       <bind nodeset="/pnc_danger_sign/patient_age_in_years" type="string" calculate="floor( difference-in-months(  /pnc_danger_sign/inputs/contact/date_of_birth , today() ) div 12 )"/>
       <bind nodeset="/pnc_danger_sign/patient_age_in_months" type="string" calculate="difference-in-months(  /pnc_danger_sign/inputs/contact/date_of_birth , today() )"/>
       <bind nodeset="/pnc_danger_sign/patient_age_in_days" type="string" calculate="floor( decimal-date-time(today()) - decimal-date-time( /pnc_danger_sign/inputs/contact/date_of_birth ) )"/>
-      <bind nodeset="/pnc_danger_sign/patient_age_display" type="string" calculate="concat(
- concat( /pnc_danger_sign/patient_age_in_years , if( /pnc_danger_sign/patient_age_in_years =1,' year and ',' years and ')),
- concat( /pnc_danger_sign/patient_age_in_months  mod 12, if(( /pnc_danger_sign/patient_age_in_months  mod 12)=1,' month old',' months old'))
-)"/>
+      <bind nodeset="/pnc_danger_sign/patient_age_display" type="string" calculate="concat(&amp;#10; concat( /pnc_danger_sign/patient_age_in_years , if( /pnc_danger_sign/patient_age_in_years =1,&amp;apos; year and &amp;apos;,&amp;apos; years and &amp;apos;)),&amp;#10; concat( /pnc_danger_sign/patient_age_in_months  mod 12, if(( /pnc_danger_sign/patient_age_in_months  mod 12)=1,&amp;apos; month old&amp;apos;,&amp;apos; months old&amp;apos;))&amp;#10;)"/>
       <bind nodeset="/pnc_danger_sign/patient_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/pnc_danger_sign/patient_name" type="string" calculate="../inputs/contact/name"/>
-      <bind nodeset="/pnc_danger_sign/patient_name_with_s" type="string" calculate="concat( /pnc_danger_sign/patient_name , if(regex( /pnc_danger_sign/patient_name ,'^[A-Za-z ]*[s]{1}$'),&quot;'&quot;,&quot;'s&quot;))"/>
+      <bind nodeset="/pnc_danger_sign/patient_name_with_s" type="string" calculate="concat( /pnc_danger_sign/patient_name , if(regex( /pnc_danger_sign/patient_name ,&amp;apos;^[A-Za-z ]*[s]{1}$&amp;apos;),&quot;&amp;apos;&quot;,&quot;&amp;apos;s&quot;))&amp;#10;"/>
       <bind nodeset="/pnc_danger_sign/patient_gender" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/pnc_danger_sign/group_danger_sign_label" type="string" calculate="if( /pnc_danger_sign/inputs/is_follow_up  = 'yes', 'Danger Sign Follow-up', 'Danger sign check')"/>
       <bind nodeset="/pnc_danger_sign/woman_has_danger_signs" type="string" calculate=" /pnc_danger_sign/group_danger_sign/has_danger_signs "/>
@@ -121,8 +118,8 @@
       <bind nodeset="/pnc_danger_sign/group_danger_sign/fever" type="select1" relevant=" /pnc_danger_sign/inputs/is_follow_up  = 'no' or  /pnc_danger_sign/group_danger_sign/still_experiencing_danger_signs  = 'yes'" required="true()"/>
       <bind nodeset="/pnc_danger_sign/group_danger_sign/excessive_tiredness" type="select1" relevant=" /pnc_danger_sign/inputs/is_follow_up  = 'no' or  /pnc_danger_sign/group_danger_sign/still_experiencing_danger_signs  = 'yes'" required="true()"/>
       <bind nodeset="/pnc_danger_sign/group_danger_sign/breathlessness" type="select1" relevant=" /pnc_danger_sign/inputs/is_follow_up  = 'no' or  /pnc_danger_sign/group_danger_sign/still_experiencing_danger_signs  = 'yes'" required="true()"/>
-      <bind nodeset="/pnc_danger_sign/group_danger_sign/has_danger_signs" type="string" calculate="if(( /pnc_danger_sign/group_danger_sign/excessive_bleeding  = 'yes' or  /pnc_danger_sign/group_danger_sign/vaginal_discharge  = 'yes' or  /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = 'yes' or  /pnc_danger_sign/group_danger_sign/swelling  = 'yes' or  /pnc_danger_sign/group_danger_sign/blurred_vision  = 'yes' or  /pnc_danger_sign/group_danger_sign/fever  = 'yes' or  /pnc_danger_sign/group_danger_sign/excessive_tiredness  = 'yes' or  /pnc_danger_sign/group_danger_sign/breathlessness  = 'yes'), 'yes', 'no')"/>
-      <bind nodeset="/pnc_danger_sign/group_danger_sign/has_no_danger_signs" type="string" calculate="if(( /pnc_danger_sign/group_danger_sign/excessive_bleeding  = 'no' and  /pnc_danger_sign/group_danger_sign/vaginal_discharge  = 'no' and  /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = 'no' and  /pnc_danger_sign/group_danger_sign/swelling  = 'no' and  /pnc_danger_sign/group_danger_sign/blurred_vision  = 'no' and  /pnc_danger_sign/group_danger_sign/fever  = 'no' and  /pnc_danger_sign/group_danger_sign/excessive_tiredness  = 'no' and  /pnc_danger_sign/group_danger_sign/breathlessness  = 'yes'), 'yes', 'no')"/>
+      <bind nodeset="/pnc_danger_sign/group_danger_sign/has_danger_signs" type="string" calculate="if(( /pnc_danger_sign/group_danger_sign/excessive_bleeding  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/vaginal_discharge  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/swelling  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/blurred_vision  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/fever  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/excessive_tiredness  = &amp;apos;yes&amp;apos; or  /pnc_danger_sign/group_danger_sign/breathlessness  = &amp;apos;yes&amp;apos;), &amp;apos;yes&amp;apos;, &amp;apos;no&amp;apos;)"/>
+      <bind nodeset="/pnc_danger_sign/group_danger_sign/has_no_danger_signs" type="string" calculate="if(( /pnc_danger_sign/group_danger_sign/excessive_bleeding  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/vaginal_discharge  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/swelling  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/blurred_vision  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/fever  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/excessive_tiredness  = &amp;apos;no&amp;apos; and  /pnc_danger_sign/group_danger_sign/breathlessness  = &amp;apos;yes&amp;apos;), &amp;apos;yes&amp;apos;, &amp;apos;no&amp;apos;)"/>
       <bind nodeset="/pnc_danger_sign/group_danger_sign/note_refer" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes' and  /pnc_danger_sign/inputs/is_follow_up  = 'no'"/>
       <bind nodeset="/pnc_danger_sign/group_danger_sign/referred_to_facility" type="select1" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes' and  /pnc_danger_sign/inputs/is_follow_up  = 'no'" required="true()"/>
       <bind nodeset="/pnc_danger_sign/group_summary/summary_title_label" type="string" calculate="if( /pnc_danger_sign/inputs/is_follow_up  = 'yes', 'PNC Danger Sign Follow-up', 'PNC (Mother) Danger Sign')"/>
@@ -133,14 +130,14 @@
       <bind nodeset="/pnc_danger_sign/group_summary/s_note_referrals" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes'"/>
       <bind nodeset="/pnc_danger_sign/group_summary/s_note_refer_for_review" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/still_experiencing_danger_signs  = 'yes'"/>
       <bind nodeset="/pnc_danger_sign/group_summary/s_note_refer_immediately_for" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes' and  /pnc_danger_sign/inputs/is_follow_up  = 'no'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_excessive_bleeding" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/excessive_bleeding  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_vaginal_discharge" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/vaginal_discharge  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_severe_abdominal_pain" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_swelling" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/swelling  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_blurred_vision" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/blurred_vision  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_fever" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/fever  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_excessive_tiredness" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/excessive_tiredness  = 'yes'"/>
-      <bind nodeset="/pnc_danger_sign/group_summary/s_note_breathlessness" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/breathlessness  = 'yes'"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_excessive_bleeding" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/excessive_bleeding  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_vaginal_discharge" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/vaginal_discharge  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_severe_abdominal_pain" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/severe_abdominal_pain  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_swelling" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/swelling  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_blurred_vision" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/blurred_vision  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_fever" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/fever  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_excessive_tiredness" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/excessive_tiredness  = &amp;apos;yes&amp;apos;"/>
+      <bind nodeset="/pnc_danger_sign/group_summary/s_note_breathlessness" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/breathlessness  = &amp;apos;yes&amp;apos;"/>
       <bind nodeset="/pnc_danger_sign/group_summary/s_note_follow_up_task" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes'"/>
       <bind nodeset="/pnc_danger_sign/group_summary/s_note_please_follow_up" readonly="true()" type="string" relevant=" /pnc_danger_sign/group_danger_sign/has_danger_signs  = 'yes'"/>
       <bind nodeset="/pnc_danger_sign/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
@@ -161,7 +158,7 @@
       <group ref="/pnc_danger_sign/inputs/contact">
         <label></label>
         <input appearance="db-object" ref="/pnc_danger_sign/inputs/contact/_id">
-          <label>What is the patient's name?</label>
+          <label>What is the patient&amp;apos;s name?</label>
           <hint>Select a person from list</hint>
         </input>
         <input appearance="hidden" ref="/pnc_danger_sign/inputs/contact/name">
@@ -209,9 +206,7 @@
         <label>Great news! Please closely monitor her until her next scheduled PNC check-up at the health facility.</label>
       </input>
       <input ref="/pnc_danger_sign/group_danger_sign/note_still_experiencing_danger_signs">
-        <label>The mother should visit the health facility immediately if she is experiencing any of these danger signs
-Please advise her to do so and accompany her if possible
-Please indicate which danger signs <output value=" /pnc_danger_sign/patient_name "/> is experiencing</label>
+        <label>The mother should visit the health facility immediately if she is experiencing any of these danger signs&amp;#10;Please advise her to do so and accompany her if possible&amp;#10;Please indicate which danger signs <output value=" /pnc_danger_sign/patient_name "/> is experiencing</label>
       </input>
       <input ref="/pnc_danger_sign/group_danger_sign/note_danger_signs">
         <label>Does <output value=" /pnc_danger_sign/patient_name "/> currently have any of these danger signs?</label>
@@ -331,10 +326,7 @@ Please indicate which danger signs <output value=" /pnc_danger_sign/patient_name
         <label>Person Details</label>
       </input>
       <input ref="/pnc_danger_sign/group_summary/s_note_person_details_values">
-        <label>&lt;p style=&quot;text-align:center;&quot;&gt;
-<output value=" /pnc_danger_sign/patient_name "/>
-<output value=" /pnc_danger_sign/patient_age_display "/>
-&lt;/p&gt;</label>
+        <label>&lt;p style=&quot;text-align:center;&quot;&gt;&amp;#10;<output value=" /pnc_danger_sign/patient_name "/>&amp;#10;<output value=" /pnc_danger_sign/patient_age_display "/>&amp;#10;&lt;/p&gt;</label>
       </input>
       <input appearance="h1 blue" ref="/pnc_danger_sign/group_summary/s_note_referrals">
         <label>Referrals</label>

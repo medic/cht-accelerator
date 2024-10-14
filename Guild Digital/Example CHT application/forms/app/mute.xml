@@ -4,7 +4,7 @@
     <h:title>Mute request</h:title>
     <model>
       <instance>
-        <mute id="mute" prefix="J1!mute!" delimiter="#" version="2023-09-19  21-50">
+        <mute id="mute" prefix="J1!mute!" delimiter="#" version="2020-01-12 00:00:00">
           <inputs>
             <meta>
               <location>
@@ -55,7 +55,7 @@
       <bind nodeset="/mute/contact_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/mute/mute_reason" type="string" calculate=" /mute/person_muting/g_mute_reason "/>
       <bind nodeset="/mute/mute_reason_other" type="string" calculate=" /mute/person_muting/g_mute_reason_other "/>
-      <bind nodeset="/mute/person_muting/g_mute_reason" type="select" jr:constraintMsg="Temporary relocation can not be selected with permanent relocation" constraint="not(selected(.,'temp_relocation') and selected(.,'perm_relocation'))" required="true()"/>
+      <bind nodeset="/mute/person_muting/g_mute_reason" type="select" constraint="not(selected(.,'temp_relocation') and selected(.,'perm_relocation'))" jr:constraintMsg="Temporary relocation can not be selected with permanent relocation" required="true()"/>
       <bind nodeset="/mute/person_muting/g_mute_reason_other" type="string" relevant="selected( /mute/person_muting/g_mute_reason ,'other')" required="true()"/>
       <bind nodeset="/mute/muting_summary/r_summary" readonly="true()" type="string"/>
       <bind nodeset="/mute/muting_summary/r_contact_info" readonly="true()" type="string"/>

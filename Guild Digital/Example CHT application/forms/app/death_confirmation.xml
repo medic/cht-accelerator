@@ -108,7 +108,7 @@
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_report" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_sensitive" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/death_details/note_death_confirmation_follow_up" readonly="true()" type="string"/>
-      <bind nodeset="/death_confirmation/death_details/death_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back" required="true()"/>
+      <bind nodeset="/death_confirmation/death_details/death_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today())) - 365))" required="true()" jr:constraintMsg="Date of death should not in future and cannot be more than 1 year back"/>
       <bind nodeset="/death_confirmation/death_details/time_of_death" type="time" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/presumed_cause" type="select1" required="true()"/>

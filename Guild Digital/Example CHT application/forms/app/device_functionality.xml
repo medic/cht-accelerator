@@ -4,7 +4,7 @@
     <h:title>Device Functionality</h:title>
     <model>
       <instance>
-        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2024-03-22  11-17">
+        <device_functionality id="device_functionality" prefix="J1!device_functionality!" delimiter="#" version="2024-08-27  10-29">
           <inputs>
             <meta>
               <location>
@@ -50,23 +50,26 @@
             <records_synched/>
             <help_vht/>
             <device_condition/>
+            <device/>
             <other/>
             <stolen_device_reported/>
+            <to_who/>
             <police_report_advice/>
           </g_device_functionality>
-          <group_device_summary>
-            <s_note_device_functionality_1/>
-            <s_note_submit_button/>
+          <s_note_submit_button>
             <s_note_vht_details/>
             <s_vht_details/>
             <s_device_condition/>
+            <s_okay/>
             <s_device_condition_1/>
             <s_device_condition_2/>
             <s_device_condition_3/>
             <s_device_condition_4/>
-            <s_followup/>
+            <s_device/>
+            <report/>
+            <follow_up/>
             <s_followup_note/>
-          </group_device_summary>
+          </s_note_submit_button>
           <meta tag="hidden">
             <instanceID/>
           </meta>
@@ -98,20 +101,23 @@
       <bind nodeset="/device_functionality/g_device_functionality/records_synched" type="select1" relevant=" /device_functionality/g_device_functionality/working_condition  = 'yes'" required="true()"/>
       <bind nodeset="/device_functionality/g_device_functionality/help_vht" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/records_synched  = 'no'"/>
       <bind nodeset="/device_functionality/g_device_functionality/device_condition" type="select1" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'" required="true()"/>
+      <bind nodeset="/device_functionality/g_device_functionality/device" type="select1" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
       <bind nodeset="/device_functionality/g_device_functionality/other" type="string" relevant=" /device_functionality/g_device_functionality/device_condition  = 'other'" required="true()"/>
       <bind nodeset="/device_functionality/g_device_functionality/stolen_device_reported" type="select1" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'" required="true()"/>
+      <bind nodeset="/device_functionality/g_device_functionality/to_who" type="select" relevant=" /device_functionality/g_device_functionality/stolen_device_reported  = 'yes'" required="true()"/>
       <bind nodeset="/device_functionality/g_device_functionality/police_report_advice" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/stolen_device_reported  = 'no'"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_note_device_functionality_1" readonly="true()" type="string"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_note_submit_button" readonly="true()" type="string"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_note_vht_details" readonly="true()" type="string"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_vht_details" readonly="true()" type="string"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_device_condition" readonly="true()" type="string"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_1" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'broken')"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_2" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'not_charged')"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_3" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen')"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_device_condition_4" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'device_freeze')"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_followup" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen') and selected( /device_functionality/g_device_functionality/stolen_device_reported , 'no')"/>
-      <bind nodeset="/device_functionality/group_device_summary/s_followup_note" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen') and selected( /device_functionality/g_device_functionality/stolen_device_reported , 'no')"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_note_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_vht_details" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device_condition" readonly="true()" type="string"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_okay" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/working_condition  = 'yes'"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device_condition_1" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'broken')"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device_condition_2" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'not_charged')"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device_condition_3" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'stolen')"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device_condition_4" readonly="true()" type="string" relevant="selected( /device_functionality/g_device_functionality/device_condition , 'device_freeze')"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_device" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/report" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/device_condition  = 'stolen'"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/follow_up" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'"/>
+      <bind nodeset="/device_functionality/s_note_submit_button/s_followup_note" readonly="true()" type="string" relevant=" /device_functionality/g_device_functionality/working_condition  = 'no'"/>
       <bind nodeset="/device_functionality/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -187,6 +193,17 @@
           <value>other</value>
         </item>
       </select1>
+      <select1 ref="/device_functionality/g_device_functionality/device">
+        <label>Tablet or Charger</label>
+        <item>
+          <label>Tablet</label>
+          <value>tablet</value>
+        </item>
+        <item>
+          <label>Charger</label>
+          <value>charger</value>
+        </item>
+      </select1>
       <input ref="/device_functionality/g_device_functionality/other">
         <label>Please Specify</label>
       </input>
@@ -201,45 +218,61 @@
           <value>no</value>
         </item>
       </select1>
+      <select ref="/device_functionality/g_device_functionality/to_who">
+        <label>To who?</label>
+        <item>
+          <label>Police</label>
+          <value>police</value>
+        </item>
+        <item>
+          <label>Supervisor</label>
+          <value>supervisor</value>
+        </item>
+        <item>
+          <label>LC1</label>
+          <value>lc1</value>
+        </item>
+      </select>
       <input ref="/device_functionality/g_device_functionality/police_report_advice">
-        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the vht to go to the police report and obtain a police letter&lt;/span&gt;</label>
+        <label>&lt;span style="color:#FF0000"&gt;Advise the vht to go to the police report and obtain a police letter&lt;/span&gt;</label>
       </input>
     </group>
-    <group appearance="field-list summary" ref="/device_functionality/group_device_summary">
-      <label>Results/Summary Page:</label>
-      <input appearance="h1 red" ref="/device_functionality/group_device_summary/s_note_device_functionality_1">
-        <label>Device Functionality Summary</label>
+    <group appearance="field-list summary" ref="/device_functionality/s_note_submit_button">
+      <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input appearance="h1 yellow" ref="/device_functionality/s_note_submit_button/s_note_vht_details">
+        <label>VHT Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/device_functionality/group_device_summary/s_note_submit_button">
-        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
-      </input>
-      <input appearance="h1 yellow" ref="/device_functionality/group_device_summary/s_note_vht_details">
-        <label>VHT Details</label>
-      </input>
-      <input ref="/device_functionality/group_device_summary/s_vht_details">
+      <input ref="/device_functionality/s_note_submit_button/s_vht_details">
         <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /device_functionality/inputs/contact/name "/>&lt;/h4&gt;</label>
       </input>
-      <input appearance="h1 blue" ref="/device_functionality/group_device_summary/s_device_condition">
-        <label>Status of the device</label>
+      <input appearance="h1 blue" ref="/device_functionality/s_note_submit_button/s_device_condition">
+        <label>Status of the device&lt;I class="fa fa-phone"&gt;&lt;/i&gt;</label>
       </input>
-      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_1">
-        <label>&lt;h5 style="text-align:center;"&gt; Broken &lt;/h5&gt;</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_okay">
+        <label>Okay</label>
       </input>
-      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_2">
-        <label>&lt;h5 style="text-align:center;"&gt;Not Charged &lt;/h5&gt;</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_device_condition_1">
+        <label>Broken</label>
       </input>
-      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_3">
-        <label>&lt;h5 style="text-align:center;"&gt; Stolen (tablet or charger) &lt;/h5&gt;</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_device_condition_2">
+        <label>Not Charged</label>
       </input>
-      <input appearance="li" ref="/device_functionality/group_device_summary/s_device_condition_4">
-        <label>&lt;h5 style="text-align:center;"&gt;Device freezes &lt;/h5&gt;</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_device_condition_3">
+        <label>Stolen: (tablet or charger)</label>
       </input>
-      <input appearance="h1 green" ref="/device_functionality/group_device_summary/s_followup">
-        <label>Follow Up</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_device_condition_4">
+        <label>Device freezes</label>
       </input>
-      <input ref="/device_functionality/group_device_summary/s_followup_note">
-        <label>You will receive a devise follow-up task in due in 5 days</label>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/s_device">
+        <label>Device: <output value=" /device_functionality/g_device_functionality/device "/></label>
       </input>
+      <input appearance="li" ref="/device_functionality/s_note_submit_button/report">
+        <label>Reported: <output value=" /device_functionality/g_device_functionality/to_who "/></label>
+      </input>
+      <input appearance="h1 green" ref="/device_functionality/s_note_submit_button/follow_up">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/device_functionality/s_note_submit_button/s_followup_note"/>
     </group>
   </h:body>
 </h:html>

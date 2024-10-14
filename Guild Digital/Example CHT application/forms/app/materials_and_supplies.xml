@@ -103,7 +103,7 @@
       <bind nodeset="/materials_and_supplies/masks_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'masks']/quantity, 0)"/>
       <bind nodeset="/materials_and_supplies/mama_kit_received" type="string" calculate="coalesce(/materials_and_supplies/stock/items_repeat[item = 'mama_kit']/quantity, 0)"/>
       <bind nodeset="/materials_and_supplies/stock/note_1" readonly="true()" type="string"/>
-      <bind nodeset="/materials_and_supplies/stock/date_received" type="date" required="true()" constraint=". &lt;= today()"/>
+      <bind nodeset="/materials_and_supplies/stock/date_received" type="date" constraint=". &lt;= today()" required="true()"/>
       <bind nodeset="/materials_and_supplies/stock/reporting" type="select1" required="true()"/>
       <bind nodeset="/materials_and_supplies/stock/note_2" readonly="true()" type="string" relevant=" /materials_and_supplies/stock/reporting  != ''"/>
       <bind nodeset="/materials_and_supplies/stock/items_repeat" relevant=" /materials_and_supplies/stock/reporting  != ''"/>

@@ -1,7 +1,9 @@
 {
-    "context": {    
-        "person": true,
-        "place": false,
-        "expression": "!!contact && !contact.muted && !contact.date_of_death && summary.firstParentType === 'clinic'&& user.role === 'vht'"
+   
+    "context": {
+      "person": true,
+      "place": true,
+      "expression": "((contact.type === 'person' && summary.firstParentType === 'clinic') || contact.type === 'clinic') && !contact.muted && user._id !== contact._id && user.role === vht"
+  
     }
-}
+  }

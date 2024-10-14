@@ -123,7 +123,7 @@
       <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_findings" type="select1" required="true()"/>
       <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_area_improvements" type="string" required="true()"/>
       <bind nodeset="/vht_shadowing/g_vht_shadowing/shadowing_recommendations" type="select1" required="true()"/>
-      <bind nodeset="/vht_shadowing/g_vht_shadowing/other_specify" type="string" relevant=" /vht_shadowing/g_vht_shadowing/shadowing_recommendations ='other_specify'" required="true()"/>
+      <bind nodeset="/vht_shadowing/g_vht_shadowing/other_specify" type="string" required="true()" relevant=" /vht_shadowing/g_vht_shadowing/shadowing_recommendations ='other_specify'"/>
       <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing" readonly="true()" type="string"/>
       <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/vht_shadowing/g_vht_shadowing_summary/s_note_vht_shadowing_details" readonly="true()" type="string"/>
