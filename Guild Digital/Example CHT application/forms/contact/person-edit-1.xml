@@ -4,7 +4,7 @@
     <h:title>Edit Person</h:title>
     <model>
       <instance>
-        <data id="contact:person:edit" prefix="J1!contact:person:edit!" delimiter="#" version="2023-12-30 19:49:16">
+        <data id="contact:person:edit" prefix="J1!contact:person:edit!" delimiter="#" version="2023-12-09 16:44:29">
           <inputs>
             <meta>
               <location>
@@ -60,11 +60,11 @@
       <bind nodeset="/data/person/parent" type="string"/>
       <bind nodeset="/data/person/_id" type="string"/>
       <bind nodeset="/data/person/date_of_birth" type="string" calculate="../c_dob_iso"/>
-      <bind nodeset="/data/person/name" type="string" required="true()"/>
-      <bind nodeset="/data/person/role" type="string"/>
+      <bind nodeset="/data/person/name" type="string" required="true()" constraint="regex(.,'^[A-Z][A-Z\s]{1,50}$')" jr:constraintMsg="Enter a valid name consisting of only CAPITAL letters"/>
+      <bind nodeset="/data/person/role" type="string" required="true()"/>
       <bind nodeset="/data/person/dob_method" type="select1" required="true()"/>
-      <bind nodeset="/data/person/dob_calendar" type="date" required="true()" relevant="selected(../dob_method,'calendar')" constraint=".&lt;today() and floor(difference-in-months(., today() ) div 12 ) &lt;= 120" jr:constraintMsg="Invalid Date"/>
-      <bind nodeset="/data/person/age_years" type="int" required="true()" relevant="selected(../dob_method,'approx')" constraint=". &gt;= 0 and .&lt;=120" jr:constraintMsg="Invalid Age Value"/>
+      <bind nodeset="/data/person/dob_calendar" type="date" relevant="selected(../dob_method,'calendar')" required="true()" constraint=".&lt;today() and floor(difference-in-months(., today() ) div 12 ) &lt;= 120" jr:constraintMsg="Invalid Date"/>
+      <bind nodeset="/data/person/age_years" type="int" relevant="selected(../dob_method,'approx')" required="true()" constraint=". &gt;= 0 and .&lt;=120" jr:constraintMsg="Invalid Age Value"/>
       <bind nodeset="/data/person/ephemeral_years" type="string" calculate="format-date-time(today(),&quot;%Y&quot;) -../age_years"/>
       <bind nodeset="/data/person/dob_approx" type="string" calculate="concat(string(../ephemeral_years),'-',string(format-date-time(today(), &quot;%m&quot;)),'-',string(format-date-time(today(), &quot;%d&quot;)))"/>
       <bind nodeset="/data/person/dob_raw" type="string" calculate="if(not(selected( ../dob_method,'approx')), 
@@ -73,8 +73,8 @@
       <bind nodeset="/data/person/c_dob_iso" type="string" calculate="format-date-time(../dob_raw,&quot;%Y-%m-%d&quot;)"/>
       <bind nodeset="/data/person/c_dob_debug" readonly="true()" type="string" relevant="0"/>
       <bind nodeset="/data/person/current_age" type="string" calculate="floor(difference-in-months(date( /data/person/c_dob_iso ),today()) div 12)"/>
-      <bind nodeset="/data/person/phone" type="string" required="false()" relevant=" /data/person/current_age &gt;18" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
-      <bind nodeset="/data/person/phone2" type="string" required="false()" relevant=" /data/person/current_age &gt;18 and  /data/person/phone  != ''" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
+      <bind nodeset="/data/person/phone" type="string" relevant=" /data/person/current_age &gt;18" required="false()" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
+      <bind nodeset="/data/person/phone2" type="string" relevant=" /data/person/current_age &gt;18 and  /data/person/phone  != ''" required="false()" constraint="regex(.,'^(07)\d{8}$|^(039)\d{7}$')" jr:constraintMsg="Mobile number should be 10 digits and should start with 07 or 039"/>
       <bind nodeset="/data/person/nin" type="string"/>
       <bind nodeset="/data/person/supervision_metadata" relevant=" /data/person/role  = 'vht_supervisor'"/>
       <bind nodeset="/data/person/supervision_metadata/organization" type="select1"/>
@@ -102,7 +102,7 @@
       </group>
     </group>
     <group ref="/data/person">
-      <label>Add Person</label>
+      <label>Edit Person</label>
       <input appearance="hidden" ref="/data/person/type">
         <label>Person Type</label>
         <hint>mandatory</hint>

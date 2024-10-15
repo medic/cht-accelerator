@@ -4,7 +4,7 @@
     <h:title>Death Report Validaton</h:title>
     <model>
       <instance>
-        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2023-12-10  17-07">
+        <death_confirmation id="death_confirmation" prefix="J1!death_confirmation!" delimiter="#" version="2024-01-01  18-46">
           <inputs>
             <meta>
               <location>
@@ -113,7 +113,7 @@
       <bind nodeset="/death_confirmation/death_details/place_of_death" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/presumed_cause" type="select1" required="true()"/>
       <bind nodeset="/death_confirmation/death_details/pre_existing_health" type="select1" required="true()"/>
-      <bind nodeset="/death_confirmation/death_details/health_conditions" type="select1" required="true()" relevant=" /death_confirmation/death_details/pre_existing_health ='yes'"/>
+      <bind nodeset="/death_confirmation/death_details/health_conditions" type="select1" relevant=" /death_confirmation/death_details/pre_existing_health ='yes'" required="true()"/>
       <bind nodeset="/death_confirmation/r_summary/submit" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/summary_h1" readonly="true()" type="string"/>
       <bind nodeset="/death_confirmation/r_summary/s_person_details" readonly="true()" type="string"/>

@@ -75,7 +75,7 @@
       <bind nodeset="/referral_follow_up/inputs" relevant="./source = 'user'"/>
       <bind nodeset="/referral_follow_up/inputs/source" type="string"/>
       <bind nodeset="/referral_follow_up/inputs/source_id" type="string"/>
-      <bind nodeset="/referral_follow_up/inputs/contact/_id" type="db:person" constraint=" /referral_follow_up/patient_age_in_years  &lt;=5" jr:constraintMsg="Patient must be under 5years old" required="true()"/>
+      <bind nodeset="/referral_follow_up/inputs/contact/_id" type="db:person" required="true()" constraint=" /referral_follow_up/patient_age_in_years  &lt;=5" jr:constraintMsg="Patient must be under 5years old"/>
       <bind nodeset="/referral_follow_up/inputs/contact/name" type="string"/>
       <bind nodeset="/referral_follow_up/inputs/contact/date_of_birth" type="string"/>
       <bind nodeset="/referral_follow_up/inputs/contact/sex" type="string"/>
@@ -91,17 +91,17 @@
       <bind nodeset="/referral_follow_up/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/referral_follow_up/patient_gender" type="string" calculate="../inputs/contact/sex"/>
       <bind nodeset="/referral_follow_up/referral_follow_up_again" type="string" calculate="if( /referral_follow_up/group_person_condition/patient_condition ='no_change' or  /referral_follow_up/group_person_condition/patient_condition ='getting_worse', 'yes', 'no' )"/>
-      <bind nodeset="/referral_follow_up/group_follow_up/follow_up_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
+      <bind nodeset="/referral_follow_up/group_follow_up/follow_up_date" type="date" required="true()" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date"/>
       <bind nodeset="/referral_follow_up/group_follow_up/follow_up_method" type="select1" required="true()"/>
       <bind nodeset="/referral_follow_up/group_person_condition/patient_condition" type="select1" required="true()"/>
       <bind nodeset="/referral_follow_up/group_referral_information/went_to_health_facility" type="select1" required="true()"/>
       <bind nodeset="/referral_follow_up/group_referral_information/note_encourage_to_visit_health_facility" readonly="true()" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='no'"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/hc_visit_date" type="date" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" required="true()"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant" type="select1" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="true()"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant_other" type="string" relevant=" /referral_follow_up/group_referral_information/hc_attendant ='other'" required="true()"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/hc_name" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="true()"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/action_taken" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="false()"/>
-      <bind nodeset="/referral_follow_up/group_referral_information/instructions_for_vht" type="string" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'" required="false()"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_visit_date" type="date" required="true()" jr:constraintMsg="Date can't be more than 7 days ago. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) - 7)))" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant" type="select1" required="true()" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_attendant_other" type="string" required="true()" relevant=" /referral_follow_up/group_referral_information/hc_attendant ='other'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/hc_name" type="string" required="true()" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/action_taken" type="string" required="false()" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
+      <bind nodeset="/referral_follow_up/group_referral_information/instructions_for_vht" type="string" required="false()" relevant=" /referral_follow_up/group_referral_information/went_to_health_facility ='yes'"/>
       <bind nodeset="/referral_follow_up/group_patient_summary/s_note_referral_follow_up_report" readonly="true()" type="string"/>
       <bind nodeset="/referral_follow_up/group_patient_summary/s_note_before_submit" readonly="true()" type="string"/>
       <bind nodeset="/referral_follow_up/group_patient_summary/s_note_patient_details" readonly="true()" type="string"/>

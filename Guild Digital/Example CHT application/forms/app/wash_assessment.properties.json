@@ -3,7 +3,7 @@
     "context": {
       "person": false,
       "place": true,
-      "expression": "contact.type === 'district_hospital' && user.role === 'vht_supervisor'"
+      "expression": "contact.type === 'district_hospital' && user.role === vht_supervisor"
     }
   }
   

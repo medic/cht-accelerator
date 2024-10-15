@@ -1,7 +1,8 @@
+
 {
   "context": {
-    "person": true,
-    "place": false,
-    "expression": "contact.type === 'person' && summary.firstParentType === 'health_center' && user.role === 'vht_supervisor'"
+    "person": false,
+    "place": true,
+    "expression": "contact.type === 'health_center' && user.parent && user.parent.type === 'health_center' && user.role === vht"
   }
 }

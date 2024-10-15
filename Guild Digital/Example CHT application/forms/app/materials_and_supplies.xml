@@ -109,9 +109,9 @@
       <bind nodeset="/materials_and_supplies/stock/items_repeat" relevant=" /materials_and_supplies/stock/reporting  != ''"/>
       <bind nodeset="/materials_and_supplies/stock/items_repeat/item" type="select1" required="true()"/>
       <bind nodeset="/materials_and_supplies/stock/items_repeat/unit" type="string" calculate="if(selected( /materials_and_supplies/stock/items_repeat/item , 'act'), 'blisters', if(selected( /materials_and_supplies/stock/items_repeat/item ,'zinc_ors'),'Co-pack', if(selected( /materials_and_supplies/stock/items_repeat/item ,'mrdts') or selected( /materials_and_supplies/stock/items_repeat/item , 'amoxicilline') or selected( /materials_and_supplies/stock/items_repeat/item , 'paracetamol'), 'strips', if(selected( /materials_and_supplies/stock/items_repeat/item , 'mama_kit'),'kits', if(selected( /materials_and_supplies/stock/items_repeat/item , 'condoms'),'boxes', 'pieces')))))"/>
-      <bind nodeset="/materials_and_supplies/stock/items_repeat/act_type" type="select1" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'act'" required="true()"/>
-      <bind nodeset="/materials_and_supplies/stock/items_repeat/amoxicillin_type" type="select1" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'amoxicilline'" required="true()"/>
-      <bind nodeset="/materials_and_supplies/stock/items_repeat/quantity" type="int" relevant=" /materials_and_supplies/stock/items_repeat/item  != ''" required="true()" constraint=". &gt; 0"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/act_type" type="select1" required="true()" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'act'"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/amoxicillin_type" type="select1" required="true()" relevant=" /materials_and_supplies/stock/items_repeat/item  = 'amoxicilline'"/>
+      <bind nodeset="/materials_and_supplies/stock/items_repeat/quantity" type="int" constraint=". &gt; 0" required="true()" relevant=" /materials_and_supplies/stock/items_repeat/item  != ''"/>
       <bind nodeset="/materials_and_supplies/stock/items_repeat/note_4" readonly="true()" type="string" relevant=" /materials_and_supplies/stock/items_repeat/quantity  != ''"/>
       <bind nodeset="/materials_and_supplies/summary/s_submit" readonly="true()" type="string"/>
       <bind nodeset="/materials_and_supplies/summary/r_summary" readonly="true()" type="string"/>

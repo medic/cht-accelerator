@@ -4,7 +4,7 @@
     <h:title>Stock Count</h:title>
     <model>
       <instance>
-        <stock_count id="stock_count" prefix="J1!stock_count!" delimiter="#" version="2024-01-12 17:05:41">
+        <stock_count id="stock_count" prefix="J1!stock_count!" delimiter="#" version="2024-10-08 11:01:32">
           <inputs>
             <meta>
               <location>
@@ -91,9 +91,7 @@
             <accuracy/>
             <gps/>
           </geolocation>
-          <summary>
-            <s_note_vht_visit/>
-            <s_note_submit_button/>
+          <s_note_submit_button>
             <s_material_supplies/>
             <r_gloves/>
             <r_gloves_quantity/>
@@ -118,7 +116,19 @@
             <r_coartem12_quantity/>
             <r_act/>
             <r_act_quantity/>
-          </summary>
+            <s_stock_out/>
+            <s_paracetamol/>
+            <s_zinc_ors/>
+            <s_amoxicilline/>
+            <s_coartem6/>
+            <s_coartem12/>
+            <s_act/>
+            <s_condoms/>
+            <s_sanitizer/>
+            <s_mask/>
+            <s_gloves/>
+            <s_mrdt/>
+          </s_note_submit_button>
           <meta tag="hidden">
             <instanceID/>
           </meta>
@@ -161,7 +171,7 @@
       <bind nodeset="/stock_count/masks_remaining" type="string" calculate="coalesce(/stock_count/stock/items_repeat[item = 'masks']/quantity, 0)"/>
       <bind nodeset="/stock_count/mama_kit_remaining" type="string" calculate="coalesce(/stock_count/stock/items_repeat[item = 'mama_kit']/quantity, 0)"/>
       <bind nodeset="/stock_count/stock/note_1" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/stock/date_remaining" type="date" jr:constraintMsg="Date cant be in the Future" constraint=". &lt;= today()" required="true()"/>
+      <bind nodeset="/stock_count/stock/date_remaining" type="date" required="true()" jr:constraintMsg="Date cant be in the Future" constraint=". &lt;= today()"/>
       <bind nodeset="/stock_count/stock/drugs_locked_box" type="select1" required="true()"/>
       <bind nodeset="/stock_count/stock/note_dry_place" readonly="true()" type="string" relevant=" /stock_count/stock/drugs_locked_box  = 'no'"/>
       <bind nodeset="/stock_count/stock/drugs_clean_box" type="select1" required="true()"/>
@@ -173,44 +183,54 @@
       <bind nodeset="/stock_count/stock/items_repeat" relevant=" /stock_count/stock/reporting  != ''"/>
       <bind nodeset="/stock_count/stock/items_repeat/item" type="select1" required="true()"/>
       <bind nodeset="/stock_count/stock/items_repeat/unit" type="string" calculate="if(selected( /stock_count/stock/items_repeat/item , 'act'), 'blisters', if(selected( /stock_count/stock/items_repeat/item ,'zinc_ors'),'Co-pack', if(selected( /stock_count/stock/items_repeat/item ,'mrdts') or selected( /stock_count/stock/items_repeat/item , 'amoxicilline') or selected( /stock_count/stock/items_repeat/item , 'paracetamol'), 'strips', if(selected( /stock_count/stock/items_repeat/item , 'mama_kit'),'kits', if(selected( /stock_count/stock/items_repeat/item , 'condoms'),'boxes', 'pieces')))))"/>
-      <bind nodeset="/stock_count/stock/items_repeat/act_type" type="select1" relevant=" /stock_count/stock/items_repeat/item  = 'act'" required="true()"/>
-      <bind nodeset="/stock_count/stock/items_repeat/amoxicillin_type" type="select1" relevant=" /stock_count/stock/items_repeat/item  = 'amoxicilline'" required="true()"/>
-      <bind nodeset="/stock_count/stock/items_repeat/quantity" type="int" relevant=" /stock_count/stock/items_repeat/item  != ''" constraint=". &gt; 0" required="true()"/>
+      <bind nodeset="/stock_count/stock/items_repeat/act_type" type="select1" required="true()" relevant=" /stock_count/stock/items_repeat/item  = 'act'"/>
+      <bind nodeset="/stock_count/stock/items_repeat/amoxicillin_type" type="select1" required="true()" relevant=" /stock_count/stock/items_repeat/item  = 'amoxicilline'"/>
+      <bind nodeset="/stock_count/stock/items_repeat/quantity" type="int" required="true()" constraint=". &gt; 0" relevant=" /stock_count/stock/items_repeat/item  != ''"/>
       <bind nodeset="/stock_count/stock/items_repeat/note_4" readonly="true()" type="string" relevant=" /stock_count/stock/items_repeat/quantity  != ''"/>
       <bind nodeset="/stock_count/stock/report_stockout/stockout_supplies_drugs" type="select1" required="true()"/>
-      <bind nodeset="/stock_count/stock/report_stockout/report_stockout_supplies_drugs" type="select" relevant=" /stock_count/stock/report_stockout/stockout_supplies_drugs  = 'yes'" required="true()"/>
+      <bind nodeset="/stock_count/stock/report_stockout/report_stockout_supplies_drugs" type="select" required="true()" relevant=" /stock_count/stock/report_stockout/stockout_supplies_drugs  = 'yes'"/>
       <bind nodeset="/stock_count/stock/report_stockout/item_expiry" type="select" required="true()"/>
       <bind nodeset="/stock_count/geolocation/latitude" type="string" calculate="selected-at( /stock_count/geolocation/gps , 0)"/>
       <bind nodeset="/stock_count/geolocation/longitude" type="string" calculate="selected-at( /stock_count/geolocation/gps , 1)"/>
       <bind nodeset="/stock_count/geolocation/altitude" type="string" calculate="selected-at( /stock_count/geolocation/gps , 2)"/>
       <bind nodeset="/stock_count/geolocation/accuracy" type="string" calculate="selected-at( /stock_count/geolocation/gps , 3)"/>
       <bind nodeset="/stock_count/geolocation/gps" type="geopoint"/>
-      <bind nodeset="/stock_count/summary/s_note_vht_visit" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/summary/s_note_submit_button" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/summary/s_material_supplies" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/summary/r_gloves" readonly="true()" type="string" relevant="int( /stock_count/gloves_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_gloves_quantity" readonly="true()" type="string" relevant="int( /stock_count/gloves_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_masks" readonly="true()" type="string" relevant="int( /stock_count/masks_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_masks_quantity" readonly="true()" type="string" relevant="int( /stock_count/masks_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_sanitizer" readonly="true()" type="string" relevant="int( /stock_count/sanitizer_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_sanitizer_quantity" readonly="true()" type="string" relevant="int( /stock_count/sanitizer_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_mrdts" readonly="true()" type="string" relevant="int( /stock_count/mrdts_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_mrdts_quantity" readonly="true()" type="string" relevant="int( /stock_count/mrdts_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_condoms" readonly="true()" type="string" relevant="int( /stock_count/condoms_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_condoms_quantity" readonly="true()" type="string" relevant="int( /stock_count/condoms_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/s_drugs" readonly="true()" type="string"/>
-      <bind nodeset="/stock_count/summary/r_paracetamol" readonly="true()" type="string" relevant="int( /stock_count/paracetamol_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_paracetamol_quantity" readonly="true()" type="string" relevant="int( /stock_count/paracetamol_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_zinc_ors" readonly="true()" type="string" relevant="int( /stock_count/zinc_ors_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_zinc_ors_quantity" readonly="true()" type="string" relevant="int( /stock_count/zinc_ors_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_amoxicilline" readonly="true()" type="string" relevant="int( /stock_count/amoxicilline_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_amoxicilline_quantity" readonly="true()" type="string" relevant="int( /stock_count/amoxicilline_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_coartem6" readonly="true()" type="string" relevant="int( /stock_count/coartem6_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_coartem6_quantity" readonly="true()" type="string" relevant="int( /stock_count/coartem6_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_coartem12" readonly="true()" type="string" relevant="int( /stock_count/coartem12_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_coartem12_quantity" readonly="true()" type="string" relevant="int( /stock_count/coartem12_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_act" readonly="true()" type="string" relevant="int( /stock_count/act_remaining ) &gt; 0"/>
-      <bind nodeset="/stock_count/summary/r_act_quantity" readonly="true()" type="string" relevant="int( /stock_count/act_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_material_supplies" readonly="true()" type="string" relevant="int( /stock_count/gloves_remaining ) &gt; 0 or int( /stock_count/masks_remaining ) &gt; 0 or int( /stock_count/sanitizer_remaining ) &gt; 0 or int( /stock_count/mrdts_remaining ) &gt; 0 or int( /stock_count/condoms_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_gloves" readonly="true()" type="string" relevant="int( /stock_count/gloves_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_gloves_quantity" readonly="true()" type="string" relevant="int( /stock_count/gloves_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_masks" readonly="true()" type="string" relevant="int( /stock_count/masks_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_masks_quantity" readonly="true()" type="string" relevant="int( /stock_count/masks_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_sanitizer" readonly="true()" type="string" relevant="int( /stock_count/sanitizer_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_sanitizer_quantity" readonly="true()" type="string" relevant="int( /stock_count/sanitizer_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_mrdts" readonly="true()" type="string" relevant="int( /stock_count/mrdts_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_mrdts_quantity" readonly="true()" type="string" relevant="int( /stock_count/mrdts_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_condoms" readonly="true()" type="string" relevant="int( /stock_count/condoms_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_condoms_quantity" readonly="true()" type="string" relevant="int( /stock_count/condoms_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_drugs" readonly="true()" type="string" relevant="int( /stock_count/paracetamol_remaining ) &gt; 0 or int( /stock_count/zinc_ors_remaining ) &gt; 0 or int( /stock_count/amoxicilline_remaining ) &gt; 0 or int( /stock_count/coartem6_remaining ) &gt; 0 or int( /stock_count/coartem12_remaining ) &gt; 0 or int( /stock_count/act_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_paracetamol" readonly="true()" type="string" relevant="int( /stock_count/paracetamol_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_paracetamol_quantity" readonly="true()" type="string" relevant="int( /stock_count/paracetamol_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_zinc_ors" readonly="true()" type="string" relevant="int( /stock_count/zinc_ors_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_zinc_ors_quantity" readonly="true()" type="string" relevant="int( /stock_count/zinc_ors_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_amoxicilline" readonly="true()" type="string" relevant="int( /stock_count/amoxicilline_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_amoxicilline_quantity" readonly="true()" type="string" relevant="int( /stock_count/amoxicilline_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_coartem6" readonly="true()" type="string" relevant="int( /stock_count/coartem6_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_coartem6_quantity" readonly="true()" type="string" relevant="int( /stock_count/coartem6_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_coartem12" readonly="true()" type="string" relevant="int( /stock_count/coartem12_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_coartem12_quantity" readonly="true()" type="string" relevant="int( /stock_count/coartem12_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_act" readonly="true()" type="string" relevant="int( /stock_count/act_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/r_act_quantity" readonly="true()" type="string" relevant="int( /stock_count/act_remaining ) &gt; 0"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_stock_out" readonly="true()" type="string"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_paracetamol" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs , 'paracetamol')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_zinc_ors" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs , 'zinc_ors')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_amoxicilline" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs , 'amoxicilline')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_coartem6" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs , 'coartem6')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_coartem12" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs , 'coartem12')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_act" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'act')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_condoms" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'condoms')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_sanitizer" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'sanitizer')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_mask" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'mask')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_gloves" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'gloves')"/>
+      <bind nodeset="/stock_count/s_note_submit_button/s_mrdt" readonly="true()" type="string" relevant="selected( /stock_count/stock/report_stockout/report_stockout_supplies_drugs  , 'mrdt')"/>
       <bind nodeset="/stock_count/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -508,85 +528,115 @@
         <hint>** Press the button below **. Make sure location permission is enabled and GPS turned on.</hint>
       </input>
     </group>
-    <group appearance="field-list summary" ref="/stock_count/summary">
-      <label>Results/Summary page</label>
-      <input appearance="h1 yellow" ref="/stock_count/summary/s_note_vht_visit">
-        <label>&lt;h1 style="text-align:center;"&gt;Stock Count&lt;i class="fa fa-user"&gt;&lt;/i&gt; &lt;/h1&gt;</label>
+    <group appearance="field-list summary" ref="/stock_count/s_note_submit_button">
+      <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input appearance="h1 blue" ref="/stock_count/s_note_submit_button/s_material_supplies">
+        <label>Materials and Supplies&lt;i class="fa fa-clipboard"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/stock_count/summary/s_note_submit_button">
-        <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_gloves">
+        <label>Gloves</label>
       </input>
-      <input ref="/stock_count/summary/s_material_supplies">
-        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Materials and Supplies **&lt;/h4&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_gloves_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/gloves_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_gloves">
-        <label>&lt;h5 style="text-align:center;"&gt; **Gloves** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_masks">
+        <label>Masks</label>
       </input>
-      <input ref="/stock_count/summary/r_gloves_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/gloves_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_masks_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/masks_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_masks">
-        <label>&lt;h5 style="text-align:center;"&gt; **Masks** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_sanitizer">
+        <label>Sanitizer</label>
       </input>
-      <input ref="/stock_count/summary/r_masks_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/masks_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_sanitizer_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/sanitizer_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_sanitizer">
-        <label>&lt;h5 style="text-align:center;"&gt; **Sanitizer** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_mrdts">
+        <label>Malaria RDTs</label>
       </input>
-      <input ref="/stock_count/summary/r_sanitizer_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/sanitizer_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_mrdts_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/mrdts_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_mrdts">
-        <label>&lt;h5 style="text-align:center;"&gt; **Malaria RDTs** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_condoms">
+        <label>Condoms</label>
       </input>
-      <input ref="/stock_count/summary/r_mrdts_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/mrdts_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_condoms_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/condoms_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_condoms">
-        <label>&lt;h5 style="text-align:center;"&gt; **Condoms** &lt;/h5&gt;</label>
+      <input appearance="h1 yellow" ref="/stock_count/s_note_submit_button/s_drugs">
+        <label>Drugs&lt;i class="fa fa-medkit"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_condoms_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/condoms_remaining "/> &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_paracetamol">
+        <label>Paracetamol</label>
       </input>
-      <input ref="/stock_count/summary/s_drugs">
-        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**Drugs **&lt;/h4&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_paracetamol_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/paracetamol_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_paracetamol">
-        <label>&lt;h5 style="text-align:center;"&gt; **Paracetamol** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_zinc_ors">
+        <label>Zinc-ORS Co-pack</label>
       </input>
-      <input ref="/stock_count/summary/r_paracetamol_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/paracetamol_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_zinc_ors_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/zinc_ors_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_zinc_ors">
-        <label>&lt;h5 style="text-align:center;"&gt; **Zinc-ORS Co-pack** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_amoxicilline">
+        <label>Amoxicillin Dispersible</label>
       </input>
-      <input ref="/stock_count/summary/r_zinc_ors_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/zinc_ors_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_amoxicilline_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/amoxicilline_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_amoxicilline">
-        <label>&lt;h5 style="text-align:center;"&gt; **Amoxicillin Dispersible** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_coartem6">
+        <label>Coartem – 6pack</label>
       </input>
-      <input ref="/stock_count/summary/r_amoxicilline_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/amoxicilline_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_coartem6_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/coartem6_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_coartem6">
-        <label>&lt;h5 style="text-align:center;"&gt; **Coartem – 6pack** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_coartem12">
+        <label>Coartem – 12pack</label>
       </input>
-      <input ref="/stock_count/summary/r_coartem6_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/coartem6_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_coartem12_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/coartem12_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_coartem12">
-        <label>&lt;h5 style="text-align:center;"&gt; **Coartem – 12pack** &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/r_act">
+        <label>First Line Anti-Malarial (ACT/Coartem)</label>
       </input>
-      <input ref="/stock_count/summary/r_coartem12_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/coartem12_remaining "/> &lt;/h5&gt;</label>
+      <input ref="/stock_count/s_note_submit_button/r_act_quantity">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/act_remaining "/> &lt;/h4&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_act">
-        <label>&lt;h5 style="text-align:center;"&gt; **First Line Anti-Malarial (ACT/Coartem)** &lt;/h5&gt;</label>
+      <input appearance="h1 green" ref="/stock_count/s_note_submit_button/s_stock_out">
+        <label>Stock Out&lt;i class="fa fa-times-circle"&gt;&lt;/i&gt;</label>
       </input>
-      <input ref="/stock_count/summary/r_act_quantity">
-        <label>&lt;h5 style=&quot;text-align:center;&quot;&gt; Quantity remaining: <output value=" /stock_count/act_remaining "/> &lt;/h5&gt;</label>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_paracetamol">
+        <label>Paracetamol</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_zinc_ors">
+        <label>Zinc-ORS Co-pack</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_amoxicilline">
+        <label>Amoxicillin Dispersible</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_coartem6">
+        <label>Coartem – 6pack</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_coartem12">
+        <label>Coartem – 12pack</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_act">
+        <label>First Line Anti-Malarial (ACT/Coartem)</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_condoms">
+        <label>Condoms</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_sanitizer">
+        <label>Hand Sanitizer bottles</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_mask">
+        <label>Masks_ Surgical/Cloths</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_gloves">
+        <label>Pairs of Gloves</label>
+      </input>
+      <input appearance="li" ref="/stock_count/s_note_submit_button/s_mrdt">
+        <label>MRDT kits</label>
       </input>
     </group>
   </h:body>

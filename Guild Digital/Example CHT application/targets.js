@@ -16,8 +16,8 @@ const under5DeathsTarget = (id, translation_key, goal) => ({
   type: 'count',
   icon: 'death',
   goal,
-  context: 'user.role === "vht"',
-  //aggregate:true,
+  context: 'user.role === vht',
+  // aggregate:true,
   translation_key,
   subtitle_translation_key: 'targets.duration.monthly',
   appliesTo: 'reports',
@@ -32,7 +32,7 @@ const under5MalariaCasesTarget = (id, translation_key, goal) => ({
   icon: 'mrdt-positive',
   goal,
   context: 'user.role === "vht_supervisor"',
-  //aggregate:true,
+  aggregate:true,
   translation_key,
   subtitle_translation_key: 'targets.duration.monthly',
   appliesTo: 'reports',
@@ -47,7 +47,7 @@ const washTargets = (id, translation_key, washField, icon = 'hat') => (
     type: 'percent',
     icon,
     goal: -1,
-    context: 'users.role === "vht"',
+    context: 'users.role === vht',
     translation_key,
     subtitle_translation_key: 'targets.duration.alltime',
     appliesTo: 'contacts',
@@ -78,6 +78,7 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['spot_check'],
     date: 'now',
+    aggregate: true
   },
   {
     id: 'vhts-needing-mentorship-this-quarter',
@@ -90,7 +91,7 @@ module.exports = [
     appliesToType: ['spot_check'],
     appliesIf: (c, report) => !c.contact.muted && Utils.getField(report, 'g_vht_feedback.is_vht_knowledgeable') === 'no',
     date: 'now',
-    //aggregate: true
+    // aggregate: true
   },
   {
     id: 'individuals-reached-mentorships',
@@ -103,8 +104,8 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['community_mentorship'],
     date: 'reported',
-    appliesIf: (contact, report) => Utils.getField(report, 'mentorship.num_people_attend')
-
+    appliesIf: (contact, report) => Utils.getField(report, 'mentorship.num_people_attend'),
+    // aggregate: true
   },
   {
     id: 'wash-assessments',
@@ -116,7 +117,8 @@ module.exports = [
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
     appliesToType: ['wash'],
-    date: 'reported'
+    date: 'reported',
+    aggregate: true
   },
   {
     id: 'outbreak-incidents',
@@ -128,7 +130,8 @@ module.exports = [
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
     appliesToType: ['suspected_outbreaks'],
-    date: 'reported'
+    date: 'reported',
+    aggregate: true
   },
   {
     id: 'vhts-hh-visits-percentage',
@@ -141,6 +144,7 @@ module.exports = [
     appliesTo: 'contacts',
     appliesToType: ['person'],
     date: 'reported',
+    // aggregate: true,
     appliesIf: function(contact) {
       return contact.parent && contact.parent.type === 'health_center';
     },
@@ -152,7 +156,7 @@ module.exports = [
     id: 'u5-assessment-malaria-mo',
     type: 'count',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-assessment-malaria-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -165,7 +169,7 @@ module.exports = [
     type: 'count',
     icon: 'death',
     goal: 0,
-    //aggregate: true,
+    aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.deaths-reported.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -179,6 +183,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-confirmed-death',
     goal: 0,
+    aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.deaths-confirmed.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -192,6 +197,7 @@ module.exports = [
     type: 'count',
     icon: 'community',
     goal: -1,
+    // aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.vhts-visited-percentage.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -204,6 +210,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-vhts-with-stockout',
     goal: -1,
+    aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.vhts-stock-out.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -223,6 +230,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-vhts-with-broken',
     goal: -1,
+    // aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.vhts-devices-lost-stolen.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -243,6 +251,7 @@ module.exports = [
     type: 'count',
     icon: 'child',
     goal: -1,
+    aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.u5-referrals.title',
     subtitle_translation_key: 'targets.duration.monthly',
@@ -257,6 +266,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-disabled',
     goal: -1,
+    aggregate: true,
     translation_key: 'targets.disabled-clients.title',
     subtitle_translation_key: 'targets.duration.alltime',
     appliesTo: 'contacts',
@@ -269,53 +279,40 @@ module.exports = [
     type: 'count',
     icon: 'pregnancy-1',
     goal: -1,
+    aggregate: true,
     translation_key: 'targets.pregnancy-registrations.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
     appliesToType: ['pregnancy'],
     date: 'reported'
   },
+  {
+    id: 'hh-registration-alltime',
+    type: 'count',
+    icon: 'household',
+    goal: -1,
+   
+    translation_key: 'targets.hh-registration-alltime.title',
+    subtitle_translation_key: 'targets.duration.alltime',
+    appliesTo: 'contacts',
+    appliesToType: ['clinic'],
+    appliesIf: c => !c.contact.muted,
+    date: 'now',
+    aggregate: true
+  },
+  {
+    id: 'u5-registration-alltime',
+    type: 'count',
+    icon: 'u5-infant',
+    goal: -1,
+    translation_key: 'targets.u5-registration-alltime.title',
+    subtitle_translation_key: 'targets.duration.alltime',
+    appliesTo: 'contacts',
+    appliesToType: ['person'],
+    appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isChildUnder5(c),
+    date: 'now'
+  },
 
-  /**{
-     id: 'a50-registration-alltime',
-     type: 'count',
-     icon: 'a50-adult',
-     goal: -1,
-     //aggregate:true,
-     translation_key: 'targets.a50-registration-alltime.title',
-     subtitle_translation_key: 'targets.duration.alltime',
-     appliesTo: 'contacts',
-     context: 'user.role === "vht_supervisor"',
-     appliesToType: ['person'],
-     appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isPersonAbove50(c),
-     date: 'now'
-   },
- 
-   {
-     id: 'hh-registration-alltime',
-     type: 'count',
-     icon: 'household',
-     goal: -1,
-     translation_key: 'targets.hh-registration-alltime.title',
-     subtitle_translation_key: 'targets.duration.alltime',
-     appliesTo: 'contacts',
-     appliesToType: ['clinic'],
-     appliesIf: c => !c.contact.muted,
-     date: 'now'
-   },
- 
-   {
-     id: 'u5-registration-alltime',
-     type: 'count',
-     icon: 'u5-infant',
-     goal: -1,
-     translation_key: 'targets.u5-registration-alltime.title',
-     subtitle_translation_key: 'targets.duration.alltime',
-     appliesTo: 'contacts',
-     appliesToType: ['person'],
-     appliesIf: c => !c.contact.muted && !c.contact.date_of_death && isChildUnder5(c),
-     date: 'now'
-   },*/
 
   // Under 5 deaths target for a specific time period (e.g., month)
   under5DeathsTarget(
@@ -330,13 +327,12 @@ module.exports = [
     'targets.u5-assessment-malaria-mo.title',
     -1
   ),
-
   {
     id: 'u5-assessment-mo',
     type: 'count',
     icon: 'diagnosis',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-assessment-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -349,7 +345,7 @@ module.exports = [
     type: 'count',
     icon: 'diarrhea',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-assessment-diarrhoea-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -362,7 +358,7 @@ module.exports = [
     type: 'count',
     icon: 'pneumonia',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-assessment-pneumonia-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -375,7 +371,7 @@ module.exports = [
     type: 'count',
     icon: 'malnutrition',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-assessment-malnutrition-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -391,7 +387,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-healthcare-medicine',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-treatment-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -405,7 +401,7 @@ module.exports = [
     goal: -1,
     translation_key: 'targets.u5-treatment-malaria-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
-    context: 'user.roles === "vht"',
+    context: 'user.roles === vht',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     date: 'reported',
@@ -416,7 +412,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-healthcare-medicine',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-treatment-diarrhoea-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -429,7 +425,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-healthcare-medicine',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-treatment-pneumonia-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -442,7 +438,7 @@ module.exports = [
     type: 'count',
     icon: 'mrdt',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-fever-testedmrdt-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -453,13 +449,12 @@ module.exports = [
       return isChildUnder5(c, report) && mrdtResult;
     }
   },
-
   {
     id: 'anc-visits',
     type: 'count',
     icon: 'pregnancy-3',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.anc-visits.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -471,7 +466,7 @@ module.exports = [
     type: 'count',
     icon: 'mother-child',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.health-facility-deliveries.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -485,7 +480,7 @@ module.exports = [
     type: 'count',
     icon: 'mother-child',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.home-deliveries.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -499,7 +494,7 @@ module.exports = [
     type: 'count',
     icon: 'household',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.family-planning-registrations.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -511,7 +506,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-places-clinic',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-referral-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -524,7 +519,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-followup-general',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.u5-referral-followup-mo.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -537,7 +532,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-followup-general',
     goal: -1,
-    context: 'user.role === "vht"',
+    context: 'user.role === vht',
     translation_key: 'targets.anc-referrals.title',
     subtitle_translation_key: 'targets.duration.monthly',
     appliesTo: 'reports',
@@ -549,5 +544,4 @@ module.exports = [
   washTargets('hh-improve-latrine-registrations', 'targets.improve-latrine-registrations.title', 'hh_have_improved_latrine'),
   washTargets('hh-handwashing-facility-registrations', 'targets.handwashing-facility-registrations.title', 'hh_functional_handwashing_facility', 'hand-wash'),
   washTargets('hh-safe-water-registrations', 'targets.safe-water-registrations.title', 'hh_have_safe_drinking_water', 'tap'),
-
 ];

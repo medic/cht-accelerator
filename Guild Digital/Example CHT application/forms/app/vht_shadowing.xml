@@ -112,7 +112,7 @@
       <bind nodeset="/vht_shadowing/created_by_person_uuid" type="string" calculate="../inputs/user/contact_id"/>
       <bind nodeset="/vht_shadowing/created_by_place_uuid" type="string" calculate="../inputs/user/facility_id"/>
       <bind nodeset="/vht_shadowing/shadowing_details/note_vht_shadowing" readonly="true()" type="string"/>
-      <bind nodeset="/vht_shadowing/shadowing_details/shadowing_date" type="date" jr:constraintMsg="Shadowing visit date can't be in the past. Also can't be a future date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) )))"/>
+      <bind nodeset="/vht_shadowing/shadowing_details/shadowing_date" type="date" constraint=". &lt;= today() and (floor(decimal-date-time(.)) &gt;= (floor(decimal-date-time(today()) )))" jr:constraintMsg="Shadowing visit date can't be in the past. Also can't be a future date"/>
       <bind nodeset="/vht_shadowing/shadowing_details/vht_name" type="string"/>
       <bind nodeset="/vht_shadowing/geolocation/latitude" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 0)"/>
       <bind nodeset="/vht_shadowing/geolocation/longitude" type="string" calculate="selected-at( /vht_shadowing/geolocation/gps , 1)"/>

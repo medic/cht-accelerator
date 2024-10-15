@@ -250,7 +250,7 @@ Advice <output value=" /fp_follow_up/patient_name "/> to reach out to you if the
         </fp_follow_up>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/fp_follow_up/inputs" relevant="./source= 'user'" constraint="field-list"/>
+      <bind nodeset="/fp_follow_up/inputs" constraint="field-list" relevant="./source= 'user'"/>
       <bind nodeset="/fp_follow_up/inputs/source" type="string"/>
       <bind nodeset="/fp_follow_up/inputs/source_id" type="string"/>
       <bind nodeset="/fp_follow_up/inputs/contact/_id" type="db:person" constraint="db-object"/>
@@ -280,7 +280,7 @@ Advice <output value=" /fp_follow_up/patient_name "/> to reach out to you if the
       <bind nodeset="/fp_follow_up/fp_follow_up/not_on_fp_reason_other" type="string" relevant="selected(../not_on_fp_reason, 'other')" required="true()"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_thank_patient" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_baby')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_refer_change_fp" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')"/>
-      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_not_on_fp" type="select1" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')" required="true()"/>
+      <bind nodeset="/fp_follow_up/fp_follow_up/referred_patient_not_on_fp" type="select1" relevant="selected(../not_on_fp_reason, 'wants_change_fp') or selected(../not_on_fp_reason, 'side_effects')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_enroll_pregnancy" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'wants_baby')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_counsel_woman" readonly="true()" type="string" relevant="selected(../not_on_fp_reason, 'spouse_refused') or selected(../not_on_fp_reason, 'other')"/>
       <bind nodeset="/fp_follow_up/fp_follow_up/n_fp_method" readonly="true()" type="string" relevant="selected(../on_fp, 'yes')"/>

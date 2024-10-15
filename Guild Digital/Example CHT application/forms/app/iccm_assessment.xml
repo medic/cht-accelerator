@@ -51,11 +51,11 @@
       <bind nodeset="/iccm_assessment/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/iccm_assessment/inputs/contact/name" type="string"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/note_iccm_assessment" readonly="true()" type="string"/>
-      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_sessions_conducted" type="select1" constraint=". &gt;= 0" jr:constraintMsg="Number of ICCM sessions conducted should be more than zero" required="true()"/>
+      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_sessions_conducted" type="select1" required="true()" jr:constraintMsg="Number of ICCM sessions conducted should be more than zero" constraint=". &gt;= 0"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_challenges" type="select1" required="true()"/>
-      <bind nodeset="/iccm_assessment/gp_iccm_assessment/vht_iccm_challenge_list" type="select" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'" required="true()"/>
-      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_challenging_situation" type="select" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'" required="true()"/>
-      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_solution" type="select1" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'" required="true()"/>
+      <bind nodeset="/iccm_assessment/gp_iccm_assessment/vht_iccm_challenge_list" type="select" required="true()" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'"/>
+      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_challenging_situation" type="select" required="true()" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'"/>
+      <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_solution" type="select1" required="true()" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_challenges ='yes'"/>
       <bind nodeset="/iccm_assessment/gp_iccm_assessment/iccm_solution_other" type="string" relevant=" /iccm_assessment/gp_iccm_assessment/iccm_solution  = 'other_solution'"/>
       <bind nodeset="/iccm_assessment/group_functionality_follow_up_summary/s_note_functionality_follow_up" readonly="true()" type="string"/>
       <bind nodeset="/iccm_assessment/group_functionality_follow_up_summary/s_note_submit_button" readonly="true()" type="string"/>

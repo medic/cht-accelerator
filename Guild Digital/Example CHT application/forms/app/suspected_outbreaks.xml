@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>Suspected Outbreaks</h:title>
+    <h:title>Disease Surveillance</h:title>
     <model>
       <instance>
-        <suspected_outbreaks id="suspected_outbreaks" prefix="J1!suspected_outbreaks!" delimiter="#" version="2023-12-08  14-18">
+        <suspected_outbreaks id="disease_surveillance" prefix="J1!disease_surveillance!" delimiter="#" version="2024-09-14  22-39">
           <inputs>
             <meta>
               <location>
@@ -34,12 +34,25 @@
           <patient_age/>
           <patient_family_id/>
           <outbreaks>
-            <outbreak_count/>
+            <outbreak_reported/>
             <reported_outbreak/>
-            <outbreak_frequency/>
-            <affected_area/>
-            <affected_people_count/>
+            <note_2/>
+            <items_repeat jr:template="">
+              <outbreak/>
+              <quantity/>
+              <note_4/>
+            </items_repeat>
           </outbreaks>
+          <s_note_submit_button>
+            <s_name_of_the_vht/>
+            <s_note_outbreaks/>
+            <s_reported_infectious_disease/>
+            <s_reported_waterborne_diseases/>
+            <s_reported_vaccine_preventable_diseases/>
+            <s_reported_respiratory_diseases/>
+            <follow_up/>
+            <s_task/>
+          </s_note_submit_button>
           <meta tag="hidden">
             <instanceID/>
           </meta>
@@ -59,11 +72,21 @@
       <bind nodeset="/suspected_outbreaks/patient_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/suspected_outbreaks/patient_age" type="string" calculate="floor( difference-in-months(  /suspected_outbreaks/inputs/contact/date_of_birth , today() ) div 12 )"/>
       <bind nodeset="/suspected_outbreaks/patient_family_id" type="string" calculate="../inputs/contact/parent/_id"/>
-      <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_count" type="select1" required="true()"/>
-      <bind nodeset="/suspected_outbreaks/outbreaks/reported_outbreak" type="select" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
-      <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_frequency" type="select1" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
-      <bind nodeset="/suspected_outbreaks/outbreaks/affected_area" type="string" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
-      <bind nodeset="/suspected_outbreaks/outbreaks/affected_people_count" type="select1" required="true()" relevant=" /suspected_outbreaks/outbreaks/outbreak_count !=0"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/outbreak_reported" type="select1" required="true()"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/reported_outbreak" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/outbreak_reported  = 'yes'"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/note_2" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/outbreak_reported  = 'yes'"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/items_repeat" relevant=" /suspected_outbreaks/outbreaks/outbreak_reported  = 'yes'" required="true()"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/items_repeat/outbreak" type="select1" required="true()"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/items_repeat/quantity" type="int" constraint=". &gt; 0 and . &lt;= 4" required="true()" relevant=" /suspected_outbreaks/outbreaks/items_repeat/outbreak  != ''"/>
+      <bind nodeset="/suspected_outbreaks/outbreaks/items_repeat/note_4" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/items_repeat/quantity  != ''"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_name_of_the_vht" readonly="true()" type="string"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_note_outbreaks" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/outbreak_reported  = 'yes'"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_reported_infectious_disease" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/items_repeat/outbreak  = 'infectious_disease'"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_reported_waterborne_diseases" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/items_repeat/outbreak  = 'waterborne_diseases'"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_reported_vaccine_preventable_diseases" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/items_repeat/outbreak  = 'vaccine_preventable_diseases'"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_reported_respiratory_diseases" readonly="true()" type="string" relevant=" /suspected_outbreaks/outbreaks/items_repeat/outbreak  = 'respiratory_diseases'"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/follow_up" readonly="true()" type="string"/>
+      <bind nodeset="/suspected_outbreaks/s_note_submit_button/s_task" readonly="true()" type="string"/>
       <bind nodeset="/suspected_outbreaks/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -106,85 +129,80 @@
     </group>
     <group appearance="field-list" ref="/suspected_outbreaks/outbreaks">
       <label>OUTBREAKS</label>
-      <select1 ref="/suspected_outbreaks/outbreaks/outbreak_count">
-        <label>How many outbreaks have you reported?</label>
+      <select1 ref="/suspected_outbreaks/outbreaks/outbreak_reported">
+        <label>Has any outbreaks been reported?</label>
         <item>
-          <label>0</label>
-          <value>0</value>
+          <label>Yes</label>
+          <value>yes</value>
         </item>
         <item>
-          <label>1</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>2</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>3</label>
-          <value>3</value>
+          <label>No</label>
+          <value>no</value>
         </item>
       </select1>
-      <select ref="/suspected_outbreaks/outbreaks/reported_outbreak">
-        <label>What was the reported outbreak?</label>
-        <item>
-          <label>Infectious Disease (e.g., measles, flu, cough)</label>
-          <value>infectious_disease</value>
-        </item>
-        <item>
-          <label>Waterborne Diseases (diarrhea, cholera)</label>
-          <value>waterborne_diseases</value>
-        </item>
-        <item>
-          <label>Vaccine-preventable Diseases (whooping cough, measles)</label>
-          <value>vaccine_preventable_diseases</value>
-        </item>
-        <item>
-          <label>Respiratory Diseases (TB, Covid 19, flu, cough)</label>
-          <value>respiratory_diseases</value>
-        </item>
-      </select>
-      <select1 ref="/suspected_outbreaks/outbreaks/outbreak_frequency">
-        <label>How frequently, on a weekly basis, was the mentioned outbreak reported?</label>
-        <item>
-          <label>Once</label>
-          <value>once</value>
-        </item>
-        <item>
-          <label>Twice</label>
-          <value>twice</value>
-        </item>
-        <item>
-          <label>Thrice</label>
-          <value>thrice</value>
-        </item>
-        <item>
-          <label>More</label>
-          <value>more</value>
-        </item>
-      </select1>
-      <input ref="/suspected_outbreaks/outbreaks/affected_area">
-        <label>What area was affected?</label>
+      <input ref="/suspected_outbreaks/outbreaks/reported_outbreak">
+        <label>**What was the reported outbreak?**</label>
       </input>
-      <select1 ref="/suspected_outbreaks/outbreaks/affected_people_count">
-        <label>How many people are estimated to have been/are affected?</label>
-        <item>
-          <label>10–20</label>
-          <value>2023-10-20 00:00:00</value>
-        </item>
-        <item>
-          <label>30-40</label>
-          <value>30-40</value>
-        </item>
-        <item>
-          <label>50-60</label>
-          <value>50-60</value>
-        </item>
-        <item>
-          <label>70-80</label>
-          <value>70-80</value>
-        </item>
-      </select1>
+      <input ref="/suspected_outbreaks/outbreaks/note_2">
+        <label>Use the button below to add items</label>
+      </input>
+      <group ref="/suspected_outbreaks/outbreaks/items_repeat">
+        <label></label>
+        <repeat nodeset="/suspected_outbreaks/outbreaks/items_repeat" appearance="field-list">
+          <select1 appearance="horizontal" ref="/suspected_outbreaks/outbreaks/items_repeat/outbreak">
+            <label>Select the out break you would like to report</label>
+            <item>
+              <label>Infectious Disease (e.g., measles, flu, cough)</label>
+              <value>infectious_disease</value>
+            </item>
+            <item>
+              <label>Waterborne Diseases (diarrhea, cholera)</label>
+              <value>waterborne_diseases</value>
+            </item>
+            <item>
+              <label>Vaccine-preventable Diseases (whooping cough, measles)</label>
+              <value>vaccine_preventable_diseases</value>
+            </item>
+            <item>
+              <label>Respiratory Diseases (TB, Covid 19, flu, cough)</label>
+              <value>respiratory_diseases</value>
+            </item>
+          </select1>
+          <input ref="/suspected_outbreaks/outbreaks/items_repeat/quantity">
+            <label>Number of times <output value=" /suspected_outbreaks/outbreaks/items_repeat/outbreak "/> was reported</label>
+          </input>
+          <input ref="/suspected_outbreaks/outbreaks/items_repeat/note_4">
+            <label>Use the button below to add more items</label>
+          </input>
+        </repeat>
+      </group>
+    </group>
+    <group appearance="field-list summary" ref="/suspected_outbreaks/s_note_submit_button">
+      <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
+      <input ref="/suspected_outbreaks/s_note_submit_button/s_name_of_the_vht">
+        <label>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /suspected_outbreaks/inputs/contact/name "/>&lt;/h4&gt;</label>
+      </input>
+      <input appearance="h2 yellow" ref="/suspected_outbreaks/s_note_submit_button/s_note_outbreaks">
+        <label>Reported outbreaks</label>
+      </input>
+      <input appearance="li" ref="/suspected_outbreaks/s_note_submit_button/s_reported_infectious_disease">
+        <label>Infectious Disease (e.g., measles, flu, cough) : <output value=" /suspected_outbreaks/outbreaks/items_repeat/quantity "/> times</label>
+      </input>
+      <input appearance="li" ref="/suspected_outbreaks/s_note_submit_button/s_reported_waterborne_diseases">
+        <label>Waterborne Diseases (diarrhea, cholera) : <output value=" /suspected_outbreaks/outbreaks/items_repeat/quantity "/> times</label>
+      </input>
+      <input appearance="li" ref="/suspected_outbreaks/s_note_submit_button/s_reported_vaccine_preventable_diseases">
+        <label>Vaccine-preventable Diseases (whooping cough, measles) : <output value=" /suspected_outbreaks/outbreaks/items_repeat/quantity "/> times</label>
+      </input>
+      <input appearance="li" ref="/suspected_outbreaks/s_note_submit_button/s_reported_respiratory_diseases">
+        <label>Respiratory Diseases (TB, Covid 19, flu, cough) : <output value=" /suspected_outbreaks/outbreaks/items_repeat/quantity "/> times</label>
+      </input>
+      <input appearance="h1 green" ref="/suspected_outbreaks/s_note_submit_button/follow_up">
+        <label>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</label>
+      </input>
+      <input ref="/suspected_outbreaks/s_note_submit_button/s_task">
+        <label>&lt;h4 style=""&gt; Please conduct a suspected outbreak follow up task in 3 days &lt;/h4&gt;</label>
+      </input>
     </group>
   </h:body>
 </h:html>

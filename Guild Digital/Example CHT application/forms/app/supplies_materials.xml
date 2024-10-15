@@ -4,7 +4,7 @@
     <h:title>Supplies and Materials</h:title>
     <model>
       <instance>
-        <supplies_materials id="supplies_materials" prefix="J1!supplies_materials!" delimiter="#" version="2023-12-02  15-25">
+        <supplies_materials id="supplies_materials" prefix="J1!supplies_materials!" delimiter="#" version="1970-01-01 03:00:00">
           <inputs>
             <meta>
               <location>
@@ -44,23 +44,23 @@
         </supplies_materials>
       </instance>
       <instance id="contact-summary"/>
-      <bind nodeset="/supplies_materials/inputs" relevant="./source='user'"/>
+      <bind nodeset="/supplies_materials/inputs" relevant="./source=&amp;apos;user&amp;apos;"/>
       <bind nodeset="/supplies_materials/inputs/source" type="string"/>
       <bind nodeset="/supplies_materials/inputs/source_id" type="string"/>
       <bind nodeset="/supplies_materials/inputs/contact/_id" type="db:person" required="true()"/>
       <bind nodeset="/supplies_materials/inputs/contact/name" type="string"/>
       <bind nodeset="/supplies_materials/supplies_materials/drugs_locked_box" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_a" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/drugs_locked_box  = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_a" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/drugs_locked_box  = &amp;apos;no&amp;apos;"/>
       <bind nodeset="/supplies_materials/supplies_materials/supplies_clean_dry" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_b" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/supplies_clean_dry = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/supervisor_note_b" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/supplies_clean_dry = &amp;apos;no&amp;apos;"/>
       <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/ors_sachets_6_or_more  = 'no'"/>
+      <bind nodeset="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note" readonly="true()" type="string" relevant=" /supplies_materials/supplies_materials/ors_sachets_6_or_more  = &amp;apos;no&amp;apos;"/>
       <bind nodeset="/supplies_materials/supplies_materials/zinc_blisters_2_or_more" type="select1" required="true()"/>
       <bind nodeset="/supplies_materials/items_received/items_distributed" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/items_received/received_for_distribution" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = &amp;apos;yes&amp;apos;"/>
       <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_type" type="select1" required="true()"/>
-      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" required="true()" constraint=". &gt;= 0" jr:constraintMsg="Number of items distributed should be more than zero"/>
-      <bind nodeset="/supplies_materials/items_received/households_received" type="select1" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = 'yes'"/>
+      <bind nodeset="/supplies_materials/items_received/received_for_distribution/item_quantity" type="int" jr:constraintMsg="Number of items distributed should be more than zero" required="true()" constraint=". &gt;= 0"/>
+      <bind nodeset="/supplies_materials/items_received/households_received" type="select1" required="true()" relevant=" /supplies_materials/items_received/items_distributed  = &amp;apos;yes&amp;apos;"/>
       <bind nodeset="/supplies_materials/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
     </model>
   </h:head>
@@ -97,7 +97,7 @@
         </item>
       </select1>
       <input ref="/supplies_materials/supplies_materials/supervisor_note_a">
-        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all drugs are stored in a dry place to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+        <label>Advise the VHT to ensure that all drugs are stored in a dry place to maintain their effectiveness and prevent damage</label>
       </input>
       <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/supplies_clean_dry">
         <label>Are the supplies kept clean and dry?</label>
@@ -111,7 +111,7 @@
         </item>
       </select1>
       <input ref="/supplies_materials/supplies_materials/supervisor_note_b">
-        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to ensure that all supplies are kept clean and dry to maintain their effectiveness and prevent damage&lt;/span&gt;</label>
+        <label>Advise the VHT to ensure that all supplies are kept clean and dry to maintain their effectiveness and prevent damage</label>
       </input>
       <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/ors_sachets_6_or_more">
         <label>Do you have 6 or more ORS sachets?</label>
@@ -125,7 +125,7 @@
         </item>
       </select1>
       <input ref="/supplies_materials/supplies_materials/ors_sachets_6_or_more_note">
-        <label>&lt;span style="color:r#A9A9A9"&gt;Advise the VHT to go for a refill immediately&lt;/span&gt;</label>
+        <label>Advise the VHT to go for a refill immediately</label>
       </input>
       <select1 appearance="horizontal" ref="/supplies_materials/supplies_materials/zinc_blisters_2_or_more">
         <label>Do you have 2 or more Zinc blisters?</label>

@@ -4,7 +4,7 @@
     <h:title>Spot Check</h:title>
     <model>
       <instance>
-        <spot_check id="spot_check" prefix="J1!spot_check!" delimiter="#" version="2024-01-12  15-29">
+        <spot_check id="spot_check" prefix="J1!spot_check!" delimiter="#" version="2024-09-02  1-36">
           <inputs>
             <meta>
               <location>
@@ -59,6 +59,7 @@
             <vht_has_visited_30/>
           </home_visit>
           <g_iccm_assessment>
+            <capture_child/>
             <u5_hh_present/>
             <note_u5_evaluate/>
             <note_shadow_iccm/>
@@ -69,12 +70,14 @@
             <visited_healthy_facility/>
           </g_iccm_assessment>
           <g_maternal_health>
+            <capture_maternal/>
             <pregnant_woman_present/>
             <visited_or_registered_pregnancy/>
             <has_attending_anc/>
             <hav_danger_signs/>
           </g_maternal_health>
           <g_wash>
+            <capture_water/>
             <observe_and_check_wash/>
             <hh_pass_hh_wash/>
           </g_wash>
@@ -91,7 +94,6 @@
             <vht_has_treated/>
           </g_vht_feedback>
           <group_spot_check>
-            <s_note_spot_check/>
             <s_note_submit_button/>
             <s_note_mentorship_details/>
             <s_vht_visit_value/>
@@ -151,32 +153,34 @@
       <bind nodeset="/spot_check/geolocation/accuracy" type="string" calculate="selected-at( /spot_check/geolocation/gps , 3)"/>
       <bind nodeset="/spot_check/geolocation/gps" type="geopoint"/>
       <bind nodeset="/spot_check/home_visit/r_person_present" type="select1" required="true()"/>
-      <bind nodeset="/spot_check/home_visit/reason_person_present" type="string" required="true()" relevant=" /spot_check/home_visit/r_person_present  = 'no'"/>
-      <bind nodeset="/spot_check/home_visit/reschedule_appointment" type="date" required="true()" constraint=". &gt;= today()" relevant=" /spot_check/home_visit/r_person_present  = 'no'" jr:constraintMsg="Date can only be future date"/>
-      <bind nodeset="/spot_check/home_visit/vht_has_visited_30" type="select1" required="true()" relevant=" /spot_check/home_visit/r_person_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/u5_hh_present" type="select1" required="true()"/>
+      <bind nodeset="/spot_check/home_visit/reason_person_present" type="string" relevant=" /spot_check/home_visit/r_person_present  = 'no'" required="true()"/>
+      <bind nodeset="/spot_check/home_visit/reschedule_appointment" type="date" relevant=" /spot_check/home_visit/r_person_present  = 'no'" constraint=". &gt;= today()" jr:constraintMsg="Date can only be future date" required="true()"/>
+      <bind nodeset="/spot_check/home_visit/vht_has_visited_30" type="select1" relevant=" /spot_check/home_visit/r_person_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/capture_child" type="select1" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/u5_hh_present" type="select1" relevant=" /spot_check/g_iccm_assessment/capture_child  = 'yes'" required="true()"/>
       <bind nodeset="/spot_check/g_iccm_assessment/note_u5_evaluate" readonly="true()" type="string" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'"/>
       <bind nodeset="/spot_check/g_iccm_assessment/note_shadow_iccm" readonly="true()" type="string" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/child_well_unwell" type="select1" required="true()" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/vht_visited_child" type="select1" required="true()" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/children_treated" type="select1" required="true()" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/referal_made" type="select1" required="true()" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'"/>
-      <bind nodeset="/spot_check/g_iccm_assessment/visited_healthy_facility" type="select1" required="true()" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'"/>
-      <bind nodeset="/spot_check/g_maternal_health/pregnant_woman_present" type="select1" required="true()"/>
-      <bind nodeset="/spot_check/g_maternal_health/visited_or_registered_pregnancy" type="select1" required="true()" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_maternal_health/has_attending_anc" type="select1" required="true()" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_maternal_health/hav_danger_signs" type="select1" required="true()" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'"/>
-      <bind nodeset="/spot_check/g_wash/observe_and_check_wash" type="select" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/child_well_unwell" type="select1" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/vht_visited_child" type="select1" relevant=" /spot_check/g_iccm_assessment/u5_hh_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/children_treated" type="select1" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/referal_made" type="select1" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'" required="true()"/>
+      <bind nodeset="/spot_check/g_iccm_assessment/visited_healthy_facility" type="select1" relevant=" /spot_check/g_iccm_assessment/child_well_unwell  = 'no'" required="true()"/>
+      <bind nodeset="/spot_check/g_maternal_health/capture_maternal" type="select1" required="true()"/>
+      <bind nodeset="/spot_check/g_maternal_health/pregnant_woman_present" type="select1" relevant=" /spot_check/g_maternal_health/capture_maternal  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_maternal_health/visited_or_registered_pregnancy" type="select1" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_maternal_health/has_attending_anc" type="select1" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_maternal_health/hav_danger_signs" type="select1" relevant=" /spot_check/g_maternal_health/pregnant_woman_present  = 'yes'" required="true()"/>
+      <bind nodeset="/spot_check/g_wash/capture_water" type="select1" required="true()"/>
+      <bind nodeset="/spot_check/g_wash/observe_and_check_wash" type="select" relevant=" /spot_check/g_wash/capture_water  = 'yes'" required="true()"/>
       <bind nodeset="/spot_check/g_wash/hh_pass_hh_wash" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_rumours_and_alert/rumours_and_alerts_present" type="select1" required="true()"/>
-      <bind nodeset="/spot_check/g_rumours_and_alert/record_rumour" type="string" required="true()" relevant=" /spot_check/g_rumours_and_alert/rumours_and_alerts_present  = 'yes'"/>
+      <bind nodeset="/spot_check/g_rumours_and_alert/record_rumour" type="string" relevant=" /spot_check/g_rumours_and_alert/rumours_and_alerts_present  = 'yes'" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/is_vht_friendly" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/is_vht_knowledgeable" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/has_vht_visited30" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/vht_has_comm_skills" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/vht_is_supportive" type="select1" required="true()"/>
       <bind nodeset="/spot_check/g_vht_feedback/vht_has_treated" type="select1" required="true()"/>
-      <bind nodeset="/spot_check/group_spot_check/s_note_spot_check" readonly="true()" type="string"/>
       <bind nodeset="/spot_check/group_spot_check/s_note_submit_button" readonly="true()" type="string"/>
       <bind nodeset="/spot_check/group_spot_check/s_note_mentorship_details" readonly="true()" type="string"/>
       <bind nodeset="/spot_check/group_spot_check/s_vht_visit_value" readonly="true()" type="string"/>
@@ -267,6 +271,17 @@
     </group>
     <group appearance="Field-list" ref="/spot_check/g_iccm_assessment">
       <label>ICCM Case Management</label>
+      <select1 ref="/spot_check/g_iccm_assessment/capture_child">
+        <label>Do you want to capture information on Child Health</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
       <select1 ref="/spot_check/g_iccm_assessment/u5_hh_present">
         <label>Is there an U5 child or children in the household?</label>
         <item>
@@ -343,6 +358,17 @@ have observed.</label>
     </group>
     <group appearance="Field-list" ref="/spot_check/g_maternal_health">
       <label>Maternal Health</label>
+      <select1 ref="/spot_check/g_maternal_health/capture_maternal">
+        <label>Do you want to capture information on Maternal Health</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
       <select1 ref="/spot_check/g_maternal_health/pregnant_woman_present">
         <label>Is there a pregnant woman or women in the household?</label>
         <item>
@@ -390,6 +416,17 @@ have observed.</label>
     </group>
     <group appearance="Field-list" ref="/spot_check/g_wash">
       <label>Water and Sanitation</label>
+      <select1 ref="/spot_check/g_wash/capture_water">
+        <label>Do you want to capture information on Water and Sanitation</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
       <select ref="/spot_check/g_wash/observe_and_check_wash">
         <label>Observe and check if all present standard WASH facilities are present</label>
         <item>
@@ -512,15 +549,12 @@ have observed.</label>
       </select1>
     </group>
     <group appearance="field-list summary" ref="/spot_check/group_spot_check">
-      <label>Results/Summary Page:</label>
-      <input appearance="h1 yellow" ref="/spot_check/group_spot_check/s_note_spot_check">
-        <label>Spot Check Summary</label>
-      </input>
+      <label>&lt;h3 style="text-align:center; background-color: yellow;"&gt;Summary&lt;/h3&gt;</label>
       <input ref="/spot_check/group_spot_check/s_note_submit_button">
         <label>&lt;h4 style="text-align:center;"&gt;Be sure you Submit to complete this action.&lt;/h4&gt;</label>
       </input>
       <input ref="/spot_check/group_spot_check/s_note_mentorship_details">
-        <label>&lt;h4 style="text-align:center;background-color:#FFD580;"&gt;**Session Attendance Details**&lt;/h4&gt;</label>
+        <label>&lt;h4 style="text-align:center;background-color: #FFA500;"&gt;**Session Attendance Details**&lt;/h4&gt;</label>
       </input>
       <input ref="/spot_check/group_spot_check/s_vht_visit_value">
         <label>&lt;p style=&quot;text-align: center;&quot;&gt;<output value=" /spot_check/inputs/contact/name "/>&lt;/p&gt;</label>
@@ -562,7 +596,7 @@ have observed.</label>
         <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Danger signs: <output value=" /spot_check/g_maternal_health/hav_danger_signs "/> &lt;/h5&gt;</label>
       </input>
       <input ref="/spot_check/group_spot_check/s_wash_assessment">
-        <label>&lt;h4 style="text-align:center;background-color:#add8e6;"&gt;**WASH**&lt;/h4&gt;</label>
+        <label>&lt;h3 style="text-align:center; color:black; background-color:yellow;"&gt;Summary&lt;/h3&gt;</label>
       </input>
       <input ref="/spot_check/group_spot_check/s_hh_pass_hh_wash">
         <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;WASH facility pass: <output value=" /spot_check/g_wash/hh_pass_hh_wash "/> &lt;/h5&gt;</label>
@@ -585,11 +619,11 @@ have observed.</label>
       <input ref="/spot_check/group_spot_check/s_vht_has_treated">
         <label>&lt;h5 style=&quot;text-align:center;&quot;&gt;Treatment provision: <output value=" /spot_check/g_vht_feedback/vht_has_treated "/> &lt;/h5&gt;</label>
       </input>
-      <input appearance="h1 green" ref="/spot_check/group_spot_check/s_followup">
-        <label>Follow Up</label>
+      <input ref="/spot_check/group_spot_check/s_followup">
+        <label>&lt;h4 style="text-align:center;"&gt;Follow Up &lt;/h4&gt;</label>
       </input>
       <input ref="/spot_check/group_spot_check/s_followup_note">
-        <label>You will receive a mentorship follow-up task in due in 5 days</label>
+        <label>&lt;h4 style="text-align:center;"&gt;You will receive a mentorship follow-up task in due in 5 days&lt;/h4&gt;</label>
       </input>
     </group>
   </h:body>
