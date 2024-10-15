@@ -12,9 +12,9 @@ describe('Assessment form test', () => {
         return await harness.stop();
     });
     beforeEach(async () => {
-        await harness.clear();
+         await harness.clear();
         // set harnes date to Jan 1st 2023
-        return await harness.setNow('2023-08-24');
+        return await harness.setNow(new Date());
     });
     afterEach(() => {
         expect(harness.consoleErrors).to.be.empty;
@@ -25,7 +25,7 @@ describe('Assessment form test', () => {
         expect(harness.state.pageContent).to.include(`${formName}`);
     });
 
-    // Test that the Patient is not available for Assessment
+    // Test that the Patient is taking any medication
     it('assessment form can be filled and successfully saved - medication', async () => {
         // Load the assessment form and fill in
         const result = await harness.fillForm(formName, ...assessmentScenarios.medication);
@@ -34,11 +34,11 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.reaction': 'Yes'
+            'reporter.group_report.group_report_adr.medication': 'Yes'
         });
         
     });
-    // Test that the Patient is not available for Assessment
+    // Test that a Poor Quality Medicine is reported
     it('assessment form can be filled and successfully saved - Poor Quality Medicine', async () => {
         // Load the assessment form and fill in
         const result = await harness.fillForm(formName, ...assessmentScenarios.poorQuality);
@@ -47,7 +47,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.medicine': 'Yes'
+            'reporter.group_report.group_report_quality.medicine': 'Yes'
         });
         
     });
@@ -59,7 +59,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.immunization_time': 'Within the Immunization Window'
+            'reporter.group_report.group_report_adr.immunization_time': 'Within the Immunization Window'
         });
     });
 
@@ -71,7 +71,7 @@ describe('Assessment form test', () => {
 
         // Verify some attributes on the resulting report
         expect(result.report.fields).to.nested.include({
-            'reporter.group_report.death': 'Yes',
+            'reporter.group_report.group_report_death.death': 'Yes',
         });
         
     });

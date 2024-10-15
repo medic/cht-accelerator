@@ -14,7 +14,7 @@ describe('CHW Supervisor Confirmation form test', () => {
     beforeEach(async () => {
         await harness.clear();
         // set harnes date to Jan 1st 2023
-        return await harness.setNow('2023-08-24');
+        return await harness.setNow(new Date());
     });
     afterEach(() => {
         expect(harness.consoleErrors).to.be.empty;

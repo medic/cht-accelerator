@@ -1,9 +1,7 @@
 //Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'household' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
-//Define a function to determine if contact is patient
-// const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
-
+ 
 
 module.exports = [
    
