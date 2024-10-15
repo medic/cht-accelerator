@@ -251,7 +251,7 @@ module.exports = [
     type: 'count',
     icon: 'child',
     goal: -1,
-    // aggregate: true,
+    aggregate: true,
     context: 'user.role === "vht_supervisor"',
     translation_key: 'targets.u5-referrals.title',
     subtitle_translation_key: 'targets.duration.monthly',
