@@ -1,0 +1,10 @@
+{
+  "icon": "icon-people-baby",
+  "title": "Postnatal danger sign follow-up - baby",
+  "context": {
+    "person": true,
+    "place": false,
+    "expression": "user._id != contact._id && (!contact.date_of_birth || ageInYears(contact) < 5) && summary.alive && !contact.muted"
+  },
+  "hidden_fields": ["source", "source_id", "patient_uuid", "patient_id"]
+}

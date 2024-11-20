@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>HIV screening</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/hiv_screening/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/parent/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/parent/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/hiv_screening/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/hiv_screening/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/hiv_screening/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/hiv_screening/inputs:label">
+            <value>Patient</value>
+          </text>
+          <text id="/hiv_screening/last_hiv_test/0:label">
+            <value>Never tested</value>
+          </text>
+          <text id="/hiv_screening/last_hiv_test/3:label">
+            <value>Within the last 3 months</value>
+          </text>
+          <text id="/hiv_screening/last_hiv_test/4:label">
+            <value>More than 3 months ago</value>
+          </text>
+          <text id="/hiv_screening/last_hiv_test:label">
+            <value>When was the last time <output value=" /hiv_screening/patient_name "/> had a HIV test done?</value>
+          </text>
+          <text id="/hiv_screening/n_refer_for_hiv:label">
+            <value>_Refer <output value=" /hiv_screening/patient_name "/> to the health facility for HIV testing._</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <hiv_screening delimiter="#" id="hiv_screening" prefix="J1!hiv_screening!">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source tag="hidden">user</source>
+            <source_id tag="hidden"/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id tag="hidden"/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <source tag="hidden"/>
+          <source_id tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name/>
+          <patient_date_of_birth/>
+          <patient_age_in_years>0</patient_age_in_years>
+          <patient_age_in_months>0</patient_age_in_months>
+          <patient_age_in_days/>
+          <patient_age_in_weeks/>
+          <date_of_birth/>
+          <chw_phone/>
+          <last_hiv_test/>
+          <refer_for_hiv/>
+          <n_refer_for_hiv/>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </hiv_screening>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/hiv_screening/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/hiv_screening/inputs/source" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/source_id" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/hiv_screening/inputs/contact/name" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/sex" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/hiv_screening/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind calculate="../inputs/source" nodeset="/hiv_screening/source" type="string"/>
+      <bind calculate="../inputs/source_id" nodeset="/hiv_screening/source_id" type="string"/>
+      <bind calculate="../inputs/contact/_id" nodeset="/hiv_screening/patient_uuid" type="string"/>
+      <bind calculate="../inputs/contact/_id" nodeset="/hiv_screening/patient_id" required="true()" type="string"/>
+      <bind calculate="../inputs/contact/name" nodeset="/hiv_screening/patient_name" type="string"/>
+      <bind calculate="../inputs/contact/date_of_birth" nodeset="/hiv_screening/patient_date_of_birth" type="string"/>
+      <bind calculate="floor( difference-in-months(  /hiv_screening/patient_date_of_birth , today() ) div 12 )" nodeset="/hiv_screening/patient_age_in_years" type="string"/>
+      <bind calculate="difference-in-months(  /hiv_screening/patient_date_of_birth , today() )" nodeset="/hiv_screening/patient_age_in_months" type="string"/>
+      <bind calculate="floor( decimal-date-time(today()) - decimal-date-time( /hiv_screening/patient_date_of_birth ) )" nodeset="/hiv_screening/patient_age_in_days" type="string"/>
+      <bind calculate="floor((decimal-date-time(today()) - decimal-date-time( /hiv_screening/patient_date_of_birth )) div 7)" nodeset="/hiv_screening/patient_age_in_weeks" type="string"/>
+      <bind calculate="../inputs/contact/date_of_birth" nodeset="/hiv_screening/date_of_birth" type="string"/>
+      <bind calculate="../inputs/contact/parent/parent/contact/phone" nodeset="/hiv_screening/chw_phone" type="string"/>
+      <bind nodeset="/hiv_screening/last_hiv_test" required="true()" type="select1"/>
+      <bind calculate="if(selected(../last_hiv_test, '0')
+or selected(../last_hiv_test, '4'), 'yes', 'no')" nodeset="/hiv_screening/refer_for_hiv" type="string"/>
+      <bind nodeset="/hiv_screening/n_refer_for_hiv" readonly="true()" relevant="selected(../last_hiv_test, '0')
+or selected(../last_hiv_test, '4')" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/hiv_screening/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/hiv_screening/inputs">
+      <label ref="jr:itext('/hiv_screening/inputs:label')"/>
+      <group ref="/hiv_screening/inputs/contact">
+        <label ref="jr:itext('/hiv_screening/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/hiv_screening/inputs/contact/_id">
+          <label ref="jr:itext('/hiv_screening/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/hiv_screening/inputs/contact/parent">
+          <label ref="jr:itext('/hiv_screening/inputs/contact/parent:label')"/>
+          <group ref="/hiv_screening/inputs/contact/parent/parent">
+            <label ref="jr:itext('/hiv_screening/inputs/contact/parent/parent:label')"/>
+            <group ref="/hiv_screening/inputs/contact/parent/parent/contact">
+              <label ref="jr:itext('/hiv_screening/inputs/contact/parent/parent/contact:label')"/>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <select1 ref="/hiv_screening/last_hiv_test">
+      <label ref="jr:itext('/hiv_screening/last_hiv_test:label')"/>
+      <item>
+        <label ref="jr:itext('/hiv_screening/last_hiv_test/0:label')"/>
+        <value>0</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/hiv_screening/last_hiv_test/3:label')"/>
+        <value>3</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/hiv_screening/last_hiv_test/4:label')"/>
+        <value>4</value>
+      </item>
+    </select1>
+    <input ref="/hiv_screening/n_refer_for_hiv">
+      <label ref="jr:itext('/hiv_screening/n_refer_for_hiv:label')"/>
+    </input>
+  </h:body>
+</h:html>

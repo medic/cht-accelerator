@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>HIV home visit</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/hiv_home_visit/group_review/n_abdominal_pain:label">
+            <value>Abdominal pain</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_blisters_sores_rash:label">
+            <value>Blisters, sores or rash</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_body_pains:label">
+            <value>Body pains</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_diarrhoea:label">
+            <value>Diarrhoea</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_difficulty_breathing:label">
+            <value>Difficulty breathing</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_difficulty_swallowing:label">
+            <value>Difficulty swallowing</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_dizziness:label">
+            <value>Dizziness</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_fear:label">
+            <value>Fear</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_fever:label">
+            <value>Fever</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_findings_title:label">
+            <value>Findings&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_follow_up:label">
+            <value>Tasks will appear when follow up is needed.</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_follow_up_title:label">
+            <value>Follow Up&lt;i class="fa fa-flag"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_headaches:label">
+            <value>Headaches</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_insomnia:label">
+            <value>Insomnia/sleeplessness</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_jaundice:label">
+            <value>Yellow eyes (jaundice)</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_loss_of_appetite:label">
+            <value>Loss of appetite</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_night_sweats:label">
+            <value>Sweating at night</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_nightmares:label">
+            <value>Experiencing nightmares</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_none:label">
+            <value>None</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_patient_details:label">
+            <value>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /hiv_home_visit/patient_name "/>&lt;/h4&gt;&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /hiv_home_visit/patient_age_in_years "/> years old&lt;/h5&gt;</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_patient_details_title:label">
+            <value>Patient Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_referral:label">
+            <value>_Refer <output value=" /hiv_home_visit/patient_name "/> immediately for danger signs management!_</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_referral_title:label">
+            <value>Refer to health facility&lt;i class="fa fa-warning"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_side_effects_title:label">
+            <value>**_Side effects_**</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_submit:label">
+            <value>_Be sure you submit to complete this action._</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_swollen_eyes:label">
+            <value>Swollen eyes</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_swollen_tongue:label">
+            <value>Swollen tongue</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_vomiting:label">
+            <value>Vomiting</value>
+          </text>
+          <text id="/hiv_home_visit/group_review/n_weakness_or_fatigue:label">
+            <value>Weakness or fatigue</value>
+          </text>
+          <text id="/hiv_home_visit/group_review:label">
+            <value>Results/Summary page</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/meta/location/lat:label">
+            <value>Latitude</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/meta/location/long:label">
+            <value>Longitude</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/meta/location:label">
+            <value>Location</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/meta:label">
+            <value>Meta</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/hiv_home_visit/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/hiv_home_visit/inputs:label">
+            <value>Patient</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/n_refer1:label">
+            <value>_Refer <output value=" /hiv_home_visit/patient_name "/> to the health facility for further management._</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/n_refer_and_accompany1:label">
+            <value>_Accompany <output value=" /hiv_home_visit/patient_name "/> to the health facility for further management._</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/body_pains:label">
+            <value>Body pains/fever</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/diarrhoea:label">
+            <value>Diarrhoea</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/jaundice:label">
+            <value>Yellow eyes (jaundice)</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/none:label">
+            <value>None</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/severe_abdominal_pain:label">
+            <value>Severe abdominal pain</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/severe_headache:label">
+            <value>Severe or daily headache</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/shortness_of_breath:label">
+            <value>Shortness of breath</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/swelling_sores_rash:label">
+            <value>Swelling, sores or rash</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/vomiting:label">
+            <value>Vomiting</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects/weight_loss:label">
+            <value>Significant weight loss</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects:hint">
+            <value>Tick every condition/symptom that applies</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects:jr:constraintMsg">
+            <value>None cannot be selected with any other option!</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening/side_effects:label">
+            <value>Is <output value=" /hiv_home_visit/patient_name "/> experiencing any of the following signs?</value>
+          </text>
+          <text id="/hiv_home_visit/side_effect_screening:label">
+            <value>Side effects screening</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/challenges_taking_medication/no:label">
+            <value>No</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/challenges_taking_medication/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/challenges_taking_medication:label">
+            <value>Does <output value=" /hiv_home_visit/patient_name "/> have any challenges taking their medication?</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/n_plan_to_accompany:label">
+            <value>_Plan to accompany <output value=" /hiv_home_visit/patient_name "/> on their next appointment._</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/n_provide_emotional_support:label">
+            <value>_Provide emotional support to <output value=" /hiv_home_visit/patient_name "/>._</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/next_visit:jr:constraintMsg">
+            <value>Date cannot be in the past!</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/next_visit:label">
+            <value>When is the next appointment date?</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/taking_treatment/no:label">
+            <value>No</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/taking_treatment/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance/taking_treatment:label">
+            <value>Is <output value=" /hiv_home_visit/patient_name "/> taking treatment as prescribed?</value>
+          </text>
+          <text id="/hiv_home_visit/treatment_adherance:label">
+            <value>ARV adherance</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <hiv_home_visit delimiter="#" id="hiv_home_visit" prefix="J1!hiv_home_visit!" version="2024-03-11 15:02:28">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source tag="hidden">user</source>
+            <source_id tag="hidden"/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id tag="hidden"/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <contact>
+                  <name/>
+                  <phone/>
+                  <meta tag="hidden">
+                    <location>
+                      <lat/>
+                      <long/>
+                    </location>
+                  </meta>
+                </contact>
+              </parent>
+            </contact>
+          </inputs>
+          <source tag="hidden"/>
+          <source_id tag="hidden"/>
+          <patient_age_in_years/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name/>
+          <date_of_birth/>
+          <chw_phone/>
+          <geolocation/>
+          <treatment_adherance>
+            <taking_treatment/>
+            <challenges_taking_medication/>
+            <n_provide_emotional_support/>
+            <next_visit/>
+            <n_plan_to_accompany/>
+          </treatment_adherance>
+          <side_effect_screening>
+            <side_effects/>
+            <refer_and_accompany/>
+            <refer_only/>
+            <n_refer_and_accompany1/>
+            <n_refer1/>
+          </side_effect_screening>
+          <group_review>
+            <n_submit/>
+            <n_patient_details_title/>
+            <n_patient_details/>
+            <n_findings_title/>
+            <n_side_effects_title/>
+            <n_headaches/>
+            <n_difficulty_breathing/>
+            <n_difficulty_swallowing/>
+            <n_body_pains/>
+            <n_vomiting/>
+            <n_diarrhoea/>
+            <n_swollen_tongue/>
+            <n_weakness_or_fatigue/>
+            <n_swollen_eyes/>
+            <n_jaundice/>
+            <n_fever/>
+            <n_blisters_sores_rash/>
+            <n_abdominal_pain/>
+            <n_nightmares/>
+            <n_loss_of_appetite/>
+            <n_insomnia/>
+            <n_night_sweats/>
+            <n_fear/>
+            <n_dizziness/>
+            <n_none/>
+            <n_referral_title/>
+            <n_referral/>
+            <n_follow_up_title/>
+            <n_follow_up/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </hiv_home_visit>
+      </instance>
+      <instance id="contact-summary"/>
+      <bind nodeset="/hiv_home_visit/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/hiv_home_visit/inputs/source" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/source_id" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/_id" type="db:person"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/name" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/sex" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/parent/contact/name" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/parent/contact/phone" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/parent/contact/meta/location/lat" type="string"/>
+      <bind nodeset="/hiv_home_visit/inputs/contact/parent/contact/meta/location/long" type="string"/>
+      <bind calculate="../inputs/source" nodeset="/hiv_home_visit/source" type="string"/>
+      <bind calculate="../inputs/source_id" nodeset="/hiv_home_visit/source_id" type="string"/>
+      <bind calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )" nodeset="/hiv_home_visit/patient_age_in_years" type="string"/>
+      <bind calculate="../inputs/contact/_id" nodeset="/hiv_home_visit/patient_uuid" type="string"/>
+      <bind calculate="../inputs/contact/_id" nodeset="/hiv_home_visit/patient_id" required="true()" type="string"/>
+      <bind calculate="../inputs/contact/name" nodeset="/hiv_home_visit/patient_name" type="string"/>
+      <bind calculate="../inputs/contact/date_of_birth" nodeset="/hiv_home_visit/date_of_birth" type="string"/>
+      <bind calculate="../inputs/contact/parent/contact/phone" nodeset="/hiv_home_visit/chw_phone" type="string"/>
+      <bind calculate="concat(../inputs/contact/parent/contact/meta/location/lat, concat(' ', ../inputs/contact/parent/contact/meta/location/long))" nodeset="/hiv_home_visit/geolocation" type="string"/>
+      <bind nodeset="/hiv_home_visit/treatment_adherance/taking_treatment" required="true()" type="select1"/>
+      <bind nodeset="/hiv_home_visit/treatment_adherance/challenges_taking_medication" required="true()" type="select1"/>
+      <bind nodeset="/hiv_home_visit/treatment_adherance/n_provide_emotional_support" readonly="true()" relevant="selected(../challenges_taking_medication, 'yes')" type="string"/>
+      <bind constraint="decimal-date-time(.) &gt;= decimal-date-time(today())" jr:constraintMsg="jr:itext('/hiv_home_visit/treatment_adherance/next_visit:jr:constraintMsg')" nodeset="/hiv_home_visit/treatment_adherance/next_visit" required="true()" type="date"/>
+      <bind nodeset="/hiv_home_visit/treatment_adherance/n_plan_to_accompany" readonly="true()" type="string"/>
+      <bind constraint="not(selected(., 'none')
+and count-selected(.) &gt; 1)" jr:constraintMsg="jr:itext('/hiv_home_visit/side_effect_screening/side_effects:jr:constraintMsg')" nodeset="/hiv_home_visit/side_effect_screening/side_effects" required="true()" type="select"/>
+      <bind calculate="if(selected(../side_effects, 'shortness_of_breath')
+or selected(../side_effects, 'body_pains')
+or selected(../side_effects, 'swelling_sores_rash')
+or selected(../side_effects, 'body_pains')
+or selected(../side_effects, 'diarrhoea')
+or selected(../side_effects, 'severe_headache')
+or selected(../side_effects, 'vomiting')
+or selected(../side_effects, 'severe_abdominal_pain')
+or selected(../side_effects, 'jaundice'),
+'yes', 'no')" nodeset="/hiv_home_visit/side_effect_screening/refer_and_accompany" type="string"/>
+      <bind calculate="if(selected(../side_effects, 'weight_loss')
+and ../refer_and_accompany = 'no',
+'yes', 'no')" nodeset="/hiv_home_visit/side_effect_screening/refer_only" type="string"/>
+      <bind nodeset="/hiv_home_visit/side_effect_screening/n_refer_and_accompany1" readonly="true()" relevant="../refer_and_accompany = 'yes'" type="string"/>
+      <bind nodeset="/hiv_home_visit/side_effect_screening/n_refer1" readonly="true()" relevant="../refer_only = 'yes'
+and ../refer_and_accompany = 'no'" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_submit" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_patient_details_title" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_findings_title" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_side_effects_title" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_headaches" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'headaches')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_difficulty_breathing" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'difficulty_breathing')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_difficulty_swallowing" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'difficulty_swallowing')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_body_pains" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'body_pains')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_vomiting" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'vomiting')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_diarrhoea" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'diarrhoea')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_swollen_tongue" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'swollen_tongue')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_weakness_or_fatigue" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'weakness_or_fatigue')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_swollen_eyes" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'swollen_eyes')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_jaundice" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'jaundice')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_fever" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'fever')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_blisters_sores_rash" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'blisters_sores_rash')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_abdominal_pain" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'abdominal_pain')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_nightmares" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'nightmares')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_loss_of_appetite" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'loss_of_appetite')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_insomnia" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'insomnia')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_night_sweats" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'night_sweats')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_fear" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'fear')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_dizziness" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'dizziness')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_none" readonly="true()" relevant="selected(../../side_effect_screening/side_effects, 'none')" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_referral_title" readonly="true()" relevant="not(selected(../../side_effect_screening/side_effects, 'none'))
+and (count-selected(../../side_effect_screening/side_effects) &gt;= 1)" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_referral" readonly="true()" relevant="not(selected(../../side_effect_screening/side_effects, 'none'))
+and (count-selected(../../side_effect_screening/side_effects) &gt;= 1)" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_follow_up_title" readonly="true()" type="string"/>
+      <bind nodeset="/hiv_home_visit/group_review/n_follow_up" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/hiv_home_visit/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/hiv_home_visit/inputs">
+      <label ref="jr:itext('/hiv_home_visit/inputs:label')"/>
+      <group ref="/hiv_home_visit/inputs/contact">
+        <label ref="jr:itext('/hiv_home_visit/inputs/contact:label')"/>
+        <input appearance="db-object" ref="/hiv_home_visit/inputs/contact/_id">
+          <label ref="jr:itext('/hiv_home_visit/inputs/contact/_id:label')"/>
+        </input>
+        <group ref="/hiv_home_visit/inputs/contact/parent">
+          <label ref="jr:itext('/hiv_home_visit/inputs/contact/parent:label')"/>
+          <group ref="/hiv_home_visit/inputs/contact/parent/contact">
+            <label ref="jr:itext('/hiv_home_visit/inputs/contact/parent/contact:label')"/>
+            <group ref="/hiv_home_visit/inputs/contact/parent/contact/meta">
+              <label ref="jr:itext('/hiv_home_visit/inputs/contact/parent/contact/meta:label')"/>
+              <group ref="/hiv_home_visit/inputs/contact/parent/contact/meta/location">
+                <label ref="jr:itext('/hiv_home_visit/inputs/contact/parent/contact/meta/location:label')"/>
+              </group>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/hiv_home_visit/treatment_adherance">
+      <label ref="jr:itext('/hiv_home_visit/treatment_adherance:label')"/>
+      <select1 ref="/hiv_home_visit/treatment_adherance/taking_treatment">
+        <label ref="jr:itext('/hiv_home_visit/treatment_adherance/taking_treatment:label')"/>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/treatment_adherance/taking_treatment/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/treatment_adherance/taking_treatment/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/hiv_home_visit/treatment_adherance/challenges_taking_medication">
+        <label ref="jr:itext('/hiv_home_visit/treatment_adherance/challenges_taking_medication:label')"/>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/treatment_adherance/challenges_taking_medication/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/treatment_adherance/challenges_taking_medication/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <input ref="/hiv_home_visit/treatment_adherance/n_provide_emotional_support">
+        <label ref="jr:itext('/hiv_home_visit/treatment_adherance/n_provide_emotional_support:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/treatment_adherance/next_visit">
+        <label ref="jr:itext('/hiv_home_visit/treatment_adherance/next_visit:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/treatment_adherance/n_plan_to_accompany">
+        <label ref="jr:itext('/hiv_home_visit/treatment_adherance/n_plan_to_accompany:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/hiv_home_visit/side_effect_screening">
+      <label ref="jr:itext('/hiv_home_visit/side_effect_screening:label')"/>
+      <select ref="/hiv_home_visit/side_effect_screening/side_effects">
+        <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects:label')"/>
+        <hint ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects:hint')"/>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/shortness_of_breath:label')"/>
+          <value>shortness_of_breath</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/body_pains:label')"/>
+          <value>body_pains</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/swelling_sores_rash:label')"/>
+          <value>swelling_sores_rash</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/diarrhoea:label')"/>
+          <value>diarrhoea</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/severe_headache:label')"/>
+          <value>severe_headache</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/vomiting:label')"/>
+          <value>vomiting</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/severe_abdominal_pain:label')"/>
+          <value>severe_abdominal_pain</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/jaundice:label')"/>
+          <value>jaundice</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/weight_loss:label')"/>
+          <value>weight_loss</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/hiv_home_visit/side_effect_screening/side_effects/none:label')"/>
+          <value>none</value>
+        </item>
+      </select>
+      <input ref="/hiv_home_visit/side_effect_screening/n_refer_and_accompany1">
+        <label ref="jr:itext('/hiv_home_visit/side_effect_screening/n_refer_and_accompany1:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/side_effect_screening/n_refer1">
+        <label ref="jr:itext('/hiv_home_visit/side_effect_screening/n_refer1:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/hiv_home_visit/group_review">
+      <label ref="jr:itext('/hiv_home_visit/group_review:label')"/>
+      <input ref="/hiv_home_visit/group_review/n_submit">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/hiv_home_visit/group_review/n_patient_details_title">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_patient_details_title:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/group_review/n_patient_details">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_patient_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/hiv_home_visit/group_review/n_findings_title">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_findings_title:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/group_review/n_side_effects_title">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_side_effects_title:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_headaches">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_headaches:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_difficulty_breathing">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_difficulty_breathing:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_difficulty_swallowing">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_difficulty_swallowing:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_body_pains">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_body_pains:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_vomiting">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_vomiting:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_diarrhoea">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_diarrhoea:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_swollen_tongue">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_swollen_tongue:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_weakness_or_fatigue">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_weakness_or_fatigue:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_swollen_eyes">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_swollen_eyes:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_jaundice">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_jaundice:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_fever">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_fever:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_blisters_sores_rash">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_blisters_sores_rash:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_abdominal_pain">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_abdominal_pain:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_nightmares">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_nightmares:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_loss_of_appetite">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_loss_of_appetite:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_insomnia">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_insomnia:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_night_sweats">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_night_sweats:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_fear">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_fear:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_dizziness">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_dizziness:label')"/>
+      </input>
+      <input appearance="li" ref="/hiv_home_visit/group_review/n_none">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_none:label')"/>
+      </input>
+      <input appearance="h1 red" ref="/hiv_home_visit/group_review/n_referral_title">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_referral_title:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/group_review/n_referral">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_referral:label')"/>
+      </input>
+      <input appearance="h1 green" ref="/hiv_home_visit/group_review/n_follow_up_title">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_follow_up_title:label')"/>
+      </input>
+      <input ref="/hiv_home_visit/group_review/n_follow_up">
+        <label ref="jr:itext('/hiv_home_visit/group_review/n_follow_up:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

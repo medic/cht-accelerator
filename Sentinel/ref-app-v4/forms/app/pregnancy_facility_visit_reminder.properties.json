@@ -1,0 +1,10 @@
+{
+  "icon": "icon-people-woman-pregnant",
+  "title": "Health facility ANC reminder",
+  "context": {
+    "person": false,
+    "place": false,
+    "expression": "user._id != contact._id && summary.alive && !contact.muted && (!contact.sex || contact.sex === 'female') && (!contact.date_of_birth || (ageInYears(contact) >= 12 && ageInYears(contact) <= 49))"
+  },
+  "hidden_fields": ["source", "source_id", "patient_uuid", "patient_id"]
+}

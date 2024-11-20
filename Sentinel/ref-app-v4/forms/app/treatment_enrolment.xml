@@ -1,0 +1,2210 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Treatment enrolment</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/treatment_enrolment/group_review/art:label">
+            <value>ART</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/eid:label">
+            <value>EID</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/malnutrition:label">
+            <value>Malnutrition</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_art_id:label">
+            <value>ART EMR ID: <output value=" /treatment_enrolment/treatment_program_details/art_id "/></value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_asthma:label">
+            <value>Asthma</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_diabetes:label">
+            <value>Diabetes</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_eid_id:label">
+            <value>EID EMR ID: <output value=" /treatment_enrolment/treatment_program_details/eid_id "/></value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_emr_ids:label">
+            <value>**_EMR IDs_**</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_epilepsy:label">
+            <value>Epilepsy</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_findings_title:label">
+            <value>Findings&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_heart_failure:label">
+            <value>Heart failure</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_hypertension:label">
+            <value>Hypertension</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_mental_health:label">
+            <value>Mental health</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_ncd_id:label">
+            <value>NCD EMR ID: <output value=" /treatment_enrolment/treatment_program_details/ncd_id "/></value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_ncds_title:label">
+            <value>**_NCDs_**</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_other:label">
+            <value>Others (specify)</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_patient_details:label">
+            <value>&lt;h4 style=&quot;text-align:center;&quot;&gt;<output value=" /treatment_enrolment/patient_name "/>&lt;/h4&gt;&lt;h5 style=&quot;text-align:center;&quot;&gt;<output value=" /treatment_enrolment/group_review/c_age_string "/>&lt;/h5&gt;</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_patient_details_title:label">
+            <value>Patient Details&lt;I class="fa fa-user"&gt;&lt;/i&gt;</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_submit:label">
+            <value>_Be sure you submit to complete this action._</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_treatment_enrolment_programs_title:label">
+            <value>**_Treatment enrolment programs_**</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/ncd:label">
+            <value>NCD</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/tb:label">
+            <value>TB</value>
+          </text>
+          <text id="/treatment_enrolment/group_review:label">
+            <value>Results/Summary page</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/_id:label">
+            <value>What is the patient's name?</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/date_of_birth:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/name:label">
+            <value>Name</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact/name:label">
+            <value>CHW name</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact/phone:label">
+            <value>CHW phone</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact:label">
+            <value>Contact</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent:label">
+            <value>Parent</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/patient_id:label">
+            <value>Patient ID</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/sex:label">
+            <value>Sex</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/source:label">
+            <value>Source</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/source_id:label">
+            <value>Source ID</value>
+          </text>
+          <text id="/treatment_enrolment/inputs:label">
+            <value>Patient</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/care_giver:label">
+            <value>Guardian/Care giver</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/other:label">
+            <value>Others</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/passport:label">
+            <value>Health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/self:label">
+            <value>Self reported</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source:label">
+            <value>Source of ART EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:jr:constraintMsg">
+            <value>ID should have 4 digits</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:label">
+            <value>Second part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:jr:constraintMsg">
+            <value>ID should have 4 digits</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:label">
+            <value>Second part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:jr:constraintMsg">
+            <value>ID should have 4 digits</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:label">
+            <value>Second part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/care_giver:label">
+            <value>Guardian/Care giver</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/other:label">
+            <value>Others</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/passport:label">
+            <value>Health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/self:label">
+            <value>Self reported</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source:label">
+            <value>Source of EID EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id/no:label">
+            <value>No</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id:label">
+            <value>Is the ART EMR ID available</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id/no:label">
+            <value>No</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id:label">
+            <value>Is the EID EMR ID available</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id/no:label">
+            <value>No</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id:label">
+            <value>Is the NCD EMR ID available</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment/otp:label">
+            <value>OTP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment/sfp:label">
+            <value>SFP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment:label">
+            <value>Malnutrition enrolment program</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/depression:label">
+            <value>Depression</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/mania:label">
+            <value>Mania</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/other:label">
+            <value>Others (specify)</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/schizophrenia:label">
+            <value>Schizophrenia</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health:hint">
+            <value>Refer to the health passport for the mental health type.</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health:label">
+            <value>Mental health program</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_art_id:label">
+            <value>_ART EMR ID is <output value=" /treatment_enrolment/treatment_program_details/art_id "/>_</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_confirm_emr_ids:label">
+            <value>_Confirm if the EMR ID matches the one in the health passport. If it's not matching, edit the EMR details._</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_eid_id:label">
+            <value>_EID EMR ID IS <output value=" /treatment_enrolment/treatment_program_details/eid_id "/>_</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_ncd_id:label">
+            <value>_NCD EMR ID IS <output value=" /treatment_enrolment/treatment_program_details/ncd_id "/>_</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/care_giver:label">
+            <value>Guardian/Care giver</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/other:label">
+            <value>Others</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/passport:label">
+            <value>Health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/self:label">
+            <value>Self reported</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source:label">
+            <value>Source of NCD EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/asthma:label">
+            <value>Asthma</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/diabetes:label">
+            <value>Diabetes</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/epilepsy:label">
+            <value>Epilepsy</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/heart_failure:label">
+            <value>Heart failure</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/hypertension:label">
+            <value>Hypertension</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/mental_health:label">
+            <value>Mental health</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/other:label">
+            <value>Others (specify)</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:hint">
+            <value>Tick every condition/symptom that applies</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:label">
+            <value>NCD type</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id:label">
+            <value>First part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:constraintMsg">
+            <value>Only capital letters allowed</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id:label">
+            <value>First part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:constraintMsg">
+            <value>Only capital letters allowed</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id:label">
+            <value>First part of EMR ID</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:hint">
+            <value>Copy the EMR ID directly from health passport. Use the most recent information in the health passport</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:constraintMsg">
+            <value>Only capital letters allowed</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:label">
+            <value>Specify other</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:hint">
+            <value>Tick every condition/symptom that applies</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:constraintMsg">
+            <value>EID cannot be selected with ART!</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:requiredMsg">
+            <value>This field is required</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:label">
+            <value>Treatment enrolment program</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details:label">
+            <value>Treatment program details</value>
+          </text>
+          <text id="static_instance-emr_id_source-0">
+            <value>Self reported</value>
+          </text>
+          <text id="static_instance-emr_id_source-1">
+            <value>Health passport</value>
+          </text>
+          <text id="static_instance-emr_id_source-2">
+            <value>Guardian/Care giver</value>
+          </text>
+          <text id="static_instance-emr_id_source-3">
+            <value>Others</value>
+          </text>
+          <text id="static_instance-malnutrition_enrolment_programs-0">
+            <value>OTP</value>
+          </text>
+          <text id="static_instance-malnutrition_enrolment_programs-1">
+            <value>SFP</value>
+          </text>
+          <text id="static_instance-mental_health_programs-0">
+            <value>Schizophrenia</value>
+          </text>
+          <text id="static_instance-mental_health_programs-1">
+            <value>Mania</value>
+          </text>
+          <text id="static_instance-mental_health_programs-2">
+            <value>Depression</value>
+          </text>
+          <text id="static_instance-mental_health_programs-3">
+            <value>Others (specify)</value>
+          </text>
+          <text id="static_instance-ncds-0">
+            <value>Hypertension</value>
+          </text>
+          <text id="static_instance-ncds-1">
+            <value>Diabetes</value>
+          </text>
+          <text id="static_instance-ncds-2">
+            <value>Asthma</value>
+          </text>
+          <text id="static_instance-ncds-3">
+            <value>Mental health</value>
+          </text>
+          <text id="static_instance-ncds-4">
+            <value>Epilepsy</value>
+          </text>
+          <text id="static_instance-ncds-5">
+            <value>Heart failure</value>
+          </text>
+          <text id="static_instance-ncds-6">
+            <value>Others (specify)</value>
+          </text>
+          <text id="static_instance-site-0">
+            <value>NNO</value>
+          </text>
+          <text id="static_instance-site-1">
+            <value>DAM</value>
+          </text>
+          <text id="static_instance-site-10">
+            <value>MTE</value>
+          </text>
+          <text id="static_instance-site-11">
+            <value>ZLA</value>
+          </text>
+          <text id="static_instance-site-12">
+            <value>NKA</value>
+          </text>
+          <text id="static_instance-site-13">
+            <value>MIHC</value>
+          </text>
+          <text id="static_instance-site-2">
+            <value>CFGA</value>
+          </text>
+          <text id="static_instance-site-3">
+            <value>LGWE</value>
+          </text>
+          <text id="static_instance-site-4">
+            <value>MGT</value>
+          </text>
+          <text id="static_instance-site-5">
+            <value>MTDN</value>
+          </text>
+          <text id="static_instance-site-6">
+            <value>NSM</value>
+          </text>
+          <text id="static_instance-site-7">
+            <value>NOP</value>
+          </text>
+          <text id="static_instance-site-8">
+            <value>LWAN</value>
+          </text>
+          <text id="static_instance-site-9">
+            <value>LSI</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-0">
+            <value>TB</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-1">
+            <value>ART</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-2">
+            <value>EID</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-3">
+            <value>NCD</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-4">
+            <value>Malnutrition</value>
+          </text>
+          <text id="static_instance-yes_no-0">
+            <value>Yes</value>
+          </text>
+          <text id="static_instance-yes_no-1">
+            <value>No</value>
+          </text>
+        </translation>
+        <translation lang="ny">
+          <text id="/treatment_enrolment/c_patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/c_patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/chw_phone:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/condition_age_group:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/art:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/c_age_string:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/c_patient_mod_mnths:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/eid:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/malnutrition:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_art_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_asthma:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_diabetes:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_eid_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_emr_ids:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_epilepsy:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_findings_title:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_heart_failure:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_hypertension:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_mental_health:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_ncd_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_ncds_title:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_patient_details:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_patient_details_title:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_submit:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/n_treatment_enrolment_programs_title:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/ncd:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review/tb:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/group_review:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/date_of_birth:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact/name:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact/phone:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent/contact:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/parent:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/contact/sex:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/source:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/inputs:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/patient_age_in_months:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/patient_age_in_years:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/patient_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/patient_name:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/patient_uuid:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/source:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/source_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/care_giver:label">
+            <value>Kwa omuyang'anira</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/other:label">
+            <value>Fotokozani</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/passport:label">
+            <value>Mu buku la ku chipatala</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source/self:label">
+            <value>Kwa mwini wake</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_emr_id_source_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/art_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_art_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_eid_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/c_ncd_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/care_giver:label">
+            <value>Kwa omuyang'anira</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/other:label">
+            <value>Fotokozani</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/passport:label">
+            <value>Mu buku la ku chipatala</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source/self:label">
+            <value>Kwa mwini wake</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/eid_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id/no:label">
+            <value>Ayi</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id/yes:label">
+            <value>Inde</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_art_emr_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id/no:label">
+            <value>Ayi</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id/yes:label">
+            <value>Inde</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_eid_emr_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id/no:label">
+            <value>Ayi</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id/yes:label">
+            <value>Inde</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/has_ncd_emr_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment/otp:label">
+            <value>Chiponde</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment/sfp:label">
+            <value>Likuni</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/malnutrition_enrolment:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/depression:label">
+            <value>Depression</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/mania:label">
+            <value>Mania</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/other:label">
+            <value>Zina (fotokozani)</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health/schizophrenia:label">
+            <value>Schizophrenia</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/mental_health_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_art_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_confirm_emr_ids:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_eid_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/n_ncd_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/care_giver:label">
+            <value>Kwa omuyang'anira</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/other:label">
+            <value>Fotokozani</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/passport:label">
+            <value>Mu buku la ku chipatala</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source/self:label">
+            <value>Kwa mwini wake</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_emr_id_source_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncd_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/asthma:label">
+            <value>Mphumu</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/diabetes:label">
+            <value>Matenda a Shuga</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/epilepsy:label">
+            <value>Khunyu</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/heart_failure:label">
+            <value>Heart failure</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/hypertension:label">
+            <value>Kuthamanga kwa magazi</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/mental_health:label">
+            <value>Nthambi ya nthenda ya mu ubongo</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds/other:label">
+            <value>Zina (fotokozani)</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/ncds_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_art_id_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_eid_id_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/CFGA:label">
+            <value>CFGA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/DAM:label">
+            <value>DAM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LGWE:label">
+            <value>LGWE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LSI:label">
+            <value>LSI</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/LWAN:label">
+            <value>LWAN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MGT:label">
+            <value>MGT</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MIHC:label">
+            <value>MIHC</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MTDN:label">
+            <value>MTDN</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/MTE:label">
+            <value>MTE</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NKA:label">
+            <value>NKA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NNO:label">
+            <value>NNO</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NOP:label">
+            <value>NOP</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/NSM:label">
+            <value>NSM</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id/ZLA:label">
+            <value>ZLA</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/pre_ncd_id_other:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:hint">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:constraintMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:requiredMsg">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details/treatment_enrolment:label">
+            <value>-</value>
+          </text>
+          <text id="/treatment_enrolment/treatment_program_details:label">
+            <value>-</value>
+          </text>
+          <text id="static_instance-emr_id_source-0">
+            <value>Kwa mwini wake</value>
+          </text>
+          <text id="static_instance-emr_id_source-1">
+            <value>Mu buku la ku chipatala</value>
+          </text>
+          <text id="static_instance-emr_id_source-2">
+            <value>Kwa omuyang'anira</value>
+          </text>
+          <text id="static_instance-emr_id_source-3">
+            <value>Fotokozani</value>
+          </text>
+          <text id="static_instance-malnutrition_enrolment_programs-0">
+            <value>Chiponde</value>
+          </text>
+          <text id="static_instance-malnutrition_enrolment_programs-1">
+            <value>Likuni</value>
+          </text>
+          <text id="static_instance-mental_health_programs-0">
+            <value>Schizophrenia</value>
+          </text>
+          <text id="static_instance-mental_health_programs-1">
+            <value>Mania</value>
+          </text>
+          <text id="static_instance-mental_health_programs-2">
+            <value>Depression</value>
+          </text>
+          <text id="static_instance-mental_health_programs-3">
+            <value>Zina (fotokozani)</value>
+          </text>
+          <text id="static_instance-ncds-0">
+            <value>Kuthamanga kwa magazi</value>
+          </text>
+          <text id="static_instance-ncds-1">
+            <value>Matenda a Shuga</value>
+          </text>
+          <text id="static_instance-ncds-2">
+            <value>Mphumu</value>
+          </text>
+          <text id="static_instance-ncds-3">
+            <value>Nthambi ya nthenda ya mu ubongo</value>
+          </text>
+          <text id="static_instance-ncds-4">
+            <value>Khunyu</value>
+          </text>
+          <text id="static_instance-ncds-5">
+            <value>Heart failure</value>
+          </text>
+          <text id="static_instance-ncds-6">
+            <value>Zina (fotokozani)</value>
+          </text>
+          <text id="static_instance-site-0">
+            <value>NNO</value>
+          </text>
+          <text id="static_instance-site-1">
+            <value>DAM</value>
+          </text>
+          <text id="static_instance-site-10">
+            <value>MTE</value>
+          </text>
+          <text id="static_instance-site-11">
+            <value>ZLA</value>
+          </text>
+          <text id="static_instance-site-12">
+            <value>NKA</value>
+          </text>
+          <text id="static_instance-site-13">
+            <value>MIHC</value>
+          </text>
+          <text id="static_instance-site-2">
+            <value>CFGA</value>
+          </text>
+          <text id="static_instance-site-3">
+            <value>LGWE</value>
+          </text>
+          <text id="static_instance-site-4">
+            <value>MGT</value>
+          </text>
+          <text id="static_instance-site-5">
+            <value>MTDN</value>
+          </text>
+          <text id="static_instance-site-6">
+            <value>NSM</value>
+          </text>
+          <text id="static_instance-site-7">
+            <value>NOP</value>
+          </text>
+          <text id="static_instance-site-8">
+            <value>LWAN</value>
+          </text>
+          <text id="static_instance-site-9">
+            <value>LSI</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-0">
+            <value>Chifuwa chachikulu</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-1">
+            <value>ART</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-2">
+            <value>EID</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-3">
+            <value>NCD</value>
+          </text>
+          <text id="static_instance-treatment_enrolment_programs-4">
+            <value>Kunyetchera</value>
+          </text>
+          <text id="static_instance-yes_no-0">
+            <value>Inde</value>
+          </text>
+          <text id="static_instance-yes_no-1">
+            <value>Ayi</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <treatment_enrolment delimiter="#" id="treatment_enrolment" prefix="J1!treatment_enrolment!">
+          <inputs>
+            <meta>
+              <location>
+                <lat/>
+                <long/>
+                <error/>
+                <message/>
+              </location>
+            </meta>
+            <source tag="hidden">user</source>
+            <source_id tag="hidden"/>
+            <contact>
+              <_id/>
+              <name/>
+              <patient_id tag="hidden"/>
+              <date_of_birth>0</date_of_birth>
+              <sex/>
+              <parent>
+                <parent>
+                  <contact>
+                    <name/>
+                    <phone/>
+                  </contact>
+                </parent>
+              </parent>
+            </contact>
+          </inputs>
+          <source tag="hidden"/>
+          <source_id tag="hidden"/>
+          <patient_uuid tag="hidden"/>
+          <patient_id tag="hidden"/>
+          <patient_name/>
+          <patient_age_in_years/>
+          <c_patient_name tag="hidden"/>
+          <c_patient_age_in_years tag="hidden"/>
+          <condition_age_group tag="hidden"/>
+          <patient_age_in_months tag="hidden">0</patient_age_in_months>
+          <date_of_birth/>
+          <chw_phone/>
+          <treatment_program_details>
+            <treatment_enrolment/>
+            <ncds/>
+            <ncds_other/>
+            <malnutrition_enrolment/>
+            <mental_health/>
+            <mental_health_other/>
+            <has_eid_emr_id/>
+            <eid_emr_id_source/>
+            <eid_emr_id_source_other/>
+            <pre_eid_id/>
+            <pre_eid_id_other/>
+            <c_eid_id/>
+            <n_eid_id/>
+            <has_art_emr_id/>
+            <art_emr_id_source/>
+            <art_emr_id_source_other/>
+            <pre_art_id/>
+            <pre_art_id_other/>
+            <c_art_id/>
+            <n_art_id/>
+            <has_ncd_emr_id/>
+            <ncd_emr_id_source/>
+            <ncd_emr_id_source_other/>
+            <pre_ncd_id/>
+            <pre_ncd_id_other/>
+            <c_ncd_id/>
+            <n_ncd_id/>
+            <eid_id/>
+            <art_id/>
+            <ncd_id/>
+            <n_confirm_emr_ids/>
+          </treatment_program_details>
+          <group_review tag="hidden">
+            <n_submit tag="hidden"/>
+            <n_patient_details_title tag="hidden"/>
+            <c_patient_mod_mnths tag="hidden"/>
+            <c_age_string tag="hidden"/>
+            <n_patient_details tag="hidden"/>
+            <n_findings_title tag="hidden"/>
+            <n_treatment_enrolment_programs_title tag="hidden"/>
+            <tb tag="hidden"/>
+            <art/>
+            <eid/>
+            <ncd/>
+            <malnutrition/>
+            <n_ncds_title/>
+            <n_hypertension/>
+            <n_diabetes/>
+            <n_asthma/>
+            <n_mental_health/>
+            <n_epilepsy/>
+            <n_heart_failure/>
+            <n_other/>
+            <n_emr_ids/>
+            <n_art_id/>
+            <n_ncd_id/>
+            <n_eid_id/>
+          </group_review>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </treatment_enrolment>
+      </instance>
+      <instance id="contact-summary"/>
+      <instance id="emr_id_source">
+        <root>
+          <item>
+            <itextId>static_instance-emr_id_source-0</itextId>
+            <name>self</name>
+          </item>
+          <item>
+            <itextId>static_instance-emr_id_source-1</itextId>
+            <name>passport</name>
+          </item>
+          <item>
+            <itextId>static_instance-emr_id_source-2</itextId>
+            <name>care_giver</name>
+          </item>
+          <item>
+            <itextId>static_instance-emr_id_source-3</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="ncds">
+        <root>
+          <item>
+            <itextId>static_instance-ncds-0</itextId>
+            <name>hypertension</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-1</itextId>
+            <name>diabetes</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-2</itextId>
+            <name>asthma</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-3</itextId>
+            <name>mental_health</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-4</itextId>
+            <name>epilepsy</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-5</itextId>
+            <name>heart_failure</name>
+          </item>
+          <item>
+            <itextId>static_instance-ncds-6</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="site">
+        <root>
+          <item>
+            <itextId>static_instance-site-0</itextId>
+            <name>NNO</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-1</itextId>
+            <name>DAM</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-2</itextId>
+            <name>CFGA</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-3</itextId>
+            <name>LGWE</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-4</itextId>
+            <name>MGT</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-5</itextId>
+            <name>MTDN</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-6</itextId>
+            <name>NSM</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-7</itextId>
+            <name>NOP</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-8</itextId>
+            <name>LWAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-9</itextId>
+            <name>LSI</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-10</itextId>
+            <name>MTE</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-11</itextId>
+            <name>ZLA</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-12</itextId>
+            <name>NKA</name>
+          </item>
+          <item>
+            <itextId>static_instance-site-13</itextId>
+            <name>MIHC</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="mental_health_programs">
+        <root>
+          <item>
+            <itextId>static_instance-mental_health_programs-0</itextId>
+            <name>schizophrenia</name>
+          </item>
+          <item>
+            <itextId>static_instance-mental_health_programs-1</itextId>
+            <name>mania</name>
+          </item>
+          <item>
+            <itextId>static_instance-mental_health_programs-2</itextId>
+            <name>depression</name>
+          </item>
+          <item>
+            <itextId>static_instance-mental_health_programs-3</itextId>
+            <name>other</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="treatment_enrolment_programs">
+        <root>
+          <item>
+            <itextId>static_instance-treatment_enrolment_programs-0</itextId>
+            <name>tb</name>
+            <age_upper>130</age_upper>
+            <condition_age_group tag="hidden">-1</condition_age_group>
+            <age_lower>0</age_lower>
+          </item>
+          <item>
+            <itextId>static_instance-treatment_enrolment_programs-1</itextId>
+            <name>art</name>
+            <age_upper>130</age_upper>
+            <condition_age_group tag="hidden">-1</condition_age_group>
+            <age_lower>0</age_lower>
+          </item>
+          <item>
+            <itextId>static_instance-treatment_enrolment_programs-2</itextId>
+            <name>eid</name>
+            <age_upper>2</age_upper>
+            <condition_age_group tag="hidden">1</condition_age_group>
+            <age_lower>0</age_lower>
+          </item>
+          <item>
+            <itextId>static_instance-treatment_enrolment_programs-3</itextId>
+            <name>ncd</name>
+            <age_upper>130</age_upper>
+            <condition_age_group tag="hidden">-1</condition_age_group>
+            <age_lower>0</age_lower>
+          </item>
+          <item>
+            <itextId>static_instance-treatment_enrolment_programs-4</itextId>
+            <name>malnutrition</name>
+            <age_upper>130</age_upper>
+            <condition_age_group tag="hidden">-1</condition_age_group>
+            <age_lower>0</age_lower>
+          </item>
+        </root>
+      </instance>
+      <instance id="malnutrition_enrolment_programs">
+        <root>
+          <item>
+            <itextId>static_instance-malnutrition_enrolment_programs-0</itextId>
+            <name>otp</name>
+          </item>
+          <item>
+            <itextId>static_instance-malnutrition_enrolment_programs-1</itextId>
+            <name>sfp</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="yes_no">
+        <root>
+          <item>
+            <itextId>static_instance-yes_no-0</itextId>
+            <name>yes</name>
+          </item>
+          <item>
+            <itextId>static_instance-yes_no-1</itextId>
+            <name>no</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/treatment_enrolment/inputs" relevant="./source = 'user'"/>
+      <bind nodeset="/treatment_enrolment/inputs/source" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/source_id" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/_id" required="true()" type="db:person"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/name" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/patient_id" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/date_of_birth" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/sex" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/parent/parent/contact/name" type="string"/>
+      <bind nodeset="/treatment_enrolment/inputs/contact/parent/parent/contact/phone" type="string"/>
+      <bind calculate="../inputs/source" nodeset="/treatment_enrolment/source" type="string"/>
+      <bind calculate="../inputs/source_id" nodeset="/treatment_enrolment/source_id" type="string"/>
+      <bind calculate="../inputs/contact/_id" nodeset="/treatment_enrolment/patient_uuid" type="string"/>
+      <bind calculate="../patient_uuid" nodeset="/treatment_enrolment/patient_id" required="true()" type="string"/>
+      <bind calculate="../inputs/contact/name" nodeset="/treatment_enrolment/patient_name" required="true()" type="string"/>
+      <bind calculate="floor( difference-in-months( ../inputs/contact/date_of_birth, today() ) div 12 )" nodeset="/treatment_enrolment/patient_age_in_years" type="string"/>
+      <bind calculate="../patient_name" nodeset="/treatment_enrolment/c_patient_name" type="string"/>
+      <bind calculate="../patient_age_in_years" nodeset="/treatment_enrolment/c_patient_age_in_years" type="string"/>
+      <bind calculate="if(../c_patient_age_in_years &lt;= 2, 1, 0)" nodeset="/treatment_enrolment/condition_age_group" type="string"/>
+      <bind calculate="difference-in-months( ../inputs/contact/date_of_birth, today() )" nodeset="/treatment_enrolment/patient_age_in_months" type="string"/>
+      <bind calculate="../inputs/contact/date_of_birth" nodeset="/treatment_enrolment/date_of_birth" type="string"/>
+      <bind calculate="../inputs/contact/parent/parent/contact/phone" nodeset="/treatment_enrolment/chw_phone" type="string"/>
+      <bind constraint="not(selected(., 'eid') and selected(., 'art'))" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/treatment_enrolment:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/treatment_enrolment" required="true()" type="select"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/ncds:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/ncds" relevant="selected(../treatment_enrolment, 'ncd')" required="true()" type="select"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/ncds_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/ncds_other" relevant="selected(../ncds, 'other')" required="true()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/malnutrition_enrolment:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/malnutrition_enrolment" relevant="selected(../treatment_enrolment, 'malnutrition')" required="true()" type="select1"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/mental_health" relevant="selected(../ncds, 'mental_health')" required="false()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/mental_health_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/mental_health_other" relevant="selected(../mental_health, 'other')" required="true()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/has_eid_emr_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/has_eid_emr_id" relevant="selected(../treatment_enrolment, 'eid') and not(selected(../treatment_enrolment, 'art'))" required="true()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/eid_emr_id_source" relevant="../has_eid_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other" relevant="../eid_emr_id_source = 'other'" required="true()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_eid_id" relevant="../has_eid_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind constraint="regex(., '[A-Z]{1,5}')" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_eid_id_other" relevant="../pre_eid_id = 'other'" required="true()" type="string"/>
+      <bind constraint=". &gt; 0 and . &lt; 10000" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_eid_id:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_eid_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/c_eid_id" relevant="../has_eid_emr_id = 'yes'" required="true()" type="int"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/n_eid_id" readonly="true()" relevant="../c_eid_id != ''" required="false()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/has_art_emr_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/has_art_emr_id" relevant="selected(../treatment_enrolment, 'art') and not(selected(../treatment_enrolment, 'eid'))" required="true()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/art_emr_id_source" relevant="../has_art_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/art_emr_id_source_other" relevant="../art_emr_id_source = 'other'" required="true()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_art_id" relevant="../has_art_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind constraint="regex(., '[A-Z]{1,5}')" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_art_id_other" relevant="../pre_art_id = 'other'" required="true()" type="string"/>
+      <bind constraint=". &gt; 0 and . &lt; 10000" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_art_id:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_art_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/c_art_id" relevant="../has_art_emr_id = 'yes'" required="true()" type="int"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/n_art_id" readonly="true()" relevant="../c_art_id != ''" required="false()" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/has_ncd_emr_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/has_ncd_emr_id" relevant="selected(../treatment_enrolment, 'ncd')" required="true()" type="select1"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/ncd_emr_id_source" relevant="../has_ncd_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/ncd_emr_id_source_other" relevant="../ncd_emr_id_source = 'other'" type="string"/>
+      <bind jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_ncd_id" relevant="../has_ncd_emr_id = 'yes'" required="true()" type="select1"/>
+      <bind constraint="regex(., '[A-Z]{1,5}')" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id_other:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/pre_ncd_id_other" relevant="../pre_ncd_id = 'other'" required="true()" type="string"/>
+      <bind constraint=". &gt; 0 and . &lt; 10000" jr:constraintMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_ncd_id:jr:constraintMsg')" jr:requiredMsg="jr:itext('/treatment_enrolment/treatment_program_details/c_ncd_id:jr:requiredMsg')" nodeset="/treatment_enrolment/treatment_program_details/c_ncd_id" relevant="../has_ncd_emr_id = 'yes'" required="true()" type="int"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/n_ncd_id" readonly="true()" relevant="../c_ncd_id != ''" required="false()" type="string"/>
+      <bind calculate="concat(if(../pre_eid_id = 'other', ../pre_eid_id_other, ../pre_eid_id), ' ', ../c_eid_id)" nodeset="/treatment_enrolment/treatment_program_details/eid_id" type="string"/>
+      <bind calculate="concat(if(../pre_art_id = 'other', ../pre_art_id_other, ../pre_art_id), ' ', ../c_art_id)" nodeset="/treatment_enrolment/treatment_program_details/art_id" type="string"/>
+      <bind calculate="concat(if(../pre_ncd_id = 'other', ../pre_ncd_id_other, ../pre_ncd_id), ' ', ../c_ncd_id)" nodeset="/treatment_enrolment/treatment_program_details/ncd_id" type="string"/>
+      <bind nodeset="/treatment_enrolment/treatment_program_details/n_confirm_emr_ids" readonly="true()" relevant="../c_eid_id != '' or ../c_art_id != '' or ../c_ncd_id != ''" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_submit" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_patient_details_title" readonly="true()" type="string"/>
+      <bind calculate="../../patient_age_in_months mod 12" nodeset="/treatment_enrolment/group_review/c_patient_mod_mnths" type="string"/>
+      <bind calculate="if(../../patient_age_in_years &lt;= 5, 
+concat( /treatment_enrolment/patient_age_in_years , ' years ',  /treatment_enrolment/group_review/c_patient_mod_mnths , ' months old'),
+concat( /treatment_enrolment/patient_age_in_years , ' years old'))" nodeset="/treatment_enrolment/group_review/c_age_string" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_patient_details" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_findings_title" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_treatment_enrolment_programs_title" readonly="true()" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/tb" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'tb')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/art" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'art')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/eid" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'eid')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/ncd" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'ncd')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/malnutrition" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'malnutrition')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_ncds_title" readonly="true()" relevant="selected(../../treatment_program_details/treatment_enrolment, 'ncd')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_hypertension" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'hypertension')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_diabetes" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'diabetes')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_asthma" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'asthma')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_mental_health" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'mental_health')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_epilepsy" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'epilepsy')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_heart_failure" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'heart_failure')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_other" readonly="true()" relevant="selected(../../treatment_program_details/ncds, 'other')" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_emr_ids" readonly="true()" relevant="../../treatment_program_details/c_art_id != '' or ../../treatment_program_details/c_ncd_id != '' or ../../treatment_program_details/c_eid_id != ''" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_art_id" readonly="true()" relevant="../../treatment_program_details/c_art_id != ''" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_ncd_id" readonly="true()" relevant="../../treatment_program_details/c_ncd_id != ''" type="string"/>
+      <bind nodeset="/treatment_enrolment/group_review/n_eid_id" readonly="true()" relevant="../../treatment_program_details/c_eid_id != ''" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/treatment_enrolment/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/treatment_enrolment/inputs">
+      <label ref="jr:itext('/treatment_enrolment/inputs:label')"/>
+      <group ref="/treatment_enrolment/inputs/contact">
+        <input appearance="db-object" ref="/treatment_enrolment/inputs/contact/_id">
+          <label ref="jr:itext('/treatment_enrolment/inputs/contact/_id:label')"/>
+        </input>
+        <group appearance="hidden" ref="/treatment_enrolment/inputs/contact/parent">
+          <label ref="jr:itext('/treatment_enrolment/inputs/contact/parent:label')"/>
+          <group appearance="hidden" ref="/treatment_enrolment/inputs/contact/parent/parent">
+            <label ref="jr:itext('/treatment_enrolment/inputs/contact/parent/parent:label')"/>
+            <group appearance="hidden" ref="/treatment_enrolment/inputs/contact/parent/parent/contact">
+              <label ref="jr:itext('/treatment_enrolment/inputs/contact/parent/parent/contact:label')"/>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/treatment_enrolment/treatment_program_details">
+      <label ref="jr:itext('/treatment_enrolment/treatment_program_details:label')"/>
+      <select ref="/treatment_enrolment/treatment_program_details/treatment_enrolment">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/treatment_enrolment:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/treatment_enrolment:hint')"/>
+        <itemset nodeset="instance('treatment_enrolment_programs')/root/item[condition_age_group =  /treatment_enrolment/condition_age_group  or condition_age_group = -1]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select>
+      <select ref="/treatment_enrolment/treatment_program_details/ncds">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds:hint')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/hypertension:label')"/>
+          <value>hypertension</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/diabetes:label')"/>
+          <value>diabetes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/asthma:label')"/>
+          <value>asthma</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/mental_health:label')"/>
+          <value>mental_health</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/epilepsy:label')"/>
+          <value>epilepsy</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/heart_failure:label')"/>
+          <value>heart_failure</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds/other:label')"/>
+          <value>other</value>
+        </item>
+      </select>
+      <input ref="/treatment_enrolment/treatment_program_details/ncds_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncds_other:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/malnutrition_enrolment">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/malnutrition_enrolment:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/malnutrition_enrolment/otp:label')"/>
+          <value>otp</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/malnutrition_enrolment/sfp:label')"/>
+          <value>sfp</value>
+        </item>
+      </select1>
+      <select1 ref="/treatment_enrolment/treatment_program_details/mental_health">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health:hint')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health/schizophrenia:label')"/>
+          <value>schizophrenia</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health/mania:label')"/>
+          <value>mania</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health/depression:label')"/>
+          <value>depression</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/mental_health_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/mental_health_other:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/has_eid_emr_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_eid_emr_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_eid_emr_id/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_eid_emr_id/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/treatment_enrolment/treatment_program_details/eid_emr_id_source">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source/self:label')"/>
+          <value>self</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source/passport:label')"/>
+          <value>passport</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source/care_giver:label')"/>
+          <value>care_giver</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/eid_emr_id_source_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/eid_emr_id_source_other:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/pre_eid_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/NNO:label')"/>
+          <value>NNO</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/DAM:label')"/>
+          <value>DAM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/CFGA:label')"/>
+          <value>CFGA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/LGWE:label')"/>
+          <value>LGWE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/MGT:label')"/>
+          <value>MGT</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/MTDN:label')"/>
+          <value>MTDN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/NSM:label')"/>
+          <value>NSM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/NOP:label')"/>
+          <value>NOP</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/LWAN:label')"/>
+          <value>LWAN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/LSI:label')"/>
+          <value>LSI</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/MTE:label')"/>
+          <value>MTE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/ZLA:label')"/>
+          <value>ZLA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/NKA:label')"/>
+          <value>NKA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id/MIHC:label')"/>
+          <value>MIHC</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/pre_eid_id_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id_other:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_eid_id_other:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/c_eid_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/c_eid_id:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/c_eid_id:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/n_eid_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/n_eid_id:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/has_art_emr_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_art_emr_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_art_emr_id/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_art_emr_id/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/treatment_enrolment/treatment_program_details/art_emr_id_source">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source/self:label')"/>
+          <value>self</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source/passport:label')"/>
+          <value>passport</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source/care_giver:label')"/>
+          <value>care_giver</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/art_emr_id_source_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/art_emr_id_source_other:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/pre_art_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/NNO:label')"/>
+          <value>NNO</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/DAM:label')"/>
+          <value>DAM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/CFGA:label')"/>
+          <value>CFGA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/LGWE:label')"/>
+          <value>LGWE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/MGT:label')"/>
+          <value>MGT</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/MTDN:label')"/>
+          <value>MTDN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/NSM:label')"/>
+          <value>NSM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/NOP:label')"/>
+          <value>NOP</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/LWAN:label')"/>
+          <value>LWAN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/LSI:label')"/>
+          <value>LSI</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/MTE:label')"/>
+          <value>MTE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/ZLA:label')"/>
+          <value>ZLA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/NKA:label')"/>
+          <value>NKA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id/MIHC:label')"/>
+          <value>MIHC</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/pre_art_id_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id_other:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_art_id_other:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/c_art_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/c_art_id:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/c_art_id:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/n_art_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/n_art_id:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/has_ncd_emr_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_ncd_emr_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_ncd_emr_id/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/has_ncd_emr_id/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/treatment_enrolment/treatment_program_details/ncd_emr_id_source">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source/self:label')"/>
+          <value>self</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source/passport:label')"/>
+          <value>passport</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source/care_giver:label')"/>
+          <value>care_giver</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source/other:label')"/>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/ncd_emr_id_source_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/ncd_emr_id_source_other:label')"/>
+      </input>
+      <select1 ref="/treatment_enrolment/treatment_program_details/pre_ncd_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id:label')"/>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/NNO:label')"/>
+          <value>NNO</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/DAM:label')"/>
+          <value>DAM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/CFGA:label')"/>
+          <value>CFGA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/LGWE:label')"/>
+          <value>LGWE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/MGT:label')"/>
+          <value>MGT</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/MTDN:label')"/>
+          <value>MTDN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/NSM:label')"/>
+          <value>NSM</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/NOP:label')"/>
+          <value>NOP</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/LWAN:label')"/>
+          <value>LWAN</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/LSI:label')"/>
+          <value>LSI</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/MTE:label')"/>
+          <value>MTE</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/ZLA:label')"/>
+          <value>ZLA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/NKA:label')"/>
+          <value>NKA</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id/MIHC:label')"/>
+          <value>MIHC</value>
+        </item>
+      </select1>
+      <input ref="/treatment_enrolment/treatment_program_details/pre_ncd_id_other">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id_other:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/pre_ncd_id_other:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/c_ncd_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/c_ncd_id:label')"/>
+        <hint ref="jr:itext('/treatment_enrolment/treatment_program_details/c_ncd_id:hint')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/n_ncd_id">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/n_ncd_id:label')"/>
+      </input>
+      <input ref="/treatment_enrolment/treatment_program_details/n_confirm_emr_ids">
+        <label ref="jr:itext('/treatment_enrolment/treatment_program_details/n_confirm_emr_ids:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list summary" ref="/treatment_enrolment/group_review">
+      <label ref="jr:itext('/treatment_enrolment/group_review:label')"/>
+      <input ref="/treatment_enrolment/group_review/n_submit">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_submit:label')"/>
+      </input>
+      <input appearance="h1 yellow" ref="/treatment_enrolment/group_review/n_patient_details_title">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_patient_details_title:label')"/>
+      </input>
+      <input ref="/treatment_enrolment/group_review/n_patient_details">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_patient_details:label')"/>
+      </input>
+      <input appearance="h1 blue" ref="/treatment_enrolment/group_review/n_findings_title">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_findings_title:label')"/>
+      </input>
+      <input ref="/treatment_enrolment/group_review/n_treatment_enrolment_programs_title">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_treatment_enrolment_programs_title:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/tb">
+        <label ref="jr:itext('/treatment_enrolment/group_review/tb:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/art">
+        <label ref="jr:itext('/treatment_enrolment/group_review/art:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/eid">
+        <label ref="jr:itext('/treatment_enrolment/group_review/eid:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/ncd">
+        <label ref="jr:itext('/treatment_enrolment/group_review/ncd:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/malnutrition">
+        <label ref="jr:itext('/treatment_enrolment/group_review/malnutrition:label')"/>
+      </input>
+      <input ref="/treatment_enrolment/group_review/n_ncds_title">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_ncds_title:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_hypertension">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_hypertension:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_diabetes">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_diabetes:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_asthma">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_asthma:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_mental_health">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_mental_health:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_epilepsy">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_epilepsy:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_heart_failure">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_heart_failure:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_other">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_other:label')"/>
+      </input>
+      <input ref="/treatment_enrolment/group_review/n_emr_ids">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_emr_ids:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_art_id">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_art_id:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_ncd_id">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_ncd_id:label')"/>
+      </input>
+      <input appearance="li" ref="/treatment_enrolment/group_review/n_eid_id">
+        <label ref="jr:itext('/treatment_enrolment/group_review/n_eid_id:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,26 @@
+{
+  "icon": "icon-immunization",
+  "title": "Immunization visit",
+  "context": {
+    "person": true,
+    "place": false,
+    "expression": "user._id != contact._id && (!contact.date_of_birth || ageInYears(contact) < 5) && summary.alive && !contact.muted && !summary.is_fully_immunized"
+  },
+  "hidden_fields": [
+    "source",
+    "source_id",
+    "patient_uuid",
+    "patient_id",
+    "patient_age_in_years",
+    "vaccines_given",
+    "vaccines",
+    "group_review",
+    "n_patient_details_title",
+    "n_vaccines_title",
+    "n_findings_title",
+    "n_bcg",
+    "n_opv0",
+    "n_follow_up_title",
+    "n_follow_up"
+  ]
+}

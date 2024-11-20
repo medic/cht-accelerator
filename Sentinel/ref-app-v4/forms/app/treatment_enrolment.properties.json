@@ -1,0 +1,28 @@
+{
+  "icon": "icon-healthcare-medicine",
+  "title": "Treatment enrolment",
+  "context": {
+    "person": true,
+    "place": false,
+    "expression": "user._id != contact._id && summary.alive && !contact.muted"
+  },
+  "hidden_fields": [
+    "source",
+    "source_id",
+    "patient_uuid",
+    "patient_id",
+    "c_patient_name",
+    "c_patient_age_in_years",
+    "condition_age_group",
+    "patient_age_in_months",
+    "group_review",
+    "n_submit",
+    "n_patient_details_title",
+    "c_patient_mod_mnths",
+    "c_age_string",
+    "n_patient_details",
+    "n_findings_title",
+    "n_treatment_enrolment_programs_title",
+    "tb"
+  ]
+}

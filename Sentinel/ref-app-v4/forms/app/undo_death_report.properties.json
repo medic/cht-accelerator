@@ -1,0 +1,10 @@
+{
+  "icon": "icon-person",
+  "title": "Undo death report",
+  "context": {
+    "person": true,
+    "place": false,
+    "expression": "!summary.alive"
+  },
+  "hidden_fields": ["source", "source_id", "patient_uuid", "patient_id"]
+}
