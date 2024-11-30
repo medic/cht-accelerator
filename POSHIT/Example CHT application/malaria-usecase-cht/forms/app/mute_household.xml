@@ -8,13 +8,13 @@
           <text id="/mute_household/group_mute_household/other_reason_for_muting:label">
             <value>Specify other</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/All household members have relocated:label">
             <value>All household members have relocated</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/Household refused CHV services:label">
             <value>Household refused CHV services</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/other:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/Other:label">
             <value>Other</value>
           </text>
           <text id="/mute_household/group_mute_household/reason_for_muting:label">
@@ -85,13 +85,13 @@
           <text id="/mute_household/group_mute_household/other_reason_for_muting:label">
             <value>-</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/All household members have relocated:label">
             <value>Wanakaya wote wamehama</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/Household refused CHV services:label">
             <value>Kaya ilikataa huduma za CHV</value>
           </text>
-          <text id="/mute_household/group_mute_household/reason_for_muting/other:label">
+          <text id="/mute_household/group_mute_household/reason_for_muting/Other:label">
             <value>Nyingine</value>
           </text>
           <text id="/mute_household/group_mute_household/reason_for_muting:label">
@@ -154,7 +154,7 @@
         </translation>
       </itext>
       <instance>
-        <mute_household id="mute_household" prefix="J1!mute_household!" delimiter="#" version="2023-06-16 14:18:55">
+        <mute_household id="mute_household" prefix="J1!mute_household!" delimiter="#" version="2023-11-24 13:24:56">
           <inputs>
             <meta>
               <location>
@@ -217,7 +217,7 @@
       <bind nodeset="/mute_household/place_id" type="string" calculate="../inputs/contact/_id"/>
       <bind nodeset="/mute_household/place_name" type="string" calculate="../inputs/contact/name"/>
       <bind nodeset="/mute_household/group_mute_household/reason_for_muting" type="select1" required="true()"/>
-      <bind nodeset="/mute_household/group_mute_household/other_reason_for_muting" type="string" required="true()" relevant="selected(../reason_for_muting, 'other')"/>
+      <bind nodeset="/mute_household/group_mute_household/other_reason_for_muting" type="string" relevant="selected(../reason_for_muting, 'other')" required="true()"/>
       <bind nodeset="/mute_household/group_mute_household/meta/patient_uuid" type="string" calculate="../../../inputs/contact/_id"/>
       <bind nodeset="/mute_household/group_mute_household/meta/patient_id" type="string" calculate="../../../inputs/contact/patient_id"/>
       <bind nodeset="/mute_household/group_mute_household/meta/source" type="string" calculate="../../../inputs/source"/>
@@ -246,16 +246,16 @@
       <select1 ref="/mute_household/group_mute_household/reason_for_muting">
         <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting:label')"/>
         <item>
-          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/all_members_relocated:label')"/>
-          <value>all_members_relocated</value>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/All household members have relocated:label')"/>
+          <value>All household members have relocated</value>
         </item>
         <item>
-          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/household_refused_chv_services:label')"/>
-          <value>household_refused_chv_services</value>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/Household refused CHV services:label')"/>
+          <value>Household refused CHV services</value>
         </item>
         <item>
-          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/other:label')"/>
-          <value>other</value>
+          <label ref="jr:itext('/mute_household/group_mute_household/reason_for_muting/Other:label')"/>
+          <value>Other</value>
         </item>
       </select1>
       <input ref="/mute_household/group_mute_household/other_reason_for_muting">

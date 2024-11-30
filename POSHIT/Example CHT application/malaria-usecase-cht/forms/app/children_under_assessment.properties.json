@@ -3,6 +3,6 @@
     "context": {
       "place": false,
       "person": true,
-      "expression": "!contact.date_of_death && !summary.muted && ageInYears(contact) < 5"
+      "expression": "!contact.date_of_death && !contact.muted && ageInYears(contact) < 5 && contact.contact_type  === 'household_member'"
     }
   }

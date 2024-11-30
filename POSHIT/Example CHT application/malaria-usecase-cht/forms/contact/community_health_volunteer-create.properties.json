@@ -1,5 +1,6 @@
 {
-    "context": {
-        "permission": "can_create_chv"
+    "context":{
+        "expression": "contact.contact === ''",
+        "permission": "can_create_chw"
     }
 }
